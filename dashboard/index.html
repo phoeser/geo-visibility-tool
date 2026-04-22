@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GEO Visibility — ERGO</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo-dot"></div>
+      <div>
+        <h1>GEO Visibility</h1>
+        <p class="subtitle">LLM-Sichtbarkeit & Impact-Analyse</p>
+      </div>
+    </div>
+    <div class="meta" id="runMeta">Lade Daten …</div>
+  </header>
+
+  <main>
+    <!-- Steuerleiste -->
+    <section class="controls">
+      <label>
+        Lauf:
+        <select id="runSelector"></select>
+      </label>
+      <label>
+        Produkt:
+        <select id="productSelector">
+          <option value="all">Alle Produkte</option>
+        </select>
+      </label>
+      <label>
+        LLM:
+        <select id="llmSelector">
+          <option value="all">Alle LLMs</option>
+        </select>
+      </label>
+    </section>
+
+    <!-- KPI-Kacheln -->
+    <section class="kpis" id="kpiRow"></section>
+
+    <!-- Executive Summary -->
+    <section class="card">
+      <h2>Executive Summary</h2>
+      <div id="execSummary" class="exec"></div>
+    </section>
+
+    <!-- Share of Voice Chart -->
+    <section class="card">
+      <h2>Share of Voice — Markenvergleich</h2>
+      <canvas id="sovChart" height="120"></canvas>
+    </section>
+
+    <!-- Appearance, Rank, Citation -->
+    <div class="grid">
+      <section class="card">
+        <h2>Nennungs-Quote (Appearance Rate)</h2>
+        <canvas id="appearanceChart" height="160"></canvas>
+      </section>
+      <section class="card">
+        <h2>Durchschnitts-Rang in Listen</h2>
+        <canvas id="rankChart" height="160"></canvas>
+      </section>
+      <section class="card">
+        <h2>Quellen-Zitierung</h2>
+        <canvas id="citationChart" height="160"></canvas>
+      </section>
+    </div>
+
+    <!-- Impact-Tabelle -->
+    <section class="card">
+      <h2>Veränderungen vs. letzter Lauf (Top 10)</h2>
+      <div id="deltasTable"></div>
+    </section>
+
+    <!-- Website-Diff -->
+    <section class="card">
+      <h2>Webseiten-Änderungen</h2>
+      <div id="webDiff"></div>
+    </section>
+
+    <!-- Prompt-Detail -->
+    <section class="card">
+      <h2>Prompt-Ebene: Einzelantworten</h2>
+      <div id="promptDetails"></div>
+    </section>
+  </main>
+
+  <footer>
+    <small>
+      Generiert von GEO Visibility Tool — Daten liegen im GitHub-Repo unter
+      <code>data/runs/</code>.
+    </small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
