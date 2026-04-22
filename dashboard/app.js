@@ -185,8 +185,33 @@ function renderKPIs() {
 
 function renderExecSummary() {
   const run = state.currentRun;
-  const text = (run.impact && run.impact.executive_summary) || "Noch keine Zusammenfassung verfügbar.";
-  $("execSummary").textContent = text;
+  const agg = aggregate();
+  if (!agg || !agg.length) {
+    $("execSummary").textContent = "Noch keine Daten.";
+    return;
+  }
+  const brand = run.brand;
+  const brandRow = agg.find(a => a.name === brand);
+  const ranked = agg.slice().sort((a, b) => b.share_of_voice - a.share_of_voice);
+  const pos = ranked.findIndex(r => r.name === brand) + 1;
+  const top3 = ranked.slice(0, 3).map(r => `${r.name} ${fmtPct(r.share_of_voice)}`).join(", ");
+
+  // Scope-Label: was ist gefiltert?
+  let scope = "Gesamt";
+  if (state.selectedProduct !== "all") {
+    const p = run.products[state.selectedProduct];
+    scope = p ? p.name : state.selectedProduct;
+  }
+  if (state.selectedLLM !== "all") scope += ` · ${state.selectedLLM}`;
+
+  const lines = [];
+  lines.push(`<strong>${escapeHtml(scope)}</strong> — ${brand} auf Platz ${pos}/${agg.length}.`);
+  if (brandRow) {
+    lines.push(`SoV ${fmtPct(brandRow.share_of_voice)} · Nennungs-Quote ${fmtPct(brandRow.appearance_rate)} · Zitierung ${fmtPct(brandRow.citation_rate)}` +
+      (brandRow.avg_rank != null ? ` · Ø Rang ${fmtNum(brandRow.avg_rank, 1)}` : ""));
+  }
+  lines.push(`<span class="hint">Top 3: ${top3}</span>`);
+  $("execSummary").innerHTML = lines.join("<br/>");
 }
 
 function makeBarChart(canvasId, key, labels, values, horizontal) {
@@ -798,25 +823,81 @@ async function cfgSaveAll() {
 }
 
 // ----------------------------------------------------------------------
+// Refresh-Button (Workflow Dispatch)
+// ----------------------------------------------------------------------
+
+async function triggerRefresh() {
+  const btn = $("refreshBtn");
+  const token = localStorage.getItem("gh_token");
+  const repo = (localStorage.getItem("gh_repo") || "").trim();
+  if (!token || !repo) {
+    alert("Bitte zuerst im Config-Tab GitHub-Repo und Token setzen.");
+    switchTab("config");
+    return;
+  }
+  if (!confirm("Neuen Analyse-Lauf starten? Das ruft den GitHub-Actions-Workflow auf und kann einige Minuten dauern.")) return;
+
+  btn.disabled = true;
+  btn.classList.add("is-loading");
+  const oldText = btn.textContent;
+  if (btn.firstChild) btn.firstChild.nodeValue = "Starte ...";
+
+  try {
+    const url = "https://api.github.com/repos/" + repo + "/actions/workflows/analyze.yml/dispatches";
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+      body: JSON.stringify({ ref: "main" }),
+    });
+    if (res.status !== 204) {
+      const err = await res.text();
+      throw new Error("HTTP " + res.status + ": " + err.slice(0, 200));
+    }
+    if (btn.firstChild) btn.firstChild.nodeValue = "OK Lauf gestartet";
+    btn.classList.remove("is-loading");
+    setTimeout(function () {
+      if (btn.firstChild) btn.firstChild.nodeValue = oldText;
+      btn.disabled = false;
+    }, 5000);
+    const repoUrl = "https://github.com/" + repo + "/actions";
+    if (confirm("Workflow laeuft jetzt. Moechtest du den Fortschritt auf GitHub oeffnen?")) {
+      window.open(repoUrl, "_blank", "noopener");
+    }
+  } catch (e) {
+    btn.classList.remove("is-loading");
+    if (btn.firstChild) btn.firstChild.nodeValue = oldText;
+    btn.disabled = false;
+    alert("Fehler beim Starten:\n" + e.message);
+  }
+}
+
+// ----------------------------------------------------------------------
 // Tab-Navigation + Init
 // ----------------------------------------------------------------------
 
 function switchTab(name) {
-  document.querySelectorAll(".tab-btn").forEach(b => b.classList.toggle("active", b.getAttribute("data-tab") === name));
-  document.querySelectorAll(".tab-panel").forEach(p => p.classList.toggle("active", p.id === "tab-" + name));
+  document.querySelectorAll(".tab-btn").forEach(function (b) {
+    b.classList.toggle("active", b.getAttribute("data-tab") === name);
+  });
+  document.querySelectorAll(".tab-panel").forEach(function (p) {
+    p.classList.toggle("active", p.id === "tab-" + name);
+  });
   if (name === "history") renderHistory();
   if (name === "config") loadConfigForEdit();
 }
 
 async function init() {
-  document.querySelectorAll(".tab-btn").forEach(b => {
-    b.addEventListener("click", () => switchTab(b.getAttribute("data-tab")));
+  document.querySelectorAll(".tab-btn").forEach(function (b) {
+    b.addEventListener("click", function () { switchTab(b.getAttribute("data-tab")); });
   });
 
   const idx = await loadIndex();
   if (!idx || !idx.runs.length) {
-    $("runMeta").textContent = "Noch keine Laeufe. Starte einen Lauf im GitHub-Actions-Tab.";
-    // Config kann man trotzdem bearbeiten
+    $("runMeta").textContent = "Noch keine Laeufe. Starte einen Lauf ueber den Refresh-Button.";
     return;
   }
   state.runs = idx.runs;
@@ -824,14 +905,14 @@ async function init() {
   state.selectedRunFile = idx.runs[idx.runs.length - 1].file;
   await loadAndRenderDashboard();
 
-  $("runSelector").addEventListener("change", async (e) => {
+  $("runSelector").addEventListener("change", async function (e) {
     state.selectedRunFile = e.target.value;
     await loadAndRenderDashboard();
   });
-  $("productSelector").addEventListener("change", (e) => {
+  $("productSelector").addEventListener("change", function (e) {
     state.selectedProduct = e.target.value; renderDashboard();
   });
-  $("llmSelector").addEventListener("change", (e) => {
+  $("llmSelector").addEventListener("change", function (e) {
     state.selectedLLM = e.target.value; renderDashboard();
   });
 }
