@@ -177,4 +177,29 @@
       <section class="card">
         <h2>Produkte & Prompts</h2>
         <p class="hint">
-          Pro 
+          Pro Produkt 15–25 realistische Kunden-Fragen. "Vorschläge generieren" ruft Gemini direkt im Browser
+          auf (benötigt gespeicherten Google-API-Key).
+        </p>
+        <div id="cfgProducts"></div>
+        <button class="btn-secondary" type="button" onclick="cfgAddProduct()">+ Produkt hinzufügen</button>
+      </section>
+
+      <!-- Save -->
+      <section class="card cfg-save-card">
+        <div id="cfgSaveStatus" class="status"></div>
+        <div class="log" id="cfgSaveLog" style="display:none;"></div>
+        <button id="cfgSaveBtn" onclick="cfgSaveAll()">Alle Änderungen speichern</button>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <small>
+      Generiert von GEO Visibility Tool — Daten liegen im GitHub-Repo unter
+      <code>data/runs/</code>.
+    </small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
