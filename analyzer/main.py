@@ -334,37 +334,30 @@ def _update_index(runs_dir: Path) -> None:
             continue
         try:
             obj = json.loads(p.read_text(encoding="utf-8"))
+            products = obj.get("products", {}) or {}
+            llms_list = obj.get("llms", []) or []
+            prompts_total = 0
+            cost_total = 0.0
+            brand_mentions = 0
+            all_mentions = 0
+            brand_name = obj.get("brand")
+            for pid, pdata in products.items():
+                sbl = (pdata or {}).get("summary_by_llm", {}) or {}
+                for llm, s in sbl.items():
+                    prompts_total += (s or {}).get("prompts_total", 0)
+                    cost_total += (s or {}).get("estimated_cost_usd", 0.0) or 0.0
+                    for b in (s or {}).get("brands", []) or []:
+                        m = b.get("mentions", 0)
+                        all_mentions += m
+                        if b.get("name") == brand_name:
+                            brand_mentions += m
+            avg_sov = (brand_mentions / all_mentions) if all_mentions else None
             runs.append({
                 "run_id": obj.get("run_id"),
                 "file": p.name,
                 "started_at": obj.get("started_at"),
                 "finished_at": obj.get("finished_at"),
-                "brand": obj.get("brand"),
-                "llms": obj.get("llms", []),
-                "products": list(obj.get("products", {}).keys()),
-            })
-        except Exception:  # noqa: BLE001
-            continue
-    index_file = runs_dir / "index.json"
-    index_file.write_text(
-        json.dumps({"runs": runs}, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
-
-
-# ---------------------------------------------------------------------------
-# CLI
-# ---------------------------------------------------------------------------
-
-def main() -> None:
-    parser = argparse.ArgumentParser(description="GEO Visibility Analyse")
-    parser.add_argument("--dry-run", action="store_true",
-                        help="Simulierte Antworten, keine API-Calls")
-    parser.add_argument("--limit", type=int, default=None,
-                        help="Maximale Anzahl Prompts pro Produkt (für Tests)")
-    args = parser.parse_args()
-    run(dry_run=args.dry_run, limit=args.limit)
-
-
-if __name__ == "__main__":
-    main()
+                "brand": brand_name,
+                "llms": llms_list,
+                "products": list(products.keys()),
+       
