@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GEO Visibility — ERGO</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#3b82f6" />
+  <meta name="apple-mobile-web-app-title" content="GEO Visibility" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -22,6 +31,7 @@
       <button data-tab="config" class="tab-btn">Config</button>
     </nav>
     <div class="meta" id="runMeta">Lade Daten …</div>
+    <button id="refreshBtn" class="refresh-btn" title="Neuen Analyse-Lauf auf GitHub anstoßen" onclick="triggerRefresh()">↻ Neuer Lauf</button>
   </header>
 
   <main>
@@ -70,10 +80,10 @@
         <div id="webDiff"></div>
       </section>
 
-      <section class="card">
-        <h2>Prompt-Ebene: Einzelantworten</h2>
+      <details class="card collapsible">
+        <summary><h2 style="display:inline;margin:0">Prompt-Ebene: Einzelantworten</h2> <span class="hint">(zum Aufklappen)</span></summary>
         <div id="promptDetails"></div>
-      </section>
+      </details>
     </section>
 
     <!-- ============ HISTORY TAB ============ -->
@@ -167,29 +177,4 @@
       <section class="card">
         <h2>Produkte & Prompts</h2>
         <p class="hint">
-          Pro Produkt 15–25 realistische Kunden-Fragen. "Vorschläge generieren" ruft Gemini direkt im Browser
-          auf (benötigt gespeicherten Google-API-Key).
-        </p>
-        <div id="cfgProducts"></div>
-        <button class="btn-secondary" type="button" onclick="cfgAddProduct()">+ Produkt hinzufügen</button>
-      </section>
-
-      <!-- Save -->
-      <section class="card cfg-save-card">
-        <div id="cfgSaveStatus" class="status"></div>
-        <div class="log" id="cfgSaveLog" style="display:none;"></div>
-        <button id="cfgSaveBtn" onclick="cfgSaveAll()">Alle Änderungen speichern</button>
-      </section>
-    </section>
-  </main>
-
-  <footer>
-    <small>
-      Generiert von GEO Visibility Tool — Daten liegen im GitHub-Repo unter
-      <code>data/runs/</code>.
-    </small>
-  </footer>
-
-  <script src="app.js"></script>
-</body>
-</html>
+          Pro 
