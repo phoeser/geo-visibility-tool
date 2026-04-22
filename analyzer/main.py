@@ -360,4 +360,33 @@ def _update_index(runs_dir: Path) -> None:
                 "brand": brand_name,
                 "llms": llms_list,
                 "products": list(products.keys()),
-       
+                "products_count": len(products),
+                "prompts_total": prompts_total,
+                "estimated_cost_usd": round(cost_total, 4) if cost_total else 0.0,
+                "avg_share_of_voice": avg_sov,
+            })
+        except Exception:  # noqa: BLE001
+            continue
+    index_file = runs_dir / "index.json"
+    index_file.write_text(
+        json.dumps({"runs": runs}, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="GEO Visibility Analyse")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Simulierte Antworten, keine API-Calls")
+    parser.add_argument("--limit", type=int, default=None,
+                        help="Maximale Anzahl Prompts pro Produkt (für Tests)")
+    args = parser.parse_args()
+    run(dry_run=args.dry_run, limit=args.limit)
+
+
+if __name__ == "__main__":
+    main()
