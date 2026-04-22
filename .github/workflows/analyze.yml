@@ -1,0 +1,66 @@
+name: Analyze Visibility
+
+# Manuell aus dem GitHub-UI startbar (Actions-Tab -> "Run workflow").
+# Optional: per Cron aktivieren (Zeile unten auskommentieren).
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry-Run ohne API-Calls (nur Dummy-Daten)"
+        type: boolean
+        default: false
+      limit:
+        description: "Prompts-Limit pro Produkt (leer = alle 20)"
+        type: string
+        default: ""
+  # schedule:
+  #   - cron: "0 6 * * 1"   # jeden Montag um 06:00 UTC
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Repo auschecken
+        uses: actions/checkout@v4
+
+      - name: Python 3.11 einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Dependencies installieren
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Analyse ausführen
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        run: |
+          ARGS=""
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          if [ -n "${{ github.event.inputs.limit }}" ]; then
+            ARGS="$ARGS --limit ${{ github.event.inputs.limit }}"
+          fi
+          echo "Starte Analyse mit: $ARGS"
+          python -m analyzer.main $ARGS
+
+      - name: Ergebnisse zurück in das Repo committen
+        run: |
+          git config --global user.name "geo-bot"
+          git config --global user.email "geo-bot@users.noreply.github.com"
+          git add data/runs data/snapshots
+          if git diff --cached --quiet; then
+            echo "Keine Änderungen zum Committen."
+          else
+            git commit -m "Run $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            git push
+          fi
