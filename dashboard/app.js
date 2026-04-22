@@ -1,3 +1,4 @@
+// sync-trigger-2026-04-23
 /* ----------------------------------------------------------------------
  * GEO Visibility Dashboard
  *
@@ -375,21 +376,54 @@ async function loadLastNRuns(n) {
   return loaded;
 }
 
-function renderHistoryTable() {
+function summarizeRunForTable(runData) {
+  // Berechnet Produkte-Anzahl, Prompts-Total und Ø SoV (Marke) aus einem voll geladenen Run.
+  if (!runData) return { products_count: null, prompts_total: null, sov: null };
+  const pids = Object.keys(runData.products || {});
+  let prompts_total = 0;
+  let sovNum = 0, sovCount = 0;
+  pids.forEach(pid => {
+    const p = runData.products[pid];
+    (runData.llms || []).forEach(llm => {
+      const sum = p.summary_by_llm && p.summary_by_llm[llm];
+      if (!sum) return;
+      prompts_total += sum.prompts_total || 0;
+      const brandRow = (sum.brands || []).find(b => b.name === runData.brand);
+      if (brandRow && typeof brandRow.share_of_voice === "number") {
+        sovNum += brandRow.share_of_voice;
+        sovCount += 1;
+      }
+    });
+  });
+  return {
+    products_count: pids.length || null,
+    prompts_total: prompts_total || null,
+    sov: sovCount ? (sovNum / sovCount) : null,
+  };
+}
+
+function renderHistoryTable(extraByFile) {
   const c = $("historyTable");
   if (!state.runs.length) { c.innerHTML = `<p class="hint">Noch keine Läufe vorhanden.</p>`; return; }
+  const extra = extraByFile || {};
   const rows = state.runs.slice().reverse().map(r => {
     const when = r.finished_at ? new Date(r.finished_at).toLocaleString("de-DE") : (r.run_id || "?");
+    const ex = extra[r.file] || {};
+    // Fallback-Werte aus dem Index, dann aus den vollständig geladenen Runs, dann "–"
+    const productsCount = (r.products && r.products.length)
+      || ex.products_count
+      || (r.products_count != null ? r.products_count : null);
+    const promptsTotal = ex.prompts_total != null ? ex.prompts_total : (r.prompts_total != null ? r.prompts_total : null);
+    const sovVal = ex.sov != null ? ex.sov : (r.avg_share_of_voice != null ? r.avg_share_of_voice : null);
     const cost = r.estimated_cost_usd ? (r.estimated_cost_usd).toFixed(2) + " $" : "–";
-    const sov = r.avg_share_of_voice != null ? fmtPct(r.avg_share_of_voice) : "–";
     return `<tr data-file="${r.file}" style="cursor:pointer">
       <td>${when}</td>
       <td>${r.run_id || "–"}</td>
-      <td>${r.products_count != null ? r.products_count : "–"}</td>
+      <td>${productsCount != null ? productsCount : "–"}</td>
       <td>${r.llms ? r.llms.join(", ") : "–"}</td>
-      <td>${r.prompts_total != null ? r.prompts_total : "–"}</td>
+      <td>${promptsTotal != null ? promptsTotal : "–"}</td>
       <td>${cost}</td>
-      <td>${sov}</td>
+      <td>${sovVal != null ? fmtPct(sovVal) : "–"}</td>
     </tr>`;
   }).join("");
   c.innerHTML = `<table><thead><tr>
@@ -423,9 +457,25 @@ function makeLineChart(canvasId, key, labels, datasets, yLabel, reverse) {
 }
 
 async function renderHistory() {
-  renderHistoryTable();
+  renderHistoryTable();  // Erstes Rendering sofort (schnell, noch ohne Detail-Zahlen)
+
+  // Lade alle Runs (bzw. die letzten ~12, falls sehr viele), damit wir Produkte/Prompts/SoV
+  // pro Zeile berechnen können.
+  const maxLoad = Math.min(state.runs.length, 12);
+  const subset = state.runs.slice(-maxLoad);
+  const extra = {};
+  const loaded = [];
+  for (const r of subset) {
+    const d = await loadRun(r.file, state.basePath);
+    if (d) {
+      loaded.push({ meta: r, data: d });
+      extra[r.file] = summarizeRunForTable(d);
+    }
+  }
+  renderHistoryTable(extra);   // Zweites Rendering mit echten Zahlen
+
   if (state.runs.length < 2) return;
-  const runs = await loadLastNRuns(4);
+  const runs = loaded.slice(-4);
   if (!runs.length) return;
 
   const labels = runs.map(r => {
