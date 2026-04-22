@@ -1,0 +1,97 @@
+{
+  "brand": {
+    "name": "ERGO",
+    "aliases": ["ERGO", "Ergo", "ERGO Group", "ERGO Versicherung", "ERGO Direkt", "ergo.de"],
+    "domain": "ergo.de",
+    "website": "https://www.ergo.de"
+  },
+  "products": [
+    {
+      "id": "zahnzusatz",
+      "name": "Zahnzusatzversicherung",
+      "url": "https://www.ergo.de/de/Produkte/Gesundheit/Zahnzusatzversicherung",
+      "prompts_file": "prompts/zahnzusatz.json",
+      "category": "Gesundheit"
+    },
+    {
+      "id": "sterbegeld",
+      "name": "Sterbegeldversicherung",
+      "url": "https://www.ergo.de/de/Produkte/Leben/Sterbegeldversicherung",
+      "prompts_file": "prompts/sterbegeld.json",
+      "category": "Leben"
+    },
+    {
+      "id": "risikoleben",
+      "name": "Risikolebensversicherung",
+      "url": "https://www.ergo.de/de/Produkte/Leben/Risikolebensversicherung",
+      "prompts_file": "prompts/risikoleben.json",
+      "category": "Leben"
+    }
+  ],
+  "competitors": [
+    {
+      "name": "Allianz",
+      "aliases": ["Allianz", "Allianz Versicherung", "Allianz Deutschland", "allianz.de"],
+      "domain": "allianz.de"
+    },
+    {
+      "name": "AXA",
+      "aliases": ["AXA", "AXA Versicherung", "AXA Deutschland", "axa.de"],
+      "domain": "axa.de"
+    },
+    {
+      "name": "Generali",
+      "aliases": ["Generali", "Generali Versicherung", "Generali Deutschland", "generali.de"],
+      "domain": "generali.de"
+    },
+    {
+      "name": "HUK-Coburg",
+      "aliases": ["HUK-Coburg", "HUK Coburg", "HUK", "HUK24", "huk.de", "huk-coburg.de"],
+      "domain": "huk-coburg.de"
+    }
+  ],
+  "llms": [
+    {
+      "id": "claude",
+      "enabled": true,
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-6",
+      "display_name": "Claude (Anthropic)"
+    },
+    {
+      "id": "gemini",
+      "enabled": true,
+      "provider": "google",
+      "model": "gemini-2.0-flash-exp",
+      "display_name": "Gemini (Google)"
+    },
+    {
+      "id": "chatgpt",
+      "enabled": false,
+      "provider": "openai",
+      "model": "gpt-4o",
+      "display_name": "ChatGPT (OpenAI) — API-Key fehlt"
+    },
+    {
+      "id": "grok",
+      "enabled": false,
+      "provider": "xai",
+      "model": "grok-2",
+      "display_name": "Grok (xAI) — API-Key fehlt"
+    },
+    {
+      "id": "perplexity",
+      "enabled": false,
+      "provider": "perplexity",
+      "model": "sonar",
+      "display_name": "Perplexity — API-Key fehlt"
+    }
+  ],
+  "settings": {
+    "runs_per_prompt": 1,
+    "temperature": 0.3,
+    "max_tokens": 1200,
+    "parallel_requests": 5,
+    "retry_attempts": 3
+  }
+}
