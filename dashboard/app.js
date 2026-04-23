@@ -868,7 +868,7 @@ Gib NUR ein JSON-Array zurueck, keine Erklaerungen, keine Code-Fences:
 [{"id": "xx-01", "intent": "Empfehlung", "text": "..."}, ...]
 Die id als Prefix die ersten zwei Buchstaben der Produkt-ID ("${prod.id.slice(0,2)}"), dann -01 bis -20.`;
 
-  const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=" + apiKey;
+  const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + apiKey;
   const body = {
     contents: [{ parts: [{ text: metaPrompt }] }],
     generationConfig: { temperature: 0.7, maxOutputTokens: 3000 }
