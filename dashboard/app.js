@@ -1,4 +1,4 @@
-// sync-trigger-2026-04-23
+// sync-trigger-2026-04-23-b
 /* ----------------------------------------------------------------------
  * GEO Visibility Dashboard
  *
@@ -605,8 +605,17 @@ function cfgRemoveCompetitor(i) {
 
 function renderProducts() {
   const c = $("cfgProducts");
+  // Marken-Liste fuer tracked_urls: eigene + Wettbewerber
+  const brandList = [state.config.brand.name].concat(
+    (state.config.competitors || []).map(c => c.name)
+  ).filter(Boolean);
+
   c.innerHTML = state.config.products.map((p, i) => {
     const prompts = (state.prompts[p.id] && state.prompts[p.id].prompts) || [];
+    // Sicherstellen dass keywords + tracked_urls existieren
+    if (!Array.isArray(p.keywords)) p.keywords = [];
+    if (!p.tracked_urls || typeof p.tracked_urls !== "object") p.tracked_urls = {};
+
     const promptHtml = prompts.map((pr, j) => `
       <div class="prompt-row" data-pidx="${i}" data-pridx="${j}">
         <input type="text" class="prompt-intent" value="${escapeHtml(pr.intent || "")}" placeholder="Intent"
@@ -616,6 +625,28 @@ function renderProducts() {
         <button class="btn-icon" title="Prompt loeschen" onclick="cfgRemovePrompt(${i}, ${j})">X</button>
       </div>
     `).join("");
+
+    const trackedHtml = brandList.map(brand => {
+      const urls = Array.isArray(p.tracked_urls[brand]) ? p.tracked_urls[brand] : [];
+      const placeholder = urls.length === 0
+        ? "(leer — bei Auto-Discovery wird per Sitemap nach Keywords gesucht)"
+        : "";
+      return `
+        <div class="url-block" data-brand="${escapeHtml(brand)}">
+          <label>
+            <strong>${escapeHtml(brand)}</strong>
+            <span class="hint">— ${urls.length} URL${urls.length === 1 ? "" : "s"}</span>
+          </label>
+          <textarea
+            class="url-textarea"
+            rows="3"
+            data-pidx="${i}"
+            data-brand="${escapeHtml(brand)}"
+            placeholder="${placeholder || "Eine URL pro Zeile, z.B. https://www.ergo.de/de/Produkte/..."}"
+          >${escapeHtml(urls.join("\n"))}</textarea>
+        </div>`;
+    }).join("");
+
     return `
       <details class="product-block" ${state._openProduct === p.id ? "open" : ""}>
         <summary>
@@ -629,10 +660,31 @@ function renderProducts() {
             <input type="text" value="${escapeHtml(p.name || "")}" data-pidx="${i}" data-k="name"></div>
           <div class="row"><label>Kategorie</label>
             <input type="text" value="${escapeHtml(p.category || "")}" data-pidx="${i}" data-k="category"></div>
-          <div class="row"><label>Produkt-URL</label>
+          <div class="row"><label>Produkt-URL <span class="hint">(Legacy-Fallback)</span></label>
             <input type="text" value="${escapeHtml(p.url || "")}" data-pidx="${i}" data-k="url"></div>
         </div>
-        <h4 style="margin-top:16px;">Prompts (${prompts.length})</h4>
+
+        <h4 style="margin-top:18px;">Keywords für Auto-Discovery</h4>
+        <p class="hint">
+          Kommagetrennt oder eine pro Zeile. Werden genutzt, um für jede Marke ohne manuelle URL-Liste
+          passende Seiten aus der Sitemap zu finden (max. 15 pro Marke).
+        </p>
+        <textarea
+          class="kw-textarea"
+          rows="2"
+          data-pidx="${i}"
+          data-k="keywords"
+          placeholder="zahnzusatz, zahnzusatzversicherung, zahnersatz"
+        >${escapeHtml((p.keywords || []).join(", "))}</textarea>
+
+        <h4 style="margin-top:18px;">URL-Tracking pro Marke</h4>
+        <p class="hint">
+          Wenn leer: Auto-Discovery über Sitemap &amp; Keywords. Wenn gefüllt: genau diese URLs werden
+          für die Marke gescraped (überschreibt Auto-Discovery).
+        </p>
+        <div class="url-tracking">${trackedHtml}</div>
+
+        <h4 style="margin-top:18px;">Prompts (${prompts.length})</h4>
         <div class="prompts-list">${promptHtml}</div>
         <div class="prompt-actions">
           <button class="btn-secondary" onclick="cfgAddPrompt(${i})">+ Prompt</button>
@@ -642,6 +694,7 @@ function renderProducts() {
       </details>`;
   }).join("");
 
+  // Standard-Felder (id, name, category, url) + Prompt-Felder
   c.querySelectorAll("input[data-pidx][data-k]").forEach(el => {
     el.addEventListener("input", () => {
       const pidx = +el.getAttribute("data-pidx");
@@ -661,6 +714,39 @@ function renderProducts() {
           old.prompts_file = "prompts/" + el.value + ".json";
         }
         old[k] = el.value;
+      }
+    });
+  });
+
+  // Keywords-Textarea
+  c.querySelectorAll("textarea.kw-textarea[data-k='keywords']").forEach(el => {
+    el.addEventListener("input", () => {
+      const pidx = +el.getAttribute("data-pidx");
+      const prod = state.config.products[pidx];
+      // Split auf Zeilen ODER Kommas
+      prod.keywords = el.value
+        .split(/[\n,]/)
+        .map(s => s.trim())
+        .filter(Boolean);
+    });
+  });
+
+  // URL-Tracking-Textareas pro Marke
+  c.querySelectorAll("textarea.url-textarea[data-brand]").forEach(el => {
+    el.addEventListener("input", () => {
+      const pidx = +el.getAttribute("data-pidx");
+      const brand = el.getAttribute("data-brand");
+      const prod = state.config.products[pidx];
+      if (!prod.tracked_urls || typeof prod.tracked_urls !== "object") prod.tracked_urls = {};
+      const urls = el.value
+        .split("\n")
+        .map(s => s.trim())
+        .filter(Boolean);
+      if (urls.length === 0) {
+        // leere Liste beibehalten als Signal fuer Auto-Discovery
+        prod.tracked_urls[brand] = [];
+      } else {
+        prod.tracked_urls[brand] = urls;
       }
     });
   });
@@ -926,6 +1012,341 @@ async function triggerRefresh() {
 }
 
 // ----------------------------------------------------------------------
+// Impact-Tab: Website-Events × LLM-Metriken
+// ----------------------------------------------------------------------
+
+async function loadCorrelation() {
+  const candidates = [
+    (state.basePath || "../data/runs/").replace(/runs\/$/, "") + "correlation.json",
+    "../data/correlation.json",
+    "data/correlation.json",
+  ];
+  for (const p of candidates) {
+    try {
+      const r = await fetch(p, { cache: "no-cache" });
+      if (r.ok) return await r.json();
+    } catch (e) {}
+  }
+  return null;
+}
+
+function fmtDeltaPct(v) {
+  if (v === null || v === undefined || isNaN(v)) return "–";
+  const s = (v * 100);
+  const sign = s > 0 ? "+" : "";
+  return sign + s.toFixed(1) + " pp";
+}
+
+function fmtDeltaRank(v) {
+  if (v === null || v === undefined || isNaN(v)) return "–";
+  const sign = v > 0 ? "+" : "";
+  return sign + v.toFixed(2);
+}
+
+function impactDeltaClass(v) {
+  if (v === null || v === undefined || isNaN(v)) return "flat";
+  if (v > 0.005) return "up";
+  if (v < -0.005) return "down";
+  return "flat";
+}
+
+function renderImpactKpis(data, filtered) {
+  const events = filtered || (data && data.events) || [];
+  const withImpact = events.filter(e => e.impact_t1 && e.impact_t1.delta);
+  const totalEvents = events.length;
+  const positive = withImpact.filter(e => (e.impact_t1.delta.delta_share_of_voice || 0) > 0).length;
+  const negative = withImpact.filter(e => (e.impact_t1.delta.delta_share_of_voice || 0) < 0).length;
+  const bestEvent = withImpact.slice().sort((a, b) =>
+    (b.impact_t1.delta.delta_share_of_voice || 0) - (a.impact_t1.delta.delta_share_of_voice || 0)
+  )[0];
+  const worstEvent = withImpact.slice().sort((a, b) =>
+    (a.impact_t1.delta.delta_share_of_voice || 0) - (b.impact_t1.delta.delta_share_of_voice || 0)
+  )[0];
+  const best = bestEvent ? bestEvent.impact_t1.delta.delta_share_of_voice : null;
+  const worst = worstEvent ? worstEvent.impact_t1.delta.delta_share_of_voice : null;
+
+  $("impactKpis").innerHTML = `
+    <div class="kpi">
+      <div class="label">Events gesamt</div>
+      <div class="value">${totalEvents}</div>
+      <div class="delta flat">${withImpact.length} mit Impact-Daten</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Positive Events</div>
+      <div class="value">${positive}</div>
+      <div class="delta up">SoV gestiegen</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Negative Events</div>
+      <div class="value">${negative}</div>
+      <div class="delta down">SoV gefallen</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Beste Δ SoV</div>
+      <div class="value">${fmtDeltaPct(best)}</div>
+      <div class="delta ${impactDeltaClass(best)}">${bestEvent ? escapeHtml(bestEvent.brand || "–") : "–"}</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Schlechteste Δ SoV</div>
+      <div class="value">${fmtDeltaPct(worst)}</div>
+      <div class="delta ${impactDeltaClass(worst)}">${worstEvent ? escapeHtml(worstEvent.brand || "–") : "–"}</div>
+    </div>
+  `;
+}
+
+function renderImpactTimeline(data, runs) {
+  // Zeitreihe SoV der eigenen Marke ueber die Runs
+  destroyChart("impactTimeline");
+  const ownBrand = (state.config && state.config.brand && state.config.brand.name)
+    || (runs && runs[0] && runs[0].brand) || "";
+  const labels = runs.map(r => (r.run_id || r.finished_at || "").slice(0, 16));
+  // SoV-Serie ueber alle Produkte aggregiert
+  const sovSeries = runs.map(r => {
+    const agg = aggregateRunForBrand(r, ownBrand);
+    return agg.share_of_voice !== null && agg.share_of_voice !== undefined
+      ? Number((agg.share_of_voice * 100).toFixed(2))
+      : null;
+  });
+
+  // Event-Marker: Y-Wert = SoV zum naechsten Run nach dem Event
+  const events = (data && data.events) || [];
+  const eventPoints = [];
+  for (const ev of events) {
+    const t1 = ev.impact_t1;
+    if (!t1 || !t1.t1_run_id) continue;
+    const idx = runs.findIndex(r => r.run_id === t1.t1_run_id);
+    if (idx < 0) continue;
+    eventPoints.push({
+      x: labels[idx],
+      y: sovSeries[idx],
+      eventType: ev.event_type,
+      brand: ev.brand,
+      dSov: t1.delta && t1.delta.delta_share_of_voice,
+    });
+  }
+
+  const ctx = document.getElementById("impactTimelineChart");
+  if (!ctx) return;
+  state.charts.impactTimeline = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels,
+      datasets: [
+        {
+          label: "SoV " + ownBrand + " (%)",
+          data: sovSeries,
+          borderColor: BRAND_COLOR,
+          backgroundColor: BRAND_COLOR + "22",
+          tension: 0.25,
+          fill: true,
+          pointRadius: 3,
+        },
+        {
+          type: "scatter",
+          label: "Events",
+          data: eventPoints.map(p => ({ x: p.x, y: p.y })),
+          borderColor: "#f59e0b",
+          backgroundColor: "#f59e0b",
+          pointRadius: 7,
+          pointStyle: "triangle",
+          showLine: false,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: "top" },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              if (ctx.dataset.label === "Events") {
+                const ev = eventPoints[ctx.dataIndex];
+                return [
+                  (ev.eventType || "event") + " · " + (ev.brand || "–"),
+                  "Δ SoV: " + fmtDeltaPct(ev.dSov),
+                ];
+              }
+              return ctx.dataset.label + ": " + (ctx.parsed.y || 0).toFixed(2) + " %";
+            },
+          },
+        },
+      },
+      scales: {
+        y: { title: { display: true, text: "SoV (%)" }, beginAtZero: true },
+      },
+    },
+  });
+}
+
+function aggregateRunForBrand(run, brand) {
+  // Simpler Ueberblick: SoV der Marke ueber alle Produkte * LLMs
+  const products = run.products || {};
+  const llms = run.llms || [];
+  let mentions = 0, grand = 0, prompts = 0, appearances = 0, citations = 0;
+  let ranks = [];
+  for (const pid of Object.keys(products)) {
+    const sbl = (products[pid] || {}).summary_by_llm || {};
+    for (const llm of llms) {
+      const s = sbl[llm] || {};
+      const prTot = s.prompts_total || 0;
+      for (const row of (s.brands || [])) {
+        grand += row.mentions || 0;
+        if (row.name === brand) {
+          mentions += row.mentions || 0;
+          appearances += Math.round((row.appearance_rate || 0) * prTot);
+          citations += Math.round((row.citation_rate || 0) * prTot);
+          prompts += prTot;
+          if (row.avg_rank !== null && row.avg_rank !== undefined) ranks.push(row.avg_rank);
+        }
+      }
+    }
+  }
+  return {
+    share_of_voice: grand ? mentions / grand : null,
+    appearance_rate: prompts ? appearances / prompts : null,
+    citation_rate: prompts ? citations / prompts : null,
+    avg_rank: ranks.length ? ranks.reduce((a, b) => a + b, 0) / ranks.length : null,
+  };
+}
+
+function renderImpactEventsTable(filtered) {
+  const top = filtered.slice().sort((a, b) => {
+    const av = a.impact_t1 && a.impact_t1.delta && Math.abs(a.impact_t1.delta.delta_share_of_voice || 0) || 0;
+    const bv = b.impact_t1 && b.impact_t1.delta && Math.abs(b.impact_t1.delta.delta_share_of_voice || 0) || 0;
+    return bv - av;
+  }).slice(0, 50);
+
+  if (!top.length) {
+    $("impactEventsTable").innerHTML = '<p class="hint">Noch keine Events mit Impact-Daten (braucht mind. einen Lauf nach dem Event).</p>';
+    return;
+  }
+
+  const rows = top.map((e, i) => {
+    const t1 = e.impact_t1 || {};
+    const d = t1.delta || {};
+    const cls = impactDeltaClass(d.delta_share_of_voice);
+    const pids = (e.product_ids || []).join(", ");
+    const when = (e.timestamp || "").slice(0, 16).replace("T", " ");
+    const cls_text = e.classification && e.classification.category
+      ? ` <span class="pill flat">${escapeHtml(e.classification.category)}</span>`
+      : "";
+    const summary = (e.summary || "").slice(0, 120);
+    return `
+      <details class="impact-row" data-idx="${i}">
+        <summary>
+          <span class="ts">${escapeHtml(when)}</span>
+          <span class="brand-pill pill ${e.brand === (state.config && state.config.brand && state.config.brand.name) ? 'brand' : 'comp'}">${escapeHtml(e.brand || "–")}</span>
+          <span class="type">${escapeHtml(e.event_type || "–")}</span>
+          <span class="pids hint">${escapeHtml(pids)}</span>
+          <span class="spacer"></span>
+          <span class="delta ${cls}">Δ SoV ${fmtDeltaPct(d.delta_share_of_voice)}</span>
+        </summary>
+        <div class="impact-detail">
+          <div class="grid">
+            <div class="subcard">
+              <h4>Δ bei t+1 (erster Lauf nach Event)</h4>
+              <div class="metric-row"><span>Share of Voice</span><span class="${impactDeltaClass(d.delta_share_of_voice)}">${fmtDeltaPct(d.delta_share_of_voice)}</span></div>
+              <div class="metric-row"><span>Appearance Rate</span><span class="${impactDeltaClass(d.delta_appearance_rate)}">${fmtDeltaPct(d.delta_appearance_rate)}</span></div>
+              <div class="metric-row"><span>Citation Rate</span><span class="${impactDeltaClass(d.delta_citation_rate)}">${fmtDeltaPct(d.delta_citation_rate)}</span></div>
+              <div class="metric-row"><span>Ø Rang (niedriger=besser)</span><span class="${impactDeltaClass(d.delta_avg_rank)}">${fmtDeltaRank(d.delta_avg_rank)}</span></div>
+            </div>
+            ${e.impact_t2 ? `
+            <div class="subcard">
+              <h4>Δ bei t+2</h4>
+              <div class="metric-row"><span>Share of Voice</span><span class="${impactDeltaClass(e.impact_t2.delta.delta_share_of_voice)}">${fmtDeltaPct(e.impact_t2.delta.delta_share_of_voice)}</span></div>
+              <div class="metric-row"><span>Appearance Rate</span><span class="${impactDeltaClass(e.impact_t2.delta.delta_appearance_rate)}">${fmtDeltaPct(e.impact_t2.delta.delta_appearance_rate)}</span></div>
+              <div class="metric-row"><span>Citation Rate</span><span class="${impactDeltaClass(e.impact_t2.delta.delta_citation_rate)}">${fmtDeltaPct(e.impact_t2.delta.delta_citation_rate)}</span></div>
+              <div class="metric-row"><span>Ø Rang</span><span class="${impactDeltaClass(e.impact_t2.delta.delta_avg_rank)}">${fmtDeltaRank(e.impact_t2.delta.delta_avg_rank)}</span></div>
+            </div>` : '<div class="subcard"><h4>Δ bei t+2</h4><p class="hint">noch nicht verfügbar</p></div>'}
+          </div>
+          <h4 style="margin-top:16px;">Event-Details</h4>
+          <div class="metric-row"><span>URL</span><span><a href="${escapeHtml(e.url || "#")}" target="_blank" rel="noopener">${escapeHtml(e.url || "–")}</a></span></div>
+          <div class="metric-row"><span>Ähnlichkeit</span><span>${e.similarity !== null && e.similarity !== undefined ? (e.similarity * 100).toFixed(1) + " %" : "–"}</span></div>
+          <div class="metric-row"><span>Zeilen +</span><span>${e.added_lines_count || 0}</span></div>
+          <div class="metric-row"><span>Zeilen −</span><span>${e.removed_lines_count || 0}</span></div>
+          ${e.classification ? `<div class="metric-row"><span>Kategorie</span><span>${escapeHtml(e.classification.category || "–")}${cls_text}</span></div>` : ""}
+          ${e.classification && e.classification.reasoning ? `<div class="metric-row"><span>Gemini-Einschätzung</span><span style="max-width:60%">${escapeHtml(e.classification.reasoning)}</span></div>` : ""}
+          ${summary ? `<div class="metric-row"><span>Diff-Zusammenfassung</span><span style="max-width:60%">${escapeHtml(summary)}${(e.summary || "").length > 120 ? "…" : ""}</span></div>` : ""}
+        </div>
+      </details>`;
+  }).join("");
+  $("impactEventsTable").innerHTML = rows;
+}
+
+function populateImpactFilters(data) {
+  if (!data) return;
+  const brands = new Set();
+  const products = new Set();
+  for (const e of (data.events || [])) {
+    if (e.brand) brands.add(e.brand);
+    for (const p of (e.product_ids || [])) products.add(p);
+  }
+  const bSel = $("impactBrandFilter");
+  const pSel = $("impactProductFilter");
+  if (bSel) {
+    const prev = bSel.value || "all";
+    bSel.innerHTML = '<option value="all">Alle Marken</option>' +
+      Array.from(brands).sort().map(b => `<option value="${escapeHtml(b)}">${escapeHtml(b)}</option>`).join("");
+    bSel.value = prev;
+  }
+  if (pSel) {
+    const prev = pSel.value || "all";
+    pSel.innerHTML = '<option value="all">Alle Produkte</option>' +
+      Array.from(products).sort().map(p => `<option value="${escapeHtml(p)}">${escapeHtml(p)}</option>`).join("");
+    pSel.value = prev;
+  }
+}
+
+function filterImpactEvents(data) {
+  const brand = $("impactBrandFilter") ? $("impactBrandFilter").value : "all";
+  const pid = $("impactProductFilter") ? $("impactProductFilter").value : "all";
+  const type = $("impactTypeFilter") ? $("impactTypeFilter").value : "all";
+  const onlyDelta = $("impactOnlyWithDelta") && $("impactOnlyWithDelta").checked;
+  return (data.events || []).filter(e => {
+    if (brand !== "all" && e.brand !== brand) return false;
+    if (pid !== "all" && !(e.product_ids || []).includes(pid)) return false;
+    if (type !== "all" && e.event_type !== type) return false;
+    if (onlyDelta) {
+      if (!e.impact_t1 || !e.impact_t1.delta) return false;
+      const d = e.impact_t1.delta.delta_share_of_voice;
+      if (d === null || d === undefined || Math.abs(d) < 0.001) return false;
+    }
+    return true;
+  });
+}
+
+async function renderImpactTab() {
+  const data = await loadCorrelation();
+  if (!data) {
+    $("impactEventsTable").innerHTML = '<p class="hint">Keine correlation.json gefunden. Erst einen Lauf durchführen.</p>';
+    $("impactKpis").innerHTML = '';
+    return;
+  }
+  // Runs voll laden fuer die Timeline
+  const full = await loadLastNRuns(20);
+  state.impactData = data;
+
+  populateImpactFilters(data);
+
+  const applyAll = () => {
+    const filtered = filterImpactEvents(data);
+    renderImpactKpis(data, filtered);
+    renderImpactEventsTable(filtered);
+    renderImpactTimeline(data, full);
+  };
+  applyAll();
+
+  ["impactBrandFilter", "impactProductFilter", "impactTypeFilter", "impactOnlyWithDelta"].forEach(id => {
+    const el = $(id);
+    if (el && !el._impactBound) {
+      el.addEventListener("change", applyAll);
+      el._impactBound = true;
+    }
+  });
+}
+
+// ----------------------------------------------------------------------
 // Tab-Navigation + Init
 // ----------------------------------------------------------------------
 
@@ -938,6 +1359,7 @@ function switchTab(name) {
   });
   if (name === "history") renderHistory();
   if (name === "config") loadConfigForEdit();
+  if (name === "impact") renderImpactTab();
 }
 
 async function init() {
