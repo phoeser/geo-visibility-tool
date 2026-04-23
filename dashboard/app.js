@@ -456,12 +456,37 @@ function makeLineChart(canvasId, key, labels, datasets, yLabel, reverse) {
   });
 }
 
-async function renderHistory() {
-  renderHistoryTable();  // Erstes Rendering sofort (schnell, noch ohne Detail-Zahlen)
+function isoWeekOf(date) {
+  // Liefert "YYYY-Www" (ISO-Woche) fuer ein Datum.
+  const d = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
+  const dayNum = d.getUTCDay() || 7;
+  d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  const weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+  return d.getUTCFullYear() + "-W" + String(weekNo).padStart(2, "0");
+}
 
-  // Lade alle Runs (bzw. die letzten ~12, falls sehr viele), damit wir Produkte/Prompts/SoV
-  // pro Zeile berechnen können.
-  const maxLoad = Math.min(state.runs.length, 12);
+function bucketRunsByWeek(loaded) {
+  // loaded: [{meta, data}, ...] chronologisch aufsteigend
+  // Returns: [{label, runs: [...]}]  ein Eintrag je Woche
+  const byWeek = new Map();
+  const order = [];
+  for (const r of loaded) {
+    const t = r.data.finished_at || r.data.started_at || r.meta.finished_at || r.meta.started_at;
+    if (!t) continue;
+    const wk = isoWeekOf(new Date(t));
+    if (!byWeek.has(wk)) { byWeek.set(wk, []); order.push(wk); }
+    byWeek.get(wk).push(r);
+  }
+  return order.map(wk => ({ label: "KW " + wk.slice(-2) + " / " + wk.slice(2, 4), runs: byWeek.get(wk) }));
+}
+
+async function renderHistory() {
+  renderHistoryTable();
+
+  const total = state.runs.length;
+  // Cap: bis zu 50 Runs laden (neueste 50)
+  const maxLoad = Math.min(total, 50);
   const subset = state.runs.slice(-maxLoad);
   const extra = {};
   const loaded = [];
@@ -472,30 +497,53 @@ async function renderHistory() {
       extra[r.file] = summarizeRunForTable(d);
     }
   }
-  renderHistoryTable(extra);   // Zweites Rendering mit echten Zahlen
+  renderHistoryTable(extra);
 
-  if (state.runs.length < 2) return;
-  const runs = loaded.slice(-4);
-  if (!runs.length) return;
+  if (loaded.length < 2) return;
 
-  const labels = runs.map(r => {
-    const d = r.data.finished_at ? new Date(r.data.finished_at) : null;
-    return d ? d.toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit" }) : r.data.run_id;
-  });
+  // Aggregation-Entscheidung: ab 50 Eintraegen wird pro Woche gebuendelt.
+  const weekly = loaded.length >= 50;
+  const latest = loaded[loaded.length - 1].data;
+  const brands = [latest.brand, ...((latest.competitors || []).slice(0, 3))].filter(Boolean);
 
-  // Marken: die Marke aus dem neuesten Run + Top-3 Competitors
-  const latest = runs[runs.length - 1].data;
-  const brands = [latest.brand, ...((latest.competitors || []).slice(0, 3))];
+  let labels;
+  let groups; // Array von Arrays von Runs (pro Bucket)
 
-  function pluck(metricKey, { reverseForRank } = {}) {
+  if (weekly) {
+    const buckets = bucketRunsByWeek(loaded);
+    labels = buckets.map(b => b.label);
+    groups = buckets.map(b => b.runs);
+  } else {
+    labels = loaded.map(r => {
+      const d = r.data.finished_at ? new Date(r.data.finished_at) : null;
+      return d ? d.toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit" }) : r.data.run_id;
+    });
+    groups = loaded.map(r => [r]);
+  }
+
+  function aggregateBucket(runsInBucket, brand, metricKey) {
+    // Mittelwert je Bucket ueber alle Runs
+    const vals = [];
+    for (const r of runsInBucket) {
+      const agg = aggregate(r.data, "all", "all");
+      const row = agg.find(a => a.name === brand);
+      if (!row) continue;
+      const v = row[metricKey];
+      if (v === null || v === undefined || isNaN(v)) continue;
+      vals.push(v);
+    }
+    if (!vals.length) return null;
+    return vals.reduce((a, b) => a + b, 0) / vals.length;
+  }
+
+  function pluck(metricKey) {
     return brands.map((b, i) => {
       const color = b === latest.brand ? BRAND_COLOR : COMP_COLORS[i % COMP_COLORS.length];
-      const data = runs.map(r => {
-        const agg = aggregate(r.data, "all", "all");
-        const row = agg.find(a => a.name === b);
-        if (!row) return null;
-        if (metricKey === "avg_rank") return row.avg_rank;
-        return Math.round(row[metricKey] * 10000) / 100;
+      const data = groups.map(bucket => {
+        const v = aggregateBucket(bucket, b, metricKey);
+        if (v === null) return null;
+        if (metricKey === "avg_rank") return v;
+        return Math.round(v * 10000) / 100;
       });
       return { label: b, data, borderColor: color, backgroundColor: color, spanGaps: true };
     });
