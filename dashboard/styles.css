@@ -608,3 +608,49 @@ button.btn-icon:hover { background: rgba(239,68,68,0.15); color: var(--danger); 
   .pm-row { grid-template-columns: 60px 1fr auto; }
   .pm-intent-tag { display: none; }
 }
+
+
+/* --- Run-Status-Badge (Topbar) --- */
+.run-status {
+  position: relative;
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  margin-right: 10px;
+  text-decoration: none;
+  color: inherit;
+  vertical-align: middle;
+  align-self: center;
+}
+.run-status .rs-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #3b82f6;
+  animation: rs-spin 1.2s linear infinite;
+  box-sizing: border-box;
+}
+.run-status.done .rs-ring {
+  animation: none;
+  border-color: rgba(34, 197, 94, 0.25);
+  border-top-color: #22c55e;
+}
+.run-status.failed .rs-ring {
+  animation: none;
+  border-color: rgba(239, 68, 68, 0.25);
+  border-top-color: #ef4444;
+}
+.run-status .rs-num {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #e6edf3;
+  letter-spacing: 0;
+}
+.run-status:hover { transform: scale(1.05); }
+@keyframes rs-spin { to { transform: rotate(360deg); } }
