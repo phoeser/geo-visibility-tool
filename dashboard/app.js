@@ -1367,6 +1367,8 @@ async function init() {
     b.addEventListener("click", function () { switchTab(b.getAttribute("data-tab")); });
   });
 
+  rsStart();
+
   const idx = await loadIndex();
   if (!idx || !idx.runs.length) {
     $("runMeta").textContent = "Noch keine Laeufe. Starte einen Lauf ueber den Refresh-Button.";
@@ -1599,5 +1601,55 @@ async function pmSaveAll() {
   }
 }
 
+
+
+
+// ----------------------------------------------------------------------
+// Run-Status-Badge: zeigt aktuellen Workflow-Lauf in der Topbar
+// ----------------------------------------------------------------------
+
+let rsTimer = null;
+
+async function rsPoll() {
+  const repo = localStorage.getItem("gh_repo") || "phoeser/geo-visibility-tool";
+  if (!repo) return;
+  const el = $("runStatus");
+  if (!el) return;
+  try {
+    const url = "https://api.github.com/repos/" + repo + "/actions/workflows/analyze.yml/runs?per_page=1";
+    const headers = { "Accept": "application/vnd.github+json" };
+    const token = localStorage.getItem("gh_token");
+    if (token) headers["Authorization"] = "Bearer " + token;
+    const r = await fetch(url, { headers, cache: "no-cache" });
+    if (!r.ok) return;
+    const d = await r.json();
+    const run = (d.workflow_runs || [])[0];
+    if (!run) { el.style.display = "none"; return; }
+    const active = run.status === "in_progress" || run.status === "queued";
+    el.href = run.html_url;
+    el.style.display = "inline-flex";
+    el.classList.remove("done", "failed");
+    if (!active) {
+      if (run.conclusion === "success") el.classList.add("done");
+      else if (run.conclusion) el.classList.add("failed");
+    }
+    el.querySelector(".rs-num").textContent = "#" + (run.run_number != null ? run.run_number : "?");
+    if (active) {
+      const started = run.run_started_at ? new Date(run.run_started_at).toLocaleTimeString() : "";
+      el.title = "Lauf #" + run.run_number + " laeuft" + (started ? " (seit " + started + ")" : "");
+    } else {
+      el.title = "Letzter Lauf #" + run.run_number + ": " + (run.conclusion || "unbekannt");
+    }
+  } catch (e) {
+    // Silent: Netzwerkfehler nicht sichtbar machen
+  }
+}
+
+function rsStart() {
+  rsPoll();
+  if (rsTimer) clearInterval(rsTimer);
+  // 30 Sek. Polling — ausreichend, nervt die GitHub-API nicht
+  rsTimer = setInterval(rsPoll, 30000);
+}
 
 init();
