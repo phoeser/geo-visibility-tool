@@ -271,6 +271,67 @@ class GeminiClient:
         )
 
 
+
+# ============================================================================
+# OpenAI (ChatGPT)
+# ============================================================================
+
+class OpenAIClient:
+    """Ruft OpenAI ChatGPT ueber die Chat Completions API auf."""
+
+    def __init__(self, api_key: str, model: str = "gpt-4o-mini",
+                 max_tokens: int = 1200, temperature: float = 0.3):
+        self.api_key = api_key
+        self.model = model
+        self.max_tokens = max_tokens
+        self.temperature = temperature
+        self.url = "https://api.openai.com/v1/chat/completions"
+
+    def ask(self, prompt: str) -> LLMResponse:
+        def _call():
+            headers = {
+                "Authorization": f"Bearer {self.api_key}",
+                "Content-Type": "application/json",
+            }
+            payload = {
+                "model": self.model,
+                "max_tokens": self.max_tokens,
+                "temperature": self.temperature,
+                "messages": [
+                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {"role": "user", "content": prompt},
+                ],
+            }
+            t0 = time.time()
+            r = requests.post(self.url, json=payload, headers=headers, timeout=90)
+            latency = (time.time() - t0) * 1000
+            if r.status_code != 200:
+                raise RuntimeError(f"OpenAI HTTP {r.status_code}: {r.text[:400]}")
+            data = r.json()
+            choices = data.get("choices", [])
+            if not choices:
+                raise RuntimeError(f"OpenAI leere Choices: {data}")
+            msg = (choices[0].get("message") or {})
+            text = msg.get("content") or ""
+            usage = data.get("usage", {}) or {}
+            return LLMResponse(
+                text=text,
+                sources=extract_urls_from_text(text),
+                model=self.model,
+                latency_ms=latency,
+                tokens_in=usage.get("prompt_tokens"),
+                tokens_out=usage.get("completion_tokens"),
+            )
+
+        try:
+            return with_retries(_call, attempts=3)
+        except Exception as e:  # noqa: BLE001
+            return LLMResponse(
+                text="", sources=[], model=self.model,
+                latency_ms=0.0, error=str(e)[:500],
+            )
+
+
 # ============================================================================
 # Factory
 # ============================================================================
@@ -279,8 +340,9 @@ def build_clients(llm_configs: List[Dict]) -> Dict[str, object]:
     """
     Erzeugt die aktiven Clients basierend auf config.llms.
     API-Keys kommen aus Umgebungsvariablen:
-        - ANTHROPIC_API_KEY  → Claude
-        - GOOGLE_API_KEY     → Gemini
+        - ANTHROPIC_API_KEY  - Claude
+        - GOOGLE_API_KEY     - Gemini
+        - OPENAI_API_KEY     - ChatGPT
     """
     clients: Dict[str, object] = {}
     for cfg in llm_configs:
@@ -300,6 +362,12 @@ def build_clients(llm_configs: List[Dict]) -> Dict[str, object]:
                 print("[WARN] GOOGLE_API_KEY fehlt — Gemini wird übersprungen")
                 continue
             clients[cfg["id"]] = GeminiClient(api_key=key, model=model)
+        elif provider == "openai":
+            key = os.getenv("OPENAI_API_KEY")
+            if not key:
+                print("[WARN] OPENAI_API_KEY fehlt - ChatGPT wird uebersprungen")
+                continue
+            clients[cfg["id"]] = OpenAIClient(api_key=key, model=model)
         else:
-            print(f"[INFO] Provider {provider} noch nicht implementiert — skip")
+            print(f"[INFO] Provider {provider} noch nicht implementiert - skip")
     return clients
