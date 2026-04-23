@@ -582,3 +582,29 @@ button.btn-icon:hover { background: rgba(239,68,68,0.15); color: var(--danger); 
   .url-tracking { grid-template-columns: 1fr; }
   .impact-detail .grid { grid-template-columns: 1fr; }
 }
+
+
+/* --- Prompt manager (Dashboard collapsible) --- */
+.pm-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 10px; }
+.pm-product { margin: 8px 0; padding: 6px 8px; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; }
+.pm-product > summary { cursor: pointer; padding: 6px 2px; display: flex; align-items: center; gap: 10px; }
+.pm-product > summary strong { font-size: 14px; }
+.pm-product .pill.flat { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+.pm-rows { display: flex; flex-direction: column; gap: 4px; padding: 8px 0; }
+.pm-row { display: grid; grid-template-columns: 70px 90px 1fr auto; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 6px; }
+.pm-row:hover { background: rgba(255,255,255,0.03); }
+.pm-id { font-family: monospace; font-size: 11px; color: #8b949e; }
+.pm-intent-tag { font-size: 11px; padding: 2px 6px; background: rgba(59,130,246,0.15); color: #60a5fa; border-radius: 4px; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pm-intent-tag:empty { visibility: hidden; }
+.pm-text-line { font-size: 13px; line-height: 1.4; }
+.pm-row.editing { display: flex; flex-direction: column; align-items: stretch; background: rgba(255,255,255,0.04); padding: 10px; gap: 6px; }
+.pm-row.editing input.pm-intent { font-size: 12px; padding: 6px 8px; }
+.pm-row.editing textarea.pm-text { width: 100%; font-size: 13px; padding: 8px; resize: vertical; font-family: inherit; min-height: 60px; }
+.pm-row-actions { display: flex; gap: 6px; margin-top: 2px; flex-wrap: wrap; }
+.pm-actions { padding-top: 10px; margin-top: 6px; border-top: 1px solid rgba(255,255,255,0.06); }
+.btn-icon { background: transparent; border: 1px solid rgba(255,255,255,0.1); color: #8b949e; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 14px; }
+.btn-icon:hover { color: #e6edf3; border-color: rgba(255,255,255,0.3); }
+@media (max-width: 800px) {
+  .pm-row { grid-template-columns: 60px 1fr auto; }
+  .pm-intent-tag { display: none; }
+}
