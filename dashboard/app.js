@@ -1377,6 +1377,9 @@ async function init() {
   state.selectedRunFile = idx.runs[idx.runs.length - 1].file;
   await loadAndRenderDashboard();
 
+  // Prompt-Manager laden (laufzeitunabhaengig)
+  pmLoadAll().catch(e => console.error("pmLoadAll failed:", e));
+
   $("runSelector").addEventListener("change", async function (e) {
     state.selectedRunFile = e.target.value;
     await loadAndRenderDashboard();
@@ -1395,5 +1398,206 @@ async function loadAndRenderDashboard() {
   state.currentRun = run;
   renderDashboard();
 }
+
+
+
+// ----------------------------------------------------------------------
+// Prompt-Manager im Dashboard-Tab
+// ----------------------------------------------------------------------
+
+async function pmLoadAll() {
+  const productOrder = ["zahnzusatz", "risikoleben", "sterbegeld"];
+  const bp = state.basePath ? state.basePath.replace(/runs\/$/, "") : "";
+  const candidates = (pid) => [
+    bp + "prompts/" + pid + ".json",
+    "../data/prompts/" + pid + ".json",
+    "data/prompts/" + pid + ".json",
+  ];
+  const out = {};
+  for (const pid of productOrder) {
+    const res = await tryFetch(candidates(pid));
+    if (res) out[pid] = res.data;
+  }
+  state.pm = { data: out, dirty: new Set(), editing: null };
+  state._pmOpen = state._pmOpen || productOrder[0];
+  renderPromptManager();
+}
+
+function escapeAttr(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
+function renderPromptManager() {
+  const el = $("promptManager");
+  if (!el || !state.pm) return;
+  const data = state.pm.data || {};
+  const products = Object.keys(data);
+  if (!products.length) {
+    el.innerHTML = '<p class="hint">Keine Prompt-Dateien gefunden. Wurde bereits ein Lauf durchgef&uuml;hrt?</p>';
+    updatePmSaveBtn();
+    return;
+  }
+  const html = products.map(pid => {
+    const entry = data[pid];
+    const prompts = entry.prompts || [];
+    const rowsHtml = prompts.map((p, idx) => renderPmRow(pid, idx, p)).join("");
+    const dirtyMark = state.pm.dirty.has(pid) ? '<span class="pill flat">ge&auml;ndert</span>' : "";
+    return `
+      <details class="pm-product" ${pid === state._pmOpen ? "open" : ""} data-pid="${escapeAttr(pid)}" onclick="pmOnProductToggle(event, '${escapeAttr(pid)}')">
+        <summary>
+          <strong>${escapeHtml(entry.product || pid)}</strong>
+          <span class="hint">&mdash; ${prompts.length} Prompts</span>
+          ${dirtyMark}
+        </summary>
+        <div class="pm-rows">${rowsHtml}</div>
+        <div class="pm-actions">
+          <button class="btn-secondary" onclick="pmAddPrompt('${escapeAttr(pid)}')">+ Prompt hinzuf&uuml;gen</button>
+        </div>
+      </details>`;
+  }).join("");
+  el.innerHTML = html;
+  updatePmSaveBtn();
+}
+
+function pmOnProductToggle(evt, pid) {
+  // nur den obersten details-Click werten (nicht von inneren Elementen)
+  const tgt = evt.target;
+  if (tgt && tgt.tagName && tgt.tagName.toLowerCase() !== "summary" && tgt.closest && !tgt.closest("summary")) return;
+  // Nachdem Browser state toggled, sync with _pmOpen
+  setTimeout(() => {
+    const det = document.querySelector(`.pm-product[data-pid="${pid}"]`);
+    if (det && det.open) state._pmOpen = pid;
+  }, 0);
+}
+
+function renderPmRow(pid, idx, p) {
+  const isEditing = state.pm.editing &&
+    state.pm.editing.pid === pid &&
+    state.pm.editing.idx === idx;
+  if (isEditing) {
+    return `
+      <div class="pm-row editing" data-pid="${escapeAttr(pid)}" data-idx="${idx}">
+        <input type="text" class="pm-intent" value="${escapeHtml(p.intent || "")}" placeholder="Intent (optional)" />
+        <textarea class="pm-text" rows="3" placeholder="Prompt-Text">${escapeHtml(p.text || "")}</textarea>
+        <div class="pm-row-actions">
+          <button class="btn-primary" onclick="pmSaveRow('${escapeAttr(pid)}', ${idx})">&Uuml;bernehmen</button>
+          <button class="btn-secondary" onclick="pmCancelEdit()">Abbrechen</button>
+          <button class="btn-danger" onclick="pmDeleteRow('${escapeAttr(pid)}', ${idx})">L&ouml;schen</button>
+        </div>
+      </div>`;
+  }
+  return `
+    <div class="pm-row" data-pid="${escapeAttr(pid)}" data-idx="${idx}">
+      <span class="pm-id">${escapeHtml(p.id || "")}</span>
+      <span class="pm-intent-tag">${escapeHtml(p.intent || "")}</span>
+      <span class="pm-text-line">${escapeHtml(p.text || "")}</span>
+      <button class="btn-icon" title="Bearbeiten" onclick="pmEditRow('${escapeAttr(pid)}', ${idx})">&#9998;</button>
+    </div>`;
+}
+
+function pmEditRow(pid, idx) {
+  state.pm.editing = { pid, idx };
+  state._pmOpen = pid;
+  renderPromptManager();
+}
+function pmCancelEdit() {
+  const e = state.pm.editing;
+  if (e) {
+    const row = state.pm.data[e.pid].prompts[e.idx];
+    // Wenn neu hinzugef&uuml;gter leerer Row, entfernen
+    if (row && !row.text && !row.intent) {
+      state.pm.data[e.pid].prompts.splice(e.idx, 1);
+      if (state.pm.data[e.pid].prompts.length === 0 ||
+          !state.pm.data[e.pid].prompts.some(p => p.text)) {
+        // nichts mehr geaendert -> dirty clearen, falls dieses Produkt nur dadurch dirty wurde
+        // (konservativ: belassen, damit Nutzer entscheiden kann)
+      }
+    }
+  }
+  state.pm.editing = null;
+  renderPromptManager();
+}
+function pmSaveRow(pid, idx) {
+  const row = document.querySelector(`.pm-row.editing[data-pid="${pid}"][data-idx="${idx}"]`);
+  if (!row) return;
+  const intent = row.querySelector(".pm-intent").value.trim();
+  const text = row.querySelector(".pm-text").value.trim();
+  if (!text) { alert("Prompt-Text darf nicht leer sein."); return; }
+  const p = state.pm.data[pid].prompts[idx];
+  p.intent = intent;
+  p.text = text;
+  state.pm.editing = null;
+  state.pm.dirty.add(pid);
+  state._pmOpen = pid;
+  renderPromptManager();
+}
+function pmDeleteRow(pid, idx) {
+  if (!confirm("Diesen Prompt l&ouml;schen?")) return;
+  state.pm.data[pid].prompts.splice(idx, 1);
+  state.pm.editing = null;
+  state.pm.dirty.add(pid);
+  state._pmOpen = pid;
+  renderPromptManager();
+}
+function pmAddPrompt(pid) {
+  const arr = state.pm.data[pid].prompts;
+  const newIdx = arr.length;
+  const first = arr[0];
+  const prefix = (first && first.id) ? first.id.split("-")[0] : pid.slice(0, 3);
+  const maxN = arr.reduce((m, p) => {
+    const n = parseInt(((p.id || "").split("-")[1] || "0"), 10);
+    return isNaN(n) ? m : Math.max(m, n);
+  }, 0);
+  const newId = `${prefix}-${String(maxN + 1).padStart(2, "0")}`;
+  arr.push({ id: newId, intent: "", text: "" });
+  state.pm.editing = { pid, idx: newIdx };
+  state._pmOpen = pid;
+  state.pm.dirty.add(pid);
+  renderPromptManager();
+}
+
+function updatePmSaveBtn() {
+  const btn = $("pmSaveBtn");
+  const status = $("pmStatus");
+  if (!btn || !state.pm) return;
+  const n = state.pm.dirty.size;
+  if (n === 0) {
+    btn.disabled = true;
+    btn.textContent = "\u00c4nderungen speichern";
+    if (status) status.textContent = "Keine \u00c4nderungen.";
+  } else {
+    btn.disabled = false;
+    btn.textContent = "\u00c4nderungen speichern (" + n + ")";
+    if (status) status.textContent = n + " Produkt(e) mit \u00c4nderungen.";
+  }
+}
+
+async function pmSaveAll() {
+  const token = localStorage.getItem("gh_token");
+  const repo = localStorage.getItem("gh_repo");
+  if (!token || !repo) {
+    alert("GitHub Token / Repo fehlt. Im Config-Tab nachtragen.");
+    return;
+  }
+  const btn = $("pmSaveBtn");
+  btn.disabled = true;
+  const originalTxt = btn.textContent;
+  btn.textContent = "Speichere \u2026";
+  try {
+    for (const pid of Array.from(state.pm.dirty)) {
+      const content = JSON.stringify(state.pm.data[pid], null, 2);
+      const r = await ghPutFile(repo, "data/prompts/" + pid + ".json", content, token, "chore: update prompts " + pid + " via dashboard");
+      if (!r.ok && r.status !== 201) throw new Error(pid + ": HTTP " + r.status);
+    }
+    state.pm.dirty.clear();
+    renderPromptManager();
+    alert("Gespeichert. Beim n\u00e4chsten Analyse-Lauf werden die neuen Prompts genutzt.");
+  } catch (e) {
+    alert("Fehler: " + e.message);
+    btn.disabled = false;
+    btn.textContent = originalTxt;
+  }
+}
+
 
 init();
