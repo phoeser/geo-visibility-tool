@@ -85,6 +85,15 @@
         <summary><h2 style="display:inline;margin:0">Prompt-Ebene: Einzelantworten</h2> <span class="hint">(zum Aufklappen)</span></summary>
         <div id="promptDetails"></div>
       </details>
+
+      <details class="card collapsible" id="promptManagerCard">
+        <summary><h2 style="display:inline;margin:0">Prompts verwalten</h2> <span class="hint">(edit &amp; hinzuf&uuml;gen — Speichern pusht ins Repo)</span></summary>
+        <div class="pm-bar">
+          <span id="pmStatus" class="hint">Lade Prompts …</span>
+          <button id="pmSaveBtn" class="btn-primary" onclick="pmSaveAll()" disabled>&Auml;nderungen speichern</button>
+        </div>
+        <div id="promptManager"></div>
+      </details>
     </section>
 
     <!-- ============ HISTORY TAB ============ -->
