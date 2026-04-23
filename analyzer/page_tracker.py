@@ -1,0 +1,444 @@
+"""
+Page-Tracker: mehrstufiges Scraping + Change-History pro URL.
+
+Pro `(brand, url)`-Kombination wird im Repo eine kleine Ordnerstruktur gepflegt:
+
+    data/pages/<brand_slug>/<url_hash>/
+        meta.json        # {url, brand, product_ids, first_seen, last_seen}
+        current.json     # zuletzt gesehener Textstand + Hash + Status
+        events.jsonl     # append-only Änderungs-Historie
+
+Events enthalten Hash-before/after, Added/Removed-Zeilen, Ähnlichkeit, die
+Classifier-Ausgabe (Gemini) und die Run-Zuordnung. Dadurch sind alle
+notwendigen Informationen für die spätere Korrelations-Analyse komplett im
+Git-Repo nachvollziehbar, ohne dass wir volle HTML-Snapshots jedes einzelnen
+Runs aufbewahren müssen.
+
+Das Modul:
+ - respektiert robots.txt (per Marke einmalig abrufen)
+ - drosselt Requests pro Domain (Rate-Limit)
+ - nutzt dieselbe BeautifulSoup-Text-Extraktion wie web_scraper.py
+ - gibt pro URL strukturierte Event-Einträge zurück, die main.py in den
+   Run-JSON einbetten kann
+
+Zusätzlich bietet es eine kleine Helfer-Funktion `brand_slug()`, mit der die
+Schreibweise des Brand-Namens normalisiert wird.
+"""
+
+from __future__ import annotations
+
+import difflib
+import hashlib
+import json
+import re
+import time
+from dataclasses import asdict, dataclass, field
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+from urllib.parse import urlparse
+from urllib.robotparser import RobotFileParser
+
+import requests
+from bs4 import BeautifulSoup
+
+# Reuse des User-Agents, damit wir gegenüber der Seite konsistent auftreten
+USER_AGENT = "geo-visibility-tool/1.0 (+https://github.com/phoeser/geo-visibility-tool)"
+
+# Pro Domain min. Delay zwischen zwei Requests (Sekunden)
+DOMAIN_MIN_DELAY = 1.5
+
+# Max. Text pro Seite, die wir speichern
+MAX_TEXT_BYTES = 400_000
+
+# Max. added/removed Lines im Event
+MAX_DIFF_LINES = 120
+
+# Max. Chars der Diff-Snippets für den Classifier
+MAX_CLASSIFIER_SNIPPET = 6000
+
+
+# ---------------------------------------------------------------------------
+# Helper
+# ---------------------------------------------------------------------------
+
+def brand_slug(name: str) -> str:
+    s = (name or "").strip().lower()
+    s = re.sub(r"[^a-z0-9]+", "_", s)
+    return s.strip("_") or "unknown"
+
+
+def url_hash(url: str) -> str:
+    return hashlib.sha1(url.encode("utf-8", errors="ignore")).hexdigest()[:12]
+
+
+def _sha16(s: str) -> str:
+    return hashlib.sha256(s.encode("utf-8", errors="ignore")).hexdigest()[:16]
+
+
+def _headers() -> Dict[str, str]:
+    return {
+        "User-Agent": USER_AGENT,
+        "Accept-Language": "de-DE,de;q=0.9,en;q=0.5",
+    }
+
+
+WS_RE = re.compile(r"\s+")
+
+
+def _extract_text(html: str) -> str:
+    if not html:
+        return ""
+    soup = BeautifulSoup(html, "html.parser")
+    for tag in soup(["script", "style", "noscript", "iframe", "svg", "nav", "footer"]):
+        tag.decompose()
+    body = soup.body or soup
+    raw = body.get_text(separator="\n")
+    lines = [WS_RE.sub(" ", line).strip() for line in raw.splitlines()]
+    lines = [ln for ln in lines if ln]
+    text = "\n".join(lines)
+    if len(text.encode("utf-8")) > MAX_TEXT_BYTES:
+        text = text.encode("utf-8")[:MAX_TEXT_BYTES].decode("utf-8", errors="ignore")
+    return text
+
+
+# ---------------------------------------------------------------------------
+# Rate-Limiter (domain-scoped)
+# ---------------------------------------------------------------------------
+
+class DomainRateLimiter:
+    def __init__(self, min_delay: float = DOMAIN_MIN_DELAY):
+        self.min_delay = min_delay
+        self._last: Dict[str, float] = {}
+
+    def wait(self, url: str) -> None:
+        host = urlparse(url).netloc
+        now = time.time()
+        last = self._last.get(host, 0.0)
+        wait = max(0.0, self.min_delay - (now - last))
+        if wait > 0:
+            time.sleep(wait)
+        self._last[host] = time.time()
+
+
+# ---------------------------------------------------------------------------
+# robots.txt-Compliance (pro Domain gecacht)
+# ---------------------------------------------------------------------------
+
+class RobotsCache:
+    def __init__(self) -> None:
+        self._cache: Dict[str, Optional[RobotFileParser]] = {}
+
+    def _load(self, host: str) -> Optional[RobotFileParser]:
+        try:
+            rp = RobotFileParser()
+            rp.set_url(f"https://{host}/robots.txt")
+            rp.read()
+            return rp
+        except Exception:
+            return None
+
+    def allowed(self, url: str) -> bool:
+        host = urlparse(url).netloc
+        if host not in self._cache:
+            self._cache[host] = self._load(host)
+        rp = self._cache[host]
+        if rp is None:
+            # Wenn robots.txt nicht lesbar — im Zweifel erlauben, aber
+            # protokollieren durch Rückgabe True. Für freundliches Crawlen
+            # wäre False sicherer; wir bevorzugen hier Funktionalität, da
+            # Versicherer-Domains in Praxis robots.txt haben.
+            return True
+        return rp.can_fetch(USER_AGENT, url)
+
+
+# ---------------------------------------------------------------------------
+# Storage-Layer
+# ---------------------------------------------------------------------------
+
+def _page_dir(base: Path, brand: str, url: str) -> Path:
+    return base / brand_slug(brand) / url_hash(url)
+
+
+def _read_json(p: Path) -> Optional[dict]:
+    if not p.exists():
+        return None
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+def _write_json(p: Path, obj: dict) -> None:
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def _append_jsonl(p: Path, obj: dict) -> None:
+    p.parent.mkdir(parents=True, exist_ok=True)
+    with p.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(obj, ensure_ascii=False) + "\n")
+
+
+def load_events(pages_base: Path, brand: str, url: Optional[str] = None) -> List[dict]:
+    """
+    Lädt alle Events eines Brands (optional nur für eine URL).
+    """
+    brand_dir = pages_base / brand_slug(brand)
+    if not brand_dir.exists():
+        return []
+    out: List[dict] = []
+    if url is not None:
+        files = [_page_dir(pages_base, brand, url) / "events.jsonl"]
+    else:
+        files = sorted(brand_dir.glob("*/events.jsonl"))
+    for fp in files:
+        if not fp.exists():
+            continue
+        try:
+            for line in fp.read_text(encoding="utf-8").splitlines():
+                if not line.strip():
+                    continue
+                try:
+                    out.append(json.loads(line))
+                except Exception:
+                    continue
+        except Exception:
+            continue
+    return out
+
+
+# ---------------------------------------------------------------------------
+# Diff
+# ---------------------------------------------------------------------------
+
+def _diff_lines(prev: str, curr: str) -> Tuple[List[str], List[str], float]:
+    if prev == curr:
+        return [], [], 1.0
+    ratio = difflib.SequenceMatcher(a=prev, b=curr).ratio()
+    added, removed = [], []
+    for line in difflib.unified_diff(prev.splitlines(), curr.splitlines(), lineterm="", n=0):
+        if line.startswith(("+++ ", "--- ", "@@")):
+            continue
+        if line.startswith("+"):
+            added.append(line[1:].strip())
+        elif line.startswith("-"):
+            removed.append(line[1:].strip())
+    added = [a for a in added if a][:MAX_DIFF_LINES]
+    removed = [r for r in removed if r][:MAX_DIFF_LINES]
+    return added, removed, round(ratio, 4)
+
+
+# ---------------------------------------------------------------------------
+# Fetch + Track
+# ---------------------------------------------------------------------------
+
+@dataclass
+class TrackResult:
+    url: str
+    brand: str
+    product_ids: List[str] = field(default_factory=list)
+    status: int = 0
+    error: Optional[str] = None
+    changed: bool = False
+    first_seen: bool = False
+    text_hash: str = ""
+    prev_hash: str = ""
+    similarity: float = 1.0
+    added_lines: List[str] = field(default_factory=list)
+    removed_lines: List[str] = field(default_factory=list)
+    summary: str = ""
+    classification: Optional[dict] = None
+
+
+def _fetch(url: str, timeout: int = 30) -> Tuple[int, str, Optional[str]]:
+    try:
+        r = requests.get(url, headers=_headers(), timeout=timeout, allow_redirects=True)
+        if r.status_code == 200:
+            return r.status_code, r.text, None
+        return r.status_code, "", f"HTTP {r.status_code}"
+    except Exception as e:  # noqa: BLE001
+        return 0, "", str(e)[:400]
+
+
+def track_page(
+    pages_base: Path,
+    brand: str,
+    product_ids: List[str],
+    url: str,
+    *,
+    timestamp: str,
+    run_id: str,
+    rate_limiter: DomainRateLimiter,
+    robots: RobotsCache,
+    classifier=None,
+) -> TrackResult:
+    """
+    Holt eine einzelne URL, vergleicht mit dem letzten Stand, schreibt
+    current.json + events.jsonl, ruft optional den Classifier auf.
+
+    `classifier` ist ein Callable(url, added_lines, removed_lines, summary) -> dict | None.
+    Wenn None, wird keine Klassifikation angehängt.
+    """
+    result = TrackResult(url=url, brand=brand, product_ids=list(product_ids))
+
+    if not robots.allowed(url):
+        result.error = "robots.txt disallow"
+        return result
+
+    rate_limiter.wait(url)
+    status, html, err = _fetch(url)
+    result.status = status
+    if err:
+        result.error = err
+        return result
+
+    text = _extract_text(html)
+    if not text:
+        result.error = "empty text"
+        return result
+
+    page_dir = _page_dir(pages_base, brand, url)
+    meta_path = page_dir / "meta.json"
+    current_path = page_dir / "current.json"
+    events_path = page_dir / "events.jsonl"
+
+    prev = _read_json(current_path) or {}
+    prev_text = prev.get("text", "")
+    prev_hash = prev.get("text_hash", "")
+    new_hash = _sha16(text)
+    result.text_hash = new_hash
+    result.prev_hash = prev_hash
+
+    first_seen = not current_path.exists()
+    result.first_seen = first_seen
+    changed = first_seen or (new_hash != prev_hash)
+    result.changed = changed
+
+    # Meta (erzeugen/aktualisieren)
+    meta = _read_json(meta_path) or {
+        "url": url,
+        "brand": brand,
+        "product_ids": list(product_ids),
+        "first_seen": timestamp,
+    }
+    # Produkt-Zuordnung zusammenführen (URL kann zu mehreren Produkten gehören)
+    pids = set(meta.get("product_ids", []))
+    pids.update(product_ids)
+    meta["product_ids"] = sorted(pids)
+    meta["last_seen"] = timestamp
+    _write_json(meta_path, meta)
+
+    # current.json immer aktualisieren (überschreibt)
+    _write_json(current_path, {
+        "url": url,
+        "brand": brand,
+        "product_ids": list(product_ids),
+        "text": text,
+        "text_hash": new_hash,
+        "status": status,
+        "timestamp": timestamp,
+    })
+
+    if first_seen:
+        result.summary = "Seite erstmalig erfasst."
+        event = {
+            "timestamp": timestamp,
+            "run_id": run_id,
+            "brand": brand,
+            "product_ids": list(product_ids),
+            "url": url,
+            "event_type": "first_seen",
+            "hash_before": "",
+            "hash_after": new_hash,
+            "similarity": 0.0,
+            "added_lines_count": 0,
+            "removed_lines_count": 0,
+            "added_lines": [],
+            "removed_lines": [],
+            "summary": result.summary,
+            "classification": None,
+        }
+        _append_jsonl(events_path, event)
+        return result
+
+    if not changed:
+        result.summary = "Keine Veränderung."
+        return result
+
+    added, removed, similarity = _diff_lines(prev_text, text)
+    result.added_lines = added
+    result.removed_lines = removed
+    result.similarity = similarity
+    result.summary = (
+        f"{len(added)} neue Zeilen, {len(removed)} entfernte Zeilen "
+        f"(Ähnlichkeit {similarity:.1%})."
+    )
+
+    classification = None
+    if classifier is not None:
+        try:
+            classification = classifier(url, added, removed, result.summary)
+        except Exception as e:  # noqa: BLE001
+            classification = {"error": str(e)[:200]}
+    result.classification = classification
+
+    event = {
+        "timestamp": timestamp,
+        "run_id": run_id,
+        "brand": brand,
+        "product_ids": list(product_ids),
+        "url": url,
+        "event_type": "change",
+        "hash_before": prev_hash,
+        "hash_after": new_hash,
+        "similarity": similarity,
+        "added_lines_count": len(added),
+        "removed_lines_count": len(removed),
+        "added_lines": added,
+        "removed_lines": removed,
+        "summary": result.summary,
+        "classification": classification,
+    }
+    _append_jsonl(events_path, event)
+    return result
+
+
+# ---------------------------------------------------------------------------
+# Convenience: run over a full URL-Matrix
+# ---------------------------------------------------------------------------
+
+def track_all(
+    pages_base: Path,
+    *,
+    timestamp: str,
+    run_id: str,
+    brand_urls: Dict[str, List[Dict]],
+    classifier=None,
+) -> List[Dict]:
+    """
+    brand_urls: {
+        "ERGO": [{"url": "...", "product_ids": ["zahnzusatz"]}, ...],
+        "Allianz": [...],
+        ...
+    }
+
+    Gibt eine Liste von Tracker-Results zurück (als Dicts), damit main.py die
+    als Run-JSON-Fragment speichern kann (z.B. für den Impact-Tab).
+    """
+    rate = DomainRateLimiter()
+    robots = RobotsCache()
+    out: List[Dict] = []
+    for brand, entries in brand_urls.items():
+        for e in entries:
+            url = e.get("url") or ""
+            pids = e.get("product_ids") or []
+            if not url:
+                continue
+            res = track_page(
+                pages_base, brand, pids, url,
+                timestamp=timestamp, run_id=run_id,
+                rate_limiter=rate, robots=robots,
+                classifier=classifier,
+            )
+            out.append(asdict(res))
+    return out
