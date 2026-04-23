@@ -22,7 +22,7 @@ permissions:
 jobs:
   analyze:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 120
     steps:
       - name: Repo auschecken
         uses: actions/checkout@v4
