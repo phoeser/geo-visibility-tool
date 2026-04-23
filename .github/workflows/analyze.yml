@@ -42,6 +42,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           ARGS=""
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
@@ -57,7 +58,7 @@ jobs:
         run: |
           git config --global user.name "geo-bot"
           git config --global user.email "geo-bot@users.noreply.github.com"
-          git add data/runs data/snapshots
+          git add -A data/runs data/snapshots data/pages data/correlation.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "Keine Änderungen zum Committen."
           else
