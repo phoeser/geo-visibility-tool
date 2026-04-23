@@ -1,7 +1,14 @@
 {
   "brand": {
     "name": "ERGO",
-    "aliases": ["ERGO", "Ergo", "ERGO Group", "ERGO Versicherung", "ERGO Direkt", "ergo.de"],
+    "aliases": [
+      "ERGO",
+      "Ergo",
+      "ERGO Group",
+      "ERGO Versicherung",
+      "ERGO Direkt",
+      "ergo.de"
+    ],
     "domain": "ergo.de",
     "website": "https://www.ergo.de"
   },
@@ -11,42 +18,82 @@
       "name": "Zahnzusatzversicherung",
       "url": "https://www.ergo.de/de/Produkte/Gesundheit/Zahnzusatzversicherung",
       "prompts_file": "prompts/zahnzusatz.json",
-      "category": "Gesundheit"
+      "category": "Gesundheit",
+      "keywords": [
+        "zahnzusatz",
+        "zahnzusatzversicherung",
+        "zahnersatz"
+      ],
+      "tracked_urls": {}
     },
     {
       "id": "sterbegeld",
       "name": "Sterbegeldversicherung",
       "url": "https://www.ergo.de/de/Produkte/Leben/Sterbegeldversicherung",
       "prompts_file": "prompts/sterbegeld.json",
-      "category": "Leben"
+      "category": "Leben",
+      "keywords": [
+        "sterbegeld",
+        "sterbegeldversicherung",
+        "bestattungsvorsorge"
+      ],
+      "tracked_urls": {}
     },
     {
       "id": "risikoleben",
       "name": "Risikolebensversicherung",
       "url": "https://www.ergo.de/de/Produkte/Leben/Risikolebensversicherung",
       "prompts_file": "prompts/risikoleben.json",
-      "category": "Leben"
+      "category": "Leben",
+      "keywords": [
+        "risikoleben",
+        "risikolebensversicherung",
+        "risiko-lv"
+      ],
+      "tracked_urls": {}
     }
   ],
   "competitors": [
     {
       "name": "Allianz",
-      "aliases": ["Allianz", "Allianz Versicherung", "Allianz Deutschland", "allianz.de"],
+      "aliases": [
+        "Allianz",
+        "Allianz Versicherung",
+        "Allianz Deutschland",
+        "allianz.de"
+      ],
       "domain": "allianz.de"
     },
     {
       "name": "AXA",
-      "aliases": ["AXA", "AXA Versicherung", "AXA Deutschland", "axa.de"],
+      "aliases": [
+        "AXA",
+        "AXA Versicherung",
+        "AXA Deutschland",
+        "axa.de"
+      ],
       "domain": "axa.de"
     },
     {
       "name": "Generali",
-      "aliases": ["Generali", "Generali Versicherung", "Generali Deutschland", "generali.de"],
+      "aliases": [
+        "Generali",
+        "Generali Versicherung",
+        "Generali Deutschland",
+        "generali.de"
+      ],
       "domain": "generali.de"
     },
     {
       "name": "HUK-Coburg",
-      "aliases": ["HUK-Coburg", "HUK Coburg", "HUK", "HUK24", "huk.de", "huk-coburg.de"],
+      "aliases": [
+        "HUK-Coburg",
+        "HUK Coburg",
+        "HUK",
+        "HUK24",
+        "huk.de",
+        "huk-coburg.de"
+      ],
       "domain": "huk-coburg.de"
     }
   ],
@@ -67,10 +114,10 @@
     },
     {
       "id": "chatgpt",
-      "enabled": false,
+      "enabled": true,
       "provider": "openai",
-      "model": "gpt-4o",
-      "display_name": "ChatGPT (OpenAI) — API-Key fehlt"
+      "model": "gpt-4o-mini",
+      "display_name": "ChatGPT (OpenAI)"
     },
     {
       "id": "grok",
