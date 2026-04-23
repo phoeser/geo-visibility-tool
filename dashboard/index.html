@@ -191,4 +191,51 @@
         </div>
         <div class="row">
           <label>Website (vollständige URL)</label>
-          <input id="cfgBrandWebsite" type="text" placeholder="h
+          <input id="cfgBrandWebsite" type="text" placeholder="https://www.ergo.de" />
+        </div>
+        <div class="row">
+          <label>Domain <span class="hint">(nur Host, z.B. ergo.de)</span></label>
+          <input id="cfgBrandDomain" type="text" placeholder="ergo.de" />
+        </div>
+        <div class="row">
+          <label>Aliase <span class="hint">(Komma-getrennt)</span></label>
+          <input id="cfgBrandAliases" type="text" placeholder="ERGO Direkt, ERGO Versicherung" />
+        </div>
+      </section>
+
+      <!-- LLMs -->
+      <section class="card">
+        <h2>LLMs</h2>
+        <p class="hint">Aktivierte LLMs werden im nächsten Lauf abgefragt. API-Keys werden nicht hier konfiguriert — siehe auto_deploy.html Phase 2.</p>
+        <div id="cfgLlms" class="cfg-llms"></div>
+      </section>
+
+      <!-- Wettbewerber -->
+      <section class="card">
+        <h2>Wettbewerber</h2>
+        <p class="hint">Marken, die in den LLM-Antworten als Konkurrenten getrackt werden sollen.</p>
+        <div id="cfgCompetitors" class="cfg-competitors"></div>
+        <button class="btn-secondary" onclick="cfgAddCompetitor()">+ Wettbewerber hinzufügen</button>
+      </section>
+
+      <!-- Produkte -->
+      <section class="card">
+        <h2>Produkte &amp; Prompts</h2>
+        <p class="hint">Pro Produkt: Prompts für die LLMs sowie Keywords + URL-Tracking für die Website-Impact-Analyse.</p>
+        <div id="cfgProducts" class="cfg-products"></div>
+        <button class="btn-secondary" onclick="cfgAddProduct()">+ Produkt hinzufügen</button>
+      </section>
+
+      <!-- Speichern -->
+      <section class="card cfg-save">
+        <button id="cfgSaveBtn" class="btn-primary" onclick="cfgSaveAll()">Alle Änderungen speichern</button>
+        <div id="cfgSaveStatus" class="status"></div>
+        <div id="cfgSaveLog" class="log" style="display:none;"></div>
+      </section>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
