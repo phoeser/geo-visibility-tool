@@ -160,7 +160,7 @@ class ClaudeClient:
 class GeminiClient:
     """Ruft Gemini über die Google AI Studio REST-API auf."""
 
-    def __init__(self, api_key: str, model: str = "gemini-2.0-flash-exp",
+    def __init__(self, api_key: str, model: str = "gemini-2.5-flash",
                  max_tokens: int = 1200, temperature: float = 0.3):
         self.api_key = api_key
         self.model = model
