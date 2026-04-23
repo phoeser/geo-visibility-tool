@@ -28,6 +28,7 @@
     <nav class="tabs">
       <button data-tab="dashboard" class="tab-btn active">Dashboard</button>
       <button data-tab="history" class="tab-btn">Historie</button>
+      <button data-tab="impact" class="tab-btn">Impact</button>
       <button data-tab="config" class="tab-btn">Config</button>
     </nav>
     <div class="meta" id="runMeta">Lade Daten …</div>
@@ -118,6 +119,50 @@
       </section>
     </section>
 
+    <!-- ============ IMPACT TAB ============ -->
+    <section id="tab-impact" class="tab-panel">
+      <section class="card">
+        <h2>Website-Änderungen &times; LLM-Sichtbarkeit</h2>
+        <p class="hint">
+          Verknüpfung zwischen beobachteten Änderungen auf Websites (eigene Marke + Wettbewerber)
+          und der Entwicklung der LLM-Metriken über die Läufe hinweg. t+1 = erster Lauf nach Event,
+          t+2 = zweiter Lauf danach. Δ ist die Änderung zum letzten Lauf <em>vor</em> dem Event.
+        </p>
+        <div class="controls" id="impactControls">
+          <label>Marke:
+            <select id="impactBrandFilter"><option value="all">Alle Marken</option></select>
+          </label>
+          <label>Produkt:
+            <select id="impactProductFilter"><option value="all">Alle Produkte</option></select>
+          </label>
+          <label>Typ:
+            <select id="impactTypeFilter">
+              <option value="all">Alle Typen</option>
+              <option value="change">Nur Änderungen</option>
+              <option value="first_seen">Nur Erstsichtungen</option>
+            </select>
+          </label>
+          <label>Nur mit Impact:
+            <input type="checkbox" id="impactOnlyWithDelta" />
+          </label>
+        </div>
+      </section>
+
+      <section class="kpis" id="impactKpis"></section>
+
+      <section class="card">
+        <h2>Share-of-Voice Timeline (eigene Marke)</h2>
+        <p class="hint">Blaue Linie = SoV-Verlauf. Rote Marker = erfasste Website-Events (eigene Marke + Wettbewerber).</p>
+        <canvas id="impactTimelineChart" height="130"></canvas>
+      </section>
+
+      <section class="card">
+        <h2>Top-Events nach Δ Share of Voice</h2>
+        <p class="hint">Sortiert nach absoluter SoV-Veränderung bei t+1. Klick auf eine Zeile öffnet Details.</p>
+        <div id="impactEventsTable"></div>
+      </section>
+    </section>
+
     <!-- ============ CONFIG TAB ============ -->
     <section id="tab-config" class="tab-panel">
       <section class="card cfg-banner">
@@ -146,60 +191,4 @@
         </div>
         <div class="row">
           <label>Website (vollständige URL)</label>
-          <input id="cfgBrandWebsite" type="text" placeholder="https://www.ergo.de" />
-        </div>
-        <div class="row">
-          <label>Domain (ohne https://)</label>
-          <input id="cfgBrandDomain" type="text" placeholder="ergo.de" />
-        </div>
-        <div class="row">
-          <label>Aliasse / alternative Schreibweisen <span class="hint">(eine pro Zeile)</span></label>
-          <textarea id="cfgBrandAliases" rows="4"></textarea>
-        </div>
-      </section>
-
-      <!-- LLMs -->
-      <section class="card">
-        <h2>LLMs</h2>
-        <p class="hint">Ab- und Anwählen — nur aktive LLMs werden beim nächsten Lauf abgefragt.</p>
-        <div id="cfgLlms"></div>
-      </section>
-
-      <!-- Wettbewerber -->
-      <section class="card">
-        <h2>Wettbewerber</h2>
-        <p class="hint">Marken, die im Share-of-Voice verglichen werden.</p>
-        <div id="cfgCompetitors"></div>
-        <button class="btn-secondary" type="button" onclick="cfgAddCompetitor()">+ Wettbewerber hinzufügen</button>
-      </section>
-
-      <!-- Produkte -->
-      <section class="card">
-        <h2>Produkte & Prompts</h2>
-        <p class="hint">
-          Pro Produkt 15–25 realistische Kunden-Fragen. "Vorschläge generieren" ruft Gemini direkt im Browser
-          auf (benötigt gespeicherten Google-API-Key).
-        </p>
-        <div id="cfgProducts"></div>
-        <button class="btn-secondary" type="button" onclick="cfgAddProduct()">+ Produkt hinzufügen</button>
-      </section>
-
-      <!-- Save -->
-      <section class="card cfg-save-card">
-        <div id="cfgSaveStatus" class="status"></div>
-        <div class="log" id="cfgSaveLog" style="display:none;"></div>
-        <button id="cfgSaveBtn" onclick="cfgSaveAll()">Alle Änderungen speichern</button>
-      </section>
-    </section>
-  </main>
-
-  <footer>
-    <small>
-      Generiert von GEO Visibility Tool — Daten liegen im GitHub-Repo unter
-      <code>data/runs/</code>.
-    </small>
-  </footer>
-
-  <script src="app.js"></script>
-</body>
-</html>
+          <input id="cfgBrandWebsite" type="text" placeholder="h
