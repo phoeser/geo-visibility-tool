@@ -284,7 +284,7 @@ def filter_urls(urls: List[str], keyword_regex: re.Pattern) -> List[str]:
 def discover_for_product(
     domain: str,
     product_keywords: List[str],
-    max_urls: int = 25,
+    max_urls: int | None = None,
 ) -> Dict:
     """
     Komplette Pipeline für eine (Domain, Produkt)-Kombination.
@@ -303,8 +303,9 @@ def discover_for_product(
     sitemap_urls = discover_sitemap_urls(domain)
     matched = filter_urls(sitemap_urls, rx)
     if matched:
+        limited = matched if max_urls is None else matched[:max_urls]
         return {
-            "urls": matched[:max_urls],
+            "urls": limited,
             "source": "sitemap",
             "stats": {
                 "sitemap_total": len(sitemap_urls),
@@ -316,7 +317,7 @@ def discover_for_product(
     # Schritt 2: Homepage-Crawl-Fallback
     crawled = discover_homepage_crawl(domain, rx)
     return {
-        "urls": crawled[:max_urls],
+        "urls": crawled if max_urls is None else crawled[:max_urls],
         "source": "crawl" if crawled else "none",
         "stats": {
             "sitemap_total": len(sitemap_urls),
