@@ -371,7 +371,7 @@ def _compute_totals(run_dict: Dict, brand_names: List[str]) -> Dict:
     return {"ranking": out}
 
 
-def _build_brand_urls(cfg: Dict, *, auto_discover: bool = True, max_per_brand: int = 15) -> Dict[str, List[Dict]]:
+def _build_brand_urls(cfg: Dict, *, auto_discover: bool = True, max_per_brand: int | None = None) -> Dict[str, List[Dict]]:
     """
     Flacht die Config-Struktur in ein `{brand: [{url, product_ids}, ...]}` um.
 
