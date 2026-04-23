@@ -21,7 +21,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 # Projekt-Root zum Pfad hinzufügen, damit Module immer findbar sind
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -35,11 +35,16 @@ from analyzer.web_scraper import scrape_product  # noqa: E402
 from analyzer.impact_analysis import (  # noqa: E402
     load_run, previous_run_file, compute_deltas, generate_exec_summary,
 )
+from analyzer.page_tracker import track_all as track_all_pages  # noqa: E402
+from analyzer.diff_classifier import make_classifier  # noqa: E402
+from analyzer import correlation  # noqa: E402
+from analyzer.sitemap_discovery import discover_for_product  # noqa: E402
 
 
 DATA_DIR = PROJECT_ROOT / "data"
 RUNS_DIR = DATA_DIR / "runs"
 SNAPSHOTS_DIR = DATA_DIR / "snapshots"
+PAGES_DIR = DATA_DIR / "pages"
 
 
 # ---------------------------------------------------------------------------
@@ -240,6 +245,36 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
             "summary_by_llm": summary_by_llm,
         }
 
+    # --- 4b) Page-Tracking (eigene Marke + Wettbewerber) ---
+    print("\n[PAGES] Tracke konfigurierte URLs pro Marke ...")
+    brand_urls = _build_brand_urls(cfg)
+    n_urls = sum(len(v) for v in brand_urls.values())
+    print(f"[PAGES] {n_urls} URLs über {len(brand_urls)} Marken")
+    if dry_run or n_urls == 0:
+        page_events: List[Dict] = []
+        if dry_run:
+            print("[PAGES] dry-run: übersprungen")
+    else:
+        classifier = make_classifier()  # nutzt GOOGLE_API_KEY, None wenn fehlt
+        try:
+            page_events = track_all_pages(
+                PAGES_DIR,
+                timestamp=ts, run_id=ts,
+                brand_urls=brand_urls,
+                classifier=classifier,
+            )
+            n_changed = sum(1 for e in page_events if e.get("changed"))
+            n_first = sum(1 for e in page_events if e.get("first_seen"))
+            print(f"[PAGES] fertig — {n_changed} geändert, {n_first} erstmalig, "
+                  f"{len(page_events)-n_changed-n_first} unverändert")
+        except Exception as e:  # noqa: BLE001
+            print(f"[PAGES] Fehler: {e}")
+            page_events = []
+    run_dict["page_tracking"] = {
+        "brand_urls": brand_urls,
+        "events_this_run": page_events,
+    }
+
     # --- 5) Impact-Analyse ---
     print("\n[IMPACT] Vergleich mit vorherigem Lauf ...")
     current_file = RUNS_DIR / f"{ts}.json"
@@ -271,6 +306,16 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
         json.dumps(run_dict, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
+    # --- 7) Korrelation: Webseiten-Events ↔ Metrik-Veränderungen ---
+    print("\n[CORR] Berechne Korrelation Webseiten-Events ↔ Metriken ...")
+    try:
+        corr = correlation.compute(PAGES_DIR, RUNS_DIR)
+        correlation.write_correlation_file(DATA_DIR / "correlation.json", corr)
+        print(f"[CORR] events={corr['meta']['total_events']}, "
+              f"runs={corr['meta']['total_runs']}")
+    except Exception as e:  # noqa: BLE001
+        print(f"[CORR] Fehler: {e}")
+
     # Ein schlankes Index-File für das Dashboard
     _update_index(RUNS_DIR)
 
@@ -326,6 +371,90 @@ def _compute_totals(run_dict: Dict, brand_names: List[str]) -> Dict:
     return {"ranking": out}
 
 
+def _build_brand_urls(cfg: Dict, *, auto_discover: bool = True, max_per_brand: int = 15) -> Dict[str, List[Dict]]:
+    """
+    Flacht die Config-Struktur in ein `{brand: [{url, product_ids}, ...]}` um.
+
+    Unterstützte Config-Formen pro Produkt (`cfg["products"][i]`):
+      • "tracked_urls": {"ERGO": ["url1", "url2"], "Allianz": ["url3"]}
+          — bevorzugt, pro Marke mehrere URLs
+      • "keywords": ["zahnzusatz", "zahnzusatzversicherung"]
+          — wenn tracked_urls für eine Marke leer ist, wird per Sitemap-
+            Discovery automatisch ermittelt
+      • "url": "..."  (Fallback, wird der eigenen Marke zugeordnet)
+
+    Marken mit Domains werden aus cfg["brand"] + cfg["competitors"] gelesen.
+    Eine URL die mehrfach (über mehrere Produkte) für dieselbe Marke auftaucht,
+    wird zusammengefasst und bekommt alle passenden product_ids.
+    """
+    own_brand = (cfg.get("brand") or {}).get("name") or ""
+
+    # Marke -> Domain
+    brand_domains: Dict[str, str] = {}
+    if (cfg.get("brand") or {}).get("domain"):
+        brand_domains[cfg["brand"]["name"]] = cfg["brand"]["domain"]
+    for c in cfg.get("competitors", []) or []:
+        if c.get("name") and c.get("domain"):
+            brand_domains[c["name"]] = c["domain"]
+
+    # (brand, url) -> set(product_ids)
+    index: Dict[Tuple[str, str], set] = {}
+
+    for product in cfg.get("products", []):
+        pid = product.get("id") or ""
+        tracked = product.get("tracked_urls") or {}
+        keywords = [k for k in (product.get("keywords") or []) if isinstance(k, str) and k.strip()]
+
+        # 1) tracked_urls-Dict auflösen
+        tracked_brands_nonempty = set()
+        if isinstance(tracked, dict):
+            for brand, urls in tracked.items():
+                if not brand:
+                    continue
+                if isinstance(urls, str):
+                    urls = [urls]
+                urls = [u.strip() for u in (urls or []) if isinstance(u, str) and u.strip()]
+                if urls:
+                    tracked_brands_nonempty.add(brand)
+                for u in urls:
+                    key = (brand, u)
+                    index.setdefault(key, set()).add(pid)
+
+        # 2) Auto-Discovery via Sitemap für Marken ohne manuelle URL-Liste
+        if auto_discover and keywords:
+            for brand, domain in brand_domains.items():
+                if brand in tracked_brands_nonempty:
+                    continue  # manuell gesetzt, respektieren
+                try:
+                    res = discover_for_product(domain, keywords, max_urls=max_per_brand)
+                except Exception:
+                    continue
+                for u in res.get("urls", []):
+                    if isinstance(u, str) and u.strip():
+                        key = (brand, u.strip())
+                        index.setdefault(key, set()).add(pid)
+
+        # 3) Letzter Fallback: wenn weder tracked_urls noch keywords existieren,
+        #    verwende das alte product["url"] für die eigene Marke.
+        if not tracked and not keywords:
+            u = product.get("url")
+            if isinstance(u, str) and u.strip() and own_brand:
+                key = (own_brand, u.strip())
+                index.setdefault(key, set()).add(pid)
+
+    # In Dict umbauen
+    out: Dict[str, List[Dict]] = {}
+    for (brand, url), pids in index.items():
+        out.setdefault(brand, []).append({
+            "url": url,
+            "product_ids": sorted(x for x in pids if x),
+        })
+    # pro Brand alphabetisch stabil sortieren
+    for brand in out:
+        out[brand].sort(key=lambda e: e["url"])
+    return out
+
+
 def _update_index(runs_dir: Path) -> None:
     """Schreibt data/runs/index.json mit Metadaten aller Läufe."""
     runs = []
@@ -351,25 +480,29 @@ def _update_index(runs_dir: Path) -> None:
                         all_mentions += m
                         if b.get("name") == brand_name:
                             brand_mentions += m
-            avg_sov = (brand_mentions / all_mentions) if all_mentions else None
+            sov = (brand_mentions / all_mentions) if all_mentions else 0.0
             runs.append({
-                "run_id": obj.get("run_id"),
+                "run_id": obj.get("run_id") or p.stem,
                 "file": p.name,
                 "started_at": obj.get("started_at"),
                 "finished_at": obj.get("finished_at"),
                 "brand": brand_name,
                 "llms": llms_list,
                 "products": list(products.keys()),
-                "products_count": len(products),
                 "prompts_total": prompts_total,
-                "estimated_cost_usd": round(cost_total, 4) if cost_total else 0.0,
-                "avg_share_of_voice": avg_sov,
+                "estimated_cost_usd": round(cost_total, 4),
+                "brand_share_of_voice": round(sov, 4),
             })
-        except Exception:  # noqa: BLE001
+        except Exception as e:  # noqa: BLE001
+            print(f"[INDEX] Fehler bei {p.name}: {e}")
             continue
-    index_file = runs_dir / "index.json"
-    index_file.write_text(
-        json.dumps({"runs": runs}, ensure_ascii=False, indent=2),
+    index = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "count": len(runs),
+        "runs": runs,
+    }
+    (runs_dir / "index.json").write_text(
+        json.dumps(index, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
 
@@ -378,15 +511,27 @@ def _update_index(runs_dir: Path) -> None:
 # CLI
 # ---------------------------------------------------------------------------
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description="GEO Visibility Analyse")
-    parser.add_argument("--dry-run", action="store_true",
-                        help="Simulierte Antworten, keine API-Calls")
-    parser.add_argument("--limit", type=int, default=None,
-                        help="Maximale Anzahl Prompts pro Produkt (für Tests)")
-    args = parser.parse_args()
-    run(dry_run=args.dry_run, limit=args.limit)
+def main(argv: Optional[List[str]] = None) -> int:
+    ap = argparse.ArgumentParser(description="GEO Visibility Analyse-Lauf")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="Simuliere LLM-Antworten, keine echten API-Calls")
+    ap.add_argument("--limit", type=int, default=None,
+                    help="Nur die ersten N Prompts je Produkt verarbeiten")
+    args = ap.parse_args(argv)
+
+    try:
+        out = run(dry_run=args.dry_run, limit=args.limit)
+        print(f"\n[DONE] {out}")
+        return 0
+    except KeyboardInterrupt:
+        print("\n[ABBRUCH] Benutzer hat Lauf gestoppt.")
+        return 130
+    except Exception as e:  # noqa: BLE001
+        import traceback
+        print(f"\n[FEHLER] {e}")
+        traceback.print_exc()
+        return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
