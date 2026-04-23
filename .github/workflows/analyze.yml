@@ -26,6 +26,8 @@ jobs:
     steps:
       - name: Repo auschecken
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Python 3.11 einrichten
         uses: actions/setup-python@v5
@@ -63,5 +65,17 @@ jobs:
             echo "Keine Änderungen zum Committen."
           else
             git commit -m "Run $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-            git push
+            # Falls main in der Zwischenzeit weitergelaufen ist: rebase + retry
+            for i in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main || { echo "rebase conflict - gebe auf"; exit 1; }
+              if git push origin HEAD:main; then
+                echo "push ok (Versuch $i)"
+                exit 0
+              fi
+              echo "push abgelehnt, warte 5s und versuche erneut..."
+              sleep 5
+            done
+            echo "push nach 5 Versuchen fehlgeschlagen"
+            exit 1
           fi
