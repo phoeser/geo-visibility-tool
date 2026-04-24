@@ -70,36 +70,68 @@ jobs:
 
       - name: Ergebnisse zurück in das Repo committen
         run: |
+          set -x
           git config --global user.name "geo-bot"
           git config --global user.email "geo-bot@users.noreply.github.com"
+
+          # Stage nur die Daten-Verzeichnisse die wir schreiben
           git add -A data/runs data/snapshots data/pages data/correlation.json 2>/dev/null || true
           if git diff --cached --quiet; then
-            echo "Keine Änderungen zum Committen."
-          else
-            git commit -m "Run $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-            # Robustes push: bis zu 10 Versuche; bei Rebase-Konflikten 'ours'
-            # fuer unsere Analyse-Outputs bevorzugen. Das loest den Race mit
-            # parallel laufenden Dashboard-Config-Pushes.
-            for i in 1 2 3 4 5 6 7 8 9 10; do
-              git fetch origin main
-              if git rebase origin/main; then
-                :
-              else
-                echo "Rebase-Konflikt bei Versuch $i - abort und merge mit -X ours"
-                git rebase --abort || true
-                git pull --no-rebase -X ours origin main --no-edit || { echo "Merge fehlgeschlagen"; exit 1; }
-              fi
-              if git push origin HEAD:main; then
-                echo "push ok (Versuch $i)"
-                exit 0
-              fi
-              WAIT=$((2 + i * 2))
-              echo "push abgelehnt, warte ${WAIT}s und versuche erneut..."
-              sleep $WAIT
-            done
-            echo "push nach 10 Versuchen fehlgeschlagen"
-            exit 1
+            echo "Keine Aenderungen zum Committen."
+            exit 0
           fi
+
+          COMMIT_MSG="Run $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          git commit -m "$COMMIT_MSG"
+          OUR_COMMIT=$(git rev-parse HEAD)
+
+          # Strategie: bis zu 10x fetch+merge+push. Bei Merge-Konflikt -X ours.
+          # Als letzter Anker: force-with-lease (safe-overwrite).
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            echo "--- Push-Versuch $i ---"
+            git fetch origin main
+
+            # Pruefen ob remote weitergelaufen ist
+            REMOTE_HEAD=$(git rev-parse origin/main)
+            LOCAL_BASE=$(git rev-parse HEAD^1)
+            if [ "$REMOTE_HEAD" != "$LOCAL_BASE" ]; then
+              echo "Remote hat neue Commits. Replay unseres Commits auf neuen main."
+              # Reset auf remote main, dann unseren commit cherry-picken mit -X theirs
+              # (damit unsere data-Aenderungen Vorrang haben)
+              git reset --hard origin/main
+              if ! git cherry-pick -X theirs "$OUR_COMMIT"; then
+                echo "Cherry-pick mit -X theirs scheitert - abort"
+                git cherry-pick --abort 2>/dev/null || true
+                # Fallback: erneut aus workspace adden (unsere data ist noch im workspace)
+                git add -A data/runs data/snapshots data/pages data/correlation.json 2>/dev/null || true
+                if git diff --cached --quiet; then
+                  echo "Nichts zu committen nach reset"
+                  exit 0
+                fi
+                git commit -m "$COMMIT_MSG"
+              fi
+              OUR_COMMIT=$(git rev-parse HEAD)
+            fi
+
+            if git push origin HEAD:main; then
+              echo "push ok (Versuch $i)"
+              exit 0
+            fi
+
+            WAIT=$((2 + i))
+            echo "push abgelehnt, warte ${WAIT}s..."
+            sleep $WAIT
+          done
+
+          # Letzter Anker: force-with-lease (ueberschreibt nur wenn remote seit unserem fetch unveraendert)
+          echo "Last resort: force-with-lease"
+          git fetch origin main
+          if git push --force-with-lease=main:$(git rev-parse origin/main) origin HEAD:main; then
+            echo "force-with-lease push ok"
+            exit 0
+          fi
+          echo "Push final fehlgeschlagen - haendisch eingreifen."
+          exit 1
 
       - name: GitHub Pages neu bauen lassen
         if: success()
