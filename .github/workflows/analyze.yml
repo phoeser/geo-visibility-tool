@@ -1,7 +1,7 @@
 name: Analyze Visibility
 
-# Manuell aus dem GitHub-UI startbar (Actions-Tab -> "Run workflow").
-# Optional: per Cron aktivieren (Zeile unten auskommentieren).
+# Manuell aus dem GitHub-UI startbar (Actions-Tab -> "Run workflow")
+# UND taeglich automatisch um 02:00 UTC (= 04:00 MESZ / 03:00 MEZ).
 on:
   workflow_dispatch:
     inputs:
@@ -13,8 +13,10 @@ on:
         description: "Prompts-Limit pro Produkt (leer = alle 20)"
         type: string
         default: ""
-  # schedule:
-  #   - cron: "0 6 * * 1"   # jeden Montag um 06:00 UTC
+  schedule:
+    # Taeglich um 02:00 UTC (04:00 MESZ) - frueh morgens,
+    # Daten liegen beim Buero-Start bereit.
+    - cron: "0 2 * * *"
 
 permissions:
   contents: write
