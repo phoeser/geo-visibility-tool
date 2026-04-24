@@ -290,26 +290,102 @@ function renderDeltasTable() {
 
 function renderWebDiff() {
   const run = state.currentRun;
-  const productIds = state.selectedProduct === "all" ? Object.keys(run.products) : [state.selectedProduct];
   const c = $("webDiff");
-  const parts = productIds.map(pid => {
-    const p = run.products[pid];
-    if (!p || !p.website) return "";
-    const d = p.website.diff || {};
-    const hasChanges = d.changed && ((d.added_lines && d.added_lines.length) || (d.removed_lines && d.removed_lines.length));
-    return `<details class="prompt-item" ${hasChanges ? "open" : ""}>
-      <summary><strong>${p.name}</strong>
-        ${d.changed ? `<span class="pill up">Änderungen</span>` : `<span class="pill flat">Unverändert</span>`}
-      </summary>
-      <p class="hint">${d.summary || ""}</p>
-      ${hasChanges ? `<div class="diff-box">
-        <div class="added"><strong style="color:var(--success)">Neu (+)</strong><br/>
-          ${(d.added_lines || []).slice(0, 50).map(l => `+ ${escapeHtml(l)}`).join("<br/>") || "<em>–</em>"}</div>
-        <div class="removed"><strong style="color:var(--danger)">Entfernt (-)</strong><br/>
-          ${(d.removed_lines || []).slice(0, 50).map(l => `- ${escapeHtml(l)}`).join("<br/>") || "<em>–</em>"}</div>
-      </div>` : ""}</details>`;
-  });
-  c.innerHTML = parts.join("") || `<p class="hint">Keine Daten.</p>`;
+  const pt = (run && run.page_tracking) || null;
+  const events = (pt && Array.isArray(pt.events_this_run)) ? pt.events_this_run : [];
+
+  if (!events.length) {
+    c.innerHTML = `<p class="hint">Keine Page-Tracking-Events im aktuellen Lauf.</p>`;
+    return;
+  }
+
+  // Nur interessante Events (Änderungen + Erstsichtungen), Filter fürs gewählte Produkt
+  const selectedPid = state.selectedProduct;
+  function matchProduct(e) {
+    if (!selectedPid || selectedPid === "all") return true;
+    return (e.product_ids || []).includes(selectedPid);
+  }
+  const interesting = events.filter(e => (e.changed || e.first_seen) && matchProduct(e));
+
+  // Counts pro Art
+  const nChanged = interesting.filter(e => e.changed).length;
+  const nFirst = interesting.filter(e => e.first_seen).length;
+  const nErrors = events.filter(e => e.error && matchProduct(e)).length;
+  const nUnchanged = events.filter(e => !e.changed && !e.first_seen && !e.error && matchProduct(e)).length;
+
+  // Gruppieren nach Marke
+  const byBrand = {};
+  for (const e of interesting) {
+    const b = e.brand || "–";
+    (byBrand[b] = byBrand[b] || []).push(e);
+  }
+
+  // Innerhalb einer Marke sortieren: "changed" zuerst, dann nach kleinster Similarity (größter Diff)
+  for (const b of Object.keys(byBrand)) {
+    byBrand[b].sort((a, b2) => {
+      if (a.changed !== b2.changed) return a.changed ? -1 : 1;
+      return (a.similarity || 1) - (b2.similarity || 1);
+    });
+  }
+
+  const headerHtml = `
+    <div class="diff-summary">
+      <span class="pill up">${nChanged} Änderung${nChanged === 1 ? "" : "en"}</span>
+      <span class="pill flat">${nFirst} Erstsichtung${nFirst === 1 ? "" : "en"}</span>
+      <span class="pill flat">${nUnchanged} unverändert</span>
+      ${nErrors ? `<span class="pill down">${nErrors} Fehler</span>` : ""}
+    </div>
+  `;
+
+  function diffRow(e) {
+    const kind = e.changed ? "change" : (e.first_seen ? "first_seen" : "other");
+    const pill = e.changed
+      ? `<span class="pill up">Änderung</span>`
+      : `<span class="pill flat">Erstsichtung</span>`;
+    const sim = (e.similarity !== null && e.similarity !== undefined)
+      ? (e.similarity * 100).toFixed(1) + " %" : "–";
+    const url = e.url || "";
+    const urlShort = url.length > 90 ? url.slice(0, 90) + "…" : url;
+    const pids = (e.product_ids || []).join(", ");
+    const added = (e.added_lines || []).slice(0, 30);
+    const removed = (e.removed_lines || []).slice(0, 30);
+    const cls = (e.classification || {});
+    const clsHtml = cls.category || cls.type
+      ? `<span class="pill flat">${escapeHtml(cls.category || cls.type)}</span>` : "";
+    return `
+      <details class="diff-event ${kind}">
+        <summary>
+          ${pill} ${clsHtml}
+          <span class="diff-url" title="${escapeHtml(url)}"><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(urlShort)}</a></span>
+          <span class="hint">${escapeHtml(pids)} · Ähnlichkeit ${sim} · +${e.added_lines ? e.added_lines.length : 0} / −${e.removed_lines ? e.removed_lines.length : 0}</span>
+        </summary>
+        ${e.summary ? `<p class="hint" style="margin: 4px 0 8px 0;">${escapeHtml(e.summary)}</p>` : ""}
+        ${(cls.reasoning || cls.summary) ? `<p class="hint" style="margin: 0 0 8px 0;"><em>Gemini:</em> ${escapeHtml(cls.reasoning || cls.summary)}</p>` : ""}
+        ${(added.length || removed.length) ? `
+          <div class="diff-box">
+            <div class="added"><strong style="color:var(--success)">Neu (+)</strong><br/>
+              ${added.map(l => "+ " + escapeHtml(l)).join("<br/>") || "<em>–</em>"}
+            </div>
+            <div class="removed"><strong style="color:var(--danger)">Entfernt (−)</strong><br/>
+              ${removed.map(l => "− " + escapeHtml(l)).join("<br/>") || "<em>–</em>"}
+            </div>
+          </div>` : ""}
+      </details>`;
+  }
+
+  const brandsOrder = Object.keys(byBrand).sort((a, b) => byBrand[b].length - byBrand[a].length);
+  const bodyHtml = brandsOrder.map(brand => {
+    const rows = byBrand[brand].map(diffRow).join("");
+    return `
+      <details class="diff-brand" open>
+        <summary><strong>${escapeHtml(brand)}</strong>
+          <span class="hint">— ${byBrand[brand].length} Event${byBrand[brand].length === 1 ? "" : "s"}</span>
+        </summary>
+        <div class="diff-events">${rows}</div>
+      </details>`;
+  }).join("");
+
+  c.innerHTML = headerHtml + (bodyHtml || `<p class="hint">Keine interessanten Events für das gewählte Produkt.</p>`);
 }
 
 function renderPromptDetails() {
