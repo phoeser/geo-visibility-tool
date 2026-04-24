@@ -1841,9 +1841,13 @@ async function rsPoll() {
     if (active) {
       const started = run.run_started_at ? new Date(run.run_started_at).toLocaleTimeString() : "";
       el.title = "Lauf #" + run.run_number + " laeuft" + (started ? " (seit " + started + ")" : "");
+      state.activeRunNumber = run.run_number;
     } else {
       el.title = "Letzter Lauf #" + run.run_number + ": " + (run.conclusion || "unbekannt");
+      state.activeRunNumber = null;
     }
+    // Toggle-Bar refresh, damit Chip-Lock reagiert
+    renderNextRunLlms();
   } catch (e) {
     // Silent: Netzwerkfehler nicht sichtbar machen
   }
@@ -1966,13 +1970,23 @@ function renderNextRunLlms() {
     return;
   }
   bar.style.display = "flex";
+  const runActive = !!state.activeRunNumber;
   box.innerHTML = state.config.llms.map((l, i) => {
     const active = !!l.enabled;
-    return `<span class="nr-chip ${active ? "active" : "inactive"}" data-llm-id="${escapeAttr(l.id)}" onclick="toggleNextRunLlm('${escapeAttr(l.id)}')" title="Klick: ${active ? "im naechsten Lauf NICHT" : "im naechsten Lauf"} nutzen">
+    const clickHandler = runActive ? "" : `onclick="toggleNextRunLlm('${escapeAttr(l.id)}')"`;
+    const title = runActive
+      ? `Lauf #${state.activeRunNumber} laeuft - Aenderungen erst danach moeglich`
+      : `Klick: ${active ? "im naechsten Lauf NICHT" : "im naechsten Lauf"} nutzen`;
+    return `<span class="nr-chip ${active ? "active" : "inactive"}${runActive ? " locked" : ""}" data-llm-id="${escapeAttr(l.id)}" ${clickHandler} title="${escapeHtml(title)}">
       <span class="nr-dot"></span>
       ${escapeHtml(l.display_name || l.id)}
     </span>`;
   }).join("");
+  // Hint-Zeile rechts
+  const st = $("nextRunStatus");
+  if (runActive && st && !st.textContent) {
+    nrStatus("Lauf #" + state.activeRunNumber + " laeuft - Toggle gesperrt", "");
+  }
 }
 
 function nrStatus(msg, cls) {
