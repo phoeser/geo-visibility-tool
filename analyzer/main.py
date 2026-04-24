@@ -396,6 +396,34 @@ def _compute_totals(run_dict: Dict, brand_names: List[str]) -> Dict:
     return {"ranking": out}
 
 
+
+
+def _compile_url_excludes(cfg: Dict) -> List:
+    """Liest cfg.url_excludes und liefert eine Liste Callables (url -> bool, True = exclude)."""
+    out = []
+    for rule in (cfg.get("url_excludes") or []):
+        if not isinstance(rule, dict):
+            continue
+        pat = rule.get("pattern") or ""
+        typ = (rule.get("type") or "substring").lower()
+        if not pat:
+            continue
+        if typ == "regex":
+            try:
+                rx = re.compile(pat, re.IGNORECASE)
+                out.append((lambda rx: lambda url: bool(rx.search(url or "")))(rx))
+            except Exception as e:
+                print(f"[EXCLUDES] ungueltiges Regex uebergangen: {pat} ({e})")
+        else:
+            # substring (case-insensitive)
+            pat_l = pat.lower()
+            out.append((lambda p: lambda url: p in (url or "").lower())(pat_l))
+    return out
+
+
+def _url_excluded(url: str, excludes: List) -> bool:
+    return any(fn(url) for fn in excludes)
+
 def _build_brand_urls(cfg: Dict, *, auto_discover: bool = True, max_per_brand: int | None = None) -> Dict[str, List[Dict]]:
     """
     Flacht die Config-Struktur in ein `{brand: [{url, product_ids}, ...]}` um.
@@ -425,6 +453,8 @@ def _build_brand_urls(cfg: Dict, *, auto_discover: bool = True, max_per_brand: i
 
     # (brand, url) -> set(product_ids)
     index: Dict[Tuple[str, str], set] = {}
+    _excludes = _compile_url_excludes(cfg)
+    _skipped = 0
 
     for product in cfg.get("products", []):
         pid = product.get("id") or ""
@@ -443,6 +473,9 @@ def _build_brand_urls(cfg: Dict, *, auto_discover: bool = True, max_per_brand: i
                 if urls:
                     tracked_brands_nonempty.add(brand)
                 for u in urls:
+                    if _url_excluded(u, _excludes):
+                        _skipped += 1
+                        continue
                     key = (brand, u)
                     index.setdefault(key, set()).add(pid)
 
@@ -457,19 +490,28 @@ def _build_brand_urls(cfg: Dict, *, auto_discover: bool = True, max_per_brand: i
                     except Exception:
                         continue
                     for u in res.get("urls", []):
-                        if isinstance(u, str) and u.strip():
-                            key = (brand, u.strip())
-                            index.setdefault(key, set()).add(pid)
+                        if not (isinstance(u, str) and u.strip()):
+                            continue
+                        url = u.strip()
+                        if _url_excluded(url, _excludes):
+                            _skipped += 1
+                            continue
+                        key = (brand, url)
+                        index.setdefault(key, set()).add(pid)
 
         # 3) Letzter Fallback: wenn weder tracked_urls noch keywords existieren,
         #    verwende das alte product["url"] für die eigene Marke.
         if not tracked and not keywords:
             u = product.get("url")
             if isinstance(u, str) and u.strip() and own_brand:
-                key = (own_brand, u.strip())
-                index.setdefault(key, set()).add(pid)
+                url = u.strip()
+                if not _url_excluded(url, _excludes):
+                    key = (own_brand, url)
+                    index.setdefault(key, set()).add(pid)
 
     # In Dict umbauen
+    if _skipped:
+        print(f"[EXCLUDES] {_skipped} URL(s) durch url_excludes rausgefiltert")
     out: Dict[str, List[Dict]] = {}
     for (brand, url), pids in index.items():
         out.setdefault(brand, []).append({
