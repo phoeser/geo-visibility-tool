@@ -38,6 +38,7 @@ from analyzer.impact_analysis import (  # noqa: E402
 from analyzer.page_tracker import track_all as track_all_pages  # noqa: E402
 from analyzer.diff_classifier import make_classifier  # noqa: E402
 from analyzer import correlation  # noqa: E402
+from analyzer import why_analysis  # noqa: E402
 from analyzer.sitemap_discovery import discover_for_product  # noqa: E402
 
 
@@ -306,6 +307,22 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
         json.dumps(run_dict, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
+    # --- 6b) Warum-Analyse: pro (Produkt, Marke) Erklaerung der Sichtbarkeit ---
+    print("\n[WHY] Analysiere Sichtbarkeits-Muster pro Marke (Claude) ...")
+    try:
+        if clients.get("claude"):
+            run_dict["why_analysis"] = why_analysis.analyze_run(run_dict, clients["claude"])
+            print(f"[WHY] fertig fuer {len(run_dict['why_analysis'])} Produkte")
+        else:
+            print("[WHY] uebersprungen (kein Claude-Client)")
+            run_dict["why_analysis"] = {}
+    except Exception as e:
+        print(f"[WHY] Fehler: {e}")
+        run_dict["why_analysis"] = {"error": str(e)[:200]}
+    # run-file ueberschreiben mit aktualisierten Daten
+    current_file.write_text(json.dumps(run_dict, ensure_ascii=False, indent=2), encoding="utf-8")
+    latest_file.write_text(json.dumps(run_dict, ensure_ascii=False, indent=2), encoding="utf-8")
+
     # --- 7) Korrelation: Webseiten-Events ↔ Metrik-Veränderungen ---
     print("\n[CORR] Berechne Korrelation Webseiten-Events ↔ Metriken ...")
     try:
