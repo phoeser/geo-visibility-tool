@@ -107,19 +107,37 @@ def _delta(base: Dict, later: Dict) -> Dict:
 # ---------------------------------------------------------------------------
 
 def _parse_ts(s: Optional[str]) -> Optional[datetime]:
+    """
+    Akzeptiert sowohl echtes ISO-8601 ("2026-04-23T16:14:20Z") als auch
+    unser dateinamen-sicheres Format mit Bindestrichen in der Uhrzeit
+    ("2026-04-23T16-14-20Z"). Beides wird auf datetime mit UTC-Offset gebracht.
+    """
     if not s:
         return None
+    orig = s
     try:
         if s.endswith("Z"):
             s = s[:-1] + "+00:00"
         return datetime.fromisoformat(s)
+    except Exception:
+        pass
+    # Fallback: Bindestriche in der Uhrzeit durch Doppelpunkte ersetzen
+    try:
+        import re as _re
+        # Pattern: "YYYY-MM-DDTHH-MM-SS" -> "YYYY-MM-DDTHH:MM:SS"
+        s2 = _re.sub(r"(T\d{2})-(\d{2})-(\d{2})", r"\1:\2:\3", orig)
+        if s2.endswith("Z"):
+            s2 = s2[:-1] + "+00:00"
+        return datetime.fromisoformat(s2)
     except Exception:
         return None
 
 
 def load_runs(runs_dir: Path) -> List[dict]:
     runs: List[dict] = []
-    for fp in sorted(runs_dir.glob("run_*.json")):
+    for fp in sorted(runs_dir.glob("*.json")):
+        if fp.name in ("index.json", "latest.json"):
+            continue
         try:
             runs.append(json.loads(fp.read_text(encoding="utf-8")))
         except Exception:
