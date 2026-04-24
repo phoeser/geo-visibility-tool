@@ -56,6 +56,13 @@ MAX_DIFF_LINES = 120
 # Max. Chars der Diff-Snippets für den Classifier
 MAX_CLASSIFIER_SNIPPET = 6000
 
+# Schwelle fuer "echte" Aenderungen:
+# Wenn Textaehnlichkeit >= NOISE_SIMILARITY UND Diff kleiner als NOISE_MAX_LINES
+# Zeilen betraegt, behandeln wir das als dynamisches Rauschen (rotierende Teaser,
+# Testimonials etc.) und erzeugen KEIN change-Event.
+NOISE_SIMILARITY = 0.98
+NOISE_MAX_LINES = 10
+
 
 # ---------------------------------------------------------------------------
 # Helper
@@ -373,6 +380,15 @@ def track_page(
         f"{len(added)} neue Zeilen, {len(removed)} entfernte Zeilen "
         f"(Ähnlichkeit {similarity:.1%})."
     )
+
+    # Rauschfilter: sehr aehnliche Seiten mit winzigen Diffs = dynamische Teaser
+    if similarity >= NOISE_SIMILARITY and (len(added) + len(removed)) <= NOISE_MAX_LINES:
+        result.changed = False
+        result.summary = (
+            f"Keine substantielle Aenderung (Ähnlichkeit {similarity:.1%}, "
+            f"nur {len(added)+len(removed)} Zeilen Diff - Rauschen)."
+        )
+        return result
 
     classification = None
     if classifier is not None:
