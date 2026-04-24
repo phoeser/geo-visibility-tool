@@ -63,22 +63,54 @@ def _snippet(text: str, limit: int = MAX_SNIPPET_CHARS) -> str:
 def _safe_json(text: str) -> Optional[Dict]:
     if not text:
         return None
-    t = text.strip()
-    if t.startswith("```"):
-        t = re.sub(r"^```[a-zA-Z]*\s*", "", t)
-        t = re.sub(r"\s*```\s*$", "", t)
+    s = text.strip()
+    # Codefences entfernen
+    if s.startswith("```"):
+        s = re.sub(r"^```[a-zA-Z]*\s*", "", s)
+        s = re.sub(r"\s*```\s*$", "", s)
+    # Direkt parsen
     try:
-        return json.loads(t)
+        return json.loads(s)
     except Exception:
         pass
-    start = t.find("{")
-    end = t.rfind("}")
-    if start >= 0 and end > start:
-        try:
-            return json.loads(t[start : end + 1])
-        except Exception:
+    # Erste vollstaendige JSON-Klammer rauspicken (mit Balance-Counter, damit
+    # verschachtelte Objekte/Kommentare den rfind nicht stoeren)
+    start = s.find("{")
+    if start < 0:
+        return None
+    depth = 0
+    end = -1
+    in_str = False
+    esc = False
+    for i in range(start, len(s)):
+        ch = s[i]
+        if in_str:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == '"':
+                in_str = False
+            continue
+        if ch == '"':
+            in_str = True
+            continue
+        if ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                end = i
+                break
+    if end < 0:
+        # Letzter Fallback: greedy bis letzte Klammer
+        end = s.rfind("}")
+        if end <= start:
             return None
-    return None
+    try:
+        return json.loads(s[start : end + 1])
+    except Exception:
+        return None
 
 
 def _gather_examples(run: Dict, product_id: str, target_brand: str) -> Dict:
@@ -203,15 +235,17 @@ def analyze_brand_for_product(run: Dict, product_id: str, brand: str, claude_cli
         positive_block="\n".join(_format_example(e) for e in positives) or "(keine Beispiele)",
         negative_block="\n".join(_format_example(e) for e in negatives) or "(keine Beispiele)",
     )
+    # System-Prompt-Wrapper: unabhaengig vom LLM (Gemini/Claude/OpenAI alle nutzen eigenen System-Prompt aus llm_clients)
+    full_prompt = SYSTEM_PROMPT + "\n\n" + prompt
     try:
-        resp = claude_client.ask(prompt)
+        resp = claude_client.ask(full_prompt)
     except Exception as e:
-        return {"error": f"Claude-Call fehlgeschlagen: {str(e)[:200]}"}
+        return {"error": f"Call fehlgeschlagen: {str(e)[:200]}"}
     if getattr(resp, "error", None):
-        return {"error": f"Claude-Error: {resp.error[:200]}"}
+        return {"error": f"LLM-Error: {resp.error[:200]}"}
     parsed = _safe_json(getattr(resp, "text", "") or "")
     if not parsed:
-        return {"error": "Claude-Antwort nicht als JSON parsebar", "raw": (getattr(resp, "text", "") or "")[:200]}
+        return {"error": "LLM-Antwort nicht als JSON parsebar", "raw": (getattr(resp, "text", "") or "")[:300]}
     return {
         "reasons_mentioned": str(parsed.get("reasons_mentioned") or "")[:500],
         "reasons_absent": str(parsed.get("reasons_absent") or "")[:500],
