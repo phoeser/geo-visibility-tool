@@ -41,6 +41,8 @@ from urllib.robotparser import RobotFileParser
 import requests
 from bs4 import BeautifulSoup
 
+from analyzer import scraping_api
+
 # Reuse des User-Agents, damit wir gegenüber der Seite konsistent auftreten
 USER_AGENT = "geo-visibility-tool/1.0 (+https://github.com/phoeser/geo-visibility-tool)"
 
@@ -57,10 +59,10 @@ MAX_DIFF_LINES = 120
 MAX_CLASSIFIER_SNIPPET = 6000
 
 # Schwelle fuer "echte" Aenderungen:
-# Wenn Textaehnlichkeit >= NOISE_SIMILARITY UND Diff kleiner als NOISE_MAX_LINES
+# Wenn Textaehnlichkeit >= NOISE_SIMILARITY (97%) UND Diff kleiner als NOISE_MAX_LINES
 # Zeilen betraegt, behandeln wir das als dynamisches Rauschen (rotierende Teaser,
 # Testimonials etc.) und erzeugen KEIN change-Event.
-NOISE_SIMILARITY = 0.98
+NOISE_SIMILARITY = 0.97
 NOISE_MAX_LINES = 10
 
 
@@ -258,14 +260,39 @@ class TrackResult:
 
 
 def _fetch(url: str, timeout: int = 30) -> Tuple[int, str, Optional[str]]:
+    """Holt eine URL. Fallback auf ScrapingBee wenn 403/Cloudflare erkannt."""
     try:
         r = requests.get(url, headers=_headers(), timeout=timeout, allow_redirects=True)
-        if r.status_code == 200:
-            return r.status_code, r.text, None
-        return r.status_code, "", f"HTTP {r.status_code}"
-    except Exception as e:  # noqa: BLE001
-        return 0, "", str(e)[:400]
+        status = r.status_code
+        text = r.text if r.ok else None
 
+        # Cloudflare-Erkennung auch bei 200er Response (Challenge-Page)
+        if text and scraping_api.looks_like_cloudflare_challenge(text):
+            status = 403  # als blockiert betrachten
+
+        if status in (401, 402, 403, 407, 429, 503) or text is None:
+            # Fallback via ScrapingBee, wenn API-Key verfuegbar
+            if scraping_api.api_key_available():
+                bee_status, bee_final, bee_html = scraping_api.fetch_via_api(
+                    url, render_js=False, premium_proxy=True
+                )
+                if bee_status == 200 and bee_html and not scraping_api.looks_like_cloudflare_challenge(bee_html):
+                    print(f"[SCRAPINGBEE] {url}: OK via Fallback")
+                    return 200, bee_final or url, bee_html
+                # 2. Versuch mit JS-Rendering wenn statisch nicht reicht
+                if bee_status != 200:
+                    bee_status, bee_final, bee_html = scraping_api.fetch_via_api(
+                        url, render_js=True, premium_proxy=True
+                    )
+                    if bee_status == 200 and bee_html:
+                        print(f"[SCRAPINGBEE] {url}: OK via Fallback+render_js")
+                        return 200, bee_final or url, bee_html
+                print(f"[SCRAPINGBEE] {url}: Fallback fehlgeschlagen (status {bee_status})")
+            else:
+                print(f"[FETCH] {url}: {status} - kein ScrapingBee-Key, ueberspringe")
+        return status, r.url, text
+    except Exception as e:  # noqa: BLE001
+        return 0, url, None
 
 def track_page(
     pages_base: Path,
