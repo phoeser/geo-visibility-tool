@@ -308,13 +308,21 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
         encoding="utf-8",
     )
     # --- 6b) Warum-Analyse: pro (Produkt, Marke) Erklaerung der Sichtbarkeit ---
-    print("\n[WHY] Analysiere Sichtbarkeits-Muster pro Marke (Claude) ...")
+    why_llm_id = cfg.get("why_analysis_llm") or "claude"
+    print(f"\n[WHY] Analysiere Sichtbarkeits-Muster pro Marke (LLM: {why_llm_id}) ...")
     try:
-        if clients.get("claude"):
-            run_dict["why_analysis"] = why_analysis.analyze_run(run_dict, clients["claude"])
-            print(f"[WHY] fertig fuer {len(run_dict['why_analysis'])} Produkte")
+        why_client = clients.get(why_llm_id)
+        if not why_client:
+            # Client ad-hoc erzeugen, falls LLM im Hauptlauf deaktiviert ist
+            llm_cfg = next((l for l in cfg.get("llms", []) if l.get("id") == why_llm_id), None)
+            if llm_cfg:
+                why_client = build_clients([{**llm_cfg, "enabled": True}]).get(why_llm_id)
+        if why_client:
+            run_dict["why_analysis"] = why_analysis.analyze_run(run_dict, why_client)
+            run_dict["why_analysis_meta"] = {"llm": why_llm_id}
+            print(f"[WHY] fertig fuer {len(run_dict['why_analysis'])} Produkte (LLM: {why_llm_id})")
         else:
-            print("[WHY] uebersprungen (kein Claude-Client)")
+            print(f"[WHY] uebersprungen (kein {why_llm_id}-Client verfuegbar, API-Key fehlt?)")
             run_dict["why_analysis"] = {}
     except Exception as e:
         print(f"[WHY] Fehler: {e}")
