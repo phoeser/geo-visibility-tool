@@ -100,7 +100,7 @@
   "llms": [
     {
       "id": "claude",
-      "enabled": true,
+      "enabled": false,
       "provider": "anthropic",
       "model": "claude-sonnet-4-6",
       "display_name": "Claude (Anthropic)"
@@ -140,5 +140,6 @@
     "max_tokens": 1200,
     "parallel_requests": 5,
     "retry_attempts": 3
-  }
+  },
+  "why_analysis_llm": "gemini"
 }
