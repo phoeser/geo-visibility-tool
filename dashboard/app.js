@@ -305,7 +305,14 @@ function renderWebDiff() {
     if (!selectedPid || selectedPid === "all") return true;
     return (e.product_ids || []).includes(selectedPid);
   }
-  const interesting = events.filter(e => (e.changed || e.first_seen) && matchProduct(e));
+  // Rauschfilter: Mikro-Aenderungen (>=98% Aehnlichkeit + <=10 Diff-Zeilen) ausblenden
+  function isNoise(e) {
+    if (!e.changed) return false;
+    const sim = (typeof e.similarity === "number") ? e.similarity : 1;
+    const lines = (e.added_lines ? e.added_lines.length : 0) + (e.removed_lines ? e.removed_lines.length : 0);
+    return sim >= 0.98 && lines <= 10;
+  }
+  const interesting = events.filter(e => (e.changed || e.first_seen) && matchProduct(e) && !isNoise(e));
 
   // Counts pro Art
   const nChanged = interesting.filter(e => e.changed).length;
@@ -1484,6 +1491,7 @@ function switchTab(name) {
   if (name === "history") renderHistory();
   if (name === "config") loadConfigForEdit();
   if (name === "impact") renderImpactTab();
+  if (name === "why") renderWhyTab();
 }
 
 async function init() {
@@ -1774,6 +1782,86 @@ function rsStart() {
   if (rsTimer) clearInterval(rsTimer);
   // 30 Sek. Polling — ausreichend, nervt die GitHub-API nicht
   rsTimer = setInterval(rsPoll, 30000);
+}
+
+
+
+// ----------------------------------------------------------------------
+// Warum-Tab: zeigt warum Marken genannt/nicht genannt werden
+// ----------------------------------------------------------------------
+
+function renderWhyTab() {
+  const c = $("whyContainer");
+  if (!c) return;
+  const run = state.currentRun;
+  if (!run) { c.innerHTML = '<p class="hint">Kein Lauf geladen.</p>'; return; }
+  const why = run.why_analysis;
+  if (!why || typeof why !== "object" || why.error) {
+    const msg = (why && why.error) ? why.error : "Diese Analyse wurde fuer diesen Lauf nicht erzeugt. Erst beim naechsten Lauf vorhanden.";
+    c.innerHTML = `<section class="card"><p class="hint">${escapeHtml(msg)}</p></section>`;
+    return;
+  }
+  const ownBrand = run.brand || "";
+  const productIds = Object.keys(why);
+  if (!productIds.length) { c.innerHTML = '<p class="hint">Keine Produkte.</p>'; return; }
+
+  function brandCard(brand, data) {
+    if (!data) return "";
+    const isSelf = brand === ownBrand;
+    if (data.error) {
+      return `<div class="why-card error">
+        <h4>${escapeHtml(brand)} <span class="pill down">Fehler</span></h4>
+        <p>${escapeHtml(data.error)}</p>
+      </div>`;
+    }
+    if (data._meta && data._meta.skipped) {
+      return `<div class="why-card skipped${isSelf ? " brand-self" : ""}">
+        <h4>${escapeHtml(brand)} <span class="sov-pill">0 %</span></h4>
+        <p class="hint">${escapeHtml(data.reasons_absent || "Keine Antworten erwaehnen diese Marke.")}</p>
+      </div>`;
+    }
+    const sov = (data._meta && data._meta.sov) || 0;
+    const sovPct = (sov * 100).toFixed(1);
+    const topics = (data.key_topics || []).map(t => `<span class="why-chip">${escapeHtml(t)}</span>`).join("");
+    const missing = (data.missing_topics || []).map(t => `<span class="why-chip missing">${escapeHtml(t)}</span>`).join("");
+    const suggestions = (data.improvement_suggestions || []).map(s => `<li>${escapeHtml(s)}</li>`).join("");
+    return `<div class="why-card${isSelf ? " brand-self" : ""}">
+      <h4>${escapeHtml(brand)}${isSelf ? ' <span class="pill up">eigene Marke</span>' : ''} <span class="sov-pill">${sovPct} % SoV</span></h4>
+
+      <div class="section-label">Warum genannt</div>
+      <p>${escapeHtml(data.reasons_mentioned || "-")}</p>
+      ${data.example_quote_positive ? `<blockquote>${escapeHtml(data.example_quote_positive)}</blockquote>` : ""}
+
+      <div class="section-label">Warum nicht genannt</div>
+      <p>${escapeHtml(data.reasons_absent || "-")}</p>
+      ${data.example_quote_negative ? `<blockquote>${escapeHtml(data.example_quote_negative)}</blockquote>` : ""}
+
+      ${topics ? `<div class="section-label">Starke Themen</div><div class="why-chips">${topics}</div>` : ""}
+      ${missing ? `<div class="section-label">Fehlende Themen</div><div class="why-chips">${missing}</div>` : ""}
+
+      ${suggestions ? `<div class="section-label">Empfehlungen</div><ul>${suggestions}</ul>` : ""}
+    </div>`;
+  }
+
+  function productSection(pid) {
+    const data = why[pid] || {};
+    const prodLabel = (run.products[pid] && run.products[pid].name) || pid;
+    const brands = Object.keys(data);
+    if (!brands.length) return "";
+    // Eigene Marke zuerst, dann Rest
+    brands.sort((a, b) => {
+      if (a === ownBrand) return -1;
+      if (b === ownBrand) return 1;
+      return a.localeCompare(b);
+    });
+    const cards = brands.map(b => brandCard(b, data[b])).join("");
+    return `<section class="card why-product">
+      <h3>${escapeHtml(prodLabel)}</h3>
+      <div class="why-grid">${cards}</div>
+    </section>`;
+  }
+
+  c.innerHTML = productIds.map(productSection).join("") || '<p class="hint">Keine Daten.</p>';
 }
 
 init();
