@@ -414,13 +414,14 @@ def _build_brand_urls(cfg: Dict, *, auto_discover: bool = True, max_per_brand: i
     """
     own_brand = (cfg.get("brand") or {}).get("name") or ""
 
-    # Marke -> Domain
-    brand_domains: Dict[str, str] = {}
-    if (cfg.get("brand") or {}).get("domain"):
-        brand_domains[cfg["brand"]["name"]] = cfg["brand"]["domain"]
+    # Marke -> Liste von Domains (primaer + extras)
+    brand_domains: Dict[str, List[str]] = {}
+    own = cfg.get("brand") or {}
+    if own.get("name") and own.get("domain"):
+        brand_domains[own["name"]] = [own["domain"]] + list(own.get("extra_domains") or [])
     for c in cfg.get("competitors", []) or []:
         if c.get("name") and c.get("domain"):
-            brand_domains[c["name"]] = c["domain"]
+            brand_domains[c["name"]] = [c["domain"]] + list(c.get("extra_domains") or [])
 
     # (brand, url) -> set(product_ids)
     index: Dict[Tuple[str, str], set] = {}
@@ -445,19 +446,20 @@ def _build_brand_urls(cfg: Dict, *, auto_discover: bool = True, max_per_brand: i
                     key = (brand, u)
                     index.setdefault(key, set()).add(pid)
 
-        # 2) Auto-Discovery via Sitemap für Marken ohne manuelle URL-Liste
+        # 2) Auto-Discovery via Sitemap + Homepage-Crawl fuer jede Brand-Domain
         if auto_discover and keywords:
-            for brand, domain in brand_domains.items():
+            for brand, domains in brand_domains.items():
                 if brand in tracked_brands_nonempty:
-                    continue  # manuell gesetzt, respektieren
-                try:
-                    res = discover_for_product(domain, keywords, max_urls=max_per_brand)
-                except Exception:
                     continue
-                for u in res.get("urls", []):
-                    if isinstance(u, str) and u.strip():
-                        key = (brand, u.strip())
-                        index.setdefault(key, set()).add(pid)
+                for domain in domains:
+                    try:
+                        res = discover_for_product(domain, keywords, max_urls=max_per_brand)
+                    except Exception:
+                        continue
+                    for u in res.get("urls", []):
+                        if isinstance(u, str) and u.strip():
+                            key = (brand, u.strip())
+                            index.setdefault(key, set()).add(pid)
 
         # 3) Letzter Fallback: wenn weder tracked_urls noch keywords existieren,
         #    verwende das alte product["url"] für die eigene Marke.
