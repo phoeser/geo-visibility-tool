@@ -693,7 +693,18 @@ function renderConfigUI() {
       </label>
     </div>
   `).join("");
-  $("cfgLlms").innerHTML = llmHtml;
+  const whyLlm = cfg.why_analysis_llm || "gemini";
+  const whyOpts = cfg.llms.map(l =>
+    `<option value="${escapeHtml(l.id)}" ${l.id === whyLlm ? "selected" : ""}>${escapeHtml(l.display_name || l.id)} (${escapeHtml(l.provider)})</option>`
+  ).join("");
+  $("cfgLlms").innerHTML = llmHtml +
+    `<div class="cfg-item why-llm-row" style="margin-top:10px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.08);">
+       <label style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+         <strong>Why-Analyse nutzt:</strong>
+         <select id="cfgWhyLlm" style="min-width:200px;">${whyOpts}</select>
+         <span class="hint">(kann ein anderer LLM sein als im Hauptlauf)</span>
+       </label>
+     </div>`;
 
   renderCompetitors();
   renderProducts();
@@ -1000,6 +1011,8 @@ function collectLlms() {
     const i = +cb.getAttribute("data-llm-idx");
     state.config.llms[i].enabled = cb.checked;
   });
+  const whyEl = $("cfgWhyLlm");
+  if (whyEl) state.config.why_analysis_llm = whyEl.value;
 }
 
 async function ghRequest(method, url, token, body) {
@@ -1787,7 +1800,7 @@ function rsStart() {
 
 
 // ----------------------------------------------------------------------
-// Warum-Tab: zeigt warum Marken genannt/nicht genannt werden
+// Why-Tab: zeigt warum Marken genannt/nicht genannt werden
 // ----------------------------------------------------------------------
 
 function renderWhyTab() {
