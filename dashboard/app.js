@@ -730,6 +730,17 @@ function renderConfigUI() {
        </label>
      </div>`;
 
+  // Live-Sync: Config-Tab Checkbox-Change -> state + Dashboard-Bar
+  document.querySelectorAll("input[data-llm-idx]").forEach(cb => {
+    cb.addEventListener("change", () => {
+      const i = +cb.getAttribute("data-llm-idx");
+      if (state.config.llms[i]) {
+        state.config.llms[i].enabled = cb.checked;
+        renderNextRunLlms();
+      }
+    });
+  });
+
   renderCompetitors();
   renderProducts();
 }
@@ -1118,6 +1129,7 @@ async function cfgSaveAll() {
     cfgLog("Fertig - Aenderungen sind im Repo. Naechster Lauf nutzt die neue Config.", "ok");
     cfgLog("Workflow manuell starten: github.com/" + repo + "/actions", "info");
     cfgStatus("Erfolgreich gespeichert.", "ok");
+    renderNextRunLlms();
   } catch (e) {
     cfgLog("  FAIL " + e.message, "err");
     cfgStatus("Fehler: " + e.message, "error");
@@ -1529,6 +1541,7 @@ function switchTab(name) {
   if (name === "config") loadConfigForEdit();
   if (name === "impact") renderImpactTab();
   if (name === "why") renderWhyTab();
+  if (name === "dashboard") renderNextRunLlms();
 }
 
 async function init() {
@@ -1550,6 +1563,10 @@ async function init() {
 
   // Prompt-Manager laden (laufzeitunabhaengig)
   pmLoadAll().catch(e => console.error("pmLoadAll failed:", e));
+
+  // LLM-Toggle-Bar fuer naechsten Lauf
+  loadConfigLite().then(ok => { if (ok) renderNextRunLlms(); })
+                  .catch(e => console.error("loadConfigLite failed:", e));
 
   $("runSelector").addEventListener("change", async function (e) {
     state.selectedRunFile = e.target.value;
@@ -1899,6 +1916,91 @@ function renderWhyTab() {
   }
 
   c.innerHTML = productIds.map(productSection).join("") || '<p class="hint">Keine Daten.</p>';
+}
+
+
+
+// ----------------------------------------------------------------------
+// Next-Run LLM-Toggles im Header
+// ----------------------------------------------------------------------
+
+async function loadConfigLite() {
+  // Nur config.json ziehen (ohne Prompts). Fuer Dashboard-Header.
+  const bp = state.basePath ? state.basePath.replace(/runs\/$/, "") : "";
+  const candidates = [
+    bp + "config.json",
+    "../data/config.json",
+    "data/config.json",
+  ];
+  const res = await tryFetch(candidates);
+  if (res) {
+    state.config = res.data;
+    return true;
+  }
+  return false;
+}
+
+function renderNextRunLlms() {
+  const bar = $("nextRunBar");
+  const box = $("nextRunLlms");
+  if (!bar || !box || !state.config || !Array.isArray(state.config.llms)) {
+    if (bar) bar.style.display = "none";
+    return;
+  }
+  bar.style.display = "flex";
+  box.innerHTML = state.config.llms.map((l, i) => {
+    const active = !!l.enabled;
+    return `<span class="nr-chip ${active ? "active" : "inactive"}" data-llm-id="${escapeAttr(l.id)}" onclick="toggleNextRunLlm('${escapeAttr(l.id)}')" title="Klick: ${active ? "im naechsten Lauf NICHT" : "im naechsten Lauf"} nutzen">
+      <span class="nr-dot"></span>
+      ${escapeHtml(l.display_name || l.id)}
+    </span>`;
+  }).join("");
+}
+
+function nrStatus(msg, cls) {
+  const el = $("nextRunStatus");
+  if (!el) return;
+  el.textContent = msg || "";
+  el.className = "nr-status hint " + (cls || "");
+  if (msg) setTimeout(() => { if (el.textContent === msg) nrStatus("", ""); }, 4000);
+}
+
+async function toggleNextRunLlm(id) {
+  if (!state.config || !Array.isArray(state.config.llms)) return;
+  const token = localStorage.getItem("gh_token");
+  const repo = localStorage.getItem("gh_repo");
+  if (!token || !repo) {
+    nrStatus("Erst Token/Repo im Config-Tab setzen", "err");
+    return;
+  }
+  const llm = state.config.llms.find(l => l.id === id);
+  if (!llm) return;
+  // Optimistisch togglen
+  llm.enabled = !llm.enabled;
+  renderNextRunLlms();
+  // UI auf "saving" setzen fuer diesen Chip
+  const chip = document.querySelector(`.nr-chip[data-llm-id="${id}"]`);
+  if (chip) chip.classList.add("saving");
+  nrStatus("Speichere ...");
+
+  try {
+    const content = JSON.stringify(state.config, null, 2);
+    const r = await ghPutFile(repo, "data/config.json", content, token,
+                              "chore: toggle LLM " + id + " via dashboard");
+    if (!r.ok && r.status !== 201) throw new Error("HTTP " + r.status);
+    nrStatus(llm.enabled ? `${llm.display_name || id} aktiviert` : `${llm.display_name || id} deaktiviert`, "ok");
+    // Wenn Config-Tab bereits geladen ist, Checkboxen dort auch updaten
+    const idx = state.config.llms.findIndex(l => l.id === id);
+    const cb = document.querySelector(`input[data-llm-idx="${idx}"]`);
+    if (cb) cb.checked = llm.enabled;
+  } catch (e) {
+    // Rollback
+    llm.enabled = !llm.enabled;
+    renderNextRunLlms();
+    nrStatus("Fehler: " + e.message, "err");
+  } finally {
+    if (chip) chip.classList.remove("saving");
+  }
 }
 
 init();
