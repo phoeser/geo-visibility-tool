@@ -18,6 +18,8 @@ liste zu erzeugen, die der Nutzer im Config-Tab reviewed und zuschneidet.
 
 from __future__ import annotations
 
+import gzip
+import io
 import re
 import time
 from typing import Dict, Iterable, List, Optional, Set, Tuple
@@ -27,7 +29,11 @@ from xml.etree import ElementTree as ET
 import requests
 from bs4 import BeautifulSoup
 
-USER_AGENT = "geo-visibility-tool/1.0 (+https://github.com/phoeser/geo-visibility-tool)"
+# Browser-like UA, damit simple Bot-Filter passieren
+USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+)
 
 # Begrenze, damit ein Aufruf nicht stundenlang läuft
 MAX_SITEMAP_BYTES = 8 * 1024 * 1024
@@ -78,7 +84,7 @@ def _fetch_sitemap(url: str) -> Optional[bytes]:
         r = requests.get(url, headers=_headers(), timeout=FETCH_TIMEOUT, allow_redirects=True, stream=True)
         if not r.ok:
             return None
-        # Stream mit Hardlimit, damit wir nicht in 200-MB-Sitemaps laufen
+        # Stream mit Hardlimit
         buf = bytearray()
         for chunk in r.iter_content(chunk_size=65536):
             if not chunk:
@@ -86,7 +92,14 @@ def _fetch_sitemap(url: str) -> Optional[bytes]:
             buf.extend(chunk)
             if len(buf) > MAX_SITEMAP_BYTES:
                 break
-        return bytes(buf)
+        data = bytes(buf)
+        # Gzip-Entpacken wenn URL auf .gz endet ODER Magic-Bytes erkannt werden
+        try:
+            if url.lower().endswith(".gz") or data[:2] == b"\x1f\x8b":
+                data = gzip.decompress(data)
+        except Exception:
+            pass
+        return data
     except Exception:
         return None
 
@@ -138,13 +151,34 @@ def discover_sitemap_urls(domain: str, max_depth: int = 3) -> List[str]:
     Findet alle URLs, die über Sitemaps der Domain auffindbar sind.
     Verfolgt Sitemap-Indizes bis zu max_depth Ebenen.
     """
-    seeds: List[str] = parse_sitemaps_from_robots(robots_txt(domain))
+    bare = domain.rstrip("/").lstrip(".").lower()
+    if bare.startswith("www."):
+        host_www = bare
+        host_bare = bare[4:]
+    else:
+        host_www = "www." + bare
+        host_bare = bare
+
+    # robots.txt beider Host-Varianten durchsuchen
+    seeds: List[str] = []
+    for h in (host_www, host_bare):
+        seeds.extend(parse_sitemaps_from_robots(robots_txt(h)))
+    _seen = set()
+    uniq = []
+    for s in seeds:
+        if s not in _seen:
+            _seen.add(s); uniq.append(s)
+    seeds = uniq
+
     if not seeds:
-        seeds = [
-            f"https://{domain.rstrip('/')}/sitemap.xml",
-            f"https://{domain.rstrip('/')}/sitemap_index.xml",
-            f"https://{domain.rstrip('/')}/sitemap-index.xml",
+        std_paths = [
+            "/sitemap.xml", "/sitemap_index.xml", "/sitemap-index.xml",
+            "/sitemaps.xml", "/sitemap/sitemap.xml", "/wp-sitemap.xml",
+            "/sitemap1.xml", "/sitemapindex.xml",
         ]
+        for h in (host_www, host_bare):
+            for pth in std_paths:
+                seeds.append(f"https://{h}{pth}")
 
     seen: Set[str] = set()
     queue: List[Tuple[str, int]] = [(u, 0) for u in seeds]
@@ -210,16 +244,27 @@ def _extract_links(html: str, base: str, same_domain_only: bool = True) -> List[
 
 def discover_homepage_crawl(domain: str, keyword_regex: re.Pattern, max_pages: int = MAX_CRAWL_PAGES) -> List[str]:
     """
-    Fallback, wenn keine sitemap.xml existiert.
-    1-Hop-Crawl: holt die Startseite, folgt Links, filtert nach Keywords.
+    Fallback, wenn keine sitemap.xml existiert oder sie blockiert ist.
+    2-Hop-Crawl: Startseite + gaengige Rubriken als Seeds, dann ein Hop tiefer.
     """
-    start = f"https://{domain.rstrip('/')}/"
-    queue: List[str] = [start]
+    bare = domain.rstrip("/").lstrip(".").lower()
+    host_www = bare if bare.startswith("www.") else "www." + bare
+    host_bare = bare[4:] if bare.startswith("www.") else bare
+
+    seeds: List[str] = []
+    for h in (host_www, host_bare):
+        seeds.append(f"https://{h}/")
+        for rub in ("ratgeber", "magazin", "versicherung", "produkte",
+                    "privat", "privatkunden", "pk", "gesundheit",
+                    "vorsorge", "gesundheit-vorsorge-vermoegen"):
+            seeds.append(f"https://{h}/{rub}")
+
+    queue: List[Tuple[str, int]] = [(u, 0) for u in seeds]
     seen: Set[str] = set()
     matches: List[str] = []
 
     while queue and len(seen) < max_pages:
-        url = queue.pop(0)
+        url, depth = queue.pop(0)
         if url in seen:
             continue
         seen.add(url)
@@ -229,11 +274,10 @@ def discover_homepage_crawl(domain: str, keyword_regex: re.Pattern, max_pages: i
         for link in _extract_links(html, url, same_domain_only=True):
             if keyword_regex.search(link):
                 matches.append(link)
-            elif link not in seen and len(queue) < max_pages:
-                queue.append(link)
-        time.sleep(0.8)  # höflich
+            elif depth < 1 and link not in seen and len(queue) < max_pages * 2:
+                queue.append((link, depth + 1))
+        time.sleep(0.5)
 
-    # Dedup
     seen_m: Set[str] = set()
     out: List[str] = []
     for u in matches:
@@ -248,25 +292,101 @@ def discover_homepage_crawl(domain: str, keyword_regex: re.Pattern, max_pages: i
 # Keyword-Filter
 # ---------------------------------------------------------------------------
 
+_KEYWORD_SYNONYMS: Dict[str, List[str]] = {
+    # --- Zahnzusatz-Welt: Produkt + Ratgeber + Leistungen ---
+    "zahnzusatz": [
+        "zahnzusatz", "zahnzusatzversicherung", "zahn-zusatz",
+        "zahnersatz", "zahn-ersatz", "zahnvorsorge", "zahn-vorsorge",
+        "zahnversicherung", "zahn-versicherung", "zahnschutz", "zahn-schutz",
+        "zahnreinigung", "zahn-reinigung", "prophylaxe",
+        "zahnarzt", "zahnpflege", "zahngesundheit",
+        "kieferorthopaedie", "kfo", "zahnspange",
+        "inlay", "onlay", "veneer", "veneers", "bleaching",
+        "zahnkrone", "zahnbruecke", "zahnimplantat", "implantologie",
+        "parodontose", "parodontitis", "parodontalbehandlung",
+        "wurzelbehandlung", "wurzelkanalbehandlung", "endodontie",
+        "professionelle-zahnreinigung", "pzr",
+        "zahnprothese", "dentallabor",
+    ],
+    "zahnersatz": [
+        "zahnersatz", "zahnkrone", "zahnimplantat", "zahnbruecke",
+        "zahnprothese", "inlay", "onlay",
+    ],
+    # --- Sterbegeld-Welt ---
+    "sterbegeld": [
+        "sterbegeld", "sterbegeldversicherung", "sterbegeld-versicherung",
+        "sterbeversicherung", "sterbe-versicherung", "sterbefall",
+        "bestattung", "bestattungsvorsorge", "bestattungskosten",
+        "bestattungskostenversicherung", "beerdigung", "beerdigungskosten",
+        "beerdigungsvorsorge", "todesfall", "todesfallversicherung-klein",
+        "vorsorge-sterbegeld", "wuerdige-bestattung", "trauervorsorge",
+        "beisetzung", "beisetzungskosten",
+    ],
+    # --- Risikoleben-Welt ---
+    "risikoleben": [
+        "risikoleben", "risikolebensversicherung", "risiko-lv", "risikolv",
+        "risiko-lebensversicherung", "risikolebens-versicherung",
+        "lebensversicherung", "lebens-versicherung",
+        "todesfallversicherung", "todesfall-versicherung",
+        "hinterbliebenenschutz", "hinterbliebenen-schutz",
+        "familienabsicherung", "familienschutz",
+        "hinterbliebenenversorgung", "einkommensschutz",
+        "tilgungsabsicherung", "baukredit-absicherung",
+        "absicherung-familie",
+    ],
+}
+
+
+def _expand_keyword(kw: str) -> List[str]:
+    k = kw.strip().lower()
+    if not k:
+        return []
+    out = [k]
+    for stem, syns in _KEYWORD_SYNONYMS.items():
+        if stem in k or k in syns:
+            for s in syns:
+                if s not in out:
+                    out.append(s)
+    # Bindestrich-Varianten
+    extra: List[str] = []
+    for w in out:
+        if "-" in w:
+            compact = w.replace("-", "")
+            if compact not in out:
+                extra.append(compact)
+        else:
+            for suf in ("versicherung", "vorsorge", "schutz"):
+                if w.endswith(suf) and len(w) > len(suf):
+                    base = w[: -len(suf)]
+                    cand = base.rstrip("-") + "-" + suf
+                    if cand not in out and cand != w:
+                        extra.append(cand)
+    out.extend(extra)
+    # De-dupe
+    seen = set(); final = []
+    for w in out:
+        if w and w not in seen:
+            seen.add(w); final.append(w)
+    return final
+
+
 def build_keyword_regex(keywords: Iterable[str]) -> re.Pattern:
     """
-    Baut aus einer Liste von Keywords (z.B. ["zahnzusatz", "zahnersatz"])
-    ein case-insensitives Regex, das sowohl in URLs als auch in Texten
-    matcht. Nicht-Word-Separatoren (/, -, _, .) werden toleriert.
+    Baut aus Keywords ein case-insensitives Regex. Expandiert automatisch
+    bekannte Versicherungs-Synonyme + Bindestrich-Varianten.
     """
-    parts = []
+    parts: List[str] = []
+    seen = set()
     for k in keywords:
-        k = k.strip().lower()
-        if not k:
-            continue
-        # Leerzeichen im Keyword → toleranter Separator
-        escaped = re.escape(k).replace(r"\ ", r"[\s_\-]*")
-        parts.append(escaped)
+        for variant in _expand_keyword(k):
+            if variant in seen:
+                continue
+            seen.add(variant)
+            escaped = re.escape(variant).replace(r"\ ", r"[\s_\-]*")
+            parts.append(escaped)
     if not parts:
-        # Matcht nichts
         return re.compile(r"$^")
-    pattern = "(" + "|".join(parts) + ")"
-    return re.compile(pattern, re.IGNORECASE)
+    return re.compile("(" + "|".join(parts) + ")", re.IGNORECASE)
 
 
 def filter_urls(urls: List[str], keyword_regex: re.Pattern) -> List[str]:
@@ -301,28 +421,46 @@ def discover_for_product(
 
     # Schritt 1: Sitemap-basiert
     sitemap_urls = discover_sitemap_urls(domain)
-    matched = filter_urls(sitemap_urls, rx)
-    if matched:
-        limited = matched if max_urls is None else matched[:max_urls]
-        return {
-            "urls": limited,
-            "source": "sitemap",
-            "stats": {
-                "sitemap_total": len(sitemap_urls),
-                "kw_matched": len(matched),
-                "crawl_visited": 0,
-            },
-        }
+    sitemap_matched = filter_urls(sitemap_urls, rx)
 
-    # Schritt 2: Homepage-Crawl-Fallback
-    crawled = discover_homepage_crawl(domain, rx)
+    # Schritt 2: Homepage-Crawl (IMMER, unabhaengig vom Sitemap-Erfolg),
+    # damit wir auch URLs finden, die nicht in der Sitemap stehen.
+    try:
+        crawled = discover_homepage_crawl(domain, rx)
+    except Exception:
+        crawled = []
+
+    # Merge + Dedupe (stabile Reihenfolge)
+    seen: Set[str] = set()
+    merged: List[str] = []
+    for u in sitemap_matched + crawled:
+        if u in seen:
+            continue
+        seen.add(u)
+        merged.append(u)
+
+    if max_urls is not None:
+        merged = merged[:max_urls]
+
+    if merged:
+        # Source-Label: "both" wenn beides liefert, sonst die einzelne Quelle
+        if sitemap_matched and crawled:
+            source = "both"
+        elif sitemap_matched:
+            source = "sitemap"
+        else:
+            source = "crawl"
+    else:
+        source = "none"
+
     return {
-        "urls": crawled if max_urls is None else crawled[:max_urls],
-        "source": "crawl" if crawled else "none",
+        "urls": merged,
+        "source": source,
         "stats": {
             "sitemap_total": len(sitemap_urls),
-            "kw_matched": 0,
-            "crawl_visited": MAX_CRAWL_PAGES,
+            "sitemap_kw_matched": len(sitemap_matched),
+            "crawl_kw_matched": len(crawled),
+            "final_count": len(merged),
         },
     }
 
