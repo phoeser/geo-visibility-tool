@@ -223,6 +223,14 @@ def compute(pages_dir: Path, runs_dir: Path) -> Dict:
     for ev in events:
         if ev.get("event_type") not in ("change", "first_seen"):
             continue
+        # Rauschfilter: Mikro-Aenderungen (>=98% Aehnlichkeit + <=10 Diff-Zeilen)
+        # werden NICHT als Impact-relevant gewertet.
+        if ev.get("event_type") == "change":
+            sim = ev.get("similarity")
+            a = ev.get("added_lines_count") or 0
+            r = ev.get("removed_lines_count") or 0
+            if isinstance(sim, (int, float)) and sim >= 0.98 and (a + r) <= 10:
+                continue
         ts = _parse_ts(ev.get("timestamp"))
         if not ts:
             continue
