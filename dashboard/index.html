@@ -29,6 +29,7 @@
       <button data-tab="dashboard" class="tab-btn active">Dashboard</button>
       <button data-tab="history" class="tab-btn">Historie</button>
       <button data-tab="impact" class="tab-btn">Impact</button>
+      <button data-tab="why" class="tab-btn">Warum</button>
       <button data-tab="config" class="tab-btn">Config</button>
     </nav>
     <div class="meta" id="runMeta">Lade Daten …</div>
@@ -174,6 +175,20 @@
         <p class="hint">Sortiert nach absoluter SoV-Veränderung bei t+1. Klick auf eine Zeile öffnet Details.</p>
         <div id="impactEventsTable"></div>
       </section>
+    </section>
+
+    <!-- ============ WHY TAB ============ -->
+    <section id="tab-why" class="tab-panel">
+      <section class="card">
+        <h2>Warum-Analyse</h2>
+        <p class="hint">
+          Pro Produkt und Marke: warum wird die Marke genannt, warum nicht.
+          Die Analyse wird bei jedem Lauf automatisch erzeugt (Claude analysiert
+          die Antwort-Muster). Zeigt Themen, Zitate und konkrete
+          SEO-/Content-Handlungsempfehlungen.
+        </p>
+      </section>
+      <div id="whyContainer"></div>
     </section>
 
     <!-- ============ CONFIG TAB ============ -->
