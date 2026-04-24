@@ -680,3 +680,23 @@ button.btn-icon:hover { background: rgba(239,68,68,0.15); color: var(--danger); 
 .history-scroll::-webkit-scrollbar { width: 10px; height: 10px; }
 .history-scroll::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 5px; }
 .history-scroll::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+
+
+/* --- Webseiten-Aenderungen: neues Layout --- */
+.diff-summary { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px; align-items:center; }
+.diff-brand { margin: 6px 0 10px 0; padding: 6px 10px; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; }
+.diff-brand > summary { cursor: pointer; padding: 6px 0; }
+.diff-events { display:flex; flex-direction:column; gap:6px; padding-top:8px; }
+.diff-event { padding: 8px 10px; border-radius: 6px; background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.04); }
+.diff-event > summary { cursor: pointer; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.diff-event.change { border-left: 3px solid var(--success, #22c55e); }
+.diff-event.first_seen { border-left: 3px solid #3b82f6; }
+.diff-url { max-width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.diff-url a { color: #93c5fd; text-decoration: none; }
+.diff-url a:hover { text-decoration: underline; }
+.diff-box { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; font-family: monospace; font-size: 12px; line-height: 1.5; }
+.diff-box .added, .diff-box .removed { padding: 8px; border-radius: 4px; background: rgba(0,0,0,0.2); white-space: pre-wrap; word-break: break-word; }
+@media (max-width: 800px) {
+  .diff-box { grid-template-columns: 1fr; }
+  .diff-url { max-width: 100%; }
+}
