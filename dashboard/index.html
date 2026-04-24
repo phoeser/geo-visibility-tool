@@ -40,6 +40,13 @@
     <button id="refreshBtn" class="refresh-btn" title="Neuen Analyse-Lauf auf GitHub anstoßen" onclick="triggerRefresh()">↻ Neuer Lauf</button>
   </header>
 
+  <!-- LLM-Toggles fuer naechsten Lauf -->
+  <div class="next-run-bar" id="nextRunBar" style="display:none;">
+    <span class="nr-label">Nächster Lauf:</span>
+    <div class="nr-chips" id="nextRunLlms"></div>
+    <span class="nr-status hint" id="nextRunStatus"></span>
+  </div>
+
   <main>
     <!-- ============ DASHBOARD TAB ============ -->
     <section id="tab-dashboard" class="tab-panel active">
