@@ -305,14 +305,32 @@ function renderWebDiff() {
     if (!selectedPid || selectedPid === "all") return true;
     return (e.product_ids || []).includes(selectedPid);
   }
-  // Rauschfilter: Mikro-Aenderungen (>=98% Aehnlichkeit + <=10 Diff-Zeilen) ausblenden
+  // Rauschfilter: Mikro-Aenderungen (>=97% Aehnlichkeit + <=10 Diff-Zeilen) ausblenden
   function isNoise(e) {
     if (!e.changed) return false;
     const sim = (typeof e.similarity === "number") ? e.similarity : 1;
     const lines = (e.added_lines ? e.added_lines.length : 0) + (e.removed_lines ? e.removed_lines.length : 0);
     return sim >= 0.97 && lines <= 10;
   }
-  const interesting = events.filter(e => (e.changed || e.first_seen) && matchProduct(e) && !isNoise(e));
+  // URL-Excludes aus state.config anwenden (z.B. Beraterseiten)
+  const _excludes = (state.config && Array.isArray(state.config.url_excludes)) ? state.config.url_excludes : [];
+  function isExcluded(url) {
+    if (!url) return false;
+    for (const rule of _excludes) {
+      if (!rule || !rule.pattern) continue;
+      const typ = (rule.type || "substring").toLowerCase();
+      try {
+        if (typ === "regex") {
+          const rx = new RegExp(rule.pattern, "i");
+          if (rx.test(url)) return true;
+        } else {
+          if (url.toLowerCase().indexOf(rule.pattern.toLowerCase()) >= 0) return true;
+        }
+      } catch (e) {}
+    }
+    return false;
+  }
+  const interesting = events.filter(e => (e.changed || e.first_seen) && matchProduct(e) && !isNoise(e) && !isExcluded(e.url));
 
   // Counts pro Art
   const nChanged = interesting.filter(e => e.changed).length;
