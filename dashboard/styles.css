@@ -700,3 +700,23 @@ button.btn-icon:hover { background: rgba(239,68,68,0.15); color: var(--danger); 
   .diff-box { grid-template-columns: 1fr; }
   .diff-url { max-width: 100%; }
 }
+
+
+/* --- Warum-Tab --- */
+.why-product { margin-bottom: 24px; }
+.why-product h3 { margin: 0 0 12px 0; font-size: 16px; color: #e6edf3; }
+.why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.why-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 14px; position: relative; }
+.why-card.brand-self { border-left: 3px solid var(--brand-red, #e11d48); }
+.why-card h4 { margin: 0 0 6px 0; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+.why-card .sov-pill { font-size: 11px; padding: 2px 6px; border-radius: 4px; background: rgba(59,130,246,0.2); color: #60a5fa; font-weight: 600; }
+.why-card .section-label { margin-top: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: #8b949e; font-weight: 600; }
+.why-card p { margin: 4px 0 6px 0; font-size: 13px; line-height: 1.5; color: #d0d7de; }
+.why-card blockquote { margin: 6px 0; padding: 6px 10px; border-left: 2px solid rgba(255,255,255,0.15); font-style: italic; color: #c9d1d9; font-size: 12px; }
+.why-chips { display: flex; flex-wrap: wrap; gap: 4px; margin: 4px 0; }
+.why-chip { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: rgba(255,255,255,0.08); color: #e6edf3; }
+.why-chip.missing { background: rgba(239,68,68,0.15); color: #fca5a5; }
+.why-card ul { margin: 4px 0; padding-left: 18px; font-size: 13px; color: #d0d7de; }
+.why-card ul li { margin: 2px 0; }
+.why-card.error { border-left: 3px solid #ef4444; }
+.why-card.skipped { opacity: 0.6; }
