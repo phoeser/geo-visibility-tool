@@ -261,5 +261,17 @@
     "parallel_requests": 5,
     "retry_attempts": 3
   },
-  "why_analysis_llm": "gemini"
+  "why_analysis_llm": "gemini",
+  "url_excludes": [
+    {
+      "type": "substring",
+      "pattern": "/Versicherung-vor-Ort/",
+      "description": "ERGO-Beraterseiten fuer lokale Standorte"
+    },
+    {
+      "type": "regex",
+      "pattern": "^https?://(?!www\\.ergo\\.de)[a-z0-9-]+\\.ergo\\.de(/|$)",
+      "description": "Individuelle ERGO-Berater-Subdomains (name.ergo.de)"
+    }
+  ]
 }
