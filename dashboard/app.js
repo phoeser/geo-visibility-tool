@@ -310,7 +310,7 @@ function renderWebDiff() {
     if (!e.changed) return false;
     const sim = (typeof e.similarity === "number") ? e.similarity : 1;
     const lines = (e.added_lines ? e.added_lines.length : 0) + (e.removed_lines ? e.removed_lines.length : 0);
-    return sim >= 0.98 && lines <= 10;
+    return sim >= 0.97 && lines <= 10;
   }
   const interesting = events.filter(e => (e.changed || e.first_seen) && matchProduct(e) && !isNoise(e));
 
@@ -335,12 +335,36 @@ function renderWebDiff() {
     });
   }
 
+  // Getrackte URLs pro Marke (aus page_tracking.brand_urls)
+  const brandUrlCounts = {};
+  const bu = (pt && pt.brand_urls) || {};
+  for (const brand of Object.keys(bu)) {
+    const list = bu[brand] || [];
+    // Fuer das ausgewaehlte Produkt filtern
+    if (selectedPid && selectedPid !== "all") {
+      brandUrlCounts[brand] = list.filter(x => (x.product_ids || []).includes(selectedPid)).length;
+    } else {
+      brandUrlCounts[brand] = list.length;
+    }
+  }
+  const brandCountsHtml = Object.keys(brandUrlCounts)
+    .sort((a,b) => brandUrlCounts[b] - brandUrlCounts[a])
+    .map(b => {
+      const n = brandUrlCounts[b];
+      const cls = n === 0 ? "down" : (n < 3 ? "flat" : "up");
+      return `<span class="pill ${cls}" title="${n} URL${n===1?"":"s"} getrackt fuer ${b}">${escapeHtml(b)}: ${n}</span>`;
+    }).join(" ");
+
   const headerHtml = `
     <div class="diff-summary">
       <span class="pill up">${nChanged} Änderung${nChanged === 1 ? "" : "en"}</span>
       <span class="pill flat">${nFirst} Erstsichtung${nFirst === 1 ? "" : "en"}</span>
       <span class="pill flat">${nUnchanged} unverändert</span>
       ${nErrors ? `<span class="pill down">${nErrors} Fehler</span>` : ""}
+    </div>
+    <div class="diff-summary" style="margin-top: -4px; padding-bottom: 4px;">
+      <span class="hint" style="align-self:center; margin-right: 4px;">Getrackte URLs:</span>
+      ${brandCountsHtml}
     </div>
   `;
 
