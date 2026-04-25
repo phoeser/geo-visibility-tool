@@ -222,7 +222,7 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
                     "prompt_id": p["id"],
                     "prompt_text": p["text"],
                     "intent": p.get("intent"),
-                    "response_text": resp["text"],
+                    "response_text": (resp.get("text") or "")[:1500],
                     "sources": resp["sources"],
                     "error": resp.get("error"),
                     "latency_ms": resp.get("latency_ms"),
@@ -486,7 +486,8 @@ def _build_brand_urls(cfg: Dict, *, auto_discover: bool = True, max_per_brand: i
                 for domain in domains:
                     try:
                         res = discover_for_product(domain, keywords, max_urls=max_per_brand)
-                    except Exception:
+                    except Exception as e:
+                        print(f"[DISCOVERY] FEHLER bei {brand}/{domain} (pid={pid}): {type(e).__name__}: {e}")
                         continue
                     for u in res.get("urls", []):
                         if not (isinstance(u, str) and u.strip()):
