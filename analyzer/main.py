@@ -480,10 +480,9 @@ def _build_brand_urls(cfg: Dict, *, auto_discover: bool = True, max_per_brand: i
                     index.setdefault(key, set()).add(pid)
 
         # 2) Auto-Discovery via Sitemap + Homepage-Crawl fuer jede Brand-Domain
+        # WICHTIG: laeuft AUCH wenn manuelle URLs vorhanden sind. Beide werden gemergt.
         if auto_discover and keywords:
             for brand, domains in brand_domains.items():
-                if brand in tracked_brands_nonempty:
-                    continue
                 for domain in domains:
                     try:
                         res = discover_for_product(domain, keywords, max_urls=max_per_brand)
