@@ -9,8 +9,11 @@ Output:  Dict[product_id, Dict[brand_name, AnalysisDict]]
 from __future__ import annotations
 
 import json
+import os
 import re
 from typing import Dict, List, Optional
+
+import requests
 
 MAX_POSITIVE_EXAMPLES = 15
 MAX_NEGATIVE_EXAMPLES = 15
@@ -207,6 +210,44 @@ def _format_example(e: Dict) -> str:
     return f"- {llm}{intent} Prompt: {prompt}\n  Antwort-Snippet: \"{snippet}\"{extra}"
 
 
+
+
+GEMINI_JSON_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}"
+
+
+def _call_gemini_json(prompt: str, system_prompt: str, model: str = "gemini-2.5-flash",
+                     max_tokens: int = 2500, timeout: int = 60) -> Optional[str]:
+    """
+    Direkt-Aufruf an Gemini mit responseMimeType=application/json und
+    erweiterter max_tokens. Liefert den Antwort-Text oder None.
+    """
+    api_key = os.getenv("GOOGLE_API_KEY") or ""
+    if not api_key:
+        return None
+    payload = {
+        "systemInstruction": {"parts": [{"text": system_prompt}]},
+        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+        "generationConfig": {
+            "temperature": 0.2,
+            "maxOutputTokens": max_tokens,
+            "responseMimeType": "application/json",
+        },
+    }
+    try:
+        url = GEMINI_JSON_ENDPOINT.format(model=model, key=api_key)
+        r = requests.post(url, json=payload, timeout=timeout,
+                          headers={"content-type": "application/json"})
+        if r.status_code != 200:
+            return None
+        data = r.json()
+        parts = (((data.get("candidates") or [{}])[0]).get("content") or {}).get("parts") or []
+        return "".join(p.get("text", "") for p in parts) or None
+    except Exception as e:
+        print(f"[WHY] Gemini-Direct-Call Fehler: {e}")
+        return None
+
+
+
 def analyze_brand_for_product(run: Dict, product_id: str, brand: str, claude_client) -> Optional[Dict]:
     product = (run.get("products") or {}).get(product_id) or {}
     product_label = product.get("name") or product_id
@@ -235,17 +276,28 @@ def analyze_brand_for_product(run: Dict, product_id: str, brand: str, claude_cli
         positive_block="\n".join(_format_example(e) for e in positives) or "(keine Beispiele)",
         negative_block="\n".join(_format_example(e) for e in negatives) or "(keine Beispiele)",
     )
-    # System-Prompt-Wrapper: unabhaengig vom LLM (Gemini/Claude/OpenAI alle nutzen eigenen System-Prompt aus llm_clients)
-    full_prompt = SYSTEM_PROMPT + "\n\n" + prompt
-    try:
-        resp = claude_client.ask(full_prompt)
-    except Exception as e:
-        return {"error": f"Call fehlgeschlagen: {str(e)[:200]}"}
-    if getattr(resp, "error", None):
-        return {"error": f"LLM-Error: {resp.error[:200]}"}
-    parsed = _safe_json(getattr(resp, "text", "") or "")
-    if not parsed:
-        return {"error": "LLM-Antwort nicht als JSON parsebar", "raw": (getattr(resp, "text", "") or "")[:300]}
+    # Bei Gemini: direkter API-Call mit JSON-Mode + 2500 Tokens (umgeht 1200-Limit)
+    client_class = type(claude_client).__name__
+    if client_class == "GeminiClient":
+        model = getattr(claude_client, "model", "gemini-2.5-flash")
+        text = _call_gemini_json(prompt, SYSTEM_PROMPT, model=model, max_tokens=2500)
+        if not text:
+            return {"error": "Gemini-Direct-Call lieferte keine Antwort"}
+        parsed = _safe_json(text)
+        if not parsed:
+            return {"error": "Gemini-JSON nicht parsebar", "raw": text[:300]}
+    else:
+        # Claude / OpenAI: System-Prompt vorne dranhaengen, normaler Client-Call
+        full_prompt = SYSTEM_PROMPT + "\n\n" + prompt
+        try:
+            resp = claude_client.ask(full_prompt)
+        except Exception as e:
+            return {"error": f"Call fehlgeschlagen: {str(e)[:200]}"}
+        if getattr(resp, "error", None):
+            return {"error": f"LLM-Error: {resp.error[:200]}"}
+        parsed = _safe_json(getattr(resp, "text", "") or "")
+        if not parsed:
+            return {"error": "LLM-Antwort nicht als JSON parsebar", "raw": (getattr(resp, "text", "") or "")[:300]}
     return {
         "reasons_mentioned": str(parsed.get("reasons_mentioned") or "")[:500],
         "reasons_absent": str(parsed.get("reasons_absent") or "")[:500],
