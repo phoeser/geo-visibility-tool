@@ -134,28 +134,49 @@ class DomainRateLimiter:
 # ---------------------------------------------------------------------------
 
 class RobotsCache:
-    def __init__(self) -> None:
+    """
+    Holt robots.txt mit unserem Browser-UA (statt Pythons default urllib).
+    Erkennt Cloudflare-Block-Pages und wertet sie als "kein robots" -> allow.
+    Globaler Override via cfg.respect_robots_txt (default True).
+    """
+
+    def __init__(self, respect: bool = True) -> None:
+        self.respect = respect
         self._cache: Dict[str, Optional[RobotFileParser]] = {}
 
     def _load(self, host: str) -> Optional[RobotFileParser]:
         try:
+            r = requests.get(
+                f"https://{host}/robots.txt",
+                headers=_headers(),
+                timeout=10,
+                allow_redirects=True,
+            )
+            # Cloudflare/AntiBot oder andere Block-Pages: kein gueltiges robots.txt
+            if r.status_code != 200:
+                return None
+            txt = r.text or ""
+            low = txt.lower()
+            cf_signals = ("cf-challenge", "cf_chl_opt", "/cdn-cgi/challenge",
+                          "<!doctype html", "<html")
+            if any(s in low for s in cf_signals):
+                # HTML statt robots.txt - Cloudflare oder JS-Challenge
+                return None
             rp = RobotFileParser()
-            rp.set_url(f"https://{host}/robots.txt")
-            rp.read()
+            rp.parse(txt.splitlines())
             return rp
         except Exception:
             return None
 
     def allowed(self, url: str) -> bool:
+        if not self.respect:
+            return True  # Master-Switch via config
         host = urlparse(url).netloc
         if host not in self._cache:
             self._cache[host] = self._load(host)
         rp = self._cache[host]
         if rp is None:
-            # Wenn robots.txt nicht lesbar — im Zweifel erlauben, aber
-            # protokollieren durch Rückgabe True. Für freundliches Crawlen
-            # wäre False sicherer; wir bevorzugen hier Funktionalität, da
-            # Versicherer-Domains in Praxis robots.txt haben.
+            # Kein lesbares robots.txt (z.B. Cloudflare-blockiert) -> erlaubt.
             return True
         return rp.can_fetch(USER_AGENT, url)
 
@@ -465,6 +486,7 @@ def track_all(
     run_id: str,
     brand_urls: Dict[str, List[Dict]],
     classifier=None,
+    respect_robots_txt: bool = True,
 ) -> List[Dict]:
     """
     brand_urls: {
@@ -477,7 +499,7 @@ def track_all(
     als Run-JSON-Fragment speichern kann (z.B. für den Impact-Tab).
     """
     rate = DomainRateLimiter()
-    robots = RobotsCache()
+    robots = RobotsCache(respect=respect_robots_txt)
     out: List[Dict] = []
     for brand, entries in brand_urls.items():
         for e in entries:
