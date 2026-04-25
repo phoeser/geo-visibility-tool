@@ -263,6 +263,7 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
                 timestamp=ts, run_id=ts,
                 brand_urls=brand_urls,
                 classifier=classifier,
+                respect_robots_txt=cfg.get("respect_robots_txt", True),
             )
             n_changed = sum(1 for e in page_events if e.get("changed"))
             n_first = sum(1 for e in page_events if e.get("first_seen"))
