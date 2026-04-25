@@ -320,15 +320,23 @@ def track_page(
         return result
 
     rate_limiter.wait(url)
-    status, html, err = _fetch(url)
+    status, final_url, html = _fetch(url)
     result.status = status
-    if err:
-        result.error = err
+
+    # 404 / 410 / Server-Errors explizit behandeln
+    if status in (0, 404, 410):
+        result.error = f"HTTP {status}" if status else "fetch failed (timeout/exception)"
+        return result
+    if status >= 400:
+        result.error = f"HTTP {status}"
+        return result
+    if not html:
+        result.error = f"empty body (status {status})"
         return result
 
     text = _extract_text(html)
     if not text:
-        result.error = "empty text"
+        result.error = "empty text after extract"
         return result
 
     page_dir = _page_dir(pages_base, brand, url)
