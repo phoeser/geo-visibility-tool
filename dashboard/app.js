@@ -1515,17 +1515,29 @@ function filterImpactEvents(data) {
 }
 
 async function renderImpactTab() {
+  // Sofort-Status, damit Nutzer sieht: es passiert was
+  $("impactKpis").innerHTML = '<p class="hint">Lade Korrelations-Daten ...</p>';
+  $("impactEventsTable").innerHTML = '<p class="hint">Lade ...</p>';
+
   const data = await loadCorrelation();
   if (!data) {
     $("impactEventsTable").innerHTML = '<p class="hint">Keine correlation.json gefunden. Erst einen Lauf durchführen.</p>';
     $("impactKpis").innerHTML = '';
     return;
   }
-  // Runs voll laden fuer die Timeline
-  const full = await loadLastNRuns(20);
   state.impactData = data;
-
   populateImpactFilters(data);
+
+  // 1. Schnellrender (KPIs + Events-Tabelle) - keine Run-Files noetig
+  const filtered = filterImpactEvents(data);
+  renderImpactKpis(data, filtered);
+  renderImpactEventsTable(filtered);
+  // Timeline-Platzhalter
+  $("impactKpis").insertAdjacentHTML('beforeend',
+    '<p class="hint" id="timelineLoadingNote" style="grid-column:1/-1; margin-top:8px;">Timeline wird geladen ... (20 Runs)</p>');
+
+  // 2. Timeline nachladen (das ist der teure Part)
+  const full = await loadLastNRuns(20);
 
   const applyAll = () => {
     const filtered = filterImpactEvents(data);
