@@ -1297,9 +1297,11 @@ function renderImpactTimeline(data, runs) {
   destroyChart("impactTimeline");
   const ownBrand = (state.config && state.config.brand && state.config.brand.name)
     || (runs && runs[0] && runs[0].brand) || "";
-  const labels = runs.map(r => (r.run_id || r.finished_at || "").slice(0, 16));
+  // loadLastNRuns liefert {meta, data}-Wrapper; wir nutzen r.data fuer den Run-Inhalt.
+  const runData = runs.map(r => (r && r.data) ? r.data : r);
+  const labels = runData.map(r => (r.run_id || r.finished_at || "").slice(0, 16));
   // SoV-Serie ueber alle Produkte aggregiert
-  const sovSeries = runs.map(r => {
+  const sovSeries = runData.map(r => {
     const agg = aggregateRunForBrand(r, ownBrand);
     return agg.share_of_voice !== null && agg.share_of_voice !== undefined
       ? Number((agg.share_of_voice * 100).toFixed(2))
@@ -1312,7 +1314,7 @@ function renderImpactTimeline(data, runs) {
   for (const ev of events) {
     const t1 = ev.impact_t1;
     if (!t1 || !t1.t1_run_id) continue;
-    const idx = runs.findIndex(r => r.run_id === t1.t1_run_id);
+    const idx = runData.findIndex(r => r.run_id === t1.t1_run_id);
     if (idx < 0) continue;
     eventPoints.push({
       x: labels[idx],
