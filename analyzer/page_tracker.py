@@ -291,7 +291,7 @@ def _fetch(url: str, timeout: int = 30) -> Tuple[int, str, Optional[str]]:
         if text and scraping_api.looks_like_cloudflare_challenge(text):
             status = 403  # als blockiert betrachten
 
-        if status in (401, 402, 403, 407, 429, 503) or text is None:
+        if status in (0, 401, 402, 403, 407, 429, 502, 503, 504) or text is None:
             # Fallback via ScrapingBee, wenn API-Key verfuegbar
             if scraping_api.api_key_available():
                 bee_status, bee_final, bee_html = scraping_api.fetch_via_api(
@@ -313,6 +313,26 @@ def _fetch(url: str, timeout: int = 30) -> Tuple[int, str, Optional[str]]:
                 print(f"[FETCH] {url}: {status} - kein ScrapingBee-Key, ueberspringe")
         return status, r.url, text
     except Exception as e:  # noqa: BLE001
+        # Bei Connection-Exception/Timeout (häufig bei Cloudflare) trotzdem
+        # FlareSolverr-Fallback probieren - da ist FlareSolverr genau für gemacht.
+        if scraping_api.api_key_available():
+            print(f"[FETCH] {url}: Exception '{type(e).__name__}: {str(e)[:80]}' - probiere FlareSolverr")
+            try:
+                bee_status, bee_final, bee_html = scraping_api.fetch_via_api(
+                    url, render_js=False, premium=True
+                )
+                if bee_status == 200 and bee_html and not scraping_api.looks_like_cloudflare_challenge(bee_html):
+                    print(f"[FLARESOLVERR] {url}: OK trotz Connection-Exception")
+                    return 200, bee_final or url, bee_html
+                # 2. Versuch mit JS-Rendering
+                bee_status, bee_final, bee_html = scraping_api.fetch_via_api(
+                    url, render_js=True, premium=True
+                )
+                if bee_status == 200 and bee_html:
+                    print(f"[FLARESOLVERR] {url}: OK via render_js trotz Connection-Exception")
+                    return 200, bee_final or url, bee_html
+            except Exception as e2:
+                print(f"[FLARESOLVERR] {url}: Fallback-Exception: {e2}")
         return 0, url, None
 
 def track_page(
