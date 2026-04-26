@@ -608,6 +608,14 @@ function bucketRunsByWeek(loaded) {
 
 async function renderHistory() {
   renderHistoryTable();
+  // Loading-Hint in den Chart-Containern, damit der User weiss: kommt gleich
+  ["trendSovChart","trendAppChart","trendRankChart","trendCitChart"].forEach(id => {
+    const el = $(id);
+    if (el && el.parentElement) {
+      el.parentElement.insertAdjacentHTML('afterbegin',
+        `<p class="hint trend-loading" data-for="${id}" style="margin:4px 0;">Lade Trend-Daten ...</p>`);
+    }
+  });
 
   const total = state.runs.length;
   // Cap: bis zu 50 Runs laden (neueste 50)
