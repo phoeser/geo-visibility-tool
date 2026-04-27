@@ -409,7 +409,8 @@ function renderWebDiff() {
           <span class="hint">${escapeHtml(pids)} · Ähnlichkeit ${sim} · +${e.added_lines ? e.added_lines.length : 0} / −${e.removed_lines ? e.removed_lines.length : 0}</span>
         </summary>
         ${e.summary ? `<p class="hint" style="margin: 4px 0 8px 0;">${escapeHtml(e.summary)}</p>` : ""}
-        ${(cls.reasoning || cls.summary) ? `<p class="hint" style="margin: 0 0 8px 0;"><em>Gemini:</em> ${escapeHtml(cls.reasoning || cls.summary)}</p>` : ""}
+        ${(cls.reasoning || cls.summary) ? `<p class="hint" style="margin: 0 0 8px 0;"><em>Gemini-Klassifikation:</em> ${escapeHtml(cls.reasoning || cls.summary)}</p>` : ""}
+        ${e.first_seen ? `<a class="diff-firstseen-link" href="${escapeHtml(e.url || "#")}" target="_blank" rel="noopener">↗ Seite öffnen (Erstsichtung — keine Diff-Daten)</a>` : ""}
         ${(added.length || removed.length) ? `
           <div class="diff-box">
             <div class="added"><strong style="color:var(--success)">Neu (+)</strong><br/>
