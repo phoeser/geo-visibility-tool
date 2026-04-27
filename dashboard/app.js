@@ -140,7 +140,26 @@ function renderControls() {
 
   const llm = $("llmSelector");
   llm.innerHTML = '<option value="all">Alle LLMs</option>';
-  run.llms.forEach(id => llm.insertAdjacentHTML("beforeend", `<option value="${id}">${id}</option>`));
+  // Alle in der Config konfigurierten LLMs zeigen (nicht nur die im aktuellen Lauf).
+  // LLMs ohne Daten im aktuellen Lauf werden mit "(keine Daten)" markiert.
+  const configLlms = (state.config && Array.isArray(state.config.llms)) ? state.config.llms : [];
+  const runLlmSet = new Set(run.llms || []);
+  // Union: erst die im Run vorhandenen, dann die nur konfigurierten
+  const llmIds = [];
+  for (const id of (run.llms || [])) if (!llmIds.includes(id)) llmIds.push(id);
+  for (const cfg of configLlms) if (cfg.id && !llmIds.includes(cfg.id)) llmIds.push(cfg.id);
+  llmIds.forEach(id => {
+    const cfg = configLlms.find(l => l.id === id) || {};
+    const label = cfg.display_name || id;
+    const noData = !runLlmSet.has(id);
+    const text = noData ? `${label} (keine Daten)` : label;
+    llm.insertAdjacentHTML("beforeend",
+      `<option value="${escapeHtml(id)}"${noData ? ' disabled' : ''}>${escapeHtml(text)}</option>`);
+  });
+  // Falls aktuelle Auswahl nicht mehr im aktuellen Lauf vorhanden ist -> auf "all" zurueck
+  if (state.selectedLLM !== "all" && !runLlmSet.has(state.selectedLLM)) {
+    state.selectedLLM = "all";
+  }
   llm.value = state.selectedLLM;
 
   const runs = $("runSelector");
