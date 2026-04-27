@@ -23,7 +23,15 @@ const state = {
   config: null,      // aktuell geladene config.json
   prompts: {},       // { product_id: {product, description, prompts: [...] } }
   configLoaded: false,
+  // Volatilitaet (2-Sigma) ueber die letzten 7 Runs vor dem aktuellen.
+  volatilityCache: {},   // { runFile: runData }
+  volatilityStats: null, // berechnete Stats fuer aktuelle Auswahl
 };
+
+// Schwelle: ab |z| > VOL_SIGMA wird ein Wert als "ausserhalb der normalen Schwankung" markiert
+const VOL_SIGMA = 2;
+const VOL_BASELINE_N = 7;
+const VOL_MIN_POINTS = 3;
 
 // ----------------------------------------------------------------------
 // Data Loading (bestehend)
@@ -119,6 +127,112 @@ function aggregate(runOverride, productFilter, llmFilter) {
 }
 
 // ----------------------------------------------------------------------
+// Volatilitaet (rollende 7-Tage-Stats, 2-Sigma-Schwelle)
+// ----------------------------------------------------------------------
+
+async function loadVolatilityBaseline() {
+  // Letzte VOL_BASELINE_N Runs VOR dem aktuell ausgewaehlten laden.
+  // Die Liste state.runs ist chronologisch (alt -> neu).
+  const all = state.runs || [];
+  const idx = all.findIndex(r => r.file === state.selectedRunFile);
+  if (idx <= 0) return [];  // erster Run -> keine Baseline
+  const start = Math.max(0, idx - VOL_BASELINE_N);
+  const slice = all.slice(start, idx);
+  const out = [];
+  for (const r of slice) {
+    if (state.volatilityCache[r.file]) {
+      out.push(state.volatilityCache[r.file]);
+      continue;
+    }
+    try {
+      const data = await loadRun(r.file, state.basePath);
+      if (data) {
+        state.volatilityCache[r.file] = data;
+        out.push(data);
+      }
+    } catch (e) {
+      // Run-Datei fehlt -> ignorieren
+    }
+  }
+  return out;
+}
+
+function _statOf(arr) {
+  // Unbiased Std (Stichproben-Std, n-1)
+  const valid = arr.filter(v => typeof v === "number" && isFinite(v));
+  if (valid.length < 2) return { n: valid.length, mean: null, std: null };
+  const mean = valid.reduce((a, b) => a + b, 0) / valid.length;
+  const variance = valid.reduce((a, b) => a + (b - mean) ** 2, 0) / (valid.length - 1);
+  return { n: valid.length, mean, std: Math.sqrt(variance) };
+}
+
+function computeVolatilityStats(brand, baselineRuns) {
+  // Aggregiert pro Baseline-Run mit AKTUELLEM Filter (Produkt/LLM) und sammelt
+  // die KPI-Werte fuer die uebergebene Marke.
+  const series = {
+    share_of_voice: [],
+    appearance_rate: [],
+    citation_rate: [],
+    avg_rank: [],
+  };
+  for (const r of baselineRuns) {
+    if (!r) continue;
+    let agg;
+    try {
+      agg = aggregate(r, state.selectedProduct, state.selectedLLM);
+    } catch (e) { continue; }
+    if (!agg) continue;
+    const row = agg.find(a => a.name === brand);
+    if (!row) continue;
+    if (typeof row.share_of_voice === "number") series.share_of_voice.push(row.share_of_voice);
+    if (typeof row.appearance_rate === "number") series.appearance_rate.push(row.appearance_rate);
+    if (typeof row.citation_rate === "number") series.citation_rate.push(row.citation_rate);
+    if (row.avg_rank !== null && typeof row.avg_rank === "number") series.avg_rank.push(row.avg_rank);
+  }
+  return {
+    share_of_voice: _statOf(series.share_of_voice),
+    appearance_rate: _statOf(series.appearance_rate),
+    citation_rate: _statOf(series.citation_rate),
+    avg_rank: _statOf(series.avg_rank),
+  };
+}
+
+function _classifyZ(value, stat) {
+  // 0 = zu wenige Datenpunkte, 1 = innerhalb |z|<1, 2 = |z| 1-VOL_SIGMA, 3 = |z|>VOL_SIGMA
+  if (typeof value !== "number" || !isFinite(value)) return 0;
+  if (stat.n < VOL_MIN_POINTS || stat.mean === null || stat.std === null) return 0;
+  if (stat.std < 1e-9) {
+    // Konstante Baseline -> nur exakter Wert ist normal
+    return Math.abs(value - stat.mean) < 1e-9 ? 1 : 3;
+  }
+  const z = Math.abs(value - stat.mean) / stat.std;
+  if (z < 1) return 1;
+  if (z < VOL_SIGMA) return 2;
+  return 3;
+}
+
+function fmtVolBadge(value, stat, isPct) {
+  const c = _classifyZ(value, stat);
+  if (c === 0) {
+    return `<span class="vol-badge unknown" title="Volatilitaet: zu wenige Vergleichs-Runs (${stat.n}/${VOL_MIN_POINTS})">○</span>`;
+  }
+  const fmtV = (v) => isPct ? (v * 100).toFixed(1) + " %" : v.toFixed(2);
+  const tip = `n=${stat.n}, μ=${fmtV(stat.mean)}, σ=${fmtV(stat.std)} (letzte ${VOL_BASELINE_N} Tage)`;
+  if (c === 1) return `<span class="vol-badge normal" title="innerhalb normaler Schwankung — ${tip}">●</span>`;
+  if (c === 2) return `<span class="vol-badge elevated" title="erhoeht (1-${VOL_SIGMA}σ vom Mittel) — ${tip}">●</span>`;
+  return `<span class="vol-badge outlier" title="ausserhalb der normalen Schwankung (>${VOL_SIGMA}σ) — ${tip}">●</span>`;
+}
+
+async function refreshVolatilityForCurrentView() {
+  // Wird nach renderDashboard im Hintergrund aufgerufen.
+  if (!state.currentRun) return;
+  const baseline = await loadVolatilityBaseline();
+  state.volatilityStats = computeVolatilityStats(state.currentRun.brand, baseline);
+  // Nur die KPI-Zeile neu rendern (sonst blinkt das ganze Dashboard)
+  renderKPIs();
+}
+
+// ----------------------------------------------------------------------
 // Dashboard-Tab Rendering (bestehend, leicht angepasst)
 // ----------------------------------------------------------------------
 
@@ -126,7 +240,16 @@ function renderRunMeta() {
   const run = state.currentRun;
   if (!run) { $("runMeta").textContent = "Keine Daten"; return; }
   const when = run.finished_at ? new Date(run.finished_at).toLocaleString("de-DE") : "?";
-  $("runMeta").innerHTML = `<strong>${run.brand}</strong> — Lauf ${run.run_id} • ${when} • LLMs: ${run.llms.join(", ")}`;
+  // Quality-Tag anzeigen, falls vorhanden
+  let qualityHtml = "";
+  const dq = run.data_quality;
+  if (dq && dq.grade) {
+    const dot = dq.grade === "green" ? "🟢" : dq.grade === "yellow" ? "🟡" : "🔴";
+    const reasons = (dq.warnings || []).slice(0, 3).join(" · ") || (dq.reasons || []).join(" · ") || "OK";
+    qualityHtml = ` • <span class="quality-tag ${dq.grade}" title="${escapeHtml(reasons)}">` +
+                  `${dot} ${dq.grade.toUpperCase()}${dq.score !== undefined ? " (" + dq.score + ")" : ""}</span>`;
+  }
+  $("runMeta").innerHTML = `<strong>${run.brand}</strong> — Lauf ${run.run_id} • ${when} • LLMs: ${run.llms.join(", ")}${qualityHtml}`;
 }
 
 function renderControls() {
@@ -167,7 +290,15 @@ function renderControls() {
   state.runs.slice().reverse().forEach(r => {
     const opt = document.createElement("option");
     opt.value = r.file;
-    opt.textContent = r.run_id;
+    // Ampel-Symbol je nach Quality-Grade (gruen/gelb/rot/grau)
+    const grade = r.quality_grade;
+    const dot = grade === "green" ? "🟢" :
+                grade === "yellow" ? "🟡" :
+                grade === "red" ? "🔴" : "⚪";
+    opt.textContent = `${dot} ${r.run_id}`;
+    if (r.quality_warnings && r.quality_warnings.length) {
+      opt.title = r.quality_warnings.join(" · ");
+    }
     if (r.file === state.selectedRunFile) opt.selected = true;
     runs.appendChild(opt);
   });
@@ -186,19 +317,26 @@ function renderKPIs() {
     (state.selectedLLM === "all" || d.llm === state.selectedLLM));
   const avg = (k) => brandDeltas.length ? brandDeltas.reduce((a, b) => a + (b[k] || 0), 0) / brandDeltas.length : null;
 
+  // Volatility-Badges: nur, wenn Stats schon berechnet sind (asynchron geladen).
+  const vs = state.volatilityStats;
+  const sovBadge = vs ? fmtVolBadge(brandRow.share_of_voice, vs.share_of_voice, true) : "";
+  const appBadge = vs ? fmtVolBadge(brandRow.appearance_rate, vs.appearance_rate, true) : "";
+  const citBadge = vs ? fmtVolBadge(brandRow.citation_rate, vs.citation_rate, true) : "";
+  const rnkBadge = vs ? fmtVolBadge(brandRow.avg_rank, vs.avg_rank, false) : "";
+
   const kpis = [
-    { label: "Share of Voice", value: fmtPct(brandRow.share_of_voice), delta: fmtDelta(avg("delta_share_of_voice")) },
-    { label: "Nennungs-Quote", value: fmtPct(brandRow.appearance_rate), delta: fmtDelta(avg("delta_appearance_rate")) },
-    { label: "Zitierungs-Quote", value: fmtPct(brandRow.citation_rate), delta: fmtDelta(avg("delta_citation_rate")) },
+    { label: "Share of Voice", value: fmtPct(brandRow.share_of_voice), delta: fmtDelta(avg("delta_share_of_voice")), badge: sovBadge },
+    { label: "Nennungs-Quote", value: fmtPct(brandRow.appearance_rate), delta: fmtDelta(avg("delta_appearance_rate")), badge: appBadge },
+    { label: "Zitierungs-Quote", value: fmtPct(brandRow.citation_rate), delta: fmtDelta(avg("delta_citation_rate")), badge: citBadge },
     { label: "Ø Rang in Listen", value: fmtNum(brandRow.avg_rank, 2),
-      delta: fmtDelta(avg("delta_avg_rank") ? -avg("delta_avg_rank") : null, false) },
+      delta: fmtDelta(avg("delta_avg_rank") ? -avg("delta_avg_rank") : null, false), badge: rnkBadge },
     { label: "Position im Markt", value: brandPos + " / " + agg.length,
-      delta: { text: "unter " + agg.length + " Marken", cls: "flat" } },
+      delta: { text: "unter " + agg.length + " Marken", cls: "flat" }, badge: "" },
   ];
   $("kpiRow").innerHTML = kpis.map(k => `
     <div class="kpi">
       <div class="label">${k.label}</div>
-      <div class="value">${k.value}</div>
+      <div class="value">${k.value}${k.badge ? " " + k.badge : ""}</div>
       <div class="delta ${k.delta.cls}">${k.delta.text}</div>
     </div>`).join("");
 }
@@ -529,6 +667,11 @@ function renderDashboard() {
   renderDeltasTable();
   renderWebDiff();
   renderPromptDetails();
+  // Volatilitaet asynchron nachreichen (laedt bis zu 7 Run-Files).
+  // Bei Filterwechsel: Stats verwerfen, dann neu rechnen.
+  state.volatilityStats = null;
+  refreshVolatilityForCurrentView().catch(e =>
+    console.error("volatility refresh failed:", e));
 }
 
 // ----------------------------------------------------------------------
