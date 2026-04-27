@@ -39,6 +39,7 @@ from analyzer.page_tracker import track_all as track_all_pages  # noqa: E402
 from analyzer.diff_classifier import make_classifier  # noqa: E402
 from analyzer import correlation  # noqa: E402
 from analyzer import why_analysis  # noqa: E402
+from analyzer import data_quality  # noqa: E402
 from analyzer.sitemap_discovery import discover_for_product  # noqa: E402
 
 
@@ -328,6 +329,22 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
     except Exception as e:
         print(f"[WHY] Fehler: {e}")
         run_dict["why_analysis"] = {"error": str(e)[:200]}
+
+    # --- 6c) Daten-Qualitaets-Tag (Ampel pro Run) ---
+    print("\n[QUALITY] Berechne Daten-Qualitaets-Tag ...")
+    try:
+        dq = data_quality.compute(run_dict, cfg)
+        run_dict["data_quality"] = dq
+        print(f"[QUALITY] Grade={dq['grade'].upper()}  Score={dq['score']}  "
+              f"baseline_eligible={dq['baseline_eligible']}")
+        for w in dq.get("warnings", []):
+            print(f"[QUALITY]  ! {w}")
+    except Exception as e:  # noqa: BLE001
+        print(f"[QUALITY] Fehler: {e}")
+        run_dict["data_quality"] = {"grade": "yellow", "score": 50,
+                                    "warnings": [f"quality-check failed: {e}"],
+                                    "details": {}, "baseline_eligible": False}
+
     # run-file ueberschreiben mit aktualisierten Daten
     current_file.write_text(json.dumps(run_dict, ensure_ascii=False, indent=2), encoding="utf-8")
     latest_file.write_text(json.dumps(run_dict, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -551,6 +568,7 @@ def _update_index(runs_dir: Path) -> None:
                         if b.get("name") == brand_name:
                             brand_mentions += m
             sov = (brand_mentions / all_mentions) if all_mentions else 0.0
+            dq = obj.get("data_quality") or {}
             runs.append({
                 "run_id": obj.get("run_id") or p.stem,
                 "file": p.name,
@@ -562,6 +580,10 @@ def _update_index(runs_dir: Path) -> None:
                 "prompts_total": prompts_total,
                 "estimated_cost_usd": round(cost_total, 4),
                 "brand_share_of_voice": round(sov, 4),
+                # Quality-Tag im Index, damit Dashboard ohne Extra-Fetch ampeln kann
+                "quality_grade": dq.get("grade"),
+                "quality_score": dq.get("score"),
+                "quality_warnings": dq.get("warnings", [])[:3],  # nur die ersten 3
             })
         except Exception as e:  # noqa: BLE001
             print(f"[INDEX] Fehler bei {p.name}: {e}")
@@ -571,37 +593,4 @@ def _update_index(runs_dir: Path) -> None:
         "count": len(runs),
         "runs": runs,
     }
-    (runs_dir / "index.json").write_text(
-        json.dumps(index, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
-
-
-# ---------------------------------------------------------------------------
-# CLI
-# ---------------------------------------------------------------------------
-
-def main(argv: Optional[List[str]] = None) -> int:
-    ap = argparse.ArgumentParser(description="GEO Visibility Analyse-Lauf")
-    ap.add_argument("--dry-run", action="store_true",
-                    help="Simuliere LLM-Antworten, keine echten API-Calls")
-    ap.add_argument("--limit", type=int, default=None,
-                    help="Nur die ersten N Prompts je Produkt verarbeiten")
-    args = ap.parse_args(argv)
-
-    try:
-        out = run(dry_run=args.dry_run, limit=args.limit)
-        print(f"\n[DONE] {out}")
-        return 0
-    except KeyboardInterrupt:
-        print("\n[ABBRUCH] Benutzer hat Lauf gestoppt.")
-        return 130
-    except Exception as e:  # noqa: BLE001
-        import traceback
-        print(f"\n[FEHLER] {e}")
-        traceback.print_exc()
-        return 1
-
-
-if __name__ == "__main__":
-    sys.exit(main())
+    (runs_dir / "index.json").w
