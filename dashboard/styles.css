@@ -855,3 +855,33 @@ button.btn-icon:hover { background: rgba(239,68,68,0.15); color: var(--danger); 
   margin-right: 8px;
   white-space: nowrap;
 }
+
+
+/* --- Volatilitaets-Badges (KPI-Werte) --- */
+.vol-badge {
+  display: inline-block;
+  font-size: 10px;
+  vertical-align: super;
+  margin-left: 4px;
+  cursor: help;
+  line-height: 1;
+}
+.vol-badge.normal   { color: var(--success); }    /* gruen: innerhalb 1 sigma */
+.vol-badge.elevated { color: var(--warning); }    /* gelb: 1-2 sigma */
+.vol-badge.outlier  { color: var(--danger);
+                      text-shadow: 0 0 6px rgba(239,68,68,0.5); }
+.vol-badge.unknown  { color: var(--text-dim); opacity: 0.5; }
+
+/* --- Quality-Tag in Run-Meta --- */
+.quality-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: help;
+}
+.quality-tag.green  { background: rgba(34,197,94,0.15);  color: var(--success); }
+.quality-tag.yellow { background: rgba(245,158,11,0.15); color: var(--warning); }
+.quality-tag.red    { background: rgba(239,68,68,0.15);  color: var(--danger); }
