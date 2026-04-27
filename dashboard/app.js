@@ -1644,14 +1644,18 @@ async function init() {
   state.runs = idx.runs;
   state.basePath = idx.basePath;
   state.selectedRunFile = idx.runs[idx.runs.length - 1].file;
+
+  // Config zuerst laden, damit renderControls() alle konfigurierten LLMs kennt
+  // (sonst Race Condition: Dropdown wird ohne state.config gerendert)
+  try { await loadConfigLite(); } catch (e) { console.error("loadConfigLite failed:", e); }
+
   await loadAndRenderDashboard();
 
   // Prompt-Manager laden (laufzeitunabhaengig)
   pmLoadAll().catch(e => console.error("pmLoadAll failed:", e));
 
-  // LLM-Toggle-Bar fuer naechsten Lauf
-  loadConfigLite().then(ok => { if (ok) renderNextRunLlms(); })
-                  .catch(e => console.error("loadConfigLite failed:", e));
+  // LLM-Toggle-Bar fuer naechsten Lauf (state.config ist bereits gesetzt)
+  if (state.config) renderNextRunLlms();
 
   $("runSelector").addEventListener("change", async function (e) {
     state.selectedRunFile = e.target.value;
@@ -2093,13 +2097,18 @@ async function toggleNextRunLlm(id) {
     const cb = document.querySelector(`input[data-llm-idx="${idx}"]`);
     if (cb) cb.checked = llm.enabled;
   } catch (e) {
-    // Rollback
+    // Rollback bei Fehler
     llm.enabled = !llm.enabled;
     renderNextRunLlms();
-    nrStatus("Fehler: " + e.message, "err");
+    nrStatus("Fehler beim Speichern: " + (e && e.message ? e.message : e), "err");
   } finally {
     if (chip) chip.classList.remove("saving");
   }
 }
 
-init();
+// Auto-Init nach DOM-Ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  init();
+}
