@@ -289,30 +289,45 @@ function renderDeltasTable() {
 }
 
 function renderWebDiff() {
-  const run = state.currentRun;
   const c = $("webDiff");
-  const pt = (run && run.page_tracking) || null;
-  const events = (pt && Array.isArray(pt.events_this_run)) ? pt.events_this_run : [];
+  if (!c) return;
 
-  if (!events.length) {
-    c.innerHTML = `<p class="hint">Keine Page-Tracking-Events im aktuellen Lauf.</p>`;
+  // 30-Tage-Window aus correlation.json. Falls noch nicht geladen, asynchron holen.
+  if (!state.correlationCache) {
+    c.innerHTML = `<p class="hint">Lade Aenderungs-Historie ...</p>`;
+    loadCorrelation().then(data => {
+      state.correlationCache = data || { events: [] };
+      renderWebDiff();
+    }).catch(() => {
+      state.correlationCache = { events: [] };
+      renderWebDiff();
+    });
     return;
   }
 
-  // Nur interessante Events (Änderungen + Erstsichtungen), Filter fürs gewählte Produkt
+  const allEvents = (state.correlationCache && state.correlationCache.events) || [];
+  // Auf letzte 30 Tage filtern
+  const now = new Date();
+  const cutoffMs = now.getTime() - 30 * 24 * 60 * 60 * 1000;
+  function tsToMs(ts) {
+    if (!ts) return 0;
+    // "2026-04-25T10-14-25Z" -> "2026-04-25T10:14:25Z"
+    const fixed = ts.replace(/T(\d{2})-(\d{2})-(\d{2})/, "T$1:$2:$3");
+    const d = new Date(fixed);
+    return isNaN(d.getTime()) ? 0 : d.getTime();
+  }
+
   const selectedPid = state.selectedProduct;
   function matchProduct(e) {
     if (!selectedPid || selectedPid === "all") return true;
     return (e.product_ids || []).includes(selectedPid);
   }
-  // Rauschfilter: Mikro-Aenderungen (>=97% Aehnlichkeit + <=10 Diff-Zeilen) ausblenden
   function isNoise(e) {
-    if (!e.changed) return false;
+    if (e.event_type !== "change") return false;
     const sim = (typeof e.similarity === "number") ? e.similarity : 1;
-    const lines = (e.added_lines ? e.added_lines.length : 0) + (e.removed_lines ? e.removed_lines.length : 0);
+    const lines = (e.added_lines_count || 0) + (e.removed_lines_count || 0);
     return sim >= 0.97 && lines <= 10;
   }
-  // URL-Excludes aus state.config anwenden (z.B. Beraterseiten)
   const _excludes = (state.config && Array.isArray(state.config.url_excludes)) ? state.config.url_excludes : [];
   function isExcluded(url) {
     if (!url) return false;
@@ -323,42 +338,31 @@ function renderWebDiff() {
         if (typ === "regex") {
           const rx = new RegExp(rule.pattern, "i");
           if (rx.test(url)) return true;
-        } else {
-          if (url.toLowerCase().indexOf(rule.pattern.toLowerCase()) >= 0) return true;
-        }
+        } else if (url.toLowerCase().indexOf(rule.pattern.toLowerCase()) >= 0) return true;
       } catch (e) {}
     }
     return false;
   }
-  const interesting = events.filter(e => (e.changed || e.first_seen) && matchProduct(e) && !isNoise(e) && !isExcluded(e.url));
 
-  // Counts pro Art
-  const nChanged = interesting.filter(e => e.changed).length;
-  const nFirst = interesting.filter(e => e.first_seen).length;
-  const nErrors = events.filter(e => e.error && matchProduct(e)).length;
-  const nUnchanged = events.filter(e => !e.changed && !e.first_seen && !e.error && matchProduct(e)).length;
+  const interesting = allEvents
+    .filter(e => (e.event_type === "change" || e.event_type === "first_seen"))
+    .filter(e => matchProduct(e))
+    .filter(e => !isNoise(e))
+    .filter(e => !isExcluded(e.url))
+    .filter(e => tsToMs(e.timestamp) >= cutoffMs)
+    .sort((a, b) => tsToMs(b.timestamp) - tsToMs(a.timestamp)); // Neueste zuerst
 
-  // Gruppieren nach Marke
-  const byBrand = {};
-  for (const e of interesting) {
-    const b = e.brand || "–";
-    (byBrand[b] = byBrand[b] || []).push(e);
-  }
+  // Counts
+  const nChanged = interesting.filter(e => e.event_type === "change").length;
+  const nFirst = interesting.filter(e => e.event_type === "first_seen").length;
 
-  // Innerhalb einer Marke sortieren: "changed" zuerst, dann nach kleinster Similarity (größter Diff)
-  for (const b of Object.keys(byBrand)) {
-    byBrand[b].sort((a, b2) => {
-      if (a.changed !== b2.changed) return a.changed ? -1 : 1;
-      return (a.similarity || 1) - (b2.similarity || 1);
-    });
-  }
-
-  // Getrackte URLs pro Marke (aus page_tracking.brand_urls)
-  const brandUrlCounts = {};
+  // URL-Counts pro Marke aus letztem Lauf (bleibt informativ)
+  const run = state.currentRun;
+  const pt = run && run.page_tracking;
   const bu = (pt && pt.brand_urls) || {};
+  const brandUrlCounts = {};
   for (const brand of Object.keys(bu)) {
     const list = bu[brand] || [];
-    // Fuer das ausgewaehlte Produkt filtern
     if (selectedPid && selectedPid !== "all") {
       brandUrlCounts[brand] = list.filter(x => (x.product_ids || []).includes(selectedPid)).length;
     } else {
@@ -366,58 +370,79 @@ function renderWebDiff() {
     }
   }
   const brandCountsHtml = Object.keys(brandUrlCounts)
-    .sort((a,b) => brandUrlCounts[b] - brandUrlCounts[a])
+    .sort((a, b) => brandUrlCounts[b] - brandUrlCounts[a])
     .map(b => {
       const n = brandUrlCounts[b];
       const cls = n === 0 ? "down" : (n < 3 ? "flat" : "up");
-      return `<span class="pill ${cls}" title="${n} URL${n===1?"":"s"} getrackt fuer ${b}">${escapeHtml(b)}: ${n}</span>`;
+      return `<span class="pill ${cls}" title="${n} URL${n === 1 ? "" : "s"} getrackt fuer ${b}">${escapeHtml(b)}: ${n}</span>`;
     }).join(" ");
 
   const headerHtml = `
     <div class="diff-summary">
-      <span class="pill up">${nChanged} Änderung${nChanged === 1 ? "" : "en"}</span>
-      <span class="pill flat">${nFirst} Erstsichtung${nFirst === 1 ? "" : "en"}</span>
-      <span class="pill flat">${nUnchanged} unverändert</span>
-      ${nErrors ? `<span class="pill down">${nErrors} Fehler</span>` : ""}
+      <span class="pill up">${nChanged} Aenderung${nChanged === 1 ? "" : "en"} (30T)</span>
+      <span class="pill flat">${nFirst} Erstsichtung${nFirst === 1 ? "" : "en"} (30T)</span>
     </div>
-    <div class="diff-summary" style="margin-top: -4px; padding-bottom: 4px;">
-      <span class="hint" style="align-self:center; margin-right: 4px;">Getrackte URLs:</span>
+    <div class="diff-summary" style="margin-top:-4px; padding-bottom:4px;">
+      <span class="hint" style="align-self:center; margin-right:4px;">Aktuell getrackt:</span>
       ${brandCountsHtml}
     </div>
   `;
 
+  if (!interesting.length) {
+    c.innerHTML = headerHtml + `<p class="hint">Keine Aenderungen in den letzten 30 Tagen.</p>`;
+    return;
+  }
+
+  // Gruppieren nach Marke (aber innerhalb chronologisch)
+  const byBrand = {};
+  for (const e of interesting) {
+    const b = e.brand || "-";
+    (byBrand[b] = byBrand[b] || []).push(e);
+  }
+
+  function fmtDateShort(ts) {
+    if (!ts) return "?";
+    const fixed = ts.replace(/T(\d{2})-(\d{2})-(\d{2})/, "T$1:$2:$3");
+    const d = new Date(fixed);
+    if (isNaN(d.getTime())) return ts.slice(0, 16);
+    return d.toLocaleString("de-DE", { day: "2-digit", month: "2-digit", year: "2-digit",
+                                       hour: "2-digit", minute: "2-digit" });
+  }
+
   function diffRow(e) {
-    const kind = e.changed ? "change" : (e.first_seen ? "first_seen" : "other");
-    const pill = e.changed
-      ? `<span class="pill up">Änderung</span>`
+    const kind = e.event_type === "change" ? "change" : "first_seen";
+    const pill = kind === "change"
+      ? `<span class="pill up">Aenderung</span>`
       : `<span class="pill flat">Erstsichtung</span>`;
     const sim = (e.similarity !== null && e.similarity !== undefined)
-      ? (e.similarity * 100).toFixed(1) + " %" : "–";
+      ? (e.similarity * 100).toFixed(1) + " %" : "-";
     const url = e.url || "";
-    const urlShort = url.length > 90 ? url.slice(0, 90) + "…" : url;
+    const urlShort = url.length > 90 ? url.slice(0, 90) + "..." : url;
     const pids = (e.product_ids || []).join(", ");
     const added = (e.added_lines || []).slice(0, 30);
     const removed = (e.removed_lines || []).slice(0, 30);
     const cls = (e.classification || {});
-    const clsHtml = cls.category || cls.type
+    const clsHtml = (cls.category || cls.type)
       ? `<span class="pill flat">${escapeHtml(cls.category || cls.type)}</span>` : "";
+    const dateStr = fmtDateShort(e.timestamp);
     return `
       <details class="diff-event ${kind}">
         <summary>
+          <span class="diff-date">${escapeHtml(dateStr)}</span>
           ${pill} ${clsHtml}
           <span class="diff-url" title="${escapeHtml(url)}"><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(urlShort)}</a></span>
-          <span class="hint">${escapeHtml(pids)} · Ähnlichkeit ${sim} · +${e.added_lines ? e.added_lines.length : 0} / −${e.removed_lines ? e.removed_lines.length : 0}</span>
+          <span class="hint">${escapeHtml(pids)} · Aehnlichkeit ${sim} · +${e.added_lines_count || 0} / -${e.removed_lines_count || 0}</span>
         </summary>
         ${e.summary ? `<p class="hint" style="margin: 4px 0 8px 0;">${escapeHtml(e.summary)}</p>` : ""}
         ${(cls.reasoning || cls.summary) ? `<p class="hint" style="margin: 0 0 8px 0;"><em>Gemini-Klassifikation:</em> ${escapeHtml(cls.reasoning || cls.summary)}</p>` : ""}
-        ${e.first_seen ? `<a class="diff-firstseen-link" href="${escapeHtml(e.url || "#")}" target="_blank" rel="noopener">↗ Seite öffnen (Erstsichtung — keine Diff-Daten)</a>` : ""}
+        ${e.event_type === "first_seen" ? `<a class="diff-firstseen-link" href="${escapeHtml(url || "#")}" target="_blank" rel="noopener">↗ Seite oeffnen (Erstsichtung - keine Diff-Daten)</a>` : ""}
         ${(added.length || removed.length) ? `
           <div class="diff-box">
             <div class="added"><strong style="color:var(--success)">Neu (+)</strong><br/>
-              ${added.map(l => "+ " + escapeHtml(l)).join("<br/>") || "<em>–</em>"}
+              ${added.map(l => "+ " + escapeHtml(l)).join("<br/>") || "<em>-</em>"}
             </div>
-            <div class="removed"><strong style="color:var(--danger)">Entfernt (−)</strong><br/>
-              ${removed.map(l => "− " + escapeHtml(l)).join("<br/>") || "<em>–</em>"}
+            <div class="removed"><strong style="color:var(--danger)">Entfernt (-)</strong><br/>
+              ${removed.map(l => "- " + escapeHtml(l)).join("<br/>") || "<em>-</em>"}
             </div>
           </div>` : ""}
       </details>`;
@@ -429,13 +454,13 @@ function renderWebDiff() {
     return `
       <details class="diff-brand" open>
         <summary><strong>${escapeHtml(brand)}</strong>
-          <span class="hint">— ${byBrand[brand].length} Event${byBrand[brand].length === 1 ? "" : "s"}</span>
+          <span class="hint">- ${byBrand[brand].length} Event${byBrand[brand].length === 1 ? "" : "s"} (30T)</span>
         </summary>
         <div class="diff-events">${rows}</div>
       </details>`;
   }).join("");
 
-  c.innerHTML = headerHtml + (bodyHtml || `<p class="hint">Keine interessanten Events für das gewählte Produkt.</p>`);
+  c.innerHTML = headerHtml + `<div class="diff-scroll">${bodyHtml}</div>`;
 }
 
 function renderPromptDetails() {
