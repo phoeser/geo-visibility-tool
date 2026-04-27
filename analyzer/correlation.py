@@ -273,6 +273,9 @@ def compute(pages_dir: Path, runs_dir: Path) -> Dict:
             "similarity": ev.get("similarity"),
             "added_lines_count": ev.get("added_lines_count") or 0,
             "removed_lines_count": ev.get("removed_lines_count") or 0,
+            # Volltexte fuer Dashboard-Diff (gekappt auf 30 Zeilen, max 200 Zeichen je Zeile)
+            "added_lines": [s[:200] for s in (ev.get("added_lines") or [])][:30],
+            "removed_lines": [s[:200] for s in (ev.get("removed_lines") or [])][:30],
             "classification": ev.get("classification"),
             "impact_t1": impact_t1,
             "impact_t2": impact_t2,
