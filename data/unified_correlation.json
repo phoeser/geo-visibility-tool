@@ -1,0 +1,1940 @@
+{
+  "meta": {
+    "total_page_events": 1123,
+    "total_cockpit_events": 0,
+    "total_unified_events": 1098,
+    "total_enriched_events": 1098,
+    "total_runs": 30,
+    "lag_windows": [
+      1,
+      3,
+      7,
+      14
+    ],
+    "generated_at": "2026-04-30T23:23:10.865139Z"
+  },
+  "event_summary": {
+    "page_new": {
+      "count": 914,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg"
+      ],
+      "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "page_change": {
+      "count": 184,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO"
+      ],
+      "avg_magnitude": 0.08,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    }
+  },
+  "impact_ranking": [
+    {
+      "event_type": "page_new",
+      "count": 914,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg"
+      ],
+      "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "page_change",
+      "count": 184,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO"
+      ],
+      "avg_magnitude": 0.08,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    }
+  ],
+  "correlation_matrix": {
+    "page_new__delta_share_of_voice__lag_1d": {
+      "event_type": "page_new",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 914,
+      "spearman_rho": 0.5025,
+      "avg_delta": -0.002559,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_appearance_rate__lag_1d": {
+      "event_type": "page_new",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 914,
+      "spearman_rho": 0.5031,
+      "avg_delta": 0.01625,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_citation_rate__lag_1d": {
+      "event_type": "page_new",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 914,
+      "spearman_rho": 0.5027,
+      "avg_delta": 0.020017,
+      "avg_magnitude": 1.0
+    },
+    "page_change__delta_share_of_voice__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 184,
+      "spearman_rho": 0.2843,
+      "avg_delta": -0.002419,
+      "avg_magnitude": 0.08
+    },
+    "page_change__delta_appearance_rate__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 184,
+      "spearman_rho": 0.0443,
+      "avg_delta": 0.02531,
+      "avg_magnitude": 0.08
+    },
+    "page_change__delta_citation_rate__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 184,
+      "spearman_rho": 0.5297,
+      "avg_delta": 0.000713,
+      "avg_magnitude": 0.08
+    },
+    "page_new__delta_share_of_voice__lag_3d": {
+      "event_type": "page_new",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 665,
+      "spearman_rho": 0.5053,
+      "avg_delta": 0.0047,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_appearance_rate__lag_3d": {
+      "event_type": "page_new",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 665,
+      "spearman_rho": 0.5053,
+      "avg_delta": 0.031256,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_citation_rate__lag_3d": {
+      "event_type": "page_new",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 665,
+      "spearman_rho": 0.5058,
+      "avg_delta": 0.051092,
+      "avg_magnitude": 1.0
+    },
+    "page_change__delta_share_of_voice__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 128,
+      "spearman_rho": 0.0152,
+      "avg_delta": 0.008839,
+      "avg_magnitude": 0.035
+    },
+    "page_change__delta_appearance_rate__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 128,
+      "spearman_rho": -0.1094,
+      "avg_delta": 0.039228,
+      "avg_magnitude": 0.035
+    },
+    "page_change__delta_citation_rate__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 128,
+      "spearman_rho": -0.0221,
+      "avg_delta": 0.022315,
+      "avg_magnitude": 0.035
+    },
+    "page_new__delta_share_of_voice__lag_7d": {
+      "event_type": "page_new",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 447,
+      "spearman_rho": 0.5163,
+      "avg_delta": 0.015183,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_appearance_rate__lag_7d": {
+      "event_type": "page_new",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 447,
+      "spearman_rho": 0.5163,
+      "avg_delta": 0.049788,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_citation_rate__lag_7d": {
+      "event_type": "page_new",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 447,
+      "spearman_rho": 0.5189,
+      "avg_delta": 0.077758,
+      "avg_magnitude": 1.0
+    },
+    "page_change__delta_share_of_voice__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 115,
+      "spearman_rho": 0.0346,
+      "avg_delta": 0.046971,
+      "avg_magnitude": 0.015
+    },
+    "page_change__delta_appearance_rate__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 115,
+      "spearman_rho": -0.0063,
+      "avg_delta": 0.083892,
+      "avg_magnitude": 0.015
+    },
+    "page_change__delta_citation_rate__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 115,
+      "spearman_rho": 0.1331,
+      "avg_delta": 0.11942,
+      "avg_magnitude": 0.015
+    }
+  },
+  "dashboard_events": [
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/unternehmen/vorstand-de/vorstand-und-aufsichtsrat-allianz-lebensversicherung-ag",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kinder",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/todesfallversicherung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006213
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/keramikbrackets",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/kapitallebensversicherung/rechner",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/heil-und-kostenplan",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/lebensversicherung/nachhaltige-kapitalanlagen/transformation",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/keramikkrone",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/professionelle-zahnreinigung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/rechnung-einreichen",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ohne-gesundheitsfragen",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/sterbeurkunde",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/sonderurlaub-todesfall",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/familie",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/sterbegeld",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/beamte",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/senioren",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnextraktion",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/vergleich",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kieferorthopaedie",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/ohne-wartezeit",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kuendigen",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/wurzelbehandlung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ohne-wartezeit",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zaehne-machen-lassen",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/bestattungsarten/seebestattung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/inlay",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/funktionsanalyse",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/trauerfeier",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/lebensversicherung/auszahlung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/steuer-absetzen",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/presse/mitteilungen/sterbegeldversicherung-allianz-verdoppelt-leistung-bei-unfalltod",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/sinnvoll",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnstein-entfernen",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/veneers",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/beitrag",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/presse/mitteilungen/rentenkompass-der-allianz-lebensversicherung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/nachtraeglich-abschliessen",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/sinnvoll",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/ohne-gesundheitsfragen",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/bestattungskosten/grabstein-kosten",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/festzuschuss-zahnersatz",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnimplantat",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/presse/mitteilungen/anja-westerhoff-neu-im-vorstand-der-deutsche-lebensversicherungs-ag",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/leichenschmaus",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/alterungsrueckstellungen",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/vergleich",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnschmerzen",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/nachhaltige-zahnpflege",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/presse/mitteilungen/allianz-lebensversicherung-investiert-fast-eine-milliarde-in-glasfaser-und-gasnetz",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/service/todesfall-mitteilen",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/bestattungsvorsorge/bestattungsvorsorgevertrag",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/presse/mitteilungen/zahnschutz-die-neue-tarifwelt-der-Allianz",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/jacketkrone",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/erbe/berliner-testament",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/rechner",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/erbe/vermaechtnis",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/fallend",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/auszahlung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnspange",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/laufende-behandlung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/partner",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kompositfuellung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/rechner",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/erbe/ehegattenerbrecht",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/familie",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/student",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/schwangerschaft",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/einmalzahlung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/lumineers",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/weisse-zaehne-hausmittel",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/bestattungsarten/feuerbestattung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnfleischtaschen",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/kreditabsicherung-hauskauf",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/presse/mitteilungen/sofort-geld-fuer-zahnersatz",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/bleaching",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/erbe/erbfolge",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/rechner",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/bestattungskosten",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnersatz-kosten",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/kuendigen",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/aligner-therapie",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/mit-brille",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/bestattungsarten",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/zweckgebunden",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/erbe",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/angst-vor-zahnarzt",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/fuer-senioren",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/worauf-achten",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ausland",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/knirscherschiene",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/sinuslift",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/bestattungskosten/beerdigungskosten-absetzen",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019223
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/ohne-gesundheitspruefung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005088
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnfleischentzuendung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/parodontitisbehandlung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    },
+    {
+      "timestamp": "2026-04-30T20-14-54Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnerhalt",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002282
+      }
+    }
+  ]
+}
