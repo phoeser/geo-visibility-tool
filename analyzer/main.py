@@ -355,10 +355,49 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
     try:
         corr = correlation.compute(PAGES_DIR, RUNS_DIR)
         correlation.write_correlation_file(DATA_DIR / "correlation.json", corr)
-        print(f"[CORR] events={corr['meta']['total_events']}, "
+        print(f"[CORR] Page-Events: events={corr['meta']['total_events']}, "
               f"runs={corr['meta']['total_runs']}")
     except Exception as e:  # noqa: BLE001
-        print(f"[CORR] Fehler: {e}")
+        print(f"[CORR] Fehler (Page-Events): {e}")
+
+    # --- 7b) Unified Korrelation: Page-Events + Cockpit-Events ---
+    # Suche Cockpit-Events in verschiedenen möglichen Pfaden
+    cockpit_events_file = None
+    for candidate in [
+        PROJECT_ROOT.parent / "ERGO Content Analyse" / "github-deployment" / "shared" / "events.jsonl",
+        PROJECT_ROOT / "shared" / "events.jsonl",
+        DATA_DIR / "cockpit_events.jsonl",
+    ]:
+        if candidate.exists():
+            cockpit_events_file = candidate
+            break
+
+    if cockpit_events_file or PAGES_DIR.exists():
+        print(f"\n[CORR-UNIFIED] Berechne Unified Korrelation ...")
+        if cockpit_events_file:
+            print(f"[CORR-UNIFIED] Cockpit-Events: {cockpit_events_file}")
+        try:
+            unified = correlation.compute_unified(
+                PAGES_DIR, RUNS_DIR,
+                cockpit_events_file=cockpit_events_file,
+                lag_windows=[1, 3, 7, 14],
+            )
+            correlation.write_correlation_file(
+                DATA_DIR / "unified_correlation.json", unified
+            )
+            m = unified["meta"]
+            print(f"[CORR-UNIFIED] Page={m['total_page_events']}, "
+                  f"Cockpit={m['total_cockpit_events']}, "
+                  f"Unified={m['total_unified_events']}, "
+                  f"Runs={m['total_runs']}")
+            if unified.get("impact_ranking"):
+                print("[CORR-UNIFIED] Top Impact:")
+                for item in unified["impact_ranking"][:5]:
+                    rho = item.get("best_spearman_rho")
+                    rho_str = f"{rho:+.3f}" if rho is not None else "n/a"
+                    print(f"  {item['event_type']:20s} n={item['count']:3d} rho={rho_str}")
+        except Exception as e:  # noqa: BLE001
+            print(f"[CORR-UNIFIED] Fehler: {e}")
 
     # Ein schlankes Index-File für das Dashboard
     _update_index(RUNS_DIR)
