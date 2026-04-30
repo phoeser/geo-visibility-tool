@@ -62,7 +62,9 @@ jobs:
           PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
           FLARESOLVERR_URL: http://localhost:8191/v1
         run: |
-          set -euo pipefail
+          # set -e ist tueckisch bei Pipelines + Substitutions. Wir prueffen Exit-Codes
+          # explizit, damit der Workflow nicht VOR der Diagnose abbricht.
+          set +e
           ARGS=""
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
             ARGS="$ARGS --dry-run"
@@ -72,21 +74,31 @@ jobs:
           fi
           # Snapshot der Run-Files VOR dem Lauf (damit wir nachher pruefen,
           # ob ein neuer dazugekommen ist - "silent success" verhindern).
-          BEFORE_COUNT=$(ls -1 data/runs/*.json 2>/dev/null | grep -v -E '(latest|index)\.json$' | wc -l)
+          BEFORE_COUNT=$(ls -1 data/runs/2026-*.json 2>/dev/null | wc -l)
           BEFORE_MTIME=$(stat -c '%Y' data/runs/latest.json 2>/dev/null || echo 0)
           echo "[CHECK] Before: $BEFORE_COUNT run-files, latest.json mtime=$BEFORE_MTIME"
 
+          # Selbst-Test: Module-Imports separat, damit der Crash-Punkt sichtbar ist
+          echo "[SELFTEST] python --version:"
+          python --version
+          echo "[SELFTEST] importiere analyzer.main ..."
+          python -c "import analyzer.main; print('[SELFTEST] OK')" 2>&1
+          IMPORT_EXIT=$?
+          if [ "$IMPORT_EXIT" -ne 0 ]; then
+            echo "::error::Import-Test fehlgeschlagen (exit $IMPORT_EXIT) - kompletter Lauf wird trotzdem versucht"
+          fi
+
           echo "Starte Analyse mit: $ARGS"
-          # explizit Exit-Code abfangen statt auf set -e zu bauen
           python -m analyzer.main $ARGS
           PY_EXIT=$?
+          echo "[CHECK] python -m analyzer.main exit-Code: $PY_EXIT"
           if [ "$PY_EXIT" -ne 0 ]; then
             echo "::error::analyzer.main exited mit code $PY_EXIT"
             exit "$PY_EXIT"
           fi
 
           # Sanity-Check: wirklich neuer Run-File?
-          AFTER_COUNT=$(ls -1 data/runs/*.json 2>/dev/null | grep -v -E '(latest|index)\.json$' | wc -l)
+          AFTER_COUNT=$(ls -1 data/runs/2026-*.json 2>/dev/null | wc -l)
           AFTER_MTIME=$(stat -c '%Y' data/runs/latest.json 2>/dev/null || echo 0)
           echo "[CHECK] After:  $AFTER_COUNT run-files, latest.json mtime=$AFTER_MTIME"
           if [ "$AFTER_COUNT" -le "$BEFORE_COUNT" ] && [ "$AFTER_MTIME" -le "$BEFORE_MTIME" ]; then
@@ -160,15 +172,4 @@ jobs:
           echo "Push final fehlgeschlagen - haendisch eingreifen."
           exit 1
 
-      - name: GitHub Pages neu bauen lassen
-        if: success()
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Force Pages-Rebuild, da GITHUB_TOKEN-Commits normalerweise keinen Pages-Workflow triggern
-          curl -sS -X POST \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer $GH_TOKEN" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            "https://api.github.com/repos/${{ github.repository }}/pages/builds" \
-            || echo "Pages-Rebuild-Trigger fehlgeschlagen (nicht fatal)"
+      - name
