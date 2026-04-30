@@ -16,6 +16,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -593,4 +594,37 @@ def _update_index(runs_dir: Path) -> None:
         "count": len(runs),
         "runs": runs,
     }
-    (runs_dir / "index.json").w
+    (runs_dir / "index.json").write_text(
+        json.dumps(index, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
+
+def main(argv: Optional[List[str]] = None) -> int:
+    ap = argparse.ArgumentParser(description="GEO Visibility Analyse-Lauf")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="Simuliere LLM-Antworten, keine echten API-Calls")
+    ap.add_argument("--limit", type=int, default=None,
+                    help="Nur die ersten N Prompts je Produkt verarbeiten")
+    args = ap.parse_args(argv)
+
+    try:
+        out = run(dry_run=args.dry_run, limit=args.limit)
+        print(f"\n[DONE] {out}")
+        return 0
+    except KeyboardInterrupt:
+        print("\n[ABBRUCH] Benutzer hat Lauf gestoppt.")
+        return 130
+    except Exception as e:  # noqa: BLE001
+        import traceback
+        print(f"\n[FEHLER] {e}")
+        traceback.print_exc()
+        return 1
+
+
+if __name__ == "__main__":
+    sys.exi
