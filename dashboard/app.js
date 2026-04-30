@@ -534,10 +534,21 @@ function renderWebDiff() {
       return `<span class="pill ${cls}" title="${n} URL${n === 1 ? "" : "s"} getrackt fuer ${b}">${escapeHtml(b)}: ${n}</span>`;
     }).join(" ");
 
+  // Hervorheben: NEU-Erstsichtungen aus dem AKTUELLEN Lauf (= heute frisch entdeckt)
+  const currentRunId = (state.currentRun && state.currentRun.run_id) || "";
+  const nFreshlyNew = interesting.filter(e =>
+    e.event_type === "first_seen" && e.run_id_observed === currentRunId
+  ).length;
+
+  const newPill = nFreshlyNew > 0
+    ? `<span class="pill new" title="Im aktuellen Lauf zum ersten Mal entdeckte URLs">🆕 ${nFreshlyNew} im aktuellen Lauf neu</span>`
+    : "";
+
   const headerHtml = `
     <div class="diff-summary">
       <span class="pill up">${nChanged} Aenderung${nChanged === 1 ? "" : "en"} (30T)</span>
       <span class="pill flat">${nFirst} Erstsichtung${nFirst === 1 ? "" : "en"} (30T)</span>
+      ${newPill}
     </div>
     <div class="diff-summary" style="margin-top:-4px; padding-bottom:4px;">
       <span class="hint" style="align-self:center; margin-right:4px;">Aktuell getrackt:</span>
@@ -568,9 +579,14 @@ function renderWebDiff() {
 
   function diffRow(e) {
     const kind = e.event_type === "change" ? "change" : "first_seen";
+    // Aus dem AKTUELLEN Lauf? Dann "NEU" markieren.
+    const currentRunId = (state.currentRun && state.currentRun.run_id) || "";
+    const isFreshlyNew = (e.event_type === "first_seen" && e.run_id_observed === currentRunId);
     const pill = kind === "change"
       ? `<span class="pill up">Aenderung</span>`
-      : `<span class="pill flat">Erstsichtung</span>`;
+      : (isFreshlyNew
+          ? `<span class="pill new">🆕 NEU</span>`
+          : `<span class="pill flat">Erstsichtung</span>`);
     const sim = (e.similarity !== null && e.similarity !== undefined)
       ? (e.similarity * 100).toFixed(1) + " %" : "-";
     const url = e.url || "";
