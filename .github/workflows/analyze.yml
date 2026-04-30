@@ -1,7 +1,8 @@
 name: Analyze Visibility
 
 # Manuell aus dem GitHub-UI startbar (Actions-Tab -> "Run workflow")
-# UND taeglich automatisch um 02:00 UTC (= 04:00 MESZ / 03:00 MEZ).
+# UND taeglich automatisch um 03:00 UTC (= 05:00 MESZ / 04:00 MEZ).
+# Laeuft 2h NACH dem Cockpit-Nightly, damit events.jsonl bereitsteht.
 on:
   workflow_dispatch:
     inputs:
@@ -14,9 +15,9 @@ on:
         type: string
         default: ""
   schedule:
-    # Taeglich um 02:00 UTC (04:00 MESZ) - frueh morgens,
-    # Daten liegen beim Buero-Start bereit.
-    - cron: "0 2 * * *"
+    # Taeglich um 03:00 UTC (05:00 MESZ) - NACH dem Cockpit-Nightly (01:00 UTC),
+    # damit events.jsonl fuer Korrelation verfuegbar ist.
+    - cron: "0 3 * * *"
 
 permissions:
   contents: write
@@ -52,6 +53,26 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
+      - name: Cockpit-Events laden (fuer Korrelation)
+        env:
+          GITHUB_TOKEN: ${{ secrets.COCKPIT_REPO_TOKEN }}
+          COCKPIT_REPO: phoeser/LLM-Cockpit
+        run: |
+          # events.jsonl vom LLM-Cockpit-Repo holen (fuer Unified Korrelation)
+          if [ -n "$GITHUB_TOKEN" ]; then
+            echo "[EVENTS] Lade events.jsonl von $COCKPIT_REPO ..."
+            curl -sSfL \
+              -H "Authorization: token $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github.v3.raw" \
+              "https://api.github.com/repos/$COCKPIT_REPO/contents/shared/events.jsonl" \
+              -o data/cockpit_events.jsonl 2>/dev/null \
+              && echo "[EVENTS] $(wc -l < data/cockpit_events.jsonl) Events geladen." \
+              || echo "[EVENTS] Keine events.jsonl gefunden (erster Lauf?). Korrelation nur mit Page-Events."
+          else
+            echo "[EVENTS] Kein COCKPIT_REPO_TOKEN konfiguriert. Korrelation nur mit Page-Events."
+          fi
+        continue-on-error: true
 
       - name: Analyse ausführen
         env:
@@ -114,7 +135,7 @@ jobs:
           git config --global user.email "geo-bot@users.noreply.github.com"
 
           # Stage nur die Daten-Verzeichnisse die wir schreiben
-          git add -A data/runs data/snapshots data/pages data/correlation.json 2>/dev/null || true
+          git add -A data/runs data/snapshots data/pages data/correlation.json data/unified_correlation.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "Keine Aenderungen zum Committen."
             exit 0
@@ -142,7 +163,7 @@ jobs:
                 echo "Cherry-pick mit -X theirs scheitert - abort"
                 git cherry-pick --abort 2>/dev/null || true
                 # Fallback: erneut aus workspace adden (unsere data ist noch im workspace)
-                git add -A data/runs data/snapshots data/pages data/correlation.json 2>/dev/null || true
+                git add -A data/runs data/snapshots data/pages data/correlation.json data/unified_correlation.json 2>/dev/null || true
                 if git diff --cached --quiet; then
                   echo "Nichts zu committen nach reset"
                   exit 0
