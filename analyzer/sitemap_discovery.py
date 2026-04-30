@@ -39,7 +39,7 @@ USER_AGENT = (
 MAX_SITEMAP_BYTES = 8 * 1024 * 1024
 MAX_URLS_PER_SITEMAP = 5000
 MAX_TOTAL_URLS = 20000
-MAX_CRAWL_PAGES = 80
+MAX_CRAWL_PAGES = 150  # vorher 80 - mehr Tiefe fuer neue Seiten-Erkennung
 FETCH_TIMEOUT = 20
 
 
@@ -252,11 +252,46 @@ def discover_homepage_crawl(domain: str, keyword_regex: re.Pattern, max_pages: i
     host_bare = bare[4:] if bare.startswith("www.") else bare
 
     seeds: List[str] = []
+    # Generische Rubriken (markenuebergreifend bekannt)
+    GENERIC_RUBS = (
+        "ratgeber", "magazin", "journal", "blog", "tipps", "wissen",
+        "versicherung", "versicherungen", "produkte", "produkt",
+        "privat", "privatkunden", "pk",
+        "gesundheit", "gesundheits-tipps", "gesundheit-vorsorge-vermoegen",
+        "vorsorge", "altersvorsorge", "lebensvorsorge",
+        "leben", "lebensversicherung",
+        "krankenversicherung", "krankenzusatzversicherung",
+        "existenzsicherung", "existenzschutz",
+        "vergleich", "rechner", "service",
+    )
+    # Produktspezifische Sub-Pfade (zahn, sterbe, risiko)
+    PRODUCT_RUBS = (
+        # Zahn-Welt
+        "gesundheit/zahnzusatzversicherung", "gesundheit/krankenzusatzversicherung",
+        "gesundheit/zahnersatz", "gesundheit/zahngesundheit", "gesundheit/zahnreinigung",
+        "ratgeber/zahn", "ratgeber/zahngesundheit", "ratgeber/zahnersatz",
+        "krankenversicherung/zahnzusatz", "krankenversicherung/krankenzusatz",
+        "pk/gesundheit", "privatkunden/gesundheit-freizeit",
+        # Sterbegeld-Welt
+        "vorsorge/sterbegeldversicherung", "vorsorge/bestattungsvorsorge",
+        "vorsorge/todesfallversicherung",
+        "ratgeber/todesfall", "ratgeber/bestattung", "ratgeber/trauer",
+        "existenzsicherung/sterbegeldversicherung",
+        "pk/existenzsicherung",
+        # Risikoleben-Welt
+        "vorsorge/risikolebensversicherung", "vorsorge/lebensversicherung",
+        "vorsorge/kapitallebensversicherung", "vorsorge/altersvorsorge",
+        "ratgeber/risikolebensversicherung", "ratgeber/richtig-vorsorgen",
+        "existenzsicherung/risikolebensversicherung",
+        "privatkunden/vorsorge-finanzen",
+        # Allgemeine Ratgeber-Hubs
+        "ratgeber/gesundheit", "ratgeber/leben", "ratgeber/familie",
+    )
     for h in (host_www, host_bare):
         seeds.append(f"https://{h}/")
-        for rub in ("ratgeber", "magazin", "versicherung", "produkte",
-                    "privat", "privatkunden", "pk", "gesundheit",
-                    "vorsorge", "gesundheit-vorsorge-vermoegen"):
+        for rub in GENERIC_RUBS:
+            seeds.append(f"https://{h}/{rub}")
+        for rub in PRODUCT_RUBS:
             seeds.append(f"https://{h}/{rub}")
 
     queue: List[Tuple[str, int]] = [(u, 0) for u in seeds]
@@ -274,9 +309,10 @@ def discover_homepage_crawl(domain: str, keyword_regex: re.Pattern, max_pages: i
         for link in _extract_links(html, url, same_domain_only=True):
             if keyword_regex.search(link):
                 matches.append(link)
-            elif depth < 1 and link not in seen and len(queue) < max_pages * 2:
+            # 2-Hop: Seed-Links (depth 0) und einen weiteren Hop (depth 1) verfolgen
+            elif depth < 2 and link not in seen and len(queue) < max_pages * 3:
                 queue.append((link, depth + 1))
-        time.sleep(0.5)
+        time.sleep(0.4)
 
     seen_m: Set[str] = set()
     out: List[str] = []
@@ -415,65 +451,61 @@ def discover_for_product(
       - stats: {sitemap_total, kw_matched, crawl_visited}
     """
     if not domain:
-        return {"urls": [], "source": "none", "stats": {}}
-
+        return {"domain": "", "urls": [], "source": "none", "stats": {}}
     rx = build_keyword_regex(product_keywords)
 
-    # Schritt 1: Sitemap-basiert
     sitemap_urls = discover_sitemap_urls(domain)
-    sitemap_matched = filter_urls(sitemap_urls, rx)
+    sitemap_matched = [u for u in sitemap_urls if rx.search(u)]
 
-    # Schritt 2: Homepage-Crawl (IMMER, unabhaengig vom Sitemap-Erfolg),
-    # damit wir auch URLs finden, die nicht in der Sitemap stehen.
-    try:
+    if len(sitemap_matched) < 5:
         crawled = discover_homepage_crawl(domain, rx)
-    except Exception:
+    else:
         crawled = []
 
-    # Merge + Dedupe (stabile Reihenfolge)
+    # Merge + de-dupe
     seen: Set[str] = set()
     merged: List[str] = []
     for u in sitemap_matched + crawled:
-        if u in seen:
-            continue
-        seen.add(u)
-        merged.append(u)
+        u = u.split("#", 1)[0].rstrip("/")
+        if u not in seen:
+            seen.add(u)
+            merged.append(u)
 
     if max_urls is not None:
         merged = merged[:max_urls]
 
-    if merged:
-        # Source-Label: "both" wenn beides liefert, sonst die einzelne Quelle
+    if not merged:
+        source = "none"
+    else:
         if sitemap_matched and crawled:
-            source = "both"
+            source = "sitemap+crawl"
         elif sitemap_matched:
             source = "sitemap"
         else:
             source = "crawl"
-    else:
-        source = "none"
 
     return {
+        "domain": domain,
         "urls": merged,
         "source": source,
         "stats": {
             "sitemap_total": len(sitemap_urls),
             "sitemap_kw_matched": len(sitemap_matched),
             "crawl_kw_matched": len(crawled),
-            "final_count": len(merged),
         },
     }
 
 
-# Kleine CLI, damit wir das Modul isoliert testen können
-if __name__ == "__main__":  # pragma: no cover
-    import argparse
-    import json
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
 
+if __name__ == "__main__":
+    import argparse, json
     ap = argparse.ArgumentParser()
     ap.add_argument("--domain", required=True)
     ap.add_argument("--keywords", nargs="+", required=True)
-    ap.add_argument("--max-urls", type=int, default=25)
+    ap.add_argument("--max-urls", type=int, default=None)
     args = ap.parse_args()
     out = discover_for_product(args.domain, args.keywords, args.max_urls)
     print(json.dumps(out, indent=2, ensure_ascii=False))
