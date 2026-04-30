@@ -79,7 +79,8 @@ def compute(run_dict: Dict[str, Any], cfg: Dict[str, Any]) -> Dict[str, Any]:
             warnings.append(f"nur {int(url_pct * 100)}% URLs erreichbar ({details['urls_reachable']}/{details['urls_total']})")
             url_grade = "red"
 
-    # Why-Bewertung
+    # Why-Bewertung — Why ist eine sekundaere Analyse. Sie kappt das Gesamt-Grade
+    # NICHT auf rot, sondern hoechstens auf yellow. Rot kommt nur durch LLM/URL-Probleme.
     why_status = details["why_status"]
     if why_status == "ok":
         reasons.append(f"Why-Analyse OK ({details['why_products_ok']}/{details['why_products_total']})")
@@ -90,9 +91,9 @@ def compute(run_dict: Dict[str, Any], cfg: Dict[str, Any]) -> Dict[str, Any]:
     elif why_status == "skipped":
         warnings.append("Why-Analyse übersprungen (kein Client)")
         why_grade = "yellow"
-    else:  # failed
-        warnings.append("Why-Analyse fehlgeschlagen")
-        why_grade = "red"
+    else:  # failed -> nur yellow, nicht rot
+        warnings.append("Why-Analyse fehlgeschlagen (Kern-Lauf nicht betroffen)")
+        why_grade = "yellow"
 
     # Gesamt-Grade: schlechtester der drei (red dominiert)
     order = {"green": 0, "yellow": 1, "red": 2}
@@ -185,22 +186,41 @@ def _check_urls(run_dict: Dict) -> Dict[str, Any]:
 
 
 def _check_why(run_dict: Dict) -> Dict[str, Any]:
-    """Status der Why-Analyse."""
+    """Status der Why-Analyse.
+
+    Datenstruktur: run_dict["why_analysis"] = {
+        "<product_id>": {
+            "<brand_name>": {"reasons_mentioned": ..., "key_topics": [...], ...},
+            ...
+        },
+        ...
+    }
+    Ein Produkt zählt als OK, wenn mindestens eine Marke darunter mindestens ein
+    nicht-leeres Why-Feld hat (reasons_mentioned/reasons_absent/key_topics).
+    """
     why = run_dict.get("why_analysis")
     if why is None:
         return {"why_status": "skipped", "why_products_ok": 0, "why_products_total": 0}
     if isinstance(why, dict) and why.get("error"):
         return {"why_status": "failed", "why_products_ok": 0, "why_products_total": 0,
                 "why_error": str(why.get("error"))[:200]}
-    if not why:
+    if not why or not isinstance(why, dict):
         return {"why_status": "skipped", "why_products_ok": 0, "why_products_total": 0}
 
-    total = len(why) if isinstance(why, dict) else 0
+    total = len(why)
     ok = 0
-    if isinstance(why, dict):
-        for k, v in why.items():
-            if isinstance(v, dict) and not v.get("error") and v.get("brands"):
+    for prod_id, prod_data in why.items():
+        if not isinstance(prod_data, dict):
+            continue
+        # mind. eine Marke mit nicht-leerem reasons_mentioned ODER key_topics ODER reasons_absent
+        for brand_name, brand_data in prod_data.items():
+            if not isinstance(brand_data, dict):
+                continue
+            if (brand_data.get("reasons_mentioned") or
+                brand_data.get("reasons_absent") or
+                brand_data.get("key_topics")):
                 ok += 1
+                break  # ein Treffer pro Produkt reicht
 
     if total == 0:
         return {"why_status": "skipped", "why_products_ok": 0, "why_products_total": 0}
