@@ -1,0 +1,2479 @@
+{
+  "run_id": "2026-04-22T20-19-50Z",
+  "started_at": "2026-04-22T20:19:50.536008+00:00",
+  "dry_run": true,
+  "brand": "ERGO",
+  "brand_domain": "ergo.de",
+  "competitors": [
+    "Allianz",
+    "AXA",
+    "Generali",
+    "HUK-Coburg"
+  ],
+  "llms": [
+    "claude",
+    "gemini"
+  ],
+  "products": {
+    "zahnzusatz": {
+      "name": "Zahnzusatzversicherung",
+      "url": "https://www.ergo.de/de/Produkte/Gesundheit/Zahnzusatzversicherung",
+      "website": {
+        "product_id": "zahnzusatz",
+        "url": "https://www.ergo.de/de/Produkte/Gesundheit/Zahnzusatzversicherung",
+        "timestamp": "2026-04-22T20-19-50Z",
+        "status": 200,
+        "error": null,
+        "html_hash": "dry",
+        "text_hash": "dry",
+        "text_length": 0,
+        "diff": {
+          "has_previous": false,
+          "changed": false,
+          "summary": "dry-run, kein Scrape",
+          "added_lines": [],
+          "removed_lines": [],
+          "similarity": 1.0
+        }
+      },
+      "per_llm": [
+        {
+          "llm": "claude",
+          "results": [
+            {
+              "prompt_id": "zz-01",
+              "prompt_text": "Welche Zahnzusatzversicherung ist 2026 die beste?",
+              "intent": "Empfehlung",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. AXA — gute Tarife und solide Leistungen.\n2. Generali — gute Tarife und solide Leistungen.\n3. HUK-Coburg — gute Tarife und solide Leistungen.\n4. DKV — gute Tarife und solide Leistungen.\n5. Allianz — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": null,
+                    "cited": true,
+                    "share_of_voice": 0.1429
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 5,
+                    "cited": true,
+                    "share_of_voice": 0.2857
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": true,
+                    "share_of_voice": 0.2857
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": false,
+                    "share_of_voice": 0.1429
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 3,
+                    "cited": false,
+                    "share_of_voice": 0.1429
+                  }
+                ],
+                "total_mentions": 7,
+                "source_count": 3,
+                "text_length": 350
+              }
+            },
+            {
+              "prompt_id": "zz-02",
+              "prompt_text": "Kannst du mir eine gute Zahnzusatzversicherung empfehlen?",
+              "intent": "Empfehlung",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. ERGO — gute Tarife und solide Leistungen.\n2. AXA — gute Tarife und solide Leistungen.\n3. Generali — gute Tarife und solide Leistungen.\n4. HUK-Coburg — gute Tarife und solide Leistungen.\n5. DKV — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": true,
+                    "share_of_voice": 0.2857
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": null,
+                    "cited": true,
+                    "share_of_voice": 0.1429
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": true,
+                    "share_of_voice": 0.2857
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 3,
+                    "cited": false,
+                    "share_of_voice": 0.1429
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 4,
+                    "cited": false,
+                    "share_of_voice": 0.1429
+                  }
+                ],
+                "total_mentions": 7,
+                "source_count": 3,
+                "text_length": 347
+              }
+            },
+            {
+              "prompt_id": "zz-03",
+              "prompt_text": "Welche Zahnzusatzversicherungen schneiden bei Stiftung Warentest am besten ab?",
+              "intent": "Vergleich",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. ERGO — gute Tarife und solide Leistungen.\n2. AXA — gute Tarife und solide Leistungen.\n3. Generali — gute Tarife und solide Leistungen.\n4. HUK-Coburg — gute Tarife und solide Leistungen.\n5. DKV — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": true,
+                    "share_of_voice": 0.2857
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": null,
+                    "cited": true,
+                    "share_of_voice": 0.1429
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": true,
+                    "share_of_voice": 0.2857
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 3,
+                    "cited": false,
+                    "share_of_voice": 0.1429
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 4,
+                    "cited": false,
+                    "share_of_voice": 0.1429
+                  }
+                ],
+                "total_mentions": 7,
+                "source_count": 3,
+                "text_length": 347
+              }
+            }
+          ]
+        },
+        {
+          "llm": "gemini",
+          "results": [
+            {
+              "prompt_id": "zz-01",
+              "prompt_text": "Welche Zahnzusatzversicherung ist 2026 die beste?",
+              "intent": "Empfehlung",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. AXA — gute Tarife und solide Leistungen.\n2. Generali — gute Tarife und solide Leistungen.\n3. HUK-Coburg — gute Tarife und solide Leistungen.\n4. DKV — gute Tarife und solide Leistungen.\n5. Allianz — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": null,
+                    "cited": true,
+                    "share_of_voice": 0.1429
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 5,
+                    "cited": true,
+                    "share_of_voice": 0.2857
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": true,
+                    "share_of_voice": 0.2857
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": false,
+                    "share_of_voice": 0.1429
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 3,
+                    "cited": false,
+                    "share_of_voice": 0.1429
+                  }
+                ],
+                "total_mentions": 7,
+                "source_count": 3,
+                "text_length": 350
+              }
+            },
+            {
+              "prompt_id": "zz-02",
+              "prompt_text": "Kannst du mir eine gute Zahnzusatzversicherung empfehlen?",
+              "intent": "Empfehlung",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. ERGO — gute Tarife und solide Leistungen.\n2. AXA — gute Tarife und solide Leistungen.\n3. Generali — gute Tarife und solide Leistungen.\n4. HUK-Coburg — gute Tarife und solide Leistungen.\n5. DKV — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": true,
+                    "share_of_voice": 0.2857
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": null,
+                    "cited": true,
+                    "share_of_voice": 0.1429
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": true,
+                    "share_of_voice": 0.2857
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 3,
+                    "cited": false,
+                    "share_of_voice": 0.1429
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 4,
+                    "cited": false,
+                    "share_of_voice": 0.1429
+                  }
+                ],
+                "total_mentions": 7,
+                "source_count": 3,
+                "text_length": 347
+              }
+            },
+            {
+              "prompt_id": "zz-03",
+              "prompt_text": "Welche Zahnzusatzversicherungen schneiden bei Stiftung Warentest am besten ab?",
+              "intent": "Vergleich",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. ERGO — gute Tarife und solide Leistungen.\n2. AXA — gute Tarife und solide Leistungen.\n3. Generali — gute Tarife und solide Leistungen.\n4. HUK-Coburg — gute Tarife und solide Leistungen.\n5. DKV — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": true,
+                    "share_of_voice": 0.2857
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": null,
+                    "cited": true,
+                    "share_of_voice": 0.1429
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": true,
+                    "share_of_voice": 0.2857
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 3,
+                    "cited": false,
+                    "share_of_voice": 0.1429
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 4,
+                    "cited": false,
+                    "share_of_voice": 0.1429
+                  }
+                ],
+                "total_mentions": 7,
+                "source_count": 3,
+                "text_length": 347
+              }
+            }
+          ]
+        }
+      ],
+      "summary_by_llm": {
+        "claude": {
+          "prompts_total": 3,
+          "brands": [
+            {
+              "name": "AXA",
+              "mentions": 6,
+              "share_of_voice": 0.2857,
+              "appearance_rate": 1.0,
+              "avg_rank": 1.67,
+              "best_rank": 1,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "ERGO",
+              "mentions": 5,
+              "share_of_voice": 0.2381,
+              "appearance_rate": 1.0,
+              "avg_rank": 1.0,
+              "best_rank": 1,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "Allianz",
+              "mentions": 4,
+              "share_of_voice": 0.1905,
+              "appearance_rate": 1.0,
+              "avg_rank": 5.0,
+              "best_rank": 5,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "Generali",
+              "mentions": 3,
+              "share_of_voice": 0.1429,
+              "appearance_rate": 1.0,
+              "avg_rank": 2.67,
+              "best_rank": 2,
+              "citation_rate": 0.0
+            },
+            {
+              "name": "HUK-Coburg",
+              "mentions": 3,
+              "share_of_voice": 0.1429,
+              "appearance_rate": 1.0,
+              "avg_rank": 3.67,
+              "best_rank": 3,
+              "citation_rate": 0.0
+            }
+          ]
+        },
+        "gemini": {
+          "prompts_total": 3,
+          "brands": [
+            {
+              "name": "AXA",
+              "mentions": 6,
+              "share_of_voice": 0.2857,
+              "appearance_rate": 1.0,
+              "avg_rank": 1.67,
+              "best_rank": 1,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "ERGO",
+              "mentions": 5,
+              "share_of_voice": 0.2381,
+              "appearance_rate": 1.0,
+              "avg_rank": 1.0,
+              "best_rank": 1,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "Allianz",
+              "mentions": 4,
+              "share_of_voice": 0.1905,
+              "appearance_rate": 1.0,
+              "avg_rank": 5.0,
+              "best_rank": 5,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "Generali",
+              "mentions": 3,
+              "share_of_voice": 0.1429,
+              "appearance_rate": 1.0,
+              "avg_rank": 2.67,
+              "best_rank": 2,
+              "citation_rate": 0.0
+            },
+            {
+              "name": "HUK-Coburg",
+              "mentions": 3,
+              "share_of_voice": 0.1429,
+              "appearance_rate": 1.0,
+              "avg_rank": 3.67,
+              "best_rank": 3,
+              "citation_rate": 0.0
+            }
+          ]
+        }
+      }
+    },
+    "sterbegeld": {
+      "name": "Sterbegeldversicherung",
+      "url": "https://www.ergo.de/de/Produkte/Leben/Sterbegeldversicherung",
+      "website": {
+        "product_id": "sterbegeld",
+        "url": "https://www.ergo.de/de/Produkte/Leben/Sterbegeldversicherung",
+        "timestamp": "2026-04-22T20-19-50Z",
+        "status": 200,
+        "error": null,
+        "html_hash": "dry",
+        "text_hash": "dry",
+        "text_length": 0,
+        "diff": {
+          "has_previous": false,
+          "changed": false,
+          "summary": "dry-run, kein Scrape",
+          "added_lines": [],
+          "removed_lines": [],
+          "similarity": 1.0
+        }
+      },
+      "per_llm": [
+        {
+          "llm": "claude",
+          "results": [
+            {
+              "prompt_id": "sg-01",
+              "prompt_text": "Welche Sterbegeldversicherung ist die beste?",
+              "intent": "Empfehlung",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. Allianz — gute Tarife und solide Leistungen.\n2. ERGO — gute Tarife und solide Leistungen.\n3. AXA — gute Tarife und solide Leistungen.\n4. Generali — gute Tarife und solide Leistungen.\n5. HUK-Coburg — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 3,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 4,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 5,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  }
+                ],
+                "total_mentions": 8,
+                "source_count": 3,
+                "text_length": 351
+              }
+            },
+            {
+              "prompt_id": "sg-02",
+              "prompt_text": "Kannst du mir eine gute Sterbegeldversicherung empfehlen?",
+              "intent": "Empfehlung",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. Allianz — gute Tarife und solide Leistungen.\n2. ERGO — gute Tarife und solide Leistungen.\n3. AXA — gute Tarife und solide Leistungen.\n4. Generali — gute Tarife und solide Leistungen.\n5. HUK-Coburg — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 3,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 4,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 5,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  }
+                ],
+                "total_mentions": 8,
+                "source_count": 3,
+                "text_length": 351
+              }
+            },
+            {
+              "prompt_id": "sg-03",
+              "prompt_text": "Nenne mir die Top 5 Sterbegeldversicherungen in Deutschland 2026.",
+              "intent": "Top-Liste",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. Allianz — gute Tarife und solide Leistungen.\n2. ERGO — gute Tarife und solide Leistungen.\n3. AXA — gute Tarife und solide Leistungen.\n4. Generali — gute Tarife und solide Leistungen.\n5. HUK-Coburg — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 3,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 4,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 5,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  }
+                ],
+                "total_mentions": 8,
+                "source_count": 3,
+                "text_length": 351
+              }
+            }
+          ]
+        },
+        {
+          "llm": "gemini",
+          "results": [
+            {
+              "prompt_id": "sg-01",
+              "prompt_text": "Welche Sterbegeldversicherung ist die beste?",
+              "intent": "Empfehlung",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. Allianz — gute Tarife und solide Leistungen.\n2. ERGO — gute Tarife und solide Leistungen.\n3. AXA — gute Tarife und solide Leistungen.\n4. Generali — gute Tarife und solide Leistungen.\n5. HUK-Coburg — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 3,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 4,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 5,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  }
+                ],
+                "total_mentions": 8,
+                "source_count": 3,
+                "text_length": 351
+              }
+            },
+            {
+              "prompt_id": "sg-02",
+              "prompt_text": "Kannst du mir eine gute Sterbegeldversicherung empfehlen?",
+              "intent": "Empfehlung",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. Allianz — gute Tarife und solide Leistungen.\n2. ERGO — gute Tarife und solide Leistungen.\n3. AXA — gute Tarife und solide Leistungen.\n4. Generali — gute Tarife und solide Leistungen.\n5. HUK-Coburg — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 3,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 4,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 5,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  }
+                ],
+                "total_mentions": 8,
+                "source_count": 3,
+                "text_length": 351
+              }
+            },
+            {
+              "prompt_id": "sg-03",
+              "prompt_text": "Nenne mir die Top 5 Sterbegeldversicherungen in Deutschland 2026.",
+              "intent": "Top-Liste",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. Allianz — gute Tarife und solide Leistungen.\n2. ERGO — gute Tarife und solide Leistungen.\n3. AXA — gute Tarife und solide Leistungen.\n4. Generali — gute Tarife und solide Leistungen.\n5. HUK-Coburg — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 3,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 4,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 5,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  }
+                ],
+                "total_mentions": 8,
+                "source_count": 3,
+                "text_length": 351
+              }
+            }
+          ]
+        }
+      ],
+      "summary_by_llm": {
+        "claude": {
+          "prompts_total": 3,
+          "brands": [
+            {
+              "name": "ERGO",
+              "mentions": 6,
+              "share_of_voice": 0.25,
+              "appearance_rate": 1.0,
+              "avg_rank": 2.0,
+              "best_rank": 2,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "Allianz",
+              "mentions": 6,
+              "share_of_voice": 0.25,
+              "appearance_rate": 1.0,
+              "avg_rank": 1.0,
+              "best_rank": 1,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "AXA",
+              "mentions": 6,
+              "share_of_voice": 0.25,
+              "appearance_rate": 1.0,
+              "avg_rank": 3.0,
+              "best_rank": 3,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "Generali",
+              "mentions": 3,
+              "share_of_voice": 0.125,
+              "appearance_rate": 1.0,
+              "avg_rank": 4.0,
+              "best_rank": 4,
+              "citation_rate": 0.0
+            },
+            {
+              "name": "HUK-Coburg",
+              "mentions": 3,
+              "share_of_voice": 0.125,
+              "appearance_rate": 1.0,
+              "avg_rank": 5.0,
+              "best_rank": 5,
+              "citation_rate": 0.0
+            }
+          ]
+        },
+        "gemini": {
+          "prompts_total": 3,
+          "brands": [
+            {
+              "name": "ERGO",
+              "mentions": 6,
+              "share_of_voice": 0.25,
+              "appearance_rate": 1.0,
+              "avg_rank": 2.0,
+              "best_rank": 2,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "Allianz",
+              "mentions": 6,
+              "share_of_voice": 0.25,
+              "appearance_rate": 1.0,
+              "avg_rank": 1.0,
+              "best_rank": 1,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "AXA",
+              "mentions": 6,
+              "share_of_voice": 0.25,
+              "appearance_rate": 1.0,
+              "avg_rank": 3.0,
+              "best_rank": 3,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "Generali",
+              "mentions": 3,
+              "share_of_voice": 0.125,
+              "appearance_rate": 1.0,
+              "avg_rank": 4.0,
+              "best_rank": 4,
+              "citation_rate": 0.0
+            },
+            {
+              "name": "HUK-Coburg",
+              "mentions": 3,
+              "share_of_voice": 0.125,
+              "appearance_rate": 1.0,
+              "avg_rank": 5.0,
+              "best_rank": 5,
+              "citation_rate": 0.0
+            }
+          ]
+        }
+      }
+    },
+    "risikoleben": {
+      "name": "Risikolebensversicherung",
+      "url": "https://www.ergo.de/de/Produkte/Leben/Risikolebensversicherung",
+      "website": {
+        "product_id": "risikoleben",
+        "url": "https://www.ergo.de/de/Produkte/Leben/Risikolebensversicherung",
+        "timestamp": "2026-04-22T20-19-50Z",
+        "status": 200,
+        "error": null,
+        "html_hash": "dry",
+        "text_hash": "dry",
+        "text_length": 0,
+        "diff": {
+          "has_previous": false,
+          "changed": false,
+          "summary": "dry-run, kein Scrape",
+          "added_lines": [],
+          "removed_lines": [],
+          "similarity": 1.0
+        }
+      },
+      "per_llm": [
+        {
+          "llm": "claude",
+          "results": [
+            {
+              "prompt_id": "rl-01",
+              "prompt_text": "Welche Risikolebensversicherung ist 2026 die beste?",
+              "intent": "Empfehlung",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. Allianz — gute Tarife und solide Leistungen.\n2. ERGO — gute Tarife und solide Leistungen.\n3. AXA — gute Tarife und solide Leistungen.\n4. Generali — gute Tarife und solide Leistungen.\n5. HUK-Coburg — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 3,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 4,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 5,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  }
+                ],
+                "total_mentions": 8,
+                "source_count": 3,
+                "text_length": 351
+              }
+            },
+            {
+              "prompt_id": "rl-02",
+              "prompt_text": "Kannst du mir eine gute Risikolebensversicherung empfehlen?",
+              "intent": "Empfehlung",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. Generali — gute Tarife und solide Leistungen.\n2. HUK-Coburg — gute Tarife und solide Leistungen.\n3. DKV — gute Tarife und solide Leistungen.\n4. Allianz — gute Tarife und solide Leistungen.\n5. ERGO — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 5,
+                    "cited": true,
+                    "share_of_voice": 0.2857
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 4,
+                    "cited": true,
+                    "share_of_voice": 0.2857
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": null,
+                    "cited": true,
+                    "share_of_voice": 0.1429
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": false,
+                    "share_of_voice": 0.1429
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": false,
+                    "share_of_voice": 0.1429
+                  }
+                ],
+                "total_mentions": 7,
+                "source_count": 3,
+                "text_length": 351
+              }
+            },
+            {
+              "prompt_id": "rl-03",
+              "prompt_text": "Nenne mir die Top 5 Anbieter für Risikolebensversicherung.",
+              "intent": "Top-Liste",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. Allianz — gute Tarife und solide Leistungen.\n2. ERGO — gute Tarife und solide Leistungen.\n3. AXA — gute Tarife und solide Leistungen.\n4. Generali — gute Tarife und solide Leistungen.\n5. HUK-Coburg — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 3,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 4,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 5,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  }
+                ],
+                "total_mentions": 8,
+                "source_count": 3,
+                "text_length": 351
+              }
+            }
+          ]
+        },
+        {
+          "llm": "gemini",
+          "results": [
+            {
+              "prompt_id": "rl-01",
+              "prompt_text": "Welche Risikolebensversicherung ist 2026 die beste?",
+              "intent": "Empfehlung",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. Allianz — gute Tarife und solide Leistungen.\n2. ERGO — gute Tarife und solide Leistungen.\n3. AXA — gute Tarife und solide Leistungen.\n4. Generali — gute Tarife und solide Leistungen.\n5. HUK-Coburg — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 3,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 4,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 5,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  }
+                ],
+                "total_mentions": 8,
+                "source_count": 3,
+                "text_length": 351
+              }
+            },
+            {
+              "prompt_id": "rl-02",
+              "prompt_text": "Kannst du mir eine gute Risikolebensversicherung empfehlen?",
+              "intent": "Empfehlung",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. Generali — gute Tarife und solide Leistungen.\n2. HUK-Coburg — gute Tarife und solide Leistungen.\n3. DKV — gute Tarife und solide Leistungen.\n4. Allianz — gute Tarife und solide Leistungen.\n5. ERGO — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 5,
+                    "cited": true,
+                    "share_of_voice": 0.2857
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 4,
+                    "cited": true,
+                    "share_of_voice": 0.2857
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": null,
+                    "cited": true,
+                    "share_of_voice": 0.1429
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": false,
+                    "share_of_voice": 0.1429
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": false,
+                    "share_of_voice": 0.1429
+                  }
+                ],
+                "total_mentions": 7,
+                "source_count": 3,
+                "text_length": 351
+              }
+            },
+            {
+              "prompt_id": "rl-03",
+              "prompt_text": "Nenne mir die Top 5 Anbieter für Risikolebensversicherung.",
+              "intent": "Top-Liste",
+              "response_text": "Hier sind einige empfehlenswerte Anbieter:\n1. Allianz — gute Tarife und solide Leistungen.\n2. ERGO — gute Tarife und solide Leistungen.\n3. AXA — gute Tarife und solide Leistungen.\n4. Generali — gute Tarife und solide Leistungen.\n5. HUK-Coburg — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de",
+              "sources": [
+                {
+                  "title": "",
+                  "url": "https://www.allianz.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.ergo.de"
+                },
+                {
+                  "title": "",
+                  "url": "https://www.axa.de"
+                }
+              ],
+              "error": null,
+              "latency_ms": 50.0,
+              "tokens_in": 100,
+              "tokens_out": 80,
+              "metrics": {
+                "brands": [
+                  {
+                    "name": "ERGO",
+                    "domain": "ergo.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 2,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Allianz",
+                    "domain": "allianz.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 1,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "AXA",
+                    "domain": "axa.de",
+                    "mentions": 2,
+                    "mentioned": true,
+                    "first_rank": 3,
+                    "cited": true,
+                    "share_of_voice": 0.25
+                  },
+                  {
+                    "name": "Generali",
+                    "domain": "generali.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 4,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  },
+                  {
+                    "name": "HUK-Coburg",
+                    "domain": "huk-coburg.de",
+                    "mentions": 1,
+                    "mentioned": true,
+                    "first_rank": 5,
+                    "cited": false,
+                    "share_of_voice": 0.125
+                  }
+                ],
+                "total_mentions": 8,
+                "source_count": 3,
+                "text_length": 351
+              }
+            }
+          ]
+        }
+      ],
+      "summary_by_llm": {
+        "claude": {
+          "prompts_total": 3,
+          "brands": [
+            {
+              "name": "ERGO",
+              "mentions": 6,
+              "share_of_voice": 0.2609,
+              "appearance_rate": 1.0,
+              "avg_rank": 3.0,
+              "best_rank": 2,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "Allianz",
+              "mentions": 6,
+              "share_of_voice": 0.2609,
+              "appearance_rate": 1.0,
+              "avg_rank": 2.0,
+              "best_rank": 1,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "AXA",
+              "mentions": 5,
+              "share_of_voice": 0.2174,
+              "appearance_rate": 1.0,
+              "avg_rank": 3.0,
+              "best_rank": 3,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "Generali",
+              "mentions": 3,
+              "share_of_voice": 0.1304,
+              "appearance_rate": 1.0,
+              "avg_rank": 3.0,
+              "best_rank": 1,
+              "citation_rate": 0.0
+            },
+            {
+              "name": "HUK-Coburg",
+              "mentions": 3,
+              "share_of_voice": 0.1304,
+              "appearance_rate": 1.0,
+              "avg_rank": 4.0,
+              "best_rank": 2,
+              "citation_rate": 0.0
+            }
+          ]
+        },
+        "gemini": {
+          "prompts_total": 3,
+          "brands": [
+            {
+              "name": "ERGO",
+              "mentions": 6,
+              "share_of_voice": 0.2609,
+              "appearance_rate": 1.0,
+              "avg_rank": 3.0,
+              "best_rank": 2,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "Allianz",
+              "mentions": 6,
+              "share_of_voice": 0.2609,
+              "appearance_rate": 1.0,
+              "avg_rank": 2.0,
+              "best_rank": 1,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "AXA",
+              "mentions": 5,
+              "share_of_voice": 0.2174,
+              "appearance_rate": 1.0,
+              "avg_rank": 3.0,
+              "best_rank": 3,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "Generali",
+              "mentions": 3,
+              "share_of_voice": 0.1304,
+              "appearance_rate": 1.0,
+              "avg_rank": 3.0,
+              "best_rank": 1,
+              "citation_rate": 0.0
+            },
+            {
+              "name": "HUK-Coburg",
+              "mentions": 3,
+              "share_of_voice": 0.1304,
+              "appearance_rate": 1.0,
+              "avg_rank": 4.0,
+              "best_rank": 2,
+              "citation_rate": 0.0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "totals": {
+    "ranking": [
+      {
+        "name": "ERGO",
+        "mentions": 34,
+        "share_of_voice": 0.25,
+        "appearance_rate": 1.0,
+        "citation_rate": 1.0,
+        "avg_rank": 2.0
+      },
+      {
+        "name": "AXA",
+        "mentions": 34,
+        "share_of_voice": 0.25,
+        "appearance_rate": 1.0,
+        "citation_rate": 1.0,
+        "avg_rank": 2.56
+      },
+      {
+        "name": "Allianz",
+        "mentions": 32,
+        "share_of_voice": 0.2353,
+        "appearance_rate": 1.0,
+        "citation_rate": 1.0,
+        "avg_rank": 2.67
+      },
+      {
+        "name": "Generali",
+        "mentions": 18,
+        "share_of_voice": 0.1324,
+        "appearance_rate": 1.0,
+        "citation_rate": 0.0,
+        "avg_rank": 3.22
+      },
+      {
+        "name": "HUK-Coburg",
+        "mentions": 18,
+        "share_of_voice": 0.1324,
+        "appearance_rate": 1.0,
+        "citation_rate": 0.0,
+        "avg_rank": 4.22
+      }
+    ]
+  },
+  "impact": {
+    "deltas": {
+      "has_previous": true,
+      "previous_run": "2026-04-22T20-19-36Z",
+      "changes": [
+        {
+          "product": "zahnzusatz",
+          "llm": "claude",
+          "brand": "AXA",
+          "delta_share_of_voice": 0.0584,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": -1.83,
+          "current": {
+            "share_of_voice": 0.2857,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 1.67
+          },
+          "previous": {
+            "share_of_voice": 0.2273,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 3.5
+          }
+        },
+        {
+          "product": "zahnzusatz",
+          "llm": "claude",
+          "brand": "ERGO",
+          "delta_share_of_voice": -0.0346,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": -2.33,
+          "current": {
+            "share_of_voice": 0.2381,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 1.0
+          },
+          "previous": {
+            "share_of_voice": 0.2727,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 3.33
+          }
+        },
+        {
+          "product": "zahnzusatz",
+          "llm": "claude",
+          "brand": "Allianz",
+          "delta_share_of_voice": -0.0822,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 2.67,
+          "current": {
+            "share_of_voice": 0.1905,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 5.0
+          },
+          "previous": {
+            "share_of_voice": 0.2727,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 2.33
+          }
+        },
+        {
+          "product": "zahnzusatz",
+          "llm": "claude",
+          "brand": "Generali",
+          "delta_share_of_voice": 0.0065,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": -0.66,
+          "current": {
+            "share_of_voice": 0.1429,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 2.67
+          },
+          "previous": {
+            "share_of_voice": 0.1364,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 3.33
+          }
+        },
+        {
+          "product": "zahnzusatz",
+          "llm": "claude",
+          "brand": "HUK-Coburg",
+          "delta_share_of_voice": 0.052,
+          "delta_appearance_rate": 0.3333,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 0.17,
+          "current": {
+            "share_of_voice": 0.1429,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 3.67
+          },
+          "previous": {
+            "share_of_voice": 0.0909,
+            "appearance_rate": 0.6667,
+            "citation_rate": 0.0,
+            "avg_rank": 3.5
+          }
+        },
+        {
+          "product": "zahnzusatz",
+          "llm": "gemini",
+          "brand": "AXA",
+          "delta_share_of_voice": 0.0584,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": -1.83,
+          "current": {
+            "share_of_voice": 0.2857,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 1.67
+          },
+          "previous": {
+            "share_of_voice": 0.2273,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 3.5
+          }
+        },
+        {
+          "product": "zahnzusatz",
+          "llm": "gemini",
+          "brand": "ERGO",
+          "delta_share_of_voice": -0.0346,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": -2.33,
+          "current": {
+            "share_of_voice": 0.2381,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 1.0
+          },
+          "previous": {
+            "share_of_voice": 0.2727,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 3.33
+          }
+        },
+        {
+          "product": "zahnzusatz",
+          "llm": "gemini",
+          "brand": "Allianz",
+          "delta_share_of_voice": -0.0822,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 2.67,
+          "current": {
+            "share_of_voice": 0.1905,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 5.0
+          },
+          "previous": {
+            "share_of_voice": 0.2727,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 2.33
+          }
+        },
+        {
+          "product": "zahnzusatz",
+          "llm": "gemini",
+          "brand": "Generali",
+          "delta_share_of_voice": 0.0065,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": -0.66,
+          "current": {
+            "share_of_voice": 0.1429,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 2.67
+          },
+          "previous": {
+            "share_of_voice": 0.1364,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 3.33
+          }
+        },
+        {
+          "product": "zahnzusatz",
+          "llm": "gemini",
+          "brand": "HUK-Coburg",
+          "delta_share_of_voice": 0.052,
+          "delta_appearance_rate": 0.3333,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 0.17,
+          "current": {
+            "share_of_voice": 0.1429,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 3.67
+          },
+          "previous": {
+            "share_of_voice": 0.0909,
+            "appearance_rate": 0.6667,
+            "citation_rate": 0.0,
+            "avg_rank": 3.5
+          }
+        },
+        {
+          "product": "sterbegeld",
+          "llm": "claude",
+          "brand": "ERGO",
+          "delta_share_of_voice": 0.0227,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": -1.0,
+          "current": {
+            "share_of_voice": 0.25,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 2.0
+          },
+          "previous": {
+            "share_of_voice": 0.2273,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 3.0
+          }
+        },
+        {
+          "product": "sterbegeld",
+          "llm": "claude",
+          "brand": "Allianz",
+          "delta_share_of_voice": -0.0227,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": -2.0,
+          "current": {
+            "share_of_voice": 0.25,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 1.0
+          },
+          "previous": {
+            "share_of_voice": 0.2727,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 3.0
+          }
+        },
+        {
+          "product": "sterbegeld",
+          "llm": "claude",
+          "brand": "AXA",
+          "delta_share_of_voice": -0.0227,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 0.0,
+          "current": {
+            "share_of_voice": 0.25,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 3.0
+          },
+          "previous": {
+            "share_of_voice": 0.2727,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 3.0
+          }
+        },
+        {
+          "product": "sterbegeld",
+          "llm": "claude",
+          "brand": "Generali",
+          "delta_share_of_voice": 0.0341,
+          "delta_appearance_rate": 0.3333,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 1.0,
+          "current": {
+            "share_of_voice": 0.125,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 4.0
+          },
+          "previous": {
+            "share_of_voice": 0.0909,
+            "appearance_rate": 0.6667,
+            "citation_rate": 0.0,
+            "avg_rank": 3.0
+          }
+        },
+        {
+          "product": "sterbegeld",
+          "llm": "claude",
+          "brand": "HUK-Coburg",
+          "delta_share_of_voice": -0.0114,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 2.0,
+          "current": {
+            "share_of_voice": 0.125,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 5.0
+          },
+          "previous": {
+            "share_of_voice": 0.1364,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 3.0
+          }
+        },
+        {
+          "product": "sterbegeld",
+          "llm": "gemini",
+          "brand": "ERGO",
+          "delta_share_of_voice": 0.0227,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": -1.0,
+          "current": {
+            "share_of_voice": 0.25,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 2.0
+          },
+          "previous": {
+            "share_of_voice": 0.2273,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 3.0
+          }
+        },
+        {
+          "product": "sterbegeld",
+          "llm": "gemini",
+          "brand": "Allianz",
+          "delta_share_of_voice": -0.0227,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": -2.0,
+          "current": {
+            "share_of_voice": 0.25,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 1.0
+          },
+          "previous": {
+            "share_of_voice": 0.2727,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 3.0
+          }
+        },
+        {
+          "product": "sterbegeld",
+          "llm": "gemini",
+          "brand": "AXA",
+          "delta_share_of_voice": -0.0227,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 0.0,
+          "current": {
+            "share_of_voice": 0.25,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 3.0
+          },
+          "previous": {
+            "share_of_voice": 0.2727,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 3.0
+          }
+        },
+        {
+          "product": "sterbegeld",
+          "llm": "gemini",
+          "brand": "Generali",
+          "delta_share_of_voice": 0.0341,
+          "delta_appearance_rate": 0.3333,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 1.0,
+          "current": {
+            "share_of_voice": 0.125,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 4.0
+          },
+          "previous": {
+            "share_of_voice": 0.0909,
+            "appearance_rate": 0.6667,
+            "citation_rate": 0.0,
+            "avg_rank": 3.0
+          }
+        },
+        {
+          "product": "sterbegeld",
+          "llm": "gemini",
+          "brand": "HUK-Coburg",
+          "delta_share_of_voice": -0.0114,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 2.0,
+          "current": {
+            "share_of_voice": 0.125,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 5.0
+          },
+          "previous": {
+            "share_of_voice": 0.1364,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 3.0
+          }
+        },
+        {
+          "product": "risikoleben",
+          "llm": "claude",
+          "brand": "ERGO",
+          "delta_share_of_voice": -0.0118,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 0.33,
+          "current": {
+            "share_of_voice": 0.2609,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 3.0
+          },
+          "previous": {
+            "share_of_voice": 0.2727,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 2.67
+          }
+        },
+        {
+          "product": "risikoleben",
+          "llm": "claude",
+          "brand": "Allianz",
+          "delta_share_of_voice": 0.0336,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": -0.5,
+          "current": {
+            "share_of_voice": 0.2609,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 2.0
+          },
+          "previous": {
+            "share_of_voice": 0.2273,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 2.5
+          }
+        },
+        {
+          "product": "risikoleben",
+          "llm": "claude",
+          "brand": "AXA",
+          "delta_share_of_voice": -0.0099,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 0.5,
+          "current": {
+            "share_of_voice": 0.2174,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 3.0
+          },
+          "previous": {
+            "share_of_voice": 0.2273,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 2.5
+          }
+        },
+        {
+          "product": "risikoleben",
+          "llm": "claude",
+          "brand": "Generali",
+          "delta_share_of_voice": -0.006,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 0.33,
+          "current": {
+            "share_of_voice": 0.1304,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 3.0
+          },
+          "previous": {
+            "share_of_voice": 0.1364,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 2.67
+          }
+        },
+        {
+          "product": "risikoleben",
+          "llm": "claude",
+          "brand": "HUK-Coburg",
+          "delta_share_of_voice": -0.006,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 0.33,
+          "current": {
+            "share_of_voice": 0.1304,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 4.0
+          },
+          "previous": {
+            "share_of_voice": 0.1364,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 3.67
+          }
+        },
+        {
+          "product": "risikoleben",
+          "llm": "gemini",
+          "brand": "ERGO",
+          "delta_share_of_voice": -0.0118,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 0.33,
+          "current": {
+            "share_of_voice": 0.2609,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 3.0
+          },
+          "previous": {
+            "share_of_voice": 0.2727,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 2.67
+          }
+        },
+        {
+          "product": "risikoleben",
+          "llm": "gemini",
+          "brand": "Allianz",
+          "delta_share_of_voice": 0.0336,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": -0.5,
+          "current": {
+            "share_of_voice": 0.2609,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 2.0
+          },
+          "previous": {
+            "share_of_voice": 0.2273,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 2.5
+          }
+        },
+        {
+          "product": "risikoleben",
+          "llm": "gemini",
+          "brand": "AXA",
+          "delta_share_of_voice": -0.0099,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 0.5,
+          "current": {
+            "share_of_voice": 0.2174,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 3.0
+          },
+          "previous": {
+            "share_of_voice": 0.2273,
+            "appearance_rate": 1.0,
+            "citation_rate": 1.0,
+            "avg_rank": 2.5
+          }
+        },
+        {
+          "product": "risikoleben",
+          "llm": "gemini",
+          "brand": "Generali",
+          "delta_share_of_voice": -0.006,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 0.33,
+          "current": {
+            "share_of_voice": 0.1304,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 3.0
+          },
+          "previous": {
+            "share_of_voice": 0.1364,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 2.67
+          }
+        },
+        {
+          "product": "risikoleben",
+          "llm": "gemini",
+          "brand": "HUK-Coburg",
+          "delta_share_of_voice": -0.006,
+          "delta_appearance_rate": 0.0,
+          "delta_citation_rate": 0.0,
+          "delta_avg_rank": 0.33,
+          "current": {
+            "share_of_voice": 0.1304,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 4.0
+          },
+          "previous": {
+            "share_of_voice": 0.1364,
+            "appearance_rate": 1.0,
+            "citation_rate": 0.0,
+            "avg_rank": 3.67
+          }
+        }
+      ]
+    },
+    "executive_summary": "Hier sind einige empfehlenswerte Anbieter:\n1. Generali — gute Tarife und solide Leistungen.\n2. HUK-Coburg — gute Tarife und solide Leistungen.\n3. DKV — gute Tarife und solide Leistungen.\n4. Allianz — gute Tarife und solide Leistungen.\n5. ERGO — gute Tarife und solide Leistungen.\n\nQuellen:\nhttps://www.allianz.de\nhttps://www.ergo.de\nhttps://www.axa.de"
+  },
+  "finished_at": "2026-04-22T20:19:50.931980+00:00"
+}
