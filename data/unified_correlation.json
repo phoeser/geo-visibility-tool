@@ -1,31 +1,19 @@
 {
   "meta": {
     "total_page_events": 1123,
-    "total_cockpit_events": 0,
-    "total_unified_events": 1098,
-    "total_enriched_events": 1098,
-    "total_runs": 32,
+    "total_cockpit_events": 100,
+    "total_unified_events": 1198,
+    "total_enriched_events": 1198,
+    "total_runs": 33,
     "lag_windows": [
       1,
       3,
       7,
       14
     ],
-    "generated_at": "2026-05-01T12:20:25.070259Z"
+    "generated_at": "2026-05-01T14:14:31.412081Z"
   },
   "event_summary": {
-    "page_change": {
-      "count": 184,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO"
-      ],
-      "avg_magnitude": 0.08,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
     "page_new": {
       "count": 914,
       "brands": [
@@ -39,11 +27,44 @@
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
-    }
-  },
-  "impact_ranking": [
-    {
-      "event_type": "page_change",
+    },
+    "press_mention": {
+      "count": 23,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "news_mention": {
+      "count": 77,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "page_change": {
       "count": 184,
       "brands": [
         "AXA",
@@ -54,7 +75,9 @@
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
-    },
+    }
+  },
+  "impact_ranking": [
     {
       "event_type": "page_new",
       "count": 914,
@@ -69,43 +92,67 @@
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
+    },
+    {
+      "event_type": "press_mention",
+      "count": 23,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "news_mention",
+      "count": 77,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "page_change",
+      "count": 184,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO"
+      ],
+      "avg_magnitude": 0.08,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
     }
   ],
   "correlation_matrix": {
-    "page_change__delta_share_of_voice__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 184,
-      "spearman_rho": 0.404,
-      "avg_delta": -0.003166,
-      "avg_magnitude": 0.08
-    },
-    "page_change__delta_appearance_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 184,
-      "spearman_rho": 0.1046,
-      "avg_delta": 0.027104,
-      "avg_magnitude": 0.08
-    },
-    "page_change__delta_citation_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 184,
-      "spearman_rho": 0.1029,
-      "avg_delta": -0.005931,
-      "avg_magnitude": 0.08
-    },
     "page_new__delta_share_of_voice__lag_1d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
       "n_events": 914,
       "spearman_rho": 0.5025,
-      "avg_delta": 0.001713,
+      "avg_delta": -0.001409,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_1d": {
@@ -114,7 +161,7 @@
       "lag_days": 1,
       "n_events": 914,
       "spearman_rho": 0.5025,
-      "avg_delta": 0.017386,
+      "avg_delta": 0.020336,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_1d": {
@@ -123,61 +170,169 @@
       "lag_days": 1,
       "n_events": 914,
       "spearman_rho": 0.5025,
-      "avg_delta": 0.014066,
+      "avg_delta": 0.014737,
       "avg_magnitude": 1.0
     },
-    "page_change__delta_share_of_voice__lag_3d": {
+    "press_mention__delta_share_of_voice__lag_1d": {
+      "event_type": "press_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 23,
+      "spearman_rho": 0.5469,
+      "avg_delta": -0.002532,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_appearance_rate__lag_1d": {
+      "event_type": "press_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 23,
+      "spearman_rho": 0.5469,
+      "avg_delta": 0.003773,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_citation_rate__lag_1d": {
+      "event_type": "press_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 23,
+      "spearman_rho": 0.5469,
+      "avg_delta": -0.006689,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_share_of_voice__lag_1d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 77,
+      "spearman_rho": 0.5725,
+      "avg_delta": 0.000756,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_1d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 77,
+      "spearman_rho": 0.5725,
+      "avg_delta": 0.006814,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_1d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 77,
+      "spearman_rho": 0.5725,
+      "avg_delta": 0.001998,
+      "avg_magnitude": 1.0
+    },
+    "page_change__delta_share_of_voice__lag_1d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 128,
-      "spearman_rho": 0.0152,
-      "avg_delta": 0.008839,
-      "avg_magnitude": 0.035
+      "lag_days": 1,
+      "n_events": 184,
+      "spearman_rho": 0.3465,
+      "avg_delta": -0.002125,
+      "avg_magnitude": 0.08
     },
-    "page_change__delta_appearance_rate__lag_3d": {
+    "page_change__delta_appearance_rate__lag_1d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 128,
-      "spearman_rho": -0.1094,
-      "avg_delta": 0.039228,
-      "avg_magnitude": 0.035
+      "lag_days": 1,
+      "n_events": 184,
+      "spearman_rho": 0.1886,
+      "avg_delta": 0.031235,
+      "avg_magnitude": 0.08
     },
-    "page_change__delta_citation_rate__lag_3d": {
+    "page_change__delta_citation_rate__lag_1d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 128,
-      "spearman_rho": -0.0221,
-      "avg_delta": 0.022315,
-      "avg_magnitude": 0.035
+      "lag_days": 1,
+      "n_events": 184,
+      "spearman_rho": 0.2013,
+      "avg_delta": -0.004343,
+      "avg_magnitude": 0.08
     },
     "page_new__delta_share_of_voice__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 3,
-      "n_events": 665,
-      "spearman_rho": 0.5053,
-      "avg_delta": 0.0047,
+      "n_events": 778,
+      "spearman_rho": 0.5036,
+      "avg_delta": 0.006196,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 3,
-      "n_events": 665,
-      "spearman_rho": 0.5053,
-      "avg_delta": 0.031256,
+      "n_events": 778,
+      "spearman_rho": 0.5036,
+      "avg_delta": 0.033011,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 3,
-      "n_events": 665,
-      "spearman_rho": 0.5058,
-      "avg_delta": 0.051092,
+      "n_events": 778,
+      "spearman_rho": 0.5039,
+      "avg_delta": 0.043197,
+      "avg_magnitude": 1.0
+    },
+    "page_change__delta_share_of_voice__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 183,
+      "spearman_rho": 0.2118,
+      "avg_delta": 0.010529,
+      "avg_magnitude": 0.081
+    },
+    "page_change__delta_appearance_rate__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 183,
+      "spearman_rho": 0.129,
+      "avg_delta": 0.040021,
+      "avg_magnitude": 0.081
+    },
+    "page_change__delta_citation_rate__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 183,
+      "spearman_rho": 0.0206,
+      "avg_delta": 0.015421,
+      "avg_magnitude": 0.081
+    },
+    "page_new__delta_share_of_voice__lag_7d": {
+      "event_type": "page_new",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 508,
+      "spearman_rho": 0.5112,
+      "avg_delta": 0.008495,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_appearance_rate__lag_7d": {
+      "event_type": "page_new",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 508,
+      "spearman_rho": 0.5112,
+      "avg_delta": 0.052774,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_citation_rate__lag_7d": {
+      "event_type": "page_new",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 508,
+      "spearman_rho": 0.513,
+      "avg_delta": 0.064394,
       "avg_magnitude": 1.0
     },
     "page_change__delta_share_of_voice__lag_7d": {
@@ -185,8 +340,8 @@
       "metric": "delta_share_of_voice",
       "lag_days": 7,
       "n_events": 115,
-      "spearman_rho": -0.0223,
-      "avg_delta": 0.046542,
+      "spearman_rho": 0.0346,
+      "avg_delta": 0.061053,
       "avg_magnitude": 0.015
     },
     "page_change__delta_appearance_rate__lag_7d": {
@@ -194,8 +349,8 @@
       "metric": "delta_appearance_rate",
       "lag_days": 7,
       "n_events": 115,
-      "spearman_rho": -0.0632,
-      "avg_delta": 0.096605,
+      "spearman_rho": -0.0063,
+      "avg_delta": 0.117764,
       "avg_magnitude": 0.015
     },
     "page_change__delta_citation_rate__lag_7d": {
@@ -204,1737 +359,2127 @@
       "lag_days": 7,
       "n_events": 115,
       "spearman_rho": 0.0168,
-      "avg_delta": 0.101284,
+      "avg_delta": 0.092215,
       "avg_magnitude": 0.015
-    },
-    "page_new__delta_share_of_voice__lag_7d": {
-      "event_type": "page_new",
-      "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 447,
-      "spearman_rho": 0.5163,
-      "avg_delta": 0.000979,
-      "avg_magnitude": 1.0
-    },
-    "page_new__delta_appearance_rate__lag_7d": {
-      "event_type": "page_new",
-      "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 447,
-      "spearman_rho": 0.5163,
-      "avg_delta": 0.051635,
-      "avg_magnitude": 1.0
-    },
-    "page_new__delta_citation_rate__lag_7d": {
-      "event_type": "page_new",
-      "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 447,
-      "spearman_rho": 0.5189,
-      "avg_delta": 0.061393,
-      "avg_magnitude": 1.0
     }
   },
   "dashboard_events": [
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "ERGO",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/unternehmen/vorstand-de/vorstand-und-aufsichtsrat-allianz-lebensversicherung-ag",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Digitale Hygiene: Routinen zum Schutz unserer Daten - ERGO Group AG",
+        "date": "2026-04-27",
+        "media_source": "ERGO Group AG",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": -0.017504
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "ERGO",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kinder",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Fußball-Engagement: DFB, DFB-Pokal, DFB-ePokal & Inter Miami CF - ERGO Group AG",
+        "date": "2026-04-24",
+        "media_source": "ERGO Group AG",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": -0.017504
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "ERGO",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/todesfallversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Ergo: Wie die Munich-Re-Tochter mit Jobabbau & Umschulungen auf KI reagiert - WirtschaftsWoche",
+        "date": "2026-04-23",
+        "media_source": "WirtschaftsWoche",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.009038
-      }
+        "lag_1d": -0.017504
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "ERGO",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/keramikbrackets",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Interview mit Ergo-Chef Oletzky: „Unser Hauptproblem ist Komplexität“ - Versicherungsjournal",
+        "date": "2026-04-01",
+        "media_source": "Versicherungsjournal",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": -0.017504
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "ERGO",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/kapitallebensversicherung/rechner",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Erste Interessenten gibt es: Was passiert mit dem Ergo-Hochhaus am Hauptbahnhof Nürnberg? - NN.de",
+        "date": "2026-03-25",
+        "media_source": "NN.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": -0.017504
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "ERGO",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/heil-und-kostenplan",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "ERGO Zahnzusatzversicherung: Umfassender Schutz für Ihr Lächeln in unsicheren Zeiten - AD HOC NEWS",
+        "date": "2026-03-25",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": -0.017504
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "ERGO",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/lebensversicherung/nachhaltige-kapitalanlagen/transformation",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Login - ciam.ergo.com",
+        "date": "2026-03-20",
+        "media_source": "ciam.ergo.com",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": -0.017504
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "ERGO",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/keramikkrone",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "ERGO engagiert sich für internationale Spitzenkunst - ERGO Group AG",
+        "date": "2026-03-19",
+        "media_source": "ERGO Group AG",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": -0.017504
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "ERGO",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/professionelle-zahnreinigung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "„Versicherungsvertreter werden uns alle überleben“ - FAZ",
+        "date": "2026-03-17",
+        "media_source": "FAZ",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": -0.017504
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "ERGO",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/rechnung-einreichen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Versicherer Ergo und Verdi schließen Tarifvertrag: Auch Standort Nürnberg profitiert davon - NN.de",
+        "date": "2026-02-20",
+        "media_source": "NN.de",
+        "topics": [
+          "Personal & Karriere"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": -0.017504
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
       "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ohne-gesundheitsfragen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Allianz SE Aktie (DE0008404005): Kurs steigt um 1,23 % auf 388,30 Euro - AD HOC NEWS",
+        "date": "2026-05-01",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": -0.007217
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
       "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/sterbeurkunde",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Volontariat PR & Redaktion - Unternehmenskommunikation (m/w/d) - Allianz.com",
+        "date": "2026-04-30",
+        "media_source": "Allianz.com",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": -0.007217
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
       "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/sonderurlaub-todesfall",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Gesundheitsreform 2026: Was verändert sich? - Allianz",
+        "date": "2026-04-30",
+        "media_source": "Allianz",
+        "topics": [
+          "Gesundheit & Pflege"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": -0.007217
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
       "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/familie",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Allianz SE Aktie (DE0008404005): Barclays bestätigt Underweight-Rating mit Kursziel 350 Euro - AD HOC NEWS",
+        "date": "2026-04-30",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": -0.007217
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
       "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/sterbegeld",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Allianz SE Aktie (DE0008404005): Kurs steigt um 0,70 Prozent gegenüber Vortagesschluss - AD HOC NEWS",
+        "date": "2026-04-29",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": -0.007217
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
       "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/beamte",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Allianz SE Aktie (DE0008404005): Kurs steigt am 28.04.2026 um 0,70 % auf 391,10 EUR - AD HOC NEWS",
+        "date": "2026-04-29",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": -0.007217
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
       "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/senioren",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Allianz SE Aktie (DE0008404005): Leichte Korrektur vor Q1/ 2026-Zahlen - AD HOC NEWS",
+        "date": "2026-04-28",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": -0.007217
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
       "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnextraktion",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Allianz SE Aktie (DE0008404005): Kurs mit leichter Korrektur vor Q1-Zahlen - AD HOC NEWS",
+        "date": "2026-04-27",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": -0.007217
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
       "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/vergleich",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Betriebsschließungs-Versicherung: Allianz vergleicht sich erneut - Versicherungsjournal",
+        "date": "2026-04-26",
+        "media_source": "Versicherungsjournal",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": -0.007217
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
       "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kieferorthopaedie",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Partnerschaft mit Reel Media - Allianz Commercial",
+        "date": "2026-03-05",
+        "media_source": "Allianz Commercial",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": -0.007217
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/ohne-wartezeit",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "AXA Vorsorge Report: Immer mehr Menschen sorgen aufgrund von Preissteigerungen weniger fürs Alter vor - AXA Deutschland",
+        "date": "2026-04-23",
+        "media_source": "AXA Deutschland",
+        "topics": [
+          "Gesundheit & Pflege"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.013892
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kuendigen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Besonders einfach und leistungsstark: Die neuen AXA Zahnzusatzversicherungen ▶ jetzt lesen! - AXA Deutschland",
+        "date": "2026-04-20",
+        "media_source": "AXA Deutschland",
+        "topics": [
+          "Schaden & Leistung"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.013892
+      },
+      "sentiment": "negative"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/wurzelbehandlung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "AXA KFZ-Versicherung: Zwischen Kostendruck und Digitalisierung wird es spannend - AD HOC NEWS",
+        "date": "2026-04-16",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "KFZ & Mobilität",
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.013892
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ohne-wartezeit",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "AXA KFZ-Versicherung: Zwischen steigenden Prämien und Digitalisierung wird es spannend - AD HOC NEWS",
+        "date": "2026-04-16",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "KFZ & Mobilität",
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.013892
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zaehne-machen-lassen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "AXA KFZ-Versicherung: Digitalisierung treibt Tarife und Wettbewerb - AD HOC NEWS",
+        "date": "2026-04-15",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "KFZ & Mobilität",
+          "Digitalisierung & KI",
+          "Produkt & Innovation"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.013892
+      },
+      "sentiment": "positive"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/bestattungsarten/seebestattung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "AXA KFZ-Versicherung: Digitaler Wandel treibt Preise und Schutzbedingungen - AD HOC NEWS",
+        "date": "2026-04-14",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "KFZ & Mobilität",
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.013892
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/inlay",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "AXA KFZ-Versicherung: Sinkende Strompreise machen Teilkasko jetzt attraktiver - AD HOC NEWS",
+        "date": "2026-04-12",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.013892
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/funktionsanalyse",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "AXA passt sich an: Digitalisierung und Kostendruck im Fokus der KFZ-Versicherung - it boltwise",
+        "date": "2026-04-12",
+        "media_source": "it boltwise",
+        "topics": [
+          "KFZ & Mobilität",
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.013892
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/trauerfeier",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "AXA KFZ-Versicherung: Flexible Tarife sichern Vorreiterrolle – die Details - AD HOC NEWS",
+        "date": "2026-04-04",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "KFZ & Mobilität",
+          "Produkt & Innovation"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.013892
+      },
+      "sentiment": "positive"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/lebensversicherung/auszahlung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "AXA KFZ-Versicherung: Umfassender Schutz mit flexiblen Tarifen und digitalen Services im DACH-Markt - AD HOC NEWS",
+        "date": "2026-03-27",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "KFZ & Mobilität",
+          "Digitalisierung & KI",
+          "Produkt & Innovation"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": 0.013892
+      },
+      "sentiment": "positive"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/steuer-absetzen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Neuer Standort für HUK-Coburg in Saarbrücken - feierliche Eröffnung - inFranken.de",
+        "date": "2026-04-15",
+        "media_source": "inFranken.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.009417
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/presse/mitteilungen/sterbegeldversicherung-allianz-verdoppelt-leistung-bei-unfalltod",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Saarland: HUK Coburg eröffnet neue Servicestelle in Saarbrücken - tagesschau.de",
+        "date": "2026-04-08",
+        "media_source": "tagesschau.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.009417
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/sinnvoll",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Kfz-Schadenbearbeitung: Huk-Coburg erweitert Kapazitäten in Saarbrücken - cash-online.de",
+        "date": "2026-04-08",
+        "media_source": "cash-online.de",
+        "topics": [
+          "KFZ & Mobilität",
+          "Digitalisierung & KI",
+          "Schaden & Leistung"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": 0.009417
+      },
+      "sentiment": "negative"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnstein-entfernen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Bis zu 200 neue Arbeitsplätze – diese Versicherung hat neuen Standort in Saarbrücken eröffnet - Saarbrücker Zeitung",
+        "date": "2026-04-08",
+        "media_source": "Saarbrücker Zeitung",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.009417
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/veneers",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Neuer Standort der HUK-COBURG Dienstleistung GmbH in Saarbrücken offiziell eröffnet ... - Presseportal",
+        "date": "2026-04-08",
+        "media_source": "Presseportal",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.009417
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/beitrag",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Marktführer-Wachstum: HUK-Coburg schraubt sich auf 14,5 Mio. Fahrzeuge und senkt Kosten drastisch - autohaus.de",
+        "date": "2026-03-30",
+        "media_source": "autohaus.de",
+        "topics": [
+          "KFZ & Mobilität",
+          "Unternehmen & Strategie"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": 0.009417
+      },
+      "sentiment": "positive"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/presse/mitteilungen/rentenkompass-der-allianz-lebensversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Rekordgewinn bei HUK-Coburg: Autoversicherung wird dennoch teurer - autoservicepraxis.de",
+        "date": "2026-03-26",
+        "media_source": "autoservicepraxis.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": 0.009417
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/nachtraeglich-abschliessen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Neue Beitragserhöhungen: HUK-Coburg gibt keine Entwarnung - FAZ",
+        "date": "2026-03-24",
+        "media_source": "FAZ",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.009417
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/sinnvoll",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "HUK-Coburg schockt Kunden: Kfz-Versicherung wird teurer – trotz Rekordgewinn - Express",
+        "date": "2026-03-24",
+        "media_source": "Express",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.009417
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/ohne-gesundheitsfragen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Unternehmen mit Rekordjahr: HUK erwartet teurere Autoversicherungen - Ntv",
+        "date": "2026-03-24",
+        "media_source": "Ntv",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.009417
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "Generali",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/bestattungskosten/grabstein-kosten",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "THE HUMAN SAFETY NET - Social Impact Report 2025 - Generali",
+        "date": "2026-04-19",
+        "media_source": "Generali",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.001412
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Generali",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/festzuschuss-zahnersatz",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Die 10 wichtigsten Versicherungsstandorte Deutschlands - das investment",
+        "date": "2026-03-19",
+        "media_source": "das investment",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.001412
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "Generali",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnimplantat",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Konzernergebnis der Generali Group zum 31.12.2025 - Generali",
+        "date": "2026-03-12",
+        "media_source": "Generali",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.001412
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Generali",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/presse/mitteilungen/anja-westerhoff-neu-im-vorstand-der-deutsche-lebensversicherungs-ag",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Generali Aktie im Fokus: Was DACH-Anleger jetzt vor dem nächsten Dividendenbeschluss wissen sollten - AD HOC NEWS",
+        "date": "2026-02-28",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": 0.001412
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Generali",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/leichenschmaus",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Nichts zu gewinnen: Generali streitet sich mit Hamburger Anwaltskanzlei - das investment",
+        "date": "2026-02-20",
+        "media_source": "das investment",
+        "topics": [
+          "Unternehmen & Strategie"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.001412
+      },
+      "sentiment": "positive"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "Generali",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/alterungsrueckstellungen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Generali startet Generali Core Tech – neue Software-Fabrik der Group treibt technologische Transformation voran - Genera",
+        "date": "2026-02-13",
+        "media_source": "Generali",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.001412
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "Generali",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/vergleich",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Generali geht Partnerschaft mit Swiss Life Global Solutions ein und gründet das weltweit führende Netzwerk für Mitarbeit",
+        "date": "2026-02-10",
+        "media_source": "Generali",
+        "topics": [
+          "Personal & Karriere"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": 0.001412
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Generali",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnschmerzen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Generali Deutschland ersetzt Legacy-IT im FLV-Geschäft mit Clearwater-Plattform - IT Finanzmagazin",
+        "date": "2026-02-06",
+        "media_source": "IT Finanzmagazin",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.001412
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Generali",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/nachhaltige-zahnpflege",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "AachenMünchener-Kfz-Versicherung: Schadensmeldung 2026 - Bußgeldkatalog",
+        "date": "2026-02-06",
+        "media_source": "Bußgeldkatalog",
+        "topics": [
+          "KFZ & Mobilität",
+          "Schaden & Leistung"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.001412
+      },
+      "sentiment": "negative"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Generali",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/presse/mitteilungen/allianz-lebensversicherung-investiert-fast-eine-milliarde-in-glasfaser-und-gasnetz",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "BU-Fall verzögert? – Anwalt kündigt rechtliche Schritte gegen Generali an - procontra",
+        "date": "2026-01-26",
+        "media_source": "procontra",
+        "topics": [
+          "Recht & Regulierung"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": 0.001412
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "Signal Iduna",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/service/todesfall-mitteilen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Mythos: Geldanlage ist kompliziert - signal-iduna.de",
+        "date": "2026-04-27",
+        "media_source": "signal-iduna.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "Signal Iduna",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/bestattungsvorsorge/bestattungsvorsorgevertrag",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Mythos: Es gibt den perfekten Einstiegszeitpunkt - signal-iduna.de",
+        "date": "2026-04-27",
+        "media_source": "signal-iduna.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "Signal Iduna",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/presse/mitteilungen/zahnschutz-die-neue-tarifwelt-der-Allianz",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Informationen zur Jahres-Reise-Krankenversicherung (SIGNAL IDUNA AB-JRK 2023) - signal-iduna.de",
+        "date": "2026-04-25",
+        "media_source": "signal-iduna.de",
+        "topics": [
+          "Gesundheit & Pflege"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/jacketkrone",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Signal Iduna benennt weitere Gesellschaften um - Versicherungsjournal",
+        "date": "2026-04-19",
+        "media_source": "Versicherungsjournal",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/erbe/berliner-testament",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "SIGNAL IDUNA gründet Stiftung und bündelt gesellschaftliches Engagement - Mynewsdesk",
+        "date": "2026-04-16",
+        "media_source": "Mynewsdesk",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/rechner",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Reform der Riesterrente: Signal-Iduna-Chef warnt vor Anlagen in US-Papiere - Sächsische Zeitung",
+        "date": "2026-04-16",
+        "media_source": "Sächsische Zeitung",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/erbe/vermaechtnis",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Schock im Signal Iduna Park: Ein Fan muss während des Spiels zwischen dem BVB und Bayer reanimiert werden - tribuna.com",
+        "date": "2026-04-11",
+        "media_source": "tribuna.com",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/fallend",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Elbtower in Hamburg: Investor will Milliardenprojekt retten - NDR.de",
+        "date": "2026-04-10",
+        "media_source": "NDR.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "SIGNAL IDUNA überarbeitet Kfz-Tarif - AssCompact",
+        "date": "2026-04-09",
+        "media_source": "AssCompact",
+        "topics": [
+          "KFZ & Mobilität",
+          "Produkt & Innovation"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "positive"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/auszahlung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Signal Iduna zeigt sich offen für Kooperationen - Börsen-Zeitung",
+        "date": "2026-04-09",
+        "media_source": "Börsen-Zeitung",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "R+V",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnspange",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Ölgetränkte Lappen können sich selbst entzünden - R+V Versicherung",
+        "date": "2026-04-28",
+        "media_source": "R+V Versicherung",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/laufende-behandlung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "R+V verkündet Rekord beim Konzernergebnis - Versicherungsmagazin.de",
+        "date": "2026-04-14",
+        "media_source": "Versicherungsmagazin.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "R+V",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/partner",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "R+V erzielt 2025 Rekordergebnis - R+V Versicherung",
+        "date": "2026-04-13",
+        "media_source": "R+V Versicherung",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kompositfuellung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Hessen: Weniger Unwetterschäden: R+V Versicherung mit Rekordergebnis - Ntv",
+        "date": "2026-04-13",
+        "media_source": "Ntv",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/rechner",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Wiesbadener R+V Versicherung: Altersvorsorgedepot bringt einfache Lösung - Allgemeine Zeitung",
+        "date": "2026-04-13",
+        "media_source": "Allgemeine Zeitung",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/erbe/ehegattenerbrecht",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "R+V Versicherung fährt Rekordergebnis ein und geißelt „klaren Angriff auf die Marktwirtschaft“ - Versicherungswirtschaft",
+        "date": "2026-04-13",
+        "media_source": "Versicherungswirtschaft-heute",
+        "topics": [
+          "Unternehmen & Strategie"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "positive"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/familie",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "R+V Versicherung trennt sich von Condor Leben - Versicherungsbote",
+        "date": "2026-03-12",
+        "media_source": "Versicherungsbote",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/student",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "R+V verkauft Condor Lebensversicherung an Run-off-Investor - das investment",
+        "date": "2026-03-12",
+        "media_source": "das investment",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/schwangerschaft",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Finanzen: DZ Bank erzielt Rekordgewinn - Versicherung R+V glänzt - Tagesspiegel",
+        "date": "2026-03-03",
+        "media_source": "Tagesspiegel",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/einmalzahlung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "R+V Versicherung übertrifft Marktdurchschnitt - Börsen-Zeitung",
+        "date": "2026-02-25",
+        "media_source": "Börsen-Zeitung",
+        "topics": [
+          "Unternehmen & Strategie"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "positive"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "DEVK überarbeitet Wohngebaude-Police - Versicherungsmagazin.de",
+        "date": "2026-04-21",
+        "media_source": "Versicherungsmagazin.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/lumineers",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "DEVK überarbeitet Wohngebäudetarif und erweitert Leistungen deutlich - cash-online.de",
+        "date": "2026-04-18",
+        "media_source": "cash-online.de",
+        "topics": [
+          "Digitalisierung & KI",
+          "Schaden & Leistung"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "negative"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "DEVK",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/weisse-zaehne-hausmittel",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Pressemitteilung - DEVK",
+        "date": "2026-04-16",
+        "media_source": "DEVK",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/bestattungsarten/feuerbestattung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "DEVK etabliert besseren Schutz für Wohngebäude - Presseportal",
+        "date": "2026-04-16",
+        "media_source": "Presseportal",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnfleischtaschen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Interview mit Michaela Wolkersdorfer von der DEVK - das investment",
+        "date": "2026-04-14",
+        "media_source": "das investment",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/kreditabsicherung-hauskauf",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "DEVK-Umfrage: Mehrheit für verpflichtenden Elementarschutz - autohaus.de",
+        "date": "2026-04-13",
+        "media_source": "autohaus.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/presse/mitteilungen/sofort-geld-fuer-zahnersatz",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Elementarer Schutz! - Soll die Versicherung gegen Naturgefahren Pflicht werden? - Presseportal",
+        "date": "2026-04-07",
+        "media_source": "Presseportal",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/bleaching",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "DEVK Versicherungen: DEVK-Umfrage: Mehrheit für verpflichtenden Elementarschutz - Saarbrücker Zeitung",
+        "date": "2026-03-11",
+        "media_source": "Saarbrücker Zeitung",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/erbe/erbfolge",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Die Deutschen befürworten eine Elementarschadenpflichtversicherung - procontra",
+        "date": "2026-03-11",
+        "media_source": "procontra",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "DEVK hält Moped-Beiträge stabil, DEVK Versicherungen, Story - lifePR",
+        "date": "2026-02-18",
+        "media_source": "lifePR",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Hannoversche",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/rechner",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "VHV will Biometriegeschäft weiter ausbauen - procontra",
+        "date": "2026-04-24",
+        "media_source": "procontra",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Hannoversche",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/bestattungskosten",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "VHV Versicherungen bauen Kfz-Geschäft aus - Börsen-Zeitung",
+        "date": "2026-04-14",
+        "media_source": "Börsen-Zeitung",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Hannoversche",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnersatz-kosten",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Boris Sonntag wird Kapitalanlagevorstand der VHV - portfolio institutionell",
+        "date": "2026-03-27",
+        "media_source": "portfolio institutionell",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Hannoversche",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/kuendigen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "VHV Gruppe beruft Boris Sonntag zum Vorstand Kapitalanlagen - das investment",
+        "date": "2026-03-27",
+        "media_source": "das investment",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Hannoversche",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/aligner-therapie",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "VHV: Boris Sonntag verantwortet Bereich Kapitalanlage - AssCompact",
+        "date": "2026-03-26",
+        "media_source": "AssCompact",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Hannoversche",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/mit-brille",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "VHV verjüngt Führung der Kapitalanlage - dpn Magazin",
+        "date": "2026-03-26",
+        "media_source": "dpn Magazin",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "Hannoversche",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/bestattungsarten",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Leistungsquote der Berufsunfähigkeitsversicherung - Wir zahlen öfter, als Du denkst - Hannoversche Versicherung",
+        "date": "2026-03-18",
+        "media_source": "Hannoversche Versicherung",
+        "topics": [
+          "Schaden & Leistung"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "negative"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "Hannoversche",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/zweckgebunden",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Was passiert mit der Risikolebensversicherung bei Scheidung und Trennung? - Hannoversche Versicherung",
+        "date": "2026-03-18",
+        "media_source": "Hannoversche Versicherung",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "Hannoversche",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/erbe",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Lebensversicherung für Senioren – lohnt sich das? - Hannoversche Versicherung",
+        "date": "2026-03-18",
+        "media_source": "Hannoversche Versicherung",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "press_mention",
+      "brand": "Hannoversche",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/angst-vor-zahnarzt",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Heiraten – Vorteile und Nachteile für Ehepartner - Hannoversche Versicherung",
+        "date": "2026-03-09",
+        "media_source": "Hannoversche Versicherung",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Cosmos Direkt",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/fuer-senioren",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "CosmosDirekt Tagesgeld | Experten-Test | 2,2% Zinsen | Erfahrungen - reisetopia",
+        "date": "2026-04-08",
+        "media_source": "reisetopia",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Cosmos Direkt",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/worauf-achten",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Diese Versicherer gelten als sehr fair - Pfefferminzia",
+        "date": "2026-02-13",
+        "media_source": "Pfefferminzia",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Cosmos Direkt",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ausland",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "CosmosDirekt-Verkehrsrechtsschutz: Was ist abgedeckt? - Bußgeldkatalog",
+        "date": "2026-02-02",
+        "media_source": "Bußgeldkatalog",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Cosmos Direkt",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/knirscherschiene",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Viele Kfz-Versicherungen deutlich teurer – Wechsel kann mehrere Hundert Euro sparen - Stiftung Warentest",
+        "date": "2025-10-30",
+        "media_source": "Stiftung Warentest",
+        "topics": [
+          "KFZ & Mobilität",
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Cosmos Direkt",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/sinuslift",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Von Zurich zu CosmosDirekt: Direktversicherer stellt neuen Marketing- und Vertriebsvorstand vor - Versicherungsbote",
+        "date": "2025-07-04",
+        "media_source": "Versicherungsbote",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Cosmos Direkt",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/todesfall/bestattungskosten/beerdigungskosten-absetzen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Frank Färber neuer Marketing- und Vertriebsvorstand bei Cosmos Direkt - das investment",
+        "date": "2025-07-02",
+        "media_source": "das investment",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.010964
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Cosmos Direkt",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/ohne-gesundheitspruefung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "CosmosDirekt Erfahrungen 2025 – Unser großer Test des Direktversicherers - Leipziger Zeitung",
+        "date": "2025-05-10",
+        "media_source": "Leipziger Zeitung",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.00151
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Cosmos Direkt",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnfleischentzuendung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Identitätsschutz per Cyber-Versicherung - Versicherungsbote",
+        "date": "2025-05-06",
+        "media_source": "Versicherungsbote",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Cosmos Direkt",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/parodontitisbehandlung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Cosmos Direkt: Flexible Rentenversicherung mit Stolperfallen - das investment",
+        "date": "2025-03-21",
+        "media_source": "das investment",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-04-30T20-14-54Z",
-      "event_type": "page_new",
-      "brand": "Allianz",
+      "timestamp": "2026-05-01T11:27:32Z",
+      "event_type": "news_mention",
+      "brand": "Cosmos Direkt",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnerhalt",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Cosmos Direkt gewinnt 90.000 neue Kfz-Kunden hinzu - Versicherungswirtschaft-heute",
+        "date": "2025-02-20",
+        "media_source": "Versicherungswirtschaft-heute",
+        "topics": [
+          "KFZ & Mobilität",
+          "Unternehmen & Strategie"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.030623
-      }
+        "lag_1d": 0.0
+      },
+      "sentiment": "positive"
     }
   ]
 }
