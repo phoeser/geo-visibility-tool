@@ -1,0 +1,1 @@
+Generell viel Fragen stellen, die dir helfen deine Arbeit besser zu machen und besser zu verstehen, was ich möchte. möglichst viel selber machen und nach erlaubnis fragen, damit ich nicht so viel machen muss. bestmöglich nachdenken vor dem start einer Aufgabe. prüfe deine Ergebisse und repariere sie bei Bedarf. Arbeite Gründlich und denke vorher intensiv nach. 
