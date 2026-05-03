@@ -1,21 +1,21 @@
 {
   "meta": {
-    "total_page_events": 1123,
-    "total_cockpit_events": 1300,
-    "total_unified_events": 2398,
-    "total_enriched_events": 2398,
-    "total_runs": 34,
+    "total_page_events": 1125,
+    "total_cockpit_events": 2100,
+    "total_unified_events": 3200,
+    "total_enriched_events": 3200,
+    "total_runs": 35,
     "lag_windows": [
       1,
       3,
       7,
       14
     ],
-    "generated_at": "2026-05-02T09:19:59.600710Z"
+    "generated_at": "2026-05-03T09:55:52.647213Z"
   },
   "event_summary": {
-    "news_mention": {
-      "count": 899,
+    "press_mention": {
+      "count": 652,
       "brands": [
         "AXA",
         "Allianz",
@@ -33,8 +33,8 @@
       "best_spearman_rho": null,
       "impact": {}
     },
-    "press_mention": {
-      "count": 401,
+    "news_mention": {
+      "count": 1448,
       "brands": [
         "AXA",
         "Allianz",
@@ -53,7 +53,7 @@
       "impact": {}
     },
     "page_change": {
-      "count": 184,
+      "count": 186,
       "brands": [
         "AXA",
         "Allianz",
@@ -81,8 +81,8 @@
   },
   "impact_ranking": [
     {
-      "event_type": "news_mention",
-      "count": 899,
+      "event_type": "press_mention",
+      "count": 652,
       "brands": [
         "AXA",
         "Allianz",
@@ -101,8 +101,8 @@
       "impact": {}
     },
     {
-      "event_type": "press_mention",
-      "count": 401,
+      "event_type": "news_mention",
+      "count": 1448,
       "brands": [
         "AXA",
         "Allianz",
@@ -122,7 +122,7 @@
     },
     {
       "event_type": "page_change",
-      "count": 184,
+      "count": 186,
       "brands": [
         "AXA",
         "Allianz",
@@ -150,85 +150,85 @@
     }
   ],
   "correlation_matrix": {
-    "news_mention__delta_share_of_voice__lag_1d": {
-      "event_type": "news_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 899,
-      "spearman_rho": 0.5616,
-      "avg_delta": 0.001083,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_appearance_rate__lag_1d": {
-      "event_type": "news_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 899,
-      "spearman_rho": 0.564,
-      "avg_delta": -0.054068,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_citation_rate__lag_1d": {
-      "event_type": "news_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 899,
-      "spearman_rho": 0.5616,
-      "avg_delta": 0.000884,
-      "avg_magnitude": 1.0
-    },
     "press_mention__delta_share_of_voice__lag_1d": {
       "event_type": "press_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 401,
-      "spearman_rho": 0.5706,
-      "avg_delta": -0.002428,
+      "n_events": 652,
+      "spearman_rho": 0.5629,
+      "avg_delta": -0.001338,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_appearance_rate__lag_1d": {
       "event_type": "press_mention",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 401,
-      "spearman_rho": 0.5747,
-      "avg_delta": -0.053397,
+      "n_events": 652,
+      "spearman_rho": 0.5852,
+      "avg_delta": -0.027967,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_citation_rate__lag_1d": {
       "event_type": "press_mention",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 401,
-      "spearman_rho": 0.5706,
-      "avg_delta": 0.004019,
+      "n_events": 652,
+      "spearman_rho": 0.5824,
+      "avg_delta": 0.001222,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_share_of_voice__lag_1d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 1448,
+      "spearman_rho": 0.5628,
+      "avg_delta": 0.000602,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_1d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 1448,
+      "spearman_rho": 0.5782,
+      "avg_delta": -0.028081,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_1d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 1448,
+      "spearman_rho": 0.5764,
+      "avg_delta": -0.000523,
       "avg_magnitude": 1.0
     },
     "page_change__delta_share_of_voice__lag_1d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 184,
-      "spearman_rho": 0.3465,
-      "avg_delta": -0.002125,
+      "n_events": 186,
+      "spearman_rho": 0.3462,
+      "avg_delta": -0.002236,
       "avg_magnitude": 0.08
     },
     "page_change__delta_appearance_rate__lag_1d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 184,
-      "spearman_rho": 0.1886,
-      "avg_delta": 0.031235,
+      "n_events": 186,
+      "spearman_rho": 0.1829,
+      "avg_delta": 0.030832,
       "avg_magnitude": 0.08
     },
     "page_change__delta_citation_rate__lag_1d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 184,
-      "spearman_rho": 0.2013,
-      "avg_delta": -0.004343,
+      "n_events": 186,
+      "spearman_rho": 0.1884,
+      "avg_delta": -0.004527,
       "avg_magnitude": 0.08
     },
     "page_new__delta_share_of_voice__lag_1d": {
@@ -258,13 +258,67 @@
       "avg_delta": 0.014737,
       "avg_magnitude": 1.0
     },
+    "press_mention__delta_share_of_voice__lag_3d": {
+      "event_type": "press_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 401,
+      "spearman_rho": 0.5706,
+      "avg_delta": -0.001512,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_appearance_rate__lag_3d": {
+      "event_type": "press_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 401,
+      "spearman_rho": 0.5747,
+      "avg_delta": -0.044421,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_citation_rate__lag_3d": {
+      "event_type": "press_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 401,
+      "spearman_rho": 0.5706,
+      "avg_delta": 0.002031,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_share_of_voice__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 899,
+      "spearman_rho": 0.5616,
+      "avg_delta": 0.000674,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 899,
+      "spearman_rho": 0.564,
+      "avg_delta": -0.044667,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 899,
+      "spearman_rho": 0.5616,
+      "avg_delta": -0.001082,
+      "avg_magnitude": 1.0
+    },
     "page_change__delta_share_of_voice__lag_3d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
       "lag_days": 3,
       "n_events": 184,
-      "spearman_rho": 0.0482,
-      "avg_delta": 0.008359,
+      "spearman_rho": 0.0607,
+      "avg_delta": 0.007043,
       "avg_magnitude": 0.08
     },
     "page_change__delta_appearance_rate__lag_3d": {
@@ -272,8 +326,8 @@
       "metric": "delta_appearance_rate",
       "lag_days": 3,
       "n_events": 184,
-      "spearman_rho": -0.4743,
-      "avg_delta": -0.019879,
+      "spearman_rho": -0.4815,
+      "avg_delta": -0.013887,
       "avg_magnitude": 0.08
     },
     "page_change__delta_citation_rate__lag_3d": {
@@ -281,8 +335,8 @@
       "metric": "delta_citation_rate",
       "lag_days": 3,
       "n_events": 184,
-      "spearman_rho": -0.114,
-      "avg_delta": 0.020842,
+      "spearman_rho": -0.299,
+      "avg_delta": 0.01587,
       "avg_magnitude": 0.08
     },
     "page_new__delta_share_of_voice__lag_3d": {
@@ -291,7 +345,7 @@
       "lag_days": 3,
       "n_events": 914,
       "spearman_rho": 0.5025,
-      "avg_delta": 0.011424,
+      "avg_delta": 0.008712,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_3d": {
@@ -299,8 +353,8 @@
       "metric": "delta_appearance_rate",
       "lag_days": 3,
       "n_events": 914,
-      "spearman_rho": 0.5029,
-      "avg_delta": -0.024536,
+      "spearman_rho": 0.5025,
+      "avg_delta": -0.018585,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_3d": {
@@ -309,371 +363,327 @@
       "lag_days": 3,
       "n_events": 914,
       "spearman_rho": 0.5027,
-      "avg_delta": 0.037384,
+      "avg_delta": 0.032561,
       "avg_magnitude": 1.0
     },
     "page_change__delta_share_of_voice__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
       "lag_days": 7,
-      "n_events": 120,
-      "spearman_rho": 0.0005,
-      "avg_delta": 0.059637,
-      "avg_magnitude": 0.021
+      "n_events": 128,
+      "spearman_rho": -0.2219,
+      "avg_delta": 0.053168,
+      "avg_magnitude": 0.035
     },
     "page_change__delta_appearance_rate__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
       "lag_days": 7,
-      "n_events": 120,
-      "spearman_rho": -0.1208,
-      "avg_delta": 0.106895,
-      "avg_magnitude": 0.021
+      "n_events": 128,
+      "spearman_rho": -0.2545,
+      "avg_delta": 0.091093,
+      "avg_magnitude": 0.035
     },
     "page_change__delta_citation_rate__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
       "lag_days": 7,
-      "n_events": 120,
-      "spearman_rho": -0.0265,
-      "avg_delta": 0.090253,
-      "avg_magnitude": 0.021
+      "n_events": 128,
+      "spearman_rho": -0.1995,
+      "avg_delta": 0.084957,
+      "avg_magnitude": 0.035
     },
     "page_new__delta_share_of_voice__lag_7d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 7,
-      "n_events": 640,
-      "spearman_rho": 0.506,
-      "avg_delta": -0.006353,
+      "n_events": 665,
+      "spearman_rho": 0.5053,
+      "avg_delta": 0.002453,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_7d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 7,
-      "n_events": 640,
-      "spearman_rho": 0.506,
-      "avg_delta": -0.063319,
+      "n_events": 665,
+      "spearman_rho": 0.5053,
+      "avg_delta": -0.040851,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_7d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 7,
-      "n_events": 640,
-      "spearman_rho": 0.5069,
-      "avg_delta": 0.086444,
+      "n_events": 665,
+      "spearman_rho": 0.5066,
+      "avg_delta": 0.082651,
       "avg_magnitude": 1.0
     }
   },
   "dashboard_events": [
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "press_mention",
+      "brand": "ERGO",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "„Unser Austausch ist ein Geben und Nehmen – sehr bereichernd“ - ERGO Group AG",
+        "date": "2025-09-17",
+        "media_source": "ERGO Group AG",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.016924
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "ERGO",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Ergo baut mit KI hunderte Stellen in Deutschland ab - MSN",
-        "date": "2026-04-27",
-        "media_source": "MSN",
+        "title": "DONAU Versicherung übernimmt BKV-Bestand der ERGO - AssCompact",
+        "date": "2025-08-05",
+        "media_source": "AssCompact",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.016924
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "ERGO",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Wie innovativ ist die neue Ergo-Grundfähigkeitsversicherung? - das investment",
+        "date": "2025-03-21",
+        "media_source": "das investment",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.016924
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "ERGO",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Ergo-BU: Verbesserungen reichen nicht für Maklerempfehlung - das investment",
+        "date": "2025-03-21",
+        "media_source": "das investment",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.016924
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "ERGO",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Ergo übernimmt US-Versicherungs-Start-up - FONDS professionell",
+        "date": "2025-03-21",
+        "media_source": "FONDS professionell",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.016924
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "press_mention",
+      "brand": "ERGO",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Einstieg in den U.S.-Versicherungsmarkt: ERGO übernimmt NEXT Insurance - ERGO Group AG",
+        "date": "2025-03-20",
+        "media_source": "ERGO Group AG",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.016924
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "ERGO",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Versicherung: Ergo übernimmt US-Digitalversicherer Next Insurance komplett - Handelsblatt",
+        "date": "2025-03-20",
+        "media_source": "Handelsblatt",
         "topics": [
           "Digitalisierung & KI"
         ],
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.027288
+        "lag_1d": 0.016924
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "ERGO",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Ergo und Verdi: Kündigungsschutz bis 2030 - Versicherungsbote",
-        "date": "2026-02-19",
-        "media_source": "Versicherungsbote",
+        "title": "Ergo: Versicherer kauft US-Konzern Next Insurance - WirtschaftsWoche",
+        "date": "2025-03-20",
+        "media_source": "WirtschaftsWoche",
         "topics": [
           "Allgemein"
         ],
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.027288
+        "lag_1d": 0.016924
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ergo plant Stellenabbau in Deutschland - Versicherungsbote",
-        "date": "2026-02-17",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.027288
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ergo will mit Lionel Messi und Umfirmierung den US-Markt erobern - Versicherungsbote",
-        "date": "2026-01-19",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "Unternehmen & Strategie"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.027288
-      },
-      "sentiment": "positive"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "SPN-Werkstattnetz: Neuer Gesellschafter beim Fahrzeug-Schadenservice - autohaus.de",
-        "date": "2025-10-06",
-        "media_source": "autohaus.de",
-        "topics": [
-          "KFZ & Mobilität",
-          "Schaden & Leistung"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.027288
-      },
-      "sentiment": "negative"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Streiks bei Versicherungen: Zwölf Prozent mehr Lohn gefordert - Hamburger Abendblatt",
-        "date": "2025-06-22",
-        "media_source": "Hamburger Abendblatt",
-        "topics": [
-          "Personal & Karriere"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.027288
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Reverse Mentoring: Junge und frische Perspektiven für erfahrene Führungskräfte - ERGO Group AG",
-        "date": "2025-01-28",
-        "media_source": "ERGO Group AG",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.027288
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Täuschend echte Fälschungen - ERGO Group AG",
-        "date": "2025-01-27",
-        "media_source": "ERGO Group AG",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.027288
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ergo Lebensversicherer holt Allianz-Manager in den Vorstand - Versicherungsbote",
-        "date": "2025-01-14",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.027288
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Wenn ein Zahn abbricht - ERGO Group AG",
-        "date": "2025-01-13",
-        "media_source": "ERGO Group AG",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.027288
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "Allianz",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Allianz rotiert im Vorstand - Versicherungsbote",
-        "date": "2024-12-02",
-        "media_source": "Versicherungsbote",
+        "title": "Frankreichs größter Konzern hilft jetzt bei Deutschlands Energiewende - FOCUS online",
+        "date": "2026-03-03",
+        "media_source": "FOCUS online",
         "topics": [
-          "Allgemein"
+          "Digitalisierung & KI"
         ],
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.013102
+        "lag_1d": -0.012276
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "Allianz",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "HUK gegen Allianz: Der Kampf der Kfz-Marktführer in Kennzahlen - Versicherungsbote",
-        "date": "2024-11-29",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "KFZ & Mobilität",
-          "Unternehmen & Strategie"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.013102
-      },
-      "sentiment": "positive"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "Allianz",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Personalie - Allianz",
-        "date": "2024-11-28",
+        "title": "Mehr Sicherheit im Bobsport: Kopf einziehen reicht nicht - Allianz",
+        "date": "2025-11-06",
         "media_source": "Allianz",
         "topics": [
-          "Personal & Karriere"
+          "Allgemein"
         ],
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.013102
+        "lag_1d": -0.012276
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "Allianz",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Rente - Allianz",
-        "date": "2024-11-21",
-        "media_source": "Allianz",
-        "topics": [
-          "Finanzen & Vorsorge"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.013102
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "Allianz",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Schweiz: Swiss Re verkauft Versicherungsplattform an Allianz - Handelsblatt",
-        "date": "2024-11-07",
+        "title": "Allianz Trade-Studie: Ohne Dekarbonisierung verliert die deutsche Industrie an Wettbewerbsfähigkeit - cash-online.de",
+        "date": "2025-03-07",
+        "media_source": "cash-online.de",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.012276
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Allianz vorn, HUK holt auf: SEO-Benchmark der Top 10 Versicherungen in Deutschland 2025 - Presseportal",
+        "date": "2025-02-12",
+        "media_source": "Presseportal",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.012276
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Microstrategy: Allianz in Bitcoin-Spekulation verwickelt - Handelsblatt",
+        "date": "2024-11-25",
         "media_source": "Handelsblatt",
         "topics": [
           "Allgemein"
@@ -681,12 +691,12 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.013102
+        "lag_1d": -0.012276
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "Allianz",
       "product": null,
@@ -702,33 +712,12 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.013102
+        "lag_1d": -0.012276
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "Allianz",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Allianz: Diese Sparte bleibt unter Druck - Der Aktionär",
-        "date": "2024-10-21",
-        "media_source": "Der Aktionär",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.013102
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "Allianz",
       "product": null,
@@ -744,12 +733,12 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.013102
+        "lag_1d": -0.012276
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "Allianz",
       "product": null,
@@ -765,12 +754,12 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.013102
+        "lag_1d": -0.012276
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "Allianz",
       "product": null,
@@ -786,12 +775,54 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.013102
+        "lag_1d": -0.012276
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Versicherer: Singapur blockiert Einstieg von Allianz bei Income Insurance - Handelsblatt",
+        "date": "2024-10-14",
+        "media_source": "Handelsblatt",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.012276
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "AXA S.A.: Ein stabiler Anker für DACH-Anleger in unsicheren Zeiten? - it boltwise",
+        "date": "2026-04-23",
+        "media_source": "it boltwise",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.007585
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "AXA",
       "product": null,
@@ -807,159 +838,34 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.011466
+        "lag_1d": -0.007585
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "AXA",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "AXA S.A. Aktie (FR0000120620): Ist ihr diversifiziertes Versicherungsmodell stark genug für unsichere Zeiten? - AD HOC N",
-        "date": "2026-04-14",
+        "title": "AXA KFZ-Versicherung: Solide Position im wettbewerbsintensiven Markt ohne neue Katalysatoren - AD HOC NEWS",
+        "date": "2026-03-25",
         "media_source": "AD HOC NEWS",
         "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.011466
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Sinkende Strompreise: AXA KFZ-Versicherung wird für E-Autos attraktiver - it boltwise",
-        "date": "2026-04-12",
-        "media_source": "it boltwise",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.011466
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "AXA S.A. Aktie: Was Investoren in Deutschland jetzt wissen müssen - AD HOC NEWS",
-        "date": "2026-04-09",
-        "media_source": "AD HOC NEWS",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.011466
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "AXA S.A. Aktie: Starke Full Year 2025 Earnings treiben Kursinteresse unter DACH-Investoren - AD HOC NEWS",
-        "date": "2026-03-17",
-        "media_source": "AD HOC NEWS",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.011466
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "AXA S.A. Aktie (ISIN: FR0000120620): Robuste Quartalszahlen 2025 unterstreichen Stabilität - AD HOC NEWS",
-        "date": "2026-03-13",
-        "media_source": "AD HOC NEWS",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.011466
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "AXA S.A. Aktie (ISIN: FR0000120620) - Stabile Versichereraktie in unsicheren Zeiten - AD HOC NEWS",
-        "date": "2026-03-13",
-        "media_source": "AD HOC NEWS",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.011466
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "AXA S.A. Aktie (ISIN: FR0000120620): Robuster Versicherer mit solidem Wachstum 2025 - AD HOC NEWS",
-        "date": "2026-03-12",
-        "media_source": "AD HOC NEWS",
-        "topics": [
+          "KFZ & Mobilität",
           "Unternehmen & Strategie"
         ],
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.011466
+        "lag_1d": -0.007585
       },
       "sentiment": "positive"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "AXA",
       "product": null,
@@ -975,12 +881,12 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.011466
+        "lag_1d": -0.007585
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "AXA",
       "product": null,
@@ -996,83 +902,272 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.011466
+        "lag_1d": -0.007585
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "HUK-Coburg",
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Stellenangebote im Bereich Finanzen & Kapitalanlage - HUK-Coburg",
-        "date": "2025-01-29",
-        "media_source": "HUK-Coburg",
-        "topics": [
-          "Finanzen & Vorsorge"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012413
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Stellenangebote im Bereich Mathe & Data Analytics - HUK-Coburg",
-        "date": "2025-01-29",
-        "media_source": "HUK-Coburg",
+        "title": "Axa und Ergo benennen LV-Zinsen für 2026 - procontra",
+        "date": "2025-11-21",
+        "media_source": "procontra",
         "topics": [
           "Allgemein"
         ],
-        "article_type": "own"
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.012413
+        "lag_1d": -0.007585
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "HUK-Coburg",
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Traineeprogramm in verschiedenen Fachbereichen - HUK-Coburg",
-        "date": "2025-01-29",
-        "media_source": "HUK-Coburg",
+        "title": "Nie mehr schwindeln: So humorvoll wirbt AXA um Job-Bewerber - Campaign Germany",
+        "date": "2025-10-14",
+        "media_source": "Campaign Germany",
         "topics": [
           "Allgemein"
         ],
-        "article_type": "own"
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.012413
+        "lag_1d": -0.007585
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Allianz- vs. Axa-Aktie: Versicherungstitanen im Rennen - Börse Express",
+        "date": "2025-10-03",
+        "media_source": "Börse Express",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.007585
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Axa und Apobank arbeiten an Allfinanzvertrieb - procontra",
+        "date": "2025-06-13",
+        "media_source": "procontra",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.007585
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Axa stärkt Geschäftszahlen und plant Dividendenerhöhung - Versicherungsbote",
+        "date": "2025-02-28",
+        "media_source": "Versicherungsbote",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.007585
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Kfz-Versicherung: Allianz in Telematik vor HUK-Coburg - Versicherungsjournal",
+        "date": "2026-04-01",
+        "media_source": "Versicherungsjournal",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.008253
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Kfz-Versicherungen im Vergleich: Die besten Versicherer im Test - Handelsblatt",
+        "date": "2026-01-16",
+        "media_source": "Handelsblatt",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.008253
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Kfz clever versichern: Das bietet die HUK Celle Fahrzeughaltern - celleheute.de",
+        "date": "2025-11-28",
+        "media_source": "celleheute.de",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.008253
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "HUK-Coburg will Anteile an Kfz-Joint-Venture mit Neodigital erhöhen - procontra",
+        "date": "2025-04-08",
+        "media_source": "procontra",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.008253
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Versicherung: Huk-Coburg verringert Verluste im Kfz-Geschäft deutlich - Handelsblatt",
+        "date": "2025-03-25",
+        "media_source": "Handelsblatt",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.008253
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Kfz-Versicherung: Weitere Preiserhöhungen bei HUK-Coburg möglich - SZ.de",
+        "date": "2025-03-25",
+        "media_source": "SZ.de",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.008253
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "HUK-COBURG wieder vor dem Markt - Presseportal",
+        "date": "2025-03-25",
+        "media_source": "Presseportal",
+        "topics": [
+          "Unternehmen & Strategie"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.008253
+      },
+      "sentiment": "positive"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "HUK-Coburg",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Kontakt: Karriere & Stellenangebote - HUK-Coburg",
-        "date": "2025-01-29",
+        "title": "Deine Ausbildung bei uns - HUK-Coburg",
+        "date": "2025-03-11",
         "media_source": "HUK-Coburg",
         "topics": [
           "Personal & Karriere"
@@ -1080,41 +1175,41 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.012413
+        "lag_1d": 0.008253
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "HUK-Coburg",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Einstieg ins Berufsleben mit einem Praktikum bei uns - HUK-Coburg",
-        "date": "2025-01-29",
+        "title": "Für jedes Karrierelevel vielseitige Einstiegsmöglichkeiten - HUK-Coburg",
+        "date": "2025-02-28",
         "media_source": "HUK-Coburg",
         "topics": [
-          "Allgemein"
+          "Personal & Karriere"
         ],
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.012413
+        "lag_1d": 0.008253
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "HUK-Coburg",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Huk-Coburg: Kunden müssen für Werkstattunfälle mitzahlen - das investment",
-        "date": "2025-01-15",
+        "title": "Huk-Coburg mit neuem Vorstand Personenversicherung - das investment",
+        "date": "2025-02-18",
         "media_source": "das investment",
         "topics": [
           "Allgemein"
@@ -1122,138 +1217,33 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.012413
+        "lag_1d": 0.008253
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Kfz-Versicherung: ADAC, Allianz und Huk-Coburg sind Wechselgewinner - Versicherungswirtschaft-heute",
-        "date": "2025-01-15",
-        "media_source": "Versicherungswirtschaft-heute",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012413
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Autoversicherung: Huk-Coburg darf laut Kartellamt Werkstattkette Pitstop übernehmen - Handelsblatt",
-        "date": "2024-12-17",
-        "media_source": "Handelsblatt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012413
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "HUK-Coburg übernimmt Werkstattkette Pitstop - Spiegel",
-        "date": "2024-12-17",
-        "media_source": "Spiegel",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012413
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Das bedeutet die HUK-Übernahme von Pitstop für die Versicherten - BR",
-        "date": "2024-12-04",
-        "media_source": "BR",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012413
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "Generali",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Cristiano Borean zum Vorsitzenden des European Insurance CFO Forum ernannt - Generali",
-        "date": "2026-01-26",
-        "media_source": "Generali",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.013239
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "Generali",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Generali holt Frank Grund - cash-online.de",
+        "title": "Wüstenrot kooperiert mit ING Deutschland und Generali Deutschland mit Neubesetzungen in den Vorständen - Versicherungsbo",
         "date": "2024-08-01",
-        "media_source": "cash-online.de",
+        "media_source": "Versicherungsbote",
         "topics": [
-          "Digitalisierung & KI"
+          "Allgemein"
         ],
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.013239
+        "lag_1d": -0.005317
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "Generali",
       "product": null,
@@ -1269,12 +1259,12 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.013239
+        "lag_1d": -0.005317
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "Generali",
       "product": null,
@@ -1290,12 +1280,12 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.013239
+        "lag_1d": -0.005317
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "Generali",
       "product": null,
@@ -1311,12 +1301,12 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.013239
+        "lag_1d": -0.005317
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "Generali",
       "product": null,
@@ -1332,12 +1322,12 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.013239
+        "lag_1d": -0.005317
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "Generali",
       "product": null,
@@ -1353,12 +1343,12 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.013239
+        "lag_1d": -0.005317
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "Generali",
       "product": null,
@@ -1374,12 +1364,12 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.013239
+        "lag_1d": -0.005317
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "Generali",
       "product": null,
@@ -1395,12 +1385,33 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.013239
+        "lag_1d": -0.005317
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "press_mention",
+      "brand": "Generali",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Europ Assistance unterstreicht Qualitätsführerschaft - Generali",
+        "date": "2024-05-23",
+        "media_source": "Generali",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.005317
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "Generali",
       "product": null,
@@ -1416,44 +1427,23 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.013239
+        "lag_1d": -0.005317
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Reise mit Hindernissen: Wie Alina ihren Traum verfolgt - signal-iduna.de",
-        "date": "2025-03-21",
-        "media_source": "signal-iduna.de",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "Signal Iduna",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "SIGNAL IDUNA Lebensversicherung AG hebt Gesamtverzinsung auf 3,25 Prozent an - Mynewsdesk",
-        "date": "2024-12-05",
-        "media_source": "Mynewsdesk",
+        "title": "Signal Iduna zeigt sich offen für Kooperationen - Börsen-Zeitung",
+        "date": "2026-04-09",
+        "media_source": "Börsen-Zeitung",
         "topics": [
-          "Finanzen & Vorsorge"
+          "Allgemein"
         ],
         "article_type": "media"
       },
@@ -1463,331 +1453,16 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Investieren & Sparen - signal-iduna.de",
-        "date": "2024-12-03",
-        "media_source": "signal-iduna.de",
-        "topics": [
-          "Finanzen & Vorsorge"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "Signal Iduna",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Wechsel an der Spitze der Signal Iduna Gruppe - Versicherungsbote",
-        "date": "2024-11-29",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Wechsel auf dem Signal Iduna-Chefsessel - Deutsches Handwerksblatt",
-        "date": "2024-11-29",
-        "media_source": "Deutsches Handwerksblatt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Führungswechsel: Das ändert sich bei Signal Iduna in Hamburg - Hamburger Abendblatt",
-        "date": "2024-11-28",
-        "media_source": "Hamburger Abendblatt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Signal Iduna und Hallesche starten Pflegedienstleister - Versicherungsbote",
-        "date": "2024-11-12",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "Gesundheit & Pflege"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "SIGNAL IDUNA übernimmt in Rumänien GARANTA Asigurări SA - Mynewsdesk",
-        "date": "2024-11-04",
-        "media_source": "Mynewsdesk",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Geschäftsbericht 2016 - signal-iduna.de",
-        "date": "2024-10-26",
-        "media_source": "signal-iduna.de",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ein Gespräch mit: Tobias Ludwichowski von Signal Iduna - sosafe-awareness.com",
-        "date": "2024-10-08",
-        "media_source": "sosafe-awareness.com",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "E-Auto fahren und jährlich THG-Prämie sichern - R+V Versicherung",
-        "date": "2022-10-21",
-        "media_source": "R+V Versicherung",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Begleitetes Fahren: Ablauf & Tipps zum Führerschein mit 17 - R+V Versicherung",
-        "date": "2022-10-15",
-        "media_source": "R+V Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Pressekonferenz „Die Ängste der Deutschen 2022“ am 13. Oktober 2022 - R+V Versicherung",
-        "date": "2022-09-29",
-        "media_source": "R+V Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Hochexplosiv: Sprengung von Geldautomaten vereiteln - R+V Versicherung",
-        "date": "2022-09-27",
-        "media_source": "R+V Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "R+V-Halbjahresbilanz: Auch 2022 starke Unwetter – Bereits 200 Millionen Euro Schäden - R+V Versicherung",
-        "date": "2022-07-27",
-        "media_source": "R+V Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ausbildung in einer Generalagentur - R+V Versicherung",
-        "date": "2022-07-27",
-        "media_source": "R+V Versicherung",
-        "topics": [
-          "Personal & Karriere"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ein Jahr nach der Flut: Furcht vor Naturkatastrophen außergewöhnlich hoch - R+V Versicherung",
-        "date": "2022-07-11",
-        "media_source": "R+V Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "VW Caddy-Versicherung: Preisgünstige Tarife bei der R+V - R+V Versicherung",
-        "date": "2022-07-01",
-        "media_source": "R+V Versicherung",
+        "title": "Produktcheck: Signal Iduna Berufsunfähigkeitsversicherung - das investment",
+        "date": "2026-02-19",
+        "media_source": "das investment",
         "topics": [
           "Produkt & Innovation"
         ],
@@ -1799,16 +1474,37 @@
       "sentiment": "positive"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "press_mention",
+      "brand": "Signal Iduna",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Mazda CX-5 Versicherung - R+V Versicherung",
-        "date": "2022-07-01",
-        "media_source": "R+V Versicherung",
+        "title": "Vorsorge & Prävention - signal-iduna.de",
+        "date": "2025-11-23",
+        "media_source": "signal-iduna.de",
+        "topics": [
+          "Gesundheit & Pflege"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Signal Iduna Re holt Helvetia-Managerin Simone Debono - Versicherungswirtschaft-heute",
+        "date": "2025-08-27",
+        "media_source": "Versicherungswirtschaft-heute",
         "topics": [
           "Allgemein"
         ],
@@ -1820,18 +1516,188 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "press_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Datenschutzhinweise für Mieter Unser Umgang mit Ihren Daten und Ihre Rechte – Informationen nach Artikeln 13, 14 der Dat",
+        "date": "2025-03-09",
+        "media_source": "signal-iduna.de",
+        "topics": [
+          "Recht & Regulierung"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Signal Iduna entwickelt Assistenten für die Krankenversicherung auf KI-Basis mit Google Cloud - IT Finanzmagazin",
+        "date": "2025-03-05",
+        "media_source": "IT Finanzmagazin",
+        "topics": [
+          "Gesundheit & Pflege",
+          "Digitalisierung & KI",
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "SIGNAL IDUNA integriert Künstliche Intelligenz (KI) in ihren Kundenservice - Mynewsdesk",
+        "date": "2025-03-05",
+        "media_source": "Mynewsdesk",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "press_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Geschäftsbericht 2012 IDUNA Vereinigte Lebensversicherung aG für Handwerk, Handel und Gewerbe - signal-iduna.de",
+        "date": "2025-03-01",
+        "media_source": "signal-iduna.de",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "press_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Warum eine Reiserücktrittsversicherung sinnvoll sein kann - signal-iduna.de",
+        "date": "2025-02-28",
+        "media_source": "signal-iduna.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "press_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Geschäftsbericht 2023 - signal-iduna.de",
+        "date": "2025-02-21",
+        "media_source": "signal-iduna.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "R+V",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "R+V Versicherung nimmt Abschied von R+V24 - Versicherungsbote",
-        "date": "2022-06-15",
+        "title": "Weniger Unwetterschäden: R+V Versicherung mit Rekordergebnis - SZ.de",
+        "date": "2026-04-13",
+        "media_source": "SZ.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "R+V mit Gewinnsprung zum Rekordergebnis - Versicherungsbote",
+        "date": "2026-04-13",
         "media_source": "Versicherungsbote",
         "topics": [
-          "Allgemein"
+          "Unternehmen & Strategie"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "positive"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Ihre wichtigsten Termine: Spannende Updates von: Mercedes-Benz, Goldman Sachs, Goodyear & R+V Versicherung - FinanzNachr",
+        "date": "2026-04-13",
+        "media_source": "FinanzNachrichten.de",
+        "topics": [
+          "Finanzen & Vorsorge"
         ],
         "article_type": "media"
       },
@@ -1841,18 +1707,18 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
-      "brand": "DEVK",
+      "brand": "R+V",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Gebrauchter Stromer ja oder nein? - E-Autos sind Ansichtssache - Presseportal",
-        "date": "2025-10-14",
+        "title": "PUKY und die R+V Allgemeine Versicherung AG geben praktische Tipps für mehr ... - Presseportal",
+        "date": "2026-04-09",
         "media_source": "Presseportal",
         "topics": [
-          "KFZ & Mobilität"
+          "Allgemein"
         ],
         "article_type": "media"
       },
@@ -1862,16 +1728,16 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
-      "brand": "DEVK",
+      "brand": "R+V",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Sparda-Bank und DEVK feiern Jubiläum in Buchholz mit Aktionen und Spendenübergabe - kreiszeitung-wochenblatt.de",
-        "date": "2025-06-19",
-        "media_source": "kreiszeitung-wochenblatt.de",
+        "title": "R+V will Condor Leben veräußern: Neue Run-off-Plattform - AssCompact",
+        "date": "2026-03-12",
+        "media_source": "AssCompact",
         "topics": [
           "Allgemein"
         ],
@@ -1883,7 +1749,238 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Bei Mietwohnungen: Gartenarbeit kann Streit säen - Presseportal",
+        "date": "2026-03-11",
+        "media_source": "Presseportal",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "R+V zahlt rund 24 Millionen Euro an ihre Kunden zurück - Presseportal",
+        "date": "2026-03-10",
+        "media_source": "Presseportal",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "DZ Bank erzielt Rekordgewinn - Versicherung R+V glänzt - Tageblatt",
+        "date": "2026-03-03",
+        "media_source": "Tageblatt",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Mehrwertig: Neue R+V Kampagne will konkret unterstützen – Weil Familie das Wichtigste ist - marketingscout.com",
+        "date": "2026-03-02",
+        "media_source": "marketingscout.com",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "R+V stellt Familien in den Fokus - Presseportal",
+        "date": "2026-03-02",
+        "media_source": "Presseportal",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "DEVK stoppt Hochhauspläne in Köln-Riehl - cash-online.de",
+        "date": "2026-03-25",
+        "media_source": "cash-online.de",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "DEVK: Moog übernimmt IT-Ressort von Knaup - Versicherungsmagazin.de",
+        "date": "2025-06-03",
+        "media_source": "Versicherungsmagazin.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "DEVK stärkt ihre digitales Vertriebssystem - Versicherungsmagazin.de",
+        "date": "2025-01-15",
+        "media_source": "Versicherungsmagazin.de",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "DEVK gewährt stabile Verzinsung für Lebensversicherungen - Presseportal",
+        "date": "2024-12-05",
+        "media_source": "Presseportal",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Bilanz: DEVK wächst 2023 um mehr als elf Prozent - autohaus.de",
+        "date": "2024-06-24",
+        "media_source": "autohaus.de",
+        "topics": [
+          "Unternehmen & Strategie"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "positive"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "DEVK verbessert Schutz für Fahrräder - pedelec-elektro-fahrrad.de",
+        "date": "2024-06-04",
+        "media_source": "pedelec-elektro-fahrrad.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "DEVK",
       "product": null,
@@ -1905,7 +2002,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "DEVK",
       "product": null,
@@ -1927,7 +2024,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "DEVK",
       "product": null,
@@ -1948,28 +2045,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "DEVK-Tochter Freeyou steigt aus Kfz-Geschäft aus - procontra",
-        "date": "2024-05-07",
-        "media_source": "procontra",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "DEVK",
       "product": null,
@@ -1991,16 +2067,16 @@
       "sentiment": "negative"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
-      "brand": "DEVK",
+      "brand": "Hannoversche",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "DEVK: Familiärer Gemeinsinn in der \"Weiten Welt\" - autohaus.de",
-        "date": "2024-02-05",
-        "media_source": "autohaus.de",
+        "title": "DFSI Ratings GmbH: DFSI-Studie \"Unternehmensqualität der Lebensversicherer\": Die besten Anbieter 2023/2024 - Handelsblat",
+        "date": "2023-10-20",
+        "media_source": "Handelsblatt",
         "topics": [
           "Allgemein"
         ],
@@ -2012,16 +2088,16 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
-      "brand": "DEVK",
+      "brand": "Hannoversche",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Neue Position: Tatjana Pape leitet DEVK-Unternehmenskommunikation - autohaus.de",
-        "date": "2024-02-05",
-        "media_source": "autohaus.de",
+        "title": "Test: Risiko-Ablebensversicherungen - Allianz, Bawag, Donau, Uniqa uvm. im Vergleich - KONSUMENT – Das österreichische T",
+        "date": "2022-09-28",
+        "media_source": "KONSUMENT – Das österreichische Testmagazin",
         "topics": [
           "Allgemein"
         ],
@@ -2033,91 +2109,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Versicherung: DEVK hat einen neuen Vertriebs-Chef - autohaus.de",
-        "date": "2024-01-22",
-        "media_source": "autohaus.de",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Datenschutzhinweise für Verbraucher + Partner - Hannoversche Versicherung",
-        "date": "2022-03-25",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Recht & Regulierung"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Risikolebensversicherung im Test - Hannoversche Versicherung",
-        "date": "2022-03-20",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Risikolebensversicherung: Beratung - das sind die meist gestellten Fragen - Hannoversche Versicherung",
-        "date": "2022-03-17",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "Hannoversche",
       "product": null,
@@ -2138,7 +2130,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "Hannoversche",
       "product": null,
@@ -2159,7 +2151,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "Hannoversche",
       "product": null,
@@ -2180,7 +2172,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "Hannoversche",
       "product": null,
@@ -2201,7 +2193,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "Hannoversche",
       "product": null,
@@ -2222,7 +2214,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "Hannoversche",
       "product": null,
@@ -2243,7 +2235,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "Hannoversche",
       "product": null,
@@ -2264,7 +2256,91 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "press_mention",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Ist eine Sterbegeldversicherung sinnvoll? - Hannoversche Versicherung",
+        "date": "2020-08-05",
+        "media_source": "Hannoversche Versicherung",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "CosmosDirekt erhöht Tagesgeldzinsen auf 2,2 Prozent - reisetopia",
+        "date": "2026-04-09",
+        "media_source": "reisetopia",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Allianz, CosmosDirekt und HUK Spitzenreiter beim Finnoscore 2024 - Versicherungsbote",
+        "date": "2024-12-10",
+        "media_source": "Versicherungsbote",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
+      "event_type": "news_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "\"Schütze, was du liebst\": Cosmos Direkt feiert die Familie von heute - mit den Carpendales und Denyo - Horizont.net",
+        "date": "2021-06-15",
+        "media_source": "Horizont.net",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "Cosmos Direkt",
       "product": null,
@@ -2285,7 +2361,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "Cosmos Direkt",
       "product": null,
@@ -2306,7 +2382,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "Cosmos Direkt",
       "product": null,
@@ -2327,7 +2403,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
       "brand": "Cosmos Direkt",
       "product": null,
@@ -2348,7 +2424,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "Cosmos Direkt",
       "product": null,
@@ -2370,7 +2446,7 @@
       "sentiment": "negative"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "Cosmos Direkt",
       "product": null,
@@ -2391,28 +2467,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Zahl der Woche: 64 Ein Leben lang im gleichen Beruf? Viele können sich das gut vorstellen - Presseportal",
-        "date": "2021-05-12",
-        "media_source": "Presseportal",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-02T07:58:16Z",
+      "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "press_mention",
       "brand": "Cosmos Direkt",
       "product": null,
@@ -2433,46 +2488,42 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "news_mention",
-      "brand": "Cosmos Direkt",
+      "timestamp": "2026-05-03T08-59-46Z",
+      "event_type": "page_change",
+      "brand": "AXA",
       "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
+      "source": "page_tracker",
+      "magnitude": 0.06340000000000001,
       "detail": {
-        "title": "Privathaftpflicht aus Kundensicht: Diese Anbieter punkten - AssCompact",
-        "date": "2021-04-19",
-        "media_source": "AssCompact",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
+        "url": "https://www.axa.de/wir-ueber-uns/daten-und-publikationen/mindestzufuehrungsverordnung-ager-lebensversicherung",
+        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 93.7%).",
+        "similarity": 0.9366,
+        "classification": {
+          "error": "HTTP 403"
+        }
       },
       "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
+        "lag_1d": -0.025852
+      }
     },
     {
-      "timestamp": "2026-05-02T07:58:16Z",
-      "event_type": "press_mention",
-      "brand": "Cosmos Direkt",
+      "timestamp": "2026-05-03T08-59-46Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
       "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
+      "source": "page_tracker",
+      "magnitude": 0.048900000000000055,
       "detail": {
-        "title": "Zahl der Woche - CosmosDirekt - Zeckenschutz - Cosmos Direkt",
-        "date": "2021-04-13",
-        "media_source": "Cosmos Direkt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
+        "url": "https://www.allianz.de/gesundheit/",
+        "summary": "5 neue Zeilen, 15 entfernte Zeilen (Ähnlichkeit 95.1%).",
+        "similarity": 0.9511,
+        "classification": {
+          "error": "HTTP 403"
+        }
       },
       "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
+        "lag_1d": 0.000981
+      }
     }
   ]
 }
