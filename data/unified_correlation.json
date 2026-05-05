@@ -1,21 +1,21 @@
 {
   "meta": {
-    "total_page_events": 1126,
+    "total_page_events": 1146,
     "total_cockpit_events": 2100,
-    "total_unified_events": 3201,
-    "total_enriched_events": 3201,
-    "total_runs": 36,
+    "total_unified_events": 3221,
+    "total_enriched_events": 3221,
+    "total_runs": 37,
     "lag_windows": [
       1,
       3,
       7,
       14
     ],
-    "generated_at": "2026-05-04T11:30:06.914960Z"
+    "generated_at": "2026-05-05T10:35:40.706159Z"
   },
   "event_summary": {
     "page_new": {
-      "count": 914,
+      "count": 915,
       "brands": [
         "AXA",
         "Allianz",
@@ -24,6 +24,18 @@
         "HUK-Coburg"
       ],
       "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "page_change": {
+      "count": 206,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO"
+      ],
+      "avg_magnitude": 0.136,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -43,18 +55,6 @@
         "Signal Iduna"
       ],
       "avg_magnitude": 1.0,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    "page_change": {
-      "count": 187,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO"
-      ],
-      "avg_magnitude": 0.08,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -82,7 +82,7 @@
   "impact_ranking": [
     {
       "event_type": "page_new",
-      "count": 914,
+      "count": 915,
       "brands": [
         "AXA",
         "Allianz",
@@ -91,6 +91,19 @@
         "HUK-Coburg"
       ],
       "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "page_change",
+      "count": 206,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO"
+      ],
+      "avg_magnitude": 0.136,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -111,19 +124,6 @@
         "Signal Iduna"
       ],
       "avg_magnitude": 1.0,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
-      "event_type": "page_change",
-      "count": 187,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO"
-      ],
-      "avg_magnitude": 0.08,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -154,28 +154,55 @@
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 914,
+      "n_events": 915,
       "spearman_rho": 0.5025,
-      "avg_delta": -0.001409,
+      "avg_delta": -0.001403,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_1d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 914,
+      "n_events": 915,
       "spearman_rho": 0.5025,
-      "avg_delta": 0.020336,
+      "avg_delta": 0.020285,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_1d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 914,
+      "n_events": 915,
       "spearman_rho": 0.5025,
-      "avg_delta": 0.014737,
+      "avg_delta": 0.014728,
       "avg_magnitude": 1.0
+    },
+    "page_change__delta_share_of_voice__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 206,
+      "spearman_rho": 0.3333,
+      "avg_delta": -0.001211,
+      "avg_magnitude": 0.136
+    },
+    "page_change__delta_appearance_rate__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 206,
+      "spearman_rho": 0.0648,
+      "avg_delta": 0.026019,
+      "avg_magnitude": 0.136
+    },
+    "page_change__delta_citation_rate__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 206,
+      "spearman_rho": 0.1718,
+      "avg_delta": -0.003408,
+      "avg_magnitude": 0.136
     },
     "news_mention__delta_share_of_voice__lag_1d": {
       "event_type": "news_mention",
@@ -203,33 +230,6 @@
       "spearman_rho": 0.5743,
       "avg_delta": -0.00064,
       "avg_magnitude": 1.0
-    },
-    "page_change__delta_share_of_voice__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 187,
-      "spearman_rho": 0.3529,
-      "avg_delta": -0.001773,
-      "avg_magnitude": 0.08
-    },
-    "page_change__delta_appearance_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 187,
-      "spearman_rho": 0.191,
-      "avg_delta": 0.031289,
-      "avg_magnitude": 0.08
-    },
-    "page_change__delta_citation_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 187,
-      "spearman_rho": 0.2158,
-      "avg_delta": -0.0038,
-      "avg_magnitude": 0.08
     },
     "press_mention__delta_share_of_voice__lag_1d": {
       "event_type": "press_mention",
@@ -285,13 +285,40 @@
       "avg_delta": 0.032561,
       "avg_magnitude": 1.0
     },
+    "page_change__delta_share_of_voice__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 187,
+      "spearman_rho": 0.0721,
+      "avg_delta": 0.007247,
+      "avg_magnitude": 0.08
+    },
+    "page_change__delta_appearance_rate__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 187,
+      "spearman_rho": -0.4801,
+      "avg_delta": -0.013771,
+      "avg_magnitude": 0.08
+    },
+    "page_change__delta_citation_rate__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 187,
+      "spearman_rho": -0.2974,
+      "avg_delta": 0.015773,
+      "avg_magnitude": 0.08
+    },
     "news_mention__delta_share_of_voice__lag_3d": {
       "event_type": "news_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 3,
       "n_events": 1448,
-      "spearman_rho": 0.563,
-      "avg_delta": 0.000875,
+      "spearman_rho": 0.5628,
+      "avg_delta": 0.000956,
       "avg_magnitude": 1.0
     },
     "news_mention__delta_appearance_rate__lag_3d": {
@@ -299,8 +326,8 @@
       "metric": "delta_appearance_rate",
       "lag_days": 3,
       "n_events": 1448,
-      "spearman_rho": 0.5631,
-      "avg_delta": -0.028984,
+      "spearman_rho": 0.5763,
+      "avg_delta": -0.036018,
       "avg_magnitude": 1.0
     },
     "news_mention__delta_citation_rate__lag_3d": {
@@ -308,44 +335,17 @@
       "metric": "delta_citation_rate",
       "lag_days": 3,
       "n_events": 1448,
-      "spearman_rho": 0.563,
-      "avg_delta": -0.00367,
+      "spearman_rho": 0.5764,
+      "avg_delta": -0.001106,
       "avg_magnitude": 1.0
-    },
-    "page_change__delta_share_of_voice__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 186,
-      "spearman_rho": 0.0652,
-      "avg_delta": 0.007046,
-      "avg_magnitude": 0.08
-    },
-    "page_change__delta_appearance_rate__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 186,
-      "spearman_rho": -0.4747,
-      "avg_delta": -0.013466,
-      "avg_magnitude": 0.08
-    },
-    "page_change__delta_citation_rate__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 186,
-      "spearman_rho": -0.288,
-      "avg_delta": 0.015925,
-      "avg_magnitude": 0.08
     },
     "press_mention__delta_share_of_voice__lag_3d": {
       "event_type": "press_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 3,
       "n_events": 652,
-      "spearman_rho": 0.5631,
-      "avg_delta": -0.001943,
+      "spearman_rho": 0.5629,
+      "avg_delta": -0.002123,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_appearance_rate__lag_3d": {
@@ -353,8 +353,8 @@
       "metric": "delta_appearance_rate",
       "lag_days": 3,
       "n_events": 652,
-      "spearman_rho": 0.5631,
-      "avg_delta": -0.029683,
+      "spearman_rho": 0.5824,
+      "avg_delta": -0.035479,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_citation_rate__lag_3d": {
@@ -362,8 +362,8 @@
       "metric": "delta_citation_rate",
       "lag_days": 3,
       "n_events": 652,
-      "spearman_rho": 0.5631,
-      "avg_delta": -0.003406,
+      "spearman_rho": 0.5826,
+      "avg_delta": -0.00075,
       "avg_magnitude": 1.0
     },
     "page_new__delta_share_of_voice__lag_7d": {
@@ -425,447 +425,6 @@
     {
       "timestamp": "2026-05-03T07:37:49Z",
       "event_type": "news_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "DONAU Versicherung übernimmt BKV-Bestand der ERGO - AssCompact",
-        "date": "2025-08-05",
-        "media_source": "AssCompact",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005143,
-        "lag_3d": -0.005143
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Wie innovativ ist die neue Ergo-Grundfähigkeitsversicherung? - das investment",
-        "date": "2025-03-21",
-        "media_source": "das investment",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005143,
-        "lag_3d": -0.005143
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ergo-BU: Verbesserungen reichen nicht für Maklerempfehlung - das investment",
-        "date": "2025-03-21",
-        "media_source": "das investment",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005143,
-        "lag_3d": -0.005143
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ergo übernimmt US-Versicherungs-Start-up - FONDS professionell",
-        "date": "2025-03-21",
-        "media_source": "FONDS professionell",
-        "topics": [
-          "Finanzen & Vorsorge"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005143,
-        "lag_3d": -0.005143
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Einstieg in den U.S.-Versicherungsmarkt: ERGO übernimmt NEXT Insurance - ERGO Group AG",
-        "date": "2025-03-20",
-        "media_source": "ERGO Group AG",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005143,
-        "lag_3d": -0.005143
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Versicherung: Ergo übernimmt US-Digitalversicherer Next Insurance komplett - Handelsblatt",
-        "date": "2025-03-20",
-        "media_source": "Handelsblatt",
-        "topics": [
-          "Digitalisierung & KI"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005143,
-        "lag_3d": -0.005143
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ergo: Versicherer kauft US-Konzern Next Insurance - WirtschaftsWoche",
-        "date": "2025-03-20",
-        "media_source": "WirtschaftsWoche",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005143,
-        "lag_3d": -0.005143
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Allianz",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Frankreichs größter Konzern hilft jetzt bei Deutschlands Energiewende - FOCUS online",
-        "date": "2026-03-03",
-        "media_source": "FOCUS online",
-        "topics": [
-          "Digitalisierung & KI"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002286,
-        "lag_3d": -0.002286
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Allianz",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Mehr Sicherheit im Bobsport: Kopf einziehen reicht nicht - Allianz",
-        "date": "2025-11-06",
-        "media_source": "Allianz",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002286,
-        "lag_3d": -0.002286
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Allianz",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Allianz Trade-Studie: Ohne Dekarbonisierung verliert die deutsche Industrie an Wettbewerbsfähigkeit - cash-online.de",
-        "date": "2025-03-07",
-        "media_source": "cash-online.de",
-        "topics": [
-          "Digitalisierung & KI"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002286,
-        "lag_3d": -0.002286
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Allianz",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Allianz vorn, HUK holt auf: SEO-Benchmark der Top 10 Versicherungen in Deutschland 2025 - Presseportal",
-        "date": "2025-02-12",
-        "media_source": "Presseportal",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002286,
-        "lag_3d": -0.002286
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Allianz",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Microstrategy: Allianz in Bitcoin-Spekulation verwickelt - Handelsblatt",
-        "date": "2024-11-25",
-        "media_source": "Handelsblatt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002286,
-        "lag_3d": -0.002286
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Allianz",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Versicherer: Allianz übernimmt Online-Versicherer „Friday“ von Baloise - Handelsblatt",
-        "date": "2024-10-29",
-        "media_source": "Handelsblatt",
-        "topics": [
-          "Digitalisierung & KI"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002286,
-        "lag_3d": -0.002286
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Allianz",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Presse - Allianz",
-        "date": "2024-10-16",
-        "media_source": "Allianz",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002286,
-        "lag_3d": -0.002286
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Allianz",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "12. Allianz Autotag 2024 - Allianz",
-        "date": "2024-10-16",
-        "media_source": "Allianz",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002286,
-        "lag_3d": -0.002286
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Allianz",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Allianz plant Kfz-Versicherung mit Verwendung gebrauchter Ersatzteile - Versicherungsbote",
-        "date": "2024-10-16",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002286,
-        "lag_3d": -0.002286
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Allianz",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Versicherer: Singapur blockiert Einstieg von Allianz bei Income Insurance - Handelsblatt",
-        "date": "2024-10-14",
-        "media_source": "Handelsblatt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002286,
-        "lag_3d": -0.002286
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "AXA S.A.: Ein stabiler Anker für DACH-Anleger in unsicheren Zeiten? - it boltwise",
-        "date": "2026-04-23",
-        "media_source": "it boltwise",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.000138,
-        "lag_3d": 0.000138
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "AXA S.A. Aktie (FR0000120620): Kommt es jetzt auf die Diversifikation in Europa an? - AD HOC NEWS",
-        "date": "2026-04-17",
-        "media_source": "AD HOC NEWS",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.000138,
-        "lag_3d": 0.000138
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "AXA KFZ-Versicherung: Solide Position im wettbewerbsintensiven Markt ohne neue Katalysatoren - AD HOC NEWS",
-        "date": "2026-03-25",
-        "media_source": "AD HOC NEWS",
-        "topics": [
-          "KFZ & Mobilität",
-          "Unternehmen & Strategie"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.000138,
-        "lag_3d": 0.000138
-      },
-      "sentiment": "positive"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
       "brand": "AXA",
       "product": null,
       "source": "google_news_rss",
@@ -881,7 +440,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.000138,
-        "lag_3d": 0.000138
+        "lag_3d": 0.006768
       },
       "sentiment": "neutral"
     },
@@ -903,7 +462,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.000138,
-        "lag_3d": 0.000138
+        "lag_3d": 0.006768
       },
       "sentiment": "neutral"
     },
@@ -925,7 +484,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.000138,
-        "lag_3d": 0.000138
+        "lag_3d": 0.006768
       },
       "sentiment": "neutral"
     },
@@ -947,7 +506,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.000138,
-        "lag_3d": 0.000138
+        "lag_3d": 0.006768
       },
       "sentiment": "neutral"
     },
@@ -969,7 +528,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.000138,
-        "lag_3d": 0.000138
+        "lag_3d": 0.006768
       },
       "sentiment": "neutral"
     },
@@ -991,7 +550,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.000138,
-        "lag_3d": 0.000138
+        "lag_3d": 0.006768
       },
       "sentiment": "neutral"
     },
@@ -1013,7 +572,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.000138,
-        "lag_3d": 0.000138
+        "lag_3d": 0.006768
       },
       "sentiment": "neutral"
     },
@@ -1035,7 +594,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.008245,
-        "lag_3d": 0.008245
+        "lag_3d": 0.010403
       },
       "sentiment": "neutral"
     },
@@ -1057,7 +616,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.008245,
-        "lag_3d": 0.008245
+        "lag_3d": 0.010403
       },
       "sentiment": "neutral"
     },
@@ -1079,7 +638,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.008245,
-        "lag_3d": 0.008245
+        "lag_3d": 0.010403
       },
       "sentiment": "neutral"
     },
@@ -1101,7 +660,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.008245,
-        "lag_3d": 0.008245
+        "lag_3d": 0.010403
       },
       "sentiment": "neutral"
     },
@@ -1123,7 +682,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.008245,
-        "lag_3d": 0.008245
+        "lag_3d": 0.010403
       },
       "sentiment": "neutral"
     },
@@ -1145,7 +704,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.008245,
-        "lag_3d": 0.008245
+        "lag_3d": 0.010403
       },
       "sentiment": "neutral"
     },
@@ -1167,7 +726,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.008245,
-        "lag_3d": 0.008245
+        "lag_3d": 0.010403
       },
       "sentiment": "positive"
     },
@@ -1189,7 +748,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.008245,
-        "lag_3d": 0.008245
+        "lag_3d": 0.010403
       },
       "sentiment": "neutral"
     },
@@ -1211,7 +770,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.008245,
-        "lag_3d": 0.008245
+        "lag_3d": 0.010403
       },
       "sentiment": "neutral"
     },
@@ -1233,7 +792,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.008245,
-        "lag_3d": 0.008245
+        "lag_3d": 0.010403
       },
       "sentiment": "neutral"
     },
@@ -1255,7 +814,7 @@
       },
       "sov_deltas": {
         "lag_1d": -0.000955,
-        "lag_3d": -0.000955
+        "lag_3d": 0.004299
       },
       "sentiment": "neutral"
     },
@@ -1277,7 +836,7 @@
       },
       "sov_deltas": {
         "lag_1d": -0.000955,
-        "lag_3d": -0.000955
+        "lag_3d": 0.004299
       },
       "sentiment": "neutral"
     },
@@ -1299,7 +858,7 @@
       },
       "sov_deltas": {
         "lag_1d": -0.000955,
-        "lag_3d": -0.000955
+        "lag_3d": 0.004299
       },
       "sentiment": "neutral"
     },
@@ -1321,7 +880,7 @@
       },
       "sov_deltas": {
         "lag_1d": -0.000955,
-        "lag_3d": -0.000955
+        "lag_3d": 0.004299
       },
       "sentiment": "neutral"
     },
@@ -1343,7 +902,7 @@
       },
       "sov_deltas": {
         "lag_1d": -0.000955,
-        "lag_3d": -0.000955
+        "lag_3d": 0.004299
       },
       "sentiment": "neutral"
     },
@@ -1365,7 +924,7 @@
       },
       "sov_deltas": {
         "lag_1d": -0.000955,
-        "lag_3d": -0.000955
+        "lag_3d": 0.004299
       },
       "sentiment": "neutral"
     },
@@ -1387,7 +946,7 @@
       },
       "sov_deltas": {
         "lag_1d": -0.000955,
-        "lag_3d": -0.000955
+        "lag_3d": 0.004299
       },
       "sentiment": "neutral"
     },
@@ -1409,7 +968,7 @@
       },
       "sov_deltas": {
         "lag_1d": -0.000955,
-        "lag_3d": -0.000955
+        "lag_3d": 0.004299
       },
       "sentiment": "neutral"
     },
@@ -1431,7 +990,7 @@
       },
       "sov_deltas": {
         "lag_1d": -0.000955,
-        "lag_3d": -0.000955
+        "lag_3d": 0.004299
       },
       "sentiment": "neutral"
     },
@@ -1453,7 +1012,7 @@
       },
       "sov_deltas": {
         "lag_1d": -0.000955,
-        "lag_3d": -0.000955
+        "lag_3d": 0.004299
       },
       "sentiment": "neutral"
     },
@@ -2580,7 +2139,7 @@
       },
       "sov_deltas": {
         "lag_1d": 0.018898,
-        "lag_3d": 0.018898
+        "lag_3d": 0.006521
       }
     },
     {
@@ -2600,7 +2159,7 @@
       },
       "sov_deltas": {
         "lag_1d": -0.004263,
-        "lag_3d": -0.004263
+        "lag_3d": 0.02034
       }
     },
     {
@@ -2619,7 +2178,386 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.04475
+        "lag_1d": 0.032373,
+        "lag_3d": 0.032373
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0014999999999999458,
+      "detail": {
+        "url": "https://www.ergo.de/de/Produkte/Lebensversicherung/Risikolebensversicherung",
+        "summary": "12 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 99.9%).",
+        "similarity": 0.9985,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.01241
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0014999999999999458,
+      "detail": {
+        "url": "https://ergo.de/de/Produkte/Lebensversicherung/Risikolebensversicherung",
+        "summary": "12 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 99.9%).",
+        "similarity": 0.9985,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.01241
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9962,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/a/zahnfuellungen",
+        "summary": "61 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0038,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.015694
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9878,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/pkv-zahnarztbesuch",
+        "summary": "60 neue Zeilen, 79 entfernte Zeilen (Ähnlichkeit 1.2%).",
+        "similarity": 0.0122,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.015694
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9842,
+      "detail": {
+        "url": "https://www.axa.de/presse/axa-deutschland-veraeussert-teilbestand-von-lebensversicherungen-an-athora",
+        "summary": "61 neue Zeilen, 60 entfernte Zeilen (Ähnlichkeit 1.6%).",
+        "similarity": 0.0158,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.012377
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9886,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/p/zahnzusatzversicherung",
+        "summary": "56 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 1.1%).",
+        "similarity": 0.0114,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.015694
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9895,
+      "detail": {
+        "url": "https://www.axa.de/presse/gesundheitsrisiko-hitze",
+        "summary": "61 neue Zeilen, 66 entfernte Zeilen (Ähnlichkeit 1.1%).",
+        "similarity": 0.0105,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.012377
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9745,
+      "detail": {
+        "url": "https://www.axa.de/wir-ueber-uns/daten-und-publikationen/mindestzufuehrungsverordnung-ager-lebensversicherung/mindestzufuehrungsverordnung-ager-lebensversicherung-archiv",
+        "summary": "61 neue Zeilen, 21 entfernte Zeilen (Ähnlichkeit 2.5%).",
+        "similarity": 0.0255,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.012377
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9758,
+      "detail": {
+        "url": "https://www.axa.de/zahn",
+        "summary": "58 neue Zeilen, 83 entfernte Zeilen (Ähnlichkeit 2.4%).",
+        "similarity": 0.0242,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.015694
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.986,
+      "detail": {
+        "url": "https://www.axa.de/presse/praeventionsreport-brandrisiko-wird-unterschaetzt",
+        "summary": "61 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 1.4%).",
+        "similarity": 0.014,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.012377
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9793,
+      "detail": {
+        "url": "https://www.axa.de/wir-ueber-uns/daten-und-publikationen/mindestzufuehrungsverordnung-ager-lebensversicherung",
+        "summary": "60 neue Zeilen, 34 entfernte Zeilen (Ähnlichkeit 2.1%).",
+        "similarity": 0.0207,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.012377
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9868,
+      "detail": {
+        "url": "https://www.axa.de/presse/neue-zahnzusatzversicherungen",
+        "summary": "61 neue Zeilen, 45 entfernte Zeilen (Ähnlichkeit 1.3%).",
+        "similarity": 0.0132,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.015694
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9826,
+      "detail": {
+        "url": "https://www.axa.de/presse/verzinsung-lebensversicherung-2025",
+        "summary": "61 neue Zeilen, 54 entfernte Zeilen (Ähnlichkeit 1.7%).",
+        "similarity": 0.0174,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.012377
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.05130000000000001,
+      "detail": {
+        "url": "https://www.axa.de/pk/existenzsicherung/s/todesfall-angehoerige",
+        "summary": "16 neue Zeilen, 1 entfernte Zeilen (Ähnlichkeit 94.9%).",
+        "similarity": 0.9487,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.000254
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9888,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/a/gesunde-zahnvorsorge",
+        "summary": "61 neue Zeilen, 43 entfernte Zeilen (Ähnlichkeit 1.1%).",
+        "similarity": 0.0112,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.015694
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9947,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/a/zahnbehandlungen",
+        "summary": "61 neue Zeilen, 106 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0053,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.015694
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.10519999999999996,
+      "detail": {
+        "url": "https://www.allianz.de/unternehmen/zahlen-daten-fakten/lebensversicherung",
+        "summary": "1 neue Zeilen, 1 entfernte Zeilen (Ähnlichkeit 89.5%).",
+        "similarity": 0.8948,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.014896
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.00019999999999997797,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 100.0%).",
+        "similarity": 0.9998,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.024603
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.00019999999999997797,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 100.0%).",
+        "similarity": 0.9998,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.024603
+      }
+    },
+    {
+      "timestamp": "2026-05-05T09-32-32Z",
+      "event_type": "page_new",
+      "brand": "Generali",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.generali.de/service-kontakt/self-service/dokumente-anfordern/sach-und-lebensversicherung/vertragsabschrift",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.004053
       }
     }
   ]
