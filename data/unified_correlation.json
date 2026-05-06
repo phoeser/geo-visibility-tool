@@ -1,17 +1,17 @@
 {
   "meta": {
-    "total_page_events": 1146,
+    "total_page_events": 1235,
     "total_cockpit_events": 2100,
-    "total_unified_events": 3221,
-    "total_enriched_events": 3221,
-    "total_runs": 37,
+    "total_unified_events": 3310,
+    "total_enriched_events": 3310,
+    "total_runs": 38,
     "lag_windows": [
       1,
       3,
       7,
       14
     ],
-    "generated_at": "2026-05-05T10:35:40.706159Z"
+    "generated_at": "2026-05-06T06:54:55.079509Z"
   },
   "event_summary": {
     "page_new": {
@@ -24,18 +24,6 @@
         "HUK-Coburg"
       ],
       "avg_magnitude": 1.0,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    "page_change": {
-      "count": 206,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO"
-      ],
-      "avg_magnitude": 0.136,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -55,6 +43,18 @@
         "Signal Iduna"
       ],
       "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "page_change": {
+      "count": 295,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO"
+      ],
+      "avg_magnitude": 0.148,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -96,19 +96,6 @@
       "impact": {}
     },
     {
-      "event_type": "page_change",
-      "count": 206,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO"
-      ],
-      "avg_magnitude": 0.136,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
       "event_type": "news_mention",
       "count": 1448,
       "brands": [
@@ -124,6 +111,19 @@
         "Signal Iduna"
       ],
       "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "page_change",
+      "count": 295,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO"
+      ],
+      "avg_magnitude": 0.148,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -156,7 +156,7 @@
       "lag_days": 1,
       "n_events": 915,
       "spearman_rho": 0.5025,
-      "avg_delta": -0.001403,
+      "avg_delta": -0.001408,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_1d": {
@@ -165,7 +165,7 @@
       "lag_days": 1,
       "n_events": 915,
       "spearman_rho": 0.5025,
-      "avg_delta": 0.020285,
+      "avg_delta": 0.020307,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_1d": {
@@ -176,33 +176,6 @@
       "spearman_rho": 0.5025,
       "avg_delta": 0.014728,
       "avg_magnitude": 1.0
-    },
-    "page_change__delta_share_of_voice__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 206,
-      "spearman_rho": 0.3333,
-      "avg_delta": -0.001211,
-      "avg_magnitude": 0.136
-    },
-    "page_change__delta_appearance_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 206,
-      "spearman_rho": 0.0648,
-      "avg_delta": 0.026019,
-      "avg_magnitude": 0.136
-    },
-    "page_change__delta_citation_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 206,
-      "spearman_rho": 0.1718,
-      "avg_delta": -0.003408,
-      "avg_magnitude": 0.136
     },
     "news_mention__delta_share_of_voice__lag_1d": {
       "event_type": "news_mention",
@@ -230,6 +203,33 @@
       "spearman_rho": 0.5743,
       "avg_delta": -0.00064,
       "avg_magnitude": 1.0
+    },
+    "page_change__delta_share_of_voice__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 295,
+      "spearman_rho": 0.4067,
+      "avg_delta": -0.003571,
+      "avg_magnitude": 0.148
+    },
+    "page_change__delta_appearance_rate__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 295,
+      "spearman_rho": 0.0994,
+      "avg_delta": 0.031086,
+      "avg_magnitude": 0.148
+    },
+    "page_change__delta_citation_rate__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 295,
+      "spearman_rho": 0.2944,
+      "avg_delta": -0.002029,
+      "avg_magnitude": 0.148
     },
     "press_mention__delta_share_of_voice__lag_1d": {
       "event_type": "press_mention",
@@ -285,40 +285,13 @@
       "avg_delta": 0.032561,
       "avg_magnitude": 1.0
     },
-    "page_change__delta_share_of_voice__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 187,
-      "spearman_rho": 0.0721,
-      "avg_delta": 0.007247,
-      "avg_magnitude": 0.08
-    },
-    "page_change__delta_appearance_rate__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 187,
-      "spearman_rho": -0.4801,
-      "avg_delta": -0.013771,
-      "avg_magnitude": 0.08
-    },
-    "page_change__delta_citation_rate__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 187,
-      "spearman_rho": -0.2974,
-      "avg_delta": 0.015773,
-      "avg_magnitude": 0.08
-    },
     "news_mention__delta_share_of_voice__lag_3d": {
       "event_type": "news_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 3,
       "n_events": 1448,
-      "spearman_rho": 0.5628,
-      "avg_delta": 0.000956,
+      "spearman_rho": 0.5627,
+      "avg_delta": 0.000871,
       "avg_magnitude": 1.0
     },
     "news_mention__delta_appearance_rate__lag_3d": {
@@ -326,8 +299,8 @@
       "metric": "delta_appearance_rate",
       "lag_days": 3,
       "n_events": 1448,
-      "spearman_rho": 0.5763,
-      "avg_delta": -0.036018,
+      "spearman_rho": 0.5708,
+      "avg_delta": -0.034533,
       "avg_magnitude": 1.0
     },
     "news_mention__delta_citation_rate__lag_3d": {
@@ -335,17 +308,44 @@
       "metric": "delta_citation_rate",
       "lag_days": 3,
       "n_events": 1448,
-      "spearman_rho": 0.5764,
-      "avg_delta": -0.001106,
+      "spearman_rho": 0.5709,
+      "avg_delta": -0.001641,
       "avg_magnitude": 1.0
+    },
+    "page_change__delta_share_of_voice__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 187,
+      "spearman_rho": 0.0686,
+      "avg_delta": 0.007157,
+      "avg_magnitude": 0.08
+    },
+    "page_change__delta_appearance_rate__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 187,
+      "spearman_rho": -0.4758,
+      "avg_delta": -0.013282,
+      "avg_magnitude": 0.08
+    },
+    "page_change__delta_citation_rate__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 187,
+      "spearman_rho": -0.2942,
+      "avg_delta": 0.015728,
+      "avg_magnitude": 0.08
     },
     "press_mention__delta_share_of_voice__lag_3d": {
       "event_type": "press_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 3,
       "n_events": 652,
-      "spearman_rho": 0.5629,
-      "avg_delta": -0.002123,
+      "spearman_rho": 0.5627,
+      "avg_delta": -0.001935,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_appearance_rate__lag_3d": {
@@ -353,8 +353,8 @@
       "metric": "delta_appearance_rate",
       "lag_days": 3,
       "n_events": 652,
-      "spearman_rho": 0.5824,
-      "avg_delta": -0.035479,
+      "spearman_rho": 0.575,
+      "avg_delta": -0.034511,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_citation_rate__lag_3d": {
@@ -362,1997 +362,120 @@
       "metric": "delta_citation_rate",
       "lag_days": 3,
       "n_events": 652,
-      "spearman_rho": 0.5826,
-      "avg_delta": -0.00075,
+      "spearman_rho": 0.5751,
+      "avg_delta": -0.001104,
       "avg_magnitude": 1.0
     },
     "page_new__delta_share_of_voice__lag_7d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 7,
-      "n_events": 665,
-      "spearman_rho": 0.5053,
-      "avg_delta": 0.00107,
+      "n_events": 914,
+      "spearman_rho": 0.5025,
+      "avg_delta": 0.011104,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_7d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 7,
-      "n_events": 665,
-      "spearman_rho": 0.5053,
-      "avg_delta": -0.043358,
+      "n_events": 914,
+      "spearman_rho": 0.5025,
+      "avg_delta": -0.07515,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_7d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 7,
-      "n_events": 665,
-      "spearman_rho": 0.5062,
-      "avg_delta": 0.081398,
+      "n_events": 914,
+      "spearman_rho": 0.5032,
+      "avg_delta": 0.059714,
       "avg_magnitude": 1.0
     },
     "page_change__delta_share_of_voice__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
       "lag_days": 7,
-      "n_events": 128,
-      "spearman_rho": -0.1894,
-      "avg_delta": 0.0547,
-      "avg_magnitude": 0.035
+      "n_events": 184,
+      "spearman_rho": -0.243,
+      "avg_delta": 0.042197,
+      "avg_magnitude": 0.08
     },
     "page_change__delta_appearance_rate__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
       "lag_days": 7,
-      "n_events": 128,
-      "spearman_rho": -0.2544,
-      "avg_delta": 0.091121,
-      "avg_magnitude": 0.035
+      "n_events": 184,
+      "spearman_rho": -0.5226,
+      "avg_delta": 0.018979,
+      "avg_magnitude": 0.08
     },
     "page_change__delta_citation_rate__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
       "lag_days": 7,
-      "n_events": 128,
-      "spearman_rho": -0.1997,
-      "avg_delta": 0.084758,
-      "avg_magnitude": 0.035
+      "n_events": 184,
+      "spearman_rho": -0.5307,
+      "avg_delta": 0.060119,
+      "avg_magnitude": 0.08
+    },
+    "page_new__delta_share_of_voice__lag_14d": {
+      "event_type": "page_new",
+      "metric": "delta_share_of_voice",
+      "lag_days": 14,
+      "n_events": 135,
+      "spearman_rho": 0.6754,
+      "avg_delta": -0.069206,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_appearance_rate__lag_14d": {
+      "event_type": "page_new",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 135,
+      "spearman_rho": 0.6754,
+      "avg_delta": 0.014024,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_citation_rate__lag_14d": {
+      "event_type": "page_new",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 135,
+      "spearman_rho": 0.771,
+      "avg_delta": 0.072009,
+      "avg_magnitude": 1.0
+    },
+    "page_change__delta_share_of_voice__lag_14d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 14,
+      "n_events": 19,
+      "spearman_rho": 0.5004,
+      "avg_delta": 0.057231,
+      "avg_magnitude": 0.016
+    },
+    "page_change__delta_appearance_rate__lag_14d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 19,
+      "spearman_rho": 0.5004,
+      "avg_delta": 0.033333,
+      "avg_magnitude": 0.016
+    },
+    "page_change__delta_citation_rate__lag_14d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 19,
+      "spearman_rho": 0.5004,
+      "avg_delta": 0.085714,
+      "avg_magnitude": 0.016
     }
   },
   "dashboard_events": [
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Axa liefert Rekordzahlen und lässt Dividenden steigen - Versicherungsbote",
-        "date": "2026-03-05",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.000138,
-        "lag_3d": 0.006768
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Axa Schweiz wächst im Jahr 2025 kräftig - Blick",
-        "date": "2026-02-26",
-        "media_source": "Blick",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.000138,
-        "lag_3d": 0.006768
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Axa und Ergo benennen LV-Zinsen für 2026 - procontra",
-        "date": "2025-11-21",
-        "media_source": "procontra",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.000138,
-        "lag_3d": 0.006768
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Nie mehr schwindeln: So humorvoll wirbt AXA um Job-Bewerber - Campaign Germany",
-        "date": "2025-10-14",
-        "media_source": "Campaign Germany",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.000138,
-        "lag_3d": 0.006768
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Allianz- vs. Axa-Aktie: Versicherungstitanen im Rennen - Börse Express",
-        "date": "2025-10-03",
-        "media_source": "Börse Express",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.000138,
-        "lag_3d": 0.006768
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Axa und Apobank arbeiten an Allfinanzvertrieb - procontra",
-        "date": "2025-06-13",
-        "media_source": "procontra",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.000138,
-        "lag_3d": 0.006768
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Axa stärkt Geschäftszahlen und plant Dividendenerhöhung - Versicherungsbote",
-        "date": "2025-02-28",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.000138,
-        "lag_3d": 0.006768
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Kfz-Versicherung: Allianz in Telematik vor HUK-Coburg - Versicherungsjournal",
-        "date": "2026-04-01",
-        "media_source": "Versicherungsjournal",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008245,
-        "lag_3d": 0.010403
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Kfz-Versicherungen im Vergleich: Die besten Versicherer im Test - Handelsblatt",
-        "date": "2026-01-16",
-        "media_source": "Handelsblatt",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008245,
-        "lag_3d": 0.010403
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Kfz clever versichern: Das bietet die HUK Celle Fahrzeughaltern - celleheute.de",
-        "date": "2025-11-28",
-        "media_source": "celleheute.de",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008245,
-        "lag_3d": 0.010403
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "HUK-Coburg will Anteile an Kfz-Joint-Venture mit Neodigital erhöhen - procontra",
-        "date": "2025-04-08",
-        "media_source": "procontra",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008245,
-        "lag_3d": 0.010403
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Versicherung: Huk-Coburg verringert Verluste im Kfz-Geschäft deutlich - Handelsblatt",
-        "date": "2025-03-25",
-        "media_source": "Handelsblatt",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008245,
-        "lag_3d": 0.010403
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Kfz-Versicherung: Weitere Preiserhöhungen bei HUK-Coburg möglich - SZ.de",
-        "date": "2025-03-25",
-        "media_source": "SZ.de",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008245,
-        "lag_3d": 0.010403
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "HUK-COBURG wieder vor dem Markt - Presseportal",
-        "date": "2025-03-25",
-        "media_source": "Presseportal",
-        "topics": [
-          "Unternehmen & Strategie"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008245,
-        "lag_3d": 0.010403
-      },
-      "sentiment": "positive"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Deine Ausbildung bei uns - HUK-Coburg",
-        "date": "2025-03-11",
-        "media_source": "HUK-Coburg",
-        "topics": [
-          "Personal & Karriere"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008245,
-        "lag_3d": 0.010403
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Für jedes Karrierelevel vielseitige Einstiegsmöglichkeiten - HUK-Coburg",
-        "date": "2025-02-28",
-        "media_source": "HUK-Coburg",
-        "topics": [
-          "Personal & Karriere"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008245,
-        "lag_3d": 0.010403
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Huk-Coburg mit neuem Vorstand Personenversicherung - das investment",
-        "date": "2025-02-18",
-        "media_source": "das investment",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008245,
-        "lag_3d": 0.010403
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Generali",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Wüstenrot kooperiert mit ING Deutschland und Generali Deutschland mit Neubesetzungen in den Vorständen - Versicherungsbo",
-        "date": "2024-08-01",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.000955,
-        "lag_3d": 0.004299
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Generali",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Versicherer: Ex-Bafin-Aufseher Frank Grund wird Aufsichtsrat bei Generali - Handelsblatt",
-        "date": "2024-08-01",
-        "media_source": "Handelsblatt",
-        "topics": [
-          "Recht & Regulierung"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.000955,
-        "lag_3d": 0.004299
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Generali",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Vorstände von Allianz und Alte Leipziger wechseln zu Generali - das investment",
-        "date": "2024-08-01",
-        "media_source": "das investment",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.000955,
-        "lag_3d": 0.004299
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Generali",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Generali Health Solutions und Modern Health kooperieren als internationale Partner für mentale Gesundheit - Generali",
-        "date": "2024-07-16",
-        "media_source": "Generali",
-        "topics": [
-          "Gesundheit & Pflege"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.000955,
-        "lag_3d": 0.004299
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Generali",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Generali Deutschland: Stühlerücken in Aufsichtsräten und Vorständen - AssCompact",
-        "date": "2024-07-03",
-        "media_source": "AssCompact",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.000955,
-        "lag_3d": 0.004299
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Generali",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Lehmanns Nachfolger: Generali-Töchter mit neuen Vorstandschefs - das investment",
-        "date": "2024-06-28",
-        "media_source": "das investment",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.000955,
-        "lag_3d": 0.004299
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Generali",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Generali baut Deutschland-Geschäft weiter um - Versicherungsbote",
-        "date": "2024-06-27",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.000955,
-        "lag_3d": 0.004299
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Generali",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Generali will „Vitality“-Klauseln anpassen - Versicherungsbote",
-        "date": "2024-06-14",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.000955,
-        "lag_3d": 0.004299
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Generali",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Europ Assistance unterstreicht Qualitätsführerschaft - Generali",
-        "date": "2024-05-23",
-        "media_source": "Generali",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.000955,
-        "lag_3d": 0.004299
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Generali",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Finanzinformationen zum 31.03.2024 - Generali",
-        "date": "2024-05-21",
-        "media_source": "Generali",
-        "topics": [
-          "Finanzen & Vorsorge"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.000955,
-        "lag_3d": 0.004299
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Signal Iduna zeigt sich offen für Kooperationen - Börsen-Zeitung",
-        "date": "2026-04-09",
-        "media_source": "Börsen-Zeitung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Produktcheck: Signal Iduna Berufsunfähigkeitsversicherung - das investment",
-        "date": "2026-02-19",
-        "media_source": "das investment",
-        "topics": [
-          "Produkt & Innovation"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "positive"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Vorsorge & Prävention - signal-iduna.de",
-        "date": "2025-11-23",
-        "media_source": "signal-iduna.de",
-        "topics": [
-          "Gesundheit & Pflege"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Signal Iduna Re holt Helvetia-Managerin Simone Debono - Versicherungswirtschaft-heute",
-        "date": "2025-08-27",
-        "media_source": "Versicherungswirtschaft-heute",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Datenschutzhinweise für Mieter Unser Umgang mit Ihren Daten und Ihre Rechte – Informationen nach Artikeln 13, 14 der Dat",
-        "date": "2025-03-09",
-        "media_source": "signal-iduna.de",
-        "topics": [
-          "Recht & Regulierung"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Signal Iduna entwickelt Assistenten für die Krankenversicherung auf KI-Basis mit Google Cloud - IT Finanzmagazin",
-        "date": "2025-03-05",
-        "media_source": "IT Finanzmagazin",
-        "topics": [
-          "Gesundheit & Pflege",
-          "Digitalisierung & KI",
-          "Finanzen & Vorsorge"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "SIGNAL IDUNA integriert Künstliche Intelligenz (KI) in ihren Kundenservice - Mynewsdesk",
-        "date": "2025-03-05",
-        "media_source": "Mynewsdesk",
-        "topics": [
-          "Digitalisierung & KI"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Geschäftsbericht 2012 IDUNA Vereinigte Lebensversicherung aG für Handwerk, Handel und Gewerbe - signal-iduna.de",
-        "date": "2025-03-01",
-        "media_source": "signal-iduna.de",
-        "topics": [
-          "Finanzen & Vorsorge"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Warum eine Reiserücktrittsversicherung sinnvoll sein kann - signal-iduna.de",
-        "date": "2025-02-28",
-        "media_source": "signal-iduna.de",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Geschäftsbericht 2023 - signal-iduna.de",
-        "date": "2025-02-21",
-        "media_source": "signal-iduna.de",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Weniger Unwetterschäden: R+V Versicherung mit Rekordergebnis - SZ.de",
-        "date": "2026-04-13",
-        "media_source": "SZ.de",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "R+V mit Gewinnsprung zum Rekordergebnis - Versicherungsbote",
-        "date": "2026-04-13",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "Unternehmen & Strategie"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "positive"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ihre wichtigsten Termine: Spannende Updates von: Mercedes-Benz, Goldman Sachs, Goodyear & R+V Versicherung - FinanzNachr",
-        "date": "2026-04-13",
-        "media_source": "FinanzNachrichten.de",
-        "topics": [
-          "Finanzen & Vorsorge"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "PUKY und die R+V Allgemeine Versicherung AG geben praktische Tipps für mehr ... - Presseportal",
-        "date": "2026-04-09",
-        "media_source": "Presseportal",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "R+V will Condor Leben veräußern: Neue Run-off-Plattform - AssCompact",
-        "date": "2026-03-12",
-        "media_source": "AssCompact",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Bei Mietwohnungen: Gartenarbeit kann Streit säen - Presseportal",
-        "date": "2026-03-11",
-        "media_source": "Presseportal",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "R+V zahlt rund 24 Millionen Euro an ihre Kunden zurück - Presseportal",
-        "date": "2026-03-10",
-        "media_source": "Presseportal",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "DZ Bank erzielt Rekordgewinn - Versicherung R+V glänzt - Tageblatt",
-        "date": "2026-03-03",
-        "media_source": "Tageblatt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Mehrwertig: Neue R+V Kampagne will konkret unterstützen – Weil Familie das Wichtigste ist - marketingscout.com",
-        "date": "2026-03-02",
-        "media_source": "marketingscout.com",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "R+V stellt Familien in den Fokus - Presseportal",
-        "date": "2026-03-02",
-        "media_source": "Presseportal",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "DEVK stoppt Hochhauspläne in Köln-Riehl - cash-online.de",
-        "date": "2026-03-25",
-        "media_source": "cash-online.de",
-        "topics": [
-          "Digitalisierung & KI"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "DEVK: Moog übernimmt IT-Ressort von Knaup - Versicherungsmagazin.de",
-        "date": "2025-06-03",
-        "media_source": "Versicherungsmagazin.de",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "DEVK stärkt ihre digitales Vertriebssystem - Versicherungsmagazin.de",
-        "date": "2025-01-15",
-        "media_source": "Versicherungsmagazin.de",
-        "topics": [
-          "Digitalisierung & KI"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "DEVK gewährt stabile Verzinsung für Lebensversicherungen - Presseportal",
-        "date": "2024-12-05",
-        "media_source": "Presseportal",
-        "topics": [
-          "Finanzen & Vorsorge"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Bilanz: DEVK wächst 2023 um mehr als elf Prozent - autohaus.de",
-        "date": "2024-06-24",
-        "media_source": "autohaus.de",
-        "topics": [
-          "Unternehmen & Strategie"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "positive"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "DEVK verbessert Schutz für Fahrräder - pedelec-elektro-fahrrad.de",
-        "date": "2024-06-04",
-        "media_source": "pedelec-elektro-fahrrad.de",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "DEVK Krankenversicherung: Martin Wierer steigt in den Vorstand auf - cash-online.de",
-        "date": "2024-05-28",
-        "media_source": "cash-online.de",
-        "topics": [
-          "Gesundheit & Pflege",
-          "Digitalisierung & KI"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Martin Wierer neu im Vorstand der DEVK-Krankenversicherung - IT Finanzmagazin",
-        "date": "2024-05-28",
-        "media_source": "IT Finanzmagazin",
-        "topics": [
-          "Gesundheit & Pflege",
-          "Finanzen & Vorsorge"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Insurtech Freeyou beendet Geschäft mit Kfz-Versicherungen - das investment",
-        "date": "2024-05-10",
-        "media_source": "das investment",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "BVdP-Award \"Schadensteuerer des Jahres\": LVM gewinnt vor DEVK und ARVAL/GE ASL - autohaus.de",
-        "date": "2024-04-29",
-        "media_source": "autohaus.de",
-        "topics": [
-          "Schaden & Leistung",
-          "Unternehmen & Strategie"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "negative"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "DFSI Ratings GmbH: DFSI-Studie \"Unternehmensqualität der Lebensversicherer\": Die besten Anbieter 2023/2024 - Handelsblat",
-        "date": "2023-10-20",
-        "media_source": "Handelsblatt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Test: Risiko-Ablebensversicherungen - Allianz, Bawag, Donau, Uniqa uvm. im Vergleich - KONSUMENT – Das österreichische T",
-        "date": "2022-09-28",
-        "media_source": "KONSUMENT – Das österreichische Testmagazin",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ratgeber zur Risikolebensversicherung - Hannoversche Versicherung",
-        "date": "2022-01-27",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Boris Sonntag - Hannoversche Versicherung",
-        "date": "2021-07-01",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "gutscheinbedingungen - Hannoversche Versicherung",
-        "date": "2021-05-01",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Die besten Risikolebensversicherungen 2025 im Vergleich - Handelsblatt",
-        "date": "2021-04-08",
-        "media_source": "Handelsblatt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Homeschooling, Homeoffice, Kontaktbeschränkungen – wie Corona unsere Nerven auf die Probe stellt. - Hannoversche Versich",
-        "date": "2021-01-20",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Auswirkungen der Zeitumstellung auf unseren Körper - Hannoversche Versicherung",
-        "date": "2020-10-31",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Im Gespräch mit unseren Personalern - Teil 2 - Hannoversche Versicherung",
-        "date": "2020-09-14",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Personal & Karriere"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ist eine Sterbegeldversicherung sinnvoll? - Hannoversche Versicherung",
-        "date": "2020-08-05",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "CosmosDirekt erhöht Tagesgeldzinsen auf 2,2 Prozent - reisetopia",
-        "date": "2026-04-09",
-        "media_source": "reisetopia",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Allianz, CosmosDirekt und HUK Spitzenreiter beim Finnoscore 2024 - Versicherungsbote",
-        "date": "2024-12-10",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "\"Schütze, was du liebst\": Cosmos Direkt feiert die Familie von heute - mit den Carpendales und Denyo - Horizont.net",
-        "date": "2021-06-15",
-        "media_source": "Horizont.net",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Zahl der Woche - CosmosDirekt - Deutschland verschönert das Zuhause - Cosmos Direkt",
-        "date": "2021-06-14",
-        "media_source": "Cosmos Direkt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Zahl der Woche - CosmosDirekt - Erwartungen an die Berufsunfähigkeitsversicherung - Cosmos Direkt",
-        "date": "2021-06-07",
-        "media_source": "Cosmos Direkt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Versicherung der Kameraausrüstung on demand: CosmosDirekt bietet ab sofort Schutz, wenn man ihn braucht - Cosmos Direkt",
-        "date": "2021-06-01",
-        "media_source": "Cosmos Direkt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "news_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "CosmosDirekt Mobility Check: So steht es um die Mobilität in den deutschen Großstädten - Presseportal",
-        "date": "2021-05-25",
-        "media_source": "Presseportal",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Mobility Check 2021 – CosmosDirekt – Schadenshäufigkeit - Cosmos Direkt",
-        "date": "2021-05-19",
-        "media_source": "Cosmos Direkt",
-        "topics": [
-          "KFZ & Mobilität",
-          "Schaden & Leistung"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "negative"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Mobility Check 2021 – CosmosDirekt – E wie Essen - Cosmos Direkt",
-        "date": "2021-05-19",
-        "media_source": "Cosmos Direkt",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T07:37:49Z",
-      "event_type": "press_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Zahl der Woche - CosmosDirekt - Beruferfahrene unterschätzen Berufsunfähigkeit - Cosmos Direkt",
-        "date": "2021-05-04",
-        "media_source": "Cosmos Direkt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-03T08-59-46Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.06340000000000001,
-      "detail": {
-        "url": "https://www.axa.de/wir-ueber-uns/daten-und-publikationen/mindestzufuehrungsverordnung-ager-lebensversicherung",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 93.7%).",
-        "similarity": 0.9366,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.018898,
-        "lag_3d": 0.006521
-      }
-    },
-    {
-      "timestamp": "2026-05-03T08-59-46Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.048900000000000055,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/",
-        "summary": "5 neue Zeilen, 15 entfernte Zeilen (Ähnlichkeit 95.1%).",
-        "similarity": 0.9511,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.004263,
-        "lag_3d": 0.02034
-      }
-    },
-    {
-      "timestamp": "2026-05-04T10-34-31Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.06269999999999998,
-      "detail": {
-        "url": "https://www.axa.de/wir-ueber-uns/daten-und-publikationen/mindestzufuehrungsverordnung-ager-lebensversicherung",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 93.7%).",
-        "similarity": 0.9373,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.032373,
-        "lag_3d": 0.032373
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0014999999999999458,
-      "detail": {
-        "url": "https://www.ergo.de/de/Produkte/Lebensversicherung/Risikolebensversicherung",
-        "summary": "12 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 99.9%).",
-        "similarity": 0.9985,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.01241
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0014999999999999458,
-      "detail": {
-        "url": "https://ergo.de/de/Produkte/Lebensversicherung/Risikolebensversicherung",
-        "summary": "12 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 99.9%).",
-        "similarity": 0.9985,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.01241
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9962,
-      "detail": {
-        "url": "https://www.axa.de/pk/gesundheit/a/zahnfuellungen",
-        "summary": "61 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.4%).",
-        "similarity": 0.0038,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.015694
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9878,
-      "detail": {
-        "url": "https://www.axa.de/pk/gesundheit/s/pkv-zahnarztbesuch",
-        "summary": "60 neue Zeilen, 79 entfernte Zeilen (Ähnlichkeit 1.2%).",
-        "similarity": 0.0122,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.015694
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9842,
-      "detail": {
-        "url": "https://www.axa.de/presse/axa-deutschland-veraeussert-teilbestand-von-lebensversicherungen-an-athora",
-        "summary": "61 neue Zeilen, 60 entfernte Zeilen (Ähnlichkeit 1.6%).",
-        "similarity": 0.0158,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.012377
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9886,
-      "detail": {
-        "url": "https://www.axa.de/pk/gesundheit/p/zahnzusatzversicherung",
-        "summary": "56 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 1.1%).",
-        "similarity": 0.0114,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.015694
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9895,
-      "detail": {
-        "url": "https://www.axa.de/presse/gesundheitsrisiko-hitze",
-        "summary": "61 neue Zeilen, 66 entfernte Zeilen (Ähnlichkeit 1.1%).",
-        "similarity": 0.0105,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.012377
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9745,
-      "detail": {
-        "url": "https://www.axa.de/wir-ueber-uns/daten-und-publikationen/mindestzufuehrungsverordnung-ager-lebensversicherung/mindestzufuehrungsverordnung-ager-lebensversicherung-archiv",
-        "summary": "61 neue Zeilen, 21 entfernte Zeilen (Ähnlichkeit 2.5%).",
-        "similarity": 0.0255,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.012377
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9758,
-      "detail": {
-        "url": "https://www.axa.de/zahn",
-        "summary": "58 neue Zeilen, 83 entfernte Zeilen (Ähnlichkeit 2.4%).",
-        "similarity": 0.0242,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.015694
-      }
-    },
     {
       "timestamp": "2026-05-05T09-32-32Z",
       "event_type": "page_change",
@@ -2369,7 +492,7 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.012377
+        "lag_1d": -0.014212
       }
     },
     {
@@ -2388,7 +511,7 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.012377
+        "lag_1d": -0.014212
       }
     },
     {
@@ -2407,7 +530,7 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.015694
+        "lag_1d": 0.021545
       }
     },
     {
@@ -2426,7 +549,7 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.012377
+        "lag_1d": -0.014212
       }
     },
     {
@@ -2445,7 +568,7 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.000254
+        "lag_1d": -0.016507
       }
     },
     {
@@ -2464,7 +587,7 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.015694
+        "lag_1d": 0.021545
       }
     },
     {
@@ -2483,7 +606,7 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.015694
+        "lag_1d": 0.021545
       }
     },
     {
@@ -2502,7 +625,7 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.014896
+        "lag_1d": 0.037429
       }
     },
     {
@@ -2521,7 +644,7 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.024603
+        "lag_1d": 0.011583
       }
     },
     {
@@ -2540,7 +663,7 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.024603
+        "lag_1d": 0.011583
       }
     },
     {
@@ -2557,7 +680,1698 @@
         "classification": null
       },
       "sov_deltas": {
-        "lag_1d": 0.004053
+        "lag_1d": -0.000737
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.988,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/a/zahnfuellungen",
+        "summary": "120 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 1.2%).",
+        "similarity": 0.012,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005851
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9805,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/pkv-zahnarztbesuch",
+        "summary": "79 neue Zeilen, 60 entfernte Zeilen (Ähnlichkeit 1.9%).",
+        "similarity": 0.0195,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005851
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9675,
+      "detail": {
+        "url": "https://www.axa.de/presse/axa-deutschland-veraeussert-teilbestand-von-lebensversicherungen-an-athora",
+        "summary": "60 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 3.2%).",
+        "similarity": 0.0325,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.001835
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9737,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/p/zahnzusatzversicherung",
+        "summary": "120 neue Zeilen, 58 entfernte Zeilen (Ähnlichkeit 2.6%).",
+        "similarity": 0.0263,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005851
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9795,
+      "detail": {
+        "url": "https://www.axa.de/presse/gesundheitsrisiko-hitze",
+        "summary": "66 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 2.1%).",
+        "similarity": 0.0205,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.001835
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9855,
+      "detail": {
+        "url": "https://www.axa.de/wir-ueber-uns/daten-und-publikationen/mindestzufuehrungsverordnung-ager-lebensversicherung/mindestzufuehrungsverordnung-ager-lebensversicherung-archiv",
+        "summary": "21 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 1.5%).",
+        "similarity": 0.0145,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.001835
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9495,
+      "detail": {
+        "url": "https://www.axa.de/zahn",
+        "summary": "83 neue Zeilen, 58 entfernte Zeilen (Ähnlichkeit 5.1%).",
+        "similarity": 0.0505,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005851
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9693,
+      "detail": {
+        "url": "https://www.axa.de/presse/praeventionsreport-brandrisiko-wird-unterschaetzt",
+        "summary": "61 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 3.1%).",
+        "similarity": 0.0307,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.001835
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.981,
+      "detail": {
+        "url": "https://www.axa.de/wir-ueber-uns/daten-und-publikationen/mindestzufuehrungsverordnung-ager-lebensversicherung",
+        "summary": "34 neue Zeilen, 60 entfernte Zeilen (Ähnlichkeit 1.9%).",
+        "similarity": 0.019,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.001835
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9834,
+      "detail": {
+        "url": "https://www.axa.de/presse/neue-zahnzusatzversicherungen",
+        "summary": "45 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 1.7%).",
+        "similarity": 0.0166,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005851
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9685,
+      "detail": {
+        "url": "https://www.axa.de/presse/verzinsung-lebensversicherung-2025",
+        "summary": "54 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 3.1%).",
+        "similarity": 0.0315,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.001835
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.05130000000000001,
+      "detail": {
+        "url": "https://www.axa.de/pk/existenzsicherung/s/todesfall-angehoerige",
+        "summary": "1 neue Zeilen, 16 entfernte Zeilen (Ähnlichkeit 94.9%).",
+        "similarity": 0.9487,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.016253
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9798,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/a/gesunde-zahnvorsorge",
+        "summary": "43 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 2.0%).",
+        "similarity": 0.0202,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005851
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9827,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/a/zahnbehandlungen",
+        "summary": "106 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 1.7%).",
+        "similarity": 0.0173,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005851
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9915,
+      "detail": {
+        "url": "https://www.allianz.de/unternehmen/zahlen-daten-fakten/lebensversicherung",
+        "summary": "120 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 0.9%).",
+        "similarity": 0.0085,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.052324
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.009800000000000031,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnbehandlung",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.0%).",
+        "similarity": 0.9902,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.015900000000000025,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/fehlende-zaehne",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.4%).",
+        "similarity": 0.9841,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.009199999999999986,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnfuellung",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
+        "similarity": 0.9908,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.017000000000000015,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnkorrektur",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 98.3%).",
+        "similarity": 0.983,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.022599999999999953,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/fuer-privatversicherte",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 97.7%).",
+        "similarity": 0.9774,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.009000000000000008,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/prophylaxe",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
+        "similarity": 0.991,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.00880000000000003,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnprothese",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
+        "similarity": 0.9912,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.011399999999999966,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnprovisorium",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.9%).",
+        "similarity": 0.9886,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.007299999999999973,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/sofort",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.3%).",
+        "similarity": 0.9927,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.024399999999999977,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/guenstig",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 97.6%).",
+        "similarity": 0.9756,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.04579999999999995,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/fissurenversiegelung",
+        "summary": "8 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 95.4%).",
+        "similarity": 0.9542,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.00880000000000003,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/vergleich/",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
+        "similarity": 0.9912,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.008399999999999963,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/wechseln",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.9916,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.008600000000000052,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnkrone",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
+        "similarity": 0.9914,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.009399999999999964,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/erstattungsbeispiele",
+        "summary": "9 neue Zeilen, 9 entfernte Zeilen (Ähnlichkeit 99.1%).",
+        "similarity": 0.9906,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.014800000000000035,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kinder",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.5%).",
+        "similarity": 0.9852,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.01639999999999997,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/keramikbrackets",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.4%).",
+        "similarity": 0.9836,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.017900000000000027,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/heil-und-kostenplan",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.2%).",
+        "similarity": 0.9821,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.02070000000000005,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/keramikkrone",
+        "summary": "8 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 97.9%).",
+        "similarity": 0.9793,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.007800000000000029,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/professionelle-zahnreinigung",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.9922,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.009000000000000008,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/rechnung-einreichen",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
+        "similarity": 0.991,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.01090000000000002,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ohne-gesundheitsfragen",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 98.9%).",
+        "similarity": 0.9891,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.006099999999999994,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/sinnvoll/",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.4%).",
+        "similarity": 0.9939,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.20440000000000003,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/familie",
+        "summary": "120 neue Zeilen, 18 entfernte Zeilen (Ähnlichkeit 79.6%).",
+        "similarity": 0.7956,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.01529999999999998,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/beamte",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.5%).",
+        "similarity": 0.9847,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.012599999999999945,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/senioren",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.7%).",
+        "similarity": 0.9874,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.00880000000000003,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnextraktion",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
+        "similarity": 0.9912,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.00880000000000003,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/vergleich",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
+        "similarity": 0.9912,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.010099999999999998,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ohne-wartezeit/",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.0%).",
+        "similarity": 0.9899,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.013900000000000023,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kieferorthopaedie",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.6%).",
+        "similarity": 0.9861,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.02300000000000002,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kuendigen",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 97.7%).",
+        "similarity": 0.977,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.01090000000000002,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/wurzelbehandlung",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.9%).",
+        "similarity": 0.9891,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.010099999999999998,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ohne-wartezeit",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.0%).",
+        "similarity": 0.9899,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.009399999999999964,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zaehne-machen-lassen",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
+        "similarity": 0.9906,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.024499999999999966,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/inlay",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 97.5%).",
+        "similarity": 0.9755,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.01529999999999998,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/funktionsanalyse",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.5%).",
+        "similarity": 0.9847,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.01090000000000002,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/steuer-absetzen",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.9%).",
+        "similarity": 0.9891,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.008000000000000007,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/worauf-achten/",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.992,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.011099999999999999,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnstein-entfernen",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.9%).",
+        "similarity": 0.9889,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.011900000000000022,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/veneers",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.8%).",
+        "similarity": 0.9881,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.010499999999999954,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/nachtraeglich-abschliessen",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.0%).",
+        "similarity": 0.9895,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.009399999999999964,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/erstattungsbeispiele/",
+        "summary": "9 neue Zeilen, 9 entfernte Zeilen (Ähnlichkeit 99.1%).",
+        "similarity": 0.9906,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.006099999999999994,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/sinnvoll",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.4%).",
+        "similarity": 0.9939,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.023399999999999976,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/festzuschuss-zahnersatz",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 97.7%).",
+        "similarity": 0.9766,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.010199999999999987,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnimplantat",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 99.0%).",
+        "similarity": 0.9898,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.30710000000000004,
+      "detail": {
+        "url": "https://www.allianz.de/ansprechpartner-vor-ort/berlin/lebensversicherung/?address=berlin&division=life",
+        "summary": "120 neue Zeilen, 3 entfernte Zeilen (Ähnlichkeit 69.3%).",
+        "similarity": 0.6929,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.052324
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.021299999999999986,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/alterungsrueckstellungen",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 97.9%).",
+        "similarity": 0.9787,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.007000000000000006,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/nachhaltige-zahnpflege",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.3%).",
+        "similarity": 0.993,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.2923,
+      "detail": {
+        "url": "https://www.allianz.de/presse/mitteilungen/zahnschutz-die-neue-tarifwelt-der-Allianz",
+        "summary": "120 neue Zeilen, 1 entfernte Zeilen (Ähnlichkeit 70.8%).",
+        "similarity": 0.7077,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.02529999999999999,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/jacketkrone",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 97.5%).",
+        "similarity": 0.9747,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.009000000000000008,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/rechnung-einreichen/",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
+        "similarity": 0.991,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.006399999999999961,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnspange",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.4%).",
+        "similarity": 0.9936,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.01980000000000004,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/laufende-behandlung",
+        "summary": "8 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 98.0%).",
+        "similarity": 0.9802,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.018100000000000005,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kompositfuellung",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.2%).",
+        "similarity": 0.9819,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.008000000000000007,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/familie/",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.992,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.009499999999999953,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/student",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
+        "similarity": 0.9905,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.010700000000000043,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/schwangerschaft",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.9%).",
+        "similarity": 0.9893,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.025699999999999945,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/lumineers",
+        "summary": "8 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 97.4%).",
+        "similarity": 0.9743,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.01090000000000002,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/weisse-zaehne-hausmittel",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.9%).",
+        "similarity": 0.9891,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.010399999999999965,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnfleischtaschen",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.0%).",
+        "similarity": 0.9896,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.005800000000000027,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.4%).",
+        "similarity": 0.9942,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.014000000000000012,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/bleaching",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.6%).",
+        "similarity": 0.986,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.005800000000000027,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.4%).",
+        "similarity": 0.9942,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.010099999999999998,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnersatz-kosten",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 99.0%).",
+        "similarity": 0.9899,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.019399999999999973,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/aligner-therapie",
+        "summary": "8 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 98.1%).",
+        "similarity": 0.9806,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.02070000000000005,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/mit-brille",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 97.9%).",
+        "similarity": 0.9793,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.015499999999999958,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/angst-vor-zahnarzt",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.5%).",
+        "similarity": 0.9845,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.008000000000000007,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/worauf-achten",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.992,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.022800000000000042,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ausland",
+        "summary": "8 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 97.7%).",
+        "similarity": 0.9772,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.018100000000000005,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/knirscherschiene",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.2%).",
+        "similarity": 0.9819,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.15159999999999996,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/sinuslift",
+        "summary": "120 neue Zeilen, 13 entfernte Zeilen (Ähnlichkeit 84.8%).",
+        "similarity": 0.8484,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.008099999999999996,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnfleischentzuendung",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.9919,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.007900000000000018,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/parodontitisbehandlung",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.9921,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
+      }
+    },
+    {
+      "timestamp": "2026-05-06T05-56-19Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.008700000000000041,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnerhalt",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
+        "similarity": 0.9913,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01302
       }
     }
   ]
