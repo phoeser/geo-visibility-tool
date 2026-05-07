@@ -1,29 +1,46 @@
 {
   "meta": {
-    "total_page_events": 1235,
+    "total_page_events": 1316,
     "total_cockpit_events": 2100,
-    "total_unified_events": 3310,
-    "total_enriched_events": 3310,
-    "total_runs": 38,
+    "total_unified_events": 3391,
+    "total_enriched_events": 3391,
+    "total_runs": 39,
     "lag_windows": [
       1,
       3,
       7,
       14
     ],
-    "generated_at": "2026-05-06T06:54:55.079509Z"
+    "generated_at": "2026-05-07T07:11:34.631692Z"
   },
   "event_summary": {
-    "page_new": {
-      "count": 915,
+    "press_mention": {
+      "count": 652,
       "brands": [
         "AXA",
         "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
         "ERGO",
         "Generali",
-        "HUK-Coburg"
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
       ],
       "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "page_change": {
+      "count": 376,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO"
+      ],
+      "avg_magnitude": 0.128,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -47,19 +64,24 @@
       "best_spearman_rho": null,
       "impact": {}
     },
-    "page_change": {
-      "count": 295,
+    "page_new": {
+      "count": 915,
       "brands": [
         "AXA",
         "Allianz",
-        "ERGO"
+        "ERGO",
+        "Generali",
+        "HUK-Coburg"
       ],
-      "avg_magnitude": 0.148,
+      "avg_magnitude": 1.0,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
-    },
-    "press_mention": {
+    }
+  },
+  "impact_ranking": [
+    {
+      "event_type": "press_mention",
       "count": 652,
       "brands": [
         "AXA",
@@ -77,20 +99,16 @@
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
-    }
-  },
-  "impact_ranking": [
+    },
     {
-      "event_type": "page_new",
-      "count": 915,
+      "event_type": "page_change",
+      "count": 376,
       "brands": [
         "AXA",
         "Allianz",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg"
+        "ERGO"
       ],
-      "avg_magnitude": 1.0,
+      "avg_magnitude": 0.128,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -116,32 +134,14 @@
       "impact": {}
     },
     {
-      "event_type": "page_change",
-      "count": 295,
+      "event_type": "page_new",
+      "count": 915,
       "brands": [
         "AXA",
         "Allianz",
-        "ERGO"
-      ],
-      "avg_magnitude": 0.148,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
-      "event_type": "press_mention",
-      "count": 652,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "Cosmos Direkt",
-        "DEVK",
         "ERGO",
         "Generali",
-        "HUK-Coburg",
-        "Hannoversche",
-        "R+V",
-        "Signal Iduna"
+        "HUK-Coburg"
       ],
       "avg_magnitude": 1.0,
       "best_lag_days": null,
@@ -150,32 +150,59 @@
     }
   ],
   "correlation_matrix": {
-    "page_new__delta_share_of_voice__lag_1d": {
-      "event_type": "page_new",
+    "press_mention__delta_share_of_voice__lag_1d": {
+      "event_type": "press_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 915,
-      "spearman_rho": 0.5025,
-      "avg_delta": -0.001408,
+      "n_events": 652,
+      "spearman_rho": 0.5628,
+      "avg_delta": -0.001373,
       "avg_magnitude": 1.0
     },
-    "page_new__delta_appearance_rate__lag_1d": {
-      "event_type": "page_new",
+    "press_mention__delta_appearance_rate__lag_1d": {
+      "event_type": "press_mention",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 915,
-      "spearman_rho": 0.5025,
-      "avg_delta": 0.020307,
+      "n_events": 652,
+      "spearman_rho": 0.5831,
+      "avg_delta": -0.028194,
       "avg_magnitude": 1.0
     },
-    "page_new__delta_citation_rate__lag_1d": {
-      "event_type": "page_new",
+    "press_mention__delta_citation_rate__lag_1d": {
+      "event_type": "press_mention",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 915,
-      "spearman_rho": 0.5025,
-      "avg_delta": 0.014728,
+      "n_events": 652,
+      "spearman_rho": 0.5804,
+      "avg_delta": 0.001059,
       "avg_magnitude": 1.0
+    },
+    "page_change__delta_share_of_voice__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 376,
+      "spearman_rho": 0.2182,
+      "avg_delta": -0.016515,
+      "avg_magnitude": 0.128
+    },
+    "page_change__delta_appearance_rate__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 376,
+      "spearman_rho": 0.1634,
+      "avg_delta": 0.020429,
+      "avg_magnitude": 0.128
+    },
+    "page_change__delta_citation_rate__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 376,
+      "spearman_rho": 0.2317,
+      "avg_delta": -0.005002,
+      "avg_magnitude": 0.128
     },
     "news_mention__delta_share_of_voice__lag_1d": {
       "event_type": "news_mention",
@@ -204,140 +231,32 @@
       "avg_delta": -0.00064,
       "avg_magnitude": 1.0
     },
-    "page_change__delta_share_of_voice__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 295,
-      "spearman_rho": 0.4067,
-      "avg_delta": -0.003571,
-      "avg_magnitude": 0.148
-    },
-    "page_change__delta_appearance_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 295,
-      "spearman_rho": 0.0994,
-      "avg_delta": 0.031086,
-      "avg_magnitude": 0.148
-    },
-    "page_change__delta_citation_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 295,
-      "spearman_rho": 0.2944,
-      "avg_delta": -0.002029,
-      "avg_magnitude": 0.148
-    },
-    "press_mention__delta_share_of_voice__lag_1d": {
-      "event_type": "press_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 652,
-      "spearman_rho": 0.5628,
-      "avg_delta": -0.001373,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_appearance_rate__lag_1d": {
-      "event_type": "press_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 652,
-      "spearman_rho": 0.5831,
-      "avg_delta": -0.028194,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_citation_rate__lag_1d": {
-      "event_type": "press_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 652,
-      "spearman_rho": 0.5804,
-      "avg_delta": 0.001059,
-      "avg_magnitude": 1.0
-    },
-    "page_new__delta_share_of_voice__lag_3d": {
+    "page_new__delta_share_of_voice__lag_1d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 914,
+      "lag_days": 1,
+      "n_events": 915,
       "spearman_rho": 0.5025,
-      "avg_delta": 0.008712,
+      "avg_delta": -0.001408,
       "avg_magnitude": 1.0
     },
-    "page_new__delta_appearance_rate__lag_3d": {
+    "page_new__delta_appearance_rate__lag_1d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 914,
+      "lag_days": 1,
+      "n_events": 915,
       "spearman_rho": 0.5025,
-      "avg_delta": -0.018585,
+      "avg_delta": 0.020307,
       "avg_magnitude": 1.0
     },
-    "page_new__delta_citation_rate__lag_3d": {
+    "page_new__delta_citation_rate__lag_1d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 914,
-      "spearman_rho": 0.5027,
-      "avg_delta": 0.032561,
+      "lag_days": 1,
+      "n_events": 915,
+      "spearman_rho": 0.5025,
+      "avg_delta": 0.014728,
       "avg_magnitude": 1.0
-    },
-    "news_mention__delta_share_of_voice__lag_3d": {
-      "event_type": "news_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 1448,
-      "spearman_rho": 0.5627,
-      "avg_delta": 0.000871,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_appearance_rate__lag_3d": {
-      "event_type": "news_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 1448,
-      "spearman_rho": 0.5708,
-      "avg_delta": -0.034533,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_citation_rate__lag_3d": {
-      "event_type": "news_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 1448,
-      "spearman_rho": 0.5709,
-      "avg_delta": -0.001641,
-      "avg_magnitude": 1.0
-    },
-    "page_change__delta_share_of_voice__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 187,
-      "spearman_rho": 0.0686,
-      "avg_delta": 0.007157,
-      "avg_magnitude": 0.08
-    },
-    "page_change__delta_appearance_rate__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 187,
-      "spearman_rho": -0.4758,
-      "avg_delta": -0.013282,
-      "avg_magnitude": 0.08
-    },
-    "page_change__delta_citation_rate__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 187,
-      "spearman_rho": -0.2942,
-      "avg_delta": 0.015728,
-      "avg_magnitude": 0.08
     },
     "press_mention__delta_share_of_voice__lag_3d": {
       "event_type": "press_mention",
@@ -366,13 +285,175 @@
       "avg_delta": -0.001104,
       "avg_magnitude": 1.0
     },
+    "page_change__delta_share_of_voice__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 295,
+      "spearman_rho": 0.0235,
+      "avg_delta": -0.007153,
+      "avg_magnitude": 0.148
+    },
+    "page_change__delta_appearance_rate__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 295,
+      "spearman_rho": -0.2594,
+      "avg_delta": -0.000223,
+      "avg_magnitude": 0.148
+    },
+    "page_change__delta_citation_rate__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 295,
+      "spearman_rho": -0.245,
+      "avg_delta": 0.008514,
+      "avg_magnitude": 0.148
+    },
+    "news_mention__delta_share_of_voice__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 1448,
+      "spearman_rho": 0.5627,
+      "avg_delta": 0.000871,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 1448,
+      "spearman_rho": 0.5708,
+      "avg_delta": -0.034533,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 1448,
+      "spearman_rho": 0.5709,
+      "avg_delta": -0.001641,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_share_of_voice__lag_3d": {
+      "event_type": "page_new",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 915,
+      "spearman_rho": 0.5025,
+      "avg_delta": 0.008696,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_appearance_rate__lag_3d": {
+      "event_type": "page_new",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 915,
+      "spearman_rho": 0.5025,
+      "avg_delta": -0.018565,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_citation_rate__lag_3d": {
+      "event_type": "page_new",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 915,
+      "spearman_rho": 0.5027,
+      "avg_delta": 0.032554,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_share_of_voice__lag_7d": {
+      "event_type": "press_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 333,
+      "spearman_rho": 0.5651,
+      "avg_delta": -0.002326,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_appearance_rate__lag_7d": {
+      "event_type": "press_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 333,
+      "spearman_rho": 0.5651,
+      "avg_delta": -0.050074,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_citation_rate__lag_7d": {
+      "event_type": "press_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 333,
+      "spearman_rho": 0.5877,
+      "avg_delta": 0.003376,
+      "avg_magnitude": 1.0
+    },
+    "page_change__delta_share_of_voice__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 184,
+      "spearman_rho": -0.3454,
+      "avg_delta": 0.038936,
+      "avg_magnitude": 0.08
+    },
+    "page_change__delta_appearance_rate__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 184,
+      "spearman_rho": -0.5534,
+      "avg_delta": 0.021733,
+      "avg_magnitude": 0.08
+    },
+    "page_change__delta_citation_rate__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 184,
+      "spearman_rho": -0.5511,
+      "avg_delta": 0.060617,
+      "avg_magnitude": 0.08
+    },
+    "news_mention__delta_share_of_voice__lag_7d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 767,
+      "spearman_rho": 0.5638,
+      "avg_delta": 0.00101,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_7d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 767,
+      "spearman_rho": 0.5638,
+      "avg_delta": -0.046921,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_7d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 767,
+      "spearman_rho": 0.6056,
+      "avg_delta": 0.001774,
+      "avg_magnitude": 1.0
+    },
     "page_new__delta_share_of_voice__lag_7d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 7,
       "n_events": 914,
       "spearman_rho": 0.5025,
-      "avg_delta": 0.011104,
+      "avg_delta": 0.005421,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_7d": {
@@ -381,7 +462,7 @@
       "lag_days": 7,
       "n_events": 914,
       "spearman_rho": 0.5025,
-      "avg_delta": -0.07515,
+      "avg_delta": -0.074713,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_7d": {
@@ -389,36 +470,36 @@
       "metric": "delta_citation_rate",
       "lag_days": 7,
       "n_events": 914,
-      "spearman_rho": 0.5032,
-      "avg_delta": 0.059714,
+      "spearman_rho": 0.5028,
+      "avg_delta": 0.05789,
       "avg_magnitude": 1.0
     },
-    "page_change__delta_share_of_voice__lag_7d": {
+    "page_change__delta_share_of_voice__lag_14d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 184,
-      "spearman_rho": -0.243,
-      "avg_delta": 0.042197,
-      "avg_magnitude": 0.08
+      "lag_days": 14,
+      "n_events": 115,
+      "spearman_rho": 0.0346,
+      "avg_delta": -0.029312,
+      "avg_magnitude": 0.015
     },
-    "page_change__delta_appearance_rate__lag_7d": {
+    "page_change__delta_appearance_rate__lag_14d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 184,
-      "spearman_rho": -0.5226,
-      "avg_delta": 0.018979,
-      "avg_magnitude": 0.08
+      "lag_days": 14,
+      "n_events": 115,
+      "spearman_rho": -0.0063,
+      "avg_delta": -0.064513,
+      "avg_magnitude": 0.015
     },
-    "page_change__delta_citation_rate__lag_7d": {
+    "page_change__delta_citation_rate__lag_14d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 184,
-      "spearman_rho": -0.5307,
-      "avg_delta": 0.060119,
-      "avg_magnitude": 0.08
+      "lag_days": 14,
+      "n_events": 115,
+      "spearman_rho": 0.1331,
+      "avg_delta": 0.090849,
+      "avg_magnitude": 0.015
     },
     "page_new__delta_share_of_voice__lag_14d": {
       "event_type": "page_new",
@@ -426,7 +507,7 @@
       "lag_days": 14,
       "n_events": 135,
       "spearman_rho": 0.6754,
-      "avg_delta": -0.069206,
+      "avg_delta": -0.07853,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_14d": {
@@ -435,7 +516,7 @@
       "lag_days": 14,
       "n_events": 135,
       "spearman_rho": 0.6754,
-      "avg_delta": 0.014024,
+      "avg_delta": 0.022974,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_14d": {
@@ -444,1575 +525,11 @@
       "lag_days": 14,
       "n_events": 135,
       "spearman_rho": 0.771,
-      "avg_delta": 0.072009,
+      "avg_delta": 0.080284,
       "avg_magnitude": 1.0
-    },
-    "page_change__delta_share_of_voice__lag_14d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 14,
-      "n_events": 19,
-      "spearman_rho": 0.5004,
-      "avg_delta": 0.057231,
-      "avg_magnitude": 0.016
-    },
-    "page_change__delta_appearance_rate__lag_14d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 14,
-      "n_events": 19,
-      "spearman_rho": 0.5004,
-      "avg_delta": 0.033333,
-      "avg_magnitude": 0.016
-    },
-    "page_change__delta_citation_rate__lag_14d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 14,
-      "n_events": 19,
-      "spearman_rho": 0.5004,
-      "avg_delta": 0.085714,
-      "avg_magnitude": 0.016
     }
   },
   "dashboard_events": [
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.986,
-      "detail": {
-        "url": "https://www.axa.de/presse/praeventionsreport-brandrisiko-wird-unterschaetzt",
-        "summary": "61 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 1.4%).",
-        "similarity": 0.014,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014212
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9793,
-      "detail": {
-        "url": "https://www.axa.de/wir-ueber-uns/daten-und-publikationen/mindestzufuehrungsverordnung-ager-lebensversicherung",
-        "summary": "60 neue Zeilen, 34 entfernte Zeilen (Ähnlichkeit 2.1%).",
-        "similarity": 0.0207,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014212
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9868,
-      "detail": {
-        "url": "https://www.axa.de/presse/neue-zahnzusatzversicherungen",
-        "summary": "61 neue Zeilen, 45 entfernte Zeilen (Ähnlichkeit 1.3%).",
-        "similarity": 0.0132,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.021545
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9826,
-      "detail": {
-        "url": "https://www.axa.de/presse/verzinsung-lebensversicherung-2025",
-        "summary": "61 neue Zeilen, 54 entfernte Zeilen (Ähnlichkeit 1.7%).",
-        "similarity": 0.0174,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014212
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.05130000000000001,
-      "detail": {
-        "url": "https://www.axa.de/pk/existenzsicherung/s/todesfall-angehoerige",
-        "summary": "16 neue Zeilen, 1 entfernte Zeilen (Ähnlichkeit 94.9%).",
-        "similarity": 0.9487,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.016507
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9888,
-      "detail": {
-        "url": "https://www.axa.de/pk/gesundheit/a/gesunde-zahnvorsorge",
-        "summary": "61 neue Zeilen, 43 entfernte Zeilen (Ähnlichkeit 1.1%).",
-        "similarity": 0.0112,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.021545
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9947,
-      "detail": {
-        "url": "https://www.axa.de/pk/gesundheit/a/zahnbehandlungen",
-        "summary": "61 neue Zeilen, 106 entfernte Zeilen (Ähnlichkeit 0.5%).",
-        "similarity": 0.0053,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.021545
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.10519999999999996,
-      "detail": {
-        "url": "https://www.allianz.de/unternehmen/zahlen-daten-fakten/lebensversicherung",
-        "summary": "1 neue Zeilen, 1 entfernte Zeilen (Ähnlichkeit 89.5%).",
-        "similarity": 0.8948,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.037429
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.00019999999999997797,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/",
-        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 100.0%).",
-        "similarity": 0.9998,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.011583
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.00019999999999997797,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung",
-        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 100.0%).",
-        "similarity": 0.9998,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.011583
-      }
-    },
-    {
-      "timestamp": "2026-05-05T09-32-32Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/service-kontakt/self-service/dokumente-anfordern/sach-und-lebensversicherung/vertragsabschrift",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.000737
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.988,
-      "detail": {
-        "url": "https://www.axa.de/pk/gesundheit/a/zahnfuellungen",
-        "summary": "120 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 1.2%).",
-        "similarity": 0.012,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.005851
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9805,
-      "detail": {
-        "url": "https://www.axa.de/pk/gesundheit/s/pkv-zahnarztbesuch",
-        "summary": "79 neue Zeilen, 60 entfernte Zeilen (Ähnlichkeit 1.9%).",
-        "similarity": 0.0195,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.005851
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9675,
-      "detail": {
-        "url": "https://www.axa.de/presse/axa-deutschland-veraeussert-teilbestand-von-lebensversicherungen-an-athora",
-        "summary": "60 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 3.2%).",
-        "similarity": 0.0325,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.001835
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9737,
-      "detail": {
-        "url": "https://www.axa.de/pk/gesundheit/p/zahnzusatzversicherung",
-        "summary": "120 neue Zeilen, 58 entfernte Zeilen (Ähnlichkeit 2.6%).",
-        "similarity": 0.0263,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.005851
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9795,
-      "detail": {
-        "url": "https://www.axa.de/presse/gesundheitsrisiko-hitze",
-        "summary": "66 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 2.1%).",
-        "similarity": 0.0205,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.001835
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9855,
-      "detail": {
-        "url": "https://www.axa.de/wir-ueber-uns/daten-und-publikationen/mindestzufuehrungsverordnung-ager-lebensversicherung/mindestzufuehrungsverordnung-ager-lebensversicherung-archiv",
-        "summary": "21 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 1.5%).",
-        "similarity": 0.0145,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.001835
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9495,
-      "detail": {
-        "url": "https://www.axa.de/zahn",
-        "summary": "83 neue Zeilen, 58 entfernte Zeilen (Ähnlichkeit 5.1%).",
-        "similarity": 0.0505,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.005851
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9693,
-      "detail": {
-        "url": "https://www.axa.de/presse/praeventionsreport-brandrisiko-wird-unterschaetzt",
-        "summary": "61 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 3.1%).",
-        "similarity": 0.0307,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.001835
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.981,
-      "detail": {
-        "url": "https://www.axa.de/wir-ueber-uns/daten-und-publikationen/mindestzufuehrungsverordnung-ager-lebensversicherung",
-        "summary": "34 neue Zeilen, 60 entfernte Zeilen (Ähnlichkeit 1.9%).",
-        "similarity": 0.019,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.001835
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9834,
-      "detail": {
-        "url": "https://www.axa.de/presse/neue-zahnzusatzversicherungen",
-        "summary": "45 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 1.7%).",
-        "similarity": 0.0166,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.005851
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9685,
-      "detail": {
-        "url": "https://www.axa.de/presse/verzinsung-lebensversicherung-2025",
-        "summary": "54 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 3.1%).",
-        "similarity": 0.0315,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.001835
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.05130000000000001,
-      "detail": {
-        "url": "https://www.axa.de/pk/existenzsicherung/s/todesfall-angehoerige",
-        "summary": "1 neue Zeilen, 16 entfernte Zeilen (Ähnlichkeit 94.9%).",
-        "similarity": 0.9487,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.016253
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9798,
-      "detail": {
-        "url": "https://www.axa.de/pk/gesundheit/a/gesunde-zahnvorsorge",
-        "summary": "43 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 2.0%).",
-        "similarity": 0.0202,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.005851
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9827,
-      "detail": {
-        "url": "https://www.axa.de/pk/gesundheit/a/zahnbehandlungen",
-        "summary": "106 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 1.7%).",
-        "similarity": 0.0173,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.005851
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9915,
-      "detail": {
-        "url": "https://www.allianz.de/unternehmen/zahlen-daten-fakten/lebensversicherung",
-        "summary": "120 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 0.9%).",
-        "similarity": 0.0085,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.052324
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.009800000000000031,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnbehandlung",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.0%).",
-        "similarity": 0.9902,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.015900000000000025,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/fehlende-zaehne",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.4%).",
-        "similarity": 0.9841,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.009199999999999986,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnfuellung",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
-        "similarity": 0.9908,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.017000000000000015,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnkorrektur",
-        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 98.3%).",
-        "similarity": 0.983,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.022599999999999953,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/fuer-privatversicherte",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 97.7%).",
-        "similarity": 0.9774,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.009000000000000008,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/prophylaxe",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
-        "similarity": 0.991,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.00880000000000003,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnprothese",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
-        "similarity": 0.9912,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.011399999999999966,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnprovisorium",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.9%).",
-        "similarity": 0.9886,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.007299999999999973,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/sofort",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.3%).",
-        "similarity": 0.9927,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.024399999999999977,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/guenstig",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 97.6%).",
-        "similarity": 0.9756,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.04579999999999995,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/fissurenversiegelung",
-        "summary": "8 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 95.4%).",
-        "similarity": 0.9542,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.00880000000000003,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/vergleich/",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
-        "similarity": 0.9912,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.008399999999999963,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/wechseln",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
-        "similarity": 0.9916,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.008600000000000052,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnkrone",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
-        "similarity": 0.9914,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.009399999999999964,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/erstattungsbeispiele",
-        "summary": "9 neue Zeilen, 9 entfernte Zeilen (Ähnlichkeit 99.1%).",
-        "similarity": 0.9906,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.014800000000000035,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kinder",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.5%).",
-        "similarity": 0.9852,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.01639999999999997,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/keramikbrackets",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.4%).",
-        "similarity": 0.9836,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.017900000000000027,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/heil-und-kostenplan",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.2%).",
-        "similarity": 0.9821,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.02070000000000005,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/keramikkrone",
-        "summary": "8 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 97.9%).",
-        "similarity": 0.9793,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.007800000000000029,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/professionelle-zahnreinigung",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
-        "similarity": 0.9922,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.009000000000000008,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/rechnung-einreichen",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
-        "similarity": 0.991,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.01090000000000002,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ohne-gesundheitsfragen",
-        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 98.9%).",
-        "similarity": 0.9891,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.006099999999999994,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/sinnvoll/",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.4%).",
-        "similarity": 0.9939,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.20440000000000003,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/familie",
-        "summary": "120 neue Zeilen, 18 entfernte Zeilen (Ähnlichkeit 79.6%).",
-        "similarity": 0.7956,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.01529999999999998,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/beamte",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.5%).",
-        "similarity": 0.9847,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.012599999999999945,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/senioren",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.7%).",
-        "similarity": 0.9874,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.00880000000000003,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnextraktion",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
-        "similarity": 0.9912,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.00880000000000003,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/vergleich",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
-        "similarity": 0.9912,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.010099999999999998,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ohne-wartezeit/",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.0%).",
-        "similarity": 0.9899,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.013900000000000023,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kieferorthopaedie",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.6%).",
-        "similarity": 0.9861,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.02300000000000002,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kuendigen",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 97.7%).",
-        "similarity": 0.977,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.01090000000000002,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/wurzelbehandlung",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.9%).",
-        "similarity": 0.9891,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.010099999999999998,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ohne-wartezeit",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.0%).",
-        "similarity": 0.9899,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.009399999999999964,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zaehne-machen-lassen",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
-        "similarity": 0.9906,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.024499999999999966,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/inlay",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 97.5%).",
-        "similarity": 0.9755,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.01529999999999998,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/funktionsanalyse",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.5%).",
-        "similarity": 0.9847,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.01090000000000002,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/steuer-absetzen",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.9%).",
-        "similarity": 0.9891,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.008000000000000007,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/worauf-achten/",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
-        "similarity": 0.992,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.011099999999999999,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnstein-entfernen",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.9%).",
-        "similarity": 0.9889,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.011900000000000022,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/veneers",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.8%).",
-        "similarity": 0.9881,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.010499999999999954,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/nachtraeglich-abschliessen",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.0%).",
-        "similarity": 0.9895,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.009399999999999964,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/erstattungsbeispiele/",
-        "summary": "9 neue Zeilen, 9 entfernte Zeilen (Ähnlichkeit 99.1%).",
-        "similarity": 0.9906,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.006099999999999994,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/sinnvoll",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.4%).",
-        "similarity": 0.9939,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.023399999999999976,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/festzuschuss-zahnersatz",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 97.7%).",
-        "similarity": 0.9766,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.010199999999999987,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnimplantat",
-        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 99.0%).",
-        "similarity": 0.9898,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.30710000000000004,
-      "detail": {
-        "url": "https://www.allianz.de/ansprechpartner-vor-ort/berlin/lebensversicherung/?address=berlin&division=life",
-        "summary": "120 neue Zeilen, 3 entfernte Zeilen (Ähnlichkeit 69.3%).",
-        "similarity": 0.6929,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.052324
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.021299999999999986,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/alterungsrueckstellungen",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 97.9%).",
-        "similarity": 0.9787,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.007000000000000006,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/nachhaltige-zahnpflege",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.3%).",
-        "similarity": 0.993,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.2923,
-      "detail": {
-        "url": "https://www.allianz.de/presse/mitteilungen/zahnschutz-die-neue-tarifwelt-der-Allianz",
-        "summary": "120 neue Zeilen, 1 entfernte Zeilen (Ähnlichkeit 70.8%).",
-        "similarity": 0.7077,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.02529999999999999,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/jacketkrone",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 97.5%).",
-        "similarity": 0.9747,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.009000000000000008,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/rechnung-einreichen/",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
-        "similarity": 0.991,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.006399999999999961,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnspange",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.4%).",
-        "similarity": 0.9936,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.01980000000000004,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/laufende-behandlung",
-        "summary": "8 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 98.0%).",
-        "similarity": 0.9802,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.018100000000000005,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kompositfuellung",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.2%).",
-        "similarity": 0.9819,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
-    {
-      "timestamp": "2026-05-06T05-56-19Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.008000000000000007,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/familie/",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
-        "similarity": 0.992,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.01302
-      }
-    },
     {
       "timestamp": "2026-05-06T05-56-19Z",
       "event_type": "page_change",
@@ -2029,7 +546,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2048,7 +566,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2067,7 +586,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2086,7 +606,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2105,7 +626,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2124,7 +646,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2143,7 +666,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2162,7 +686,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2181,7 +706,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2200,7 +726,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2219,7 +746,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2238,7 +766,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2257,7 +786,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2276,7 +806,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2295,7 +826,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2314,7 +846,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2333,7 +866,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2352,7 +886,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
       }
     },
     {
@@ -2371,7 +906,1547 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01302
+        "lag_1d": -0.046281,
+        "lag_3d": -0.046281
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0034999999999999476,
+      "detail": {
+        "url": "https://ergo.de/de/Ratgeber/zahngesundheit/kiefer/kreuzbiss",
+        "summary": "9 neue Zeilen, 3 entfernte Zeilen (Ähnlichkeit 99.7%).",
+        "similarity": 0.9965,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.016788
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0047000000000000375,
+      "detail": {
+        "url": "https://www.ergo.de/de/Ratgeber/zahngesundheit/zahnarztkosten_in_deutschland",
+        "summary": "8 neue Zeilen, 3 entfernte Zeilen (Ähnlichkeit 99.5%).",
+        "similarity": 0.9953,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.016788
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0034999999999999476,
+      "detail": {
+        "url": "https://www.ergo.de/de/Ratgeber/zahngesundheit/kiefer/kreuzbiss",
+        "summary": "9 neue Zeilen, 3 entfernte Zeilen (Ähnlichkeit 99.7%).",
+        "similarity": 0.9965,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.016788
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.8943,
+      "detail": {
+        "url": "https://www.ergo.de/de/Ratgeber/zahngesundheit/zahnarzt_im_ausland",
+        "summary": "120 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 10.6%).",
+        "similarity": 0.1057,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.016788
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0047000000000000375,
+      "detail": {
+        "url": "https://ergo.de/de/Ratgeber/zahngesundheit/zahnarztkosten_in_deutschland",
+        "summary": "8 neue Zeilen, 3 entfernte Zeilen (Ähnlichkeit 99.5%).",
+        "similarity": 0.9953,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.016788
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.8943,
+      "detail": {
+        "url": "https://ergo.de/de/Ratgeber/zahngesundheit/zahnarzt_im_ausland",
+        "summary": "120 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 10.6%).",
+        "similarity": 0.1057,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.016788
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9939,
+      "detail": {
+        "url": "https://www.allianz.de/unternehmen/zahlen-daten-fakten/lebensversicherung",
+        "summary": "61 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.6%).",
+        "similarity": 0.0061,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.018793
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.015599999999999947,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnbehandlung",
+        "summary": "8 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 98.4%).",
+        "similarity": 0.9844,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.00770000000000004,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/fehlende-zaehne",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.9923,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.015599999999999947,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnfuellung",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.4%).",
+        "similarity": 0.9844,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.023800000000000043,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnkorrektur",
+        "summary": "9 neue Zeilen, 13 entfernte Zeilen (Ähnlichkeit 97.6%).",
+        "similarity": 0.9762,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.010000000000000009,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/fuer-privatversicherte",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.0%).",
+        "similarity": 0.99,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.015100000000000002,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/prophylaxe",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.5%).",
+        "similarity": 0.9849,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.014700000000000046,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnprothese",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.5%).",
+        "similarity": 0.9853,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.016800000000000037,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnprovisorium",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.3%).",
+        "similarity": 0.9832,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.00649999999999995,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/sofort",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.4%).",
+        "similarity": 0.9935,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.011399999999999966,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/guenstig",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.9%).",
+        "similarity": 0.9886,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.011099999999999999,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/fissurenversiegelung",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 98.9%).",
+        "similarity": 0.9889,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.014000000000000012,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/vergleich/",
+        "summary": "8 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.6%).",
+        "similarity": 0.986,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.012399999999999967,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/wechseln",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.8%).",
+        "similarity": 0.9876,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.014399999999999968,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnkrone",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.6%).",
+        "similarity": 0.9856,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.008000000000000007,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/erstattungsbeispiele",
+        "summary": "10 neue Zeilen, 10 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.992,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.00660000000000005,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kinder",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.3%).",
+        "similarity": 0.9934,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.007399999999999962,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/keramikbrackets",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.3%).",
+        "similarity": 0.9926,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.007900000000000018,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/heil-und-kostenplan",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.9921,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.009199999999999986,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/keramikkrone",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 99.1%).",
+        "similarity": 0.9908,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0131,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/professionelle-zahnreinigung",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.7%).",
+        "similarity": 0.9869,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.014100000000000001,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/rechnung-einreichen",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.6%).",
+        "similarity": 0.9859,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.016900000000000026,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ohne-gesundheitsfragen",
+        "summary": "8 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 98.3%).",
+        "similarity": 0.9831,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.010099999999999998,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/sinnvoll/",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 99.0%).",
+        "similarity": 0.9899,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.2632,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/familie",
+        "summary": "18 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 73.7%).",
+        "similarity": 0.7368,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.007099999999999995,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/beamte",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 99.3%).",
+        "similarity": 0.9929,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.019399999999999973,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/senioren",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.1%).",
+        "similarity": 0.9806,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0403,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnextraktion",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 96.0%).",
+        "similarity": 0.9597,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.014000000000000012,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/vergleich",
+        "summary": "8 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.6%).",
+        "similarity": 0.986,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.015599999999999947,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ohne-wartezeit/",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.4%).",
+        "similarity": 0.9844,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.006099999999999994,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kieferorthopaedie",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.4%).",
+        "similarity": 0.9939,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.010099999999999998,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kuendigen",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.0%).",
+        "similarity": 0.9899,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.018299999999999983,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/wurzelbehandlung",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.2%).",
+        "similarity": 0.9817,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.015599999999999947,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ohne-wartezeit",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.4%).",
+        "similarity": 0.9844,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.015800000000000036,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zaehne-machen-lassen",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.4%).",
+        "similarity": 0.9842,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.01090000000000002,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/inlay",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.9%).",
+        "similarity": 0.9891,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.006700000000000039,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/funktionsanalyse",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.3%).",
+        "similarity": 0.9933,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.01649999999999996,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/steuer-absetzen",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.4%).",
+        "similarity": 0.9835,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.006099999999999994,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/worauf-achten/",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.4%).",
+        "similarity": 0.9939,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.01859999999999995,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnstein-entfernen",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.1%).",
+        "similarity": 0.9814,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.017199999999999993,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/veneers",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.3%).",
+        "similarity": 0.9828,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.01749999999999996,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/nachtraeglich-abschliessen",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.2%).",
+        "similarity": 0.9825,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.008000000000000007,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/erstattungsbeispiele/",
+        "summary": "10 neue Zeilen, 10 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.992,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.010099999999999998,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/sinnvoll",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 99.0%).",
+        "similarity": 0.9899,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.010399999999999965,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/festzuschuss-zahnersatz",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.0%).",
+        "similarity": 0.9896,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.034499999999999975,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnimplantat",
+        "summary": "9 neue Zeilen, 13 entfernte Zeilen (Ähnlichkeit 96.5%).",
+        "similarity": 0.9655,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.30710000000000004,
+      "detail": {
+        "url": "https://www.allianz.de/ansprechpartner-vor-ort/berlin/lebensversicherung/?address=berlin&division=life",
+        "summary": "3 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 69.3%).",
+        "similarity": 0.6929,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.018793
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.008199999999999985,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/alterungsrueckstellungen",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.9918,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.011600000000000055,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/nachhaltige-zahnpflege",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.8%).",
+        "similarity": 0.9884,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.2923,
+      "detail": {
+        "url": "https://www.allianz.de/presse/mitteilungen/zahnschutz-die-neue-tarifwelt-der-Allianz",
+        "summary": "1 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 70.8%).",
+        "similarity": 0.7077,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.009800000000000031,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/jacketkrone",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.0%).",
+        "similarity": 0.9902,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.014100000000000001,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/rechnung-einreichen/",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.6%).",
+        "similarity": 0.9859,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.010700000000000043,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnspange",
+        "summary": "8 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 98.9%).",
+        "similarity": 0.9893,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.00880000000000003,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/laufende-behandlung",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 99.1%).",
+        "similarity": 0.9912,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.008199999999999985,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kompositfuellung",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.9918,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.00660000000000005,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/familie/",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.3%).",
+        "similarity": 0.9934,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.008499999999999952,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/student",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.9915,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.017900000000000027,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/schwangerschaft",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.2%).",
+        "similarity": 0.9821,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.011199999999999988,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/lumineers",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 98.9%).",
+        "similarity": 0.9888,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.017000000000000015,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/weisse-zaehne-hausmittel",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.3%).",
+        "similarity": 0.983,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.01739999999999997,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnfleischtaschen",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.3%).",
+        "similarity": 0.9826,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0050000000000000044,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.5%).",
+        "similarity": 0.995,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.006800000000000028,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/bleaching",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.3%).",
+        "similarity": 0.9932,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0050000000000000044,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.5%).",
+        "similarity": 0.995,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.01629999999999998,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnersatz-kosten",
+        "summary": "8 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 98.4%).",
+        "similarity": 0.9837,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.008399999999999963,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/aligner-therapie",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.9916,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.00880000000000003,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/mit-brille",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.1%).",
+        "similarity": 0.9912,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.007600000000000051,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/angst-vor-zahnarzt",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.9924,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.006099999999999994,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/worauf-achten",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.4%).",
+        "similarity": 0.9939,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.00990000000000002,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ausland",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 99.0%).",
+        "similarity": 0.9901,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.008199999999999985,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/knirscherschiene",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.9918,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.14439999999999997,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/sinuslift",
+        "summary": "10 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 85.6%).",
+        "similarity": 0.8556,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.012399999999999967,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnfleischentzuendung",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.8%).",
+        "similarity": 0.9876,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.012199999999999989,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/parodontitisbehandlung",
+        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.8%).",
+        "similarity": 0.9878,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
+      }
+    },
+    {
+      "timestamp": "2026-05-07T06-08-55Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.007499999999999951,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnerhalt",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
+        "similarity": 0.9925,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033261
       }
     }
   ]
