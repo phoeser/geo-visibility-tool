@@ -1,32 +1,39 @@
 {
   "meta": {
     "total_page_events": 1316,
-    "total_cockpit_events": 2131,
-    "total_unified_events": 3422,
-    "total_enriched_events": 3422,
-    "total_runs": 42,
+    "total_cockpit_events": 2162,
+    "total_unified_events": 3453,
+    "total_enriched_events": 3453,
+    "total_runs": 43,
     "lag_windows": [
       1,
       3,
       7,
       14
     ],
-    "generated_at": "2026-05-10T07:05:42.932173Z"
+    "generated_at": "2026-05-11T07:37:21.157028Z"
   },
   "event_summary": {
-    "press_mention": {
-      "count": 652,
+    "page_change": {
+      "count": 376,
       "brands": [
         "AXA",
         "Allianz",
-        "Cosmos Direkt",
-        "DEVK",
+        "ERGO"
+      ],
+      "avg_magnitude": 0.128,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "page_new": {
+      "count": 915,
+      "brands": [
+        "AXA",
+        "Allianz",
         "ERGO",
         "Generali",
-        "HUK-Coburg",
-        "Hannoversche",
-        "R+V",
-        "Signal Iduna"
+        "HUK-Coburg"
       ],
       "avg_magnitude": 1.0,
       "best_lag_days": null,
@@ -53,7 +60,7 @@
       "impact": {}
     },
     "domain_change": {
-      "count": 31,
+      "count": 62,
       "brands": [
         "Allianz",
         "Cosmos Direkt",
@@ -68,36 +75,7 @@
       "best_spearman_rho": null,
       "impact": {}
     },
-    "page_new": {
-      "count": 915,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg"
-      ],
-      "avg_magnitude": 1.0,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    "page_change": {
-      "count": 376,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO"
-      ],
-      "avg_magnitude": 0.128,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    }
-  },
-  "impact_ranking": [
-    {
-      "event_type": "press_mention",
+    "press_mention": {
       "count": 652,
       "brands": [
         "AXA",
@@ -110,6 +88,36 @@
         "Hannoversche",
         "R+V",
         "Signal Iduna"
+      ],
+      "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    }
+  },
+  "impact_ranking": [
+    {
+      "event_type": "page_change",
+      "count": 376,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO"
+      ],
+      "avg_magnitude": 0.128,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "page_new",
+      "count": 915,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg"
       ],
       "avg_magnitude": 1.0,
       "best_lag_days": null,
@@ -138,7 +146,7 @@
     },
     {
       "event_type": "domain_change",
-      "count": 31,
+      "count": 62,
       "brands": [
         "Allianz",
         "Cosmos Direkt",
@@ -154,60 +162,79 @@
       "impact": {}
     },
     {
-      "event_type": "page_new",
-      "count": 915,
+      "event_type": "press_mention",
+      "count": 652,
       "brands": [
         "AXA",
         "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
         "ERGO",
         "Generali",
-        "HUK-Coburg"
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
       ],
       "avg_magnitude": 1.0,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
-      "event_type": "page_change",
-      "count": 376,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO"
-      ],
-      "avg_magnitude": 0.128,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
     }
   ],
   "correlation_matrix": {
-    "press_mention__delta_share_of_voice__lag_1d": {
-      "event_type": "press_mention",
+    "page_change__delta_share_of_voice__lag_1d": {
+      "event_type": "page_change",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 652,
-      "spearman_rho": 0.5628,
-      "avg_delta": -0.001373,
-      "avg_magnitude": 1.0
+      "n_events": 376,
+      "spearman_rho": 0.2471,
+      "avg_delta": -0.010924,
+      "avg_magnitude": 0.128
     },
-    "press_mention__delta_appearance_rate__lag_1d": {
-      "event_type": "press_mention",
+    "page_change__delta_appearance_rate__lag_1d": {
+      "event_type": "page_change",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 652,
-      "spearman_rho": 0.5831,
-      "avg_delta": -0.028194,
-      "avg_magnitude": 1.0
+      "n_events": 376,
+      "spearman_rho": 0.1425,
+      "avg_delta": 0.025027,
+      "avg_magnitude": 0.128
     },
-    "press_mention__delta_citation_rate__lag_1d": {
-      "event_type": "press_mention",
+    "page_change__delta_citation_rate__lag_1d": {
+      "event_type": "page_change",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 652,
-      "spearman_rho": 0.5804,
-      "avg_delta": 0.001059,
+      "n_events": 376,
+      "spearman_rho": 0.2747,
+      "avg_delta": -0.002421,
+      "avg_magnitude": 0.128
+    },
+    "page_new__delta_share_of_voice__lag_1d": {
+      "event_type": "page_new",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 915,
+      "spearman_rho": 0.5025,
+      "avg_delta": -0.001408,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_appearance_rate__lag_1d": {
+      "event_type": "page_new",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 915,
+      "spearman_rho": 0.5025,
+      "avg_delta": 0.020307,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_citation_rate__lag_1d": {
+      "event_type": "page_new",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 915,
+      "spearman_rho": 0.5025,
+      "avg_delta": 0.014728,
       "avg_magnitude": 1.0
     },
     "news_mention__delta_share_of_voice__lag_1d": {
@@ -241,162 +268,54 @@
       "event_type": "domain_change",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 31,
-      "spearman_rho": 0.1422,
-      "avg_delta": -0.002164,
+      "n_events": 62,
+      "spearman_rho": 0.3733,
+      "avg_delta": -0.001562,
       "avg_magnitude": 1.817
     },
     "domain_change__delta_appearance_rate__lag_1d": {
       "event_type": "domain_change",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 31,
-      "spearman_rho": 0.214,
-      "avg_delta": -0.006999,
+      "n_events": 62,
+      "spearman_rho": 0.4168,
+      "avg_delta": -0.003563,
       "avg_magnitude": 1.817
     },
     "domain_change__delta_citation_rate__lag_1d": {
       "event_type": "domain_change",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 31,
-      "spearman_rho": 0.1555,
-      "avg_delta": -0.007826,
+      "n_events": 62,
+      "spearman_rho": 0.4188,
+      "avg_delta": -0.00773,
       "avg_magnitude": 1.817
     },
-    "page_new__delta_share_of_voice__lag_1d": {
-      "event_type": "page_new",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 915,
-      "spearman_rho": 0.5025,
-      "avg_delta": -0.001408,
-      "avg_magnitude": 1.0
-    },
-    "page_new__delta_appearance_rate__lag_1d": {
-      "event_type": "page_new",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 915,
-      "spearman_rho": 0.5025,
-      "avg_delta": 0.020307,
-      "avg_magnitude": 1.0
-    },
-    "page_new__delta_citation_rate__lag_1d": {
-      "event_type": "page_new",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 915,
-      "spearman_rho": 0.5025,
-      "avg_delta": 0.014728,
-      "avg_magnitude": 1.0
-    },
-    "page_change__delta_share_of_voice__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 376,
-      "spearman_rho": 0.2471,
-      "avg_delta": -0.010924,
-      "avg_magnitude": 0.128
-    },
-    "page_change__delta_appearance_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 376,
-      "spearman_rho": 0.1425,
-      "avg_delta": 0.025027,
-      "avg_magnitude": 0.128
-    },
-    "page_change__delta_citation_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 376,
-      "spearman_rho": 0.2747,
-      "avg_delta": -0.002421,
-      "avg_magnitude": 0.128
-    },
-    "press_mention__delta_share_of_voice__lag_3d": {
+    "press_mention__delta_share_of_voice__lag_1d": {
       "event_type": "press_mention",
       "metric": "delta_share_of_voice",
-      "lag_days": 3,
+      "lag_days": 1,
       "n_events": 652,
-      "spearman_rho": 0.5627,
-      "avg_delta": -0.001935,
+      "spearman_rho": 0.5628,
+      "avg_delta": -0.001373,
       "avg_magnitude": 1.0
     },
-    "press_mention__delta_appearance_rate__lag_3d": {
+    "press_mention__delta_appearance_rate__lag_1d": {
       "event_type": "press_mention",
       "metric": "delta_appearance_rate",
-      "lag_days": 3,
+      "lag_days": 1,
       "n_events": 652,
-      "spearman_rho": 0.575,
-      "avg_delta": -0.034511,
+      "spearman_rho": 0.5831,
+      "avg_delta": -0.028194,
       "avg_magnitude": 1.0
     },
-    "press_mention__delta_citation_rate__lag_3d": {
+    "press_mention__delta_citation_rate__lag_1d": {
       "event_type": "press_mention",
       "metric": "delta_citation_rate",
-      "lag_days": 3,
+      "lag_days": 1,
       "n_events": 652,
-      "spearman_rho": 0.5751,
-      "avg_delta": -0.001104,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_share_of_voice__lag_3d": {
-      "event_type": "news_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 1448,
-      "spearman_rho": 0.5627,
-      "avg_delta": 0.000871,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_appearance_rate__lag_3d": {
-      "event_type": "news_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 1448,
-      "spearman_rho": 0.5708,
-      "avg_delta": -0.034533,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_citation_rate__lag_3d": {
-      "event_type": "news_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 1448,
-      "spearman_rho": 0.5709,
-      "avg_delta": -0.001641,
-      "avg_magnitude": 1.0
-    },
-    "page_new__delta_share_of_voice__lag_3d": {
-      "event_type": "page_new",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 915,
-      "spearman_rho": 0.5025,
-      "avg_delta": 0.008676,
-      "avg_magnitude": 1.0
-    },
-    "page_new__delta_appearance_rate__lag_3d": {
-      "event_type": "page_new",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 915,
-      "spearman_rho": 0.5025,
-      "avg_delta": -0.018587,
-      "avg_magnitude": 1.0
-    },
-    "page_new__delta_citation_rate__lag_3d": {
-      "event_type": "page_new",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 915,
-      "spearman_rho": 0.5027,
-      "avg_delta": 0.03251,
+      "spearman_rho": 0.5804,
+      "avg_delta": 0.001059,
       "avg_magnitude": 1.0
     },
     "page_change__delta_share_of_voice__lag_3d": {
@@ -426,31 +345,166 @@
       "avg_delta": 0.008719,
       "avg_magnitude": 0.128
     },
-    "press_mention__delta_share_of_voice__lag_7d": {
+    "page_new__delta_share_of_voice__lag_3d": {
+      "event_type": "page_new",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 915,
+      "spearman_rho": 0.5025,
+      "avg_delta": 0.008676,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_appearance_rate__lag_3d": {
+      "event_type": "page_new",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 915,
+      "spearman_rho": 0.5025,
+      "avg_delta": -0.018587,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_citation_rate__lag_3d": {
+      "event_type": "page_new",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 915,
+      "spearman_rho": 0.5027,
+      "avg_delta": 0.03251,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_share_of_voice__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 1448,
+      "spearman_rho": 0.5627,
+      "avg_delta": 0.000871,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 1448,
+      "spearman_rho": 0.5708,
+      "avg_delta": -0.034533,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 1448,
+      "spearman_rho": 0.5709,
+      "avg_delta": -0.001641,
+      "avg_magnitude": 1.0
+    },
+    "domain_change__delta_share_of_voice__lag_3d": {
+      "event_type": "domain_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 31,
+      "spearman_rho": 0.2439,
+      "avg_delta": -0.002644,
+      "avg_magnitude": 1.817
+    },
+    "domain_change__delta_appearance_rate__lag_3d": {
+      "event_type": "domain_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 31,
+      "spearman_rho": 0.3624,
+      "avg_delta": -0.007062,
+      "avg_magnitude": 1.817
+    },
+    "domain_change__delta_citation_rate__lag_3d": {
+      "event_type": "domain_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 31,
+      "spearman_rho": 0.3878,
+      "avg_delta": -0.011643,
+      "avg_magnitude": 1.817
+    },
+    "press_mention__delta_share_of_voice__lag_3d": {
       "event_type": "press_mention",
       "metric": "delta_share_of_voice",
-      "lag_days": 7,
+      "lag_days": 3,
       "n_events": 652,
       "spearman_rho": 0.5627,
-      "avg_delta": -0.001815,
+      "avg_delta": -0.001935,
       "avg_magnitude": 1.0
     },
-    "press_mention__delta_appearance_rate__lag_7d": {
+    "press_mention__delta_appearance_rate__lag_3d": {
       "event_type": "press_mention",
       "metric": "delta_appearance_rate",
-      "lag_days": 7,
+      "lag_days": 3,
       "n_events": 652,
-      "spearman_rho": 0.5628,
-      "avg_delta": -0.026978,
+      "spearman_rho": 0.575,
+      "avg_delta": -0.034511,
       "avg_magnitude": 1.0
     },
-    "press_mention__delta_citation_rate__lag_7d": {
+    "press_mention__delta_citation_rate__lag_3d": {
       "event_type": "press_mention",
       "metric": "delta_citation_rate",
-      "lag_days": 7,
+      "lag_days": 3,
       "n_events": 652,
       "spearman_rho": 0.5751,
-      "avg_delta": 0.000133,
+      "avg_delta": -0.001104,
+      "avg_magnitude": 1.0
+    },
+    "page_change__delta_share_of_voice__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 295,
+      "spearman_rho": -0.469,
+      "avg_delta": 0.025699,
+      "avg_magnitude": 0.148
+    },
+    "page_change__delta_appearance_rate__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 295,
+      "spearman_rho": -0.5855,
+      "avg_delta": 0.024723,
+      "avg_magnitude": 0.148
+    },
+    "page_change__delta_citation_rate__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 295,
+      "spearman_rho": -0.3713,
+      "avg_delta": 0.033859,
+      "avg_magnitude": 0.148
+    },
+    "page_new__delta_share_of_voice__lag_7d": {
+      "event_type": "page_new",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 915,
+      "spearman_rho": 0.5025,
+      "avg_delta": 0.007892,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_appearance_rate__lag_7d": {
+      "event_type": "page_new",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 915,
+      "spearman_rho": 0.5025,
+      "avg_delta": -0.073459,
+      "avg_magnitude": 1.0
+    },
+    "page_new__delta_citation_rate__lag_7d": {
+      "event_type": "page_new",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 915,
+      "spearman_rho": 0.5029,
+      "avg_delta": 0.060439,
       "avg_magnitude": 1.0
     },
     "news_mention__delta_share_of_voice__lag_7d": {
@@ -480,59 +534,59 @@
       "avg_delta": 4.9e-05,
       "avg_magnitude": 1.0
     },
-    "page_new__delta_share_of_voice__lag_7d": {
-      "event_type": "page_new",
+    "press_mention__delta_share_of_voice__lag_7d": {
+      "event_type": "press_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 7,
-      "n_events": 914,
-      "spearman_rho": 0.5025,
-      "avg_delta": 0.007915,
+      "n_events": 652,
+      "spearman_rho": 0.5627,
+      "avg_delta": -0.001815,
       "avg_magnitude": 1.0
     },
-    "page_new__delta_appearance_rate__lag_7d": {
-      "event_type": "page_new",
+    "press_mention__delta_appearance_rate__lag_7d": {
+      "event_type": "press_mention",
       "metric": "delta_appearance_rate",
       "lag_days": 7,
-      "n_events": 914,
-      "spearman_rho": 0.5025,
-      "avg_delta": -0.073525,
+      "n_events": 652,
+      "spearman_rho": 0.5628,
+      "avg_delta": -0.026978,
       "avg_magnitude": 1.0
     },
-    "page_new__delta_citation_rate__lag_7d": {
-      "event_type": "page_new",
+    "press_mention__delta_citation_rate__lag_7d": {
+      "event_type": "press_mention",
       "metric": "delta_citation_rate",
       "lag_days": 7,
-      "n_events": 914,
-      "spearman_rho": 0.5029,
-      "avg_delta": 0.060498,
+      "n_events": 652,
+      "spearman_rho": 0.5751,
+      "avg_delta": 0.000133,
       "avg_magnitude": 1.0
     },
-    "page_change__delta_share_of_voice__lag_7d": {
+    "page_change__delta_share_of_voice__lag_14d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 187,
-      "spearman_rho": -0.361,
-      "avg_delta": 0.038419,
-      "avg_magnitude": 0.08
+      "lag_days": 14,
+      "n_events": 128,
+      "spearman_rho": 0.2028,
+      "avg_delta": -0.022824,
+      "avg_magnitude": 0.035
     },
-    "page_change__delta_appearance_rate__lag_7d": {
+    "page_change__delta_appearance_rate__lag_14d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 187,
-      "spearman_rho": -0.5643,
-      "avg_delta": 0.021463,
-      "avg_magnitude": 0.08
+      "lag_days": 14,
+      "n_events": 128,
+      "spearman_rho": -0.155,
+      "avg_delta": -0.062918,
+      "avg_magnitude": 0.035
     },
-    "page_change__delta_citation_rate__lag_7d": {
+    "page_change__delta_citation_rate__lag_14d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 187,
-      "spearman_rho": -0.5628,
-      "avg_delta": 0.059739,
-      "avg_magnitude": 0.08
+      "lag_days": 14,
+      "n_events": 128,
+      "spearman_rho": -0.1148,
+      "avg_delta": 0.07099,
+      "avg_magnitude": 0.035
     },
     "page_new__delta_share_of_voice__lag_14d": {
       "event_type": "page_new",
@@ -540,7 +594,7 @@
       "lag_days": 14,
       "n_events": 665,
       "spearman_rho": 0.5053,
-      "avg_delta": -0.017971,
+      "avg_delta": -0.018337,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_14d": {
@@ -549,7 +603,7 @@
       "lag_days": 14,
       "n_events": 665,
       "spearman_rho": 0.5054,
-      "avg_delta": -0.082809,
+      "avg_delta": -0.083561,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_14d": {
@@ -557,659 +611,12 @@
       "metric": "delta_citation_rate",
       "lag_days": 14,
       "n_events": 665,
-      "spearman_rho": 0.5066,
-      "avg_delta": 0.065365,
+      "spearman_rho": 0.5062,
+      "avg_delta": 0.063861,
       "avg_magnitude": 1.0
-    },
-    "page_change__delta_share_of_voice__lag_14d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 14,
-      "n_events": 128,
-      "spearman_rho": 0.1323,
-      "avg_delta": -0.022829,
-      "avg_magnitude": 0.035
-    },
-    "page_change__delta_appearance_rate__lag_14d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 14,
-      "n_events": 128,
-      "spearman_rho": -0.1654,
-      "avg_delta": -0.063186,
-      "avg_magnitude": 0.035
-    },
-    "page_change__delta_citation_rate__lag_14d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 14,
-      "n_events": 128,
-      "spearman_rho": -0.0593,
-      "avg_delta": 0.071213,
-      "avg_magnitude": 0.035
     }
   },
   "dashboard_events": [
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.015100000000000002,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/prophylaxe",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.5%).",
-        "similarity": 0.9849,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.014700000000000046,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnprothese",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.5%).",
-        "similarity": 0.9853,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.016800000000000037,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnprovisorium",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.3%).",
-        "similarity": 0.9832,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.00649999999999995,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/sofort",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.4%).",
-        "similarity": 0.9935,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.011399999999999966,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/guenstig",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.9%).",
-        "similarity": 0.9886,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.011099999999999999,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/fissurenversiegelung",
-        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 98.9%).",
-        "similarity": 0.9889,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.014000000000000012,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/vergleich/",
-        "summary": "8 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.6%).",
-        "similarity": 0.986,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.012399999999999967,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/wechseln",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.8%).",
-        "similarity": 0.9876,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.014399999999999968,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnkrone",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.6%).",
-        "similarity": 0.9856,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.008000000000000007,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/erstattungsbeispiele",
-        "summary": "10 neue Zeilen, 10 entfernte Zeilen (Ähnlichkeit 99.2%).",
-        "similarity": 0.992,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.00660000000000005,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kinder",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.3%).",
-        "similarity": 0.9934,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.007399999999999962,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/keramikbrackets",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.3%).",
-        "similarity": 0.9926,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.007900000000000018,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/heil-und-kostenplan",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.2%).",
-        "similarity": 0.9921,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.009199999999999986,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/keramikkrone",
-        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 99.1%).",
-        "similarity": 0.9908,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0131,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/professionelle-zahnreinigung",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.7%).",
-        "similarity": 0.9869,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.014100000000000001,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/rechnung-einreichen",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.6%).",
-        "similarity": 0.9859,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.016900000000000026,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ohne-gesundheitsfragen",
-        "summary": "8 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 98.3%).",
-        "similarity": 0.9831,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.010099999999999998,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/sinnvoll/",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 99.0%).",
-        "similarity": 0.9899,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.2632,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/familie",
-        "summary": "18 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 73.7%).",
-        "similarity": 0.7368,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.007099999999999995,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/beamte",
-        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 99.3%).",
-        "similarity": 0.9929,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.019399999999999973,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/senioren",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.1%).",
-        "similarity": 0.9806,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0403,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnextraktion",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 96.0%).",
-        "similarity": 0.9597,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.014000000000000012,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/vergleich",
-        "summary": "8 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.6%).",
-        "similarity": 0.986,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.015599999999999947,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ohne-wartezeit/",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.4%).",
-        "similarity": 0.9844,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.006099999999999994,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kieferorthopaedie",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.4%).",
-        "similarity": 0.9939,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.010099999999999998,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kuendigen",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.0%).",
-        "similarity": 0.9899,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.018299999999999983,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/wurzelbehandlung",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.2%).",
-        "similarity": 0.9817,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.015599999999999947,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/ohne-wartezeit",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.4%).",
-        "similarity": 0.9844,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.015800000000000036,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zaehne-machen-lassen",
-        "summary": "7 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.4%).",
-        "similarity": 0.9842,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.01090000000000002,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/inlay",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.9%).",
-        "similarity": 0.9891,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
-    {
-      "timestamp": "2026-05-07T06-08-55Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.006700000000000039,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/funktionsanalyse",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.3%).",
-        "similarity": 0.9933,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005044,
-        "lag_3d": -0.003571
-      }
-    },
     {
       "timestamp": "2026-05-07T06-08-55Z",
       "event_type": "page_change",
@@ -1984,7 +1391,8 @@
         "direction": "shrink"
       },
       "sov_deltas": {
-        "lag_1d": -0.007012
+        "lag_1d": 0.006829,
+        "lag_3d": 0.006829
       }
     },
     {
@@ -2000,7 +1408,8 @@
         "new_count": 31
       },
       "sov_deltas": {
-        "lag_1d": -0.007012
+        "lag_1d": 0.006829,
+        "lag_3d": 0.006829
       }
     },
     {
@@ -2016,7 +1425,8 @@
         "new_count": 1
       },
       "sov_deltas": {
-        "lag_1d": -0.007012
+        "lag_1d": 0.006829,
+        "lag_3d": 0.006829
       }
     },
     {
@@ -2032,7 +1442,8 @@
         "new_count": 13
       },
       "sov_deltas": {
-        "lag_1d": -0.007012
+        "lag_1d": 0.006829,
+        "lag_3d": 0.006829
       }
     },
     {
@@ -2049,7 +1460,8 @@
         "direction": "shrink"
       },
       "sov_deltas": {
-        "lag_1d": 0.015342
+        "lag_1d": 0.011762,
+        "lag_3d": 0.011762
       }
     },
     {
@@ -2065,7 +1477,8 @@
         "new_count": 29
       },
       "sov_deltas": {
-        "lag_1d": 0.015342
+        "lag_1d": 0.011762,
+        "lag_3d": 0.011762
       }
     },
     {
@@ -2081,7 +1494,8 @@
         "new_count": 0
       },
       "sov_deltas": {
-        "lag_1d": 0.015342
+        "lag_1d": 0.011762,
+        "lag_3d": 0.011762
       }
     },
     {
@@ -2097,7 +1511,8 @@
         "new_count": 0
       },
       "sov_deltas": {
-        "lag_1d": 0.015342
+        "lag_1d": 0.011762,
+        "lag_3d": 0.011762
       }
     },
     {
@@ -2113,7 +1528,8 @@
         "new_count": 23
       },
       "sov_deltas": {
-        "lag_1d": 0.015342
+        "lag_1d": 0.011762,
+        "lag_3d": 0.011762
       }
     },
     {
@@ -2130,7 +1546,8 @@
         "direction": "shrink"
       },
       "sov_deltas": {
-        "lag_1d": -0.017851
+        "lag_1d": -0.032389,
+        "lag_3d": -0.032389
       }
     },
     {
@@ -2146,7 +1563,8 @@
         "new_count": 0
       },
       "sov_deltas": {
-        "lag_1d": -0.017851
+        "lag_1d": -0.032389,
+        "lag_3d": -0.032389
       }
     },
     {
@@ -2162,7 +1580,8 @@
         "new_count": 0
       },
       "sov_deltas": {
-        "lag_1d": -0.017851
+        "lag_1d": -0.032389,
+        "lag_3d": -0.032389
       }
     },
     {
@@ -2178,7 +1597,8 @@
         "new_count": 0
       },
       "sov_deltas": {
-        "lag_1d": -0.017851
+        "lag_1d": -0.032389,
+        "lag_3d": -0.032389
       }
     },
     {
@@ -2194,7 +1614,8 @@
         "new_count": 1
       },
       "sov_deltas": {
-        "lag_1d": -0.017851
+        "lag_1d": -0.032389,
+        "lag_3d": -0.032389
       }
     },
     {
@@ -2211,7 +1632,8 @@
         "direction": "shrink"
       },
       "sov_deltas": {
-        "lag_1d": -0.005298
+        "lag_1d": -0.001232,
+        "lag_3d": -0.001232
       }
     },
     {
@@ -2227,7 +1649,8 @@
         "new_count": 3
       },
       "sov_deltas": {
-        "lag_1d": -0.005298
+        "lag_1d": -0.001232,
+        "lag_3d": -0.001232
       }
     },
     {
@@ -2243,7 +1666,8 @@
         "new_count": 2
       },
       "sov_deltas": {
-        "lag_1d": -0.005298
+        "lag_1d": -0.001232,
+        "lag_3d": -0.001232
       }
     },
     {
@@ -2259,7 +1683,8 @@
         "new_count": 11
       },
       "sov_deltas": {
-        "lag_1d": -0.005298
+        "lag_1d": -0.001232,
+        "lag_3d": -0.001232
       }
     },
     {
@@ -2275,7 +1700,8 @@
         "new_count": 35
       },
       "sov_deltas": {
-        "lag_1d": -0.005298
+        "lag_1d": -0.001232,
+        "lag_3d": -0.001232
       }
     },
     {
@@ -2292,7 +1718,8 @@
         "direction": "shrink"
       },
       "sov_deltas": {
-        "lag_1d": 0.0
+        "lag_1d": 0.0,
+        "lag_3d": 0.0
       }
     },
     {
@@ -2308,7 +1735,8 @@
         "new_count": 0
       },
       "sov_deltas": {
-        "lag_1d": 0.0
+        "lag_1d": 0.0,
+        "lag_3d": 0.0
       }
     },
     {
@@ -2324,7 +1752,8 @@
         "new_count": 0
       },
       "sov_deltas": {
-        "lag_1d": 0.0
+        "lag_1d": 0.0,
+        "lag_3d": 0.0
       }
     },
     {
@@ -2341,7 +1770,8 @@
         "direction": "shrink"
       },
       "sov_deltas": {
-        "lag_1d": 0.0
+        "lag_1d": 0.0,
+        "lag_3d": 0.0
       }
     },
     {
@@ -2357,7 +1787,8 @@
         "new_count": 0
       },
       "sov_deltas": {
-        "lag_1d": 0.0
+        "lag_1d": 0.0,
+        "lag_3d": 0.0
       }
     },
     {
@@ -2373,7 +1804,8 @@
         "new_count": 0
       },
       "sov_deltas": {
-        "lag_1d": 0.0
+        "lag_1d": 0.0,
+        "lag_3d": 0.0
       }
     },
     {
@@ -2389,7 +1821,8 @@
         "new_count": 0
       },
       "sov_deltas": {
-        "lag_1d": 0.0
+        "lag_1d": 0.0,
+        "lag_3d": 0.0
       }
     },
     {
@@ -2405,7 +1838,8 @@
         "new_count": 0
       },
       "sov_deltas": {
-        "lag_1d": 0.0
+        "lag_1d": 0.0,
+        "lag_3d": 0.0
       }
     },
     {
@@ -2422,7 +1856,8 @@
         "direction": "shrink"
       },
       "sov_deltas": {
-        "lag_1d": 0.0
+        "lag_1d": 0.0,
+        "lag_3d": 0.0
       }
     },
     {
@@ -2438,7 +1873,8 @@
         "new_count": 0
       },
       "sov_deltas": {
-        "lag_1d": 0.0
+        "lag_1d": 0.0,
+        "lag_3d": 0.0
       }
     },
     {
@@ -2454,7 +1890,8 @@
         "new_count": 0
       },
       "sov_deltas": {
-        "lag_1d": 0.0
+        "lag_1d": 0.0,
+        "lag_3d": 0.0
       }
     },
     {
@@ -2468,6 +1905,510 @@
         "metric": "category_other",
         "old_count": 33,
         "new_count": 0
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0,
+        "lag_3d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "total_subdomains",
+        "old_count": 53,
+        "new_count": 121,
+        "direction": "growth"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.013841
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "category_vermittler",
+        "old_count": 31,
+        "new_count": 48
+      },
+      "sov_deltas": {
+        "lag_1d": 0.013841
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "category_tech",
+        "old_count": 1,
+        "new_count": 10
+      },
+      "sov_deltas": {
+        "lag_1d": 0.013841
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "category_other",
+        "old_count": 13,
+        "new_count": 54
+      },
+      "sov_deltas": {
+        "lag_1d": 0.013841
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "total_subdomains",
+        "old_count": 53,
+        "new_count": 145,
+        "direction": "growth"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.00358
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "category_vermittler",
+        "old_count": 29,
+        "new_count": 61
+      },
+      "sov_deltas": {
+        "lag_1d": -0.00358
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 1.333,
+      "detail": {
+        "metric": "category_service",
+        "old_count": 0,
+        "new_count": 4
+      },
+      "sov_deltas": {
+        "lag_1d": -0.00358
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 1.667,
+      "detail": {
+        "metric": "category_tech",
+        "old_count": 0,
+        "new_count": 5
+      },
+      "sov_deltas": {
+        "lag_1d": -0.00358
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "category_other",
+        "old_count": 23,
+        "new_count": 74
+      },
+      "sov_deltas": {
+        "lag_1d": -0.00358
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "total_subdomains",
+        "old_count": 2,
+        "new_count": 100,
+        "direction": "growth"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.014538
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 1.333,
+      "detail": {
+        "metric": "category_vermittler",
+        "old_count": 0,
+        "new_count": 4
+      },
+      "sov_deltas": {
+        "lag_1d": -0.014538
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 1.333,
+      "detail": {
+        "metric": "category_service",
+        "old_count": 0,
+        "new_count": 4
+      },
+      "sov_deltas": {
+        "lag_1d": -0.014538
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "category_tech",
+        "old_count": 0,
+        "new_count": 43
+      },
+      "sov_deltas": {
+        "lag_1d": -0.014538
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "category_other",
+        "old_count": 1,
+        "new_count": 48
+      },
+      "sov_deltas": {
+        "lag_1d": -0.014538
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Generali",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "total_subdomains",
+        "old_count": 52,
+        "new_count": 102,
+        "direction": "growth"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.004066
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Generali",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "category_vermittler",
+        "old_count": 3,
+        "new_count": 20
+      },
+      "sov_deltas": {
+        "lag_1d": 0.004066
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Generali",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "category_service",
+        "old_count": 2,
+        "new_count": 8
+      },
+      "sov_deltas": {
+        "lag_1d": 0.004066
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Generali",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "category_tech",
+        "old_count": 11,
+        "new_count": 20
+      },
+      "sov_deltas": {
+        "lag_1d": 0.004066
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Generali",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "category_other",
+        "old_count": 35,
+        "new_count": 53
+      },
+      "sov_deltas": {
+        "lag_1d": 0.004066
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "DEVK",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "total_subdomains",
+        "old_count": 1,
+        "new_count": 51,
+        "direction": "growth"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "DEVK",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "category_vermittler",
+        "old_count": 0,
+        "new_count": 44
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "DEVK",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "category_other",
+        "old_count": 0,
+        "new_count": 6
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "total_subdomains",
+        "old_count": 1,
+        "new_count": 50,
+        "direction": "growth"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 1.667,
+      "detail": {
+        "metric": "category_vermittler",
+        "old_count": 0,
+        "new_count": 5
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 0.667,
+      "detail": {
+        "metric": "category_newsroom",
+        "old_count": 0,
+        "new_count": 2
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "category_tech",
+        "old_count": 0,
+        "new_count": 8
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "category_other",
+        "old_count": 0,
+        "new_count": 35
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "total_subdomains",
+        "old_count": 1,
+        "new_count": 43,
+        "direction": "growth"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 0.667,
+      "detail": {
+        "metric": "category_service",
+        "old_count": 0,
+        "new_count": 2
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 1.667,
+      "detail": {
+        "metric": "category_tech",
+        "old_count": 0,
+        "new_count": 5
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-05-11T05:01:17Z",
+      "event_type": "domain_change",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "hackertarget_hostsearch",
+      "magnitude": 2.0,
+      "detail": {
+        "metric": "category_other",
+        "old_count": 0,
+        "new_count": 33
       },
       "sov_deltas": {
         "lag_1d": 0.0
