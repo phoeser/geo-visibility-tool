@@ -113,7 +113,40 @@ def _safe_json(text: str) -> Optional[Dict]:
     try:
         return json.loads(s[start : end + 1])
     except Exception:
+        pass
+    # Notfall-Fallback: einzelne Felder per Regex retten (truncated/malformed JSON)
+    return _regex_extract_fields(s)
+
+
+def _regex_extract_fields(s: str) -> Optional[Dict]:
+    """
+    Wenn JSON-Parse scheitert (Truncation, Encoding-Probleme), extrahiere die
+    wichtigsten Felder per Regex, damit der Why-Tab trotzdem Inhalte anzeigt.
+    """
+    if not s:
         return None
+    out: Dict = {}
+    # String-Felder: "key": "value"   (auch mit escapten Quotes)
+    for field in ("reasons_mentioned", "reasons_absent",
+                  "example_quote_positive", "example_quote_negative"):
+        m = re.search(rf'"{field}"\s*:\s*"((?:[^"\\]|\\.)*)"', s, re.DOTALL)
+        if m:
+            try:
+                out[field] = json.loads(f'"{m.group(1)}"')
+            except Exception:
+                out[field] = m.group(1)
+    # Listen-Felder: "key": [ ... ]
+    for field in ("key_topics", "missing_topics", "improvement_suggestions"):
+        m = re.search(rf'"{field}"\s*:\s*\[([^\]]*)\]', s, re.DOTALL)
+        if m:
+            items = re.findall(r'"((?:[^"\\]|\\.)*)"', m.group(1))
+            out[field] = []
+            for it in items:
+                try:
+                    out[field].append(json.loads(f'"{it}"'))
+                except Exception:
+                    out[field].append(it)
+    return out if out else None
 
 
 def _gather_examples(run: Dict, product_id: str, target_brand: str) -> Dict:
@@ -324,7 +357,9 @@ def analyze_run(run: Dict, claude_client, brands: Optional[List[str]] = None) ->
     if brands is None:
         own = run.get("brand") or ""
         comp_list = [c for c in (run.get("competitors") or []) if isinstance(c, str)]
-        brands = [b for b in [own] + comp_list[:3] if b]
+        # Vorher: comp_list[:3] -> HUK-Coburg fiel raus.
+        # Jetzt: alle Wettbewerber analysieren.
+        brands = [b for b in [own] + comp_list if b]
     out: Dict[str, Dict[str, Dict]] = {}
     products = run.get("products") or {}
     for pid in products.keys():
