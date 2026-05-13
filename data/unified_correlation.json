@@ -1,21 +1,33 @@
 {
   "meta": {
-    "total_page_events": 2039,
-    "total_cockpit_events": 2162,
-    "total_unified_events": 4176,
-    "total_enriched_events": 4176,
-    "total_runs": 45,
+    "total_page_events": 2046,
+    "total_cockpit_events": 2563,
+    "total_unified_events": 4584,
+    "total_enriched_events": 4584,
+    "total_runs": 46,
     "lag_windows": [
       1,
       3,
       7,
       14
     ],
-    "generated_at": "2026-05-12T07:17:42.020420Z"
+    "generated_at": "2026-05-13T07:30:00.967574Z"
   },
   "event_summary": {
+    "page_change": {
+      "count": 385,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO"
+      ],
+      "avg_magnitude": 0.129,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
     "news_mention": {
-      "count": 1448,
+      "count": 1719,
       "brands": [
         "AXA",
         "Allianz",
@@ -29,18 +41,6 @@
         "Signal Iduna"
       ],
       "avg_magnitude": 1.0,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    "page_change": {
-      "count": 378,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO"
-      ],
-      "avg_magnitude": 0.128,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -75,8 +75,18 @@
       "best_spearman_rho": null,
       "impact": {}
     },
+    "review_change": {
+      "count": 1,
+      "brands": [
+        "HUK-Coburg"
+      ],
+      "avg_magnitude": 2.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
     "press_mention": {
-      "count": 652,
+      "count": 781,
       "brands": [
         "AXA",
         "Allianz",
@@ -97,8 +107,21 @@
   },
   "impact_ranking": [
     {
+      "event_type": "page_change",
+      "count": 385,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO"
+      ],
+      "avg_magnitude": 0.129,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
       "event_type": "news_mention",
-      "count": 1448,
+      "count": 1719,
       "brands": [
         "AXA",
         "Allianz",
@@ -112,19 +135,6 @@
         "Signal Iduna"
       ],
       "avg_magnitude": 1.0,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
-      "event_type": "page_change",
-      "count": 378,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO"
-      ],
-      "avg_magnitude": 0.128,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -162,8 +172,19 @@
       "impact": {}
     },
     {
+      "event_type": "review_change",
+      "count": 1,
+      "brands": [
+        "HUK-Coburg"
+      ],
+      "avg_magnitude": 2.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
       "event_type": "press_mention",
-      "count": 652,
+      "count": 781,
       "brands": [
         "AXA",
         "Allianz",
@@ -183,59 +204,59 @@
     }
   ],
   "correlation_matrix": {
+    "page_change__delta_share_of_voice__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 385,
+      "spearman_rho": 0.2392,
+      "avg_delta": -0.010487,
+      "avg_magnitude": 0.129
+    },
+    "page_change__delta_appearance_rate__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 385,
+      "spearman_rho": 0.131,
+      "avg_delta": 0.025315,
+      "avg_magnitude": 0.129
+    },
+    "page_change__delta_citation_rate__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 385,
+      "spearman_rho": 0.2675,
+      "avg_delta": -0.0017,
+      "avg_magnitude": 0.129
+    },
     "news_mention__delta_share_of_voice__lag_1d": {
       "event_type": "news_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 1448,
-      "spearman_rho": 0.5627,
-      "avg_delta": 0.000618,
+      "n_events": 1719,
+      "spearman_rho": 0.5652,
+      "avg_delta": 0.000326,
       "avg_magnitude": 1.0
     },
     "news_mention__delta_appearance_rate__lag_1d": {
       "event_type": "news_mention",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 1448,
-      "spearman_rho": 0.576,
-      "avg_delta": -0.028333,
+      "n_events": 1719,
+      "spearman_rho": 0.5801,
+      "avg_delta": -0.023334,
       "avg_magnitude": 1.0
     },
     "news_mention__delta_citation_rate__lag_1d": {
       "event_type": "news_mention",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 1448,
-      "spearman_rho": 0.5743,
-      "avg_delta": -0.00064,
+      "n_events": 1719,
+      "spearman_rho": 0.5825,
+      "avg_delta": -0.000545,
       "avg_magnitude": 1.0
-    },
-    "page_change__delta_share_of_voice__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 378,
-      "spearman_rho": 0.2458,
-      "avg_delta": -0.010984,
-      "avg_magnitude": 0.128
-    },
-    "page_change__delta_appearance_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 378,
-      "spearman_rho": 0.1418,
-      "avg_delta": 0.024919,
-      "avg_magnitude": 0.128
-    },
-    "page_change__delta_citation_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 378,
-      "spearman_rho": 0.2767,
-      "avg_delta": -0.002332,
-      "avg_magnitude": 0.128
     },
     "domain_change__delta_share_of_voice__lag_1d": {
       "event_type": "domain_change",
@@ -270,7 +291,7 @@
       "lag_days": 1,
       "n_events": 1636,
       "spearman_rho": 0.5023,
-      "avg_delta": -0.00241,
+      "avg_delta": -0.003589,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_1d": {
@@ -278,8 +299,8 @@
       "metric": "delta_appearance_rate",
       "lag_days": 1,
       "n_events": 1636,
-      "spearman_rho": 0.5023,
-      "avg_delta": 0.013165,
+      "spearman_rho": 0.5024,
+      "avg_delta": 0.019626,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_1d": {
@@ -287,36 +308,63 @@
       "metric": "delta_citation_rate",
       "lag_days": 1,
       "n_events": 1636,
-      "spearman_rho": 0.5024,
-      "avg_delta": 0.012759,
+      "spearman_rho": 0.5026,
+      "avg_delta": 0.017792,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_share_of_voice__lag_1d": {
       "event_type": "press_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 652,
-      "spearman_rho": 0.5628,
-      "avg_delta": -0.001373,
+      "n_events": 781,
+      "spearman_rho": 0.5574,
+      "avg_delta": -0.000717,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_appearance_rate__lag_1d": {
       "event_type": "press_mention",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 652,
-      "spearman_rho": 0.5831,
-      "avg_delta": -0.028194,
+      "n_events": 781,
+      "spearman_rho": 0.5878,
+      "avg_delta": -0.021881,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_citation_rate__lag_1d": {
       "event_type": "press_mention",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 652,
-      "spearman_rho": 0.5804,
-      "avg_delta": 0.001059,
+      "n_events": 781,
+      "spearman_rho": 0.5769,
+      "avg_delta": 0.001402,
       "avg_magnitude": 1.0
+    },
+    "page_change__delta_share_of_voice__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 378,
+      "spearman_rho": 0.003,
+      "avg_delta": -0.000462,
+      "avg_magnitude": 0.128
+    },
+    "page_change__delta_appearance_rate__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 378,
+      "spearman_rho": -0.2111,
+      "avg_delta": 0.001999,
+      "avg_magnitude": 0.128
+    },
+    "page_change__delta_citation_rate__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 378,
+      "spearman_rho": -0.1936,
+      "avg_delta": 0.008799,
+      "avg_magnitude": 0.128
     },
     "news_mention__delta_share_of_voice__lag_3d": {
       "event_type": "news_mention",
@@ -345,40 +393,13 @@
       "avg_delta": -0.001641,
       "avg_magnitude": 1.0
     },
-    "page_change__delta_share_of_voice__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 376,
-      "spearman_rho": 0.0017,
-      "avg_delta": -0.000498,
-      "avg_magnitude": 0.128
-    },
-    "page_change__delta_appearance_rate__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 376,
-      "spearman_rho": -0.2117,
-      "avg_delta": 0.001832,
-      "avg_magnitude": 0.128
-    },
-    "page_change__delta_citation_rate__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 376,
-      "spearman_rho": -0.1963,
-      "avg_delta": 0.008719,
-      "avg_magnitude": 0.128
-    },
     "domain_change__delta_share_of_voice__lag_3d": {
       "event_type": "domain_change",
       "metric": "delta_share_of_voice",
       "lag_days": 3,
       "n_events": 62,
-      "spearman_rho": 0.0433,
-      "avg_delta": -0.00072,
+      "spearman_rho": 0.1881,
+      "avg_delta": -0.000678,
       "avg_magnitude": 1.817
     },
     "domain_change__delta_appearance_rate__lag_3d": {
@@ -386,8 +407,8 @@
       "metric": "delta_appearance_rate",
       "lag_days": 3,
       "n_events": 62,
-      "spearman_rho": 0.0044,
-      "avg_delta": 0.000127,
+      "spearman_rho": 0.1928,
+      "avg_delta": 0.007253,
       "avg_magnitude": 1.817
     },
     "domain_change__delta_citation_rate__lag_3d": {
@@ -395,35 +416,35 @@
       "metric": "delta_citation_rate",
       "lag_days": 3,
       "n_events": 62,
-      "spearman_rho": 0.1812,
-      "avg_delta": 0.000668,
+      "spearman_rho": 0.2257,
+      "avg_delta": 0.001813,
       "avg_magnitude": 1.817
     },
     "page_new__delta_share_of_voice__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 3,
-      "n_events": 915,
-      "spearman_rho": 0.5025,
-      "avg_delta": 0.008676,
+      "n_events": 1636,
+      "spearman_rho": 0.5023,
+      "avg_delta": 0.002051,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 3,
-      "n_events": 915,
-      "spearman_rho": 0.5025,
-      "avg_delta": -0.018587,
+      "n_events": 1636,
+      "spearman_rho": 0.5024,
+      "avg_delta": -0.002127,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 3,
-      "n_events": 915,
-      "spearman_rho": 0.5027,
-      "avg_delta": 0.03251,
+      "n_events": 1636,
+      "spearman_rho": 0.5025,
+      "avg_delta": 0.027737,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_share_of_voice__lag_3d": {
@@ -453,6 +474,33 @@
       "avg_delta": -0.001104,
       "avg_magnitude": 1.0
     },
+    "page_change__delta_share_of_voice__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 376,
+      "spearman_rho": -0.393,
+      "avg_delta": 0.026527,
+      "avg_magnitude": 0.128
+    },
+    "page_change__delta_appearance_rate__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 376,
+      "spearman_rho": -0.4875,
+      "avg_delta": 0.034639,
+      "avg_magnitude": 0.128
+    },
+    "page_change__delta_citation_rate__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 376,
+      "spearman_rho": -0.473,
+      "avg_delta": 0.033522,
+      "avg_magnitude": 0.128
+    },
     "news_mention__delta_share_of_voice__lag_7d": {
       "event_type": "news_mention",
       "metric": "delta_share_of_voice",
@@ -479,33 +527,6 @@
       "spearman_rho": 0.571,
       "avg_delta": 4.9e-05,
       "avg_magnitude": 1.0
-    },
-    "page_change__delta_share_of_voice__lag_7d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 376,
-      "spearman_rho": -0.2238,
-      "avg_delta": 0.014645,
-      "avg_magnitude": 0.128
-    },
-    "page_change__delta_appearance_rate__lag_7d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 376,
-      "spearman_rho": -0.473,
-      "avg_delta": 0.022191,
-      "avg_magnitude": 0.128
-    },
-    "page_change__delta_citation_rate__lag_7d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 376,
-      "spearman_rho": -0.3484,
-      "avg_delta": 0.028918,
-      "avg_magnitude": 0.128
     },
     "page_new__delta_share_of_voice__lag_7d": {
       "event_type": "page_new",
@@ -565,1756 +586,2149 @@
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
       "lag_days": 14,
-      "n_events": 128,
-      "spearman_rho": 0.2029,
-      "avg_delta": -0.022945,
-      "avg_magnitude": 0.035
+      "n_events": 184,
+      "spearman_rho": 0.4359,
+      "avg_delta": -0.009405,
+      "avg_magnitude": 0.08
     },
     "page_change__delta_appearance_rate__lag_14d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
       "lag_days": 14,
-      "n_events": 128,
-      "spearman_rho": -0.1552,
-      "avg_delta": -0.062815,
-      "avg_magnitude": 0.035
+      "n_events": 184,
+      "spearman_rho": -0.1495,
+      "avg_delta": -0.074467,
+      "avg_magnitude": 0.08
     },
     "page_change__delta_citation_rate__lag_14d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
       "lag_days": 14,
-      "n_events": 128,
-      "spearman_rho": -0.087,
-      "avg_delta": 0.071567,
-      "avg_magnitude": 0.035
+      "n_events": 184,
+      "spearman_rho": -0.4279,
+      "avg_delta": 0.057012,
+      "avg_magnitude": 0.08
     },
     "page_new__delta_share_of_voice__lag_14d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 14,
-      "n_events": 665,
-      "spearman_rho": 0.5053,
-      "avg_delta": -0.018337,
+      "n_events": 914,
+      "spearman_rho": 0.5025,
+      "avg_delta": 0.000172,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_14d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 14,
-      "n_events": 665,
-      "spearman_rho": 0.5054,
-      "avg_delta": -0.083561,
+      "n_events": 914,
+      "spearman_rho": 0.5028,
+      "avg_delta": -0.092649,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_14d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 14,
-      "n_events": 665,
-      "spearman_rho": 0.5062,
-      "avg_delta": 0.063861,
+      "n_events": 914,
+      "spearman_rho": 0.5028,
+      "avg_delta": 0.051537,
       "avg_magnitude": 1.0
     }
   },
   "dashboard_events": [
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "ERGO",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/journal/familie-beruf-vereinbarkeit",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Coming Out Day 2022: „Sei du selbst” - ERGO Group AG",
+        "date": "2025-09-10",
+        "media_source": "ERGO Group AG",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.016621
-      }
+        "lag_1d": 0.009284
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "ERGO",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankentagegeld-vollversicherte/freiberufler",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Ergo übernimmt Next Insurance und expandiert in die USA - cash-online.de",
+        "date": "2025-03-21",
+        "media_source": "cash-online.de",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.006656
-      }
+        "lag_1d": 0.009284
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "ERGO",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/journal/private-krankenversicherung-kennst-du-die-vorteile-",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Ergo übernimmt US-Versicherungs-Start-up - FONDS professionell",
+        "date": "2025-03-21",
+        "media_source": "FONDS professionell",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.006656
-      }
+        "lag_1d": 0.009284
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankenvollversicherung/selbststaendige-arbeitnehmer/grundschutz",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Allianz Commercial-Bericht zu Starkgewittern: Unternehmen können mit KI Risiken senken - Allianz Commercial",
+        "date": "2026-03-31",
+        "media_source": "Allianz Commercial",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.016621
-      }
+        "lag_1d": 0.016445
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankenvollversicherung/selbststaendige-arbeitnehmer",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "KI-Fähigkeiten verändern Versicherungsdienstleistungen - Allianz.com",
+        "date": "2026-03-27",
+        "media_source": "Allianz.com",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.016621
-      }
+        "lag_1d": 0.016445
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/journal/testament-rechtskraeftig-aufsetzen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Cyber risks trends 2025 - Allianz Commercial",
+        "date": "2025-09-24",
+        "media_source": "Allianz Commercial",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.008996
-      }
+        "lag_1d": 0.016445
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/privatkunden/vorsorge-finanzen/berufsunfaehigkeitsversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Allianz: Nun soll es für den Versicherungsriesen endlich in die Offensive gehen - WELT",
+        "date": "2025-08-26",
+        "media_source": "WELT",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.016621
-      }
+        "lag_1d": 0.016445
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/journal/wenn-dein-baby-zahnt-tipps-zur-linderung-von-zahnungsbeschwerden",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Mehr Komfort für Versicherte: E-Rezept und ePA in einer App - Allianz",
+        "date": "2025-08-05",
+        "media_source": "Allianz",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.006656
-      }
+        "lag_1d": 0.016445
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/journal/koordination-verbessern-die-besten-neuroathletik-uebungen-fuer-zu-hause",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Allianz Direct verkauft bald Kfz-Versicherungen über ING Deutschland - procontra",
+        "date": "2025-04-22",
+        "media_source": "procontra",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.008996
-      }
+        "lag_1d": 0.016445
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/journal/erbe-und-nachlass-was-erbberechtigte-wissen-sollten",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Ranking der Versicherungsmarken: Diese Anbieter sind am stärksten - Versicherungsbote",
+        "date": "2025-03-17",
+        "media_source": "Versicherungsbote",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.008996
-      }
+        "lag_1d": 0.016445
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/journal/berufsunfaehigkeit-durch-burnout-so-kannst-du-dich-schuetzen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Personalia: Dominik Hertel verläßt die Allianz - autohaus.de",
+        "date": "2025-03-03",
+        "media_source": "autohaus.de",
+        "topics": [
+          "Personal & Karriere"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.016621
-      }
+        "lag_1d": 0.016445
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/journal/kinderbetreuung-welche-moeglichkeiten-der-kinderbetreuung-gibt-es-",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Allianz und die Herausforderungen der Versicherung autonomer Fahrzeuge - Versicherungsbote",
+        "date": "2025-01-27",
+        "media_source": "Versicherungsbote",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.008996
-      }
+        "lag_1d": 0.016445
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Allianz",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankentagegeld-vollversicherte/gewerbetreibende",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Allianz Risk Barometer: Cyber-Attacken bleiben 2025 Top-Risiko – weltweit und in Deutschland - Allianz Commercial",
+        "date": "2025-01-15",
+        "media_source": "Allianz Commercial",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.000156
-      }
+        "lag_1d": 0.016445
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/journal/quarantaene-mit-kindern-6-tipps-fuer-den-familienalltag",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "AXA S.A. Aktie (FR0000120628): Kurs notiert bei 41,03 Euro auf Xetra - AD HOC NEWS",
+        "date": "2026-04-29",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.016621
-      }
+        "lag_1d": -0.00212
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/journal/private-krankenversicherung-fuer-studenten-sinnvoll-oder-nicht",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "AXA S.A. bleibt trotz Herausforderungen ein stabiler Akteur im Versicherungsmarkt - it boltwise",
+        "date": "2026-04-22",
+        "media_source": "it boltwise",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.006656
-      }
+        "lag_1d": -0.00212
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankenratgeber/krankentagegeld",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "AXA S.A. Aktie: Stabile Solvabilität und Dividendenstärke im Versicherungssektor trotz Marktturbul - AD HOC NEWS",
+        "date": "2026-03-17",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Unternehmen & Strategie"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.006656
-      }
+        "lag_1d": -0.00212
+      },
+      "sentiment": "positive"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankenvollversicherung/selbststaendige-arbeitnehmer/komfortschutz/vorsorgegutschein-privatpro2",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "AXA-Aktie nach Zahlen & Dividenden-Update: Lohnt jetzt der Einstieg? - AD HOC NEWS",
+        "date": "2026-02-10",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.016621
-      }
+        "lag_1d": -0.00212
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/karriere/berufserfahrene/offene-stellen-fuer-professionals-in-saarbruecken",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Axa: Exklusiv-Vertriebschefin geht - Versicherungsbote",
+        "date": "2025-12-11",
+        "media_source": "Versicherungsbote",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.006656
-      }
+        "lag_1d": -0.00212
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/journal/berufsunfaehigkeit-beim-ersten-job",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Axa hält Überschüsse in der Lebensversicherung stabil - Versicherungsbote",
+        "date": "2025-11-21",
+        "media_source": "Versicherungsbote",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.016621
-      }
+        "lag_1d": -0.00212
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/journal/richtig-zaehne-putzen-und-zahnproblemen-vorbeugen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Axa und Ergo benennen LV-Zinsen für 2026 - procontra",
+        "date": "2025-11-21",
+        "media_source": "procontra",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.006656
-      }
+        "lag_1d": -0.00212
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/journal/welche-rechte-haben-verbraucher-beim-online-shopping-",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Axa und Apobank arbeiten an Allfinanzvertrieb - procontra",
+        "date": "2025-06-13",
+        "media_source": "procontra",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.016621
-      }
+        "lag_1d": -0.00212
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/journal/erbe-ausschlagen-das-solltest-du-beachten",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Von Axa: R+V holt Nils Reich als neuen Komposit-Vorstand - das investment",
+        "date": "2025-06-11",
+        "media_source": "das investment",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.008996
-      }
+        "lag_1d": -0.00212
+      },
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "AXA",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankentagegeld-vollversicherte/arbeitnehmer",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "AXA Mental Health Report 2022 / AXA - AXA Deutschland",
+        "date": "2025-02-19",
+        "media_source": "AXA Deutschland",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.006656
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/journal/so-verbesserst-du-deine-praesentationsfaehigkeiten-im-job",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "lag_1d": -0.00212
       },
-      "sov_deltas": {
-        "lag_1d": -0.008996
-      }
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/service-kontakt/self-service/dokumente-einreichen/heil-kostenplan-zahn/antwort-per-e-mail-oder-per-briefpost",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006656
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankentagegeld-vollversicherte",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006656
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/journal/mit-der-hundehalterhaftpflicht-gegen-schaeden-absichern",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.016621
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/journal/energieeffizienzklassen-im-haushalt-verbessern-und-geld-sparen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.008996
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankenvollversicherung/aerzte-zahnaerzte",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006656
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/journal/faq-patientenverfuegung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.008996
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankenvollversicherung/aerzte-zahnaerzte/vorsorgepauschalen-gesundpromed",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006656
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/geschaeftskunden/waren-transport/gewerbe-kompakt-mobil",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.008996
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/journal/krankenversicherung-beim-arbeitgeberwechsel",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006656
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/service-kontakt/schaden-melden/gewerbe-sach",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.008996
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankenvollversicherung/aerzte-zahnaerzte/vorsorgegutschein-privatpromed2",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006656
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/journal/der-digitale-nachlass-so-kannst-du-vorsorgen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.008996
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankenvollversicherung/selbststaendige-arbeitnehmer/komfortschutz",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.016621
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/journal/auskunftspflicht-gegenueber-arbeitgebern-erben-und-behoerden",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.008996
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankenratgeber/krankentagegeld/krankentagegeld",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006656
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/journal/faq-vorsorgevollmacht",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.008996
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankenratgeber/krankentagegeld/ende-arbeitsunfaehigkeit",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006656
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankenratgeber/krankentagegeld/beginn-arbeitsunfaehigkeit",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006656
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankenratgeber/krankentagegeld/laufende-arbeitsunfaehigkeit",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006656
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/journal/haftpflicht-oder-unfallversicherung-fuer-kinder-so-ist-die-familie-optimal-abgesichert",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.016621
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/journal/unbeschwerter-winterspass-fuer-die-ganze-familie",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.016621
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/journal/krankenversicherung-selbststaendige",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.004726
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/journal/familienstressbewaeltigen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.016621
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/journal/die-besten-tricks-so-koennen-kinder-ihre-koordination-verbessern",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.008996
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankenratgeber/pflegeversicherung/pflegepflichtversicherung/wohnumfeldverbesserung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.008996
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankentagegeld-zusatzversicherte",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006656
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/privatkunden/gesundheit-freizeit/krankenvollversicherung/selbststaendige-arbeitnehmer/komfortschutz/vorsorgepauschalen-gesundpro",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.016621
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/journal/fulltime-champion-so-gelingt-es-laufsport-familie-und-beruf-im-alltag-zu-vereinbaren",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.016621
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/journal/eigentum-vererben-mit-niessbrauchrecht",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.008996
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.generali.de/journal/haus-vererben-oder-lieber-verschenken",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.008996
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
       "brand": "HUK-Coburg",
       "product": null,
-      "source": "page_tracker",
+      "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "url": "https://www.huk.de/gs/saarbruecken/gs-mehr-info.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "title": "Kfz-Versicherungen im Vergleich: Die besten Versicherer im Test - Handelsblatt",
+        "date": "2026-01-16",
+        "media_source": "Handelsblatt",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.054219
+        "lag_1d": -0.022039
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Die Kfz-Versicherer mit den meisten BaFin-Beschwerden 2024 - procontra",
+        "date": "2025-06-04",
+        "media_source": "procontra",
+        "topics": [
+          "KFZ & Mobilität",
+          "Recht & Regulierung"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.022039
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Huk-Coburg schluckt Neodigital Autoversicherung - cash-online.de",
+        "date": "2025-06-03",
+        "media_source": "cash-online.de",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.022039
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Huk-Coburg übernimmt Neodigital Autoversicherung komplett - Versicherungsjournal Deutschland",
+        "date": "2025-06-03",
+        "media_source": "Versicherungsjournal Deutschland",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.022039
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Neodigital Autoversicherung: Huk Coburg schluckt digitales Joint Venture - Neue Presse Coburg",
+        "date": "2025-06-03",
+        "media_source": "Neue Presse Coburg",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.022039
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "HUK-COBURG übernimmt Neodigital Autoversicherung - AssCompact",
+        "date": "2025-06-03",
+        "media_source": "AssCompact",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.022039
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "HUK Coburg: Große Mehrheit der Autobesitzer meidet E-Autos - autohaus.de",
+        "date": "2025-05-15",
+        "media_source": "autohaus.de",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.022039
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Huk-Coburg baut Beteiligung an Neodigital Autoversicherung aus - Versicherungsbote",
+        "date": "2025-04-14",
+        "media_source": "Versicherungsbote",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.022039
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Neodigital: Verluste und verstärkte Zusammenarbeit mit Huk-Coburg - das investment",
+        "date": "2025-04-10",
+        "media_source": "das investment",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.022039
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "HUK-Coburg will Anteile an Kfz-Joint-Venture mit Neodigital erhöhen - procontra",
+        "date": "2025-04-08",
+        "media_source": "procontra",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.022039
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Generali",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Konzernergebnis der Generali Group zum 30.06.2025 - Generali",
+        "date": "2025-08-06",
+        "media_source": "Generali",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.00157
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Generali",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Generali Deutschland holt Allianz-Manager in den Vorstand | Finanzprofis | 18.12.2024 - FONDS professionell",
+        "date": "2024-12-18",
+        "media_source": "FONDS professionell",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.00157
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Generali",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Generali Deutschland Krankenversicherung AG: Seit 111 Jahren dreht sich alles um die Gesundheit - Generali",
+        "date": "2024-08-27",
+        "media_source": "Generali",
+        "topics": [
+          "Gesundheit & Pflege"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.00157
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Generali",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Engagement im Laufsport weiter ausgebaut: Generali Deutschland AG wird offizieller Co-Sponsor des Hauptstadtmarathons - ",
+        "date": "2024-08-13",
+        "media_source": "Generali",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.00157
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Generali",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Dr. Arne Benzin wird Personalchef bei Generali Deutschland - Personalwirtschaft",
+        "date": "2024-08-05",
+        "media_source": "Personalwirtschaft",
+        "topics": [
+          "Personal & Karriere"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.00157
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Generali",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Personelle Veränderungen in den Aufsichtsräten und Vorständen der Generali Deutschland Gesellschaften - Generali",
+        "date": "2024-08-01",
+        "media_source": "Generali",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.00157
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Generali",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Wüstenrot kooperiert mit ING Deutschland und Generali Deutschland mit Neubesetzungen in den Vorständen - Versicherungsbo",
+        "date": "2024-08-01",
+        "media_source": "Versicherungsbote",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.00157
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Generali",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Vorstände von Allianz und Alte Leipziger wechseln zu Generali - das investment",
+        "date": "2024-08-01",
+        "media_source": "das investment",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.00157
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Generali",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Versicherer: Ex-Bafin-Aufseher Frank Grund wird Aufsichtsrat bei Generali - Handelsblatt",
+        "date": "2024-08-01",
+        "media_source": "Handelsblatt",
+        "topics": [
+          "Recht & Regulierung"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.00157
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Generali",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Generali Health Solutions und Modern Health kooperieren als internationale Partner für mentale Gesundheit - Generali",
+        "date": "2024-07-16",
+        "media_source": "Generali",
+        "topics": [
+          "Gesundheit & Pflege"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.00157
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Produktcheck: Der neue KFZ-Tarif der Signal Iduna - das investment",
+        "date": "2026-05-05",
+        "media_source": "das investment",
+        "topics": [
+          "KFZ & Mobilität",
+          "Produkt & Innovation"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "positive"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Signal Iduna: Chef wuchs in DDR auf – „Staat sollte nicht alles regeln!“ - Hamburger Abendblatt",
+        "date": "2026-04-15",
+        "media_source": "Hamburger Abendblatt",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Signal Iduna überarbeitet Kraftfahrttarif - Finanzwelt",
+        "date": "2026-04-01",
+        "media_source": "Finanzwelt",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "René Benko: Ermittler steuern auf Klage gegen Signa-Chefs zu – wegen veruntreuter Signal-Iduna-Millionen - WirtschaftsWo",
+        "date": "2026-03-06",
+        "media_source": "WirtschaftsWoche",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Gehaltsvergleich Hamburg: Signal Iduna, HanseMerkur und Co – wo man am meisten verdient - Hamburger Abendblatt",
+        "date": "2026-01-04",
+        "media_source": "Hamburger Abendblatt",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "(S+) Künstliche Intelligenz bei Allianz und Co.: Hoffentlich KI-versichert - Spiegel",
+        "date": "2025-12-26",
+        "media_source": "Spiegel",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Signal-Iduna: Betrugsvorwürfe gegen Benkos Signa - SZ.de",
+        "date": "2025-07-23",
+        "media_source": "SZ.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Aufatmen bei BVB-Fans: Der Signal-Iduna-Park kommt in FC 26 - Kicker",
+        "date": "2025-07-16",
+        "media_source": "Kicker",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Signal Iduna mit höchstem Vertriebsergebnis aller Zeiten Warum der Gewinn dennoch einbricht - Ruhr Nachrichten",
+        "date": "2025-06-09",
+        "media_source": "Ruhr Nachrichten",
+        "topics": [
+          "Unternehmen & Strategie"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "positive"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Signal Iduna bekommt neue Vertriebsvorständin - Versicherungsbote",
+        "date": "2025-01-30",
+        "media_source": "Versicherungsbote",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Weniger Unwetterschäden: R+V Versicherung mit Rekordergebnis - SZ.de",
+        "date": "2026-04-13",
+        "media_source": "SZ.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "R+V erzielt 2025 Rekordergebnis - Finanzwelt",
+        "date": "2026-04-13",
+        "media_source": "Finanzwelt",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Wiesbadener R+V Versicherung: Altersvorsorgedepot bringt einfache Lösung - Allgemeine Zeitung",
+        "date": "2026-04-13",
+        "media_source": "Allgemeine Zeitung",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Weniger Unwetterschäden: R+V Versicherung mit Rekordergebnis - AD HOC NEWS",
+        "date": "2026-04-13",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Finanzen: DZ Bank erzielt Rekordgewinn - Versicherung R+V glänzt - Tagesspiegel",
+        "date": "2026-03-03",
+        "media_source": "Tagesspiegel",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Mehrwertig: Neue R+V Kampagne will konkret unterstützen – Weil Familie das Wichtigste ist - marketingscout.com",
+        "date": "2026-03-02",
+        "media_source": "marketingscout.com",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Zurück in den schwarzen Zahlen: R+V erzielt in Kfz-Sparte wieder Gewinne - procontra",
+        "date": "2026-02-25",
+        "media_source": "procontra",
+        "topics": [
+          "KFZ & Mobilität",
+          "Unternehmen & Strategie"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "positive"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "R+V-Statistik zeigt: Freitag, der 13., ist harmlos - Presseportal",
+        "date": "2026-02-12",
+        "media_source": "Presseportal",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "R+V-Chef sieht Neobroker als wahre Konkurrenten - Börsen-Zeitung",
+        "date": "2026-02-11",
+        "media_source": "Börsen-Zeitung",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "R+V: Virtuelle Revolution in der Schadensregulierung - GDV Gesamtverband der Versicherer",
+        "date": "2026-02-03",
+        "media_source": "GDV Gesamtverband der Versicherer",
+        "topics": [
+          "Schaden & Leistung"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "negative"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Neue Position: Tatjana Pape leitet DEVK-Unternehmenskommunikation - autohaus.de",
+        "date": "2024-02-05",
+        "media_source": "autohaus.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Versicherung: DEVK hat einen neuen Vertriebs-Chef - autohaus.de",
+        "date": "2024-01-22",
+        "media_source": "autohaus.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Sebastian Baumgart ist neuer Vertriebschef der DEVK - das investment",
+        "date": "2024-01-19",
+        "media_source": "das investment",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Führungswechsel: Marco Becker neuer Schaden-Chef der DEVK - autohaus.de",
+        "date": "2023-12-11",
+        "media_source": "autohaus.de",
+        "topics": [
+          "Schaden & Leistung"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "negative"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Vorstand der DEVK Rechtsschutz-Versicherung stellt sich neu auf - cash-online.de",
+        "date": "2023-12-06",
+        "media_source": "cash-online.de",
+        "topics": [
+          "Digitalisierung & KI",
+          "Recht & Regulierung"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Vorstandswechsel bei der DEVK Rechtsschutz-Versicherung - das investment",
+        "date": "2023-12-06",
+        "media_source": "das investment",
+        "topics": [
+          "Recht & Regulierung"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "DEVK erhöht laufende Verzinsung - procontra",
+        "date": "2023-12-01",
+        "media_source": "procontra",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "DEVK mietet Büros in ehemaligen Kölner Messehallen - immobilienmanager",
+        "date": "2023-11-14",
+        "media_source": "immobilienmanager",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "DEVK mietet 14.000 m² in ehemaligen Kölner Messehallen - JLL",
+        "date": "2023-11-13",
+        "media_source": "JLL",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Die DEVK-Versicherung setzt auf Kundenkommunikationslösung Serie M von KW-Soft - IT Finanzmagazin",
+        "date": "2023-11-07",
+        "media_source": "IT Finanzmagazin",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Hannoversche Versicherung - Das Jetzt versichern. - Hannoversche Versicherung",
+        "date": "2026-05-12",
+        "media_source": "Hannoversche Versicherung",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Digitaler Grabstein mit QR-Code oder Display: Digital trauern - Hannoversche Versicherung",
+        "date": "2026-05-07",
+        "media_source": "Hannoversche Versicherung",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "VHV zieht Bilanz: Kfz, KI und Kurs auf Altersvorsorgereform - AssCompact",
+        "date": "2026-04-15",
+        "media_source": "AssCompact",
+        "topics": [
+          "KFZ & Mobilität",
+          "Digitalisierung & KI",
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Produktcheck der Risikolebensversicherung der Hannoverschen - das investment",
+        "date": "2025-10-07",
+        "media_source": "das investment",
+        "topics": [
+          "Produkt & Innovation"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "positive"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "So werden LV an den höheren Höchstrechnungszins angepasst - das investment",
+        "date": "2025-02-20",
+        "media_source": "das investment",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Hannoversche startet Grundfähigkeitsversicherung - AssCompact",
+        "date": "2024-12-19",
+        "media_source": "AssCompact",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Hannoversche Leben: Martin Heinen wird neuer Vorstand - cash-online.de",
+        "date": "2024-06-28",
+        "media_source": "cash-online.de",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Hannoversche erweitert Vorstand - AssCompact",
+        "date": "2024-06-28",
+        "media_source": "AssCompact",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Martin Heinen übernimmt neues Ressort für Produkte und Betrieb - das investment",
+        "date": "2024-06-28",
+        "media_source": "das investment",
+        "topics": [
+          "Produkt & Innovation"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "positive"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Hannoversche Leben erweitert Vorstand mit Martin Heinen - Börsen-Zeitung",
+        "date": "2024-06-28",
+        "media_source": "Börsen-Zeitung",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Wefox holt Ex-Chef von Cosmos Direkt als Manager - Business Insider Deutschland",
+        "date": "2021-06-28",
+        "media_source": "Business Insider Deutschland",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Expertentipp - CosmosDirekt - Was tun bei Hagelschäden? - Cosmos Direkt",
+        "date": "2021-06-23",
+        "media_source": "Cosmos Direkt",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Expertentipp - CosmosDirekt - Steuererklärung - Cosmos Direkt",
+        "date": "2021-06-16",
+        "media_source": "Cosmos Direkt",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "\"Schütze, was du liebst\": Cosmos Direkt feiert die Familie von heute - mit den Carpendales und Denyo - Horizont.net",
+        "date": "2021-06-15",
+        "media_source": "Horizont.net",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Zahl der Woche - CosmosDirekt - Deutschland verschönert das Zuhause - Cosmos Direkt",
+        "date": "2021-06-14",
+        "media_source": "Cosmos Direkt",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Zahl der Woche - CosmosDirekt - Erwartungen an die Berufsunfähigkeitsversicherung - Cosmos Direkt",
+        "date": "2021-06-07",
+        "media_source": "Cosmos Direkt",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Versicherung der Kameraausrüstung on demand: CosmosDirekt bietet ab sofort Schutz, wenn man ihn braucht - Cosmos Direkt",
+        "date": "2021-06-01",
+        "media_source": "Cosmos Direkt",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "news_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "CosmosDirekt Mobility Check: So steht es um die Mobilität in den deutschen Großstädten - Presseportal",
+        "date": "2021-05-25",
+        "media_source": "Presseportal",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Mobility Check 2021 – CosmosDirekt – Schadenshäufigkeit - Cosmos Direkt",
+        "date": "2021-05-19",
+        "media_source": "Cosmos Direkt",
+        "topics": [
+          "KFZ & Mobilität",
+          "Schaden & Leistung"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "negative"
+    },
+    {
+      "timestamp": "2026-05-13T04:44:03Z",
+      "event_type": "press_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Mobility Check 2021 – CosmosDirekt – Sicherer Süden - Cosmos Direkt",
+        "date": "2021-05-19",
+        "media_source": "Cosmos Direkt",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-13T06-25-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.055400000000000005,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/einstufung-pflegegrad",
+        "summary": "15 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 94.5%).",
+        "similarity": 0.9446,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.002076
       }
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
+      "timestamp": "2026-05-13T06-25-51Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 1.0,
+      "magnitude": 0.005299999999999971,
       "detail": {
-        "url": "https://www.huk.de/karriere/huk-coburg-dienstleistung/standort-saarbruecken/insights.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "url": "https://www.allianz.de/recht-und-eigentum/rechtsschutzversicherung/digitalen-nachlass-regeln",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 99.5%).",
+        "similarity": 0.9947,
+        "classification": {
+          "error": "HTTP 403"
+        }
       },
       "sov_deltas": {
-        "lag_1d": 0.054219
+        "lag_1d": 0.011146
       }
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
+      "timestamp": "2026-05-13T06-25-51Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 1.0,
+      "magnitude": 0.0047000000000000375,
       "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung/ratgeber-lebensversicherung/versicherungssumme",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "url": "https://www.allianz.de/recht-und-eigentum/rechtsschutzversicherung/vorsorgevollmacht",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.5%).",
+        "similarity": 0.9953,
+        "classification": {
+          "error": "HTTP 403"
+        }
       },
       "sov_deltas": {
-        "lag_1d": 0.012286
+        "lag_1d": 0.011146
       }
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
+      "timestamp": "2026-05-13T06-25-51Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 1.0,
+      "magnitude": 0.6184000000000001,
       "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung/ratgeber-lebensversicherung/ueber-kreuz-absicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/sinnvoll",
+        "summary": "62 neue Zeilen, 106 entfernte Zeilen (Ähnlichkeit 38.2%).",
+        "similarity": 0.3816,
+        "classification": {
+          "error": "HTTP 403"
+        }
       },
       "sov_deltas": {
-        "lag_1d": 0.012286
+        "lag_1d": 0.011146
       }
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
+      "timestamp": "2026-05-13T06-25-51Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 1.0,
+      "magnitude": 0.012900000000000023,
       "detail": {
-        "url": "https://www.huk.de/gesundheit-vorsorge-vermoegen/ratgeber/richtig-vorsorgen/berufsunfaehigkeit-absichern.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "url": "https://www.allianz.de/recht-und-eigentum/rechtsschutzversicherung/erbe-ausschlagen",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 98.7%).",
+        "similarity": 0.9871,
+        "classification": {
+          "error": "HTTP 403"
+        }
       },
       "sov_deltas": {
-        "lag_1d": 0.012286
+        "lag_1d": 0.011146
       }
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
+      "timestamp": "2026-05-13T06-25-51Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 1.0,
+      "magnitude": 0.006900000000000017,
       "detail": {
-        "url": "https://www.huk.de/karriere/huk-coburg-dienstleistung/standort-saarbruecken/jobs.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "url": "https://www.allianz.de/recht-und-eigentum/rechtsschutzversicherung/patientenverfuegung",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.3%).",
+        "similarity": 0.9931,
+        "classification": {
+          "error": "HTTP 403"
+        }
       },
       "sov_deltas": {
-        "lag_1d": 0.054219
+        "lag_1d": 0.011146
       }
     },
     {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
+      "timestamp": "2026-05-13T06-25-51Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 1.0,
+      "magnitude": 0.6184000000000001,
       "detail": {
-        "url": "https://www.huk.de/presse/nachrichten/verbrauchertipps/e-scooter.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/sinnvoll/",
+        "summary": "62 neue Zeilen, 106 entfernte Zeilen (Ähnlichkeit 38.2%).",
+        "similarity": 0.3816,
+        "classification": {
+          "error": "HTTP 403"
+        }
       },
       "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/gesundheit-vorsorge-vermoegen/ratgeber/krankenversicherung-tipps/krankentagegeld-lohnfortzahlung.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.054219
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung/ratgeber-lebensversicherung/restschuldversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/gesundheit-vorsorge-vermoegen/existenzsicherung/existenzschutzversicherung.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/gesundheit-vorsorge-vermoegen/ratgeber/nachhaltigkeit/diy/ostereier-faerben.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006886
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung/ratgeber-lebensversicherung/ueberschussbeteiligung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung/ratgeber-lebensversicherung/rechner",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/gesundheit-vorsorge-vermoegen/existenzsicherung/berufsunfaehigkeitsversicherung.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/service/kunden-werben-kunden.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006886
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/gesundheit-vorsorge-vermoegen/existenzsicherung/unfallversicherung.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/gesundheit-vorsorge-vermoegen/ratgeber/richtig-vorsorgen/berufsunfaehigkeit-beantragen.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/gesundheit-vorsorge-vermoegen/existenzsicherung/dienstunfaehigkeitsversicherung.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/karriere/einstieg/selbststaendige-vermittler/vm/nebenberuflich.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung/ratgeber-lebensversicherung/gesundheitspruefung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/gesundheit-vorsorge-vermoegen/ratgeber/kochrezepte/loewenzahn-honig.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.054219
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/gesundheit-vorsorge-vermoegen/existenzsicherung/dienstunfaehigkeitsversicherung/beamtenanwaerter.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung/ratgeber-lebensversicherung/kredit-absichern-arbeit",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/gesundheit-vorsorge-vermoegen/ratgeber/verbraucherschutz.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/karriere/huk-coburg-dienstleistung/standort-saarbruecken/kontakt.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.054219
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung/ratgeber-lebensversicherung/vergleich",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/haus-haftung-recht/haus-wohnung/baufinanzierung.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/karriere/huk-coburg-dienstleistung/standort-saarbruecken/jobs/sachbearbeiter-kfz-schadenregulierung.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.054219
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung/ratgeber-lebensversicherung/was-ist-eine-risikolebensversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung/ratgeber-lebensversicherung/kredit-absichern",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/gesundheit-vorsorge-vermoegen/ratgeber/richtig-vorsorgen/berufsunfaehigkeit-sinnvoll.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/gesundheit-vorsorge-vermoegen/ratgeber/richtig-vorsorgen/altersvorsorge-fuer-selbststaendige.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung/ratgeber-lebensversicherung/raucher",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung/ratgeber-lebensversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung/ratgeber-lebensversicherung/lebensversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/karriere/huk-coburg-dienstleistung/standort-saarbruecken/jobs/schadenbearbeitung-kasko.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.054219
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung/ratgeber-lebensversicherung/konstanter-schutz-oder-fallende-summe",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/karriere/huk-coburg-dienstleistung/standort-saarbruecken/hdl-saarbruecken.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.054219
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung/ratgeber-lebensversicherung/kinder",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung/ratgeber-lebensversicherung/kredit-absichern-auto",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk24.de/risikolebensversicherung/ratgeber-lebensversicherung/steuern",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/karriere/einstieg/selbststaendige-vermittler.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.012286
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/haus-haftung-recht/ratgeber/digitaler-nachlass.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006886
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/gesundheit-vorsorge-vermoegen/ratgeber/nachhaltigkeit/diy/kraeuterbeet.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006886
-      }
-    },
-    {
-      "timestamp": "2026-05-12T00-34-20Z",
-      "event_type": "page_new",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.huk.de/gesundheit-vorsorge-vermoegen/ratgeber/richtig-vorsorgen/witwenrente.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006886
+        "lag_1d": -0.000552
       }
     }
   ]
