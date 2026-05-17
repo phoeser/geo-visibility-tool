@@ -1,21 +1,62 @@
 {
   "meta": {
-    "total_page_events": 2074,
-    "total_cockpit_events": 4162,
-    "total_unified_events": 6211,
-    "total_enriched_events": 6211,
-    "total_runs": 49,
+    "total_page_events": 2079,
+    "total_cockpit_events": 4302,
+    "total_unified_events": 6356,
+    "total_enriched_events": 6356,
+    "total_runs": 50,
     "lag_windows": [
       1,
       3,
       7,
       14
     ],
-    "generated_at": "2026-05-16T06:50:03.738624Z"
+    "generated_at": "2026-05-17T07:21:12.542806Z"
   },
   "event_summary": {
-    "news_mention": {
-      "count": 2693,
+    "page_new": {
+      "count": 1636,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg"
+      ],
+      "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "sov_change": {
+      "count": 104,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg"
+      ],
+      "avg_magnitude": 1.246,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "page_change": {
+      "count": 453,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO",
+        "HUK-Coburg"
+      ],
+      "avg_magnitude": 0.206,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "press_mention": {
+      "count": 1337,
       "brands": [
         "AXA",
         "Allianz",
@@ -29,20 +70,6 @@
         "Signal Iduna"
       ],
       "avg_magnitude": 1.0,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    "sov_change": {
-      "count": 79,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg"
-      ],
-      "avg_magnitude": 1.279,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -63,35 +90,8 @@
       "best_spearman_rho": null,
       "impact": {}
     },
-    "page_change": {
-      "count": 433,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO",
-        "HUK-Coburg"
-      ],
-      "avg_magnitude": 0.185,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    "page_new": {
-      "count": 1636,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg"
-      ],
-      "avg_magnitude": 1.0,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    "press_mention": {
-      "count": 1307,
+    "news_mention": {
+      "count": 2763,
       "brands": [
         "AXA",
         "Allianz",
@@ -122,8 +122,52 @@
   },
   "impact_ranking": [
     {
-      "event_type": "news_mention",
-      "count": 2693,
+      "event_type": "page_new",
+      "count": 1636,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg"
+      ],
+      "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "sov_change",
+      "count": 104,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg"
+      ],
+      "avg_magnitude": 1.246,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "page_change",
+      "count": 453,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO",
+        "HUK-Coburg"
+      ],
+      "avg_magnitude": 0.206,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "press_mention",
+      "count": 1337,
       "brands": [
         "AXA",
         "Allianz",
@@ -137,21 +181,6 @@
         "Signal Iduna"
       ],
       "avg_magnitude": 1.0,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
-      "event_type": "sov_change",
-      "count": 79,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg"
-      ],
-      "avg_magnitude": 1.279,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -174,37 +203,8 @@
       "impact": {}
     },
     {
-      "event_type": "page_change",
-      "count": 433,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO",
-        "HUK-Coburg"
-      ],
-      "avg_magnitude": 0.185,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
-      "event_type": "page_new",
-      "count": 1636,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg"
-      ],
-      "avg_magnitude": 1.0,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
-      "event_type": "press_mention",
-      "count": 1307,
+      "event_type": "news_mention",
+      "count": 2763,
       "brands": [
         "AXA",
         "Allianz",
@@ -235,59 +235,113 @@
     }
   ],
   "correlation_matrix": {
-    "news_mention__delta_share_of_voice__lag_1d": {
-      "event_type": "news_mention",
+    "page_new__delta_share_of_voice__lag_1d": {
+      "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 2693,
-      "spearman_rho": 0.5703,
-      "avg_delta": 0.000193,
+      "n_events": 1636,
+      "spearman_rho": 0.5023,
+      "avg_delta": -0.003589,
       "avg_magnitude": 1.0
     },
-    "news_mention__delta_appearance_rate__lag_1d": {
-      "event_type": "news_mention",
+    "page_new__delta_appearance_rate__lag_1d": {
+      "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 2693,
-      "spearman_rho": 0.5801,
-      "avg_delta": -0.015711,
+      "n_events": 1636,
+      "spearman_rho": 0.5024,
+      "avg_delta": 0.019626,
       "avg_magnitude": 1.0
     },
-    "news_mention__delta_citation_rate__lag_1d": {
-      "event_type": "news_mention",
+    "page_new__delta_citation_rate__lag_1d": {
+      "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 2693,
-      "spearman_rho": 0.5798,
-      "avg_delta": -0.000875,
+      "n_events": 1636,
+      "spearman_rho": 0.5026,
+      "avg_delta": 0.017792,
       "avg_magnitude": 1.0
     },
     "sov_change__delta_share_of_voice__lag_1d": {
       "event_type": "sov_change",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 79,
-      "spearman_rho": 0.1242,
-      "avg_delta": 0.000129,
-      "avg_magnitude": 1.279
+      "n_events": 104,
+      "spearman_rho": 0.0886,
+      "avg_delta": -0.000185,
+      "avg_magnitude": 1.246
     },
     "sov_change__delta_appearance_rate__lag_1d": {
       "event_type": "sov_change",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 79,
-      "spearman_rho": 0.1142,
-      "avg_delta": -0.010613,
-      "avg_magnitude": 1.279
+      "n_events": 104,
+      "spearman_rho": 0.1041,
+      "avg_delta": -0.008575,
+      "avg_magnitude": 1.246
     },
     "sov_change__delta_citation_rate__lag_1d": {
       "event_type": "sov_change",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 79,
-      "spearman_rho": 0.1092,
-      "avg_delta": -0.001308,
-      "avg_magnitude": 1.279
+      "n_events": 104,
+      "spearman_rho": 0.0838,
+      "avg_delta": -0.001049,
+      "avg_magnitude": 1.246
+    },
+    "page_change__delta_share_of_voice__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 453,
+      "spearman_rho": 0.2159,
+      "avg_delta": -0.012276,
+      "avg_magnitude": 0.206
+    },
+    "page_change__delta_appearance_rate__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 453,
+      "spearman_rho": -0.0644,
+      "avg_delta": 0.016439,
+      "avg_magnitude": 0.206
+    },
+    "page_change__delta_citation_rate__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 453,
+      "spearman_rho": 0.165,
+      "avg_delta": -0.003829,
+      "avg_magnitude": 0.206
+    },
+    "press_mention__delta_share_of_voice__lag_1d": {
+      "event_type": "press_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 1337,
+      "spearman_rho": 0.5486,
+      "avg_delta": -0.000584,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_appearance_rate__lag_1d": {
+      "event_type": "press_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 1337,
+      "spearman_rho": 0.562,
+      "avg_delta": -0.014261,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_citation_rate__lag_1d": {
+      "event_type": "press_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 1337,
+      "spearman_rho": 0.5668,
+      "avg_delta": 0.000268,
+      "avg_magnitude": 1.0
     },
     "domain_change__delta_share_of_voice__lag_1d": {
       "event_type": "domain_change",
@@ -316,194 +370,32 @@
       "avg_delta": -0.003531,
       "avg_magnitude": 1.817
     },
-    "page_change__delta_share_of_voice__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 433,
-      "spearman_rho": 0.2008,
-      "avg_delta": -0.011633,
-      "avg_magnitude": 0.185
-    },
-    "page_change__delta_appearance_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 433,
-      "spearman_rho": -0.0145,
-      "avg_delta": 0.018023,
-      "avg_magnitude": 0.185
-    },
-    "page_change__delta_citation_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 433,
-      "spearman_rho": 0.1575,
-      "avg_delta": -0.004108,
-      "avg_magnitude": 0.185
-    },
-    "page_new__delta_share_of_voice__lag_1d": {
-      "event_type": "page_new",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 1636,
-      "spearman_rho": 0.5023,
-      "avg_delta": -0.003589,
-      "avg_magnitude": 1.0
-    },
-    "page_new__delta_appearance_rate__lag_1d": {
-      "event_type": "page_new",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 1636,
-      "spearman_rho": 0.5024,
-      "avg_delta": 0.019626,
-      "avg_magnitude": 1.0
-    },
-    "page_new__delta_citation_rate__lag_1d": {
-      "event_type": "page_new",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 1636,
-      "spearman_rho": 0.5026,
-      "avg_delta": 0.017792,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_share_of_voice__lag_1d": {
-      "event_type": "press_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 1307,
-      "spearman_rho": 0.5486,
-      "avg_delta": -0.000397,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_appearance_rate__lag_1d": {
-      "event_type": "press_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 1307,
-      "spearman_rho": 0.5613,
-      "avg_delta": -0.014486,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_citation_rate__lag_1d": {
-      "event_type": "press_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 1307,
-      "spearman_rho": 0.5563,
-      "avg_delta": 0.000398,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_share_of_voice__lag_3d": {
+    "news_mention__delta_share_of_voice__lag_1d": {
       "event_type": "news_mention",
       "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 2005,
-      "spearman_rho": 0.5673,
-      "avg_delta": 0.000586,
+      "lag_days": 1,
+      "n_events": 2763,
+      "spearman_rho": 0.5702,
+      "avg_delta": 0.000283,
       "avg_magnitude": 1.0
     },
-    "news_mention__delta_appearance_rate__lag_3d": {
+    "news_mention__delta_appearance_rate__lag_1d": {
       "event_type": "news_mention",
       "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 2005,
-      "spearman_rho": 0.5734,
-      "avg_delta": -0.026574,
+      "lag_days": 1,
+      "n_events": 2763,
+      "spearman_rho": 0.5807,
+      "avg_delta": -0.015264,
       "avg_magnitude": 1.0
     },
-    "news_mention__delta_citation_rate__lag_3d": {
+    "news_mention__delta_citation_rate__lag_1d": {
       "event_type": "news_mention",
       "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 2005,
-      "spearman_rho": 0.5742,
-      "avg_delta": -0.00151,
+      "lag_days": 1,
+      "n_events": 2763,
+      "spearman_rho": 0.5829,
+      "avg_delta": -0.000651,
       "avg_magnitude": 1.0
-    },
-    "sov_change__delta_share_of_voice__lag_3d": {
-      "event_type": "sov_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 50,
-      "spearman_rho": 0.1396,
-      "avg_delta": -3.2e-05,
-      "avg_magnitude": 1.284
-    },
-    "sov_change__delta_appearance_rate__lag_3d": {
-      "event_type": "sov_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 50,
-      "spearman_rho": 0.0806,
-      "avg_delta": -0.017234,
-      "avg_magnitude": 1.284
-    },
-    "sov_change__delta_citation_rate__lag_3d": {
-      "event_type": "sov_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 50,
-      "spearman_rho": 0.1653,
-      "avg_delta": -0.00428,
-      "avg_magnitude": 1.284
-    },
-    "domain_change__delta_share_of_voice__lag_3d": {
-      "event_type": "domain_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 62,
-      "spearman_rho": 0.2343,
-      "avg_delta": 0.000174,
-      "avg_magnitude": 1.817
-    },
-    "domain_change__delta_appearance_rate__lag_3d": {
-      "event_type": "domain_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 62,
-      "spearman_rho": 0.2433,
-      "avg_delta": 0.006299,
-      "avg_magnitude": 1.817
-    },
-    "domain_change__delta_citation_rate__lag_3d": {
-      "event_type": "domain_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 62,
-      "spearman_rho": 0.2043,
-      "avg_delta": 0.003245,
-      "avg_magnitude": 1.817
-    },
-    "page_change__delta_share_of_voice__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 415,
-      "spearman_rho": -0.0577,
-      "avg_delta": -0.003194,
-      "avg_magnitude": 0.17
-    },
-    "page_change__delta_appearance_rate__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 415,
-      "spearman_rho": -0.2587,
-      "avg_delta": -0.003288,
-      "avg_magnitude": 0.17
-    },
-    "page_change__delta_citation_rate__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 415,
-      "spearman_rho": -0.2685,
-      "avg_delta": 0.004556,
-      "avg_magnitude": 0.17
     },
     "page_new__delta_share_of_voice__lag_3d": {
       "event_type": "page_new",
@@ -532,140 +424,194 @@
       "avg_delta": 0.032335,
       "avg_magnitude": 1.0
     },
+    "sov_change__delta_share_of_voice__lag_3d": {
+      "event_type": "sov_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 79,
+      "spearman_rho": -0.0194,
+      "avg_delta": 0.001918,
+      "avg_magnitude": 1.279
+    },
+    "sov_change__delta_appearance_rate__lag_3d": {
+      "event_type": "sov_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 79,
+      "spearman_rho": 0.0983,
+      "avg_delta": -0.011822,
+      "avg_magnitude": 1.279
+    },
+    "sov_change__delta_citation_rate__lag_3d": {
+      "event_type": "sov_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 79,
+      "spearman_rho": 0.0645,
+      "avg_delta": -0.001165,
+      "avg_magnitude": 1.279
+    },
+    "page_change__delta_share_of_voice__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 433,
+      "spearman_rho": -0.0169,
+      "avg_delta": -0.002219,
+      "avg_magnitude": 0.185
+    },
+    "page_change__delta_appearance_rate__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 433,
+      "spearman_rho": -0.229,
+      "avg_delta": -0.003436,
+      "avg_magnitude": 0.185
+    },
+    "page_change__delta_citation_rate__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 433,
+      "spearman_rho": -0.2351,
+      "avg_delta": 0.00448,
+      "avg_magnitude": 0.185
+    },
     "press_mention__delta_share_of_voice__lag_3d": {
       "event_type": "press_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 3,
-      "n_events": 895,
-      "spearman_rho": 0.5529,
-      "avg_delta": -0.001313,
+      "n_events": 1307,
+      "spearman_rho": 0.5486,
+      "avg_delta": -0.001152,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_appearance_rate__lag_3d": {
       "event_type": "press_mention",
       "metric": "delta_appearance_rate",
       "lag_days": 3,
-      "n_events": 895,
-      "spearman_rho": 0.5608,
-      "avg_delta": -0.026439,
+      "n_events": 1307,
+      "spearman_rho": 0.5537,
+      "avg_delta": -0.019116,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_citation_rate__lag_3d": {
       "event_type": "press_mention",
       "metric": "delta_citation_rate",
       "lag_days": 3,
-      "n_events": 895,
-      "spearman_rho": 0.5676,
-      "avg_delta": -0.000628,
+      "n_events": 1307,
+      "spearman_rho": 0.5966,
+      "avg_delta": -0.001225,
       "avg_magnitude": 1.0
     },
-    "news_mention__delta_share_of_voice__lag_7d": {
-      "event_type": "news_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 1448,
-      "spearman_rho": 0.5627,
-      "avg_delta": 0.000817,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_appearance_rate__lag_7d": {
-      "event_type": "news_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 1448,
-      "spearman_rho": 0.5627,
-      "avg_delta": -0.026605,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_citation_rate__lag_7d": {
-      "event_type": "news_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 1448,
-      "spearman_rho": 0.571,
-      "avg_delta": 4.9e-05,
-      "avg_magnitude": 1.0
-    },
-    "domain_change__delta_share_of_voice__lag_7d": {
+    "domain_change__delta_share_of_voice__lag_3d": {
       "event_type": "domain_change",
       "metric": "delta_share_of_voice",
-      "lag_days": 7,
+      "lag_days": 3,
       "n_events": 62,
-      "spearman_rho": 0.3127,
-      "avg_delta": -9.7e-05,
+      "spearman_rho": 0.2343,
+      "avg_delta": 0.000174,
       "avg_magnitude": 1.817
     },
-    "domain_change__delta_appearance_rate__lag_7d": {
+    "domain_change__delta_appearance_rate__lag_3d": {
       "event_type": "domain_change",
       "metric": "delta_appearance_rate",
-      "lag_days": 7,
+      "lag_days": 3,
       "n_events": 62,
-      "spearman_rho": 0.2727,
-      "avg_delta": -0.005154,
+      "spearman_rho": 0.2433,
+      "avg_delta": 0.006299,
       "avg_magnitude": 1.817
     },
-    "domain_change__delta_citation_rate__lag_7d": {
+    "domain_change__delta_citation_rate__lag_3d": {
       "event_type": "domain_change",
       "metric": "delta_citation_rate",
-      "lag_days": 7,
+      "lag_days": 3,
       "n_events": 62,
-      "spearman_rho": 0.4545,
-      "avg_delta": 0.000604,
+      "spearman_rho": 0.2043,
+      "avg_delta": 0.003245,
       "avg_magnitude": 1.817
     },
-    "page_change__delta_share_of_voice__lag_7d": {
-      "event_type": "page_change",
+    "news_mention__delta_share_of_voice__lag_3d": {
+      "event_type": "news_mention",
       "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 376,
-      "spearman_rho": -0.3833,
-      "avg_delta": 0.026968,
-      "avg_magnitude": 0.128
+      "lag_days": 3,
+      "n_events": 2693,
+      "spearman_rho": 0.5703,
+      "avg_delta": 0.000559,
+      "avg_magnitude": 1.0
     },
-    "page_change__delta_appearance_rate__lag_7d": {
-      "event_type": "page_change",
+    "news_mention__delta_appearance_rate__lag_3d": {
+      "event_type": "news_mention",
       "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 376,
-      "spearman_rho": -0.4839,
-      "avg_delta": 0.033808,
-      "avg_magnitude": 0.128
+      "lag_days": 3,
+      "n_events": 2693,
+      "spearman_rho": 0.575,
+      "avg_delta": -0.019536,
+      "avg_magnitude": 1.0
     },
-    "page_change__delta_citation_rate__lag_7d": {
-      "event_type": "page_change",
+    "news_mention__delta_citation_rate__lag_3d": {
+      "event_type": "news_mention",
       "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 376,
-      "spearman_rho": -0.4139,
-      "avg_delta": 0.032638,
-      "avg_magnitude": 0.128
+      "lag_days": 3,
+      "n_events": 2693,
+      "spearman_rho": 0.5929,
+      "avg_delta": -0.000914,
+      "avg_magnitude": 1.0
     },
     "page_new__delta_share_of_voice__lag_7d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 7,
-      "n_events": 915,
-      "spearman_rho": 0.5025,
-      "avg_delta": 0.007874,
+      "n_events": 1636,
+      "spearman_rho": 0.5023,
+      "avg_delta": 0.001294,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_7d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 7,
-      "n_events": 915,
+      "n_events": 1636,
       "spearman_rho": 0.5025,
-      "avg_delta": -0.073481,
+      "avg_delta": -0.046145,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_7d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 7,
-      "n_events": 915,
-      "spearman_rho": 0.5029,
-      "avg_delta": 0.060425,
+      "n_events": 1636,
+      "spearman_rho": 0.5035,
+      "avg_delta": 0.045836,
       "avg_magnitude": 1.0
+    },
+    "page_change__delta_share_of_voice__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 378,
+      "spearman_rho": -0.3834,
+      "avg_delta": 0.026752,
+      "avg_magnitude": 0.128
+    },
+    "page_change__delta_appearance_rate__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 378,
+      "spearman_rho": -0.4856,
+      "avg_delta": 0.03378,
+      "avg_magnitude": 0.128
+    },
+    "page_change__delta_citation_rate__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 378,
+      "spearman_rho": -0.4139,
+      "avg_delta": 0.03244,
+      "avg_magnitude": 0.128
     },
     "press_mention__delta_share_of_voice__lag_7d": {
       "event_type": "press_mention",
@@ -694,59 +640,59 @@
       "avg_delta": 0.000133,
       "avg_magnitude": 1.0
     },
-    "news_mention__delta_share_of_voice__lag_14d": {
+    "domain_change__delta_share_of_voice__lag_7d": {
+      "event_type": "domain_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 62,
+      "spearman_rho": 0.0403,
+      "avg_delta": -0.001201,
+      "avg_magnitude": 1.817
+    },
+    "domain_change__delta_appearance_rate__lag_7d": {
+      "event_type": "domain_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 62,
+      "spearman_rho": 0.1095,
+      "avg_delta": -0.006108,
+      "avg_magnitude": 1.817
+    },
+    "domain_change__delta_citation_rate__lag_7d": {
+      "event_type": "domain_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 62,
+      "spearman_rho": 0.3028,
+      "avg_delta": 0.000414,
+      "avg_magnitude": 1.817
+    },
+    "news_mention__delta_share_of_voice__lag_7d": {
       "event_type": "news_mention",
       "metric": "delta_share_of_voice",
-      "lag_days": 14,
+      "lag_days": 7,
       "n_events": 1448,
-      "spearman_rho": 0.5628,
-      "avg_delta": 0.000677,
+      "spearman_rho": 0.5627,
+      "avg_delta": 0.000817,
       "avg_magnitude": 1.0
     },
-    "news_mention__delta_appearance_rate__lag_14d": {
+    "news_mention__delta_appearance_rate__lag_7d": {
       "event_type": "news_mention",
       "metric": "delta_appearance_rate",
-      "lag_days": 14,
+      "lag_days": 7,
       "n_events": 1448,
-      "spearman_rho": 0.5841,
-      "avg_delta": -0.03035,
+      "spearman_rho": 0.5627,
+      "avg_delta": -0.026605,
       "avg_magnitude": 1.0
     },
-    "news_mention__delta_citation_rate__lag_14d": {
+    "news_mention__delta_citation_rate__lag_7d": {
       "event_type": "news_mention",
       "metric": "delta_citation_rate",
-      "lag_days": 14,
+      "lag_days": 7,
       "n_events": 1448,
-      "spearman_rho": 0.563,
-      "avg_delta": -0.001353,
+      "spearman_rho": 0.571,
+      "avg_delta": 4.9e-05,
       "avg_magnitude": 1.0
-    },
-    "page_change__delta_share_of_voice__lag_14d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 14,
-      "n_events": 186,
-      "spearman_rho": 0.3356,
-      "avg_delta": -0.010317,
-      "avg_magnitude": 0.08
-    },
-    "page_change__delta_appearance_rate__lag_14d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 14,
-      "n_events": 186,
-      "spearman_rho": -0.2704,
-      "avg_delta": -0.078842,
-      "avg_magnitude": 0.08
-    },
-    "page_change__delta_citation_rate__lag_14d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 14,
-      "n_events": 186,
-      "spearman_rho": -0.4619,
-      "avg_delta": 0.053752,
-      "avg_magnitude": 0.08
     },
     "page_new__delta_share_of_voice__lag_14d": {
       "event_type": "page_new",
@@ -775,13 +721,40 @@
       "avg_delta": 0.044977,
       "avg_magnitude": 1.0
     },
+    "page_change__delta_share_of_voice__lag_14d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 14,
+      "n_events": 187,
+      "spearman_rho": 0.339,
+      "avg_delta": -0.010013,
+      "avg_magnitude": 0.08
+    },
+    "page_change__delta_appearance_rate__lag_14d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 187,
+      "spearman_rho": -0.2652,
+      "avg_delta": -0.077973,
+      "avg_magnitude": 0.08
+    },
+    "page_change__delta_citation_rate__lag_14d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 187,
+      "spearman_rho": -0.467,
+      "avg_delta": 0.053755,
+      "avg_magnitude": 0.08
+    },
     "press_mention__delta_share_of_voice__lag_14d": {
       "event_type": "press_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 14,
       "n_events": 652,
-      "spearman_rho": 0.5628,
-      "avg_delta": -0.001503,
+      "spearman_rho": 0.5627,
+      "avg_delta": -0.001739,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_appearance_rate__lag_14d": {
@@ -789,8 +762,8 @@
       "metric": "delta_appearance_rate",
       "lag_days": 14,
       "n_events": 652,
-      "spearman_rho": 0.5932,
-      "avg_delta": -0.030551,
+      "spearman_rho": 0.5931,
+      "avg_delta": -0.030696,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_citation_rate__lag_14d": {
@@ -798,192 +771,70 @@
       "metric": "delta_citation_rate",
       "lag_days": 14,
       "n_events": 652,
-      "spearman_rho": 0.5629,
-      "avg_delta": 7e-05,
+      "spearman_rho": 0.5693,
+      "avg_delta": -0.000136,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_share_of_voice__lag_14d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 14,
+      "n_events": 1448,
+      "spearman_rho": 0.5627,
+      "avg_delta": 0.000783,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_14d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 1448,
+      "spearman_rho": 0.5839,
+      "avg_delta": -0.030285,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_14d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 1448,
+      "spearman_rho": 0.5678,
+      "avg_delta": -0.001056,
       "avg_magnitude": 1.0
     }
   },
   "dashboard_events": [
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
-      "brand": "Allianz",
+      "brand": "ERGO",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Allianz und die Herausforderungen der Versicherung autonomer Fahrzeuge - Versicherungsbote",
-        "date": "2025-01-27",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.003164
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "Allianz",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Allianz-CEO: Oliver Bäte für Lohnstreichung am ersten Krankheitstag - Handelsblatt",
-        "date": "2025-01-10",
-        "media_source": "Handelsblatt",
+        "title": "Reiseschutzspezialist LTA wechselt zu Ergo als Risikoträger - Reise vor9",
+        "date": "2025-12-05",
+        "media_source": "Reise vor9",
         "topics": [
           "Allgemein"
         ],
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.003164
+        "lag_1d": -0.016601
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
-      "brand": "Allianz",
+      "brand": "ERGO",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Katja de la Viña: Allianz-Leben-Chefin geht in Teilzeit und gibt Posten auf - Handelsblatt",
-        "date": "2024-12-12",
-        "media_source": "Handelsblatt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.003164
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "press_mention",
-      "brand": "Allianz",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Vermögensbildung - Allianz",
-        "date": "2024-12-02",
-        "media_source": "Allianz",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.003164
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "Allianz",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "HUK gegen Allianz: Der Kampf der Kfz-Marktführer in Kennzahlen - Versicherungsbote",
-        "date": "2024-11-29",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "KFZ & Mobilität",
-          "Unternehmen & Strategie"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.003164
-      },
-      "sentiment": "positive"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Preissteigerungen setzen private Altersvorsorge unter Druck - cash-online.de",
-        "date": "2026-04-23",
-        "media_source": "cash-online.de",
-        "topics": [
-          "Digitalisierung & KI",
-          "Finanzen & Vorsorge"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014925
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Die 10 wertvollsten Versicherungsmarken der Welt 2026 - private banking magazin",
-        "date": "2026-01-28",
-        "media_source": "private banking magazin",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014925
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "AXA, Allianz, Zurich: Nur eine Aktie überzeugt - Der Aktionär",
-        "date": "2025-07-02",
-        "media_source": "Der Aktionär",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014925
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Axa und Apobank arbeiten an Allfinanzvertrieb - procontra",
-        "date": "2025-06-13",
+        "title": "Machtwechsel bei Ergo Leben: Oliver Horn übernimmt – Fausers Zukunft ungewiss - procontra",
+        "date": "2025-10-28",
         "media_source": "procontra",
         "topics": [
           "Allgemein"
@@ -991,54 +842,415 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.014925
+        "lag_1d": -0.016601
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "press_mention",
+      "brand": "ERGO",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Von Axa: R+V holt Nils Reich als neuen Komposit-Vorstand - das investment",
-        "date": "2025-06-11",
-        "media_source": "das investment",
+        "title": "Kündigung wegen Eigenbedarf - ERGO Group AG",
+        "date": "2025-10-06",
+        "media_source": "ERGO Group AG",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.016601
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "press_mention",
+      "brand": "ERGO",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Virtuelle Welten bei ERGO - ERGO Group AG",
+        "date": "2025-09-27",
+        "media_source": "ERGO Group AG",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.016601
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "press_mention",
+      "brand": "ERGO",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Neue Wege in der COPD-Therapie: DKV und Kaia Health bauen Kooperation aus - ERGO Group AG",
+        "date": "2025-09-18",
+        "media_source": "ERGO Group AG",
+        "topics": [
+          "Gesundheit & Pflege"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.016601
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Allianz Haftpflichtversicherung fuer Hunde im Fokus - AD HOC NEWS",
+        "date": "2026-05-16",
+        "media_source": "AD HOC NEWS",
         "topics": [
           "Allgemein"
         ],
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.014925
+        "lag_1d": 0.00313
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "DDR-Versicherungen - behalten oder wechseln? - procontra",
+        "date": "2026-05-13",
+        "media_source": "procontra",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.00313
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Allianz SE Aktie (DE0008404005): Kurs steigt um 1,35 Prozent - AD HOC NEWS",
+        "date": "2026-05-04",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.00313
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Allianz SE Aktie (DE0008404005): Kurs steigt um 1,23 % auf 388,30 Euro - AD HOC NEWS",
+        "date": "2026-05-01",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.00313
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Allianz SE Aktie (DE0008404005): Barclays bestätigt Underweight-Rating mit Kursziel 350 Euro - AD HOC NEWS",
+        "date": "2026-04-30",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.00313
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Allianz SE Aktie (DE0008404005): Kurs steigt um 0,70 Prozent gegenüber Vortagesschluss - AD HOC NEWS",
+        "date": "2026-04-29",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.00313
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Allianz SE Aktie (DE0008404005): Kurs steigt am 28.04.2026 um 0,70 % auf 391,10 EUR - AD HOC NEWS",
+        "date": "2026-04-29",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.00313
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Allianz SE Aktie (DE0008404005): Leichte Korrektur vor Q1/ 2026-Zahlen - AD HOC NEWS",
+        "date": "2026-04-28",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.00313
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Allianz",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Allianz SE Aktie (DE0008404005): Kurs mit leichter Korrektur vor Q1-Zahlen - AD HOC NEWS",
+        "date": "2026-04-27",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.00313
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "press_mention",
+      "brand": "Allianz",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Bezahlbarer Versicherungsschutz für das eigene Haus - Allianz",
+        "date": "2026-04-21",
+        "media_source": "Allianz",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.00313
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
       "brand": "AXA",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Axa stärkt Geschäftszahlen und plant Dividendenerhöhung - Versicherungsbote",
-        "date": "2025-02-28",
+        "title": "AXA KFZ-Versicherung: Leistungen, Tarife und Schutz im Überblick - AD HOC NEWS",
+        "date": "2026-05-16",
+        "media_source": "AD HOC NEWS",
+        "topics": [
+          "KFZ & Mobilität",
+          "Schaden & Leistung",
+          "Produkt & Innovation"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.010169
+      },
+      "sentiment": "negative"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "press_mention",
+      "brand": "AXA",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "AXA beteiligt sich an Wachstumsinitiative der Bundesregierung - AXA Deutschland",
+        "date": "2026-05-15",
+        "media_source": "AXA Deutschland",
+        "topics": [
+          "Unternehmen & Strategie"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.010169
+      },
+      "sentiment": "positive"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Kfz-Versicherung: Die Schaden-Kosten-Sieger 2024 - Versicherungsbote",
+        "date": "2026-01-23",
         "media_source": "Versicherungsbote",
         "topics": [
-          "Allgemein"
+          "KFZ & Mobilität",
+          "Schaden & Leistung"
         ],
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.014925
+        "lag_1d": 0.010169
+      },
+      "sentiment": "negative"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Kfz-Versicherungen im Vergleich: Die besten Versicherer im Test - Handelsblatt",
+        "date": "2026-01-16",
+        "media_source": "Handelsblatt",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.010169
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "AXA",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Studie: KI-Benchmark zeigt AXA & Allianz als führende Versicherer bei KI-Transformation - IT Finanzmagazin",
+        "date": "2025-06-25",
+        "media_source": "IT Finanzmagazin",
+        "topics": [
+          "Digitalisierung & KI",
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.010169
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "press_mention",
+      "brand": "AXA",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "AXA Future Risks Report 2024 / AXA - AXA Deutschland",
+        "date": "2025-02-22",
+        "media_source": "AXA Deutschland",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.010169
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "press_mention",
       "brand": "AXA",
       "product": null,
@@ -1054,12 +1266,12 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.014925
+        "lag_1d": 0.010169
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "press_mention",
       "brand": "AXA",
       "product": null,
@@ -1075,12 +1287,12 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.014925
+        "lag_1d": 0.010169
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "press_mention",
       "brand": "AXA",
       "product": null,
@@ -1096,12 +1308,12 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.014925
+        "lag_1d": 0.010169
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "press_mention",
       "brand": "AXA",
       "product": null,
@@ -1117,148 +1329,125 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.014925
+        "lag_1d": 0.010169
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "press_mention",
       "brand": "HUK-Coburg",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Beratung zur Wunschzeit: Die HUK macht´s möglich / HUK-COBURG setzt auf flexible ... - Presseportal",
-        "date": "2026-05-07",
-        "media_source": "Presseportal",
+        "title": "E-Scooter 2026: Regeln und Bußgelder im Überblick - HUK-COBURG",
+        "date": "2026-05-16",
+        "media_source": "HUK-COBURG",
         "topics": [
           "Allgemein"
         ],
-        "article_type": "media"
+        "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.007129
+        "lag_1d": 0.009943
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
       "brand": "HUK-Coburg",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Rekordgewinn bei HUK-Coburg - Autoversicherung wird teurer - IVZ-Aktuell",
-        "date": "2026-03-24",
-        "media_source": "IVZ-Aktuell",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.007129
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "onpier geht mit digitaler Arztsuche live – erster Umsetzungspartner ist die HUK-COBURG - Mynewsdesk",
-        "date": "2026-02-16",
-        "media_source": "Mynewsdesk",
-        "topics": [
-          "Gesundheit & Pflege",
-          "Digitalisierung & KI"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.007129
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Debüt der neuen Agentur von Martin Eggert: Maison Acme und HUK-Coburg entführen in SciFi-Spot auf den Mars - www.horizon",
-        "date": "2026-02-16",
-        "media_source": "www.horizont.net",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.007129
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Krankenzusatzversicherung: Diese Anbieter dominieren den Markt - Krankenversicherung - Versicherungsbote",
-        "date": "2026-02-12",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "Gesundheit & Pflege",
-          "Unternehmen & Strategie"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.007129
-      },
-      "sentiment": "positive"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "HUK-E-Barometer: Die Lust am Elektroauto kehrt zurück - Elektroauto-News",
-        "date": "2025-11-27",
-        "media_source": "Elektroauto-News",
+        "title": "HUK-Mobilitätsstudie 2026 - AD HOC NEWS",
+        "date": "2026-04-23",
+        "media_source": "AD HOC NEWS",
         "topics": [
           "KFZ & Mobilität"
         ],
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.007129
+        "lag_1d": 0.009943
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
       "brand": "HUK-Coburg",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "HUK-Coburg spürt gewaltigen Rückenwind - Börsen-Zeitung",
-        "date": "2025-10-30",
+        "title": "Huk-Coburg-Chef im Interview: Geht es so erfolgreich weiter, Herr Heitmann? - Neue Presse Coburg",
+        "date": "2026-04-20",
+        "media_source": "Neue Presse Coburg",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009943
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Nach Horror-Spritpreisen: Deswegen wird Autofahren für viele jetzt noch teurer - inFranken.de",
+        "date": "2026-04-10",
+        "media_source": "inFranken.de",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009943
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Joint Venture Hector Digital ist insolvent und niemand will schuld sein - das investment",
+        "date": "2026-04-09",
+        "media_source": "das investment",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009943
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "HUK-Coburg absolviert „ein Bombenjahr“ - Börsen-Zeitung",
+        "date": "2026-03-24",
         "media_source": "Börsen-Zeitung",
         "topics": [
           "Allgemein"
@@ -1266,104 +1455,126 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.007129
+        "lag_1d": 0.009943
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
       "brand": "HUK-Coburg",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Kfz-Versicherung: So stark unterscheiden sich durchschnittlichen Beiträge - Versicherungsbote",
-        "date": "2025-09-23",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.007129
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "HUK-COBURG-Assistance: Geschäftsführung neu aufgestellt - AssCompact",
-        "date": "2025-07-29",
-        "media_source": "AssCompact",
+        "title": "Neues Design: pitstop-Filialen erhalten zusätzlich HUK-Logo - Braunschweiger Zeitung",
+        "date": "2026-03-12",
+        "media_source": "Braunschweiger Zeitung",
         "topics": [
           "Allgemein"
         ],
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.007129
+        "lag_1d": 0.009943
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
       "brand": "HUK-Coburg",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "2000 Euro grundlos abgebucht: Offenbacherin in Streit mit der HUK-Coburg - OP Online",
-        "date": "2025-07-08",
-        "media_source": "OP Online",
+        "title": "Mehr Kunden, höhere Einnahmen: Huk Coburg verzeichnet „tolles“ Jahr - Neue Presse Coburg",
+        "date": "2026-02-18",
+        "media_source": "Neue Presse Coburg",
         "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009943
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "HUK-Coburg",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Sind Sie betroffen? Großer Kfz-Versicherer bucht 5 Tage vor Weihnachten Jahresbeiträge ab - Börse Online",
+        "date": "2025-12-21",
+        "media_source": "Börse Online",
+        "topics": [
+          "KFZ & Mobilität",
           "Digitalisierung & KI"
         ],
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.007129
+        "lag_1d": 0.009943
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
-      "brand": "Generali",
+      "brand": "HUK-Coburg",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Generali will Firmenkundengeschäft nachhaltig ausbauen - Versicherungsbote",
-        "date": "2025-11-27",
-        "media_source": "Versicherungsbote",
+        "title": "HUK-Coburg Erding. Manuel Kalkan übernimmt das Ruder - Wochenanzeiger",
+        "date": "2025-08-27",
+        "media_source": "Wochenanzeiger",
         "topics": [
-          "Klima & Nachhaltigkeit"
+          "Allgemein"
         ],
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.004443
+        "lag_1d": 0.009943
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "press_mention",
       "brand": "Generali",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "ARTE Generali führt ProCollect* und ProRisk ein: Innovative Tools für Fachleute im Kunstmarkt - Generali",
-        "date": "2025-07-09",
+        "title": "FlexInvest unter den Besten: CosmosDirekt punktet mit erstklassiger Fondsqualität - Generali",
+        "date": "2025-10-08",
+        "media_source": "Generali",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006641
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "press_mention",
+      "brand": "Generali",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "CosmosDirekt erhält Bestnoten für Risikolebensversicherung – Handelsblatt sowie Franke und Bornberg zeichnen Comfort-Sch",
+        "date": "2025-08-27",
         "media_source": "Generali",
         "topics": [
           "Allgemein"
@@ -1371,62 +1582,83 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.004443
+        "lag_1d": -0.006641
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "press_mention",
-      "brand": "Generali",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Generali erneut unter den weltweit besten Unternehmen für Frauen - Generali",
-        "date": "2024-11-08",
-        "media_source": "Generali",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.004443
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "press_mention",
-      "brand": "Generali",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Erstklassige Kundenorientierung und starkes Produktangebot: Generali Deutschland Versicherungen erhalten Bestnoten von A",
-        "date": "2024-10-31",
-        "media_source": "Generali",
-        "topics": [
-          "Produkt & Innovation"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.004443
-      },
-      "sentiment": "positive"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
       "brand": "Generali",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Katrin Gruber ist neue Chefin der Generali-Tochter Cosmos - das investment",
-        "date": "2024-10-07",
+        "title": "Generali Deutschland: Neue Konzernzentrale im Münchener Werksviertel - Finanzwelt",
+        "date": "2025-08-15",
+        "media_source": "Finanzwelt",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006641
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Generali",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "DVAG neuer Ärmelpartner - Eintracht Frankfurt",
+        "date": "2025-05-27",
+        "media_source": "Eintracht Frankfurt",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006641
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "press_mention",
+      "brand": "Generali",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Generali startet ein Aktienrückkaufprogramm im Gesamtwert von maximal 500 Mio. Euro - Generali",
+        "date": "2024-08-09",
+        "media_source": "Generali",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006641
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Generali",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Lehmanns Nachfolger: Generali-Töchter mit neuen Vorstandschefs - das investment",
+        "date": "2024-06-28",
         "media_source": "das investment",
         "topics": [
           "Allgemein"
@@ -1434,84 +1666,83 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.004443
+        "lag_1d": -0.006641
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "press_mention",
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
       "brand": "Generali",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "20 Jahre erfolgreiche Partnerschaft: Envivas Krankenversicherung AG und Techniker Krankenkasse feiern Jubiläum - General",
-        "date": "2024-09-03",
-        "media_source": "Generali",
+        "title": "Generali besetzt Spitzenpersonal um - Pfefferminzia",
+        "date": "2024-06-28",
+        "media_source": "Pfefferminzia",
         "topics": [
-          "Gesundheit & Pflege",
-          "Digitalisierung & KI"
+          "Allgemein"
         ],
-        "article_type": "own"
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.004443
+        "lag_1d": -0.006641
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "press_mention",
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
       "brand": "Generali",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Höchste Kundenzufriedenheit: CosmosDirekt ist erneut Deutschlands „Beliebtester Kfz-Versicherer\" - Generali",
-        "date": "2024-08-28",
-        "media_source": "Generali",
+        "title": "Generali baut Deutschland-Geschäft weiter um - Versicherungsbote",
+        "date": "2024-06-27",
+        "media_source": "Versicherungsbote",
         "topics": [
-          "KFZ & Mobilität"
+          "Allgemein"
         ],
-        "article_type": "own"
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.004443
+        "lag_1d": -0.006641
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "press_mention",
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
       "brand": "Generali",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Generali Deutschland Krankenversicherung AG: Seit 111 Jahren dreht sich alles um die Gesundheit - Generali",
-        "date": "2024-08-27",
-        "media_source": "Generali",
+        "title": "Generali will „Vitality“-Klauseln anpassen - Versicherungsbote",
+        "date": "2024-06-14",
+        "media_source": "Versicherungsbote",
         "topics": [
-          "Gesundheit & Pflege"
+          "Allgemein"
         ],
-        "article_type": "own"
+        "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.004443
+        "lag_1d": -0.006641
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "press_mention",
       "brand": "Generali",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Engagement im Laufsport weiter ausgebaut: Generali Deutschland AG wird offizieller Co-Sponsor des Hauptstadtmarathons - ",
-        "date": "2024-08-13",
+        "title": "Europ Assistance unterstreicht Qualitätsführerschaft - Generali",
+        "date": "2024-05-23",
         "media_source": "Generali",
         "topics": [
           "Allgemein"
@@ -1519,63 +1750,230 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.004443
+        "lag_1d": -0.006641
       },
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "Generali",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Dr. Arne Benzin wird Personalchef bei Generali Deutschland - Personalwirtschaft",
-        "date": "2024-08-05",
-        "media_source": "Personalwirtschaft",
-        "topics": [
-          "Personal & Karriere"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.004443
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
       "brand": "Signal Iduna",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Produktcheck: Der neue KFZ-Tarif der Signal Iduna - das investment",
-        "date": "2026-05-05",
-        "media_source": "das investment",
+        "title": "Dooring-Unfälle: Mit dem richtigen Griff auf der sicheren Seite - Mynewsdesk",
+        "date": "2026-05-06",
+        "media_source": "Mynewsdesk",
         "topics": [
-          "KFZ & Mobilität",
-          "Produkt & Innovation"
+          "Allgemein"
         ],
         "article_type": "media"
       },
       "sov_deltas": {
         "lag_1d": 0.0
       },
-      "sentiment": "positive"
+      "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
       "brand": "Signal Iduna",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Signal Iduna überarbeitet Kraftfahrttarif - Finanzwelt",
-        "date": "2026-04-01",
+        "title": "Neues Mandat für Ex-Signal-Iduna-Vorstand - Versicherungsmonitor",
+        "date": "2026-01-21",
+        "media_source": "Versicherungsmonitor",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Trotz voller Ränge: Signal Iduna Park bringt dem BVB zu wenig Geld - tribuna.com",
+        "date": "2025-12-10",
+        "media_source": "tribuna.com",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Signal Iduna, Gothaer, Barmenia, Allianz: Privatpatienten: Diese Anbieter erhöhen am meisten - RP Online",
+        "date": "2025-12-03",
+        "media_source": "RP Online",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Interview: \"KI ist nur ein Hilfsmittel\" - Deutsches Handwerksblatt",
+        "date": "2025-11-11",
+        "media_source": "Deutsches Handwerksblatt",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Signal Iduna und Metzler kooperieren bei digitaler bAV-Optimierung - dpn Magazin",
+        "date": "2025-11-05",
+        "media_source": "dpn Magazin",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Bundesliga-Start am Samstag: Das kosten Bier und Wurst beim BVB - T-Online",
+        "date": "2025-10-28",
+        "media_source": "T-Online",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Signal Iduna wird „KI-Pionier im Versicherungssektor“ - Versicherungsjournal Deutschland",
+        "date": "2025-10-13",
+        "media_source": "Versicherungsjournal Deutschland",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "press_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Osteopathie: Was zahlt die Krankenkasse? - signal-iduna.de",
+        "date": "2025-09-16",
+        "media_source": "signal-iduna.de",
+        "topics": [
+          "Gesundheit & Pflege"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Aufatmen bei BVB-Fans: Der Signal-Iduna-Park kommt in FC 26 - Kicker",
+        "date": "2025-07-16",
+        "media_source": "Kicker",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "R+V erzielt 2025 Rekordergebnis - Finanzwelt",
+        "date": "2026-04-13",
         "media_source": "Finanzwelt",
         "topics": [
           "Finanzen & Vorsorge"
@@ -1588,16 +1986,37 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
-      "brand": "Signal Iduna",
+      "brand": "R+V",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Durchaus ein größeres Update der Signal Iduna BU-Versicherung 01/2026 - Versicherungsjournal Deutschland",
-        "date": "2026-02-18",
-        "media_source": "Versicherungsjournal Deutschland",
+        "title": "Ihre wichtigsten Termine: Spannende Updates von: Mercedes-Benz, Goldman Sachs, Goodyear & R+V Versicherung - FinanzNachr",
+        "date": "2026-04-13",
+        "media_source": "FinanzNachrichten.de",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "R+V-Statistik zeigt: Freitag, der 13., ist harmlos - Presseportal",
+        "date": "2026-02-12",
+        "media_source": "Presseportal",
         "topics": [
           "Allgemein"
         ],
@@ -1609,16 +2028,16 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
-      "brand": "Signal Iduna",
+      "brand": "R+V",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Geschäftaussichten 2026: Das erwartet die Signal Iduna - das investment",
-        "date": "2026-01-05",
-        "media_source": "das investment",
+        "title": "Wohngebäude: Degenia verliert Risikoträger Gothaer und R+V - procontra",
+        "date": "2025-10-27",
+        "media_source": "procontra",
         "topics": [
           "Allgemein"
         ],
@@ -1630,37 +2049,16 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
-      "brand": "Signal Iduna",
+      "brand": "R+V",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Gehaltsvergleich Hamburg: Signal Iduna, HanseMerkur und Co – wo man am meisten verdient - Hamburger Abendblatt",
-        "date": "2026-01-04",
-        "media_source": "Hamburger Abendblatt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "(S+) Künstliche Intelligenz bei Allianz und Co.: Hoffentlich KI-versichert - Spiegel",
-        "date": "2025-12-26",
-        "media_source": "Spiegel",
+        "title": "R+V: Nils Reich wird neuer Kompositvorstand - cash-online.de",
+        "date": "2025-06-11",
+        "media_source": "cash-online.de",
         "topics": [
           "Digitalisierung & KI"
         ],
@@ -1672,18 +2070,18 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
-      "brand": "Signal Iduna",
+      "brand": "R+V",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Signal Iduna unter Daueraufsicht – BaFin fordert erneut Nachbesserungen bei der IT - InvestmentWeek",
-        "date": "2025-10-19",
-        "media_source": "InvestmentWeek",
+        "title": "Wie sich Socializing verändert hat: Eine Zeitreise mit Blick auf die Einsteiger von heute - R+V Versicherung",
+        "date": "2025-05-08",
+        "media_source": "R+V Versicherung",
         "topics": [
-          "Recht & Regulierung"
+          "Allgemein"
         ],
         "article_type": "media"
       },
@@ -1693,20 +2091,41 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "press_mention",
-      "brand": "Signal Iduna",
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Arznei- und Hilfsmittel - signal-iduna.de",
-        "date": "2025-09-23",
-        "media_source": "signal-iduna.de",
+        "title": "#DKM 2024: Interview mit Dr. Norbert Rollinger, R+V Versicherung und GDV - Finanzwelt",
+        "date": "2024-11-01",
+        "media_source": "Finanzwelt",
+        "topics": [
+          "Finanzen & Vorsorge"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "R+V hilft Viva con Agua bei Suche nach Ehrenamtlern 1 - R+V Versicherung",
+        "date": "2024-10-17",
+        "media_source": "R+V Versicherung",
         "topics": [
           "Allgemein"
         ],
-        "article_type": "own"
+        "article_type": "media"
       },
       "sov_deltas": {
         "lag_1d": 0.0
@@ -1714,36 +2133,142 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "press_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Datenschutz-Informationen SIGNAL IDUNA Sterbekasse VVaG - signal-iduna.de",
-        "date": "2025-06-15",
-        "media_source": "signal-iduna.de",
-        "topics": [
-          "Recht & Regulierung"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
-      "brand": "Signal Iduna",
+      "brand": "R+V",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Signal Iduna meldet Bestmarke – doch Schäden bremsen den Erfolg - procontra",
-        "date": "2025-06-03",
+        "title": "Schäden durch Klimawandel: R+V-Chef fürchtet, dass Versicherungen unbezahlbar werden - Spiegel",
+        "date": "2023-12-29",
+        "media_source": "Spiegel",
+        "topics": [
+          "Klima & Nachhaltigkeit"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "R+V",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Auto-Abos: R+V schließt Versicherungslücke - cash-online.de",
+        "date": "2023-12-18",
+        "media_source": "cash-online.de",
+        "topics": [
+          "KFZ & Mobilität",
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "„Veränderte Bedingungen“: DEVK baut doch keinen neuen Büroturm am Rhein - Rundschau Online",
+        "date": "2025-10-15",
+        "media_source": "Rundschau Online",
+        "topics": [
+          "Digitalisierung & KI"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Die Autoversicherung der DEVK: Das Transferfenster ist geöffnet - geissblog",
+        "date": "2025-10-14",
+        "media_source": "geissblog",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Vorzeitig bis 2028: FC verlängert millionenschwere Partnerschaft - geissblog",
+        "date": "2025-04-16",
+        "media_source": "geissblog",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Martin Wierer steigt in den Vorstand der DEVK-Krankenversicherung auf - Presseportal",
+        "date": "2024-05-28",
+        "media_source": "Presseportal",
+        "topics": [
+          "Gesundheit & Pflege"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "DEVK",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "DEVK erhöht laufende Verzinsung - procontra",
+        "date": "2023-12-01",
         "media_source": "procontra",
         "topics": [
           "Allgemein"
@@ -1756,259 +2281,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "R+V Versicherung AG im Fokus: Rückversicherung, Konzernstruktur – und was die Hauptversammlung für Anleger bedeutet - ve",
-        "date": "2026-04-19",
-        "media_source": "verbraucherschutzforum.berlin",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Mit der R+V-Beitragsgarantie sichern Sie sich niedrige Beiträge in der Kfz-Versicherung - Thüringer Bauernverband",
-        "date": "2026-04-13",
-        "media_source": "Thüringer Bauernverband",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Weniger Unwetterschäden: R+V Versicherung mit Rekordergebnis - AD HOC NEWS",
-        "date": "2026-04-13",
-        "media_source": "AD HOC NEWS",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "R+V will Condor Leben veräußern: Neue Run-off-Plattform - AssCompact",
-        "date": "2026-03-12",
-        "media_source": "AssCompact",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "R+V: Virtuelle Revolution in der Schadensregulierung - GDV Gesamtverband der Versicherer",
-        "date": "2026-02-03",
-        "media_source": "GDV Gesamtverband der Versicherer",
-        "topics": [
-          "Schaden & Leistung"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "negative"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "IT-Strategiewechsel bei der R+V - Versicherungsmonitor",
-        "date": "2025-12-15",
-        "media_source": "Versicherungsmonitor",
-        "topics": [
-          "Unternehmen & Strategie"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "positive"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "R+V traut sich stärkere Jahresprognose zu - Börsen-Zeitung",
-        "date": "2025-08-11",
-        "media_source": "Börsen-Zeitung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "R+V: Starkes Wachstum im ersten Halbjahr 2025 - Presseportal",
-        "date": "2025-08-11",
-        "media_source": "Presseportal",
-        "topics": [
-          "Unternehmen & Strategie"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "positive"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Wie R+V-Chef Rollinger den Versicherer umbauen will - das investment",
-        "date": "2025-06-10",
-        "media_source": "das investment",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "R+V sucht Portfoliomanager für Aktien - portfolio institutionell",
-        "date": "2025-04-28",
-        "media_source": "portfolio institutionell",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "DEVK, Axa und HDI mit neuen Haftpflichtversicherungen - procontra",
-        "date": "2025-04-30",
-        "media_source": "procontra",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "DEVK gewinnt Effie Award für \"Nichts\" - Presseportal",
-        "date": "2024-11-22",
-        "media_source": "Presseportal",
-        "topics": [
-          "Unternehmen & Strategie"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "positive"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
       "brand": "DEVK",
       "product": null,
@@ -2029,7 +2302,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
       "brand": "DEVK",
       "product": null,
@@ -2050,7 +2323,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
       "brand": "DEVK",
       "product": null,
@@ -2071,7 +2344,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "press_mention",
       "brand": "DEVK",
       "product": null,
@@ -2092,7 +2365,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
       "brand": "DEVK",
       "product": null,
@@ -2113,82 +2386,18 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Kfz-Versicherung: Wieso die DEVK und Grabarz XCT Werbung zeigen, in der nichts passiert - www.horizont.net",
-        "date": "2023-09-25",
-        "media_source": "www.horizont.net",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "DEVK RE verstärkt Führung im Underwriting - cash-online.de",
-        "date": "2023-08-02",
-        "media_source": "cash-online.de",
-        "topics": [
-          "Digitalisierung & KI"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "1. FC Köln: Ticketkäufer über DEVK automatisch unfallversichert - Versicherungsbote",
-        "date": "2023-04-17",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "KFZ & Mobilität",
-          "Digitalisierung & KI"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "press_mention",
       "brand": "Hannoversche",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Medical Home Service - Gesundheitsprüfung leicht gemacht - Hannoversche Versicherung",
+        "title": "Heilmittel Schlaf: Warum er so wichtig ist - Hannoversche Versicherung",
         "date": "2026-05-07",
         "media_source": "Hannoversche Versicherung",
         "topics": [
-          "Gesundheit & Pflege"
+          "Allgemein"
         ],
         "article_type": "own"
       },
@@ -2198,43 +2407,20 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "press_mention",
       "brand": "Hannoversche",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Nur 2 Gesundheitsfragen – höchste Versicherungssumme am Markt - AssCompact Österreich",
-        "date": "2026-04-07",
-        "media_source": "AssCompact Österreich",
+        "title": "Was ist Burnout? - Hannoversche Versicherung",
+        "date": "2026-05-07",
+        "media_source": "Hannoversche Versicherung",
         "topics": [
-          "Gesundheit & Pflege",
-          "Unternehmen & Strategie"
+          "Allgemein"
         ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "positive"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Garantiezins-Erhöhung 2025: Was das für Ihre Lebensversicherung bedeutet - T-Online",
-        "date": "2025-05-07",
-        "media_source": "T-Online",
-        "topics": [
-          "Digitalisierung & KI",
-          "Finanzen & Vorsorge"
-        ],
-        "article_type": "media"
+        "article_type": "own"
       },
       "sov_deltas": {
         "lag_1d": 0.0
@@ -2242,16 +2428,16 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
       "brand": "Hannoversche",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "VHV Gruppe wächst 2024 auf über 4 Mrd. Euro – Beitragsergebnis in Österreich stabil - AssCompact Österreich",
-        "date": "2025-04-09",
-        "media_source": "AssCompact Österreich",
+        "title": "6 Lebensversicherer weisen negative Sicherheitsquote auf - Versicherungsbote",
+        "date": "2025-10-08",
+        "media_source": "Versicherungsbote",
         "topics": [
           "Allgemein"
         ],
@@ -2263,7 +2449,71 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Risikolebensversicherung: Eine Absicherung für Ihre Liebsten - WirtschaftsWoche",
+        "date": "2025-07-15",
+        "media_source": "WirtschaftsWoche",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "VHV steuert mit Kfz-Versicherungen wieder in die Gewinnzone - procontra",
+        "date": "2025-04-08",
+        "media_source": "procontra",
+        "topics": [
+          "KFZ & Mobilität",
+          "Unternehmen & Strategie"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "positive"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "news_mention",
+      "brand": "Hannoversche",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Hannoversche bringt erstmals Grundfähigkeitsversicherung - das investment",
+        "date": "2025-03-19",
+        "media_source": "das investment",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
       "brand": "Hannoversche",
       "product": null,
@@ -2284,14 +2534,14 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "press_mention",
       "brand": "Hannoversche",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Höchstrechnungzinsanhebung | Ihre Fragen unsere Antworten | Hannoversche - Hannoversche Versicherung",
+        "title": "Höchstrechnungzinsanhebung | Ihre Fragen unsere Antworten - Hannoversche Versicherung",
         "date": "2025-01-13",
         "media_source": "Hannoversche Versicherung",
         "topics": [
@@ -2305,7 +2555,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
       "brand": "Hannoversche",
       "product": null,
@@ -2326,28 +2576,7 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "news_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Risikolebensversicherung: Marktführer beim wichtigen Hinterbliebenenschutz - Versicherungsbote",
-        "date": "2024-11-25",
-        "media_source": "Versicherungsbote",
-        "topics": [
-          "Unternehmen & Strategie"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "positive"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "press_mention",
       "brand": "Hannoversche",
       "product": null,
@@ -2368,103 +2597,84 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "press_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Expertentipp - Autofahren im Herbst - Cosmos Direkt",
+        "date": "2022-10-27",
+        "media_source": "Cosmos Direkt",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "press_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Expertentipp - Starkregen - Cosmos Direkt",
+        "date": "2022-09-15",
+        "media_source": "Cosmos Direkt",
+        "topics": [
+          "Allgemein"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Das war die DKM 2024 in Dortmund - das investment",
-        "date": "2024-10-30",
-        "media_source": "das investment",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "press_mention",
       "brand": "Cosmos Direkt",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "CosmosDirekt startet erfolgreich ins Jubiläumsjahr - Cosmos Direkt",
-        "date": "2025-02-19",
-        "media_source": "Cosmos Direkt",
+        "title": "CosmosDirekt: Nur nachhaltige Fonds in der fondsgebundenen Rentenversicherung - cash-online.de",
+        "date": "2022-02-15",
+        "media_source": "cash-online.de",
         "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "press_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Worauf man bei einem Wechsel der Kfz-Versicherung achten sollte - Cosmos Direkt",
-        "date": "2024-11-05",
-        "media_source": "Cosmos Direkt",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "press_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Can­na­bis-Le­ga­li­sie­rung und Au­to­fah­ren - Cosmos Direkt",
-        "date": "2024-04-01",
-        "media_source": "Cosmos Direkt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "press_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Cosmos Lebensversicherungs-AG erhält für die Risikolebensversicherung den Deutschen Versicherungs-Award 2024 - Cosmos Di",
-        "date": "2024-03-19",
-        "media_source": "Cosmos Direkt",
-        "topics": [
+          "Digitalisierung & KI",
+          "Klima & Nachhaltigkeit",
           "Finanzen & Vorsorge"
         ],
+        "article_type": "media"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "press_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Versicherung der Kameraausrüstung on demand: CosmosDirekt bietet ab sofort Schutz, wenn man ihn braucht - Cosmos Direkt",
+        "date": "2021-06-01",
+        "media_source": "Cosmos Direkt",
+        "topics": [
+          "Allgemein"
+        ],
         "article_type": "own"
       },
       "sov_deltas": {
@@ -2473,16 +2683,16 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "news_mention",
       "brand": "Cosmos Direkt",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Kfz-Versicherung: Für Autofahrer wird es viel teurer - SZ.de - SZ.de",
-        "date": "2023-10-04",
-        "media_source": "SZ.de",
+        "title": "CosmosDirekt Mobility Check: So steht es um die Mobilität in den deutschen Großstädten - Presseportal",
+        "date": "2021-05-25",
+        "media_source": "Presseportal",
         "topics": [
           "KFZ & Mobilität"
         ],
@@ -2494,15 +2704,79 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "press_mention",
       "brand": "Cosmos Direkt",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "DEIN EMP­FEH­LER­PRO­GRAMM - Cosmos Direkt",
-        "date": "2023-07-03",
+        "title": "Mobility Check 2021 – CosmosDirekt – Schadenshäufigkeit - Cosmos Direkt",
+        "date": "2021-05-19",
+        "media_source": "Cosmos Direkt",
+        "topics": [
+          "KFZ & Mobilität",
+          "Schaden & Leistung"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "negative"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "press_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Mobility Check 2021 – CosmosDirekt – Sicherer Süden - Cosmos Direkt",
+        "date": "2021-05-19",
+        "media_source": "Cosmos Direkt",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "press_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Mobility Check 2021 – CosmosDirekt – E wie Essen - Cosmos Direkt",
+        "date": "2021-05-19",
+        "media_source": "Cosmos Direkt",
+        "topics": [
+          "KFZ & Mobilität"
+        ],
+        "article_type": "own"
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      },
+      "sentiment": "neutral"
+    },
+    {
+      "timestamp": "2026-05-17T04:55:00Z",
+      "event_type": "press_mention",
+      "brand": "Cosmos Direkt",
+      "product": null,
+      "source": "google_news_rss",
+      "magnitude": 1.0,
+      "detail": {
+        "title": "Zahl der Woche - CosmosDirekt - Beruferfahrene unterschätzen Berufsunfähigkeit - Cosmos Direkt",
+        "date": "2021-05-04",
         "media_source": "Cosmos Direkt",
         "topics": [
           "Allgemein"
@@ -2515,36 +2789,15 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
+      "timestamp": "2026-05-17T04:55:00Z",
       "event_type": "press_mention",
       "brand": "Cosmos Direkt",
       "product": null,
       "source": "google_news_rss",
       "magnitude": 1.0,
       "detail": {
-        "title": "Blickwinkel - Digitale Entschleunigung - Cosmos Direkt",
-        "date": "2023-06-29",
-        "media_source": "Cosmos Direkt",
-        "topics": [
-          "Digitalisierung & KI"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "press_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Pressemitteilung - Taschengeld 2023 - Cosmos Direkt",
-        "date": "2023-06-27",
+        "title": "Zahl der Woche - CosmosDirekt - Zeckenschutz - Cosmos Direkt",
+        "date": "2021-04-13",
         "media_source": "Cosmos Direkt",
         "topics": [
           "Allgemein"
@@ -2557,106 +2810,83 @@
       "sentiment": "neutral"
     },
     {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "press_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Zahl der Woche - Bestandteile von Passwörtern - Cosmos Direkt",
-        "date": "2023-06-13",
-        "media_source": "Cosmos Direkt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T04:30:14Z",
-      "event_type": "press_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Zahl der Woche - Passwortschutz - Nutzung - Cosmos Direkt",
-        "date": "2023-05-30",
-        "media_source": "Cosmos Direkt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-05-16T05-53-05Z",
+      "timestamp": "2026-05-17T06-21-57Z",
       "event_type": "page_change",
-      "brand": "AXA",
+      "brand": "Allianz",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.9932,
+      "magnitude": 0.6235999999999999,
       "detail": {
-        "url": "https://www.axa.de/pk/gesundheit/s/online-arzt",
-        "summary": "84 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 0.7%).",
-        "similarity": 0.0068,
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/leistungen/",
+        "summary": "0 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 37.6%).",
+        "similarity": 0.3764,
         "classification": {
           "error": "HTTP 403"
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.00048
+        "lag_1d": -0.015898
       }
     },
     {
-      "timestamp": "2026-05-16T05-53-05Z",
+      "timestamp": "2026-05-17T06-21-57Z",
       "event_type": "page_change",
-      "brand": "AXA",
+      "brand": "Allianz",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.988,
+      "magnitude": 0.6179,
       "detail": {
-        "url": "https://www.axa.de/pk/gesundheit/s/hautscreening",
-        "summary": "82 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 1.2%).",
-        "similarity": 0.012,
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/laufzeit/",
+        "summary": "0 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 38.2%).",
+        "similarity": 0.3821,
         "classification": {
           "error": "HTTP 403"
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.00048
+        "lag_1d": 0.003871
       }
     },
     {
-      "timestamp": "2026-05-16T05-53-05Z",
+      "timestamp": "2026-05-17T06-21-57Z",
       "event_type": "page_change",
-      "brand": "AXA",
+      "brand": "Allianz",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.9972,
+      "magnitude": 0.6235999999999999,
       "detail": {
-        "url": "https://www.axa.de/pk/gesundheit/p/private-krankenversicherung",
-        "summary": "120 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 0.3%).",
-        "similarity": 0.0028,
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnersatz/",
+        "summary": "0 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 37.6%).",
+        "similarity": 0.3764,
         "classification": {
           "error": "HTTP 403"
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.00048
+        "lag_1d": -0.015898
       }
     },
     {
-      "timestamp": "2026-05-16T05-53-05Z",
+      "timestamp": "2026-05-17T06-21-57Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.6179,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnersatz/",
+        "summary": "0 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 38.2%).",
+        "similarity": 0.3821,
+        "classification": {
+          "error": "HTTP 403"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.015898
+      }
+    },
+    {
+      "timestamp": "2026-05-17T06-21-57Z",
       "event_type": "page_change",
       "brand": "AXA",
       "product": null,
@@ -2671,216 +2901,7 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.023617
-      }
-    },
-    {
-      "timestamp": "2026-05-16T05-53-05Z",
-      "event_type": "page_change",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0017000000000000348,
-      "detail": {
-        "url": "https://www.huk.de/gesundheit-vorsorge-vermoegen/krankenversicherung/krankenzusatzversicherung/zahnzusatzversicherung.html",
-        "summary": "23 neue Zeilen, 23 entfernte Zeilen (Ähnlichkeit 99.8%).",
-        "similarity": 0.9983,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.000183
-      }
-    },
-    {
-      "timestamp": "2026-05-16T05-53-05Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08320000000000005,
-      "detail": {
-        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20251013-verbraucherinfo-aquaplaning-ploetzlich-im-schleudergang",
-        "summary": "6 neue Zeilen, 6 entfernte Zeilen (Ähnlichkeit 91.7%).",
-        "similarity": 0.9168,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.022892
-      }
-    },
-    {
-      "timestamp": "2026-05-16T05-53-05Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0024999999999999467,
-      "detail": {
-        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20250929-verbraucherinfo-sicher-in-den-bergen",
-        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 99.8%).",
-        "similarity": 0.9975,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.022892
-      }
-    },
-    {
-      "timestamp": "2026-05-16T05-53-05Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0034999999999999476,
-      "detail": {
-        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260323-verbraucherinfo-sicher-in-die-fahrradsaison-starten",
-        "summary": "9 neue Zeilen, 10 entfernte Zeilen (Ähnlichkeit 99.7%).",
-        "similarity": 0.9965,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.022892
-      }
-    },
-    {
-      "timestamp": "2026-05-16T05-53-05Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.03969999999999996,
-      "detail": {
-        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20251006-verbraucherinfo-kuendigung-wegen-eigenbedarf",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 96.0%).",
-        "similarity": 0.9603,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.022892
-      }
-    },
-    {
-      "timestamp": "2026-05-16T05-53-05Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.044499999999999984,
-      "detail": {
-        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20250901-verbraucherinfo-alternativen-zum-pflegeheim",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 95.5%).",
-        "similarity": 0.9555,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.022892
-      }
-    },
-    {
-      "timestamp": "2026-05-16T05-53-05Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0049000000000000155,
-      "detail": {
-        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260427-verbraucherinfo-digitale-hygiene",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.5%).",
-        "similarity": 0.9951,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.022892
-      }
-    },
-    {
-      "timestamp": "2026-05-16T05-53-05Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.056599999999999984,
-      "detail": {
-        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260112-verbraucherinfo-unfallfrei-durch-den-winterverkehr",
-        "summary": "3 neue Zeilen, 3 entfernte Zeilen (Ähnlichkeit 94.3%).",
-        "similarity": 0.9434,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.022892
-      }
-    },
-    {
-      "timestamp": "2026-05-16T05-53-05Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.016000000000000014,
-      "detail": {
-        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20251110-verbraucherinfo-ersthelfer-vor-ort",
-        "summary": "6 neue Zeilen, 6 entfernte Zeilen (Ähnlichkeit 98.4%).",
-        "similarity": 0.984,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.022892
-      }
-    },
-    {
-      "timestamp": "2026-05-16T05-53-05Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.048699999999999966,
-      "detail": {
-        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20250818-verbraucherinfo-rauchzeichen-im-garten",
-        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 95.1%).",
-        "similarity": 0.9513,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.022892
-      }
-    },
-    {
-      "timestamp": "2026-05-16T05-53-05Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.005499999999999949,
-      "detail": {
-        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260223-verbraucherinfo-toedliches-gerinnsel",
-        "summary": "7 neue Zeilen, 5 entfernte Zeilen (Ähnlichkeit 99.5%).",
-        "similarity": 0.9945,
-        "classification": {
-          "error": "HTTP 403"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.022892
+        "lag_1d": 0.010823
       }
     }
   ]
