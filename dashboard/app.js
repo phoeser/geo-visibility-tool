@@ -971,6 +971,13 @@ function renderConfigUI() {
     });
   });
 
+  // Missing-ERGO-Einstellungen vorbelegen
+  const meCfg = cfg.missing_ergo || {};
+  const meEnabled = $("cfgMissingErgoEnabled");
+  const meCap = $("cfgMissingErgoCap");
+  if (meEnabled) meEnabled.checked = meCfg.enabled !== false; // default an
+  if (meCap) meCap.value = (meCfg.max_total_followups != null) ? meCfg.max_total_followups : 250;
+
   renderCompetitors();
   renderProducts();
 }
@@ -1278,6 +1285,19 @@ function collectLlms() {
   });
   const whyEl = $("cfgWhyLlm");
   if (whyEl) state.config.why_analysis_llm = whyEl.value;
+
+  // Missing-ERGO-Settings einsammeln
+  const meEnabled = $("cfgMissingErgoEnabled");
+  const meCap = $("cfgMissingErgoCap");
+  if (meEnabled || meCap) {
+    if (!state.config.missing_ergo) state.config.missing_ergo = {};
+    if (meEnabled) state.config.missing_ergo.enabled = !!meEnabled.checked;
+    if (meCap) {
+      const raw = (meCap.value || "").trim();
+      const n = raw === "" ? 250 : Math.max(0, Math.min(2000, parseInt(raw, 10) || 0));
+      state.config.missing_ergo.max_total_followups = n;
+    }
+  }
 }
 
 async function ghRequest(method, url, token, body) {
@@ -1785,6 +1805,7 @@ function switchTab(name) {
   if (name === "config") loadConfigForEdit();
   if (name === "impact") renderImpactTab();
   if (name === "why") renderWhyTab();
+  if (name === "missing-ergo") renderMissingErgoTab();
   if (name === "dashboard") renderNextRunLlms();
 }
 
@@ -2270,4 +2291,250 @@ if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", init);
 } else {
   init();
+}
+
+
+// ============================================================
+// MISSING-ERGO TAB
+// ============================================================
+
+const meState = {
+  activeProductId: null,
+  trendChart: null,
+};
+
+function renderMissingErgoTab() {
+  const run = state.run || {};
+  const me = run.missing_ergo || {};
+  const meta = me._meta || {};
+  const byProd = me.by_product || {};
+
+  // ----- KPI-Reihe -----
+  const kpis = document.getElementById("meKpiRow");
+  if (kpis) {
+    if (Object.keys(byProd).length === 0) {
+      kpis.innerHTML = '<div class="kpi"><div class="kpi-val">—</div>'
+        + '<div class="kpi-label">Keine Missing-ERGO-Daten in diesem Lauf</div></div>';
+    } else {
+      const totalProm = Object.values(byProd).reduce((s, p) => s + (p.prompts_without_ergo || 0), 0);
+      const llms = meta.active_llms || [];
+      const succ = meta.successful || 0;
+      const fail = meta.failed || 0;
+      const total = meta.followups_total || 0;
+      const successRate = total > 0 ? Math.round(100 * succ / total) : 0;
+      kpis.innerHTML = `
+        <div class="kpi"><div class="kpi-val">${totalProm}</div><div class="kpi-label">Prompts ohne ERGO</div></div>
+        <div class="kpi"><div class="kpi-val">${total}</div><div class="kpi-label">Follow-up-Calls</div></div>
+        <div class="kpi"><div class="kpi-val">${successRate}%</div><div class="kpi-label">Erfolgsrate (${succ}/${total})</div></div>
+        <div class="kpi"><div class="kpi-val">${llms.length}</div><div class="kpi-label">LLMs befragt (${llms.join(", ") || "—"})</div></div>
+      `;
+    }
+  }
+
+  // ----- Produkt-Tabs -----
+  const prodTabs = document.getElementById("meProductTabs");
+  const prodContainer = document.getElementById("meProductContainer");
+  if (!prodTabs || !prodContainer) return;
+  prodTabs.innerHTML = "";
+  prodContainer.innerHTML = "";
+
+  const prodIds = Object.keys(byProd);
+  if (prodIds.length === 0) {
+    prodContainer.innerHTML = '<section class="card"><p class="hint">'
+      + 'In diesem Lauf sind keine Missing-ERGO-Daten vorhanden. Entweder wurde ERGO '
+      + 'in allen Prompts erwähnt oder die Analyse ist deaktiviert.</p></section>';
+    return;
+  }
+
+  if (!meState.activeProductId || !byProd[meState.activeProductId]) {
+    meState.activeProductId = prodIds[0];
+  }
+
+  prodIds.forEach(pid => {
+    const prod = byProd[pid] || {};
+    const label = prod.product_label || pid;
+    const cnt = prod.prompts_without_ergo || 0;
+    const btn = document.createElement("button");
+    btn.className = "me-prod-btn" + (pid === meState.activeProductId ? " active" : "");
+    btn.textContent = label + " (" + cnt + ")";
+    btn.onclick = function () {
+      meState.activeProductId = pid;
+      renderMissingErgoTab();
+    };
+    prodTabs.appendChild(btn);
+  });
+
+  meRenderProductSection(meState.activeProductId, byProd[meState.activeProductId], meta);
+  meRenderTrendChart();
+}
+
+function meRenderProductSection(pid, prod, meta) {
+  const c = document.getElementById("meProductContainer");
+  if (!c) return;
+  prod = prod || {};
+  const catsTop = prod.categories_top || [];
+  const llms = (meta && meta.active_llms) || [];
+  const drill = prod.drilldown || [];
+  const totalClass = catsTop.reduce((s, x) => s + (x.count || 0), 0) || 1;
+
+  let html = '<section class="card">';
+  html += '<h2>Top-Gründe — ' + escapeHtml(prod.product_label || pid) + '</h2>';
+  if (catsTop.length === 0) {
+    html += '<p class="hint">Noch keine Klassifikationen für dieses Produkt.</p>';
+  } else {
+    html += '<div class="me-cat-bars">';
+    catsTop.forEach(cat => {
+      const pct = totalClass > 0 ? Math.round(100 * (cat.count || 0) / totalClass) : 0;
+      html += '<div class="me-cat-bar">';
+      html += '  <div class="label">' + escapeHtml(cat.category || "Sonstiges") + '</div>';
+      html += '  <div class="track"><div class="fill" style="width:' + pct + '%"></div></div>';
+      html += '  <div class="count">' + (cat.count || 0) + ' &middot; ' + pct + '%</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+
+    // Beispiel-Quotes des Top-Grunds
+    const top = catsTop[0];
+    if (top && top.examples && top.examples.length > 0) {
+      html += '<h3 style="margin-top:18px;font-size:14px;color:var(--text-secondary,#98a2b3);">'
+        + 'Beispiele für "' + escapeHtml(top.category) + '"</h3>';
+      html += '<div class="me-quotes">';
+      top.examples.slice(0, 4).forEach(ex => {
+        html += '<div class="me-quote">';
+        html += '  "' + escapeHtml(ex.quote || "") + '"';
+        html += '  <div class="meta">' + escapeHtml(ex.llm || "?") + ' &middot; Prompt ' + escapeHtml(ex.prompt_id || "") + '</div>';
+        html += '</div>';
+      });
+      html += '</div>';
+    }
+  }
+  html += '</section>';
+
+  // Heatmap LLM × Kategorie
+  if (catsTop.length > 0 && llms.length > 0) {
+    html += '<section class="card">';
+    html += '<h2>LLM × Kategorie Heatmap</h2>';
+    html += '<p class="hint">Wer hat welche Gründe wie oft genannt?</p>';
+    html += '<div class="me-heatmap-wrap"><table class="me-heatmap"><thead><tr><th>Kategorie</th>';
+    llms.forEach(llm => { html += '<th>' + escapeHtml(llm) + '</th>'; });
+    html += '<th>Σ</th></tr></thead><tbody>';
+    // max für Farbskala
+    let maxVal = 0;
+    catsTop.forEach(cat => {
+      llms.forEach(llm => {
+        const v = (cat.by_llm || {})[llm] || 0;
+        if (v > maxVal) maxVal = v;
+      });
+    });
+    catsTop.forEach(cat => {
+      html += '<tr><td class="cat-name">' + escapeHtml(cat.category) + '</td>';
+      let rowSum = 0;
+      llms.forEach(llm => {
+        const v = (cat.by_llm || {})[llm] || 0;
+        rowSum += v;
+        const intensity = maxVal > 0 ? v / maxVal : 0;
+        // Farbe: hellblau -> rot
+        const bg = v === 0
+          ? "rgba(255,255,255,0.04)"
+          : "rgba(239,68,68," + (0.2 + 0.6 * intensity).toFixed(2) + ")";
+        html += '<td class="h-cell" style="background:' + bg + '">' + (v || "—") + '</td>';
+      });
+      html += '<td class="h-cell" style="background:var(--bg-tertiary,#0f1320);font-weight:600">' + rowSum + '</td>';
+      html += '</tr>';
+    });
+    html += '</tbody></table></div></section>';
+  }
+
+  // Drill-Down: Prompts mit Follow-up-Antworten
+  if (drill.length > 0) {
+    html += '<section class="card">';
+    html += '<h2>Drill-Down: Einzel-Prompts</h2>';
+    html += '<p class="hint">' + drill.length + ' Prompts, in denen mindestens ein LLM ERGO nicht erwähnt hat.</p>';
+    html += '<div class="me-drilldown">';
+    drill.forEach(item => {
+      const missingLlms = (item.missing_in_llms || []).join(", ");
+      html += '<details class="me-drill-item">';
+      html += '  <summary><strong>' + escapeHtml(item.prompt_id || "?") + '</strong> — '
+        + escapeHtml(truncate(item.prompt_text || "", 90))
+        + ' <span class="hint">(' + (item.responses || []).length + ' Antworten, fehlt bei: '
+        + escapeHtml(missingLlms) + ')</span></summary>';
+      html += '  <div class="me-drill-body">';
+      (item.responses || []).forEach(resp => {
+        const cls = resp.success ? "" : " failed";
+        html += '<div class="me-drill-resp' + cls + '">';
+        html += '  <div class="resp-head">';
+        html += '    <span class="llm">' + escapeHtml(resp.llm || "?") + '</span>';
+        (resp.categories || []).forEach(cat => {
+          html += '<span class="cat">' + escapeHtml(cat) + '</span>';
+        });
+        if (!resp.success && resp.error) {
+          html += '<span class="cat" style="background:#7f1d1d">FEHLER</span>';
+        }
+        html += '  </div>';
+        if (resp.success) {
+          html += '<div class="resp-body">' + escapeHtml(resp.answer || resp.quote || "") + '</div>';
+        } else {
+          html += '<div class="resp-body" style="color:#fca5a5">' + escapeHtml(resp.error || "Kein Output") + '</div>';
+        }
+        html += '</div>';
+      });
+      html += '  </div>';
+      html += '</details>';
+    });
+    html += '</div></section>';
+  }
+
+  c.innerHTML = html;
+}
+
+function meRenderTrendChart() {
+  const canvas = document.getElementById("meTrendChart");
+  if (!canvas) return;
+  if (typeof Chart === "undefined") return;
+
+  // Daten aus state.runs (index): missing_ergo_followups / prompts_total
+  const runs = (state.runs || []).slice(-20); // letzte 20 Läufe
+  const labels = runs.map(r => {
+    const dt = r.started_at || r.run_id || "";
+    return dt.replace("T", " ").substring(0, 16);
+  });
+  const data = runs.map(r => {
+    const f = r.missing_ergo_followups || 0;
+    const p = r.prompts_total || 0;
+    return p > 0 ? Math.round(1000 * f / p) / 10 : 0; // % auf 1 Nachkommastelle
+  });
+
+  if (meState.trendChart) meState.trendChart.destroy();
+  meState.trendChart = new Chart(canvas.getContext("2d"), {
+    type: "line",
+    data: {
+      labels: labels,
+      datasets: [{
+        label: "Anteil Prompts ohne ERGO (%)",
+        data: data,
+        borderColor: "#ef4444",
+        backgroundColor: "rgba(239,68,68,0.18)",
+        fill: true,
+        tension: 0.25,
+        pointRadius: 3,
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { beginAtZero: true, ticks: { color: "#98a2b3" }, title: { display: true, text: "%", color: "#98a2b3" } },
+        x: { ticks: { color: "#98a2b3", maxRotation: 45, minRotation: 30 } },
+      },
+      plugins: { legend: { labels: { color: "#e6e9ef" } } },
+    },
+  });
+}
+
+// Helper falls noch nicht vorhanden
+if (typeof truncate === "undefined") {
+  function truncate(s, n) {
+    s = String(s || "");
+    return s.length > n ? s.substring(0, n - 1) + "\u2026" : s;
+  }
 }
