@@ -41,6 +41,7 @@ from analyzer.diff_classifier import make_classifier  # noqa: E402
 from analyzer import correlation  # noqa: E402
 from analyzer import why_analysis  # noqa: E402
 from analyzer import data_quality  # noqa: E402
+from analyzer import missing_ergo_analysis  # noqa: E402
 from analyzer.sitemap_discovery import discover_for_product  # noqa: E402
 
 
@@ -310,6 +311,28 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
         json.dumps(run_dict, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
+    # --- 6a2) Missing-ERGO-Analyse: pro (Produkt, LLM, Prompt ohne ERGO)
+    #          dieselbe LLM nachfragen, warum ERGO nicht erwaehnt wurde ---
+    print("\n[MISSING-ERGO] Starte Follow-up-Analyse fuer Prompts ohne ERGO ...")
+    try:
+        me_cfg = cfg.get("missing_ergo") or {}
+        if me_cfg.get("enabled", True):  # default an
+            cap = int(me_cfg.get("max_total_followups", 250))
+            run_dict["missing_ergo"] = missing_ergo_analysis.analyze_run(
+                run_dict, clients,
+                brand=run_dict.get("brand") or "ERGO",
+                max_total_followups=cap,
+            )
+            meta = run_dict["missing_ergo"].get("_meta") or {}
+            print(f"[MISSING-ERGO] fertig: total={meta.get('followups_total')}, "
+                  f"success={meta.get('successful')}, fail={meta.get('failed')}")
+        else:
+            print("[MISSING-ERGO] deaktiviert via config.missing_ergo.enabled=false")
+            run_dict["missing_ergo"] = {"_meta": {"disabled": True}, "by_product": {}}
+    except Exception as e:  # noqa: BLE001
+        print(f"[MISSING-ERGO] Fehler: {e}")
+        run_dict["missing_ergo"] = {"_meta": {"error": str(e)[:200]}, "by_product": {}}
+
     # --- 6b) Warum-Analyse: pro (Produkt, Marke) Erklaerung der Sichtbarkeit ---
     why_llm_id = cfg.get("why_analysis_llm") or "claude"
     print(f"\n[WHY] Analysiere Sichtbarkeits-Muster pro Marke (LLM: {why_llm_id}) ...")
@@ -609,6 +632,7 @@ def _update_index(runs_dir: Path) -> None:
                             brand_mentions += m
             sov = (brand_mentions / all_mentions) if all_mentions else 0.0
             dq = obj.get("data_quality") or {}
+            me_meta = (obj.get("missing_ergo") or {}).get("_meta") or {}
             runs.append({
                 "run_id": obj.get("run_id") or p.stem,
                 "file": p.name,
@@ -620,10 +644,11 @@ def _update_index(runs_dir: Path) -> None:
                 "prompts_total": prompts_total,
                 "estimated_cost_usd": round(cost_total, 4),
                 "brand_share_of_voice": round(sov, 4),
-                # Quality-Tag im Index, damit Dashboard ohne Extra-Fetch ampeln kann
                 "quality_grade": dq.get("grade"),
                 "quality_score": dq.get("score"),
-                "quality_warnings": dq.get("warnings", [])[:3],  # nur die ersten 3
+                "quality_warnings": dq.get("warnings", [])[:3],
+                "missing_ergo_followups": me_meta.get("followups_total", 0),
+                "missing_ergo_success": me_meta.get("successful", 0),
             })
         except Exception as e:  # noqa: BLE001
             print(f"[INDEX] Fehler bei {p.name}: {e}")
@@ -643,26 +668,17 @@ def _update_index(runs_dir: Path) -> None:
 # CLI
 # ---------------------------------------------------------------------------
 
-def main(argv: Optional[List[str]] = None) -> int:
+def main(argv=None) -> int:
+    """CLI Entry-Point. Mappt argparse auf run()."""
     ap = argparse.ArgumentParser(description="GEO Visibility Analyse-Lauf")
     ap.add_argument("--dry-run", action="store_true",
                     help="Simuliere LLM-Antworten, keine echten API-Calls")
     ap.add_argument("--limit", type=int, default=None,
-                    help="Nur die ersten N Prompts je Produkt verarbeiten")
+                    help="Maximal N Produkte verarbeiten")
     args = ap.parse_args(argv)
-
-    try:
-        out = run(dry_run=args.dry_run, limit=args.limit)
-        print(f"\n[DONE] {out}")
-        return 0
-    except KeyboardInterrupt:
-        print("\n[ABBRUCH] Benutzer hat Lauf gestoppt.")
-        return 130
-    except Exception as e:  # noqa: BLE001
-        import traceback
-        print(f"\n[FEHLER] {e}")
-        traceback.print_exc()
-        return 1
+    out_path = run(dry_run=args.dry_run, limit=args.limit)
+    print(f"\n[DONE] Run gespeichert in: {out_path}")
+    return 0
 
 
 if __name__ == "__main__":
