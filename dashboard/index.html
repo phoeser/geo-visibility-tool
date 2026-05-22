@@ -30,6 +30,7 @@
       <button data-tab="history" class="tab-btn">Historie</button>
       <button data-tab="impact" class="tab-btn">Impact</button>
       <button data-tab="why" class="tab-btn">Why</button>
+      <button data-tab="missing-ergo" class="tab-btn">Warum nicht ERGO?</button>
       <button data-tab="config" class="tab-btn">Config</button>
     </nav>
     <div class="meta" id="runMeta">Lade Daten …</div>
@@ -198,6 +199,35 @@
       <div id="whyContainer"></div>
     </section>
 
+    <!-- ============ MISSING-ERGO TAB ============ -->
+    <section id="tab-missing-ergo" class="tab-panel">
+      <section class="card">
+        <h2>Warum wurde ERGO nicht erwähnt?</h2>
+        <p class="hint">
+          Für jeden Prompt, in dem ein LLM ERGO nicht erwähnt hat, wurde der
+          <strong>gleiche LLM</strong> nachgefragt: "Warum hast du ERGO nicht
+          erwähnt?". Die Freitext-Antworten werden in feste Kategorien
+          klassifiziert (Preis, Marktposition, Test-Sieger, Awareness …) und
+          pro Produkt aggregiert. Es wurden nur die LLMs befragt, die im
+          jeweiligen Lauf aktiv waren.
+        </p>
+        <div id="meKpiRow" class="kpis"></div>
+      </section>
+
+      <section class="card">
+        <h2>Produkt-Auswahl</h2>
+        <nav class="me-product-tabs" id="meProductTabs"></nav>
+      </section>
+
+      <div id="meProductContainer"></div>
+
+      <section class="card">
+        <h2>Trend über die letzten Läufe</h2>
+        <p class="hint">Anteil der Prompts pro Lauf, in denen ERGO nicht erwähnt wurde — je niedriger desto besser.</p>
+        <canvas id="meTrendChart" height="140"></canvas>
+      </section>
+    </section>
+
     <!-- ============ CONFIG TAB ============ -->
     <section id="tab-config" class="tab-panel">
       <section class="card cfg-banner">
@@ -243,6 +273,30 @@
         <h2>LLMs</h2>
         <p class="hint">Aktivierte LLMs werden im nächsten Lauf abgefragt. API-Keys werden nicht hier konfiguriert — siehe auto_deploy.html Phase 2.</p>
         <div id="cfgLlms" class="cfg-llms"></div>
+      </section>
+
+      <!-- Missing-ERGO-Analyse -->
+      <section class="card">
+        <h2>Missing-ERGO-Analyse</h2>
+        <p class="hint">
+          Für jeden Prompt, bei dem ERGO nicht erwähnt wurde, wird der gleiche LLM
+          mit einer Follow-up-Frage konfrontiert ("Warum hast du ERGO nicht erwähnt?").
+          Die Antworten werden klassifiziert und im Tab "Warum nicht ERGO?" angezeigt.
+        </p>
+        <div class="row">
+          <label class="check-row" style="cursor:pointer;">
+            <input id="cfgMissingErgoEnabled" type="checkbox" checked>
+            <strong>Aktiviert</strong>
+            <span class="hint">— läuft bei jedem nächtlichen Analyse-Lauf</span>
+          </label>
+        </div>
+        <div class="row">
+          <label for="cfgMissingErgoCap">Max Follow-up-Calls pro Lauf</label>
+          <input id="cfgMissingErgoCap" type="number" min="0" max="2000" step="10" placeholder="250" />
+          <p class="hint">
+            Schutz vor Quota-Limit. 0 = kein Cap (alle Misses werden befragt). Empfohlen: 250 bei 3 LLMs, 400 bei 5 LLMs.
+          </p>
+        </div>
       </section>
 
       <!-- Wettbewerber -->
