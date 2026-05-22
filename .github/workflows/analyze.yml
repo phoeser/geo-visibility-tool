@@ -15,9 +15,11 @@ on:
         type: string
         default: ""
   schedule:
-    # Taeglich um 03:00 UTC (05:00 MESZ) - NACH dem Cockpit-Nightly (01:00 UTC),
-    # damit events.jsonl fuer Korrelation verfuegbar ist.
-    - cron: "0 3 * * *"
+    # Taeglich 23:10 UTC = 01:10 MESZ Folgetag (Sommer) / 00:10 MEZ (Winter).
+    # GitHub-Free-Tier verzoegert scheduled Jobs typisch 4-8h - mit Trigger
+    # gegen 01:10 nachts ist der Lauf realistisch zwischen 05:00 und 09:00 MESZ
+    # fertig, also vor Buero-Start.
+    - cron: "10 23 * * *"
 
 permissions:
   contents: write
