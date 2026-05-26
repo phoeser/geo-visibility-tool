@@ -4,16 +4,42 @@
     "total_cockpit_events": 7549,
     "total_unified_events": 9698,
     "total_enriched_events": 9698,
-    "total_runs": 59,
+    "total_runs": 60,
     "lag_windows": [
       1,
       3,
       7,
       14
     ],
-    "generated_at": "2026-05-25T12:26:30.405336Z"
+    "generated_at": "2026-05-26T01:31:01.572866Z"
   },
   "event_summary": {
+    "review_change": {
+      "count": 8,
+      "brands": [
+        "Allianz",
+        "HUK-Coburg",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 2.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "sov_change": {
+      "count": 203,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg"
+      ],
+      "avg_magnitude": 1.135,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
     "page_change": {
       "count": 544,
       "brands": [
@@ -36,68 +62,6 @@
         "Signal Iduna"
       ],
       "avg_magnitude": 1.567,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    "page_new": {
-      "count": 2459,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "Cosmos Direkt",
-        "DEVK",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg",
-        "Hannoversche",
-        "R+V",
-        "Signal Iduna"
-      ],
-      "avg_magnitude": 0.934,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    "sov_change": {
-      "count": 203,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg"
-      ],
-      "avg_magnitude": 1.135,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    "domain_change": {
-      "count": 75,
-      "brands": [
-        "Allianz",
-        "Cosmos Direkt",
-        "DEVK",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg",
-        "Hannoversche",
-        "Signal Iduna"
-      ],
-      "avg_magnitude": 1.544,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    "review_change": {
-      "count": 8,
-      "brands": [
-        "Allianz",
-        "HUK-Coburg",
-        "Signal Iduna"
-      ],
-      "avg_magnitude": 2.0,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -139,9 +103,73 @@
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
+    },
+    "domain_change": {
+      "count": 75,
+      "brands": [
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.544,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "page_new": {
+      "count": 2459,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 0.934,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
     }
   },
   "impact_ranking": [
+    {
+      "event_type": "review_change",
+      "count": 8,
+      "brands": [
+        "Allianz",
+        "HUK-Coburg",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 2.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "sov_change",
+      "count": 203,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg"
+      ],
+      "avg_magnitude": 1.135,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
     {
       "event_type": "page_change",
       "count": 544,
@@ -166,72 +194,6 @@
         "Signal Iduna"
       ],
       "avg_magnitude": 1.567,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
-      "event_type": "page_new",
-      "count": 2459,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "Cosmos Direkt",
-        "DEVK",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg",
-        "Hannoversche",
-        "R+V",
-        "Signal Iduna"
-      ],
-      "avg_magnitude": 0.934,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
-      "event_type": "sov_change",
-      "count": 203,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg"
-      ],
-      "avg_magnitude": 1.135,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
-      "event_type": "domain_change",
-      "count": 75,
-      "brands": [
-        "Allianz",
-        "Cosmos Direkt",
-        "DEVK",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg",
-        "Hannoversche",
-        "Signal Iduna"
-      ],
-      "avg_magnitude": 1.544,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
-      "event_type": "review_change",
-      "count": 8,
-      "brands": [
-        "Allianz",
-        "HUK-Coburg",
-        "Signal Iduna"
-      ],
-      "avg_magnitude": 2.0,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -275,16 +237,108 @@
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
+    },
+    {
+      "event_type": "domain_change",
+      "count": 75,
+      "brands": [
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.544,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "page_new",
+      "count": 2459,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 0.934,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
     }
   ],
   "correlation_matrix": {
+    "review_change__delta_share_of_voice__lag_1d": {
+      "event_type": "review_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 8,
+      "spearman_rho": 0.619,
+      "avg_delta": -0.00572,
+      "avg_magnitude": 2.0
+    },
+    "review_change__delta_appearance_rate__lag_1d": {
+      "event_type": "review_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 8,
+      "spearman_rho": 0.619,
+      "avg_delta": 0.000247,
+      "avg_magnitude": 2.0
+    },
+    "review_change__delta_citation_rate__lag_1d": {
+      "event_type": "review_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 8,
+      "spearman_rho": 0.619,
+      "avg_delta": 0.000247,
+      "avg_magnitude": 2.0
+    },
+    "sov_change__delta_share_of_voice__lag_1d": {
+      "event_type": "sov_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 203,
+      "spearman_rho": 0.0895,
+      "avg_delta": 0.001378,
+      "avg_magnitude": 1.135
+    },
+    "sov_change__delta_appearance_rate__lag_1d": {
+      "event_type": "sov_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 203,
+      "spearman_rho": 0.0568,
+      "avg_delta": -0.012465,
+      "avg_magnitude": 1.135
+    },
+    "sov_change__delta_citation_rate__lag_1d": {
+      "event_type": "sov_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 203,
+      "spearman_rho": 0.1003,
+      "avg_delta": -0.002998,
+      "avg_magnitude": 1.135
+    },
     "page_change__delta_share_of_voice__lag_1d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
       "n_events": 544,
-      "spearman_rho": 0.2916,
-      "avg_delta": -0.008563,
+      "spearman_rho": 0.2942,
+      "avg_delta": -0.008433,
       "avg_magnitude": 0.229
     },
     "page_change__delta_appearance_rate__lag_1d": {
@@ -292,8 +346,8 @@
       "metric": "delta_appearance_rate",
       "lag_days": 1,
       "n_events": 544,
-      "spearman_rho": -0.0985,
-      "avg_delta": 0.014627,
+      "spearman_rho": -0.0988,
+      "avg_delta": 0.014718,
       "avg_magnitude": 0.229
     },
     "page_change__delta_citation_rate__lag_1d": {
@@ -301,8 +355,8 @@
       "metric": "delta_citation_rate",
       "lag_days": 1,
       "n_events": 544,
-      "spearman_rho": 0.1308,
-      "avg_delta": -0.002697,
+      "spearman_rho": 0.1282,
+      "avg_delta": -0.002677,
       "avg_magnitude": 0.229
     },
     "review_volume__delta_share_of_voice__lag_1d": {
@@ -332,59 +386,59 @@
       "avg_delta": -0.004383,
       "avg_magnitude": 1.567
     },
-    "page_new__delta_share_of_voice__lag_1d": {
-      "event_type": "page_new",
+    "press_mention__delta_share_of_voice__lag_1d": {
+      "event_type": "press_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 2459,
-      "spearman_rho": 0.0212,
-      "avg_delta": -0.00228,
-      "avg_magnitude": 0.934
+      "n_events": 2062,
+      "spearman_rho": 0.55,
+      "avg_delta": -0.000567,
+      "avg_magnitude": 1.0
     },
-    "page_new__delta_appearance_rate__lag_1d": {
-      "event_type": "page_new",
+    "press_mention__delta_appearance_rate__lag_1d": {
+      "event_type": "press_mention",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 2459,
-      "spearman_rho": 0.5909,
-      "avg_delta": -0.000573,
-      "avg_magnitude": 0.934
+      "n_events": 2062,
+      "spearman_rho": 0.5583,
+      "avg_delta": -0.012785,
+      "avg_magnitude": 1.0
     },
-    "page_new__delta_citation_rate__lag_1d": {
-      "event_type": "page_new",
+    "press_mention__delta_citation_rate__lag_1d": {
+      "event_type": "press_mention",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 2459,
-      "spearman_rho": 0.295,
-      "avg_delta": 0.01362,
-      "avg_magnitude": 0.934
+      "n_events": 2062,
+      "spearman_rho": 0.5595,
+      "avg_delta": 0.000175,
+      "avg_magnitude": 1.0
     },
-    "sov_change__delta_share_of_voice__lag_1d": {
-      "event_type": "sov_change",
+    "news_mention__delta_share_of_voice__lag_1d": {
+      "event_type": "news_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 203,
-      "spearman_rho": 0.0707,
-      "avg_delta": 0.001844,
-      "avg_magnitude": 1.135
+      "n_events": 4338,
+      "spearman_rho": 0.5748,
+      "avg_delta": 0.00027,
+      "avg_magnitude": 1.0
     },
-    "sov_change__delta_appearance_rate__lag_1d": {
-      "event_type": "sov_change",
+    "news_mention__delta_appearance_rate__lag_1d": {
+      "event_type": "news_mention",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 203,
-      "spearman_rho": 0.0216,
-      "avg_delta": -0.012957,
-      "avg_magnitude": 1.135
+      "n_events": 4338,
+      "spearman_rho": 0.5829,
+      "avg_delta": -0.012483,
+      "avg_magnitude": 1.0
     },
-    "sov_change__delta_citation_rate__lag_1d": {
-      "event_type": "sov_change",
+    "news_mention__delta_citation_rate__lag_1d": {
+      "event_type": "news_mention",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 203,
-      "spearman_rho": 0.0047,
-      "avg_delta": -0.0013,
-      "avg_magnitude": 1.135
+      "n_events": 4338,
+      "spearman_rho": 0.5812,
+      "avg_delta": -0.000315,
+      "avg_magnitude": 1.0
     },
     "domain_change__delta_share_of_voice__lag_1d": {
       "event_type": "domain_change",
@@ -413,221 +467,32 @@
       "avg_delta": -0.002235,
       "avg_magnitude": 1.544
     },
-    "review_change__delta_share_of_voice__lag_1d": {
-      "event_type": "review_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 8,
-      "spearman_rho": 0.619,
-      "avg_delta": -0.00572,
-      "avg_magnitude": 2.0
-    },
-    "review_change__delta_appearance_rate__lag_1d": {
-      "event_type": "review_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 8,
-      "spearman_rho": 0.619,
-      "avg_delta": 0.000247,
-      "avg_magnitude": 2.0
-    },
-    "review_change__delta_citation_rate__lag_1d": {
-      "event_type": "review_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 8,
-      "spearman_rho": 0.619,
-      "avg_delta": 0.000247,
-      "avg_magnitude": 2.0
-    },
-    "press_mention__delta_share_of_voice__lag_1d": {
-      "event_type": "press_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 2062,
-      "spearman_rho": 0.55,
-      "avg_delta": -0.000621,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_appearance_rate__lag_1d": {
-      "event_type": "press_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 2062,
-      "spearman_rho": 0.5585,
-      "avg_delta": -0.012811,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_citation_rate__lag_1d": {
-      "event_type": "press_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 2062,
-      "spearman_rho": 0.5595,
-      "avg_delta": 0.000278,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_share_of_voice__lag_1d": {
-      "event_type": "news_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 4338,
-      "spearman_rho": 0.5748,
-      "avg_delta": 0.000295,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_appearance_rate__lag_1d": {
-      "event_type": "news_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 4338,
-      "spearman_rho": 0.5839,
-      "avg_delta": -0.012525,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_citation_rate__lag_1d": {
-      "event_type": "news_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 4338,
-      "spearman_rho": 0.5822,
-      "avg_delta": -0.000128,
-      "avg_magnitude": 1.0
-    },
-    "page_change__delta_share_of_voice__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 538,
-      "spearman_rho": -0.0014,
-      "avg_delta": -0.002922,
-      "avg_magnitude": 0.228
-    },
-    "page_change__delta_appearance_rate__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 538,
-      "spearman_rho": -0.1874,
-      "avg_delta": -0.008245,
-      "avg_magnitude": 0.228
-    },
-    "page_change__delta_citation_rate__lag_3d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 538,
-      "spearman_rho": -0.2326,
-      "avg_delta": 0.003616,
-      "avg_magnitude": 0.228
-    },
-    "review_volume__delta_share_of_voice__lag_3d": {
-      "event_type": "review_volume",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 9,
-      "spearman_rho": -0.5792,
-      "avg_delta": 0.033129,
-      "avg_magnitude": 1.567
-    },
-    "review_volume__delta_appearance_rate__lag_3d": {
-      "event_type": "review_volume",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 9,
-      "spearman_rho": 0.8292,
-      "avg_delta": -0.008766,
-      "avg_magnitude": 1.567
-    },
-    "review_volume__delta_citation_rate__lag_3d": {
-      "event_type": "review_volume",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 9,
-      "spearman_rho": 0.8375,
-      "avg_delta": -0.012053,
-      "avg_magnitude": 1.567
-    },
-    "page_new__delta_share_of_voice__lag_3d": {
+    "page_new__delta_share_of_voice__lag_1d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 2458,
-      "spearman_rho": 0.0252,
-      "avg_delta": 0.00189,
+      "lag_days": 1,
+      "n_events": 2459,
+      "spearman_rho": 0.0212,
+      "avg_delta": -0.00228,
       "avg_magnitude": 0.934
     },
-    "page_new__delta_appearance_rate__lag_3d": {
+    "page_new__delta_appearance_rate__lag_1d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 2458,
-      "spearman_rho": 0.3711,
-      "avg_delta": -0.021853,
+      "lag_days": 1,
+      "n_events": 2459,
+      "spearman_rho": 0.5909,
+      "avg_delta": -0.000573,
       "avg_magnitude": 0.934
     },
-    "page_new__delta_citation_rate__lag_3d": {
+    "page_new__delta_citation_rate__lag_1d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 2458,
-      "spearman_rho": 0.389,
-      "avg_delta": 0.021498,
+      "lag_days": 1,
+      "n_events": 2459,
+      "spearman_rho": 0.295,
+      "avg_delta": 0.01362,
       "avg_magnitude": 0.934
-    },
-    "sov_change__delta_share_of_voice__lag_3d": {
-      "event_type": "sov_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 159,
-      "spearman_rho": 0.0143,
-      "avg_delta": 0.003001,
-      "avg_magnitude": 1.244
-    },
-    "sov_change__delta_appearance_rate__lag_3d": {
-      "event_type": "sov_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 159,
-      "spearman_rho": 0.0956,
-      "avg_delta": -0.015416,
-      "avg_magnitude": 1.244
-    },
-    "sov_change__delta_citation_rate__lag_3d": {
-      "event_type": "sov_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 159,
-      "spearman_rho": 0.1152,
-      "avg_delta": 0.000367,
-      "avg_magnitude": 1.244
-    },
-    "domain_change__delta_share_of_voice__lag_3d": {
-      "event_type": "domain_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 73,
-      "spearman_rho": -0.0013,
-      "avg_delta": 0.003366,
-      "avg_magnitude": 1.579
-    },
-    "domain_change__delta_appearance_rate__lag_3d": {
-      "event_type": "domain_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 73,
-      "spearman_rho": 0.259,
-      "avg_delta": 0.005242,
-      "avg_magnitude": 1.579
-    },
-    "domain_change__delta_citation_rate__lag_3d": {
-      "event_type": "domain_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 73,
-      "spearman_rho": 0.1011,
-      "avg_delta": 0.003296,
-      "avg_magnitude": 1.579
     },
     "review_change__delta_share_of_voice__lag_3d": {
       "event_type": "review_change",
@@ -656,140 +521,221 @@
       "avg_delta": 0.001726,
       "avg_magnitude": 2.0
     },
+    "sov_change__delta_share_of_voice__lag_3d": {
+      "event_type": "sov_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 179,
+      "spearman_rho": 0.0015,
+      "avg_delta": 0.001582,
+      "avg_magnitude": 1.195
+    },
+    "sov_change__delta_appearance_rate__lag_3d": {
+      "event_type": "sov_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 179,
+      "spearman_rho": 0.0657,
+      "avg_delta": -0.013511,
+      "avg_magnitude": 1.195
+    },
+    "sov_change__delta_citation_rate__lag_3d": {
+      "event_type": "sov_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 179,
+      "spearman_rho": 0.0957,
+      "avg_delta": -0.005666,
+      "avg_magnitude": 1.195
+    },
+    "page_change__delta_share_of_voice__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 544,
+      "spearman_rho": 0.0024,
+      "avg_delta": -0.002951,
+      "avg_magnitude": 0.229
+    },
+    "page_change__delta_appearance_rate__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 544,
+      "spearman_rho": -0.2002,
+      "avg_delta": -0.008431,
+      "avg_magnitude": 0.229
+    },
+    "page_change__delta_citation_rate__lag_3d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 544,
+      "spearman_rho": -0.2556,
+      "avg_delta": 0.003106,
+      "avg_magnitude": 0.229
+    },
+    "review_volume__delta_share_of_voice__lag_3d": {
+      "event_type": "review_volume",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 9,
+      "spearman_rho": -0.5792,
+      "avg_delta": 0.028707,
+      "avg_magnitude": 1.567
+    },
+    "review_volume__delta_appearance_rate__lag_3d": {
+      "event_type": "review_volume",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 9,
+      "spearman_rho": 0.8292,
+      "avg_delta": -0.008766,
+      "avg_magnitude": 1.567
+    },
+    "review_volume__delta_citation_rate__lag_3d": {
+      "event_type": "review_volume",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 9,
+      "spearman_rho": 0.9208,
+      "avg_delta": -0.016437,
+      "avg_magnitude": 1.567
+    },
     "press_mention__delta_share_of_voice__lag_3d": {
       "event_type": "press_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 3,
-      "n_events": 1984,
-      "spearman_rho": 0.5477,
-      "avg_delta": -0.001911,
+      "n_events": 2037,
+      "spearman_rho": 0.5495,
+      "avg_delta": -0.001576,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_appearance_rate__lag_3d": {
       "event_type": "press_mention",
       "metric": "delta_appearance_rate",
       "lag_days": 3,
-      "n_events": 1984,
-      "spearman_rho": 0.5562,
-      "avg_delta": -0.017584,
+      "n_events": 2037,
+      "spearman_rho": 0.558,
+      "avg_delta": -0.016805,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_citation_rate__lag_3d": {
       "event_type": "press_mention",
       "metric": "delta_citation_rate",
       "lag_days": 3,
-      "n_events": 1984,
-      "spearman_rho": 0.5524,
-      "avg_delta": -0.001004,
+      "n_events": 2037,
+      "spearman_rho": 0.5538,
+      "avg_delta": -0.00176,
       "avg_magnitude": 1.0
     },
     "news_mention__delta_share_of_voice__lag_3d": {
       "event_type": "news_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 3,
-      "n_events": 4116,
-      "spearman_rho": 0.5737,
-      "avg_delta": 0.000921,
+      "n_events": 4263,
+      "spearman_rho": 0.5743,
+      "avg_delta": 0.000753,
       "avg_magnitude": 1.0
     },
     "news_mention__delta_appearance_rate__lag_3d": {
       "event_type": "news_mention",
       "metric": "delta_appearance_rate",
       "lag_days": 3,
-      "n_events": 4116,
-      "spearman_rho": 0.5831,
-      "avg_delta": -0.016121,
+      "n_events": 4263,
+      "spearman_rho": 0.5835,
+      "avg_delta": -0.015497,
       "avg_magnitude": 1.0
     },
     "news_mention__delta_citation_rate__lag_3d": {
       "event_type": "news_mention",
       "metric": "delta_citation_rate",
       "lag_days": 3,
-      "n_events": 4116,
-      "spearman_rho": 0.5769,
-      "avg_delta": -0.00045,
+      "n_events": 4263,
+      "spearman_rho": 0.5757,
+      "avg_delta": -0.001519,
       "avg_magnitude": 1.0
     },
-    "page_change__delta_share_of_voice__lag_7d": {
-      "event_type": "page_change",
+    "domain_change__delta_share_of_voice__lag_3d": {
+      "event_type": "domain_change",
       "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 494,
-      "spearman_rho": -0.3254,
-      "avg_delta": 0.013853,
-      "avg_magnitude": 0.22
+      "lag_days": 3,
+      "n_events": 75,
+      "spearman_rho": 0.1522,
+      "avg_delta": 0.002572,
+      "avg_magnitude": 1.544
     },
-    "page_change__delta_appearance_rate__lag_7d": {
-      "event_type": "page_change",
+    "domain_change__delta_appearance_rate__lag_3d": {
+      "event_type": "domain_change",
       "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 494,
-      "spearman_rho": -0.5069,
-      "avg_delta": 0.007607,
-      "avg_magnitude": 0.22
+      "lag_days": 3,
+      "n_events": 75,
+      "spearman_rho": 0.4308,
+      "avg_delta": 0.003261,
+      "avg_magnitude": 1.544
     },
-    "page_change__delta_citation_rate__lag_7d": {
-      "event_type": "page_change",
+    "domain_change__delta_citation_rate__lag_3d": {
+      "event_type": "domain_change",
       "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 494,
-      "spearman_rho": -0.4452,
-      "avg_delta": 0.023735,
-      "avg_magnitude": 0.22
+      "lag_days": 3,
+      "n_events": 75,
+      "spearman_rho": 0.3601,
+      "avg_delta": 0.000736,
+      "avg_magnitude": 1.544
     },
-    "review_volume__delta_share_of_voice__lag_7d": {
-      "event_type": "review_volume",
-      "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 3,
-      "spearman_rho": 0.125,
-      "avg_delta": 0.049816,
-      "avg_magnitude": 1.9
-    },
-    "review_volume__delta_appearance_rate__lag_7d": {
-      "event_type": "review_volume",
-      "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 3,
-      "spearman_rho": 0.875,
-      "avg_delta": 0.0,
-      "avg_magnitude": 1.9
-    },
-    "review_volume__delta_citation_rate__lag_7d": {
-      "event_type": "review_volume",
-      "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 3,
-      "spearman_rho": 0.875,
-      "avg_delta": 0.0,
-      "avg_magnitude": 1.9
-    },
-    "page_new__delta_share_of_voice__lag_7d": {
+    "page_new__delta_share_of_voice__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 1641,
-      "spearman_rho": 0.5023,
-      "avg_delta": 0.005994,
-      "avg_magnitude": 1.0
+      "lag_days": 3,
+      "n_events": 2459,
+      "spearman_rho": 0.0003,
+      "avg_delta": 0.001755,
+      "avg_magnitude": 0.934
     },
-    "page_new__delta_appearance_rate__lag_7d": {
+    "page_new__delta_appearance_rate__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 1641,
-      "spearman_rho": 0.5023,
-      "avg_delta": -0.040912,
-      "avg_magnitude": 1.0
+      "lag_days": 3,
+      "n_events": 2459,
+      "spearman_rho": 0.2974,
+      "avg_delta": -0.02167,
+      "avg_magnitude": 0.934
     },
-    "page_new__delta_citation_rate__lag_7d": {
+    "page_new__delta_citation_rate__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 2459,
+      "spearman_rho": 0.4683,
+      "avg_delta": 0.018727,
+      "avg_magnitude": 0.934
+    },
+    "review_change__delta_share_of_voice__lag_7d": {
+      "event_type": "review_change",
+      "metric": "delta_share_of_voice",
       "lag_days": 7,
-      "n_events": 1641,
-      "spearman_rho": 0.5024,
-      "avg_delta": 0.046077,
-      "avg_magnitude": 1.0
+      "n_events": 5,
+      "spearman_rho": 0.525,
+      "avg_delta": 0.032967,
+      "avg_magnitude": 2.0
+    },
+    "review_change__delta_appearance_rate__lag_7d": {
+      "event_type": "review_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 5,
+      "spearman_rho": 0.6,
+      "avg_delta": -0.003156,
+      "avg_magnitude": 2.0
+    },
+    "review_change__delta_citation_rate__lag_7d": {
+      "event_type": "review_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 5,
+      "spearman_rho": 0.525,
+      "avg_delta": 0.000394,
+      "avg_magnitude": 2.0
     },
     "sov_change__delta_share_of_voice__lag_7d": {
       "event_type": "sov_change",
@@ -818,6 +764,114 @@
       "avg_delta": 0.004426,
       "avg_magnitude": 1.246
     },
+    "page_change__delta_share_of_voice__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 494,
+      "spearman_rho": -0.3214,
+      "avg_delta": 0.013898,
+      "avg_magnitude": 0.22
+    },
+    "page_change__delta_appearance_rate__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 494,
+      "spearman_rho": -0.5044,
+      "avg_delta": 0.007354,
+      "avg_magnitude": 0.22
+    },
+    "page_change__delta_citation_rate__lag_7d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 494,
+      "spearman_rho": -0.4504,
+      "avg_delta": 0.02285,
+      "avg_magnitude": 0.22
+    },
+    "review_volume__delta_share_of_voice__lag_7d": {
+      "event_type": "review_volume",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 3,
+      "spearman_rho": 0.125,
+      "avg_delta": 0.040304,
+      "avg_magnitude": 1.9
+    },
+    "review_volume__delta_appearance_rate__lag_7d": {
+      "event_type": "review_volume",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 3,
+      "spearman_rho": 0.125,
+      "avg_delta": -0.005917,
+      "avg_magnitude": 1.9
+    },
+    "review_volume__delta_citation_rate__lag_7d": {
+      "event_type": "review_volume",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 3,
+      "spearman_rho": 0.875,
+      "avg_delta": -0.014464,
+      "avg_magnitude": 1.9
+    },
+    "press_mention__delta_share_of_voice__lag_7d": {
+      "event_type": "press_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 1617,
+      "spearman_rho": 0.5457,
+      "avg_delta": -0.005682,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_appearance_rate__lag_7d": {
+      "event_type": "press_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 1617,
+      "spearman_rho": 0.5481,
+      "avg_delta": -0.020043,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_citation_rate__lag_7d": {
+      "event_type": "press_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 1617,
+      "spearman_rho": 0.5497,
+      "avg_delta": -0.000107,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_share_of_voice__lag_7d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 3383,
+      "spearman_rho": 0.5719,
+      "avg_delta": 0.002716,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_7d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 3383,
+      "spearman_rho": 0.5766,
+      "avg_delta": -0.013344,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_7d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 3383,
+      "spearman_rho": 0.5756,
+      "avg_delta": 0.001567,
+      "avg_magnitude": 1.0
+    },
     "domain_change__delta_share_of_voice__lag_7d": {
       "event_type": "domain_change",
       "metric": "delta_share_of_voice",
@@ -845,85 +899,31 @@
       "avg_delta": 9.5e-05,
       "avg_magnitude": 1.817
     },
-    "review_change__delta_share_of_voice__lag_7d": {
-      "event_type": "review_change",
+    "page_new__delta_share_of_voice__lag_7d": {
+      "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 7,
-      "n_events": 5,
-      "spearman_rho": 0.525,
-      "avg_delta": 0.03642,
-      "avg_magnitude": 2.0
+      "n_events": 1641,
+      "spearman_rho": 0.5023,
+      "avg_delta": 0.006069,
+      "avg_magnitude": 1.0
     },
-    "review_change__delta_appearance_rate__lag_7d": {
-      "event_type": "review_change",
+    "page_new__delta_appearance_rate__lag_7d": {
+      "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 7,
-      "n_events": 5,
-      "spearman_rho": 0.6,
-      "avg_delta": 0.003945,
-      "avg_magnitude": 2.0
+      "n_events": 1641,
+      "spearman_rho": 0.5023,
+      "avg_delta": -0.040839,
+      "avg_magnitude": 1.0
     },
-    "review_change__delta_citation_rate__lag_7d": {
-      "event_type": "review_change",
+    "page_new__delta_citation_rate__lag_7d": {
+      "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 7,
-      "n_events": 5,
-      "spearman_rho": 0.55,
-      "avg_delta": 0.009862,
-      "avg_magnitude": 2.0
-    },
-    "press_mention__delta_share_of_voice__lag_7d": {
-      "event_type": "press_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 1617,
-      "spearman_rho": 0.5457,
-      "avg_delta": -0.005927,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_appearance_rate__lag_7d": {
-      "event_type": "press_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 1617,
-      "spearman_rho": 0.5481,
-      "avg_delta": -0.020274,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_citation_rate__lag_7d": {
-      "event_type": "press_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 1617,
-      "spearman_rho": 0.5505,
-      "avg_delta": 5.4e-05,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_share_of_voice__lag_7d": {
-      "event_type": "news_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 3383,
-      "spearman_rho": 0.5719,
-      "avg_delta": 0.002833,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_appearance_rate__lag_7d": {
-      "event_type": "news_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 3383,
-      "spearman_rho": 0.5766,
-      "avg_delta": -0.013339,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_citation_rate__lag_7d": {
-      "event_type": "news_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 3383,
-      "spearman_rho": 0.5764,
-      "avg_delta": 0.001945,
+      "n_events": 1641,
+      "spearman_rho": 0.5024,
+      "avg_delta": 0.046098,
       "avg_magnitude": 1.0
     },
     "page_change__delta_share_of_voice__lag_14d": {
@@ -931,8 +931,8 @@
       "metric": "delta_share_of_voice",
       "lag_days": 14,
       "n_events": 385,
-      "spearman_rho": 0.2311,
-      "avg_delta": -0.003023,
+      "spearman_rho": 0.2356,
+      "avg_delta": -0.00348,
       "avg_magnitude": 0.129
     },
     "page_change__delta_appearance_rate__lag_14d": {
@@ -940,8 +940,8 @@
       "metric": "delta_appearance_rate",
       "lag_days": 14,
       "n_events": 385,
-      "spearman_rho": 0.0175,
-      "avg_delta": -0.03354,
+      "spearman_rho": 0.0204,
+      "avg_delta": -0.0341,
       "avg_magnitude": 0.129
     },
     "page_change__delta_citation_rate__lag_14d": {
@@ -949,35 +949,62 @@
       "metric": "delta_citation_rate",
       "lag_days": 14,
       "n_events": 385,
-      "spearman_rho": -0.2815,
-      "avg_delta": 0.025103,
+      "spearman_rho": -0.2797,
+      "avg_delta": 0.024532,
       "avg_magnitude": 0.129
     },
-    "page_new__delta_share_of_voice__lag_14d": {
-      "event_type": "page_new",
+    "press_mention__delta_share_of_voice__lag_14d": {
+      "event_type": "press_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 14,
-      "n_events": 1636,
-      "spearman_rho": 0.5023,
-      "avg_delta": -0.035384,
+      "n_events": 781,
+      "spearman_rho": 0.5573,
+      "avg_delta": -0.00418,
       "avg_magnitude": 1.0
     },
-    "page_new__delta_appearance_rate__lag_14d": {
-      "event_type": "page_new",
+    "press_mention__delta_appearance_rate__lag_14d": {
+      "event_type": "press_mention",
       "metric": "delta_appearance_rate",
       "lag_days": 14,
-      "n_events": 1636,
-      "spearman_rho": 0.5029,
-      "avg_delta": -0.120848,
+      "n_events": 781,
+      "spearman_rho": 0.5808,
+      "avg_delta": -0.032697,
       "avg_magnitude": 1.0
     },
-    "page_new__delta_citation_rate__lag_14d": {
-      "event_type": "page_new",
+    "press_mention__delta_citation_rate__lag_14d": {
+      "event_type": "press_mention",
       "metric": "delta_citation_rate",
       "lag_days": 14,
-      "n_events": 1636,
-      "spearman_rho": 0.5025,
-      "avg_delta": 0.043662,
+      "n_events": 781,
+      "spearman_rho": 0.5757,
+      "avg_delta": -0.000245,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_share_of_voice__lag_14d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 14,
+      "n_events": 1719,
+      "spearman_rho": 0.5652,
+      "avg_delta": 0.001899,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_14d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 1719,
+      "spearman_rho": 0.5832,
+      "avg_delta": -0.028448,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_14d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 1719,
+      "spearman_rho": 0.573,
+      "avg_delta": -0.00161,
       "avg_magnitude": 1.0
     },
     "domain_change__delta_share_of_voice__lag_14d": {
@@ -1007,58 +1034,31 @@
       "avg_delta": 0.00369,
       "avg_magnitude": 1.817
     },
-    "press_mention__delta_share_of_voice__lag_14d": {
-      "event_type": "press_mention",
+    "page_new__delta_share_of_voice__lag_14d": {
+      "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 14,
-      "n_events": 781,
-      "spearman_rho": 0.5573,
-      "avg_delta": -0.004545,
+      "n_events": 1636,
+      "spearman_rho": 0.5023,
+      "avg_delta": -0.035644,
       "avg_magnitude": 1.0
     },
-    "press_mention__delta_appearance_rate__lag_14d": {
-      "event_type": "press_mention",
+    "page_new__delta_appearance_rate__lag_14d": {
+      "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 14,
-      "n_events": 781,
-      "spearman_rho": 0.5808,
-      "avg_delta": -0.033023,
+      "n_events": 1636,
+      "spearman_rho": 0.5023,
+      "avg_delta": -0.120329,
       "avg_magnitude": 1.0
     },
-    "press_mention__delta_citation_rate__lag_14d": {
-      "event_type": "press_mention",
+    "page_new__delta_citation_rate__lag_14d": {
+      "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 14,
-      "n_events": 781,
-      "spearman_rho": 0.5635,
-      "avg_delta": 0.000568,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_share_of_voice__lag_14d": {
-      "event_type": "news_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 14,
-      "n_events": 1719,
-      "spearman_rho": 0.5652,
-      "avg_delta": 0.002065,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_appearance_rate__lag_14d": {
-      "event_type": "news_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 14,
-      "n_events": 1719,
-      "spearman_rho": 0.5832,
-      "avg_delta": -0.028575,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_citation_rate__lag_14d": {
-      "event_type": "news_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 14,
-      "n_events": 1719,
-      "spearman_rho": 0.5789,
-      "avg_delta": -0.000786,
+      "n_events": 1636,
+      "spearman_rho": 0.5027,
+      "avg_delta": 0.035076,
       "avg_magnitude": 1.0
     }
   },
@@ -1290,7 +1290,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.004084
+        "lag_1d": -0.012717
       },
       "sentiment": "neutral"
     },
@@ -1311,7 +1311,7 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.004084
+        "lag_1d": -0.012717
       },
       "sentiment": "neutral"
     },
@@ -1332,7 +1332,7 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.004084
+        "lag_1d": -0.012717
       },
       "sentiment": "neutral"
     },
@@ -1354,7 +1354,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.004084
+        "lag_1d": -0.012717
       },
       "sentiment": "positive"
     },
@@ -1375,7 +1375,7 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.004084
+        "lag_1d": -0.012717
       },
       "sentiment": "neutral"
     },
@@ -1396,7 +1396,7 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.004084
+        "lag_1d": -0.012717
       },
       "sentiment": "neutral"
     },
@@ -1417,7 +1417,7 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": -0.004084
+        "lag_1d": -0.012717
       },
       "sentiment": "neutral"
     },
@@ -1438,7 +1438,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.004084
+        "lag_1d": -0.012717
       },
       "sentiment": "positive"
     },
@@ -1459,7 +1459,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.004084
+        "lag_1d": -0.012717
       },
       "sentiment": "neutral"
     },
@@ -1480,7 +1480,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.004084
+        "lag_1d": -0.012717
       },
       "sentiment": "neutral"
     },
@@ -1502,7 +1502,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.002046
+        "lag_1d": 0.017685
       },
       "sentiment": "neutral"
     },
@@ -1523,7 +1523,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.002046
+        "lag_1d": 0.017685
       },
       "sentiment": "neutral"
     },
@@ -1544,7 +1544,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.002046
+        "lag_1d": 0.017685
       },
       "sentiment": "neutral"
     },
@@ -1565,7 +1565,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.002046
+        "lag_1d": 0.017685
       },
       "sentiment": "neutral"
     },
@@ -1586,7 +1586,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.002046
+        "lag_1d": 0.017685
       },
       "sentiment": "positive"
     },
@@ -1607,7 +1607,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.002046
+        "lag_1d": 0.017685
       },
       "sentiment": "neutral"
     },
@@ -1628,7 +1628,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.002046
+        "lag_1d": 0.017685
       },
       "sentiment": "neutral"
     },
@@ -1649,7 +1649,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.002046
+        "lag_1d": 0.017685
       },
       "sentiment": "neutral"
     },
@@ -1670,7 +1670,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.002046
+        "lag_1d": 0.017685
       },
       "sentiment": "neutral"
     },
@@ -1691,7 +1691,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": -0.002046
+        "lag_1d": 0.017685
       },
       "sentiment": "neutral"
     },
@@ -1712,7 +1712,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.000659
+        "lag_1d": -0.019243
       },
       "sentiment": "neutral"
     },
@@ -1733,7 +1733,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.000659
+        "lag_1d": -0.019243
       },
       "sentiment": "neutral"
     },
@@ -1754,7 +1754,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.000659
+        "lag_1d": -0.019243
       },
       "sentiment": "positive"
     },
@@ -1775,7 +1775,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.000659
+        "lag_1d": -0.019243
       },
       "sentiment": "neutral"
     },
@@ -1796,7 +1796,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.000659
+        "lag_1d": -0.019243
       },
       "sentiment": "neutral"
     },
@@ -1817,7 +1817,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.000659
+        "lag_1d": -0.019243
       },
       "sentiment": "negative"
     },
@@ -1839,7 +1839,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.000659
+        "lag_1d": -0.019243
       },
       "sentiment": "positive"
     },
@@ -1861,7 +1861,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.000659
+        "lag_1d": -0.019243
       },
       "sentiment": "positive"
     },
@@ -1882,7 +1882,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.000659
+        "lag_1d": -0.019243
       },
       "sentiment": "positive"
     },
@@ -1903,7 +1903,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.000659
+        "lag_1d": -0.019243
       },
       "sentiment": "neutral"
     },
@@ -1924,7 +1924,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.005471
+        "lag_1d": 0.014274
       },
       "sentiment": "negative"
     },
@@ -1945,7 +1945,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.005471
+        "lag_1d": 0.014274
       },
       "sentiment": "neutral"
     },
@@ -1966,7 +1966,7 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.005471
+        "lag_1d": 0.014274
       },
       "sentiment": "neutral"
     },
@@ -1987,7 +1987,7 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.005471
+        "lag_1d": 0.014274
       },
       "sentiment": "neutral"
     },
@@ -2008,7 +2008,7 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.005471
+        "lag_1d": 0.014274
       },
       "sentiment": "neutral"
     },
@@ -2029,7 +2029,7 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.005471
+        "lag_1d": 0.014274
       },
       "sentiment": "neutral"
     },
@@ -2050,7 +2050,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.005471
+        "lag_1d": 0.014274
       },
       "sentiment": "neutral"
     },
@@ -2071,7 +2071,7 @@
         "article_type": "own"
       },
       "sov_deltas": {
-        "lag_1d": 0.005471
+        "lag_1d": 0.014274
       },
       "sentiment": "neutral"
     },
@@ -2092,7 +2092,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.005471
+        "lag_1d": 0.014274
       },
       "sentiment": "neutral"
     },
@@ -2113,7 +2113,7 @@
         "article_type": "media"
       },
       "sov_deltas": {
-        "lag_1d": 0.005471
+        "lag_1d": 0.014274
       },
       "sentiment": "neutral"
     },
