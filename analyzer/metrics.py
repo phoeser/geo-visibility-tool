@@ -28,20 +28,110 @@ def _build_pattern(aliases: List[str]) -> re.Pattern:
     """Regex, der jede Alias-Variante als ganzes Wort matcht (case-insensitiv)."""
     sorted_aliases = sorted(aliases, key=len, reverse=True)
     escaped = [re.escape(a) for a in sorted_aliases]
-    # \b funktioniert für ASCII gut; Umlaute sind bei diesen Markennamen kein Problem
-    pattern = r"(?<![A-Za-zÀ-ÿ0-9])(" + "|".join(escaped) + r")(?![A-Za-zÀ-ÿ0-9])"
+    pattern = r"(?<![A-Za-z\xc0-\xff0-9])(" + "|".join(escaped) + r")(?![A-Za-z\xc0-\xff0-9])"
     return re.compile(pattern, re.IGNORECASE)
 
 
 # ---------------------------------------------------------------------------
-# 1) Share of Voice — reine Nennungszählung
+# 1a) Disambiguation: ambige Markennamen vs. gleichlautende Allgemeinwoerter
+# ---------------------------------------------------------------------------
+# - "ergo" (Marke) vs. "ergo" (lat. Adverb = also/folglich)
+# Heuristik:
+#   - ALL-CAPS "ERGO" -> immer Marke
+#   - Multi-Word/Domain ("ERGO Direkt", "ergo.de") -> immer Marke
+#   - Stand-alone "ergo"/"Ergo" -> Marke NUR wenn kein Adverb-Kontext erkennbar
+#     (Komma vor/nach oder typisches Konjunktions-Folgewort)
+
+_AMBIGUOUS_BRAND_TOKENS = {"ergo"}
+
+_CONJUNCTION_FOLLOW_WORDS = {
+    "ist", "sind", "war", "waren", "waeren", "waere", "wären", "wäre",
+    "kann", "koennen", "können", "konnte", "koennte", "könnte",
+    "muss", "muessen", "müssen", "musste", "muesste", "müsste",
+    "soll", "sollte", "wird", "wurde", "wuerde", "würde",
+    "hat", "haben", "hatte",
+    "wuerde", "würde", "wuerden", "würden",
+    "zeigt", "spricht", "ergibt", "folgt", "macht",
+    "abraten", "empfehle", "raten",
+    "geht", "lohnt", "lohnen", "lohnte",
+    "nicht", "kein", "keine", "keinen", "keiner",
+    "auch", "schon", "noch", "eher",
+    "viele", "wenige", "wenig", "viel",
+    "eine", "einer", "einen", "ein",
+    "es", "er", "sie", "wir", "du", "ich", "man",
+    "diese", "dieses", "diesen", "dieser",
+    "im", "in", "auf", "bei", "mit", "von", "zu", "fuer", "für",
+    "doch", "deshalb", "daher", "also", "folglich", "somit",
+    "faellt", "fällt", "bleibt", "passt", "gilt",
+    "dass", "ob", "wenn", "weil", "obwohl", "damit",
+    "ueber", "über", "unter",
+}
+
+
+# Wörter direkt VOR "ergo" die stark auf Marke hinweisen (überstimmen Adverb-Check)
+_MARKER_PRECEDING_WORDS = {
+    "und", "oder", "sowie", "auch", "wie",
+    "empfehle", "empfiehlt", "empfohlen", "empfohlene",
+    "nehme", "nimm", "waehle", "wähle", "nutze", "nutzt",
+    "bei", "von", "die", "der", "das", "den", "dem",
+    "anbieter", "versicherer", "tarif", "tarife",
+    "bewertung", "test", "vergleich", "konzern", "marke",
+    "wie", "z.b.", "etwa", "beispielsweise",
+}
+
+
+def _is_ambiguous_false_positive(text: str, match_start: int, match_end: int,
+                                  matched: str) -> bool:
+    """True wenn das Match das Adverb 'ergo' ist statt der Marke."""
+    if matched.lower() not in _AMBIGUOUS_BRAND_TOKENS:
+        return False
+    if matched.isupper():
+        return False
+
+    # 0) Marken-Indikator-Wort direkt davor -> Marke (überstimmt alle Adverb-Checks)
+    before_ctx = text[max(0, match_start - 40):match_start]
+    m_pre = re.search(r"([A-Za-z\xc0-\xff\.]+)\W*$", before_ctx)
+    if m_pre:
+        prev_word = m_pre.group(1).lower().rstrip(".")
+        if prev_word in _MARKER_PRECEDING_WORDS:
+            return False  # ist Marke, kein False-Positive
+
+    # 1) Komma direkt davor -> Konjunktion
+    before = text[max(0, match_start - 5):match_start]
+    if before.rstrip().endswith(","):
+        return True
+
+    # 2) Komma/Punkt direkt danach -> Konjunktion
+    after_raw = text[match_end:match_end + 2]
+    nxt = after_raw.lstrip()[:1]
+    if nxt in (",", "."):
+        return True
+
+    # 3) Folgewort pruefen
+    after_window = text[match_end:match_end + 60]
+    m_word = re.match(r"\s*([A-Za-z\xc0-\xff]+)", after_window)
+    if m_word:
+        next_word = m_word.group(1).lower()
+        if next_word in _CONJUNCTION_FOLLOW_WORDS:
+            return True
+
+    return False
+
+
+# ---------------------------------------------------------------------------
+# 1) Share of Voice
 # ---------------------------------------------------------------------------
 
 def count_mentions(text: str, brand: BrandSpec) -> int:
     if not text:
         return 0
     pat = _build_pattern(brand.aliases)
-    return len(pat.findall(text))
+    valid = 0
+    for m in pat.finditer(text):
+        if _is_ambiguous_false_positive(text, m.start(), m.end(), m.group(0)):
+            continue
+        valid += 1
+    return valid
 
 
 def mentioned(text: str, brand: BrandSpec) -> bool:
@@ -54,31 +144,30 @@ def mentioned(text: str, brand: BrandSpec) -> bool:
 
 LIST_LINE_RE = re.compile(
     r"^\s*(?:"
-    r"(?P<num>\d+)[\.\)]"              # 1. oder 1)
-    r"|[-*•–]"                         # Bullet -, *, •, –
-    r"|#{1,3}\s"                       # Markdown-Überschrift
+    r"(?P<num>\d+)[\.\)]"
+    r"|[-*•–]"
+    r"|#{1,3}\s"
     r")\s*(?P<body>.+)$",
     re.MULTILINE,
 )
 
 
 def first_rank(text: str, brand: BrandSpec) -> Optional[int]:
-    """Gibt den Rang (1 = ganz oben) zurück, an dem die Marke zum ersten Mal
-    in einer nummerierten oder Bullet-Liste erwähnt wird. None = nicht in Liste."""
     if not text:
         return None
     pat = _build_pattern(brand.aliases)
     items = list(LIST_LINE_RE.finditer(text))
     if not items:
         return None
-
-    # Schritte: zuerst sequentielle Bullet-Rangzählung,
-    # dann überschreiben durch nummerierte Ränge falls vorhanden.
     for i, match in enumerate(items, start=1):
         body = match.group("body")
         if pat.search(body):
-            num = match.group("num")
-            return int(num) if num else i
+            # Bei ambigem Marken-Token: gleicher Filter wie bei count_mentions
+            for sub in pat.finditer(body):
+                if _is_ambiguous_false_positive(body, sub.start(), sub.end(), sub.group(0)):
+                    continue
+                num = match.group("num")
+                return int(num) if num else i
     return None
 
 
@@ -92,7 +181,7 @@ def domain_of(url: str) -> str:
         if host.startswith("www."):
             host = host[4:]
         return host
-    except Exception:  # noqa: BLE001
+    except Exception:
         return ""
 
 
@@ -107,7 +196,7 @@ def cited_brand(sources: List[Dict[str, str]], brand: BrandSpec) -> bool:
 
 
 # ---------------------------------------------------------------------------
-# Alles auf einmal
+# Aggregation
 # ---------------------------------------------------------------------------
 
 def compute_per_brand(text: str, sources: List[Dict[str, str]], brand: BrandSpec) -> Dict:
@@ -123,7 +212,6 @@ def compute_per_brand(text: str, sources: List[Dict[str, str]], brand: BrandSpec
 
 def analyse_response(text: str, sources: List[Dict[str, str]],
                      brand: BrandSpec, competitors: List[BrandSpec]) -> Dict:
-    """Haupt-Entry-Point: liefert Metriken für Marke + alle Wettbewerber."""
     per_brand = [compute_per_brand(text, sources, brand)]
     for c in competitors:
         per_brand.append(compute_per_brand(text, sources, c))
@@ -142,19 +230,11 @@ def analyse_response(text: str, sources: List[Dict[str, str]],
     }
 
 
-# ---------------------------------------------------------------------------
-# Aggregation über alle Prompts
-# ---------------------------------------------------------------------------
-
 def aggregate_product_metrics(per_prompt_results: List[Dict],
                               brand_names: List[str]) -> Dict:
-    """
-    Fasst die pro-Prompt-Metriken für ein Produkt zusammen.
-    per_prompt_results: Liste von Dicts {"metrics": {...}, ...}
-    """
     totals = {name: {
         "mention_count": 0,
-        "appearance_count": 0,   # in wie vielen Prompts überhaupt genannt
+        "appearance_count": 0,
         "ranks": [],
         "cited_count": 0,
     } for name in brand_names}
