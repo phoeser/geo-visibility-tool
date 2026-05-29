@@ -1,0 +1,80 @@
+# Manueller Workflow: rechnet alle historischen Run-Daten mit der aktuellen
+# metrics.py neu. Nutze, wenn die Detection-Logik gefixed wurde und alte
+# Runs realistische Zahlen brauchen.
+#
+# Trigger: GitHub UI -> Actions -> "Backfill historische Brand-Metriken" -> Run workflow
+
+name: Backfill historische Brand-Metriken
+
+on:
+  workflow_dispatch:
+    inputs:
+      since:
+        description: 'Nur Runs ab diesem ISO-Datum (leer = alle)'
+        required: false
+        default: ''
+      dry_run:
+        description: 'Dry-Run (nur loggen, nichts schreiben)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run backfill
+        run: |
+          set -euo pipefail
+          ARGS=""
+          if [ -n "${{ github.event.inputs.since }}" ]; then
+            ARGS="$ARGS --since ${{ github.event.inputs.since }}"
+          fi
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          echo "[BACKFILL] Args: $ARGS"
+          python3 -m tools.backfill_brand_metrics $ARGS
+
+      - name: Commit + push (only if not dry_run)
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -z "$(git status --porcelain data/runs/)" ]; then
+            echo "[BACKFILL] Keine Aenderungen, nichts zu commiten."
+            exit 0
+          fi
+          git add data/runs/
+          git commit -m "chore(backfill): re-compute brand metrics with new disambig logic"
+          # Push mit retry (kann race mit nightly run)
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "[BACKFILL] Push erfolgreich (Versuch $i)"
+              exit 0
+            fi
+            echo "[BACKFILL] Push fehlgeschlagen, retry $((i+1))"
+            git fetch origin main
+            git rebase origin/main || git rebase --abort
+            sleep 3
+          done
+          # Letzter Versuch mit force-with-lease
+          git push --force-with-lease
