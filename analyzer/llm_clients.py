@@ -182,7 +182,7 @@ class GeminiClient:
                 ],
                 "generationConfig": {
                     "temperature": self.temperature,
-                    "maxOutputTokens": 2048, "thinkingConfig": {"thinkingBudget": 0},
+                    "maxOutputTokens": self.max_tokens,
                 },
                 # Grounding mit Google Search aktivieren, um Quellen zu bekommen:
                 "tools": [{"googleSearch": {}}],
@@ -250,7 +250,7 @@ class GeminiClient:
             "contents": [{"role": "user", "parts": [{"text": prompt}]}],
             "generationConfig": {
                 "temperature": self.temperature,
-                "maxOutputTokens": 2048, "thinkingConfig": {"thinkingBudget": 0},
+                "maxOutputTokens": self.max_tokens,
             },
         }
         t0 = time.time()
