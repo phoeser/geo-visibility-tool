@@ -367,6 +367,33 @@ def track_page(
     # 404 / 410 / Server-Errors explizit behandeln
     if status in (0, 404, 410):
         result.error = f"HTTP {status}" if status else "fetch failed (timeout/exception)"
+        # 2026-06-05: Seitenloeschung als Event erfassen (einmalig) — nur wenn
+        # die Seite frueher erfolgreich erfasst wurde (current.json existiert)
+        if status in (404, 410):
+            try:
+                _pd = _page_dir(pages_base, brand, url)
+                _cur = _pd / "current.json"
+                _ev = _pd / "events.jsonl"
+                if _cur.exists():
+                    _already = False
+                    if _ev.exists():
+                        _lines = _ev.read_text(encoding="utf-8").strip().splitlines()
+                        if _lines:
+                            _already = json.loads(_lines[-1]).get("event_type") == "removed"
+                    if not _already:
+                        _prev = _read_json(_cur) or {}
+                        _append_jsonl(_ev, {
+                            "timestamp": timestamp, "run_id": run_id, "brand": brand,
+                            "product_ids": list(product_ids), "url": url,
+                            "event_type": "removed",
+                            "hash_before": _prev.get("text_hash", ""), "hash_after": "",
+                            "similarity": 0.0, "added_lines_count": 0,
+                            "removed_lines_count": 0, "added_lines": [], "removed_lines": [],
+                            "summary": f"Seite nicht mehr erreichbar (HTTP {status}).",
+                            "classification": None,
+                        })
+            except Exception:
+                pass
         return result
     if status >= 400:
         result.error = f"HTTP {status}"
