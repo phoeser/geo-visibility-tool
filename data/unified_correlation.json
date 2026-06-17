@@ -1,21 +1,40 @@
 {
   "meta": {
-    "total_page_events": 3214,
-    "total_cockpit_events": 6987,
-    "total_unified_events": 10176,
-    "total_enriched_events": 10176,
-    "total_runs": 84,
+    "total_page_events": 3342,
+    "total_cockpit_events": 7220,
+    "total_unified_events": 10537,
+    "total_enriched_events": 10537,
+    "total_runs": 85,
     "lag_windows": [
       1,
       3,
       7,
       14
     ],
-    "generated_at": "2026-06-16T03:42:46.591958Z"
+    "generated_at": "2026-06-17T03:30:17.063998Z"
   },
   "event_summary": {
+    "news_mention": {
+      "count": 1523,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
     "review_volume": {
-      "count": 32,
+      "count": 33,
       "brands": [
         "Allianz",
         "DEVK",
@@ -23,7 +42,24 @@
         "R+V",
         "Signal Iduna"
       ],
-      "avg_magnitude": 1.359,
+      "avg_magnitude": 1.379,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "review_change": {
+      "count": 36,
+      "brands": [
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.5,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -45,59 +81,8 @@
       "best_spearman_rho": null,
       "impact": {}
     },
-    "press_mention": {
-      "count": 586,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "Cosmos Direkt",
-        "DEVK",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg",
-        "Hannoversche",
-        "R+V",
-        "Signal Iduna"
-      ],
-      "avg_magnitude": 1.0,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    "review_change": {
-      "count": 34,
-      "brands": [
-        "Allianz",
-        "DEVK",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg",
-        "R+V",
-        "Signal Iduna"
-      ],
-      "avg_magnitude": 1.515,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    "sov_change": {
-      "count": 856,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "Cosmos Direkt",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg",
-        "Signal Iduna"
-      ],
-      "avg_magnitude": 1.13,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
     "page_change": {
-      "count": 2365,
+      "count": 2658,
       "brands": [
         "AXA",
         "Allianz",
@@ -106,7 +91,7 @@
         "Generali",
         "HUK-Coburg"
       ],
-      "avg_magnitude": 0.372,
+      "avg_magnitude": 0.388,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -130,8 +115,24 @@
       "best_spearman_rho": null,
       "impact": {}
     },
-    "news_mention": {
-      "count": 1515,
+    "sov_change": {
+      "count": 908,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "Cosmos Direkt",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.132,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "press_mention": {
+      "count": 591,
       "brands": [
         "AXA",
         "Allianz",
@@ -152,8 +153,28 @@
   },
   "impact_ranking": [
     {
+      "event_type": "news_mention",
+      "count": 1523,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
       "event_type": "review_volume",
-      "count": 32,
+      "count": 33,
       "brands": [
         "Allianz",
         "DEVK",
@@ -161,7 +182,25 @@
         "R+V",
         "Signal Iduna"
       ],
-      "avg_magnitude": 1.359,
+      "avg_magnitude": 1.379,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "review_change",
+      "count": 36,
+      "brands": [
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.5,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -185,62 +224,8 @@
       "impact": {}
     },
     {
-      "event_type": "press_mention",
-      "count": 586,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "Cosmos Direkt",
-        "DEVK",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg",
-        "Hannoversche",
-        "R+V",
-        "Signal Iduna"
-      ],
-      "avg_magnitude": 1.0,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
-      "event_type": "review_change",
-      "count": 34,
-      "brands": [
-        "Allianz",
-        "DEVK",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg",
-        "R+V",
-        "Signal Iduna"
-      ],
-      "avg_magnitude": 1.515,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
-      "event_type": "sov_change",
-      "count": 856,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "Cosmos Direkt",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg",
-        "Signal Iduna"
-      ],
-      "avg_magnitude": 1.13,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
       "event_type": "page_change",
-      "count": 2365,
+      "count": 2658,
       "brands": [
         "AXA",
         "Allianz",
@@ -249,7 +234,7 @@
         "Generali",
         "HUK-Coburg"
       ],
-      "avg_magnitude": 0.372,
+      "avg_magnitude": 0.388,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -275,8 +260,25 @@
       "impact": {}
     },
     {
-      "event_type": "news_mention",
-      "count": 1515,
+      "event_type": "sov_change",
+      "count": 908,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "Cosmos Direkt",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.132,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "press_mention",
+      "count": 591,
       "brands": [
         "AXA",
         "Allianz",
@@ -296,32 +298,86 @@
     }
   ],
   "correlation_matrix": {
+    "news_mention__delta_share_of_voice__lag_1d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 1523,
+      "spearman_rho": 0.5703,
+      "avg_delta": -0.000481,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_1d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 1523,
+      "spearman_rho": 0.5781,
+      "avg_delta": -0.019015,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_1d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 1523,
+      "spearman_rho": 0.5772,
+      "avg_delta": 0.000266,
+      "avg_magnitude": 1.0
+    },
     "review_volume__delta_share_of_voice__lag_1d": {
       "event_type": "review_volume",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 32,
-      "spearman_rho": 0.1687,
-      "avg_delta": -0.001622,
-      "avg_magnitude": 1.359
+      "n_events": 33,
+      "spearman_rho": 0.178,
+      "avg_delta": -0.00165,
+      "avg_magnitude": 1.379
     },
     "review_volume__delta_appearance_rate__lag_1d": {
       "event_type": "review_volume",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 32,
-      "spearman_rho": -0.0317,
-      "avg_delta": 0.006534,
-      "avg_magnitude": 1.359
+      "n_events": 33,
+      "spearman_rho": -0.0364,
+      "avg_delta": 0.006276,
+      "avg_magnitude": 1.379
     },
     "review_volume__delta_citation_rate__lag_1d": {
       "event_type": "review_volume",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 32,
-      "spearman_rho": 0.3639,
-      "avg_delta": -0.004274,
-      "avg_magnitude": 1.359
+      "n_events": 33,
+      "spearman_rho": 0.3622,
+      "avg_delta": -0.004264,
+      "avg_magnitude": 1.379
+    },
+    "review_change__delta_share_of_voice__lag_1d": {
+      "event_type": "review_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 36,
+      "spearman_rho": 0.2466,
+      "avg_delta": -0.005818,
+      "avg_magnitude": 1.5
+    },
+    "review_change__delta_appearance_rate__lag_1d": {
+      "event_type": "review_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 36,
+      "spearman_rho": 0.2219,
+      "avg_delta": 0.003013,
+      "avg_magnitude": 1.5
+    },
+    "review_change__delta_citation_rate__lag_1d": {
+      "event_type": "review_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 36,
+      "spearman_rho": 0.1705,
+      "avg_delta": -0.003068,
+      "avg_magnitude": 1.5
     },
     "domain_change__delta_share_of_voice__lag_1d": {
       "event_type": "domain_change",
@@ -350,113 +406,32 @@
       "avg_delta": -0.001323,
       "avg_magnitude": 1.433
     },
-    "press_mention__delta_share_of_voice__lag_1d": {
-      "event_type": "press_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 586,
-      "spearman_rho": 0.5632,
-      "avg_delta": -0.001382,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_appearance_rate__lag_1d": {
-      "event_type": "press_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 586,
-      "spearman_rho": 0.5854,
-      "avg_delta": -0.020962,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_citation_rate__lag_1d": {
-      "event_type": "press_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 586,
-      "spearman_rho": 0.5763,
-      "avg_delta": 0.00241,
-      "avg_magnitude": 1.0
-    },
-    "review_change__delta_share_of_voice__lag_1d": {
-      "event_type": "review_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 34,
-      "spearman_rho": 0.3079,
-      "avg_delta": -0.006182,
-      "avg_magnitude": 1.515
-    },
-    "review_change__delta_appearance_rate__lag_1d": {
-      "event_type": "review_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 34,
-      "spearman_rho": 0.2807,
-      "avg_delta": 0.003075,
-      "avg_magnitude": 1.515
-    },
-    "review_change__delta_citation_rate__lag_1d": {
-      "event_type": "review_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 34,
-      "spearman_rho": 0.2392,
-      "avg_delta": -0.003307,
-      "avg_magnitude": 1.515
-    },
-    "sov_change__delta_share_of_voice__lag_1d": {
-      "event_type": "sov_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 856,
-      "spearman_rho": 0.0052,
-      "avg_delta": -0.004848,
-      "avg_magnitude": 1.13
-    },
-    "sov_change__delta_appearance_rate__lag_1d": {
-      "event_type": "sov_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 856,
-      "spearman_rho": 0.062,
-      "avg_delta": 0.003967,
-      "avg_magnitude": 1.13
-    },
-    "sov_change__delta_citation_rate__lag_1d": {
-      "event_type": "sov_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 856,
-      "spearman_rho": 0.0818,
-      "avg_delta": 0.004007,
-      "avg_magnitude": 1.13
-    },
     "page_change__delta_share_of_voice__lag_1d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 2365,
-      "spearman_rho": 0.0291,
-      "avg_delta": -0.003611,
-      "avg_magnitude": 0.372
+      "n_events": 2658,
+      "spearman_rho": 0.0563,
+      "avg_delta": -0.002074,
+      "avg_magnitude": 0.388
     },
     "page_change__delta_appearance_rate__lag_1d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 2365,
-      "spearman_rho": -0.0534,
-      "avg_delta": 0.02343,
-      "avg_magnitude": 0.372
+      "n_events": 2658,
+      "spearman_rho": -0.0553,
+      "avg_delta": 0.024059,
+      "avg_magnitude": 0.388
     },
     "page_change__delta_citation_rate__lag_1d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 2365,
-      "spearman_rho": -0.0178,
-      "avg_delta": 0.007062,
-      "avg_magnitude": 0.372
+      "n_events": 2658,
+      "spearman_rho": 0.0031,
+      "avg_delta": 0.008145,
+      "avg_magnitude": 0.388
     },
     "page_new__delta_share_of_voice__lag_1d": {
       "event_type": "page_new",
@@ -485,59 +460,140 @@
       "avg_delta": 0.014738,
       "avg_magnitude": 0.965
     },
-    "news_mention__delta_share_of_voice__lag_1d": {
-      "event_type": "news_mention",
+    "sov_change__delta_share_of_voice__lag_1d": {
+      "event_type": "sov_change",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 1515,
-      "spearman_rho": 0.5704,
-      "avg_delta": -0.000476,
-      "avg_magnitude": 1.0
+      "n_events": 908,
+      "spearman_rho": 0.0095,
+      "avg_delta": -0.004543,
+      "avg_magnitude": 1.132
     },
-    "news_mention__delta_appearance_rate__lag_1d": {
-      "event_type": "news_mention",
+    "sov_change__delta_appearance_rate__lag_1d": {
+      "event_type": "sov_change",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 1515,
-      "spearman_rho": 0.5776,
-      "avg_delta": -0.01911,
-      "avg_magnitude": 1.0
+      "n_events": 908,
+      "spearman_rho": 0.0598,
+      "avg_delta": 0.003971,
+      "avg_magnitude": 1.132
     },
-    "news_mention__delta_citation_rate__lag_1d": {
-      "event_type": "news_mention",
+    "sov_change__delta_citation_rate__lag_1d": {
+      "event_type": "sov_change",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 1515,
+      "n_events": 908,
+      "spearman_rho": 0.0792,
+      "avg_delta": 0.003719,
+      "avg_magnitude": 1.132
+    },
+    "press_mention__delta_share_of_voice__lag_1d": {
+      "event_type": "press_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 591,
+      "spearman_rho": 0.5642,
+      "avg_delta": -0.00138,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_appearance_rate__lag_1d": {
+      "event_type": "press_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 591,
+      "spearman_rho": 0.5863,
+      "avg_delta": -0.020809,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_citation_rate__lag_1d": {
+      "event_type": "press_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 591,
       "spearman_rho": 0.5773,
-      "avg_delta": 0.000278,
+      "avg_delta": 0.00238,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_share_of_voice__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 1515,
+      "spearman_rho": 0.5675,
+      "avg_delta": -0.000208,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 1515,
+      "spearman_rho": 0.5756,
+      "avg_delta": -0.019172,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 1515,
+      "spearman_rho": 0.572,
+      "avg_delta": -0.001241,
       "avg_magnitude": 1.0
     },
     "review_volume__delta_share_of_voice__lag_3d": {
       "event_type": "review_volume",
       "metric": "delta_share_of_voice",
       "lag_days": 3,
-      "n_events": 31,
-      "spearman_rho": -0.07,
-      "avg_delta": -0.001961,
-      "avg_magnitude": 1.377
+      "n_events": 32,
+      "spearman_rho": -0.0347,
+      "avg_delta": -0.002502,
+      "avg_magnitude": 1.359
     },
     "review_volume__delta_appearance_rate__lag_3d": {
       "event_type": "review_volume",
       "metric": "delta_appearance_rate",
       "lag_days": 3,
-      "n_events": 31,
-      "spearman_rho": -0.1655,
-      "avg_delta": 0.018515,
-      "avg_magnitude": 1.377
+      "n_events": 32,
+      "spearman_rho": -0.1003,
+      "avg_delta": 0.017382,
+      "avg_magnitude": 1.359
     },
     "review_volume__delta_citation_rate__lag_3d": {
       "event_type": "review_volume",
       "metric": "delta_citation_rate",
       "lag_days": 3,
-      "n_events": 31,
-      "spearman_rho": 0.1002,
-      "avg_delta": -0.005345,
-      "avg_magnitude": 1.377
+      "n_events": 32,
+      "spearman_rho": 0.1152,
+      "avg_delta": -0.005917,
+      "avg_magnitude": 1.359
+    },
+    "review_change__delta_share_of_voice__lag_3d": {
+      "event_type": "review_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 34,
+      "spearman_rho": 0.2403,
+      "avg_delta": -0.002672,
+      "avg_magnitude": 1.515
+    },
+    "review_change__delta_appearance_rate__lag_3d": {
+      "event_type": "review_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 34,
+      "spearman_rho": 0.3509,
+      "avg_delta": 0.006903,
+      "avg_magnitude": 1.515
+    },
+    "review_change__delta_citation_rate__lag_3d": {
+      "event_type": "review_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 34,
+      "spearman_rho": 0.2549,
+      "avg_delta": -0.003307,
+      "avg_magnitude": 1.515
     },
     "domain_change__delta_share_of_voice__lag_3d": {
       "event_type": "domain_change",
@@ -566,113 +622,32 @@
       "avg_delta": 0.002213,
       "avg_magnitude": 1.433
     },
-    "press_mention__delta_share_of_voice__lag_3d": {
-      "event_type": "press_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 583,
-      "spearman_rho": 0.561,
-      "avg_delta": -0.000722,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_appearance_rate__lag_3d": {
-      "event_type": "press_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 583,
-      "spearman_rho": 0.5682,
-      "avg_delta": -0.01946,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_citation_rate__lag_3d": {
-      "event_type": "press_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 583,
-      "spearman_rho": 0.576,
-      "avg_delta": -0.000342,
-      "avg_magnitude": 1.0
-    },
-    "review_change__delta_share_of_voice__lag_3d": {
-      "event_type": "review_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 33,
-      "spearman_rho": 0.2602,
-      "avg_delta": -0.002246,
-      "avg_magnitude": 1.5
-    },
-    "review_change__delta_appearance_rate__lag_3d": {
-      "event_type": "review_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 33,
-      "spearman_rho": 0.3834,
-      "avg_delta": 0.007591,
-      "avg_magnitude": 1.5
-    },
-    "review_change__delta_citation_rate__lag_3d": {
-      "event_type": "review_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 33,
-      "spearman_rho": 0.2818,
-      "avg_delta": -0.002809,
-      "avg_magnitude": 1.5
-    },
-    "sov_change__delta_share_of_voice__lag_3d": {
-      "event_type": "sov_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 802,
-      "spearman_rho": -0.0572,
-      "avg_delta": -0.009986,
-      "avg_magnitude": 1.132
-    },
-    "sov_change__delta_appearance_rate__lag_3d": {
-      "event_type": "sov_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 802,
-      "spearman_rho": 0.036,
-      "avg_delta": 0.011354,
-      "avg_magnitude": 1.132
-    },
-    "sov_change__delta_citation_rate__lag_3d": {
-      "event_type": "sov_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 802,
-      "spearman_rho": 0.0316,
-      "avg_delta": 5.4e-05,
-      "avg_magnitude": 1.132
-    },
     "page_change__delta_share_of_voice__lag_3d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
       "lag_days": 3,
-      "n_events": 2199,
-      "spearman_rho": -0.0403,
-      "avg_delta": -0.00962,
-      "avg_magnitude": 0.388
+      "n_events": 2530,
+      "spearman_rho": -0.0829,
+      "avg_delta": -0.007338,
+      "avg_magnitude": 0.36
     },
     "page_change__delta_appearance_rate__lag_3d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
       "lag_days": 3,
-      "n_events": 2199,
-      "spearman_rho": -0.0801,
-      "avg_delta": 0.014339,
-      "avg_magnitude": 0.388
+      "n_events": 2530,
+      "spearman_rho": -0.0738,
+      "avg_delta": 0.013638,
+      "avg_magnitude": 0.36
     },
     "page_change__delta_citation_rate__lag_3d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
       "lag_days": 3,
-      "n_events": 2199,
-      "spearman_rho": 0.0515,
-      "avg_delta": 0.006381,
-      "avg_magnitude": 0.388
+      "n_events": 2530,
+      "spearman_rho": -0.0205,
+      "avg_delta": 0.007904,
+      "avg_magnitude": 0.36
     },
     "page_new__delta_share_of_voice__lag_3d": {
       "event_type": "page_new",
@@ -701,31 +676,85 @@
       "avg_delta": 0.02082,
       "avg_magnitude": 0.965
     },
-    "news_mention__delta_share_of_voice__lag_3d": {
-      "event_type": "news_mention",
+    "sov_change__delta_share_of_voice__lag_3d": {
+      "event_type": "sov_change",
       "metric": "delta_share_of_voice",
       "lag_days": 3,
-      "n_events": 1509,
-      "spearman_rho": 0.5678,
-      "avg_delta": -0.000227,
-      "avg_magnitude": 1.0
+      "n_events": 856,
+      "spearman_rho": -0.0544,
+      "avg_delta": -0.009312,
+      "avg_magnitude": 1.13
     },
-    "news_mention__delta_appearance_rate__lag_3d": {
-      "event_type": "news_mention",
+    "sov_change__delta_appearance_rate__lag_3d": {
+      "event_type": "sov_change",
       "metric": "delta_appearance_rate",
       "lag_days": 3,
-      "n_events": 1509,
-      "spearman_rho": 0.576,
-      "avg_delta": -0.019304,
-      "avg_magnitude": 1.0
+      "n_events": 856,
+      "spearman_rho": 0.0386,
+      "avg_delta": 0.01098,
+      "avg_magnitude": 1.13
     },
-    "news_mention__delta_citation_rate__lag_3d": {
-      "event_type": "news_mention",
+    "sov_change__delta_citation_rate__lag_3d": {
+      "event_type": "sov_change",
       "metric": "delta_citation_rate",
       "lag_days": 3,
-      "n_events": 1509,
-      "spearman_rho": 0.5724,
-      "avg_delta": -0.001315,
+      "n_events": 856,
+      "spearman_rho": 0.0327,
+      "avg_delta": 0.000342,
+      "avg_magnitude": 1.13
+    },
+    "press_mention__delta_share_of_voice__lag_3d": {
+      "event_type": "press_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 586,
+      "spearman_rho": 0.56,
+      "avg_delta": -0.000714,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_appearance_rate__lag_3d": {
+      "event_type": "press_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 586,
+      "spearman_rho": 0.5672,
+      "avg_delta": -0.01935,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_citation_rate__lag_3d": {
+      "event_type": "press_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 586,
+      "spearman_rho": 0.5749,
+      "avg_delta": -0.000316,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_share_of_voice__lag_7d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 1456,
+      "spearman_rho": 0.5633,
+      "avg_delta": 0.001248,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_7d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 1456,
+      "spearman_rho": 0.5731,
+      "avg_delta": -0.012323,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_7d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 1456,
+      "spearman_rho": 0.57,
+      "avg_delta": 0.000805,
       "avg_magnitude": 1.0
     },
     "review_volume__delta_share_of_voice__lag_7d": {
@@ -755,6 +784,33 @@
       "avg_delta": -0.003874,
       "avg_magnitude": 1.414
     },
+    "review_change__delta_share_of_voice__lag_7d": {
+      "event_type": "review_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 28,
+      "spearman_rho": 0.5442,
+      "avg_delta": -0.005083,
+      "avg_magnitude": 1.625
+    },
+    "review_change__delta_appearance_rate__lag_7d": {
+      "event_type": "review_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 28,
+      "spearman_rho": 0.4265,
+      "avg_delta": 0.012116,
+      "avg_magnitude": 1.625
+    },
+    "review_change__delta_citation_rate__lag_7d": {
+      "event_type": "review_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 28,
+      "spearman_rho": 0.3489,
+      "avg_delta": -0.002325,
+      "avg_magnitude": 1.625
+    },
     "domain_change__delta_share_of_voice__lag_7d": {
       "event_type": "domain_change",
       "metric": "delta_share_of_voice",
@@ -782,113 +838,32 @@
       "avg_delta": 0.000601,
       "avg_magnitude": 1.433
     },
-    "press_mention__delta_share_of_voice__lag_7d": {
-      "event_type": "press_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 563,
-      "spearman_rho": 0.5596,
-      "avg_delta": -0.002642,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_appearance_rate__lag_7d": {
-      "event_type": "press_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 563,
-      "spearman_rho": 0.567,
-      "avg_delta": -0.018242,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_citation_rate__lag_7d": {
-      "event_type": "press_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 563,
-      "spearman_rho": 0.5699,
-      "avg_delta": 0.001447,
-      "avg_magnitude": 1.0
-    },
-    "review_change__delta_share_of_voice__lag_7d": {
-      "event_type": "review_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 27,
-      "spearman_rho": 0.5156,
-      "avg_delta": -0.0032,
-      "avg_magnitude": 1.667
-    },
-    "review_change__delta_appearance_rate__lag_7d": {
-      "event_type": "review_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 27,
-      "spearman_rho": 0.3814,
-      "avg_delta": 0.013734,
-      "avg_magnitude": 1.667
-    },
-    "review_change__delta_citation_rate__lag_7d": {
-      "event_type": "review_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 27,
-      "spearman_rho": 0.3303,
-      "avg_delta": -0.002045,
-      "avg_magnitude": 1.667
-    },
-    "sov_change__delta_share_of_voice__lag_7d": {
-      "event_type": "sov_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 641,
-      "spearman_rho": 0.0665,
-      "avg_delta": -0.01784,
-      "avg_magnitude": 1.111
-    },
-    "sov_change__delta_appearance_rate__lag_7d": {
-      "event_type": "sov_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 641,
-      "spearman_rho": 0.0559,
-      "avg_delta": 0.038148,
-      "avg_magnitude": 1.111
-    },
-    "sov_change__delta_citation_rate__lag_7d": {
-      "event_type": "sov_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 641,
-      "spearman_rho": 0.0667,
-      "avg_delta": 0.003962,
-      "avg_magnitude": 1.111
-    },
     "page_change__delta_share_of_voice__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
       "lag_days": 7,
-      "n_events": 2121,
-      "spearman_rho": -0.1671,
-      "avg_delta": -0.002388,
-      "avg_magnitude": 0.385
+      "n_events": 2141,
+      "spearman_rho": -0.165,
+      "avg_delta": -0.002508,
+      "avg_magnitude": 0.382
     },
     "page_change__delta_appearance_rate__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
       "lag_days": 7,
-      "n_events": 2121,
-      "spearman_rho": -0.1853,
-      "avg_delta": 0.028877,
-      "avg_magnitude": 0.385
+      "n_events": 2141,
+      "spearman_rho": -0.183,
+      "avg_delta": 0.028812,
+      "avg_magnitude": 0.382
     },
     "page_change__delta_citation_rate__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
       "lag_days": 7,
-      "n_events": 2121,
-      "spearman_rho": -0.3565,
+      "n_events": 2141,
+      "spearman_rho": -0.3512,
       "avg_delta": 0.013674,
-      "avg_magnitude": 0.385
+      "avg_magnitude": 0.382
     },
     "page_new__delta_share_of_voice__lag_7d": {
       "event_type": "page_new",
@@ -917,59 +892,140 @@
       "avg_delta": 0.034982,
       "avg_magnitude": 0.96
     },
-    "news_mention__delta_share_of_voice__lag_7d": {
-      "event_type": "news_mention",
+    "sov_change__delta_share_of_voice__lag_7d": {
+      "event_type": "sov_change",
       "metric": "delta_share_of_voice",
       "lag_days": 7,
-      "n_events": 1439,
-      "spearman_rho": 0.5637,
-      "avg_delta": 0.001459,
-      "avg_magnitude": 1.0
+      "n_events": 680,
+      "spearman_rho": 0.044,
+      "avg_delta": -0.019782,
+      "avg_magnitude": 1.119
     },
-    "news_mention__delta_appearance_rate__lag_7d": {
-      "event_type": "news_mention",
+    "sov_change__delta_appearance_rate__lag_7d": {
+      "event_type": "sov_change",
       "metric": "delta_appearance_rate",
       "lag_days": 7,
-      "n_events": 1439,
-      "spearman_rho": 0.5731,
-      "avg_delta": -0.012325,
-      "avg_magnitude": 1.0
+      "n_events": 680,
+      "spearman_rho": 0.0403,
+      "avg_delta": 0.03507,
+      "avg_magnitude": 1.119
     },
-    "news_mention__delta_citation_rate__lag_7d": {
-      "event_type": "news_mention",
+    "sov_change__delta_citation_rate__lag_7d": {
+      "event_type": "sov_change",
       "metric": "delta_citation_rate",
       "lag_days": 7,
-      "n_events": 1439,
-      "spearman_rho": 0.57,
-      "avg_delta": 0.000859,
+      "n_events": 680,
+      "spearman_rho": 0.054,
+      "avg_delta": 0.0035,
+      "avg_magnitude": 1.119
+    },
+    "press_mention__delta_share_of_voice__lag_7d": {
+      "event_type": "press_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 567,
+      "spearman_rho": 0.559,
+      "avg_delta": -0.002457,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_appearance_rate__lag_7d": {
+      "event_type": "press_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 567,
+      "spearman_rho": 0.567,
+      "avg_delta": -0.018092,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_citation_rate__lag_7d": {
+      "event_type": "press_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 567,
+      "spearman_rho": 0.5698,
+      "avg_delta": 0.001461,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_share_of_voice__lag_14d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 14,
+      "n_events": 1355,
+      "spearman_rho": 0.5591,
+      "avg_delta": 0.000821,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_14d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 1355,
+      "spearman_rho": 0.5741,
+      "avg_delta": -0.005346,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_14d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 1355,
+      "spearman_rho": 0.569,
+      "avg_delta": -0.002004,
       "avg_magnitude": 1.0
     },
     "review_volume__delta_share_of_voice__lag_14d": {
       "event_type": "review_volume",
       "metric": "delta_share_of_voice",
       "lag_days": 14,
-      "n_events": 20,
-      "spearman_rho": 0.5925,
-      "avg_delta": -0.034386,
-      "avg_magnitude": 1.465
+      "n_events": 26,
+      "spearman_rho": 0.5515,
+      "avg_delta": -0.031938,
+      "avg_magnitude": 1.427
     },
     "review_volume__delta_appearance_rate__lag_14d": {
       "event_type": "review_volume",
       "metric": "delta_appearance_rate",
       "lag_days": 14,
-      "n_events": 20,
-      "spearman_rho": -0.5429,
-      "avg_delta": 0.091026,
-      "avg_magnitude": 1.465
+      "n_events": 26,
+      "spearman_rho": -0.4598,
+      "avg_delta": 0.07753,
+      "avg_magnitude": 1.427
     },
     "review_volume__delta_citation_rate__lag_14d": {
       "event_type": "review_volume",
       "metric": "delta_citation_rate",
       "lag_days": 14,
-      "n_events": 20,
-      "spearman_rho": 0.0195,
-      "avg_delta": -0.012722,
-      "avg_magnitude": 1.465
+      "n_events": 26,
+      "spearman_rho": 0.172,
+      "avg_delta": -0.014489,
+      "avg_magnitude": 1.427
+    },
+    "review_change__delta_share_of_voice__lag_14d": {
+      "event_type": "review_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 14,
+      "n_events": 24,
+      "spearman_rho": 0.362,
+      "avg_delta": 0.011547,
+      "avg_magnitude": 1.688
+    },
+    "review_change__delta_appearance_rate__lag_14d": {
+      "event_type": "review_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 24,
+      "spearman_rho": 0.6509,
+      "avg_delta": 0.025559,
+      "avg_magnitude": 1.688
+    },
+    "review_change__delta_citation_rate__lag_14d": {
+      "event_type": "review_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 24,
+      "spearman_rho": 0.4213,
+      "avg_delta": -0.011588,
+      "avg_magnitude": 1.688
     },
     "domain_change__delta_share_of_voice__lag_14d": {
       "event_type": "domain_change",
@@ -998,121 +1054,40 @@
       "avg_delta": 0.005003,
       "avg_magnitude": 1.433
     },
-    "press_mention__delta_share_of_voice__lag_14d": {
-      "event_type": "press_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 14,
-      "n_events": 517,
-      "spearman_rho": 0.5615,
-      "avg_delta": -0.000511,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_appearance_rate__lag_14d": {
-      "event_type": "press_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 14,
-      "n_events": 517,
-      "spearman_rho": 0.5745,
-      "avg_delta": -0.016286,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_citation_rate__lag_14d": {
-      "event_type": "press_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 14,
-      "n_events": 517,
-      "spearman_rho": 0.5721,
-      "avg_delta": -0.000629,
-      "avg_magnitude": 1.0
-    },
-    "review_change__delta_share_of_voice__lag_14d": {
-      "event_type": "review_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 14,
-      "n_events": 13,
-      "spearman_rho": 0.5288,
-      "avg_delta": 0.015129,
-      "avg_magnitude": 2.0
-    },
-    "review_change__delta_appearance_rate__lag_14d": {
-      "event_type": "review_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 14,
-      "n_events": 13,
-      "spearman_rho": 0.6154,
-      "avg_delta": 0.041117,
-      "avg_magnitude": 2.0
-    },
-    "review_change__delta_citation_rate__lag_14d": {
-      "event_type": "review_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 14,
-      "n_events": 13,
-      "spearman_rho": 0.6154,
-      "avg_delta": -0.015324,
-      "avg_magnitude": 2.0
-    },
-    "sov_change__delta_share_of_voice__lag_14d": {
-      "event_type": "sov_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 14,
-      "n_events": 427,
-      "spearman_rho": -0.056,
-      "avg_delta": -0.026115,
-      "avg_magnitude": 1.122
-    },
-    "sov_change__delta_appearance_rate__lag_14d": {
-      "event_type": "sov_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 14,
-      "n_events": 427,
-      "spearman_rho": -0.0446,
-      "avg_delta": 0.086089,
-      "avg_magnitude": 1.122
-    },
-    "sov_change__delta_citation_rate__lag_14d": {
-      "event_type": "sov_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 14,
-      "n_events": 427,
-      "spearman_rho": 0.0479,
-      "avg_delta": 0.010338,
-      "avg_magnitude": 1.122
-    },
     "page_change__delta_share_of_voice__lag_14d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
       "lag_days": 14,
-      "n_events": 1583,
-      "spearman_rho": 0.1547,
-      "avg_delta": -0.015484,
-      "avg_magnitude": 0.206
+      "n_events": 1817,
+      "spearman_rho": -0.0533,
+      "avg_delta": -0.017312,
+      "avg_magnitude": 0.307
     },
     "page_change__delta_appearance_rate__lag_14d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
       "lag_days": 14,
-      "n_events": 1583,
-      "spearman_rho": 0.1271,
-      "avg_delta": 0.023884,
-      "avg_magnitude": 0.206
+      "n_events": 1817,
+      "spearman_rho": 0.277,
+      "avg_delta": 0.032367,
+      "avg_magnitude": 0.307
     },
     "page_change__delta_citation_rate__lag_14d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
       "lag_days": 14,
-      "n_events": 1583,
-      "spearman_rho": -0.0355,
-      "avg_delta": 0.010319,
-      "avg_magnitude": 0.206
+      "n_events": 1817,
+      "spearman_rho": -0.1441,
+      "avg_delta": 0.011115,
+      "avg_magnitude": 0.307
     },
     "page_new__delta_share_of_voice__lag_14d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 14,
       "n_events": 4110,
-      "spearman_rho": 0.2234,
-      "avg_delta": -0.023324,
+      "spearman_rho": 0.2232,
+      "avg_delta": -0.023325,
       "avg_magnitude": 0.96
     },
     "page_new__delta_appearance_rate__lag_14d": {
@@ -1121,7 +1096,7 @@
       "lag_days": 14,
       "n_events": 4110,
       "spearman_rho": -0.1638,
-      "avg_delta": -0.070252,
+      "avg_delta": -0.070253,
       "avg_magnitude": 0.96
     },
     "page_new__delta_citation_rate__lag_14d": {
@@ -1133,2041 +1108,2060 @@
       "avg_delta": 0.026504,
       "avg_magnitude": 0.96
     },
-    "news_mention__delta_share_of_voice__lag_14d": {
-      "event_type": "news_mention",
+    "sov_change__delta_share_of_voice__lag_14d": {
+      "event_type": "sov_change",
       "metric": "delta_share_of_voice",
       "lag_days": 14,
-      "n_events": 1334,
-      "spearman_rho": 0.5589,
-      "avg_delta": 0.000645,
-      "avg_magnitude": 1.0
+      "n_events": 469,
+      "spearman_rho": -0.0562,
+      "avg_delta": -0.028167,
+      "avg_magnitude": 1.129
     },
-    "news_mention__delta_appearance_rate__lag_14d": {
-      "event_type": "news_mention",
+    "sov_change__delta_appearance_rate__lag_14d": {
+      "event_type": "sov_change",
       "metric": "delta_appearance_rate",
       "lag_days": 14,
-      "n_events": 1334,
-      "spearman_rho": 0.5729,
-      "avg_delta": -0.005549,
-      "avg_magnitude": 1.0
+      "n_events": 469,
+      "spearman_rho": -0.0234,
+      "avg_delta": 0.082014,
+      "avg_magnitude": 1.129
     },
-    "news_mention__delta_citation_rate__lag_14d": {
-      "event_type": "news_mention",
+    "sov_change__delta_citation_rate__lag_14d": {
+      "event_type": "sov_change",
       "metric": "delta_citation_rate",
       "lag_days": 14,
-      "n_events": 1334,
-      "spearman_rho": 0.5678,
-      "avg_delta": -0.001991,
+      "n_events": 469,
+      "spearman_rho": 0.0512,
+      "avg_delta": 0.008207,
+      "avg_magnitude": 1.129
+    },
+    "press_mention__delta_share_of_voice__lag_14d": {
+      "event_type": "press_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 14,
+      "n_events": 527,
+      "spearman_rho": 0.5601,
+      "avg_delta": 4.2e-05,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_appearance_rate__lag_14d": {
+      "event_type": "press_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 527,
+      "spearman_rho": 0.5759,
+      "avg_delta": -0.015794,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_citation_rate__lag_14d": {
+      "event_type": "press_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 527,
+      "spearman_rho": 0.5735,
+      "avg_delta": -0.000741,
       "avg_magnitude": 1.0
     }
   },
   "dashboard_events": [
     {
-      "timestamp": "2026-06-16T01-46-32Z",
+      "timestamp": "2026-06-17T01-40-51Z",
       "event_type": "page_change",
-      "brand": "ERGO",
+      "brand": "AXA",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.08560000000000001,
+      "magnitude": 0.9989,
       "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250825-verbraucherinfo-mit-weniger-stress-durch-den-tag",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.4%).",
-        "similarity": 0.9144,
-        "classification": {
-          "error": "invalid json",
-          "raw": "Here is the JSON requested:\n```json"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08399999999999996,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250106-verbraucherinfo-unpassende-weihnachtsgeschenke",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.6%).",
-        "similarity": 0.916,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0927,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240923-verbraucherinfo-schimmel-mietwohnung",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.7%).",
-        "similarity": 0.9073,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09109999999999996,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250324-verbraucherinfo-pflegebeduerftig",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.9%).",
-        "similarity": 0.9089,
-        "classification": {
-          "error": "invalid json",
-          "raw": ""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07940000000000003,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240506-verbraucherinformation-auto-waschen",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.1%).",
-        "similarity": 0.9206,
+        "url": "https://www.axa.de/pk/gesundheit/s/pkv-familie",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0011,
         "classification": {
           "error": "invalid json",
           "raw": "{\n  "
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.006734
+        "lag_1d": 0.021082
       }
     },
     {
-      "timestamp": "2026-06-16T01-46-32Z",
+      "timestamp": "2026-06-17T01-40-51Z",
       "event_type": "page_change",
-      "brand": "ERGO",
+      "brand": "AXA",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.09930000000000005,
+      "magnitude": 0.9989,
       "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20241230-verbraucherinfo-schlafstoerungen",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.1%).",
-        "similarity": 0.9007,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08699999999999997,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2026/20260302-verbraucherinfo-nebenkostenabrechnung-unter-der-lupe",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.3%).",
-        "similarity": 0.913,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0938,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240115-verbraucherinformation-beleidigung-strassenverkehr",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.6%).",
-        "similarity": 0.9062,
-        "classification": {
-          "error": "invalid json",
-          "raw": ""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09030000000000005,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240108-verbraucherinformation-auszug-rechte-pflichten",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.0%).",
-        "similarity": 0.9097,
+        "url": "https://www.axa.de/pk/gesundheit/s/medizinische-versorgung",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0011,
         "classification": {
           "error": "invalid json",
           "raw": "{\n  \"type"
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.006734
+        "lag_1d": 0.021082
       }
     },
     {
-      "timestamp": "2026-06-16T01-46-32Z",
+      "timestamp": "2026-06-17T01-40-51Z",
       "event_type": "page_change",
-      "brand": "ERGO",
+      "brand": "AXA",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.07099999999999995,
+      "magnitude": 0.9947,
       "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250728-verbraucherinfo-vanlife",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.9%).",
-        "similarity": 0.929,
+        "url": "https://www.axa.de/existenzschutzversicherung",
+        "summary": "8 neue Zeilen, 91 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0053,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9963,
+      "detail": {
+        "url": "https://www.axa.de/pk/existenzsicherung/a/bu-worauf-achten",
+        "summary": "8 neue Zeilen, 80 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0037,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9974,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/elektronische-patientenakte",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0026,
         "classification": {
           "error": "invalid json",
           "raw": "Here is the JSON requested:\n```"
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.006734
+        "lag_1d": 0.021082
       }
     },
     {
-      "timestamp": "2026-06-16T01-46-32Z",
+      "timestamp": "2026-06-17T01-40-51Z",
       "event_type": "page_change",
-      "brand": "ERGO",
+      "brand": "AXA",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.07920000000000005,
+      "magnitude": 0.9985,
       "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240513-verbraucherinformation-rechte-balkon",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.1%).",
-        "similarity": 0.9208,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08860000000000001,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2026/20260126-verbraucherinfo-sicheres-eislaufen-mit-spassfaktor",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.1%).",
-        "similarity": 0.9114,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \"type"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.12360000000000004,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240603-verbraucherfrage-flaggen-zur-em",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 87.6%).",
-        "similarity": 0.8764,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08230000000000004,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250224-verbraucherinfo-moebliertes-heim",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.8%).",
-        "similarity": 0.9177,
-        "classification": {
-          "error": "invalid json",
-          "raw": ""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07550000000000001,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240521-verbraucherinformation-urlaub-motorrad",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.5%).",
-        "similarity": 0.9245,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  "
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0857,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240603-verbraucherinformation-online-tickets",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.4%).",
-        "similarity": 0.9143,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \"type"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09409999999999996,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250901-verbraucherinfo-alternativen-zum-pflegeheim",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.6%).",
-        "similarity": 0.9059,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.06340000000000001,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240129-verbraucherinformation-vollmachten-verfuegungen",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 93.7%).",
-        "similarity": 0.9366,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  "
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07940000000000003,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20251027-verbraucherinfo-gut-durch-den-winter",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.1%).",
-        "similarity": 0.9206,
-        "classification": {
-          "error": "invalid json",
-          "raw": "Here is the JSON requested:\n```json"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08389999999999997,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250610-verbraucherinfo-schluss-mit-saunieren-im-auto",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.6%).",
-        "similarity": 0.9161,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \"type"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.04249999999999998,
-      "detail": {
-        "url": "https://www.ergo.com/de/radar-magazin/digitalisierung-und-technologie/2023/ki-verbraucherschutz-vertrauen-fairness-ethik-transparenz-regulierung-zertifikat-siegel-zvki",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 95.8%).",
-        "similarity": 0.9575,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  "
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07199999999999995,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240819-verbraucherinformation-auszug-eltern",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.8%).",
-        "similarity": 0.928,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08730000000000004,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20241028-verbraucherinformation-erkaeltung-oder-grippe",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.3%).",
-        "similarity": 0.9127,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09009999999999996,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2026/20260202-verbraucherinfo-was-bei-einer-krankschreibung-erlaubt-ist",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.0%).",
-        "similarity": 0.9099,
-        "classification": {
-          "error": "invalid json",
-          "raw": "Here is the JSON requested:\n```json"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08460000000000001,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240325-verbraucherinformation-familienpflegezeit",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.5%).",
-        "similarity": 0.9154,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07879999999999998,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240715-verbraucherinformation-reisemaengel",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.1%).",
-        "similarity": 0.9212,
-        "classification": {
-          "error": "invalid json",
-          "raw": ""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.11260000000000003,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250120-verbraucherinfo-schadenfreiheitsklasse",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 88.7%).",
-        "similarity": 0.8874,
+        "url": "https://www.axa.de/pk/gesundheit/s/einstufung-pflegegrad",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0015,
         "classification": {
           "error": "invalid json",
           "raw": "Here is the JSON requested:\n```"
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.006734
+        "lag_1d": 0.021082
       }
     },
     {
-      "timestamp": "2026-06-16T01-46-32Z",
+      "timestamp": "2026-06-17T01-40-51Z",
       "event_type": "page_change",
-      "brand": "ERGO",
+      "brand": "AXA",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.08999999999999997,
+      "magnitude": 0.9984,
       "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250428-verbraucherinfo-smart-aber-sicher",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.0%).",
-        "similarity": 0.91,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.10150000000000003,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250630-verbraucherinfo-sport-ist-gesund",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 89.8%).",
-        "similarity": 0.8985,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07820000000000005,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20251222-verbraucherinfo-so-funktioniert-der-winterdienst-richtig",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.2%).",
-        "similarity": 0.9218,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \"type"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08730000000000004,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250721-verbraucherinfo-sicher-mit-dem-boot-unterwegs",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.3%).",
-        "similarity": 0.9127,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09830000000000005,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240102-verbraucherinformation-zahnspange",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.2%).",
-        "similarity": 0.9017,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \"type"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008448
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08150000000000002,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250811-verbraucherinfo-sitzzeiten-in-deutschland",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.8%).",
-        "similarity": 0.9185,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08789999999999998,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20241223-verbraucherinfo-irrtuemer-vererben",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.2%).",
-        "similarity": 0.9121,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.01964
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09179999999999999,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2026/20260223-verbraucherinfo-toedliches-gerinnsel",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.8%).",
-        "similarity": 0.9082,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08809999999999996,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240304-verbraucherinformation-bodenversiegelung-grundstueck",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.2%).",
-        "similarity": 0.9119,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0837,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2026/20260427-verbraucherinfo-digitale-hygiene",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.6%).",
-        "similarity": 0.9163,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.06689999999999996,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2026/20260413-verbraucherinfo-platz-fuers-auto-nicht-fuer-krempel",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 93.3%).",
-        "similarity": 0.9331,
-        "classification": {
-          "error": "invalid json",
-          "raw": "Here is the JSON requested:\n```json"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07730000000000004,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/medieninformationen/2025/20251008-ergo-risikolebensversicherung",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.3%).",
-        "similarity": 0.9227,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \"type"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.01964
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08089999999999997,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250908-verbraucherinfo-gefahr-im-gruenen",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.9%).",
-        "similarity": 0.9191,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  "
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09319999999999995,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240826-verbraucherinformation-jobben-im-studium",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.7%).",
-        "similarity": 0.9068,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08350000000000002,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240916-verbraucherinformation-sturmschaeden-auto",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.6%).",
-        "similarity": 0.9165,
+        "url": "https://www.axa.de/pk/existenzsicherung/s/todesfall-angehoerige",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0016,
         "classification": {
           "error": "invalid json",
           "raw": ""
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.006734
+        "lag_1d": -0.003848
       }
     },
     {
-      "timestamp": "2026-06-16T01-46-32Z",
+      "timestamp": "2026-06-17T01-40-51Z",
       "event_type": "page_change",
-      "brand": "ERGO",
+      "brand": "AXA",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.09099999999999997,
+      "magnitude": 0.9986,
       "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250203-verbraucherinfo-superfood",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.9%).",
-        "similarity": 0.909,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \"type"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09060000000000001,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20251110-verbraucherinfo-ersthelfer-vor-ort",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.9%).",
-        "similarity": 0.9094,
+        "url": "https://www.axa.de/pk/gesundheit/a/zahnbehandlungen",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0014,
         "classification": {
           "error": "invalid json",
           "raw": "{"
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.006734
+        "lag_1d": 0.021082
       }
     },
     {
-      "timestamp": "2026-06-16T01-46-32Z",
+      "timestamp": "2026-06-17T01-40-51Z",
       "event_type": "page_change",
-      "brand": "ERGO",
+      "brand": "AXA",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.09460000000000002,
+      "magnitude": 0.9955,
       "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250623-verbraucherinfo-mueckenstiche-verhindern",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.5%).",
-        "similarity": 0.9054,
-        "classification": {
-          "error": "invalid json",
-          "raw": ""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09709999999999996,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250616-verbraucherinfo-wirksamer-schutz-gegen-starkregen",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.3%).",
-        "similarity": 0.9029,
+        "url": "https://www.axa.de/pk/gesundheit/s/anschlussheilbehandlung",
+        "summary": "8 neue Zeilen, 93 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0045,
         "classification": {
           "error": "invalid json",
           "raw": "{"
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.006734
+        "lag_1d": 0.021082
       }
     },
     {
-      "timestamp": "2026-06-16T01-46-32Z",
+      "timestamp": "2026-06-17T01-40-51Z",
       "event_type": "page_change",
-      "brand": "ERGO",
+      "brand": "AXA",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.09319999999999995,
+      "magnitude": 0.9978,
       "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240527-verbraucherinformation-haftung-tierpension",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.7%).",
-        "similarity": 0.9068,
-        "classification": {
-          "error": "invalid json",
-          "raw": "Here is the JSON requested:\n```"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07840000000000003,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20251117-verbraucherinfo-so-sehen-verbraucher-am-black-friday-nicht-schwarz",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.2%).",
-        "similarity": 0.9216,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0847,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240909-verbraucherinformation-guertelrose",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.5%).",
-        "similarity": 0.9153,
-        "classification": {
-          "error": "invalid json",
-          "raw": "Here is the JSON requested:\n```json"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07350000000000001,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240408-verbraucherinformation-privateinkaeufe-ebay",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.7%).",
-        "similarity": 0.9265,
+        "url": "https://www.axa.de/pk/gesundheit/r/ratgeber-gesund-leben",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0022,
         "classification": {
           "error": "invalid json",
           "raw": ""
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.006734
+        "lag_1d": 0.021082
       }
     },
     {
-      "timestamp": "2026-06-16T01-46-32Z",
+      "timestamp": "2026-06-17T01-40-51Z",
       "event_type": "page_change",
-      "brand": "ERGO",
+      "brand": "AXA",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.10650000000000004,
+      "magnitude": 0.9948,
       "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20251124-verbraucherinfo-richtig-reagieren-bei-sturm",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 89.3%).",
-        "similarity": 0.8935,
-        "classification": {
-          "error": "invalid json",
-          "raw": ""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09770000000000001,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250113-verbraucherinfo-zahnabbruch",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.2%).",
-        "similarity": 0.9023,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  "
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.058699999999999974,
-      "detail": {
-        "url": "https://www.ergo.com/de/radar-magazin/nachhaltigkeit-und-engagement/2024/carbon-removal-climaccelerator-co2-eit-climate-kic-carla-erber",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 94.1%).",
-        "similarity": 0.9413,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  "
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.035584
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07840000000000003,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20241209-verbraucherinfo-gutscheine-einloesen",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.2%).",
-        "similarity": 0.9216,
+        "url": "https://www.axa.de/pk/gesundheit/s/hilfsmittelversorgung",
+        "summary": "8 neue Zeilen, 103 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0052,
         "classification": {
           "error": "invalid json",
           "raw": "{\n"
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.006734
+        "lag_1d": 0.021082
       }
     },
     {
-      "timestamp": "2026-06-16T01-46-32Z",
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9972,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/student-pkv",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0028,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9946,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/online-selbsthilfe",
+        "summary": "8 neue Zeilen, 93 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0054,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9978,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/p/private-krankenversicherung",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0022,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9971,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/a/behandlungsfehler",
+        "summary": "8 neue Zeilen, 89 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0029,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9973,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/beitragsentwicklung",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0027,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9938,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/auslandsassistance",
+        "summary": "8 neue Zeilen, 109 entfernte Zeilen (Ähnlichkeit 0.6%).",
+        "similarity": 0.0062,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9981,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/pkv-krankenversicherungsschutz",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0019,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9964,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/a/familienfreundliche-zusatzversicherung",
+        "summary": "8 neue Zeilen, 65 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0036,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9974,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/mentale-gesundheit",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0026,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9944,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/sehkorrektur",
+        "summary": "8 neue Zeilen, 113 entfernte Zeilen (Ähnlichkeit 0.6%).",
+        "similarity": 0.0056,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9946,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/online-hautarzt",
+        "summary": "8 neue Zeilen, 98 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0054,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.998,
+      "detail": {
+        "url": "https://www.axa.de/pk/existenzsicherung/p/risikolebensversicherung",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.002,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9938,
+      "detail": {
+        "url": "https://www.axa.de/pk/existenzsicherung/p/sterbegeld-versicherung",
+        "summary": "8 neue Zeilen, 69 entfernte Zeilen (Ähnlichkeit 0.6%).",
+        "similarity": 0.0062,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.001291
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9964,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/rentenbesteuerung",
+        "summary": "8 neue Zeilen, 107 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0036,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9989,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/a/zahnfuellungen",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0011,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9969,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/p/krankenhauszusatzversicherung",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0031,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9887,
+      "detail": {
+        "url": "https://www.axa.de/pk/existenzsicherung/p/erwerbsunfaehigkeitsversicherung",
+        "summary": "8 neue Zeilen, 54 entfernte Zeilen (Ähnlichkeit 1.1%).",
+        "similarity": 0.0113,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9991,
+      "detail": {
+        "url": "https://www.axa.de/pk/altersvorsorge/p/private-rentenversicherung",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0009,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9985,
+      "detail": {
+        "url": "https://www.axa.de/pk/altersvorsorge/p/fondsrente",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0015,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9946,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/blutdruckueberwachung",
+        "summary": "8 neue Zeilen, 102 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0054,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9964,
+      "detail": {
+        "url": "https://www.axa.de/pk/existenzsicherung/a/bu-risiko",
+        "summary": "8 neue Zeilen, 83 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0036,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9981,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/frauen-ab-50",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0019,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9976,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/p/krankentagegeld-versicherung",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0024,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9972,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/pflegehilfsmittel-bestellen",
+        "summary": "8 neue Zeilen, 108 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0028,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9977,
+      "detail": {
+        "url": "https://www.axa.de/pk/existenzsicherung/p/unfallversicherung",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0023,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9949,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/r/pflegeratgeber",
+        "summary": "8 neue Zeilen, 77 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0051,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9961,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/herzgesundheit",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0039,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9992,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/arzneimittelhersteller",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0008,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9942,
+      "detail": {
+        "url": "https://www.axa.de/pk/existenzsicherung/p/starter-bu",
+        "summary": "8 neue Zeilen, 80 entfernte Zeilen (Ähnlichkeit 0.6%).",
+        "similarity": 0.0058,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9971,
+      "detail": {
+        "url": "https://www.axa.de/pk/altersvorsorge/p/portfolio-plus-police",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0029,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.998,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/p/pflegezusatzversicherung",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.002,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9968,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/p/reiseversicherung",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0032,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9942,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/patientenunterstuetzung",
+        "summary": "8 neue Zeilen, 114 entfernte Zeilen (Ähnlichkeit 0.6%).",
+        "similarity": 0.0058,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9961,
+      "detail": {
+        "url": "https://www.axa.de/pk/existenzsicherung/a/eltern-in-trauer",
+        "summary": "8 neue Zeilen, 81 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0039,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.001291
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9976,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/p/zahnzusatzversicherung",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0024,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9971,
+      "detail": {
+        "url": "https://www.axa.de/pk/altersvorsorge/p/fondsrente-greeninvest",
+        "summary": "8 neue Zeilen, 112 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0029,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9959,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/r/ratgeber-krankenversicherung",
+        "summary": "8 neue Zeilen, 108 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0041,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9953,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/zyklus-und-hormongesundheit",
+        "summary": "8 neue Zeilen, 106 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0047,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9941,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/selbsttest",
+        "summary": "8 neue Zeilen, 93 entfernte Zeilen (Ähnlichkeit 0.6%).",
+        "similarity": 0.0059,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9979,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/a/brillenversicherung",
+        "summary": "8 neue Zeilen, 108 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0021,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9989,
+      "detail": {
+        "url": "https://www.axa.de/pk/existenzsicherung/p/berufsunfaehigkeitsversicherung",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0011,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9975,
+      "detail": {
+        "url": "https://www.axa.de/pk/existenzsicherung/p/kinderunfallversicherung",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0025,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9967,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/pkv-krankenhausaufenthalt",
+        "summary": "8 neue Zeilen, 80 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0033,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9923,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/gesundheitscoaching",
+        "summary": "8 neue Zeilen, 92 entfernte Zeilen (Ähnlichkeit 0.8%).",
+        "similarity": 0.0077,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9894,
+      "detail": {
+        "url": "https://www.axa.de/wir-ueber-uns/daten-und-publikationen/mindestzufuehrungsverordnung-ager-lebensversicherung",
+        "summary": "8 neue Zeilen, 62 entfernte Zeilen (Ähnlichkeit 1.1%).",
+        "similarity": 0.0106,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9985,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/pflegeversicherung-leistungen",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0015,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9936,
+      "detail": {
+        "url": "https://www.axa.de/presse/verzinsung-lebensversicherung-2025",
+        "summary": "8 neue Zeilen, 105 entfernte Zeilen (Ähnlichkeit 0.6%).",
+        "similarity": 0.0064,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9986,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/informationen-pflegeversicherte",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0014,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9955,
+      "detail": {
+        "url": "https://www.axa.de/pk/existenzsicherung/p/existenzschutzversicherung",
+        "summary": "8 neue Zeilen, 91 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0045,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9944,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/student-gkv",
+        "summary": "8 neue Zeilen, 93 entfernte Zeilen (Ähnlichkeit 0.6%).",
+        "similarity": 0.0056,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.992,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/pflegewelt",
+        "summary": "8 neue Zeilen, 63 entfernte Zeilen (Ähnlichkeit 0.8%).",
+        "similarity": 0.008,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9984,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/gesundheitsservice-onkologie",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0016,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9944,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/marke-gesundheitsservice",
+        "summary": "8 neue Zeilen, 91 entfernte Zeilen (Ähnlichkeit 0.6%).",
+        "similarity": 0.0056,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9935,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/rentenantrag",
+        "summary": "8 neue Zeilen, 77 entfernte Zeilen (Ähnlichkeit 0.7%).",
+        "similarity": 0.0065,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.998,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/pkv-eintritt-studium",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.002,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9981,
+      "detail": {
+        "url": "https://www.axa.de/pk/existenzsicherung/a/abgesichert-gegen-badeunfaelle",
+        "summary": "8 neue Zeilen, 99 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0019,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9865,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/spezialistensuche",
+        "summary": "8 neue Zeilen, 104 entfernte Zeilen (Ähnlichkeit 1.4%).",
+        "similarity": 0.0135,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9971,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/praevention-gesundheitsfoerderung",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0029,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9976,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/a/krankenhaustagegeld",
+        "summary": "8 neue Zeilen, 94 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0024,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9945,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/psychotherapie-online",
+        "summary": "8 neue Zeilen, 101 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0055,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.996,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/online-arzt",
+        "summary": "8 neue Zeilen, 111 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.004,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9946,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/schlaganfallpraevention",
+        "summary": "8 neue Zeilen, 94 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0054,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9964,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/a/gebuehrenverordnung",
+        "summary": "8 neue Zeilen, 74 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0036,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9957,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/beitragsrueckerstattung",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0043,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9956,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/kinderwunschbehandlung-kostenuebernahme",
+        "summary": "8 neue Zeilen, 107 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0044,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9917,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/pkv-zahnarztbesuch",
+        "summary": "8 neue Zeilen, 107 entfernte Zeilen (Ähnlichkeit 0.8%).",
+        "similarity": 0.0083,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.993,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/therapieplatz-finden",
+        "summary": "8 neue Zeilen, 101 entfernte Zeilen (Ähnlichkeit 0.7%).",
+        "similarity": 0.007,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9976,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/p/auslandskrankenversicherung",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0024,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9967,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/pkv-arztbesuch",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0033,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9928,
+      "detail": {
+        "url": "https://www.axa.de/das-plus-von-axa/familie-und-kinder/trauer/trauerbegleitung",
+        "summary": "8 neue Zeilen, 63 entfernte Zeilen (Ähnlichkeit 0.7%).",
+        "similarity": 0.0072,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.001291
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9961,
+      "detail": {
+        "url": "https://www.axa.de/pk/existenzsicherung/s/berufsunfaehigkeitsrente-beantragen",
+        "summary": "8 neue Zeilen, 91 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0039,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9949,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/hautscreening",
+        "summary": "8 neue Zeilen, 109 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0051,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9967,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/fitness-und-ernaehrung",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0033,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.99,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/pflegeluecke",
+        "summary": "8 neue Zeilen, 78 entfernte Zeilen (Ähnlichkeit 1.0%).",
+        "similarity": 0.01,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9926,
+      "detail": {
+        "url": "https://www.axa.de/presse/neue-zahnzusatzversicherungen",
+        "summary": "8 neue Zeilen, 105 entfernte Zeilen (Ähnlichkeit 0.7%).",
+        "similarity": 0.0074,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9645,
+      "detail": {
+        "url": "https://www.axa.de/wir-ueber-uns/daten-und-publikationen/mindestzufuehrungsverordnung-ager-lebensversicherung/mindestzufuehrungsverordnung-ager-lebensversicherung-archiv",
+        "summary": "8 neue Zeilen, 48 entfernte Zeilen (Ähnlichkeit 3.5%).",
+        "similarity": 0.0355,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9904,
+      "detail": {
+        "url": "https://www.axa.de/pk/gesundheit/s/pkv-eintritt-ruhestand",
+        "summary": "8 neue Zeilen, 63 entfernte Zeilen (Ähnlichkeit 1.0%).",
+        "similarity": 0.0096,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.021082
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "AXA",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9921,
+      "detail": {
+        "url": "https://www.axa.de/presse/gesundheitsrisiko-hitze",
+        "summary": "8 neue Zeilen, 105 entfernte Zeilen (Ähnlichkeit 0.8%).",
+        "similarity": 0.0079,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006058
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.6179,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/selbststaendige/",
+        "summary": "120 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 38.2%).",
+        "similarity": 0.3821,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type\": \"sonstiges\",\n  \"direction\": \"add\",\n  \"magnitude\": \"major\",\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.003889
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.12829999999999997,
+      "detail": {
+        "url": "https://www.allianz.com/en/mediacenter/news/articles/250225-ai-at-allianz-building-a-future-ready-workforce.html",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 87.2%).",
+        "similarity": 0.8717,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.00416
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.04720000000000002,
+      "detail": {
+        "url": "https://www.allianz.com/de/mediencenter/news/medienmitteilungen/241223-neue-partnerschaft-zur-verbesserung-der-sicherheit-im-bobsport.html",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 95.3%).",
+        "similarity": 0.9528,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.010059
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.6179,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/leistungen/",
+        "summary": "120 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 38.2%).",
+        "similarity": 0.3821,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type\": \"sonstiges\",\n  \"direction\": \"add\",\n  \"magnitude\":"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.00416
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.16249999999999998,
+      "detail": {
+        "url": "https://www.allianz.com/de/mediencenter/news/medienmitteilungen/finanzen/250317-allianz-verkauft-anteil-an-indischen-sach-und-lebensversicherungs-joint-venture-gesellschaften.html",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 83.8%).",
+        "similarity": 0.8375,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.006619
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.030399999999999983,
+      "detail": {
+        "url": "https://www.allianz.com/de/mediencenter/news/artikel/250411-nichts-zu-verbergen-darum-geht-es-nicht.html",
+        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 97.0%).",
+        "similarity": 0.9696,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.010059
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
       "event_type": "page_change",
       "brand": "ERGO",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.7766,
+      "magnitude": 0.6134,
+      "detail": {
+        "url": "https://www.ergo.de/de/Ratgeber/zahngesundheit/kiefer/kreuzbiss",
+        "summary": "120 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 38.7%).",
+        "similarity": 0.3866,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.008991
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.6134,
+      "detail": {
+        "url": "https://ergo.de/de/Ratgeber/zahngesundheit/kiefer/kreuzbiss",
+        "summary": "120 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 38.7%).",
+        "similarity": 0.3866,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.008991
+      }
+    },
+    {
+      "timestamp": "2026-06-17T01-40-51Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.010800000000000032,
       "detail": {
         "url": "https://www.ergo.de/de/Produkte/Berufsunfaehigkeitsversicherung",
-        "summary": "120 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 22.3%).",
-        "similarity": 0.2234,
-        "classification": {
-          "error": "invalid json",
-          "raw": "Here is the JSON requested:\n```json"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07899999999999996,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250707-verbraucherinfo-schwimmen-ohne-risiko",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.1%).",
-        "similarity": 0.921,
+        "summary": "16 neue Zeilen, 5 entfernte Zeilen (Ähnlichkeit 98.9%).",
+        "similarity": 0.9892,
         "classification": {
           "error": "invalid json",
           "raw": "{"
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.006734
+        "lag_1d": -0.003861
       }
     },
     {
-      "timestamp": "2026-06-16T01-46-32Z",
+      "timestamp": "2026-06-17T01-40-51Z",
       "event_type": "page_change",
       "brand": "ERGO",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.09260000000000002,
+      "magnitude": 0.7463,
       "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240122-verbraucherinformation-urlaub-dachbox",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.7%).",
-        "similarity": 0.9074,
+        "url": "https://ergo.de/de/Ratgeber/zahngesundheit/loch-im-zahn",
+        "summary": "120 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 25.4%).",
+        "similarity": 0.2537,
         "classification": {
           "error": "invalid json",
-          "raw": "{\n  \"type"
+          "raw": "{\n  \""
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.006734
+        "lag_1d": 0.008991
       }
     },
     {
-      "timestamp": "2026-06-16T01-46-32Z",
+      "timestamp": "2026-06-17T01-40-51Z",
       "event_type": "page_change",
       "brand": "ERGO",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.08750000000000002,
+      "magnitude": 0.7463,
       "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240626-verbraucherinfotmation-KI-im-alltag",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.2%).",
-        "similarity": 0.9125,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09599999999999997,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2026/20260316-verbraucherinfo-die-groessten-fahrermythen",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.4%).",
-        "similarity": 0.904,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08409999999999995,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240930-verbraucherinfo-wie-arbeitgeber-bei-altersvorsorge-und-absicherung-unterstuetzen-koennen",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.6%).",
-        "similarity": 0.9159,
+        "url": "https://www.ergo.de/de/Ratgeber/zahngesundheit/loch-im-zahn",
+        "summary": "120 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 25.4%).",
+        "similarity": 0.2537,
         "classification": {
           "error": "invalid json",
           "raw": ""
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09670000000000001,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250630-verbraucherinfo-sommerhitze-in-der-stadt",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.3%).",
-        "similarity": 0.9033,
-        "classification": {
-          "error": "invalid json",
-          "raw": "Here is the JSON requested:\n```"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07899999999999996,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20251201-verbraucherinfo-gutschein-unterm-weihnachtsbaum",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.1%).",
-        "similarity": 0.921,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0797,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20241111-verbraucherinformation-autofahren-im-winter",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.0%).",
-        "similarity": 0.9203,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09950000000000003,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2026/20260112-verbraucherinfo-unfallfrei-durch-den-winterverkehr",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.0%).",
-        "similarity": 0.9005,
-        "classification": {
-          "error": "invalid json",
-          "raw": "Here is the JSON requested:\n```json"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07650000000000001,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2026/20260518-verbraucherinfo-hagelsturm-statt-sommerregen",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.3%).",
-        "similarity": 0.9235,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  "
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09030000000000005,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/medieninformationen/2025/20251120-ergo-lebensversicherung-verzinsung",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.0%).",
-        "similarity": 0.9097,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.01964
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08309999999999995,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250407-verbraucherinfo-gesund-gaertnern",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.7%).",
-        "similarity": 0.9169,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07869999999999999,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20251006-verbraucherinfo-kuendigung-wegen-eigenbedarf",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.1%).",
-        "similarity": 0.9213,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07830000000000004,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240701-verbraucherinformation-finanziell-abgesichert-im-alter",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.2%).",
-        "similarity": 0.9217,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0807,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2026/20260420-verbraucherinfo-hammer-meissel-happy-end",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.9%).",
-        "similarity": 0.9193,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08340000000000003,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240902-verbraucherinformation-unfallrisiko-strassenverkehr",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.7%).",
-        "similarity": 0.9166,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.1008,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250310-verbraucherinfo-reise-koffer-weg",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 89.9%).",
-        "similarity": 0.8992,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08350000000000002,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250602-verbraucherinfo-pool-im-garten",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.6%).",
-        "similarity": 0.9165,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07850000000000001,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/medieninformationen/2022/20220920-ergo-gewerbe-haftpflicht",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.2%).",
-        "similarity": 0.9215,
-        "classification": {
-          "type": "copy",
-          "direction": "change",
-          "magnitude": "minor",
-          "summary": "Identische Karriere-Informationen wurden entfernt und wieder hinzugefügt. Keine inhaltliche Änderung am Text.",
-          "keywords": [
-            "karriere",
-            "unternehmen",
-            "marketing",
-            "text"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.035584
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09330000000000005,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250818-verbraucherinfo-rauchzeichen-im-garten",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.7%).",
-        "similarity": 0.9067,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08240000000000003,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250217-verbraucherinfo-trugschluesse-arbeitsrecht",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.8%).",
-        "similarity": 0.9176,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08779999999999999,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250127-verbraucherinfo-deepfakes",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.2%).",
-        "similarity": 0.9122,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  "
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09350000000000003,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250422-verbraucherinfo-waldbrandgefahr-im-fruehjahr",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.6%).",
-        "similarity": 0.9065,
-        "classification": {
-          "error": "invalid json",
-          "raw": ""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08179999999999998,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240429-verbraucherinformation-weisser-hautkrebs",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.8%).",
-        "similarity": 0.9182,
-        "classification": {
-          "error": "invalid json",
-          "raw": ""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09970000000000001,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2026/20260119-verbraucherinfo-gut-geruestet-durch-die-skisaison",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.0%).",
-        "similarity": 0.9003,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.10289999999999999,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250505-verbraucherinfo-sorgenlos-mit-offenem-verdeck",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 89.7%).",
-        "similarity": 0.8971,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \"type"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07430000000000003,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250929-verbraucherinfo-sicher-in-den-bergen",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.6%).",
-        "similarity": 0.9257,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08999999999999997,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250526-verbraucherinfo-camping-freiheit-auf-raedern",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.0%).",
-        "similarity": 0.91,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07430000000000003,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240205-verbraucherinformation-digitaler-nachlass",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.6%).",
-        "similarity": 0.9257,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.01964
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09219999999999995,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240709-verbraucherinformation-sommerhitze-senioren",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.8%).",
-        "similarity": 0.9078,
-        "classification": {
-          "error": "invalid json",
-          "raw": ""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07999999999999996,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250210-verbraucherinfo-fahrraddiebstahl",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.0%).",
-        "similarity": 0.92,
-        "classification": {
-          "error": "invalid json",
-          "raw": ""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09789999999999999,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240103-ruh-verbraucherinfo-hochwasser",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.2%).",
-        "similarity": 0.9021,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  "
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.06379999999999997,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2026/20260407-verbraucherinfo-haustiere-viel-liebe-viel-verantwortung",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 93.6%).",
-        "similarity": 0.9362,
-        "classification": {
-          "error": "invalid json",
-          "raw": "Here is the JSON requested:\n```"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0917,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250519-verbraucherinfo-sorgenfreie-rente-im-ausland",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.8%).",
-        "similarity": 0.9083,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09689999999999999,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250331-verbraucherinfo-lastenrad-unterwegs",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.3%).",
-        "similarity": 0.9031,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  "
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0978,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20241125-verbraucherinfo-missgeschicke-weihnachten",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 90.2%).",
-        "similarity": 0.9022,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08840000000000003,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2026/20260526-verbraucherinfo-sommer-sonne-sturzgefahr",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.2%).",
-        "similarity": 0.9116,
-        "classification": {
-          "error": "invalid json",
-          "raw": ""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.10140000000000005,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2026/20260511-verbraucherinfo-wespen-auf-wohnungssuche",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 89.9%).",
-        "similarity": 0.8986,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08079999999999998,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240318-verbraucherinformation-autodiebstahl",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.9%).",
-        "similarity": 0.9192,
-        "classification": {
-          "error": "invalid json",
-          "raw": "Here is the JSON requested:\n```"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08579999999999999,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240213-verbraucherinformation-heuschnupfen",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.4%).",
-        "similarity": 0.9142,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \"type\":"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07530000000000003,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20241202-verbraucherinfo-pakete-beim-nachbarn",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.5%).",
-        "similarity": 0.9247,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.11519999999999997,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250922-verbraucherinfo-wenn-weisheitszaehne-probleme-machen",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 88.5%).",
-        "similarity": 0.8848,
-        "classification": {
-          "error": "invalid json",
-          "raw": "Here is the JSON requested:\n```json"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008448
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07479999999999998,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250512-verbraucherinfo-urlaub-in-der-ferienwohnung",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.5%).",
-        "similarity": 0.9252,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.06640000000000001,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250915-verbraucherinfo-fahrgastrechte-im-zugverkehr",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 93.4%).",
-        "similarity": 0.9336,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
-      }
-    },
-    {
-      "timestamp": "2026-06-16T01-46-32Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08560000000000001,
-      "detail": {
-        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250317-verbraucherinfo-reifen-richtig-einlagern",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 91.4%).",
-        "similarity": 0.9144,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.006734
+        "lag_1d": 0.008991
       }
     }
   ]
