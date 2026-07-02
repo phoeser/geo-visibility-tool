@@ -28,7 +28,7 @@ permissions:
 jobs:
   analyze:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 300
     # FlareSolverr laeuft als Docker-Service, loest Cloudflare-Challenges fuer
     # blockierte Wettbewerber-Seiten (z.B. Allianz). Kostenlos, selbst-gehostet.
     services:
