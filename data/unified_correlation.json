@@ -1,21 +1,37 @@
 {
   "meta": {
-    "total_page_events": 3497,
-    "total_cockpit_events": 7840,
-    "total_unified_events": 11312,
-    "total_enriched_events": 11312,
-    "total_runs": 90,
+    "total_page_events": 3754,
+    "total_cockpit_events": 8138,
+    "total_unified_events": 11867,
+    "total_enriched_events": 11867,
+    "total_runs": 91,
     "lag_windows": [
       1,
       3,
       7,
       14
     ],
-    "generated_at": "2026-06-22T02:10:08.394299Z"
+    "generated_at": "2026-07-02T14:22:45.310794Z"
   },
   "event_summary": {
+    "page_change": {
+      "count": 3243,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "Cosmos Direkt",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 0.438,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
     "press_mention": {
-      "count": 625,
+      "count": 675,
       "brands": [
         "AXA",
         "Allianz",
@@ -29,22 +45,6 @@
         "Signal Iduna"
       ],
       "avg_magnitude": 1.0,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    "sov_change": {
-      "count": 1160,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "Cosmos Direkt",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg",
-        "Signal Iduna"
-      ],
-      "avg_magnitude": 1.121,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -66,25 +66,44 @@
       "best_spearman_rho": null,
       "impact": {}
     },
-    "review_change": {
-      "count": 38,
+    "review_volume": {
+      "count": 39,
       "brands": [
         "Allianz",
+        "DEVK",
+        "ERGO",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.308,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "page_new": {
+      "count": 4817,
+      "brands": [
+        "AXA",
+        "Allianz",
         "Cosmos Direkt",
+        "CosmosDirekt",
         "DEVK",
         "ERGO",
         "Generali",
         "HUK-Coburg",
+        "Hannoversche",
         "R+V",
         "Signal Iduna"
       ],
-      "avg_magnitude": 1.526,
+      "avg_magnitude": 0.966,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
     },
     "news_mention": {
-      "count": 1572,
+      "count": 1675,
       "brands": [
         "AXA",
         "Allianz",
@@ -102,50 +121,45 @@
       "best_spearman_rho": null,
       "impact": {}
     },
-    "page_new": {
-      "count": 4710,
+    "wikipedia_change": {
+      "count": 2,
       "brands": [
-        "AXA",
+        "AXA"
+      ],
+      "avg_magnitude": 0.136,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "review_change": {
+      "count": 43,
+      "brands": [
         "Allianz",
         "Cosmos Direkt",
         "DEVK",
         "ERGO",
         "Generali",
         "HUK-Coburg",
-        "Hannoversche",
         "R+V",
         "Signal Iduna"
       ],
-      "avg_magnitude": 0.965,
+      "avg_magnitude": 1.512,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
     },
-    "page_change": {
-      "count": 3090,
+    "sov_change": {
+      "count": 1291,
       "brands": [
         "AXA",
         "Allianz",
         "Cosmos Direkt",
         "ERGO",
         "Generali",
-        "HUK-Coburg"
-      ],
-      "avg_magnitude": 0.454,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    "review_volume": {
-      "count": 35,
-      "brands": [
-        "Allianz",
-        "DEVK",
         "HUK-Coburg",
-        "R+V",
         "Signal Iduna"
       ],
-      "avg_magnitude": 1.371,
+      "avg_magnitude": 1.057,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -153,8 +167,25 @@
   },
   "impact_ranking": [
     {
+      "event_type": "page_change",
+      "count": 3243,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "Cosmos Direkt",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 0.438,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
       "event_type": "press_mention",
-      "count": 625,
+      "count": 675,
       "brands": [
         "AXA",
         "Allianz",
@@ -168,23 +199,6 @@
         "Signal Iduna"
       ],
       "avg_magnitude": 1.0,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
-      "event_type": "sov_change",
-      "count": 1160,
-      "brands": [
-        "AXA",
-        "Allianz",
-        "Cosmos Direkt",
-        "ERGO",
-        "Generali",
-        "HUK-Coburg",
-        "Signal Iduna"
-      ],
-      "avg_magnitude": 1.121,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -208,26 +222,46 @@
       "impact": {}
     },
     {
-      "event_type": "review_change",
-      "count": 38,
+      "event_type": "review_volume",
+      "count": 39,
       "brands": [
         "Allianz",
+        "DEVK",
+        "ERGO",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.308,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "page_new",
+      "count": 4817,
+      "brands": [
+        "AXA",
+        "Allianz",
         "Cosmos Direkt",
+        "CosmosDirekt",
         "DEVK",
         "ERGO",
         "Generali",
         "HUK-Coburg",
+        "Hannoversche",
         "R+V",
         "Signal Iduna"
       ],
-      "avg_magnitude": 1.526,
+      "avg_magnitude": 0.966,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
     },
     {
       "event_type": "news_mention",
-      "count": 1572,
+      "count": 1675,
       "brands": [
         "AXA",
         "Allianz",
@@ -246,111 +280,106 @@
       "impact": {}
     },
     {
-      "event_type": "page_new",
-      "count": 4710,
+      "event_type": "wikipedia_change",
+      "count": 2,
       "brands": [
-        "AXA",
+        "AXA"
+      ],
+      "avg_magnitude": 0.136,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "review_change",
+      "count": 43,
+      "brands": [
         "Allianz",
         "Cosmos Direkt",
         "DEVK",
         "ERGO",
         "Generali",
         "HUK-Coburg",
-        "Hannoversche",
         "R+V",
         "Signal Iduna"
       ],
-      "avg_magnitude": 0.965,
+      "avg_magnitude": 1.512,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
     },
     {
-      "event_type": "page_change",
-      "count": 3090,
+      "event_type": "sov_change",
+      "count": 1291,
       "brands": [
         "AXA",
         "Allianz",
         "Cosmos Direkt",
         "ERGO",
         "Generali",
-        "HUK-Coburg"
-      ],
-      "avg_magnitude": 0.454,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
-      "event_type": "review_volume",
-      "count": 35,
-      "brands": [
-        "Allianz",
-        "DEVK",
         "HUK-Coburg",
-        "R+V",
         "Signal Iduna"
       ],
-      "avg_magnitude": 1.371,
+      "avg_magnitude": 1.057,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
     }
   ],
   "correlation_matrix": {
+    "page_change__delta_share_of_voice__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 3243,
+      "spearman_rho": 0.1089,
+      "avg_delta": 0.001146,
+      "avg_magnitude": 0.438
+    },
+    "page_change__delta_appearance_rate__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 3243,
+      "spearman_rho": -0.0749,
+      "avg_delta": 0.017195,
+      "avg_magnitude": 0.438
+    },
+    "page_change__delta_citation_rate__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 3243,
+      "spearman_rho": 0.0015,
+      "avg_delta": 0.004592,
+      "avg_magnitude": 0.438
+    },
     "press_mention__delta_share_of_voice__lag_1d": {
       "event_type": "press_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 625,
-      "spearman_rho": 0.5617,
-      "avg_delta": -0.001371,
+      "n_events": 643,
+      "spearman_rho": 0.5623,
+      "avg_delta": -0.001514,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_appearance_rate__lag_1d": {
       "event_type": "press_mention",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 625,
-      "spearman_rho": 0.5827,
-      "avg_delta": -0.020453,
+      "n_events": 643,
+      "spearman_rho": 0.5828,
+      "avg_delta": -0.019898,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_citation_rate__lag_1d": {
       "event_type": "press_mention",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 625,
-      "spearman_rho": 0.575,
-      "avg_delta": 0.0016,
+      "n_events": 643,
+      "spearman_rho": 0.5807,
+      "avg_delta": 0.001555,
       "avg_magnitude": 1.0
-    },
-    "sov_change__delta_share_of_voice__lag_1d": {
-      "event_type": "sov_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 1160,
-      "spearman_rho": 0.0092,
-      "avg_delta": -0.003535,
-      "avg_magnitude": 1.121
-    },
-    "sov_change__delta_appearance_rate__lag_1d": {
-      "event_type": "sov_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 1160,
-      "spearman_rho": 0.0501,
-      "avg_delta": -0.007218,
-      "avg_magnitude": 1.121
-    },
-    "sov_change__delta_citation_rate__lag_1d": {
-      "event_type": "sov_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 1160,
-      "spearman_rho": 0.0755,
-      "avg_delta": -0.006034,
-      "avg_magnitude": 1.121
     },
     "domain_change__delta_share_of_voice__lag_1d": {
       "event_type": "domain_change",
@@ -379,302 +408,140 @@
       "avg_delta": -0.001323,
       "avg_magnitude": 1.433
     },
-    "review_change__delta_share_of_voice__lag_1d": {
-      "event_type": "review_change",
+    "review_volume__delta_share_of_voice__lag_1d": {
+      "event_type": "review_volume",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 38,
-      "spearman_rho": 0.2709,
-      "avg_delta": -0.005361,
-      "avg_magnitude": 1.526
+      "n_events": 36,
+      "spearman_rho": 0.2008,
+      "avg_delta": -0.003524,
+      "avg_magnitude": 1.342
     },
-    "review_change__delta_appearance_rate__lag_1d": {
-      "event_type": "review_change",
+    "review_volume__delta_appearance_rate__lag_1d": {
+      "event_type": "review_volume",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 38,
-      "spearman_rho": 0.2235,
-      "avg_delta": 0.002699,
-      "avg_magnitude": 1.526
+      "n_events": 36,
+      "spearman_rho": 0.0058,
+      "avg_delta": -0.001753,
+      "avg_magnitude": 1.342
     },
-    "review_change__delta_citation_rate__lag_1d": {
-      "event_type": "review_change",
+    "review_volume__delta_citation_rate__lag_1d": {
+      "event_type": "review_volume",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 38,
-      "spearman_rho": 0.1894,
-      "avg_delta": -0.002751,
-      "avg_magnitude": 1.526
+      "n_events": 36,
+      "spearman_rho": 0.3549,
+      "avg_delta": -0.010319,
+      "avg_magnitude": 1.342
+    },
+    "page_new__delta_share_of_voice__lag_1d": {
+      "event_type": "page_new",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 4817,
+      "spearman_rho": 0.2482,
+      "avg_delta": 0.016616,
+      "avg_magnitude": 0.966
+    },
+    "page_new__delta_appearance_rate__lag_1d": {
+      "event_type": "page_new",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 4817,
+      "spearman_rho": 0.5292,
+      "avg_delta": 0.008548,
+      "avg_magnitude": 0.966
+    },
+    "page_new__delta_citation_rate__lag_1d": {
+      "event_type": "page_new",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 4817,
+      "spearman_rho": 0.3546,
+      "avg_delta": 0.014277,
+      "avg_magnitude": 0.966
     },
     "news_mention__delta_share_of_voice__lag_1d": {
       "event_type": "news_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 1572,
-      "spearman_rho": 0.5677,
-      "avg_delta": -0.000285,
+      "n_events": 1614,
+      "spearman_rho": 0.567,
+      "avg_delta": -0.000429,
       "avg_magnitude": 1.0
     },
     "news_mention__delta_appearance_rate__lag_1d": {
       "event_type": "news_mention",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 1572,
-      "spearman_rho": 0.575,
-      "avg_delta": -0.019666,
+      "n_events": 1614,
+      "spearman_rho": 0.5741,
+      "avg_delta": -0.019145,
       "avg_magnitude": 1.0
     },
     "news_mention__delta_citation_rate__lag_1d": {
       "event_type": "news_mention",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 1572,
-      "spearman_rho": 0.5753,
-      "avg_delta": -0.000882,
+      "n_events": 1614,
+      "spearman_rho": 0.5805,
+      "avg_delta": -0.000859,
       "avg_magnitude": 1.0
     },
-    "page_new__delta_share_of_voice__lag_1d": {
-      "event_type": "page_new",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 4710,
-      "spearman_rho": 0.2313,
-      "avg_delta": 0.013072,
-      "avg_magnitude": 0.965
-    },
-    "page_new__delta_appearance_rate__lag_1d": {
-      "event_type": "page_new",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 4710,
-      "spearman_rho": 0.5329,
-      "avg_delta": 0.008736,
-      "avg_magnitude": 0.965
-    },
-    "page_new__delta_citation_rate__lag_1d": {
-      "event_type": "page_new",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 4710,
-      "spearman_rho": 0.3542,
-      "avg_delta": 0.014602,
-      "avg_magnitude": 0.965
-    },
-    "page_change__delta_share_of_voice__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 3090,
-      "spearman_rho": 0.1226,
-      "avg_delta": 0.000258,
-      "avg_magnitude": 0.454
-    },
-    "page_change__delta_appearance_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 3090,
-      "spearman_rho": -0.0829,
-      "avg_delta": 0.017766,
-      "avg_magnitude": 0.454
-    },
-    "page_change__delta_citation_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 3090,
-      "spearman_rho": -0.0339,
-      "avg_delta": 0.005074,
-      "avg_magnitude": 0.454
-    },
-    "review_volume__delta_share_of_voice__lag_1d": {
-      "event_type": "review_volume",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 35,
-      "spearman_rho": 0.2277,
-      "avg_delta": -0.003624,
-      "avg_magnitude": 1.371
-    },
-    "review_volume__delta_appearance_rate__lag_1d": {
-      "event_type": "review_volume",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 35,
-      "spearman_rho": 0.0036,
-      "avg_delta": -0.001803,
-      "avg_magnitude": 1.371
-    },
-    "review_volume__delta_citation_rate__lag_1d": {
-      "event_type": "review_volume",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 35,
-      "spearman_rho": 0.3933,
-      "avg_delta": -0.010613,
-      "avg_magnitude": 1.371
-    },
-    "press_mention__delta_share_of_voice__lag_3d": {
-      "event_type": "press_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 615,
-      "spearman_rho": 0.5569,
-      "avg_delta": -0.000866,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_appearance_rate__lag_3d": {
-      "event_type": "press_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 615,
-      "spearman_rho": 0.5641,
-      "avg_delta": -0.021873,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_citation_rate__lag_3d": {
-      "event_type": "press_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 615,
-      "spearman_rho": 0.5705,
-      "avg_delta": -0.003887,
-      "avg_magnitude": 1.0
-    },
-    "sov_change__delta_share_of_voice__lag_3d": {
-      "event_type": "sov_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 1119,
-      "spearman_rho": -0.0711,
-      "avg_delta": -0.00744,
-      "avg_magnitude": 1.131
-    },
-    "sov_change__delta_appearance_rate__lag_3d": {
-      "event_type": "sov_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 1119,
-      "spearman_rho": -0.0075,
-      "avg_delta": -0.021705,
-      "avg_magnitude": 1.131
-    },
-    "sov_change__delta_citation_rate__lag_3d": {
-      "event_type": "sov_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 1119,
-      "spearman_rho": -0.0089,
-      "avg_delta": -0.026179,
-      "avg_magnitude": 1.131
-    },
-    "domain_change__delta_share_of_voice__lag_3d": {
-      "event_type": "domain_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 82,
-      "spearman_rho": 0.1022,
-      "avg_delta": -0.00105,
-      "avg_magnitude": 1.433
-    },
-    "domain_change__delta_appearance_rate__lag_3d": {
-      "event_type": "domain_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 82,
-      "spearman_rho": 0.3234,
-      "avg_delta": 0.003752,
-      "avg_magnitude": 1.433
-    },
-    "domain_change__delta_citation_rate__lag_3d": {
-      "event_type": "domain_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 82,
-      "spearman_rho": 0.2305,
-      "avg_delta": 0.002213,
-      "avg_magnitude": 1.433
-    },
-    "review_change__delta_share_of_voice__lag_3d": {
+    "review_change__delta_share_of_voice__lag_1d": {
       "event_type": "review_change",
       "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 38,
-      "spearman_rho": 0.2584,
-      "avg_delta": -0.004263,
-      "avg_magnitude": 1.526
+      "lag_days": 1,
+      "n_events": 41,
+      "spearman_rho": 0.1601,
+      "avg_delta": -0.003058,
+      "avg_magnitude": 1.488
     },
-    "review_change__delta_appearance_rate__lag_3d": {
+    "review_change__delta_appearance_rate__lag_1d": {
       "event_type": "review_change",
       "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 38,
-      "spearman_rho": 0.3004,
-      "avg_delta": -0.004671,
-      "avg_magnitude": 1.526
+      "lag_days": 1,
+      "n_events": 41,
+      "spearman_rho": 0.1215,
+      "avg_delta": 0.00457,
+      "avg_magnitude": 1.488
     },
-    "review_change__delta_citation_rate__lag_3d": {
+    "review_change__delta_citation_rate__lag_1d": {
       "event_type": "review_change",
       "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 38,
-      "spearman_rho": 0.2684,
-      "avg_delta": -0.010277,
-      "avg_magnitude": 1.526
+      "lag_days": 1,
+      "n_events": 41,
+      "spearman_rho": 0.1742,
+      "avg_delta": -0.00255,
+      "avg_magnitude": 1.488
     },
-    "news_mention__delta_share_of_voice__lag_3d": {
-      "event_type": "news_mention",
+    "sov_change__delta_share_of_voice__lag_1d": {
+      "event_type": "sov_change",
       "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 1560,
-      "spearman_rho": 0.5655,
-      "avg_delta": -0.000386,
-      "avg_magnitude": 1.0
+      "lag_days": 1,
+      "n_events": 1228,
+      "spearman_rho": 0.0164,
+      "avg_delta": -0.003737,
+      "avg_magnitude": 1.112
     },
-    "news_mention__delta_appearance_rate__lag_3d": {
-      "event_type": "news_mention",
+    "sov_change__delta_appearance_rate__lag_1d": {
+      "event_type": "sov_change",
       "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 1560,
-      "spearman_rho": 0.5732,
-      "avg_delta": -0.021819,
-      "avg_magnitude": 1.0
+      "lag_days": 1,
+      "n_events": 1228,
+      "spearman_rho": 0.04,
+      "avg_delta": -0.006673,
+      "avg_magnitude": 1.112
     },
-    "news_mention__delta_citation_rate__lag_3d": {
-      "event_type": "news_mention",
+    "sov_change__delta_citation_rate__lag_1d": {
+      "event_type": "sov_change",
       "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 1560,
-      "spearman_rho": 0.5698,
-      "avg_delta": -0.003989,
-      "avg_magnitude": 1.0
-    },
-    "page_new__delta_share_of_voice__lag_3d": {
-      "event_type": "page_new",
-      "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 4710,
-      "spearman_rho": 0.251,
-      "avg_delta": 0.016382,
-      "avg_magnitude": 0.965
-    },
-    "page_new__delta_appearance_rate__lag_3d": {
-      "event_type": "page_new",
-      "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 4710,
-      "spearman_rho": 0.391,
-      "avg_delta": -0.015439,
-      "avg_magnitude": 0.965
-    },
-    "page_new__delta_citation_rate__lag_3d": {
-      "event_type": "page_new",
-      "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 4710,
-      "spearman_rho": 0.4734,
-      "avg_delta": 0.02061,
-      "avg_magnitude": 0.965
+      "lag_days": 1,
+      "n_events": 1228,
+      "spearman_rho": 0.0729,
+      "avg_delta": -0.005699,
+      "avg_magnitude": 1.112
     },
     "page_change__delta_share_of_voice__lag_3d": {
       "event_type": "page_change",
@@ -703,194 +570,194 @@
       "avg_delta": -0.004862,
       "avg_magnitude": 0.454
     },
+    "press_mention__delta_share_of_voice__lag_3d": {
+      "event_type": "press_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 628,
+      "spearman_rho": 0.5557,
+      "avg_delta": -0.000801,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_appearance_rate__lag_3d": {
+      "event_type": "press_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 628,
+      "spearman_rho": 0.5626,
+      "avg_delta": -0.021251,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_citation_rate__lag_3d": {
+      "event_type": "press_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 628,
+      "spearman_rho": 0.5746,
+      "avg_delta": -0.003807,
+      "avg_magnitude": 1.0
+    },
+    "domain_change__delta_share_of_voice__lag_3d": {
+      "event_type": "domain_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 82,
+      "spearman_rho": 0.1022,
+      "avg_delta": -0.00105,
+      "avg_magnitude": 1.433
+    },
+    "domain_change__delta_appearance_rate__lag_3d": {
+      "event_type": "domain_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 82,
+      "spearman_rho": 0.3234,
+      "avg_delta": 0.003752,
+      "avg_magnitude": 1.433
+    },
+    "domain_change__delta_citation_rate__lag_3d": {
+      "event_type": "domain_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 82,
+      "spearman_rho": 0.2305,
+      "avg_delta": 0.002213,
+      "avg_magnitude": 1.433
+    },
     "review_volume__delta_share_of_voice__lag_3d": {
       "event_type": "review_volume",
       "metric": "delta_share_of_voice",
       "lag_days": 3,
-      "n_events": 34,
-      "spearman_rho": -0.0914,
-      "avg_delta": -0.004395,
-      "avg_magnitude": 1.397
+      "n_events": 36,
+      "spearman_rho": -0.1346,
+      "avg_delta": -0.003063,
+      "avg_magnitude": 1.339
     },
     "review_volume__delta_appearance_rate__lag_3d": {
       "event_type": "review_volume",
       "metric": "delta_appearance_rate",
       "lag_days": 3,
-      "n_events": 34,
-      "spearman_rho": -0.1487,
-      "avg_delta": 0.008586,
-      "avg_magnitude": 1.397
+      "n_events": 36,
+      "spearman_rho": -0.1637,
+      "avg_delta": 0.009287,
+      "avg_magnitude": 1.339
     },
     "review_volume__delta_citation_rate__lag_3d": {
       "event_type": "review_volume",
       "metric": "delta_citation_rate",
       "lag_days": 3,
-      "n_events": 34,
-      "spearman_rho": 0.0843,
-      "avg_delta": -0.011718,
-      "avg_magnitude": 1.397
-    },
-    "press_mention__delta_share_of_voice__lag_7d": {
-      "event_type": "press_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 591,
-      "spearman_rho": 0.5561,
-      "avg_delta": -0.002798,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_appearance_rate__lag_7d": {
-      "event_type": "press_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 591,
-      "spearman_rho": 0.5642,
-      "avg_delta": -0.018843,
-      "avg_magnitude": 1.0
-    },
-    "press_mention__delta_citation_rate__lag_7d": {
-      "event_type": "press_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 591,
-      "spearman_rho": 0.5668,
-      "avg_delta": 0.00033,
-      "avg_magnitude": 1.0
-    },
-    "sov_change__delta_share_of_voice__lag_7d": {
-      "event_type": "sov_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 908,
-      "spearman_rho": 0.0181,
-      "avg_delta": -0.019302,
-      "avg_magnitude": 1.132
-    },
-    "sov_change__delta_appearance_rate__lag_7d": {
-      "event_type": "sov_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 908,
-      "spearman_rho": -0.0055,
-      "avg_delta": -0.011482,
-      "avg_magnitude": 1.132
-    },
-    "sov_change__delta_citation_rate__lag_7d": {
-      "event_type": "sov_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 908,
-      "spearman_rho": 0.0038,
-      "avg_delta": -0.030072,
-      "avg_magnitude": 1.132
-    },
-    "domain_change__delta_share_of_voice__lag_7d": {
-      "event_type": "domain_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 82,
-      "spearman_rho": 0.3743,
-      "avg_delta": -0.010292,
-      "avg_magnitude": 1.433
-    },
-    "domain_change__delta_appearance_rate__lag_7d": {
-      "event_type": "domain_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 82,
-      "spearman_rho": -0.2709,
-      "avg_delta": 0.007433,
-      "avg_magnitude": 1.433
-    },
-    "domain_change__delta_citation_rate__lag_7d": {
-      "event_type": "domain_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 82,
-      "spearman_rho": 0.1218,
-      "avg_delta": 0.000601,
-      "avg_magnitude": 1.433
-    },
-    "review_change__delta_share_of_voice__lag_7d": {
-      "event_type": "review_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 7,
       "n_events": 36,
-      "spearman_rho": 0.2883,
-      "avg_delta": -0.007221,
-      "avg_magnitude": 1.5
+      "spearman_rho": 0.0514,
+      "avg_delta": -0.011067,
+      "avg_magnitude": 1.339
     },
-    "review_change__delta_appearance_rate__lag_7d": {
-      "event_type": "review_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 36,
-      "spearman_rho": 0.3373,
-      "avg_delta": -0.023888,
-      "avg_magnitude": 1.5
-    },
-    "review_change__delta_citation_rate__lag_7d": {
-      "event_type": "review_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 36,
-      "spearman_rho": 0.2474,
-      "avg_delta": -0.026682,
-      "avg_magnitude": 1.5
-    },
-    "news_mention__delta_share_of_voice__lag_7d": {
-      "event_type": "news_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 1523,
-      "spearman_rho": 0.5619,
-      "avg_delta": 0.000626,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_appearance_rate__lag_7d": {
-      "event_type": "news_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 1523,
-      "spearman_rho": 0.5725,
-      "avg_delta": -0.013063,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_citation_rate__lag_7d": {
-      "event_type": "news_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 1523,
-      "spearman_rho": 0.5693,
-      "avg_delta": -0.000387,
-      "avg_magnitude": 1.0
-    },
-    "page_new__delta_share_of_voice__lag_7d": {
+    "page_new__delta_share_of_voice__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 4706,
-      "spearman_rho": 0.4213,
-      "avg_delta": 0.018467,
+      "lag_days": 3,
+      "n_events": 4710,
+      "spearman_rho": 0.251,
+      "avg_delta": 0.016382,
       "avg_magnitude": 0.965
     },
-    "page_new__delta_appearance_rate__lag_7d": {
+    "page_new__delta_appearance_rate__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 4706,
-      "spearman_rho": 0.1542,
-      "avg_delta": -0.030479,
+      "lag_days": 3,
+      "n_events": 4710,
+      "spearman_rho": 0.391,
+      "avg_delta": -0.015439,
       "avg_magnitude": 0.965
     },
-    "page_new__delta_citation_rate__lag_7d": {
+    "page_new__delta_citation_rate__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 4706,
-      "spearman_rho": 0.5294,
-      "avg_delta": 0.030763,
+      "lag_days": 3,
+      "n_events": 4710,
+      "spearman_rho": 0.4734,
+      "avg_delta": 0.02061,
       "avg_magnitude": 0.965
+    },
+    "news_mention__delta_share_of_voice__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 1593,
+      "spearman_rho": 0.5634,
+      "avg_delta": -0.000789,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 1593,
+      "spearman_rho": 0.5708,
+      "avg_delta": -0.021445,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 1593,
+      "spearman_rho": 0.5739,
+      "avg_delta": -0.003906,
+      "avg_magnitude": 1.0
+    },
+    "review_change__delta_share_of_voice__lag_3d": {
+      "event_type": "review_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 40,
+      "spearman_rho": 0.2215,
+      "avg_delta": -0.002092,
+      "avg_magnitude": 1.512
+    },
+    "review_change__delta_appearance_rate__lag_3d": {
+      "event_type": "review_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 40,
+      "spearman_rho": 0.2666,
+      "avg_delta": -0.002318,
+      "avg_magnitude": 1.512
+    },
+    "review_change__delta_citation_rate__lag_3d": {
+      "event_type": "review_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 40,
+      "spearman_rho": 0.2657,
+      "avg_delta": -0.009763,
+      "avg_magnitude": 1.512
+    },
+    "sov_change__delta_share_of_voice__lag_3d": {
+      "event_type": "sov_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 1154,
+      "spearman_rho": -0.0611,
+      "avg_delta": -0.00792,
+      "avg_magnitude": 1.096
+    },
+    "sov_change__delta_appearance_rate__lag_3d": {
+      "event_type": "sov_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 1154,
+      "spearman_rho": -0.0243,
+      "avg_delta": -0.020788,
+      "avg_magnitude": 1.096
+    },
+    "sov_change__delta_citation_rate__lag_3d": {
+      "event_type": "sov_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 1154,
+      "spearman_rho": -0.0216,
+      "avg_delta": -0.025385,
+      "avg_magnitude": 1.096
     },
     "page_change__delta_share_of_voice__lag_7d": {
       "event_type": "page_change",
@@ -919,86 +786,248 @@
       "avg_delta": -0.021905,
       "avg_magnitude": 0.413
     },
+    "press_mention__delta_share_of_voice__lag_7d": {
+      "event_type": "press_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 613,
+      "spearman_rho": 0.5524,
+      "avg_delta": -0.002474,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_appearance_rate__lag_7d": {
+      "event_type": "press_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 613,
+      "spearman_rho": 0.5604,
+      "avg_delta": -0.017204,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_citation_rate__lag_7d": {
+      "event_type": "press_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 613,
+      "spearman_rho": 0.5739,
+      "avg_delta": 0.000319,
+      "avg_magnitude": 1.0
+    },
+    "domain_change__delta_share_of_voice__lag_7d": {
+      "event_type": "domain_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 82,
+      "spearman_rho": 0.3743,
+      "avg_delta": -0.010292,
+      "avg_magnitude": 1.433
+    },
+    "domain_change__delta_appearance_rate__lag_7d": {
+      "event_type": "domain_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 82,
+      "spearman_rho": -0.2709,
+      "avg_delta": 0.007433,
+      "avg_magnitude": 1.433
+    },
+    "domain_change__delta_citation_rate__lag_7d": {
+      "event_type": "domain_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 82,
+      "spearman_rho": 0.1218,
+      "avg_delta": 0.000601,
+      "avg_magnitude": 1.433
+    },
     "review_volume__delta_share_of_voice__lag_7d": {
       "event_type": "review_volume",
       "metric": "delta_share_of_voice",
       "lag_days": 7,
-      "n_events": 33,
-      "spearman_rho": 0.0371,
-      "avg_delta": -0.01394,
-      "avg_magnitude": 1.379
+      "n_events": 35,
+      "spearman_rho": 0.1326,
+      "avg_delta": -0.013957,
+      "avg_magnitude": 1.366
     },
     "review_volume__delta_appearance_rate__lag_7d": {
       "event_type": "review_volume",
       "metric": "delta_appearance_rate",
       "lag_days": 7,
-      "n_events": 33,
-      "spearman_rho": -0.1609,
-      "avg_delta": 0.005499,
-      "avg_magnitude": 1.379
+      "n_events": 35,
+      "spearman_rho": -0.084,
+      "avg_delta": 0.005466,
+      "avg_magnitude": 1.366
     },
     "review_volume__delta_citation_rate__lag_7d": {
       "event_type": "review_volume",
       "metric": "delta_citation_rate",
       "lag_days": 7,
-      "n_events": 33,
-      "spearman_rho": 0.1656,
-      "avg_delta": -0.025163,
-      "avg_magnitude": 1.379
+      "n_events": 35,
+      "spearman_rho": 0.1454,
+      "avg_delta": -0.023725,
+      "avg_magnitude": 1.366
+    },
+    "page_new__delta_share_of_voice__lag_7d": {
+      "event_type": "page_new",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 4706,
+      "spearman_rho": 0.4213,
+      "avg_delta": 0.018467,
+      "avg_magnitude": 0.965
+    },
+    "page_new__delta_appearance_rate__lag_7d": {
+      "event_type": "page_new",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 4706,
+      "spearman_rho": 0.1542,
+      "avg_delta": -0.030479,
+      "avg_magnitude": 0.965
+    },
+    "page_new__delta_citation_rate__lag_7d": {
+      "event_type": "page_new",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 4706,
+      "spearman_rho": 0.5294,
+      "avg_delta": 0.030763,
+      "avg_magnitude": 0.965
+    },
+    "news_mention__delta_share_of_voice__lag_7d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 1559,
+      "spearman_rho": 0.5598,
+      "avg_delta": 0.000188,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_7d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 1559,
+      "spearman_rho": 0.5702,
+      "avg_delta": -0.012836,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_7d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 1559,
+      "spearman_rho": 0.5739,
+      "avg_delta": -0.000378,
+      "avg_magnitude": 1.0
+    },
+    "review_change__delta_share_of_voice__lag_7d": {
+      "event_type": "review_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 37,
+      "spearman_rho": 0.3074,
+      "avg_delta": -0.005968,
+      "avg_magnitude": 1.514
+    },
+    "review_change__delta_appearance_rate__lag_7d": {
+      "event_type": "review_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 37,
+      "spearman_rho": 0.3578,
+      "avg_delta": -0.022096,
+      "avg_magnitude": 1.514
+    },
+    "review_change__delta_citation_rate__lag_7d": {
+      "event_type": "review_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 37,
+      "spearman_rho": 0.2635,
+      "avg_delta": -0.025961,
+      "avg_magnitude": 1.514
+    },
+    "sov_change__delta_share_of_voice__lag_7d": {
+      "event_type": "sov_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 943,
+      "spearman_rho": 0.0082,
+      "avg_delta": -0.019448,
+      "avg_magnitude": 1.09
+    },
+    "sov_change__delta_appearance_rate__lag_7d": {
+      "event_type": "sov_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 943,
+      "spearman_rho": -0.0158,
+      "avg_delta": -0.010739,
+      "avg_magnitude": 1.09
+    },
+    "sov_change__delta_citation_rate__lag_7d": {
+      "event_type": "sov_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 943,
+      "spearman_rho": -0.0115,
+      "avg_delta": -0.028956,
+      "avg_magnitude": 1.09
+    },
+    "page_change__delta_share_of_voice__lag_14d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 14,
+      "n_events": 2657,
+      "spearman_rho": -0.0842,
+      "avg_delta": -0.015257,
+      "avg_magnitude": 0.485
+    },
+    "page_change__delta_appearance_rate__lag_14d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 2657,
+      "spearman_rho": -0.195,
+      "avg_delta": -0.015191,
+      "avg_magnitude": 0.485
+    },
+    "page_change__delta_citation_rate__lag_14d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 2657,
+      "spearman_rho": -0.5495,
+      "avg_delta": -0.02983,
+      "avg_magnitude": 0.485
     },
     "press_mention__delta_share_of_voice__lag_14d": {
       "event_type": "press_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 14,
-      "n_events": 558,
-      "spearman_rho": 0.5548,
-      "avg_delta": -0.000106,
+      "n_events": 582,
+      "spearman_rho": 0.5511,
+      "avg_delta": -0.001495,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_appearance_rate__lag_14d": {
       "event_type": "press_mention",
       "metric": "delta_appearance_rate",
       "lag_days": 14,
-      "n_events": 558,
-      "spearman_rho": 0.5755,
-      "avg_delta": -0.018048,
+      "n_events": 582,
+      "spearman_rho": 0.5756,
+      "avg_delta": -0.020826,
       "avg_magnitude": 1.0
     },
     "press_mention__delta_citation_rate__lag_14d": {
       "event_type": "press_mention",
       "metric": "delta_citation_rate",
       "lag_days": 14,
-      "n_events": 558,
-      "spearman_rho": 0.5739,
-      "avg_delta": -0.003552,
+      "n_events": 582,
+      "spearman_rho": 0.5742,
+      "avg_delta": -0.006649,
       "avg_magnitude": 1.0
-    },
-    "sov_change__delta_share_of_voice__lag_14d": {
-      "event_type": "sov_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 14,
-      "n_events": 636,
-      "spearman_rho": -0.0747,
-      "avg_delta": -0.032667,
-      "avg_magnitude": 1.12
-    },
-    "sov_change__delta_appearance_rate__lag_14d": {
-      "event_type": "sov_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 14,
-      "n_events": 636,
-      "spearman_rho": -0.0119,
-      "avg_delta": 0.02753,
-      "avg_magnitude": 1.12
-    },
-    "sov_change__delta_citation_rate__lag_14d": {
-      "event_type": "sov_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 14,
-      "n_events": 636,
-      "spearman_rho": 0.0196,
-      "avg_delta": -0.022681,
-      "avg_magnitude": 1.12
     },
     "domain_change__delta_share_of_voice__lag_14d": {
       "event_type": "domain_change",
@@ -1027,2011 +1056,325 @@
       "avg_delta": 0.005003,
       "avg_magnitude": 1.433
     },
-    "review_change__delta_share_of_voice__lag_14d": {
-      "event_type": "review_change",
+    "review_volume__delta_share_of_voice__lag_14d": {
+      "event_type": "review_volume",
       "metric": "delta_share_of_voice",
       "lag_days": 14,
-      "n_events": 27,
-      "spearman_rho": 0.3278,
-      "avg_delta": 0.003512,
-      "avg_magnitude": 1.667
+      "n_events": 29,
+      "spearman_rho": 0.5393,
+      "avg_delta": -0.033389,
+      "avg_magnitude": 1.434
     },
-    "review_change__delta_appearance_rate__lag_14d": {
-      "event_type": "review_change",
+    "review_volume__delta_appearance_rate__lag_14d": {
+      "event_type": "review_volume",
       "metric": "delta_appearance_rate",
       "lag_days": 14,
-      "n_events": 27,
-      "spearman_rho": 0.6064,
-      "avg_delta": 0.013661,
-      "avg_magnitude": 1.667
+      "n_events": 29,
+      "spearman_rho": -0.4001,
+      "avg_delta": 0.053084,
+      "avg_magnitude": 1.434
     },
-    "review_change__delta_citation_rate__lag_14d": {
-      "event_type": "review_change",
+    "review_volume__delta_citation_rate__lag_14d": {
+      "event_type": "review_volume",
       "metric": "delta_citation_rate",
       "lag_days": 14,
-      "n_events": 27,
-      "spearman_rho": 0.3608,
-      "avg_delta": -0.013661,
-      "avg_magnitude": 1.667
-    },
-    "news_mention__delta_share_of_voice__lag_14d": {
-      "event_type": "news_mention",
-      "metric": "delta_share_of_voice",
-      "lag_days": 14,
-      "n_events": 1424,
-      "spearman_rho": 0.5574,
-      "avg_delta": 0.001247,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_appearance_rate__lag_14d": {
-      "event_type": "news_mention",
-      "metric": "delta_appearance_rate",
-      "lag_days": 14,
-      "n_events": 1424,
-      "spearman_rho": 0.5766,
-      "avg_delta": -0.00618,
-      "avg_magnitude": 1.0
-    },
-    "news_mention__delta_citation_rate__lag_14d": {
-      "event_type": "news_mention",
-      "metric": "delta_citation_rate",
-      "lag_days": 14,
-      "n_events": 1424,
-      "spearman_rho": 0.5725,
-      "avg_delta": -0.002687,
-      "avg_magnitude": 1.0
+      "n_events": 29,
+      "spearman_rho": 0.075,
+      "avg_delta": -0.023669,
+      "avg_magnitude": 1.434
     },
     "page_new__delta_share_of_voice__lag_14d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 14,
-      "n_events": 4140,
-      "spearman_rho": 0.222,
-      "avg_delta": -0.023556,
+      "n_events": 4144,
+      "spearman_rho": 0.2221,
+      "avg_delta": -0.023536,
       "avg_magnitude": 0.96
     },
     "page_new__delta_appearance_rate__lag_14d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 14,
-      "n_events": 4140,
-      "spearman_rho": -0.1605,
-      "avg_delta": -0.070881,
+      "n_events": 4144,
+      "spearman_rho": -0.1601,
+      "avg_delta": -0.071065,
       "avg_magnitude": 0.96
     },
     "page_new__delta_citation_rate__lag_14d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 14,
-      "n_events": 4140,
-      "spearman_rho": 0.4674,
-      "avg_delta": 0.025244,
+      "n_events": 4144,
+      "spearman_rho": 0.4666,
+      "avg_delta": 0.025001,
       "avg_magnitude": 0.96
     },
-    "page_change__delta_share_of_voice__lag_14d": {
-      "event_type": "page_change",
+    "news_mention__delta_share_of_voice__lag_14d": {
+      "event_type": "news_mention",
       "metric": "delta_share_of_voice",
       "lag_days": 14,
-      "n_events": 2103,
-      "spearman_rho": -0.2587,
-      "avg_delta": -0.023763,
-      "avg_magnitude": 0.38
+      "n_events": 1461,
+      "spearman_rho": 0.5557,
+      "avg_delta": 0.00075,
+      "avg_magnitude": 1.0
     },
-    "page_change__delta_appearance_rate__lag_14d": {
-      "event_type": "page_change",
+    "news_mention__delta_appearance_rate__lag_14d": {
+      "event_type": "news_mention",
       "metric": "delta_appearance_rate",
       "lag_days": 14,
-      "n_events": 2103,
-      "spearman_rho": -0.0519,
-      "avg_delta": 0.005677,
-      "avg_magnitude": 0.38
+      "n_events": 1461,
+      "spearman_rho": 0.5741,
+      "avg_delta": -0.010528,
+      "avg_magnitude": 1.0
     },
-    "page_change__delta_citation_rate__lag_14d": {
-      "event_type": "page_change",
+    "news_mention__delta_citation_rate__lag_14d": {
+      "event_type": "news_mention",
       "metric": "delta_citation_rate",
       "lag_days": 14,
-      "n_events": 2103,
-      "spearman_rho": -0.4448,
-      "avg_delta": -0.014605,
-      "avg_magnitude": 0.38
+      "n_events": 1461,
+      "spearman_rho": 0.5701,
+      "avg_delta": -0.006666,
+      "avg_magnitude": 1.0
     },
-    "review_volume__delta_share_of_voice__lag_14d": {
-      "event_type": "review_volume",
+    "review_change__delta_share_of_voice__lag_14d": {
+      "event_type": "review_change",
       "metric": "delta_share_of_voice",
       "lag_days": 14,
-      "n_events": 28,
-      "spearman_rho": 0.52,
-      "avg_delta": -0.033394,
-      "avg_magnitude": 1.414
+      "n_events": 29,
+      "spearman_rho": 0.2993,
+      "avg_delta": 0.001238,
+      "avg_magnitude": 1.69
     },
-    "review_volume__delta_appearance_rate__lag_14d": {
-      "event_type": "review_volume",
+    "review_change__delta_appearance_rate__lag_14d": {
+      "event_type": "review_change",
       "metric": "delta_appearance_rate",
       "lag_days": 14,
-      "n_events": 28,
-      "spearman_rho": -0.3763,
-      "avg_delta": 0.063116,
-      "avg_magnitude": 1.414
+      "n_events": 29,
+      "spearman_rho": 0.5228,
+      "avg_delta": -0.007209,
+      "avg_magnitude": 1.69
     },
-    "review_volume__delta_citation_rate__lag_14d": {
-      "event_type": "review_volume",
+    "review_change__delta_citation_rate__lag_14d": {
+      "event_type": "review_change",
       "metric": "delta_citation_rate",
       "lag_days": 14,
-      "n_events": 28,
-      "spearman_rho": 0.1315,
-      "avg_delta": -0.016272,
-      "avg_magnitude": 1.414
+      "n_events": 29,
+      "spearman_rho": 0.3089,
+      "avg_delta": -0.030334,
+      "avg_magnitude": 1.69
+    },
+    "sov_change__delta_share_of_voice__lag_14d": {
+      "event_type": "sov_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 14,
+      "n_events": 847,
+      "spearman_rho": -0.0426,
+      "avg_delta": -0.028995,
+      "avg_magnitude": 1.121
+    },
+    "sov_change__delta_appearance_rate__lag_14d": {
+      "event_type": "sov_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 847,
+      "spearman_rho": -0.0278,
+      "avg_delta": -0.029093,
+      "avg_magnitude": 1.121
+    },
+    "sov_change__delta_citation_rate__lag_14d": {
+      "event_type": "sov_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 847,
+      "spearman_rho": -0.0085,
+      "avg_delta": -0.062361,
+      "avg_magnitude": 1.121
     }
   },
   "dashboard_events": [
     {
-      "timestamp": "2026-06-20T08:02:31Z",
-      "event_type": "sov_change",
-      "brand": "Allianz",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 2.0,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "risikoleben",
-        "old_mentions": 87,
-        "new_mentions": 101
-      },
-      "sov_deltas": {
-        "lag_1d": -0.018061,
-        "lag_3d": 0.000443
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:02:31Z",
-      "event_type": "sov_change",
-      "brand": "ERGO",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 2.0,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "risikoleben",
-        "old_mentions": 45,
-        "new_mentions": 64
-      },
-      "sov_deltas": {
-        "lag_1d": -0.000537,
-        "lag_3d": -0.019975
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:02:31Z",
-      "event_type": "sov_change",
-      "brand": "HUK-Coburg",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 1.4,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "risikoleben",
-        "old_mentions": 56,
-        "new_mentions": 49
-      },
-      "sov_deltas": {
-        "lag_1d": 0.011757,
-        "lag_3d": 0.019481
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:02:31Z",
-      "event_type": "sov_change",
-      "brand": "Signal Iduna",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 0.4,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "risikoleben",
-        "old_mentions": 12,
-        "new_mentions": 10
-      },
-      "sov_deltas": {
-        "lag_1d": -0.004336,
-        "lag_3d": 0.010179
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:02:31Z",
-      "event_type": "sov_change",
-      "brand": "Generali",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 0.4,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "risikoleben",
-        "old_mentions": 1,
-        "new_mentions": 3
-      },
-      "sov_deltas": {
-        "lag_1d": 0.010025,
-        "lag_3d": -0.039971
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:02:31Z",
-      "event_type": "sov_change",
-      "brand": "Allianz",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 0.8,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "risikoleben",
-        "old_mentions": 98,
-        "new_mentions": 94
-      },
-      "sov_deltas": {
-        "lag_1d": -0.018061,
-        "lag_3d": 0.000443
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:02:31Z",
-      "event_type": "sov_change",
-      "brand": "HUK-Coburg",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 0.8,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "risikoleben",
-        "old_mentions": 89,
-        "new_mentions": 85
-      },
-      "sov_deltas": {
-        "lag_1d": 0.011757,
-        "lag_3d": 0.019481
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:02:31Z",
-      "event_type": "sov_change",
-      "brand": "ERGO",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 0.8,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "risikoleben",
-        "old_mentions": 63,
-        "new_mentions": 59
-      },
-      "sov_deltas": {
-        "lag_1d": -0.000537,
-        "lag_3d": -0.019975
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:02:31Z",
-      "event_type": "sov_change",
-      "brand": "Generali",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 1.4,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "risikoleben",
-        "old_mentions": 51,
-        "new_mentions": 44
-      },
-      "sov_deltas": {
-        "lag_1d": 0.010025,
-        "lag_3d": -0.039971
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:02:31Z",
-      "event_type": "sov_change",
-      "brand": "AXA",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 0.8,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "risikoleben",
-        "old_mentions": 35,
-        "new_mentions": 31
-      },
-      "sov_deltas": {
-        "lag_1d": 0.004883,
-        "lag_3d": -0.030513
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:02:31Z",
-      "event_type": "sov_change",
-      "brand": "Cosmos Direkt",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 0.8,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "risikoleben",
-        "old_mentions": 24,
-        "new_mentions": 28
-      },
-      "sov_deltas": {
-        "lag_1d": -0.003731,
-        "lag_3d": 0.060355
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:02:31Z",
-      "event_type": "sov_change",
-      "brand": "ERGO",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 2.0,
-      "detail": {
-        "metric": "mentions",
-        "llm": "perplexity",
-        "product": "risikoleben",
-        "old_mentions": 65,
-        "new_mentions": 0
-      },
-      "sov_deltas": {
-        "lag_1d": -0.000537,
-        "lag_3d": -0.019975
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:02:31Z",
-      "event_type": "sov_change",
-      "brand": "Allianz",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 2.0,
-      "detail": {
-        "metric": "mentions",
-        "llm": "perplexity",
-        "product": "risikoleben",
-        "old_mentions": 96,
-        "new_mentions": 0
-      },
-      "sov_deltas": {
-        "lag_1d": -0.018061,
-        "lag_3d": 0.000443
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:02:31Z",
-      "event_type": "sov_change",
-      "brand": "AXA",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 0.6,
-      "detail": {
-        "metric": "mentions",
-        "llm": "perplexity",
-        "product": "risikoleben",
-        "old_mentions": 3,
-        "new_mentions": 0
-      },
-      "sov_deltas": {
-        "lag_1d": 0.004883,
-        "lag_3d": -0.030513
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:02:31Z",
-      "event_type": "sov_change",
-      "brand": "HUK-Coburg",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 2.0,
-      "detail": {
-        "metric": "mentions",
-        "llm": "perplexity",
-        "product": "risikoleben",
-        "old_mentions": 65,
-        "new_mentions": 0
-      },
-      "sov_deltas": {
-        "lag_1d": 0.011757,
-        "lag_3d": 0.019481
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:02:31Z",
-      "event_type": "sov_change",
-      "brand": "Signal Iduna",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 2.0,
-      "detail": {
-        "metric": "mentions",
-        "llm": "perplexity",
-        "product": "risikoleben",
-        "old_mentions": 26,
-        "new_mentions": 0
-      },
-      "sov_deltas": {
-        "lag_1d": -0.004336,
-        "lag_3d": 0.010179
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:02:31Z",
-      "event_type": "sov_change",
-      "brand": "Cosmos Direkt",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 2.0,
-      "detail": {
-        "metric": "mentions",
-        "llm": "perplexity",
-        "product": "risikoleben",
-        "old_mentions": 78,
-        "new_mentions": 0
-      },
-      "sov_deltas": {
-        "lag_1d": -0.003731,
-        "lag_3d": 0.060355
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:09:18Z",
-      "event_type": "review_change",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_places",
-      "magnitude": 2.0,
-      "detail": {
-        "metric": "average_rating",
-        "old_value": 2.3,
-        "new_value": 4.4,
-        "change": 2.1
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002488,
-        "lag_3d": -0.072416
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:09:18Z",
-      "event_type": "review_volume",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_places",
-      "magnitude": 2.0,
-      "detail": {
-        "old_count": 349,
-        "new_count": 3020,
-        "delta": 2671
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002488,
-        "lag_3d": -0.072416
-      }
-    },
-    {
-      "timestamp": "2026-06-20T08:09:37Z",
-      "event_type": "news_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ergo benennt Next Insurance um - Versicherungsmonitor",
-        "date": "2026-01-16",
-        "media_source": "Versicherungsmonitor",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005391,
-        "lag_3d": 0.1059
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-20T08:09:37Z",
-      "event_type": "news_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ergo Belgien gibt Run-off-Portfolio nach Luxemburg ab - Versicherungsmonitor",
-        "date": "2026-01-15",
-        "media_source": "Versicherungsmonitor",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005391,
-        "lag_3d": 0.1059
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-20T08:09:37Z",
-      "event_type": "news_mention",
-      "brand": "Allianz",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Allianz SE-Aktie (DE0008404005): Rekordzahlen, Aktienrückkauf und Dividende im Fokus - AD HOC NEWS",
-        "date": "2026-05-26",
-        "media_source": "AD HOC NEWS",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.004868,
-        "lag_3d": 0.005811
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-20T08:09:37Z",
-      "event_type": "news_mention",
-      "brand": "AXA",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Allianz, AXA und Co: So viel Dividende winkt 2026 - Der Aktionär",
-        "date": "2025-12-23",
-        "media_source": "Der Aktionär",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.007743,
-        "lag_3d": -0.003616
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-20T08:09:37Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "HUK-Coburg hat Auto-Abo eingestellt - Versicherungsmonitor",
-        "date": "2026-01-05",
-        "media_source": "Versicherungsmonitor",
-        "topics": [
-          "KFZ & Mobilität"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002488,
-        "lag_3d": -0.072416
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-20T08:09:37Z",
-      "event_type": "news_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Signal Iduna: Starkes Ergebnis dank Digitalisierungsoffensive - Deutsches Handwerksblatt",
-        "date": "2026-05-23",
-        "media_source": "Deutsches Handwerksblatt",
-        "topics": [
-          "Digitalisierung & KI"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.010564,
-        "lag_3d": -0.093762
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-20T08:09:37Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Mit der R+V Fürsorge neu denken - finanzwelt",
-        "date": "2026-06-17",
-        "media_source": "finanzwelt",
-        "topics": [
-          "Finanzen & Vorsorge"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-20T08:09:37Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "R+V: Familien zuhören und Wege aus dem „Gedankenkreisel“ aufzeigen - Presseportal",
-        "date": "2026-06-02",
-        "media_source": "Presseportal",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-20T08:09:37Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Versicherer R+V macht sich 2026 auf Gewinneinbruch gefasst - Versicherungsjournal Deutschland",
-        "date": "2026-04-14",
-        "media_source": "Versicherungsjournal Deutschland",
-        "topics": [
-          "Unternehmen & Strategie"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "positive"
-    },
-    {
-      "timestamp": "2026-06-20T08:09:37Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Aus R+V-Tochter Condor Leben wird eine Run-off-Plattform - Versicherungsmonitor",
-        "date": "2026-03-11",
-        "media_source": "Versicherungsmonitor",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-20T08:09:37Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Berufsunfähigkeitsversicherung Kosten: Beiträge im Überblick | Hannoversche - Hannoversche Versicherung",
-        "date": "2025-04-16",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-20T08:09:37Z",
-      "event_type": "press_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "CosmosDirekt erhält Bestnoten für Risikolebensversicherung – Handelsblatt sowie Franke und Bornberg zeichnen Comfort-Sch",
-        "date": "2025-08-27",
-        "media_source": "Cosmos Direkt",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.00104,
-        "lag_3d": 0.068904
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-21T00-20-42Z",
+      "timestamp": "2026-07-02T13-10-05Z",
       "event_type": "page_change",
       "brand": "Allianz",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.6179,
+      "magnitude": 0.04500000000000004,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnersatz/",
-        "summary": "0 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 38.2%).",
-        "similarity": 0.3821,
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/partner",
+        "summary": "73 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 95.5%).",
+        "similarity": 0.955,
         "classification": {
           "error": "invalid json",
           "raw": "{\n  "
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.017922,
-        "lag_3d": -0.017922
+        "lag_1d": 0.03941
       }
     },
     {
-      "timestamp": "2026-06-21T00-20-42Z",
+      "timestamp": "2026-07-02T13-10-05Z",
       "event_type": "page_change",
       "brand": "Allianz",
       "product": null,
-      "source": "geo_page_tracker",
-      "magnitude": 0.618,
+      "source": "page_tracker",
+      "magnitude": 0.02200000000000002,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnersatz/",
-        "similarity": 0.3821,
-        "added_lines": 0,
-        "removed_lines": 120,
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/fuer-senioren",
+        "summary": "8 neue Zeilen, 5 entfernte Zeilen (Ähnlichkeit 97.8%).",
+        "similarity": 0.978,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.03941
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0937,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/berufsunfaehigkeitsversicherung/gruende-berufsunfaehigkeit",
+        "summary": "15 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 90.6%).",
+        "similarity": 0.9063,
         "classification": {
           "error": "invalid json",
           "raw": "{\n  "
-        },
-        "summary": "0 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 38.2%)."
+        }
       },
       "sov_deltas": {
-        "lag_1d": 0.005811,
-        "lag_3d": 0.005811
+        "lag_1d": 0.053708
       }
     },
     {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
       "brand": "Allianz",
       "product": null,
-      "source": "geo_snapshot",
-      "magnitude": 0.098,
+      "source": "page_tracker",
+      "magnitude": 0.011199999999999988,
       "detail": {
-        "metric": "share_of_voice_pct",
-        "old_pct": 33.7,
-        "new_pct": 34.2
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/sinnvoll",
+        "summary": "8 neue Zeilen, 5 entfernte Zeilen (Ähnlichkeit 98.9%).",
+        "similarity": 0.9888,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
       },
       "sov_deltas": {
-        "lag_1d": 0.000943
+        "lag_1d": 0.03941
       }
     },
     {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "geo_snapshot",
-      "magnitude": 0.05,
-      "detail": {
-        "metric": "share_of_voice_pct",
-        "old_pct": 21.9,
-        "new_pct": 21.7
-      },
-      "sov_deltas": {
-        "lag_1d": -0.069928
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "geo_snapshot",
-      "magnitude": 0.212,
-      "detail": {
-        "metric": "share_of_voice_pct",
-        "old_pct": 14.4,
-        "new_pct": 13.4
-      },
-      "sov_deltas": {
-        "lag_1d": -0.083198
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "geo_snapshot",
-      "magnitude": 0.108,
-      "detail": {
-        "metric": "share_of_voice_pct",
-        "old_pct": 13.6,
-        "new_pct": 13.1
-      },
-      "sov_deltas": {
-        "lag_1d": 0.111291
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "geo_snapshot",
-      "magnitude": 0.5,
-      "detail": {
-        "metric": "overall_rank",
-        "old_rank": 6,
-        "new_rank": 5,
-        "direction": "up"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.011359
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "geo_snapshot",
-      "magnitude": 0.156,
-      "detail": {
-        "metric": "share_of_voice_pct",
-        "old_pct": 6.3,
-        "new_pct": 7.1
-      },
-      "sov_deltas": {
-        "lag_1d": -0.011359
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "geo_snapshot",
-      "magnitude": 0.5,
-      "detail": {
-        "metric": "overall_rank",
-        "old_rank": 5,
-        "new_rank": 6,
-        "direction": "down"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.067864
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "geo_snapshot",
-      "magnitude": 0.02,
-      "detail": {
-        "metric": "share_of_voice_pct",
-        "old_pct": 7.0,
-        "new_pct": 7.1
-      },
-      "sov_deltas": {
-        "lag_1d": 0.067864
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Generali",
-      "product": null,
-      "source": "geo_snapshot",
-      "magnitude": 0.096,
-      "detail": {
-        "metric": "share_of_voice_pct",
-        "old_pct": 3.0,
-        "new_pct": 3.4
-      },
-      "sov_deltas": {
-        "lag_1d": -0.015614
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Allianz",
-      "product": "zahnzusatz",
-      "source": "geo_snapshot",
-      "magnitude": 1.4,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "zahnzusatz",
-        "old_mentions": 142,
-        "new_mentions": 135
-      },
-      "sov_deltas": {
-        "lag_1d": -0.033975
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "ERGO",
-      "product": "zahnzusatz",
-      "source": "geo_snapshot",
-      "magnitude": 2.0,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "zahnzusatz",
-        "old_mentions": 84,
-        "new_mentions": 70
-      },
-      "sov_deltas": {
-        "lag_1d": 0.232762
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "AXA",
-      "product": "zahnzusatz",
-      "source": "geo_snapshot",
-      "magnitude": 2.0,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "zahnzusatz",
-        "old_mentions": 35,
-        "new_mentions": 50
-      },
-      "sov_deltas": {
-        "lag_1d": 0.037174
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "HUK-Coburg",
-      "product": "zahnzusatz",
-      "source": "geo_snapshot",
-      "magnitude": 2.0,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "zahnzusatz",
-        "old_mentions": 65,
-        "new_mentions": 39
-      },
-      "sov_deltas": {
-        "lag_1d": -0.110556
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Signal Iduna",
-      "product": "zahnzusatz",
-      "source": "geo_snapshot",
-      "magnitude": 1.2,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "zahnzusatz",
-        "old_mentions": 19,
-        "new_mentions": 13
-      },
-      "sov_deltas": {
-        "lag_1d": -0.128941
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Allianz",
-      "product": "zahnzusatz",
-      "source": "geo_snapshot",
-      "magnitude": 0.8,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "zahnzusatz",
-        "old_mentions": 185,
-        "new_mentions": 181
-      },
-      "sov_deltas": {
-        "lag_1d": -0.033975
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "HUK-Coburg",
-      "product": "zahnzusatz",
-      "source": "geo_snapshot",
-      "magnitude": 0.6,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "zahnzusatz",
-        "old_mentions": 143,
-        "new_mentions": 140
-      },
-      "sov_deltas": {
-        "lag_1d": -0.110556
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Signal Iduna",
-      "product": "zahnzusatz",
-      "source": "geo_snapshot",
-      "magnitude": 1.6,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "zahnzusatz",
-        "old_mentions": 122,
-        "new_mentions": 114
-      },
-      "sov_deltas": {
-        "lag_1d": -0.128941
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "AXA",
-      "product": "zahnzusatz",
-      "source": "geo_snapshot",
-      "magnitude": 0.8,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "zahnzusatz",
-        "old_mentions": 17,
-        "new_mentions": 13
-      },
-      "sov_deltas": {
-        "lag_1d": 0.037174
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "ERGO",
-      "product": "zahnzusatz",
-      "source": "geo_snapshot",
-      "magnitude": 0.6,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "zahnzusatz",
-        "old_mentions": 6,
-        "new_mentions": 3
-      },
-      "sov_deltas": {
-        "lag_1d": 0.232762
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Allianz",
-      "product": "sterbegeld",
-      "source": "geo_snapshot",
-      "magnitude": 0.4,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "sterbegeld",
-        "old_mentions": 64,
-        "new_mentions": 66
-      },
-      "sov_deltas": {
-        "lag_1d": 0.050365
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "ERGO",
-      "product": "sterbegeld",
-      "source": "geo_snapshot",
-      "magnitude": 2.0,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "sterbegeld",
-        "old_mentions": 53,
-        "new_mentions": 41
-      },
-      "sov_deltas": {
-        "lag_1d": 0.136562
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Cosmos Direkt",
-      "product": "sterbegeld",
-      "source": "geo_snapshot",
-      "magnitude": 0.8,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "sterbegeld",
-        "old_mentions": 41,
-        "new_mentions": 37
-      },
-      "sov_deltas": {
-        "lag_1d": 0.143761
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "HUK-Coburg",
-      "product": "sterbegeld",
-      "source": "geo_snapshot",
-      "magnitude": 0.4,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "sterbegeld",
-        "old_mentions": 10,
-        "new_mentions": 8
-      },
-      "sov_deltas": {
-        "lag_1d": -0.152078
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Signal Iduna",
-      "product": "sterbegeld",
-      "source": "geo_snapshot",
-      "magnitude": 1.8,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "sterbegeld",
-        "old_mentions": 17,
-        "new_mentions": 8
-      },
-      "sov_deltas": {
-        "lag_1d": -0.133072
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Allianz",
-      "product": "sterbegeld",
-      "source": "geo_snapshot",
-      "magnitude": 0.6,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "sterbegeld",
-        "old_mentions": 120,
-        "new_mentions": 123
-      },
-      "sov_deltas": {
-        "lag_1d": 0.050365
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Signal Iduna",
-      "product": "sterbegeld",
-      "source": "geo_snapshot",
-      "magnitude": 1.0,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "sterbegeld",
-        "old_mentions": 121,
-        "new_mentions": 116
-      },
-      "sov_deltas": {
-        "lag_1d": -0.133072
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "AXA",
-      "product": "sterbegeld",
-      "source": "geo_snapshot",
-      "magnitude": 0.8,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "sterbegeld",
-        "old_mentions": 31,
-        "new_mentions": 27
-      },
-      "sov_deltas": {
-        "lag_1d": -0.038558
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "ERGO",
-      "product": "sterbegeld",
-      "source": "geo_snapshot",
-      "magnitude": 1.0,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "sterbegeld",
-        "old_mentions": 19,
-        "new_mentions": 24
-      },
-      "sov_deltas": {
-        "lag_1d": 0.136562
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Generali",
-      "product": "sterbegeld",
-      "source": "geo_snapshot",
-      "magnitude": 0.6,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "sterbegeld",
-        "old_mentions": 5,
-        "new_mentions": 2
-      },
-      "sov_deltas": {
-        "lag_1d": -0.006981
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Allianz",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 1.0,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "risikoleben",
-        "old_mentions": 101,
-        "new_mentions": 96
-      },
-      "sov_deltas": {
-        "lag_1d": 0.018504
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Cosmos Direkt",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 0.8,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "risikoleben",
-        "old_mentions": 77,
-        "new_mentions": 73
-      },
-      "sov_deltas": {
-        "lag_1d": 0.064086
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "ERGO",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 0.4,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "risikoleben",
-        "old_mentions": 64,
-        "new_mentions": 62
-      },
-      "sov_deltas": {
-        "lag_1d": -0.019438
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "HUK-Coburg",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 2.0,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "risikoleben",
-        "old_mentions": 49,
-        "new_mentions": 62
-      },
-      "sov_deltas": {
-        "lag_1d": 0.007724
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Signal Iduna",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 0.4,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "risikoleben",
-        "old_mentions": 10,
-        "new_mentions": 12
-      },
-      "sov_deltas": {
-        "lag_1d": 0.014515
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "AXA",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 0.6,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "risikoleben",
-        "old_mentions": 6,
-        "new_mentions": 9
-      },
-      "sov_deltas": {
-        "lag_1d": -0.035396
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Generali",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 1.2,
-      "detail": {
-        "metric": "mentions",
-        "llm": "gemini",
-        "product": "risikoleben",
-        "old_mentions": 3,
-        "new_mentions": 9
-      },
-      "sov_deltas": {
-        "lag_1d": -0.049996
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "ERGO",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 1.4,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "risikoleben",
-        "old_mentions": 59,
-        "new_mentions": 66
-      },
-      "sov_deltas": {
-        "lag_1d": -0.019438
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Generali",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 0.6,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "risikoleben",
-        "old_mentions": 44,
-        "new_mentions": 47
-      },
-      "sov_deltas": {
-        "lag_1d": -0.049996
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Cosmos Direkt",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 1.2,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "risikoleben",
-        "old_mentions": 28,
-        "new_mentions": 34
-      },
-      "sov_deltas": {
-        "lag_1d": 0.064086
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "AXA",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 0.4,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "risikoleben",
-        "old_mentions": 31,
-        "new_mentions": 33
-      },
-      "sov_deltas": {
-        "lag_1d": -0.035396
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:45:20Z",
-      "event_type": "sov_change",
-      "brand": "Signal Iduna",
-      "product": "risikoleben",
-      "source": "geo_snapshot",
-      "magnitude": 0.8,
-      "detail": {
-        "metric": "mentions",
-        "llm": "chatgpt",
-        "product": "risikoleben",
-        "old_mentions": 13,
-        "new_mentions": 9
-      },
-      "sov_deltas": {
-        "lag_1d": 0.014515
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:52:19Z",
-      "event_type": "review_volume",
-      "brand": "HUK-Coburg",
-      "product": null,
-      "source": "google_places",
-      "magnitude": 0.5,
-      "detail": {
-        "old_count": 3020,
-        "new_count": 3025,
-        "delta": 5
-      },
-      "sov_deltas": {
-        "lag_1d": -0.069928
-      }
-    },
-    {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "news_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Reinert-Aus in Monzingen: Martin Müller bekommt Ergo-Betriebsrente erst im Alter - Oeffentlicher Anzeiger - Rhein-Zeitun",
-        "date": "2026-06-21",
-        "media_source": "Rhein-Zeitung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.111291
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "news_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ex-Ergo-Vorstand Mainzer führt Düsseldorfer FDP - Versicherungsmonitor",
-        "date": "2026-03-16",
-        "media_source": "Versicherungsmonitor",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.111291
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "news_mention",
-      "brand": "ERGO",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "App-Beliebtheit: Ergo stößt Allianz vom Thron - Versicherungsmonitor",
-        "date": "2026-02-23",
-        "media_source": "Versicherungsmonitor",
-        "topics": [
-          "Digitalisierung & KI"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.111291
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "news_mention",
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
       "brand": "Allianz",
       "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
+      "source": "page_tracker",
+      "magnitude": 0.07550000000000001,
       "detail": {
-        "title": "Allianz hält Verzinsung von Lebensversicherungen stabil - boerse.de - boerse.de",
-        "date": "2025-12-01",
-        "media_source": "boerse.de",
-        "topics": [
-          "Finanzen & Vorsorge"
-        ],
-        "article_type": "media"
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung",
+        "summary": "29 neue Zeilen, 34 entfernte Zeilen (Ähnlichkeit 92.5%).",
+        "similarity": 0.9245,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
       },
       "sov_deltas": {
-        "lag_1d": 0.000943
-      },
-      "sentiment": "neutral"
+        "lag_1d": 0.03941
+      }
     },
     {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "press_mention",
-      "brand": "AXA",
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
       "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
+      "source": "page_tracker",
+      "magnitude": 0.11729999999999996,
       "detail": {
-        "title": "pressemitteilung-axa-studie-fehlerkultur.pdf - AXA Deutschland",
-        "date": "2026-06-20",
-        "media_source": "AXA Deutschland",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/familie/",
+        "summary": "33 neue Zeilen, 86 entfernte Zeilen (Ähnlichkeit 88.3%).",
+        "similarity": 0.8827,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
       },
       "sov_deltas": {
-        "lag_1d": -0.011359
-      },
-      "sentiment": "neutral"
+        "lag_1d": 0.053708
+      }
     },
     {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "press_mention",
-      "brand": "AXA",
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
       "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
+      "source": "page_tracker",
+      "magnitude": 0.010199999999999987,
       "detail": {
-        "title": "axa-pressemitteilung-classic-now.pdf - AXA Deutschland",
-        "date": "2026-06-17",
-        "media_source": "AXA Deutschland",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
+        "url": "https://www.allianz.de/vorsorge/berufsunfaehigkeitsversicherung/fuer-psychotherapeuten",
+        "summary": "13 neue Zeilen, 13 entfernte Zeilen (Ähnlichkeit 99.0%).",
+        "similarity": 0.9898,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
       },
       "sov_deltas": {
-        "lag_1d": -0.011359
-      },
-      "sentiment": "neutral"
+        "lag_1d": 0.053708
+      }
     },
     {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "news_mention",
-      "brand": "HUK-Coburg",
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
       "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
+      "source": "page_tracker",
+      "magnitude": 0.3175,
       "detail": {
-        "title": "Rekordgewinn bei HUK-Coburg - Autoversicherung wird teurer - Vodafone live",
-        "date": "2026-03-24",
-        "media_source": "Vodafone live",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/auszahlung",
+        "summary": "3 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 68.2%).",
+        "similarity": 0.6825,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
       },
       "sov_deltas": {
-        "lag_1d": -0.069928
-      },
-      "sentiment": "neutral"
+        "lag_1d": 0.03941
+      }
     },
     {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "news_mention",
-      "brand": "Signal Iduna",
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
       "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
+      "source": "page_tracker",
+      "magnitude": 0.11729999999999996,
       "detail": {
-        "title": "Ungarn-Chef der Signal Iduna wird Deurag-Vertriebsvorstand - versicherungswirtschaft-heute.de",
-        "date": "2026-06-17",
-        "media_source": "versicherungswirtschaft-heute.de",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/familie",
+        "summary": "33 neue Zeilen, 86 entfernte Zeilen (Ähnlichkeit 88.3%).",
+        "similarity": 0.8827,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
       },
       "sov_deltas": {
-        "lag_1d": -0.083198
-      },
-      "sentiment": "neutral"
+        "lag_1d": 0.03941
+      }
     },
     {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "news_mention",
-      "brand": "Signal Iduna",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Signal Iduna bleibt Hauptsponsor vom BVB - Radio Vest",
-        "date": "2025-11-08",
-        "media_source": "Radio Vest",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": -0.083198
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Verkauf an Run-off-Investoren: Condor stellt Leben-Neugeschäft ein | Versicherung | 12.03.2026 - FONDS professionell",
-        "date": "2026-03-12",
-        "media_source": "FONDS professionell",
-        "topics": [
-          "Finanzen & Vorsorge"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "news_mention",
-      "brand": "R+V",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Rollinger: Branche „lässt sich von den Neobrokern vorführen“ - versicherungswirtschaft-heute.de",
-        "date": "2026-02-12",
-        "media_source": "versicherungswirtschaft-heute.de",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "news_mention",
-      "brand": "DEVK",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "DEVK setzt im Kundenservice auf KI-Agenten - Versicherungsmonitor",
-        "date": "2025-11-25",
-        "media_source": "Versicherungsmonitor",
-        "topics": [
-          "Digitalisierung & KI"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Alles geregelt? Die wichtigsten Vollmachten und Vorsorgedokumente - Hannoversche Versicherung",
-        "date": "2026-05-08",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Gesundheit & Pflege"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Elterngeld und Elternzeit für Selbstständige - Hannoversche Versicherung",
-        "date": "2026-05-07",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Sommerzeit ist Ferienzeit – Warum Urlaub so wichtig für uns ist - Hannoversche Versicherung",
-        "date": "2026-05-07",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ursachen von Burnout - Hannoversche Versicherung",
-        "date": "2026-05-07",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ernährung und Psyche: Der Zusammenhang zwischen Essen und mentalem Wohlbefinden - Hannoversche Versicherung",
-        "date": "2026-05-07",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Steigende Lebenserwartung – Was sind Gründe und Folgen? - Hannoversche Versicherung",
-        "date": "2026-05-07",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Ihr Zuhause – der gefährlichste Ort der Welt - Hannoversche Versicherung",
-        "date": "2026-05-07",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "press_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Erbschaftssteuer? Können Sie sich (weitgehend) sparen! - Hannoversche Versicherung",
-        "date": "2026-05-07",
-        "media_source": "Hannoversche Versicherung",
-        "topics": [
-          "Finanzen & Vorsorge"
-        ],
-        "article_type": "own"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "news_mention",
-      "brand": "Hannoversche",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "muki erstmals auf Platz eins - risControl",
-        "date": "2026-05-07",
-        "media_source": "risControl",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-21T08:52:39Z",
-      "event_type": "news_mention",
-      "brand": "Cosmos Direkt",
-      "product": null,
-      "source": "google_news_rss",
-      "magnitude": 1.0,
-      "detail": {
-        "title": "Cosmos Direkt lässt „Stella“ auf seine Kunden los - Versicherungsmonitor",
-        "date": "2026-05-06",
-        "media_source": "Versicherungsmonitor",
-        "topics": [
-          "Allgemein"
-        ],
-        "article_type": "media"
-      },
-      "sov_deltas": {
-        "lag_1d": 0.067864
-      },
-      "sentiment": "neutral"
-    },
-    {
-      "timestamp": "2026-06-22T00-21-17Z",
+      "timestamp": "2026-07-02T13-10-05Z",
       "event_type": "page_change",
       "brand": "Allianz",
       "product": null,
@@ -3039,19 +1382,219 @@
       "magnitude": 0.6179,
       "detail": {
         "url": "https://www.allianz.de/vorsorge/trauer/",
-        "summary": "0 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 38.2%).",
+        "summary": "120 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 38.2%).",
         "similarity": 0.3821,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.019792
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.03280000000000005,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/berufsunfaehigkeitsversicherung/leistungsquote",
+        "summary": "13 neue Zeilen, 13 entfernte Zeilen (Ähnlichkeit 96.7%).",
+        "similarity": 0.9672,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.053708
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.011199999999999988,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/berufsunfaehigkeitsversicherung/erwerbsunfaehigkeitsversicherung",
+        "summary": "6 neue Zeilen, 6 entfernte Zeilen (Ähnlichkeit 98.9%).",
+        "similarity": 0.9888,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.053708
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.018000000000000016,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/berufsunfaehigkeitsversicherung/vergleich",
+        "summary": "15 neue Zeilen, 15 entfernte Zeilen (Ähnlichkeit 98.2%).",
+        "similarity": 0.982,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.053708
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.3678,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/rechner/",
+        "summary": "12 neue Zeilen, 77 entfernte Zeilen (Ähnlichkeit 63.2%).",
+        "similarity": 0.6322,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.053708
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.1745,
+      "detail": {
+        "url": "https://www.allianz.de/recht-und-eigentum/baufinanzierung/vorfaelligkeitsentschaedigung",
+        "summary": "52 neue Zeilen, 79 entfernte Zeilen (Ähnlichkeit 82.5%).",
+        "similarity": 0.8255,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.053708
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.3115,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/kreditabsicherung-hauskauf",
+        "summary": "3 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 68.8%).",
+        "similarity": 0.6885,
         "classification": {
           "error": "invalid json",
           "raw": "{\n  \"type\":"
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.050365
+        "lag_1d": 0.03941
       }
     },
     {
-      "timestamp": "2026-06-22T00-21-17Z",
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.006700000000000039,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/berufsunfaehigkeitsversicherung/fuer-auszubildende",
+        "summary": "7 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 99.3%).",
+        "similarity": 0.9933,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.053708
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.012800000000000034,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/berufsunfaehigkeitsversicherung/abstrakte-verweisung",
+        "summary": "10 neue Zeilen, 6 entfernte Zeilen (Ähnlichkeit 98.7%).",
+        "similarity": 0.9872,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.053708
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.014000000000000012,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/berufsunfaehigkeitsversicherung/zwei-berufsunfaehigkeitsversicherungen",
+        "summary": "6 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 98.6%).",
+        "similarity": 0.986,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.053708
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.011199999999999988,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/sinnvoll/",
+        "summary": "8 neue Zeilen, 5 entfernte Zeilen (Ähnlichkeit 98.9%).",
+        "similarity": 0.9888,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.053708
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
       "event_type": "page_change",
       "brand": "Allianz",
       "product": null,
@@ -3059,7 +1602,7 @@
       "magnitude": 0.6235999999999999,
       "detail": {
         "url": "https://www.allianz.de/gesundheit/zahnersatz/",
-        "summary": "3 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 37.6%).",
+        "summary": "120 neue Zeilen, 3 entfernte Zeilen (Ähnlichkeit 37.6%).",
         "similarity": 0.3764,
         "classification": {
           "error": "invalid json",
@@ -3067,27 +1610,1588 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.033975
+        "lag_1d": -0.027483
       }
     },
     {
-      "timestamp": "2026-06-22T00-21-17Z",
+      "timestamp": "2026-07-02T13-10-05Z",
       "event_type": "page_change",
       "brand": "Allianz",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.6235999999999999,
+      "magnitude": 0.3175,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnersatz/",
-        "summary": "120 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 37.6%).",
-        "similarity": 0.3764,
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/auszahlung/",
+        "summary": "3 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 68.2%).",
+        "similarity": 0.6825,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.053708
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.005600000000000049,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/berufsunfaehigkeitsversicherung",
+        "summary": "15 neue Zeilen, 15 entfernte Zeilen (Ähnlichkeit 99.4%).",
+        "similarity": 0.9944,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.053708
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.33340000000000003,
+      "detail": {
+        "url": "https://www.allianz.de/recht-und-eigentum/baufinanzierung/kfw-antrag",
+        "summary": "52 neue Zeilen, 67 entfernte Zeilen (Ähnlichkeit 66.7%).",
+        "similarity": 0.6666,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.053708
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_new",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.allianz.de/themen/minitalks/folge-10-berufsunfaehigkeitsversicherung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.053708
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07550000000000001,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/",
+        "summary": "29 neue Zeilen, 34 entfernte Zeilen (Ähnlichkeit 92.5%).",
+        "similarity": 0.9245,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.019792
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.24109999999999998,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/berufsunfaehigkeitsversicherung/rechner",
+        "summary": "11 neue Zeilen, 79 entfernte Zeilen (Ähnlichkeit 75.9%).",
+        "similarity": 0.7589,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.053708
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.031100000000000017,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/berufsunfaehigkeitsversicherung/beitrag",
+        "summary": "33 neue Zeilen, 34 entfernte Zeilen (Ähnlichkeit 96.9%).",
+        "similarity": 0.9689,
         "classification": {
           "error": "invalid json",
           "raw": "{\n  "
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.033975
+        "lag_1d": 0.053708
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.5774,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/sinnvoll",
+        "summary": "44 neue Zeilen, 23 entfernte Zeilen (Ähnlichkeit 42.3%).",
+        "similarity": 0.4226,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.03941
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.5774,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/sterbegeldversicherung/sinnvoll/",
+        "summary": "44 neue Zeilen, 23 entfernte Zeilen (Ähnlichkeit 42.3%).",
+        "similarity": 0.4226,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.019792
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.3678,
+      "detail": {
+        "url": "https://www.allianz.de/vorsorge/risikolebensversicherung/rechner",
+        "summary": "12 neue Zeilen, 77 entfernte Zeilen (Ähnlichkeit 63.2%).",
+        "similarity": 0.6322,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.03941
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.7795,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/mit-brille",
+        "summary": "120 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 22.1%).",
+        "similarity": 0.2205,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.027483
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.14559999999999995,
+      "detail": {
+        "url": "https://signal-iduna.de/produkte/gewerbe/cyber-versicherung",
+        "summary": "35 neue Zeilen, 81 entfernte Zeilen (Ähnlichkeit 85.4%).",
+        "similarity": 0.8544,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033333
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Signal Iduna",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.01849999999999996,
+      "detail": {
+        "url": "https://signal-iduna.de/produkte/gewerbe/betriebshaftpflichtversicherung",
+        "summary": "8 neue Zeilen, 19 entfernte Zeilen (Ähnlichkeit 98.2%).",
+        "similarity": 0.9815,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.033333
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Generali",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0021999999999999797,
+      "detail": {
+        "url": "https://www.generali.de/privatkunden/vorsorge-finanzen/berufsunfaehigkeitsversicherung",
+        "summary": "6 neue Zeilen, 5 entfernte Zeilen (Ähnlichkeit 99.8%).",
+        "similarity": 0.9978,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.012666
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Generali",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.46409999999999996,
+      "detail": {
+        "url": "https://www.generali.de/ueber-generali/magazin/mit-einer-sterbegeldversicherung-den-abschied-erleichtern-108722/",
+        "summary": "5 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 53.6%).",
+        "similarity": 0.5359,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Generali",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.46409999999999996,
+      "detail": {
+        "url": "https://www.generali.de/ueber-generali/magazin/kapitallebensversicherung-oder-risikolebensversicherung--das-sind-die-unterschiede-97436/",
+        "summary": "5 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 53.6%).",
+        "similarity": 0.5359,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.012666
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "Generali",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.19510000000000005,
+      "detail": {
+        "url": "https://www.generali.de/service-kontakt/kontakt/kontaktformular-sach-und-lebensversicherung",
+        "summary": "5 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 80.5%).",
+        "similarity": 0.8049,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.010267
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07010000000000005,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20250929-verbraucherinfo-sicher-in-den-bergen",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 93.0%).",
+        "similarity": 0.9299,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07740000000000002,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260302-verbraucherinfo-nebenkostenabrechnung-unter-der-lupe",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 92.3%).",
+        "similarity": 0.9226,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type\":"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.05889999999999995,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260413-verbraucherinfo-platz-fuers-auto-nicht-fuer-krempel",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 94.1%).",
+        "similarity": 0.9411,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.05700000000000005,
+      "detail": {
+        "url": "https://www.ergo.com/en/radar-magazine/sustainability-and-engagement/2024/carbon-removal-climaccelerator-co2-eit-climate-kic-carla-erber",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 94.3%).",
+        "similarity": 0.943,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.1
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08320000000000005,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20251110-verbraucherinfo-ersthelfer-vor-ort",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 91.7%).",
+        "similarity": 0.9168,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.09099999999999997,
+      "detail": {
+        "url": "https://www.ergo.de/de/Ratgeber/todesfall/naturnahe-bestattung",
+        "summary": "36 neue Zeilen, 40 entfernte Zeilen (Ähnlichkeit 90.9%).",
+        "similarity": 0.909,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.043385
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07069999999999999,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260323-verbraucherinfo-sicher-in-die-fahrradsaison-starten",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 92.9%).",
+        "similarity": 0.9293,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.10560000000000003,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20250922-verbraucherinfo-wenn-weisheitszaehne-probleme-machen",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 89.4%).",
+        "similarity": 0.8944,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.057939
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07289999999999996,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20251201-verbraucherinfo-gutschein-unterm-weihnachtsbaum",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 92.7%).",
+        "similarity": 0.9271,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08189999999999997,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/media-information/2025/20251008-ergo-risikolebensversicherung",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 91.8%).",
+        "similarity": 0.9181,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.043385
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.09340000000000004,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260112-verbraucherinfo-unfallfrei-durch-den-winterverkehr",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 90.7%).",
+        "similarity": 0.9066,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.030299999999999994,
+      "detail": {
+        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240603-verbraucherfrage-flaggen-zur-em",
+        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 97.0%).",
+        "similarity": 0.9697,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.11280000000000001,
+      "detail": {
+        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240603-verbraucherinformation-online-tickets",
+        "summary": "13 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 88.7%).",
+        "similarity": 0.8872,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type\":"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08220000000000005,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260105-verbraucherinfo-urlaubsplanung-im-job",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 91.8%).",
+        "similarity": 0.9178,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.8135,
+      "detail": {
+        "url": "https://ergo.de/de/Ratgeber/zahngesundheit/zahnfleischentzuendungen",
+        "summary": "120 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 18.6%).",
+        "similarity": 0.1865,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.077815
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07889999999999997,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20250825-verbraucherinfo-mit-weniger-stress-durch-den-tag",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 92.1%).",
+        "similarity": 0.9211,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.10260000000000002,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20251124-verbraucherinfo-richtig-reagieren-bei-sturm",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 89.7%).",
+        "similarity": 0.8974,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.03700000000000003,
+      "detail": {
+        "url": "https://ergo.de/de/Service/Kundenbereich/Lebensversicherung",
+        "summary": "3 neue Zeilen, 1 entfernte Zeilen (Ähnlichkeit 96.3%).",
+        "similarity": 0.963,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.09350000000000003,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20251013-verbraucherinfo-aquaplaning-ploetzlich-im-schleudergang",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 90.6%).",
+        "similarity": 0.9065,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.8135,
+      "detail": {
+        "url": "https://www.ergo.de/de/Ratgeber/zahngesundheit/zahnfleischentzuendungen",
+        "summary": "120 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 18.6%).",
+        "similarity": 0.1865,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.077815
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07940000000000003,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20251027-verbraucherinfo-gut-durch-den-winter",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 92.1%).",
+        "similarity": 0.9206,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type\": \"struktur\",\n  \"direction\": \"change\",\n  \"magnitude\": \"minor\",\n  \"summary\": \"Reihenfolge der Abschnitte 'Newsroom' und 'Sustainability' auf der Webseite geändert.\",\n  \"keywords\": [\n    \"stru"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08789999999999998,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260309-verbraucherinfo-immunabwehr-staerken",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 91.2%).",
+        "similarity": 0.9121,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.01200000000000001,
+      "detail": {
+        "url": "https://www.ergo.de/de/Produkte/Zahnzusatzversicherung/zahnerhaltung",
+        "summary": "1 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.8%).",
+        "similarity": 0.988,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.077815
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08450000000000002,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20250901-verbraucherinfo-alternativen-zum-pflegeheim",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 91.5%).",
+        "similarity": 0.9155,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "minor",
+          "summary": "Reihenfolge der Abschnitte 'Newsroom' und 'Sustainability' auf der Webseite geändert. Der Inhalt der Abschnitte blieb unverändert.",
+          "keywords": [
+            "struktur",
+            "reihenfolge",
+            "layout"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0927,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260217-verbraucherinfo-zahnmythen-auf-dem-pruefstand",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 90.7%).",
+        "similarity": 0.9073,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07669999999999999,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260427-verbraucherinfo-digitale-hygiene",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 92.3%).",
+        "similarity": 0.9233,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.06820000000000004,
+      "detail": {
+        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2024/20240304-verbraucherinformation-bodenversiegelung-grundstueck",
+        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 93.2%).",
+        "similarity": 0.9318,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07379999999999998,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20251222-verbraucherinfo-so-funktioniert-der-winterdienst-richtig",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 92.6%).",
+        "similarity": 0.9262,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.2852,
+      "detail": {
+        "url": "https://www.ergo.de/de/Ratgeber/zahngesundheit/lumineers",
+        "summary": "120 neue Zeilen, 86 entfernte Zeilen (Ähnlichkeit 71.5%).",
+        "similarity": 0.7148,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.077815
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.09099999999999997,
+      "detail": {
+        "url": "https://ergo.de/de/Ratgeber/todesfall/naturnahe-bestattung",
+        "summary": "36 neue Zeilen, 40 entfernte Zeilen (Ähnlichkeit 90.9%).",
+        "similarity": 0.909,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08520000000000005,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260209-verbraucherinfo-verkleidet-feiern-sicher-unterwegs",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 91.5%).",
+        "similarity": 0.9148,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.015100000000000002,
+      "detail": {
+        "url": "https://ergo.de/de/Produkte/Lebensversicherung/Risikolebensversicherung",
+        "summary": "0 neue Zeilen, 23 entfernte Zeilen (Ähnlichkeit 98.5%).",
+        "similarity": 0.9849,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0847,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260202-verbraucherinfo-was-bei-einer-krankschreibung-erlaubt-ist",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 91.5%).",
+        "similarity": 0.9153,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08509999999999995,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260316-verbraucherinfo-die-groessten-fahrermythen",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 91.5%).",
+        "similarity": 0.9149,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0746,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260330-verbraucherinfo-bandscheibenvorfall",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 92.5%).",
+        "similarity": 0.9254,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.06269999999999998,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20250915-verbraucherinfo-fahrgastrechte-im-zugverkehr",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 93.7%).",
+        "similarity": 0.9373,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07750000000000001,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20250908-verbraucherinfo-gefahr-im-gruenen",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 92.2%).",
+        "similarity": 0.9225,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.09809999999999997,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20251208-verbraucherinfo-gesunde-weihnachten",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 90.2%).",
+        "similarity": 0.9019,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08299999999999996,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/media-information/2025/20251120-ergo-lebensversicherung-verzinsung",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 91.7%).",
+        "similarity": 0.917,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.043385
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.2852,
+      "detail": {
+        "url": "https://ergo.de/de/Ratgeber/zahngesundheit/lumineers",
+        "summary": "120 neue Zeilen, 86 entfernte Zeilen (Ähnlichkeit 71.5%).",
+        "similarity": 0.7148,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.077815
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08809999999999996,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20250818-verbraucherinfo-rauchzeichen-im-garten",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 91.2%).",
+        "similarity": 0.9119,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07050000000000001,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260504-verbraucherinfo-keine-chance-fuer-sonnenbrand",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 93.0%).",
+        "similarity": 0.9295,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.062000000000000055,
+      "detail": {
+        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20251201-verbraucherinfo-gutschein-unterm-weihnachtsbaum",
+        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 93.8%).",
+        "similarity": 0.938,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.01200000000000001,
+      "detail": {
+        "url": "https://ergo.de/de/Produkte/Zahnzusatzversicherung/zahnerhaltung",
+        "summary": "1 neue Zeilen, 11 entfernte Zeilen (Ähnlichkeit 98.8%).",
+        "similarity": 0.988,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.077815
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08399999999999996,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260223-verbraucherinfo-toedliches-gerinnsel",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 91.6%).",
+        "similarity": 0.916,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08530000000000004,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260126-verbraucherinfo-sicheres-eislaufen-mit-spassfaktor",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 91.5%).",
+        "similarity": 0.9147,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.09199999999999997,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260511-verbraucherinfo-wespen-auf-wohnungssuche",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 90.8%).",
+        "similarity": 0.908,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08220000000000005,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20251103-verbraucherinfo-quishing",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 91.8%).",
+        "similarity": 0.9178,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.03700000000000003,
+      "detail": {
+        "url": "https://www.ergo.de/de/Service/Kundenbereich/Lebensversicherung",
+        "summary": "3 neue Zeilen, 1 entfernte Zeilen (Ähnlichkeit 96.3%).",
+        "similarity": 0.963,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.043385
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.06930000000000003,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260420-verbraucherinfo-hammer-meissel-happy-end",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 93.1%).",
+        "similarity": 0.9307,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type\": \"struktur\",\n  \"direction\": \"change\",\n  \"magnitude\": \"minor\",\n  \"summary\": \"Reihenfolge der Sektionen 'Newsroom' und 'Sustainability' geändert.\",\n  \"keywords\": [\n    \"struktur\",\n    \"naviga"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.06940000000000002,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260518-verbraucherinfo-hagelsturm-statt-sommerregen",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 93.1%).",
+        "similarity": 0.9306,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07330000000000003,
+      "detail": {
+        "url": "https://www.ergo.com/de/newsroom-ergo/ratgeber/2025/20250818-verbraucherinfo-rauchzeichen-im-garten",
+        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 92.7%).",
+        "similarity": 0.9267,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_new",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260119-verbraucherinfo-gut-geruestet-durch-die-skisaison",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07720000000000005,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20251229-verbraucherinfo-im-netz-auf-diagnosesuche",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 92.3%).",
+        "similarity": 0.9228,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.06559999999999999,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20251020-verbraucherinfo-event-gekauft-enttaeuschung-bekommen",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 93.4%).",
+        "similarity": 0.9344,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07279999999999998,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20251006-verbraucherinfo-kuendigung-wegen-eigenbedarf",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 92.7%).",
+        "similarity": 0.9272,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type\": \"struktur\",\n  \"direction\": \"change\",\n  \"magnitude\": \"minor\",\n  \"summary\": \"Reihenfolge der Abschnitte 'Newsroom' und 'Sustainability' geändert, Inhalt bleibt gleich.\",\n  \"keywords\": [\n    "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07369999999999999,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20250811-verbraucherinfo-sitzzeiten-in-deutschland",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 92.6%).",
+        "similarity": 0.9263,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07399999999999995,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20251117-verbraucherinfo-so-sehen-verbraucher-am-black-friday-nicht-schwarz",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 92.6%).",
+        "similarity": 0.926,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0857,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2025/20250804-verbraucherinfo-die-haeufigsten-brandgefahren",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 91.4%).",
+        "similarity": 0.9143,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type\": \"struktur"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.015100000000000002,
+      "detail": {
+        "url": "https://www.ergo.de/de/Produkte/Lebensversicherung/Risikolebensversicherung",
+        "summary": "0 neue Zeilen, 23 entfernte Zeilen (Ähnlichkeit 98.5%).",
+        "similarity": 0.9849,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.043385
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08189999999999997,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/advisory/2026/20260526-verbraucherinfo-sommer-sonne-sturzgefahr",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 91.8%).",
+        "similarity": 0.9181,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.013092
+      }
+    },
+    {
+      "timestamp": "2026-07-02T13-10-05Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07199999999999995,
+      "detail": {
+        "url": "https://www.ergo.com/en/newsroom/media-information/2026/20260316-neuer-rechtsschutz-gewerbe",
+        "summary": "4 neue Zeilen, 4 entfernte Zeilen (Ähnlichkeit 92.8%).",
+        "similarity": 0.928,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.1
       }
     }
   ]
