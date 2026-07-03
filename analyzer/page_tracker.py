@@ -253,8 +253,22 @@ def _diff_lines(prev: str, curr: str) -> Tuple[List[str], List[str], float]:
             added.append(line[1:].strip())
         elif line.startswith("-"):
             removed.append(line[1:].strip())
-    added = [a for a in added if a][:MAX_DIFF_LINES]
-    removed = [r for r in removed if r][:MAX_DIFF_LINES]
+    added = [a for a in added if a]
+    removed = [r for r in removed if r]
+    # Verschobene Zeilen (in beiden Listen) = Umsortierung, keine echte
+    # Aenderung -> aus beiden entfernen (behebt "entfernt == hinzugefuegt").
+    from collections import Counter as _Counter
+    _moved = _Counter(added) & _Counter(removed)
+    def _strip_moved(_lines):
+        _c = dict(_moved); _out = []
+        for _x in _lines:
+            if _c.get(_x, 0) > 0:
+                _c[_x] -= 1
+            else:
+                _out.append(_x)
+        return _out
+    added = _strip_moved(added)[:MAX_DIFF_LINES]
+    removed = _strip_moved(removed)[:MAX_DIFF_LINES]
     return added, removed, round(ratio, 4)
 
 
@@ -485,7 +499,7 @@ def track_page(
     )
 
     # Rauschfilter: sehr aehnliche Seiten mit winzigen Diffs = dynamische Teaser
-    if similarity >= NOISE_SIMILARITY and (len(added) + len(removed)) <= NOISE_MAX_LINES:
+    if (len(added) + len(removed)) == 0 or (similarity >= NOISE_SIMILARITY and (len(added) + len(removed)) <= NOISE_MAX_LINES):
         result.changed = False
         result.summary = (
             f"Keine substantielle Aenderung (Ähnlichkeit {similarity:.1%}, "
