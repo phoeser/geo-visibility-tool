@@ -32,6 +32,8 @@ import hashlib
 import json
 import re
 import time
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
@@ -118,15 +120,27 @@ class DomainRateLimiter:
     def __init__(self, min_delay: float = DOMAIN_MIN_DELAY):
         self.min_delay = min_delay
         self._last: Dict[str, float] = {}
+        self._locks: Dict[str, threading.Lock] = {}
+        self._guard = threading.Lock()
+
+    def _domain_lock(self, host: str) -> threading.Lock:
+        with self._guard:
+            lk = self._locks.get(host)
+            if lk is None:
+                lk = threading.Lock()
+                self._locks[host] = lk
+            return lk
 
     def wait(self, url: str) -> None:
         host = urlparse(url).netloc
-        now = time.time()
-        last = self._last.get(host, 0.0)
-        wait = max(0.0, self.min_delay - (now - last))
-        if wait > 0:
-            time.sleep(wait)
-        self._last[host] = time.time()
+        # Pro Domain serialisiert (hoeflich), verschiedene Domains parallel.
+        with self._domain_lock(host):
+            now = time.time()
+            last = self._last.get(host, 0.0)
+            wait = max(0.0, self.min_delay - (now - last))
+            if wait > 0:
+                time.sleep(wait)
+            self._last[host] = time.time()
 
 
 # ---------------------------------------------------------------------------
@@ -143,6 +157,7 @@ class RobotsCache:
     def __init__(self, respect: bool = True) -> None:
         self.respect = respect
         self._cache: Dict[str, Optional[RobotFileParser]] = {}
+        self._lock = threading.Lock()
 
     def _load(self, host: str) -> Optional[RobotFileParser]:
         try:
@@ -172,9 +187,10 @@ class RobotsCache:
         if not self.respect:
             return True  # Master-Switch via config
         host = urlparse(url).netloc
-        if host not in self._cache:
-            self._cache[host] = self._load(host)
-        rp = self._cache[host]
+        with self._lock:
+            if host not in self._cache:
+                self._cache[host] = self._load(host)
+            rp = self._cache[host]
         if rp is None:
             # Kein lesbares robots.txt (z.B. Cloudflare-blockiert) -> erlaubt.
             return True
@@ -548,6 +564,7 @@ def track_all(
     brand_urls: Dict[str, List[Dict]],
     classifier=None,
     respect_robots_txt: bool = True,
+    max_workers: int = 10,
 ) -> List[Dict]:
     """
     brand_urls: {
@@ -561,18 +578,36 @@ def track_all(
     """
     rate = DomainRateLimiter()
     robots = RobotsCache(respect=respect_robots_txt)
-    out: List[Dict] = []
+    tasks: List[Tuple[str, List[str], str]] = []
     for brand, entries in brand_urls.items():
         for e in entries:
             url = e.get("url") or ""
             pids = e.get("product_ids") or []
-            if not url:
-                continue
-            res = track_page(
-                pages_base, brand, pids, url,
-                timestamp=timestamp, run_id=run_id,
-                rate_limiter=rate, robots=robots,
-                classifier=classifier,
-            )
-            out.append(asdict(res))
+            if url:
+                tasks.append((brand, pids, url))
+
+    def _one(brand: str, pids: List[str], url: str) -> Dict:
+        return asdict(track_page(
+            pages_base, brand, pids, url,
+            timestamp=timestamp, run_id=run_id,
+            rate_limiter=rate, robots=robots,
+            classifier=classifier,
+        ))
+
+    out: List[Dict] = []
+    # Seiten PARALLEL abrufen (I/O-gebunden; FlareSolverr/Cloudflare dominieren
+    # die Laufzeit). Pro Domain bleibt der Abruf via Rate-Limiter serialisiert,
+    # verschiedene Domains laufen gleichzeitig -> statt Stunden nur Minuten.
+    workers = max(1, int(max_workers))
+    if workers == 1 or len(tasks) <= 1:
+        for (brand, pids, url) in tasks:
+            out.append(_one(brand, pids, url))
+        return out
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        futs = [pool.submit(_one, b, p, u) for (b, p, u) in tasks]
+        for f in as_completed(futs):
+            try:
+                out.append(f.result())
+            except Exception as ex:  # noqa: BLE001
+                out.append({"error": str(ex)[:200]})
     return out
