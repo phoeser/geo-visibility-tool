@@ -83,6 +83,7 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
           PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           FLARESOLVERR_URL: http://localhost:8191/v1
         run: |
           # set -e ist tueckisch bei Pipelines + Substitutions. Wir prueffen Exit-Codes
