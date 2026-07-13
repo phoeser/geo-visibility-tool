@@ -1,21 +1,57 @@
 {
   "meta": {
-    "total_page_events": 5177,
-    "total_cockpit_events": 0,
-    "total_unified_events": 5152,
-    "total_enriched_events": 5152,
-    "total_runs": 102,
+    "total_page_events": 5348,
+    "total_cockpit_events": 10626,
+    "total_unified_events": 15949,
+    "total_enriched_events": 15949,
+    "total_runs": 103,
     "lag_windows": [
       1,
       3,
       7,
       14
     ],
-    "generated_at": "2026-07-12T02:58:54.036145Z"
+    "generated_at": "2026-07-13T02:58:42.552269Z"
   },
   "event_summary": {
+    "review_volume": {
+      "count": 47,
+      "brands": [
+        "Allianz",
+        "DEVK",
+        "ERGO",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.323,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "page_new": {
+      "count": 6810,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "Cosmos Direkt",
+        "CosmosDirekt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 0.976,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
     "page_change": {
-      "count": 2157,
+      "count": 4524,
       "brands": [
         "AXA",
         "Allianz",
@@ -26,13 +62,61 @@
         "HUK-Coburg",
         "Signal Iduna"
       ],
-      "avg_magnitude": 0.476,
+      "avg_magnitude": 0.514,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
     },
-    "page_new": {
-      "count": 2995,
+    "press_mention": {
+      "count": 699,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "wikipedia_change": {
+      "count": 4,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO"
+      ],
+      "avg_magnitude": 0.125,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "domain_change": {
+      "count": 82,
+      "brands": [
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.433,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "sov_change": {
+      "count": 1968,
       "brands": [
         "AXA",
         "Allianz",
@@ -41,6 +125,54 @@
         "ERGO",
         "Generali",
         "HUK-Coburg",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.043,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "review_change": {
+      "count": 55,
+      "brands": [
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.564,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "price_change": {
+      "count": 4,
+      "brands": [
+        "Allianz",
+        "ERGO"
+      ],
+      "avg_magnitude": 1.817,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "news_mention": {
+      "count": 1756,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
         "Signal Iduna"
       ],
       "avg_magnitude": 1.0,
@@ -51,8 +183,46 @@
   },
   "impact_ranking": [
     {
+      "event_type": "review_volume",
+      "count": 47,
+      "brands": [
+        "Allianz",
+        "DEVK",
+        "ERGO",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.323,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "page_new",
+      "count": 6810,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "Cosmos Direkt",
+        "CosmosDirekt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 0.976,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
       "event_type": "page_change",
-      "count": 2157,
+      "count": 4524,
       "brands": [
         "AXA",
         "Allianz",
@@ -63,14 +233,65 @@
         "HUK-Coburg",
         "Signal Iduna"
       ],
-      "avg_magnitude": 0.476,
+      "avg_magnitude": 0.514,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
     },
     {
-      "event_type": "page_new",
-      "count": 2995,
+      "event_type": "press_mention",
+      "count": 699,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "wikipedia_change",
+      "count": 4,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "ERGO"
+      ],
+      "avg_magnitude": 0.125,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "domain_change",
+      "count": 82,
+      "brands": [
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.433,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "sov_change",
+      "count": 1968,
       "brands": [
         "AXA",
         "Allianz",
@@ -79,6 +300,57 @@
         "ERGO",
         "Generali",
         "HUK-Coburg",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.043,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "review_change",
+      "count": 55,
+      "brands": [
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
+        "Signal Iduna"
+      ],
+      "avg_magnitude": 1.564,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "price_change",
+      "count": 4,
+      "brands": [
+        "Allianz",
+        "ERGO"
+      ],
+      "avg_magnitude": 1.817,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
+      "event_type": "news_mention",
+      "count": 1756,
+      "brands": [
+        "AXA",
+        "Allianz",
+        "Cosmos Direkt",
+        "DEVK",
+        "ERGO",
+        "Generali",
+        "HUK-Coburg",
+        "Hannoversche",
+        "R+V",
         "Signal Iduna"
       ],
       "avg_magnitude": 1.0,
@@ -88,591 +360,2875 @@
     }
   ],
   "correlation_matrix": {
-    "page_change__delta_share_of_voice__lag_1d": {
-      "event_type": "page_change",
+    "review_volume__delta_share_of_voice__lag_1d": {
+      "event_type": "review_volume",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 2157,
-      "spearman_rho": 0.0743,
-      "avg_delta": 0.000309,
-      "avg_magnitude": 0.476
+      "n_events": 44,
+      "spearman_rho": 0.1665,
+      "avg_delta": -0.004465,
+      "avg_magnitude": 1.352
     },
-    "page_change__delta_appearance_rate__lag_1d": {
-      "event_type": "page_change",
+    "review_volume__delta_appearance_rate__lag_1d": {
+      "event_type": "review_volume",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 2157,
-      "spearman_rho": -0.113,
-      "avg_delta": 0.037107,
-      "avg_magnitude": 0.476
+      "n_events": 44,
+      "spearman_rho": 0.0359,
+      "avg_delta": -0.004471,
+      "avg_magnitude": 1.352
     },
-    "page_change__delta_citation_rate__lag_1d": {
-      "event_type": "page_change",
+    "review_volume__delta_citation_rate__lag_1d": {
+      "event_type": "review_volume",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 2157,
-      "spearman_rho": -0.0655,
-      "avg_delta": 0.020571,
-      "avg_magnitude": 0.476
+      "n_events": 44,
+      "spearman_rho": 0.3064,
+      "avg_delta": -0.0086,
+      "avg_magnitude": 1.352
     },
     "page_new__delta_share_of_voice__lag_1d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 2995,
-      "spearman_rho": 0.5091,
-      "avg_delta": 0.012351,
-      "avg_magnitude": 1.0
+      "n_events": 6810,
+      "spearman_rho": 0.3006,
+      "avg_delta": 0.012518,
+      "avg_magnitude": 0.976
     },
     "page_new__delta_appearance_rate__lag_1d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 2995,
-      "spearman_rho": 0.5348,
-      "avg_delta": 0.014163,
-      "avg_magnitude": 1.0
+      "n_events": 6810,
+      "spearman_rho": 0.5077,
+      "avg_delta": 0.010239,
+      "avg_magnitude": 0.976
     },
     "page_new__delta_citation_rate__lag_1d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 2995,
-      "spearman_rho": 0.5411,
-      "avg_delta": 0.010788,
-      "avg_magnitude": 1.0
+      "n_events": 6810,
+      "spearman_rho": 0.3776,
+      "avg_delta": 0.00959,
+      "avg_magnitude": 0.976
     },
-    "page_change__delta_share_of_voice__lag_3d": {
+    "page_change__delta_share_of_voice__lag_1d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 2151,
-      "spearman_rho": 0.0211,
-      "avg_delta": 0.000483,
-      "avg_magnitude": 0.476
+      "lag_days": 1,
+      "n_events": 4524,
+      "spearman_rho": 0.0439,
+      "avg_delta": 0.001,
+      "avg_magnitude": 0.514
     },
-    "page_change__delta_appearance_rate__lag_3d": {
+    "page_change__delta_appearance_rate__lag_1d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 2151,
-      "spearman_rho": -0.114,
-      "avg_delta": 0.01529,
-      "avg_magnitude": 0.476
+      "lag_days": 1,
+      "n_events": 4524,
+      "spearman_rho": -0.1492,
+      "avg_delta": 0.036196,
+      "avg_magnitude": 0.514
     },
-    "page_change__delta_citation_rate__lag_3d": {
+    "page_change__delta_citation_rate__lag_1d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 4524,
+      "spearman_rho": -0.1835,
+      "avg_delta": 0.018933,
+      "avg_magnitude": 0.514
+    },
+    "press_mention__delta_share_of_voice__lag_1d": {
+      "event_type": "press_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 667,
+      "spearman_rho": 0.559,
+      "avg_delta": -0.001519,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_appearance_rate__lag_1d": {
+      "event_type": "press_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 667,
+      "spearman_rho": 0.578,
+      "avg_delta": -0.019722,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_citation_rate__lag_1d": {
+      "event_type": "press_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 667,
+      "spearman_rho": 0.5742,
+      "avg_delta": 0.001009,
+      "avg_magnitude": 1.0
+    },
+    "wikipedia_change__delta_share_of_voice__lag_1d": {
+      "event_type": "wikipedia_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 4,
+      "spearman_rho": 0.95,
+      "avg_delta": -0.013738,
+      "avg_magnitude": 0.125
+    },
+    "wikipedia_change__delta_appearance_rate__lag_1d": {
+      "event_type": "wikipedia_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 4,
+      "spearman_rho": 0.35,
+      "avg_delta": -0.084204,
+      "avg_magnitude": 0.125
+    },
+    "wikipedia_change__delta_citation_rate__lag_1d": {
+      "event_type": "wikipedia_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 4,
+      "spearman_rho": 0.35,
+      "avg_delta": -0.076923,
+      "avg_magnitude": 0.125
+    },
+    "domain_change__delta_share_of_voice__lag_1d": {
+      "event_type": "domain_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 82,
+      "spearman_rho": -0.1175,
+      "avg_delta": 0.000676,
+      "avg_magnitude": 1.433
+    },
+    "domain_change__delta_appearance_rate__lag_1d": {
+      "event_type": "domain_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 82,
+      "spearman_rho": -0.0313,
+      "avg_delta": -0.001203,
+      "avg_magnitude": 1.433
+    },
+    "domain_change__delta_citation_rate__lag_1d": {
+      "event_type": "domain_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 82,
+      "spearman_rho": -0.0194,
+      "avg_delta": -0.001323,
+      "avg_magnitude": 1.433
+    },
+    "sov_change__delta_share_of_voice__lag_1d": {
+      "event_type": "sov_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 1905,
+      "spearman_rho": 0.0294,
+      "avg_delta": -0.002174,
+      "avg_magnitude": 1.078
+    },
+    "sov_change__delta_appearance_rate__lag_1d": {
+      "event_type": "sov_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 1905,
+      "spearman_rho": 0.0553,
+      "avg_delta": -0.004924,
+      "avg_magnitude": 1.078
+    },
+    "sov_change__delta_citation_rate__lag_1d": {
+      "event_type": "sov_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 1905,
+      "spearman_rho": 0.0814,
+      "avg_delta": -0.003377,
+      "avg_magnitude": 1.078
+    },
+    "review_change__delta_share_of_voice__lag_1d": {
+      "event_type": "review_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 53,
+      "spearman_rho": 0.201,
+      "avg_delta": -0.002516,
+      "avg_magnitude": 1.547
+    },
+    "review_change__delta_appearance_rate__lag_1d": {
+      "event_type": "review_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 53,
+      "spearman_rho": 0.1619,
+      "avg_delta": 0.005088,
+      "avg_magnitude": 1.547
+    },
+    "review_change__delta_citation_rate__lag_1d": {
+      "event_type": "review_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 53,
+      "spearman_rho": 0.1967,
+      "avg_delta": 0.000552,
+      "avg_magnitude": 1.547
+    },
+    "price_change__delta_share_of_voice__lag_1d": {
+      "event_type": "price_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 4,
+      "spearman_rho": 0.95,
+      "avg_delta": 0.024165,
+      "avg_magnitude": 1.817
+    },
+    "price_change__delta_appearance_rate__lag_1d": {
+      "event_type": "price_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 4,
+      "spearman_rho": 0.95,
+      "avg_delta": 0.016667,
+      "avg_magnitude": 1.817
+    },
+    "price_change__delta_citation_rate__lag_1d": {
+      "event_type": "price_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 4,
+      "spearman_rho": 0.95,
+      "avg_delta": -0.005556,
+      "avg_magnitude": 1.817
+    },
+    "news_mention__delta_share_of_voice__lag_1d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 1695,
+      "spearman_rho": 0.5662,
+      "avg_delta": -0.000173,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_1d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 1695,
+      "spearman_rho": 0.5734,
+      "avg_delta": -0.018005,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_1d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 1695,
+      "spearman_rho": 0.5766,
+      "avg_delta": -0.000619,
+      "avg_magnitude": 1.0
+    },
+    "review_volume__delta_share_of_voice__lag_3d": {
+      "event_type": "review_volume",
+      "metric": "delta_share_of_voice",
       "lag_days": 3,
-      "n_events": 2151,
-      "spearman_rho": -0.1755,
-      "avg_delta": 0.013618,
-      "avg_magnitude": 0.476
+      "n_events": 44,
+      "spearman_rho": -0.1651,
+      "avg_delta": -0.004047,
+      "avg_magnitude": 1.35
+    },
+    "review_volume__delta_appearance_rate__lag_3d": {
+      "event_type": "review_volume",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 44,
+      "spearman_rho": -0.1084,
+      "avg_delta": -0.003181,
+      "avg_magnitude": 1.35
+    },
+    "review_volume__delta_citation_rate__lag_3d": {
+      "event_type": "review_volume",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 44,
+      "spearman_rho": 0.1079,
+      "avg_delta": -0.01643,
+      "avg_magnitude": 1.35
     },
     "page_new__delta_share_of_voice__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 3,
-      "n_events": 2915,
-      "spearman_rho": 0.5096,
-      "avg_delta": 0.017727,
-      "avg_magnitude": 1.0
+      "n_events": 6810,
+      "spearman_rho": 0.3127,
+      "avg_delta": 0.015336,
+      "avg_magnitude": 0.976
     },
     "page_new__delta_appearance_rate__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 3,
-      "n_events": 2915,
-      "spearman_rho": 0.5345,
-      "avg_delta": -0.004108,
-      "avg_magnitude": 1.0
+      "n_events": 6810,
+      "spearman_rho": 0.4505,
+      "avg_delta": -0.005867,
+      "avg_magnitude": 0.976
     },
     "page_new__delta_citation_rate__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 3,
-      "n_events": 2915,
-      "spearman_rho": 0.5418,
-      "avg_delta": 0.020264,
-      "avg_magnitude": 1.0
+      "n_events": 6810,
+      "spearman_rho": 0.4655,
+      "avg_delta": 0.014365,
+      "avg_magnitude": 0.976
     },
-    "page_change__delta_share_of_voice__lag_7d": {
+    "page_change__delta_share_of_voice__lag_3d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 1838,
-      "spearman_rho": -0.0971,
-      "avg_delta": 0.003009,
-      "avg_magnitude": 0.419
+      "lag_days": 3,
+      "n_events": 4347,
+      "spearman_rho": 0.051,
+      "avg_delta": -0.000867,
+      "avg_magnitude": 0.495
     },
-    "page_change__delta_appearance_rate__lag_7d": {
+    "page_change__delta_appearance_rate__lag_3d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 1838,
-      "spearman_rho": -0.1919,
-      "avg_delta": -0.012415,
-      "avg_magnitude": 0.419
+      "lag_days": 3,
+      "n_events": 4347,
+      "spearman_rho": -0.1433,
+      "avg_delta": 0.017477,
+      "avg_magnitude": 0.495
     },
-    "page_change__delta_citation_rate__lag_7d": {
+    "page_change__delta_citation_rate__lag_3d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 4347,
+      "spearman_rho": -0.159,
+      "avg_delta": 0.013098,
+      "avg_magnitude": 0.495
+    },
+    "press_mention__delta_share_of_voice__lag_3d": {
+      "event_type": "press_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 648,
+      "spearman_rho": 0.5527,
+      "avg_delta": -0.000955,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_appearance_rate__lag_3d": {
+      "event_type": "press_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 648,
+      "spearman_rho": 0.5591,
+      "avg_delta": -0.019628,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_citation_rate__lag_3d": {
+      "event_type": "press_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 648,
+      "spearman_rho": 0.5673,
+      "avg_delta": -0.00253,
+      "avg_magnitude": 1.0
+    },
+    "wikipedia_change__delta_share_of_voice__lag_3d": {
+      "event_type": "wikipedia_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 4,
+      "spearman_rho": 1.0,
+      "avg_delta": -0.008848,
+      "avg_magnitude": 0.125
+    },
+    "wikipedia_change__delta_appearance_rate__lag_3d": {
+      "event_type": "wikipedia_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 4,
+      "spearman_rho": 0.4,
+      "avg_delta": -0.015915,
+      "avg_magnitude": 0.125
+    },
+    "wikipedia_change__delta_citation_rate__lag_3d": {
+      "event_type": "wikipedia_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 4,
+      "spearman_rho": 0.4,
+      "avg_delta": -0.045814,
+      "avg_magnitude": 0.125
+    },
+    "domain_change__delta_share_of_voice__lag_3d": {
+      "event_type": "domain_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 82,
+      "spearman_rho": 0.1022,
+      "avg_delta": -0.00105,
+      "avg_magnitude": 1.433
+    },
+    "domain_change__delta_appearance_rate__lag_3d": {
+      "event_type": "domain_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 82,
+      "spearman_rho": 0.3234,
+      "avg_delta": 0.003752,
+      "avg_magnitude": 1.433
+    },
+    "domain_change__delta_citation_rate__lag_3d": {
+      "event_type": "domain_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 82,
+      "spearman_rho": 0.2305,
+      "avg_delta": 0.002213,
+      "avg_magnitude": 1.433
+    },
+    "sov_change__delta_share_of_voice__lag_3d": {
+      "event_type": "sov_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 1769,
+      "spearman_rho": -0.0558,
+      "avg_delta": -0.004872,
+      "avg_magnitude": 1.06
+    },
+    "sov_change__delta_appearance_rate__lag_3d": {
+      "event_type": "sov_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 1769,
+      "spearman_rho": -0.058,
+      "avg_delta": -0.022278,
+      "avg_magnitude": 1.06
+    },
+    "sov_change__delta_citation_rate__lag_3d": {
+      "event_type": "sov_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 1769,
+      "spearman_rho": -0.0362,
+      "avg_delta": -0.023998,
+      "avg_magnitude": 1.06
+    },
+    "review_change__delta_share_of_voice__lag_3d": {
+      "event_type": "review_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 52,
+      "spearman_rho": 0.1795,
+      "avg_delta": 7.9e-05,
+      "avg_magnitude": 1.567
+    },
+    "review_change__delta_appearance_rate__lag_3d": {
+      "event_type": "review_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 52,
+      "spearman_rho": 0.1532,
+      "avg_delta": 0.002071,
+      "avg_magnitude": 1.567
+    },
+    "review_change__delta_citation_rate__lag_3d": {
+      "event_type": "review_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 52,
+      "spearman_rho": 0.1784,
+      "avg_delta": -0.003311,
+      "avg_magnitude": 1.567
+    },
+    "news_mention__delta_share_of_voice__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 3,
+      "n_events": 1681,
+      "spearman_rho": 0.5602,
+      "avg_delta": -0.000551,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 3,
+      "n_events": 1681,
+      "spearman_rho": 0.5675,
+      "avg_delta": -0.018514,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_3d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 3,
+      "n_events": 1681,
+      "spearman_rho": 0.5668,
+      "avg_delta": -0.002269,
+      "avg_magnitude": 1.0
+    },
+    "review_volume__delta_share_of_voice__lag_7d": {
+      "event_type": "review_volume",
+      "metric": "delta_share_of_voice",
       "lag_days": 7,
-      "n_events": 1838,
-      "spearman_rho": -0.2809,
-      "avg_delta": -0.020084,
-      "avg_magnitude": 0.419
+      "n_events": 42,
+      "spearman_rho": 0.1099,
+      "avg_delta": -0.010467,
+      "avg_magnitude": 1.314
+    },
+    "review_volume__delta_appearance_rate__lag_7d": {
+      "event_type": "review_volume",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 42,
+      "spearman_rho": -0.039,
+      "avg_delta": 0.008954,
+      "avg_magnitude": 1.314
+    },
+    "review_volume__delta_citation_rate__lag_7d": {
+      "event_type": "review_volume",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 42,
+      "spearman_rho": 0.0989,
+      "avg_delta": -0.016307,
+      "avg_magnitude": 1.314
     },
     "page_new__delta_share_of_voice__lag_7d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 7,
-      "n_events": 2908,
-      "spearman_rho": 0.5132,
-      "avg_delta": 0.018831,
-      "avg_magnitude": 1.0
+      "n_events": 6636,
+      "spearman_rho": 0.4325,
+      "avg_delta": 0.01388,
+      "avg_magnitude": 0.975
     },
     "page_new__delta_appearance_rate__lag_7d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 7,
-      "n_events": 2908,
-      "spearman_rho": 0.5404,
-      "avg_delta": -0.022363,
-      "avg_magnitude": 1.0
+      "n_events": 6636,
+      "spearman_rho": 0.2711,
+      "avg_delta": -0.037931,
+      "avg_magnitude": 0.975
     },
     "page_new__delta_citation_rate__lag_7d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 7,
-      "n_events": 2908,
-      "spearman_rho": 0.5391,
-      "avg_delta": 0.026537,
-      "avg_magnitude": 1.0
+      "n_events": 6636,
+      "spearman_rho": 0.4369,
+      "avg_delta": 0.003358,
+      "avg_magnitude": 0.975
     },
-    "page_change__delta_share_of_voice__lag_14d": {
+    "page_change__delta_share_of_voice__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
-      "lag_days": 14,
-      "n_events": 1313,
-      "spearman_rho": -0.0657,
-      "avg_delta": -0.014793,
-      "avg_magnitude": 0.462
+      "lag_days": 7,
+      "n_events": 3715,
+      "spearman_rho": -0.0574,
+      "avg_delta": 0.003405,
+      "avg_magnitude": 0.441
     },
-    "page_change__delta_appearance_rate__lag_14d": {
+    "page_change__delta_appearance_rate__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
-      "lag_days": 14,
-      "n_events": 1313,
-      "spearman_rho": -0.051,
-      "avg_delta": -0.002055,
-      "avg_magnitude": 0.462
+      "lag_days": 7,
+      "n_events": 3715,
+      "spearman_rho": -0.1291,
+      "avg_delta": -0.007901,
+      "avg_magnitude": 0.441
     },
-    "page_change__delta_citation_rate__lag_14d": {
+    "page_change__delta_citation_rate__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 3715,
+      "spearman_rho": -0.2619,
+      "avg_delta": -0.016885,
+      "avg_magnitude": 0.441
+    },
+    "press_mention__delta_share_of_voice__lag_7d": {
+      "event_type": "press_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 635,
+      "spearman_rho": 0.5502,
+      "avg_delta": -0.001851,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_appearance_rate__lag_7d": {
+      "event_type": "press_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 635,
+      "spearman_rho": 0.5577,
+      "avg_delta": -0.001846,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_citation_rate__lag_7d": {
+      "event_type": "press_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 635,
+      "spearman_rho": 0.5623,
+      "avg_delta": 0.013325,
+      "avg_magnitude": 1.0
+    },
+    "domain_change__delta_share_of_voice__lag_7d": {
+      "event_type": "domain_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 82,
+      "spearman_rho": 0.3743,
+      "avg_delta": -0.010292,
+      "avg_magnitude": 1.433
+    },
+    "domain_change__delta_appearance_rate__lag_7d": {
+      "event_type": "domain_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 82,
+      "spearman_rho": -0.2709,
+      "avg_delta": 0.007433,
+      "avg_magnitude": 1.433
+    },
+    "domain_change__delta_citation_rate__lag_7d": {
+      "event_type": "domain_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 82,
+      "spearman_rho": 0.1218,
+      "avg_delta": 0.000601,
+      "avg_magnitude": 1.433
+    },
+    "sov_change__delta_share_of_voice__lag_7d": {
+      "event_type": "sov_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 1475,
+      "spearman_rho": -0.0284,
+      "avg_delta": -0.012288,
+      "avg_magnitude": 1.032
+    },
+    "sov_change__delta_appearance_rate__lag_7d": {
+      "event_type": "sov_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 1475,
+      "spearman_rho": -0.134,
+      "avg_delta": -0.029091,
+      "avg_magnitude": 1.032
+    },
+    "sov_change__delta_citation_rate__lag_7d": {
+      "event_type": "sov_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 1475,
+      "spearman_rho": -0.1416,
+      "avg_delta": -0.037989,
+      "avg_magnitude": 1.032
+    },
+    "review_change__delta_share_of_voice__lag_7d": {
+      "event_type": "review_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 45,
+      "spearman_rho": 0.2127,
+      "avg_delta": 0.001494,
+      "avg_magnitude": 1.533
+    },
+    "review_change__delta_appearance_rate__lag_7d": {
+      "event_type": "review_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 45,
+      "spearman_rho": 0.2056,
+      "avg_delta": 0.008446,
+      "avg_magnitude": 1.533
+    },
+    "review_change__delta_citation_rate__lag_7d": {
+      "event_type": "review_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 45,
+      "spearman_rho": 0.1541,
+      "avg_delta": -0.000993,
+      "avg_magnitude": 1.533
+    },
+    "news_mention__delta_share_of_voice__lag_7d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 7,
+      "n_events": 1656,
+      "spearman_rho": 0.556,
+      "avg_delta": 0.000108,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_7d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 7,
+      "n_events": 1656,
+      "spearman_rho": 0.5653,
+      "avg_delta": -0.006055,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_7d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 7,
+      "n_events": 1656,
+      "spearman_rho": 0.5644,
+      "avg_delta": 0.004506,
+      "avg_magnitude": 1.0
+    },
+    "review_volume__delta_share_of_voice__lag_14d": {
+      "event_type": "review_volume",
+      "metric": "delta_share_of_voice",
       "lag_days": 14,
-      "n_events": 1313,
-      "spearman_rho": -0.5219,
-      "avg_delta": -0.021643,
-      "avg_magnitude": 0.462
+      "n_events": 33,
+      "spearman_rho": 0.456,
+      "avg_delta": -0.024066,
+      "avg_magnitude": 1.358
+    },
+    "review_volume__delta_appearance_rate__lag_14d": {
+      "event_type": "review_volume",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 33,
+      "spearman_rho": -0.2998,
+      "avg_delta": 0.090078,
+      "avg_magnitude": 1.358
+    },
+    "review_volume__delta_citation_rate__lag_14d": {
+      "event_type": "review_volume",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 33,
+      "spearman_rho": 0.0059,
+      "avg_delta": 0.013956,
+      "avg_magnitude": 1.358
     },
     "page_new__delta_share_of_voice__lag_14d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 14,
-      "n_events": 1662,
-      "spearman_rho": 0.5022,
-      "avg_delta": -0.035392,
-      "avg_magnitude": 1.0
+      "n_events": 4144,
+      "spearman_rho": 0.2218,
+      "avg_delta": -0.023545,
+      "avg_magnitude": 0.96
     },
     "page_new__delta_appearance_rate__lag_14d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 14,
-      "n_events": 1662,
-      "spearman_rho": 0.5022,
-      "avg_delta": -0.119021,
-      "avg_magnitude": 1.0
+      "n_events": 4144,
+      "spearman_rho": -0.16,
+      "avg_delta": -0.070834,
+      "avg_magnitude": 0.96
     },
     "page_new__delta_citation_rate__lag_14d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 14,
-      "n_events": 1662,
-      "spearman_rho": 0.5026,
-      "avg_delta": 0.033115,
+      "n_events": 4144,
+      "spearman_rho": 0.4667,
+      "avg_delta": 0.025187,
+      "avg_magnitude": 0.96
+    },
+    "page_change__delta_share_of_voice__lag_14d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 14,
+      "n_events": 2665,
+      "spearman_rho": -0.0784,
+      "avg_delta": -0.016082,
+      "avg_magnitude": 0.486
+    },
+    "page_change__delta_appearance_rate__lag_14d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 2665,
+      "spearman_rho": -0.1027,
+      "avg_delta": -0.002064,
+      "avg_magnitude": 0.486
+    },
+    "page_change__delta_citation_rate__lag_14d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 2665,
+      "spearman_rho": -0.5043,
+      "avg_delta": -0.019784,
+      "avg_magnitude": 0.486
+    },
+    "press_mention__delta_share_of_voice__lag_14d": {
+      "event_type": "press_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 14,
+      "n_events": 636,
+      "spearman_rho": 0.546,
+      "avg_delta": 0.000816,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_appearance_rate__lag_14d": {
+      "event_type": "press_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 636,
+      "spearman_rho": 0.568,
+      "avg_delta": 0.000569,
+      "avg_magnitude": 1.0
+    },
+    "press_mention__delta_citation_rate__lag_14d": {
+      "event_type": "press_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 636,
+      "spearman_rho": 0.5668,
+      "avg_delta": 0.010088,
+      "avg_magnitude": 1.0
+    },
+    "domain_change__delta_share_of_voice__lag_14d": {
+      "event_type": "domain_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 14,
+      "n_events": 82,
+      "spearman_rho": 0.1221,
+      "avg_delta": -0.002911,
+      "avg_magnitude": 1.433
+    },
+    "domain_change__delta_appearance_rate__lag_14d": {
+      "event_type": "domain_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 82,
+      "spearman_rho": -0.3884,
+      "avg_delta": 0.014023,
+      "avg_magnitude": 1.433
+    },
+    "domain_change__delta_citation_rate__lag_14d": {
+      "event_type": "domain_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 82,
+      "spearman_rho": 0.0345,
+      "avg_delta": 0.005003,
+      "avg_magnitude": 1.433
+    },
+    "sov_change__delta_share_of_voice__lag_14d": {
+      "event_type": "sov_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 14,
+      "n_events": 1005,
+      "spearman_rho": -0.0621,
+      "avg_delta": -0.02549,
+      "avg_magnitude": 1.044
+    },
+    "sov_change__delta_appearance_rate__lag_14d": {
+      "event_type": "sov_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 1005,
+      "spearman_rho": -0.0615,
+      "avg_delta": 0.029235,
+      "avg_magnitude": 1.044
+    },
+    "sov_change__delta_citation_rate__lag_14d": {
+      "event_type": "sov_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 1005,
+      "spearman_rho": -0.0729,
+      "avg_delta": -0.005549,
+      "avg_magnitude": 1.044
+    },
+    "review_change__delta_share_of_voice__lag_14d": {
+      "event_type": "review_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 14,
+      "n_events": 33,
+      "spearman_rho": 0.3294,
+      "avg_delta": 0.013699,
+      "avg_magnitude": 1.682
+    },
+    "review_change__delta_appearance_rate__lag_14d": {
+      "event_type": "review_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 33,
+      "spearman_rho": 0.4754,
+      "avg_delta": 0.05175,
+      "avg_magnitude": 1.682
+    },
+    "review_change__delta_citation_rate__lag_14d": {
+      "event_type": "review_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 33,
+      "spearman_rho": 0.3033,
+      "avg_delta": 0.019529,
+      "avg_magnitude": 1.682
+    },
+    "news_mention__delta_share_of_voice__lag_14d": {
+      "event_type": "news_mention",
+      "metric": "delta_share_of_voice",
+      "lag_days": 14,
+      "n_events": 1552,
+      "spearman_rho": 0.5518,
+      "avg_delta": 0.000358,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_appearance_rate__lag_14d": {
+      "event_type": "news_mention",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 1552,
+      "spearman_rho": 0.5688,
+      "avg_delta": 0.000661,
+      "avg_magnitude": 1.0
+    },
+    "news_mention__delta_citation_rate__lag_14d": {
+      "event_type": "news_mention",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 1552,
+      "spearman_rho": 0.5652,
+      "avg_delta": 0.002906,
       "avg_magnitude": 1.0
     }
   },
   "dashboard_events": [
     {
-      "timestamp": "2026-07-11T00-08-04Z",
+      "timestamp": "2026-07-13T00-09-14Z",
       "event_type": "page_change",
-      "brand": "Allianz",
+      "brand": "CosmosDirekt",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.010700000000000043,
+      "magnitude": 0.9984,
       "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/guenstig",
-        "summary": "6 neue Zeilen, 6 entfernte Zeilen (Ähnlichkeit 98.9%).",
-        "similarity": 0.9893,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  "
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.022772,
-        "lag_3d": -0.022772
-      }
-    },
-    {
-      "timestamp": "2026-07-11T00-08-04Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.052000000000000046,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/zahnersatz-kosten",
-        "summary": "7 neue Zeilen, 6 entfernte Zeilen (Ähnlichkeit 94.8%).",
-        "similarity": 0.948,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.022772,
-        "lag_3d": -0.022772
-      }
-    },
-    {
-      "timestamp": "2026-07-11T00-08-04Z",
-      "event_type": "page_change",
-      "brand": "Allianz",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.052000000000000046,
-      "detail": {
-        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/kosten/",
-        "summary": "7 neue Zeilen, 6 entfernte Zeilen (Ähnlichkeit 94.8%).",
-        "similarity": 0.948,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.022772,
-        "lag_3d": -0.022772
-      }
-    },
-    {
-      "timestamp": "2026-07-11T00-08-04Z",
-      "event_type": "page_change",
-      "brand": "Generali",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.03069999999999995,
-      "detail": {
-        "url": "https://www.generali.de/privatkunden/vorsorge-finanzen/berufsunfaehigkeitsversicherung",
-        "summary": "43 neue Zeilen, 46 entfernte Zeilen (Ähnlichkeit 96.9%).",
-        "similarity": 0.9693,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.000271,
-        "lag_3d": -0.000271
-      }
-    },
-    {
-      "timestamp": "2026-07-11T00-08-04Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.ergo.de/de/rechtsportal/gewerbe/was-schreibt-der-arbeitsschutz-bei-hitze-vor",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.023184,
-        "lag_3d": 0.023184
-      }
-    },
-    {
-      "timestamp": "2026-07-11T00-08-04Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9435,
-      "detail": {
-        "url": "https://www.ergo.de/de/Ratgeber/zahngesundheit/zahnimplantat",
-        "summary": "120 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 5.7%).",
-        "similarity": 0.0565,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.032208,
-        "lag_3d": 0.032208
-      }
-    },
-    {
-      "timestamp": "2026-07-11T00-08-04Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.ergo.de/de/Produkte/Berufsunfaehigkeitsversicherung/bu-testsiegel",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.036005,
-        "lag_3d": 0.036005
-      }
-    },
-    {
-      "timestamp": "2026-07-11T00-08-04Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9435,
-      "detail": {
-        "url": "https://ergo.de/de/Ratgeber/zahngesundheit/zahnimplantat",
-        "summary": "120 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 5.7%).",
-        "similarity": 0.0565,
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/kuendigen",
+        "summary": "15 neue Zeilen, 119 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0016,
         "classification": {
           "error": "invalid json",
           "raw": "{\n"
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.032208,
-        "lag_3d": 0.032208
+        "lag_1d": 0.0
       }
     },
     {
-      "timestamp": "2026-07-11T00-08-04Z",
+      "timestamp": "2026-07-13T00-09-14Z",
       "event_type": "page_change",
-      "brand": "ERGO",
+      "brand": "CosmosDirekt",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.9061,
+      "magnitude": 0.9983,
       "detail": {
-        "url": "https://www.ergo.de/de/Ratgeber/zahngesundheit/parodontitis",
-        "summary": "120 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 9.4%).",
-        "similarity": 0.0939,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \""
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.032208,
-        "lag_3d": 0.032208
-      }
-    },
-    {
-      "timestamp": "2026-07-11T00-08-04Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9451,
-      "detail": {
-        "url": "https://www.ergo.de/de/Ratgeber/zahngesundheit/mundgeruch",
-        "summary": "120 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 5.5%).",
-        "similarity": 0.0549,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  "
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.032208,
-        "lag_3d": 0.032208
-      }
-    },
-    {
-      "timestamp": "2026-07-11T00-08-04Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9061,
-      "detail": {
-        "url": "https://ergo.de/de/Ratgeber/zahngesundheit/parodontitis",
-        "summary": "120 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 9.4%).",
-        "similarity": 0.0939,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.032208,
-        "lag_3d": 0.032208
-      }
-    },
-    {
-      "timestamp": "2026-07-11T00-08-04Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0012999999999999678,
-      "detail": {
-        "url": "https://www.ergo.de/de/Produkte/Berufsunfaehigkeitsversicherung",
-        "summary": "8 neue Zeilen, 8 entfernte Zeilen (Ähnlichkeit 99.9%).",
-        "similarity": 0.9987,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.036005,
-        "lag_3d": 0.036005
-      }
-    },
-    {
-      "timestamp": "2026-07-11T00-08-04Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.794,
-      "detail": {
-        "url": "https://www.ergo.de/de/rechtsportal/reiserecht/stornogebuehren-und-reiseruecktrittsversicherung",
-        "summary": "45 neue Zeilen, 36 entfernte Zeilen (Ähnlichkeit 20.6%).",
-        "similarity": 0.206,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{\n  \"type"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.043227,
-        "lag_3d": 0.043227
-      }
-    },
-    {
-      "timestamp": "2026-07-11T00-08-04Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.15749999999999997,
-      "detail": {
-        "url": "https://www.ergo.de/de/Geschaeftskunden-Produkte/Dienstreiseversicherung",
-        "summary": "12 neue Zeilen, 3 entfernte Zeilen (Ähnlichkeit 84.2%).",
-        "similarity": 0.8425,
-        "classification": {
-          "error": "invalid json",
-          "raw": "{"
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.05296,
-        "lag_3d": 0.05296
-      }
-    },
-    {
-      "timestamp": "2026-07-11T00-08-04Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.ergo.com/en/radar-magazine/strategy-and-business/2026/wildfires-hazard-industrial-risk-insurance-prevention",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.045992,
-        "lag_3d": 0.045992
-      }
-    },
-    {
-      "timestamp": "2026-07-11T00-08-04Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.ergo.de/de/Ratgeber/berufsunfaehigkeit/ausbildung-oder-studium",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.036005,
-        "lag_3d": 0.036005
-      }
-    },
-    {
-      "timestamp": "2026-07-11T00-08-04Z",
-      "event_type": "page_change",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.9451,
-      "detail": {
-        "url": "https://ergo.de/de/Ratgeber/zahngesundheit/mundgeruch",
-        "summary": "120 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 5.5%).",
-        "similarity": 0.0549,
+        "url": "https://www.cosmosdirekt.de/sterbegeldversicherung/auszahlung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0017,
         "classification": {
           "error": "invalid json",
           "raw": "Here is the JSON requested:\n```json"
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.032208,
-        "lag_3d": 0.032208
+        "lag_1d": -0.006853
       }
     },
     {
-      "timestamp": "2026-07-11T08-50-27Z",
+      "timestamp": "2026-07-13T00-09-14Z",
       "event_type": "page_change",
-      "brand": "Allianz",
+      "brand": "CosmosDirekt",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.21419999999999995,
+      "magnitude": 0.9916,
       "detail": {
-        "url": "https://www.allianz.de/business/firmen-rechtsschutzversicherung",
-        "summary": "0 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 78.6%).",
-        "similarity": 0.7858,
+        "url": "https://www.cosmosdirekt.de/reiseversicherungen",
+        "summary": "15 neue Zeilen, 57 entfernte Zeilen (Ähnlichkeit 0.8%).",
+        "similarity": 0.0084,
         "classification": {
           "error": "invalid json",
           "raw": "{"
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.008768
+        "lag_1d": -0.002895
       }
     },
     {
-      "timestamp": "2026-07-12T00-09-01Z",
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9986,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/sterbegeldversicherung/eheleute",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0014,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9975,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/reisekrankenversicherung/was-ist-eine-auslandsreisekrankenversicherung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0025,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.002895
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.998,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/wohngebaeudeversicherung/versicherungssumme",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.002,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.003213
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9875,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/veroeffentlichungen/frank-faerber-wird-neuer-vorstand-bei-cosmosdirekt",
+        "summary": "15 neue Zeilen, 40 entfernte Zeilen (Ähnlichkeit 1.2%).",
+        "similarity": 0.0125,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.017064
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9985,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/private-haftpflichtversicherung/rechtsschutz-kombi",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0015,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.009504
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9966,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/sterbegeldversicherung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0034,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9959,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/alleinerziehende",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0041,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9979,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/reisekrankenversicherung/auslandsreisekrankenversicherung-kosten",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0021,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.002895
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9977,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/zahnarztkosten",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0023,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9914,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/sterbegeldversicherung/test",
+        "summary": "15 neue Zeilen, 101 entfernte Zeilen (Ähnlichkeit 0.9%).",
+        "similarity": 0.0086,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9984,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/wohngebaeudeversicherung/hauskauf",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0016,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.003213
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9936,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/magazin/engagement/red-bull-hill-chasers",
+        "summary": "15 neue Zeilen, 76 entfernte Zeilen (Ähnlichkeit 0.6%).",
+        "similarity": 0.0064,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.000952
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9971,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/hinterbliebenenabsicherung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0029,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9979,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/reiseruecktrittsversicherung/welche-versicherung-auf-reisen",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0021,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.002895
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9983,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/premium-reiseversicherung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0017,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.002895
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9981,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/rechnung-einreichen",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0019,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9976,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/was-ist-das",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0024,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9928,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/krebs",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.7%).",
+        "similarity": 0.0072,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9978,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/hausratversicherung/haftpflicht-rechtsschutz-kombi",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0022,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.009504
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9981,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/lebenssituation/hauskauf-unterlagen",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0019,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.003213
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9971,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/ohne-wartezeit",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0029,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.004222
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9976,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/zahnersatz",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0024,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9976,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/lebensversicherung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0024,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9979,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/lebenssituation/hauskauf-nebenkosten",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0021,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.003213
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9962,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/hauskauf",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0038,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9937,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/risikolebensversicherung-rechner",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.6%).",
+        "similarity": 0.0063,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9978,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/sterbegeldversicherung/ab-welchem-alter",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0022,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9982,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/prophylaxe",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0018,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9982,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/berufsunfaehigkeitsversicherung/kuendigen",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0018,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -4.1e-05
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9974,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/berufsunfaehigkeitsversicherung/azubis",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0026,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -4.1e-05
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9983,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/100-prozent-kostenuebernahme",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0017,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9983,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/zahnimplantat",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0017,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.995,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/risikolebensversicherung-vergleich",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.005,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.998,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/wurzelbehandlung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.002,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.998,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/sterbegeldversicherung/sterbegeld",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.002,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \"type"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9983,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/flexinvest/fondsgebundene-rentenversicherung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0017,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.000952
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9977,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/familie",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0023,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9904,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/versicherungschinesisch/ombudsmann",
+        "summary": "15 neue Zeilen, 61 entfernte Zeilen (Ähnlichkeit 1.0%).",
+        "similarity": 0.0096,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.000952
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.998,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/zahnzusatzversicherung-kinder",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.002,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9966,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/partner",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0034,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9975,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/berufsunfaehigkeitsversicherung/berufswechsel",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0025,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -4.1e-05
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.995,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/kuendigen",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.005,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9988,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/autoversicherung/wiederbeschaffungswert",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0012,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.017064
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9975,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/berufsunfaehigkeitsversicherung/unfallversicherung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0025,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -4.1e-05
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9979,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/kapitallebensversicherung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0021,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.997,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/bonusheft-zahnarzt-verloren",
+        "summary": "15 neue Zeilen, 82 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.003,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9976,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/reiseruecktrittsversicherung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0024,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.002895
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9988,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/berufsunfaehigkeitsversicherung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0012,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -4.1e-05
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9973,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/frauen",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0027,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.996,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/zahnspange-kinder",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.004,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9948,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/flexinvest/sparbuch-aufloesen",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0052,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.000952
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9979,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/fehlende-zaehne",
+        "summary": "15 neue Zeilen, 116 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0021,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9945,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/magazin/frauensache/immer-im-gepaeck-der-beste-reiseschutz-fuer-deinen-urlaub",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0055,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.002895
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9981,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/berufsunfaehigkeitsversicherung/abstrakte-verweisung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0019,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -4.1e-05
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9987,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/sterbegeldversicherung/beerdigungsversicherung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0013,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9962,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/restschuldversicherung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0038,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9725,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/services/vertragsservice/vertragsservices-risiko-bu",
+        "summary": "15 neue Zeilen, 27 entfernte Zeilen (Ähnlichkeit 2.8%).",
+        "similarity": 0.0275,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.000952
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.997,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/suizid",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.003,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9978,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/ohne-gesundheitsfragen",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0022,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.001342
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9969,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/was-ist-eine-risikolebensversicherung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0031,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9909,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/magazin/engagement/redbull-event-hill-chasers",
+        "summary": "15 neue Zeilen, 70 entfernte Zeilen (Ähnlichkeit 0.9%).",
+        "similarity": 0.0091,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.000952
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9987,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/services/vertragsservice/fondsbeschreibungen",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0013,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.000952
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9941,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/risikolebensversicherung-fuer-rentner",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.6%).",
+        "similarity": 0.0059,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9946,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/gesundheitsfragen",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0054,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9948,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/laufzeit",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0052,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9982,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/berufsunfaehigkeitsversicherung/wechseln",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0018,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -4.1e-05
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9964,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/vorteile-nachteile",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0036,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9925,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/services/risikolebensversicherung-verlaengern",
+        "summary": "15 neue Zeilen, 113 entfernte Zeilen (Ähnlichkeit 0.8%).",
+        "similarity": 0.0075,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9966,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/tipps-vor-abschluss",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0034,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9906,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/veroeffentlichungen/auszeichnung-bu-leistungsregulierung",
+        "summary": "15 neue Zeilen, 42 entfernte Zeilen (Ähnlichkeit 0.9%).",
+        "similarity": 0.0094,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```json"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.000952
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9939,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/versicherungschinesisch/versicherungssumme",
+        "summary": "15 neue Zeilen, 65 entfernte Zeilen (Ähnlichkeit 0.6%).",
+        "similarity": 0.0061,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.003213
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9975,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/senioren",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0025,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9978,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/auszahlung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0022,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9978,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/sterbegeldversicherung/steuerlich-absetzbar",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0022,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9981,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/rueckwirkend",
+        "summary": "15 neue Zeilen, 113 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0019,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9976,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/zahnkronen",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0024,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9945,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/reisekrankenversicherung/reiseversicherung-familien",
+        "summary": "15 neue Zeilen, 87 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0055,
+        "classification": {
+          "error": "invalid json",
+          "raw": ""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.002895
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9932,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/versicherungssumme",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.7%).",
+        "similarity": 0.0068,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9876,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/veroeffentlichungen/cosmosdirekt-vfl-wolfsburg",
+        "summary": "15 neue Zeilen, 39 entfernte Zeilen (Ähnlichkeit 1.2%).",
+        "similarity": 0.0124,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.000952
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9977,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/reiseruecktrittsversicherung/gruende-fuer-reiseruecktrittversicherung",
+        "summary": "15 neue Zeilen, 105 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0023,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.002895
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9986,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/zahnprothese",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.1%).",
+        "similarity": 0.0014,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9905,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/veroeffentlichungen/cosmos-direkt-auszeichnung-risikolebensversicherung",
+        "summary": "15 neue Zeilen, 39 entfernte Zeilen (Ähnlichkeit 0.9%).",
+        "similarity": 0.0095,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9947,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/sterbegeldversicherung/vergleich",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0053,
+        "classification": {
+          "error": "invalid json",
+          "raw": "Here is the JSON requested:\n```"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9975,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/sterbegeldversicherung/sterbegeldversicherung-sinnvoll",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0025,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9969,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/ratgeber-zahnzusatzversicherung/leistungen",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0031,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9969,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/steuer",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0031,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9969,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/berufsunfaehigkeitsversicherung/dread-disease-versicherung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.3%).",
+        "similarity": 0.0031,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -4.1e-05
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9957,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/sparbuch-alternative",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0043,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.000952
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9962,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/todesfallversicherung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.4%).",
+        "similarity": 0.0038,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  \""
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9978,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/berufsunfaehigkeitsversicherung/berufsunfaehigkeitsversicherung-vergleich",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0022,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -4.1e-05
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9947,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/risikolebensversicherung/beratung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.5%).",
+        "similarity": 0.0053,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n"
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006853
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9904,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/veroeffentlichungen/cosmosdirekt-auszeichnung-bu-leistungsregulierung",
+        "summary": "15 neue Zeilen, 36 entfernte Zeilen (Ähnlichkeit 1.0%).",
+        "similarity": 0.0096,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.000952
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9978,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/reiseruecktrittsversicherung/vergleich-reiseruecktrittsversicherung",
+        "summary": "15 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 0.2%).",
+        "similarity": 0.0022,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{\n  "
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.002895
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
       "event_type": "page_change",
       "brand": "Allianz",
       "product": null,
@@ -680,19 +3236,19 @@
       "magnitude": 0.1775,
       "detail": {
         "url": "https://www.allianz.de/business/bauherren-haftpflichtversicherung",
-        "summary": "120 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 82.2%).",
+        "summary": "0 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 82.2%).",
         "similarity": 0.8225,
         "classification": {
           "error": "invalid json",
-          "raw": "{\n  \""
+          "raw": "{"
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.01532
+        "lag_1d": -0.016687
       }
     },
     {
-      "timestamp": "2026-07-12T00-09-01Z",
+      "timestamp": "2026-07-13T00-09-14Z",
       "event_type": "page_change",
       "brand": "Allianz",
       "product": null,
@@ -700,1367 +3256,64 @@
       "magnitude": 0.6179,
       "detail": {
         "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/abschluss/",
+        "summary": "120 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 38.2%).",
+        "similarity": 0.3821,
+        "classification": {
+          "type": "sonstiges",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Ergänzung von Cookie-Hinweisen und Datenschutzinformationen, inklusive Details zur Datenverarbeitung in den USA und DSGVO-Zustimmung.",
+          "keywords": [
+            "cookies",
+            "datenschutz",
+            "dsgvo",
+            "usa",
+            "zustimmung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.047872
+      }
+    },
+    {
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.6179,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/leistungen/",
         "summary": "0 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 38.2%).",
         "similarity": 0.3821,
         "classification": {
           "error": "invalid json",
-          "raw": "{\n  \"type\": \"sonstiges\",\n  \"direction\": \"remove\",\n  \"magnitude\":"
+          "raw": "{\n  "
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.00027
+        "lag_1d": -0.047872
       }
     },
     {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
+      "timestamp": "2026-07-13T00-09-14Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 1.0,
+      "magnitude": 0.6235999999999999,
       "detail": {
-        "url": "https://dkv.de/produkte/zusatzversicherung/krankenhauszusatzversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
+        "url": "https://www.allianz.de/gesundheit/zahnreinigung/",
+        "summary": "0 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 37.6%).",
+        "similarity": 0.3764,
+        "classification": {
+          "error": "invalid json",
+          "raw": "{"
+        }
       },
       "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-psyche-6-einfache-uebungen.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-knochen-gelenke-muskeln-morbus-bechterew-ursachen-symptome-und-therapie.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-achtsamtkeits-entspannungsuebungen-fuer-den-alltag.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/zusatzversicherung/ambulant",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.de/produkte/zusatzversicherung/zahnzusatzversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-besser-atmen-atemuebungen.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://dkv.de/produkte/partnerversicherungen/sterbegeldversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.013561
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/lebenssituationen-berufseinstieg-und-jobwechsel-selbststaendige.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.010677
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-psyche-sos-uebungen-bei-einem-trauma.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/zusatzversicherung/ambulant/premium",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/reiseversicherung/auslandskrankenversicherung/reisedauer-bis-12-monate",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.de/produkte/reiseversicherung/auslandskrankenversicherung/jahresschutz-bis-10-wochen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/reiseversicherung/reiseruecktrittsversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-entspannungsuebungen-im-ueberblick.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/lebenssituationen-heirat-checklisten-vor-der-geburt.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/reiseversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/reiseversicherung/auslandskrankenversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-psyche-raus-aus-dem-burnout-online-selbsthilfe.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://dkv.de/produkte/zusatzversicherung/zahnzusatzversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.de/produkte/partnerversicherungen/risikolebensversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.013561
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.de/produkte/reiseversicherung/auslandskrankenversicherung/reisedauer-bis-12-monate",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/reiseversicherung/auslandskrankenversicherung/einzelreise",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/zusatzversicherung/krankenhauszusatzversicherung/kinder",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://dkv.de/produkte/zusatzversicherung/krankentagegeld-versicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.de/produkte/partnerversicherungen/sterbegeldversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.013561
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-psyche-trauer-wie-sie-damit-umgehen-und-warum-trauern-wichtig-ist.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.048016
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-bewegung-dehnuebungen-fuer-den-ganzen-koerper.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/zusatzversicherung/zahnzusatzversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-ernaehrung-rezepte-spinat-pecorino-baellchen-mit-salbeibutter.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-bewegung-muskel-psoas-dehn-und-staerkungsuebungen.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/zahnheilkunde.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/sterbefall-online-melden.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.013561
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-psyche-burnout.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.de/produkte/reiseversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/service-info-center-faq-kuendigung-einfach-und-transparent-reiseversicherungen.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-ruecken-rueckenuebungen-so-bleibt-ihr-ruecken-mit-der-dkv-fit.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://dkv.de/produkte/reiseversicherung/auslandskrankenversicherung/jahresschutz-bis-10-wochen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.ergo.de/de/Produkte/Kfz-Versicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/partnerversicherungen/risikolebensversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.013561
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/lebenssituationen-planung-einer-auslandsreise-urlaubs-checklisten-kofferpacken.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.de/produkte/zusatzversicherung/krankentagegeld-versicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/budgetbausteine.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-psyche-wahrnehmungsuebung.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/Pflegearten_Ambulanter_Pflegedienst_oder_Pflegeheim.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-familie-checkliste-behoerdengaenge-nach-der-geburt.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/Pflegehilfsmittel_und_Wohnumfeldverbesserungen.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.048016
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://dkv.de/produkte/reiseversicherung/reiseruecktrittsversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.ergo.de/de/Produkte/Haftpflichtversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://dkv.de/produkte/reiseversicherung/auslandskrankenversicherung/reisedauer-bis-12-monate",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/zusatzversicherung/zahnzusatzversicherung/kdt",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.ergo.de/de/Produkte/Hausratversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/reiseversicherung/auslandskrankenversicherung/incoming",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.de/produkte/reiseversicherung/reiseruecktrittsversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://dkv.de/produkte/reiseversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.de/produkte/zusatzversicherung/krankenhauszusatzversicherung/kinder",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://dkv.de/produkte/zusatzversicherung/ambulant",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-innere-organe-morbus-crohn-die-chronisch-entzuendliche-darmkrankheit.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-gesunder-ruecken-dehnuebungen-fur-den-nacken.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/kieferorthopaedie.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.de/produkte/zusatzversicherung/ambulant",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://dkv.de/produkte/partnerversicherungen/risikolebensversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.013561
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/zusatzversicherung/zahnzusatzversicherung/kombimed",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/reiseversicherung/auslandskrankenversicherung/langzeit",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-nussmakronen.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/downloads/50076948-Sonderaktion-Wartezeitverzicht-Krankenhaus-Urkunde-02-2025.pdf",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.029854
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/lebenssituationen-planung-einer-auslandsreise-urlaubs-checklisten-reiseapotheke.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/zusatzversicherung/krankentagegeld-versicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-bewegung-ausdauer-verbessern-grundlagen-einfach-erklaert.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.048016
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-bewegung-fitness-ohne-studio-fitnessuebungen-fuer-zu-hause.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/zusatzversicherung/zahnzusatzversicherung/kombimed-plus",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://dkv.de/produkte/zusatzversicherung/krankenhauszusatzversicherung/kinder",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/reiseversicherung/auslandskrankenversicherung/jahresschutz-bis-10-wochen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-besser-atmen-nichtraucher-werden.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": -0.010677
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/partnerversicherungen/sterbegeldversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.013561
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.ergo.de/de/Produkte/Unfallversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/produkte/zusatzversicherung/krankenhauszusatzversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.de/produkte/zusatzversicherung/krankenhauszusatzversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.07557
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/gesundheit-themenwelt-psyche-zurueck-in-den-beruf-nach-burnout-depression.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.008945
-      }
-    },
-    {
-      "timestamp": "2026-07-12T00-09-01Z",
-      "event_type": "page_new",
-      "brand": "ERGO",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.dkv.com/lebenssituationen-planung-einer-auslandsreise-urlaubs-checklisten-reisevorbereitung.html",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {
-        "lag_1d": 0.019718
+        "lag_1d": -0.047872
       }
     }
   ]
