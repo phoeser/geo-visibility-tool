@@ -109,6 +109,34 @@ class DummyClient:
 # Haupt-Pipeline
 # ---------------------------------------------------------------------------
 
+def _carry_forward_llm(run_dict, prev_run, llm_id):
+    """Uebernimmt die Ergebnisse eines an diesem Tag NICHT gelaufenen LLM aus dem
+    Vortags-Lauf (summary_by_llm + per_llm), damit z.B. der grounded-Aggregatwert
+    an Aus-Tagen nicht kuenstlich springt (Kosten-Intervall)."""
+    if not prev_run:
+        return 0
+    n = 0
+    for pid, prod in (run_dict.get("products") or {}).items():
+        pprev = (prev_run.get("products") or {}).get(pid)
+        if not pprev:
+            continue
+        sbl_prev = (pprev.get("summary_by_llm") or {}).get(llm_id)
+        if sbl_prev is not None:
+            prod.setdefault("summary_by_llm", {})[llm_id] = sbl_prev
+            n += 1
+        prod["per_llm"] = [e for e in (prod.get("per_llm") or []) if e.get("llm") != llm_id]
+        for e in (pprev.get("per_llm") or []):
+            if e.get("llm") == llm_id:
+                prod["per_llm"].append(e)
+                break
+    if llm_id not in (run_dict.get("llms") or []):
+        run_dict.setdefault("llms", []).append(llm_id)
+    cf = run_dict.setdefault("carried_forward", [])
+    if llm_id not in cf:
+        cf.append(llm_id)
+    return n
+
+
 def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
     cfg = load_config()
     brand_cfg = cfg["brand"]
@@ -136,6 +164,13 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
         sys.exit(1)
 
     print(f"[INFO] Aktive LLMs: {list(clients.keys())}")
+
+    # Kosten: Perplexity nur jeden 2. Tag abfragen (grounded-SoV ist ein langsamer Stock);
+    # an Aus-Tagen wird der Vortageswert fortgeschrieben (siehe unten).
+    _run_perplexity = (datetime.now(timezone.utc).date().toordinal() % 2 == 0)
+    if (not dry_run) and (not _run_perplexity) and ("perplexity" in clients):
+        clients.pop("perplexity", None)
+        print("[COST] Perplexity heute uebersprungen (2-Tage-Intervall) — Vortageswert wird fortgeschrieben.")
 
     # Timestamp für diesen Lauf
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H-%M-%SZ")
@@ -287,6 +322,9 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
 
     prev_path = previous_run_file(RUNS_DIR, current_file)
     prev_run = load_run(prev_path) if prev_path else None
+    if (not dry_run) and (not _run_perplexity):
+        _cf = _carry_forward_llm(run_dict, prev_run, "perplexity")
+        print("[COST] Perplexity aus Vortags-Lauf uebernommen: %d Produkte" % _cf)
     deltas = compute_deltas(run_dict, prev_run)
     run_dict["impact"] = {"deltas": deltas}
 
