@@ -415,6 +415,8 @@ class PerplexityClient:
                 "model": self.model,
                 "max_tokens": self.max_tokens,
                 "temperature": self.temperature,
+                # Kosten: guenstigste Suchtiefe explizit setzen (billigste Gebuehrenstufe)
+                "web_search_options": {"search_context_size": "low"},
                 "messages": [
                     {"role": "system", "content": SYSTEM_PROMPT},
                     {"role": "user", "content": prompt},
