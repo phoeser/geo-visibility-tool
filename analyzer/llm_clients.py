@@ -457,6 +457,146 @@ class PerplexityClient:
             return LLMResponse(text="", sources=[], model=self.model,
                                latency_ms=0.0, error=str(e)[:500])
 
+
+class SerpApiGoogleClient:
+    """
+    Google **AI Overview** bzw. **AI Mode** ueber SerpApi.
+
+    Warum SerpApi: Google bietet fuer AI Overview / AI Mode keine offizielle API an.
+    Das grounded Gemini ist KEIN Ersatz - es ist ein anderes Produkt mit eigenem
+    Retrieval. AI Overview ist die Antwort auf der Suchergebnisseite und damit die
+    fuer Sichtbarkeit relevanteste Oberflaeche.
+
+    mode:
+      "ai_overview" -> engine=google, liest data["ai_overview"]
+                       (ggf. zweiter Call via page_token)
+      "ai_mode"     -> engine=google_ai_mode
+    """
+
+    BASE = "https://serpapi.com/search"
+
+    def __init__(self, api_key: str, mode: str = "ai_overview",
+                 model: str = "google-ai-overview",
+                 hl: str = "de", gl: str = "de", timeout: int = 90):
+        self.api_key = api_key
+        self.mode = mode
+        self.model = model
+        self.hl = hl
+        self.gl = gl
+        self.timeout = timeout
+
+    # --- Hilfsfunktionen ---------------------------------------------------
+
+    def _flatten_blocks(self, blocks) -> str:
+        """AI-Overview/AI-Mode text_blocks rekursiv zu Plaintext."""
+        out = []
+        for b in blocks or []:
+            if not isinstance(b, dict):
+                continue
+            btype = b.get("type")
+            snip = b.get("snippet") or b.get("text") or ""
+            if snip:
+                out.append(snip)
+            if btype == "list":
+                for item in b.get("list") or []:
+                    if isinstance(item, dict):
+                        t = item.get("title") or ""
+                        s = item.get("snippet") or ""
+                        line = (t + ": " + s).strip(": ").strip()
+                        if line:
+                            out.append("- " + line)
+            if btype == "table":
+                for row in b.get("table") or []:
+                    if isinstance(row, list):
+                        out.append(" | ".join(str(c) for c in row))
+            # verschachtelte Bloecke
+            if b.get("text_blocks"):
+                nested = self._flatten_blocks(b["text_blocks"])
+                if nested:
+                    out.append(nested)
+        return "\n".join(x for x in out if x)
+
+    def _refs_to_sources(self, refs):
+        sources, seen = [], set()
+        for r in refs or []:
+            if not isinstance(r, dict):
+                continue
+            url = r.get("link") or r.get("url")
+            if not url or url in seen:
+                continue
+            seen.add(url)
+            sources.append({
+                "title": (r.get("title") or r.get("source") or "")[:200],
+                "url": url,
+            })
+        return sources
+
+    def _get(self, params):
+        p = dict(params)
+        p["api_key"] = self.api_key
+        r = requests.get(self.BASE, params=p, timeout=self.timeout)
+        if r.status_code != 200:
+            raise RuntimeError(f"SerpApi HTTP {r.status_code}: {r.text[:400]}")
+        return r.json()
+
+    # --- Hauptaufruf -------------------------------------------------------
+
+    def ask(self, prompt: str) -> LLMResponse:
+        def _call():
+            t0 = time.time()
+
+            if self.mode == "ai_mode":
+                data = self._get({"engine": "google_ai_mode", "q": prompt,
+                                  "hl": self.hl, "gl": self.gl})
+                err = data.get("error")
+                if err:
+                    # "no results" ist ein legitimer Befund, kein Fehler
+                    if "hasn't returned any results" in err or "not been found" in err:
+                        return LLMResponse(text="", sources=[], model=self.model,
+                                           latency_ms=(time.time() - t0) * 1000)
+                    raise RuntimeError(f"SerpApi AI Mode: {err[:300]}")
+                blocks = data.get("text_blocks") or []
+                refs = data.get("references") or []
+            else:
+                data = self._get({"engine": "google", "q": prompt,
+                                  "hl": self.hl, "gl": self.gl})
+                err = data.get("error")
+                if err and "hasn't returned any results" not in err:
+                    raise RuntimeError(f"SerpApi google: {err[:300]}")
+                ao = data.get("ai_overview") or {}
+                blocks = ao.get("text_blocks") or []
+                refs = ao.get("references") or []
+                # Zweistufig: manche Antworten liefern nur ein page_token
+                if not blocks and ao.get("page_token"):
+                    data2 = self._get({"engine": "google_ai_overview",
+                                       "page_token": ao["page_token"]})
+                    err2 = data2.get("error")
+                    if err2 and "hasn't returned any results" not in err2:
+                        raise RuntimeError(f"SerpApi ai_overview: {err2[:300]}")
+                    ao2 = data2.get("ai_overview") or {}
+                    blocks = ao2.get("text_blocks") or []
+                    refs = ao2.get("references") or []
+
+            latency = (time.time() - t0) * 1000
+            text = self._flatten_blocks(blocks)
+            sources = self._refs_to_sources(refs)
+            if not sources and text:
+                sources = extract_urls_from_text(text)
+            # Kein AI Overview / AI Mode ausgespielt = valides Ergebnis (Marke unsichtbar),
+            # daher KEIN error, sondern leerer Text.
+            if not text:
+                print(f"[INFO] {self.model}: keine Antwort ausgespielt fuer Query "
+                      f"'{prompt[:60]}...'")
+            return LLMResponse(text=text, sources=sources, model=self.model,
+                               latency_ms=latency)
+
+        try:
+            return with_retries(_call, attempts=3)
+        except Exception as e:  # noqa: BLE001
+            return LLMResponse(text="", sources=[], model=self.model,
+                               latency_ms=0.0, error=str(e)[:500])
+
+
 # ============================================================================
 # Factory
 # ============================================================================
@@ -468,6 +608,7 @@ def build_clients(llm_configs: List[Dict]) -> Dict[str, object]:
         - ANTHROPIC_API_KEY  - Claude
         - GOOGLE_API_KEY     - Gemini
         - OPENAI_API_KEY     - ChatGPT
+        - SERPAPI_KEY        - Google AI Overview / AI Mode
     """
     clients: Dict[str, object] = {}
     for cfg in llm_configs:
@@ -505,6 +646,13 @@ def build_clients(llm_configs: List[Dict]) -> Dict[str, object]:
                 print("[WARN] PERPLEXITY_API_KEY fehlt - Perplexity wird uebersprungen")
                 continue
             clients[cfg["id"]] = PerplexityClient(api_key=key, model=model)
+        elif provider in ("serpapi_ai_overview", "serpapi_ai_mode"):
+            key = os.getenv("SERPAPI_KEY")
+            if not key:
+                print(f"[WARN] SERPAPI_KEY fehlt - {cfg['id']} wird uebersprungen")
+                continue
+            mode = "ai_overview" if provider == "serpapi_ai_overview" else "ai_mode"
+            clients[cfg["id"]] = SerpApiGoogleClient(api_key=key, mode=mode, model=model)
         else:
             print(f"[INFO] Provider {provider} noch nicht implementiert - skip")
     return clients
