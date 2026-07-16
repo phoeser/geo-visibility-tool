@@ -864,17 +864,19 @@
     },
     {
       "id": "google-ai-overview",
-      "enabled": true,
+      "enabled": false,
       "provider": "serpapi_ai_overview",
       "model": "google-ai-overview",
-      "display_name": "Google AI Overview"
+      "display_name": "Google AI Overview",
+      "note": "Deaktiviert 16.07.2026: SERPAPI_KEY nicht gesetzt -> jeder Lauf meldete sie als 'ausgefallen' und zog die Datenqualitaet auf 'red'. Google AI Overview/AI Mode kommen kuenftig aus Peec (UI-Scraping, naeher am echten Nutzer als ein SERP-Dienst)."
     },
     {
       "id": "google-ai-mode",
-      "enabled": true,
+      "enabled": false,
       "provider": "serpapi_ai_mode",
       "model": "google-ai-mode",
-      "display_name": "Google AI Mode"
+      "display_name": "Google AI Mode",
+      "note": "Deaktiviert 16.07.2026: SERPAPI_KEY nicht gesetzt -> jeder Lauf meldete sie als 'ausgefallen' und zog die Datenqualitaet auf 'red'. Google AI Overview/AI Mode kommen kuenftig aus Peec (UI-Scraping, naeher am echten Nutzer als ein SERP-Dienst)."
     }
   ],
   "settings": {
