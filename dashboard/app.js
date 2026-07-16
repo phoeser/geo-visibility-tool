@@ -910,19 +910,19 @@ async function loadConfigForEdit() {
     if (pr) state.prompts[p.id] = pr.data;
   }
 
-  $("cfgRepo").value = localStorage.getItem("gh_repo") || "phoeser/geo-visibility-tool";
-  const savedToken = localStorage.getItem("gh_token");
+  $("cfgRepo").value = localStorage.getItem("geo_gh_repo") || "phoeser/geo-visibility-tool";
+  const savedToken = localStorage.getItem("geo_gh_token");
   if (savedToken) {
     $("cfgToken").value = savedToken;
     $("cfgTokenStatus").textContent = "gesetzt OK";
     $("cfgTokenStatus").className = "pill up";
   }
 
-  $("cfgRepo").addEventListener("change", () => localStorage.setItem("gh_repo", $("cfgRepo").value.trim()));
+  $("cfgRepo").addEventListener("change", () => localStorage.setItem("geo_gh_repo", $("cfgRepo").value.trim()));
   $("cfgToken").addEventListener("change", () => {
     const t = $("cfgToken").value.trim();
     if (t) {
-      localStorage.setItem("gh_token", t);
+      localStorage.setItem("geo_gh_token", t);
       $("cfgTokenStatus").textContent = "gesetzt OK";
       $("cfgTokenStatus").className = "pill up";
     }
@@ -1205,7 +1205,7 @@ function cfgRemovePrompt(pidx, pridx) {
 
 async function cfgGeneratePrompts(pidx) {
   const prod = state.config.products[pidx];
-  const apiKey = localStorage.getItem("google_key");
+  const apiKey = localStorage.getItem("geo_google_key");
   if (!apiKey) {
     alert("Google-API-Key nicht gefunden. Bitte im auto_deploy.html Phase 2 eingeben.");
     return;
@@ -1316,7 +1316,22 @@ async function ghRequest(method, url, token, body) {
   return { ok: resp.ok, status: resp.status, json, text };
 }
 
+const OWN_REPO = "phoeser/geo-visibility-tool";
+
 async function ghPutFile(repo, path, contentStr, token, msg) {
+  // SCHUTZ (16.07.2026): Dieses Dashboard darf ausschliesslich in sein EIGENES Repo
+  // schreiben. Vorgeschichte: Der Telko-Klon hatte als Default das ERGO-Repo und hat
+  // am 14.07. per LLM-Toggle die ERGO-Config durch die PYUR-Config ersetzt
+  // (Commit 0f63846) -> nightly-Crawl fiel aus. Beide Dashboards liegen ausserdem auf
+  // derselben Pages-Domain und teilen sich damit localStorage.
+  if (repo !== OWN_REPO) {
+    const _m = "Schreibversuch auf fremdes Repo blockiert: '" + repo + "'.\n" +
+               "Dieses Dashboard darf nur nach " + OWN_REPO + " schreiben.\n" +
+               "Bitte das Repo in den Einstellungen korrigieren.";
+    console.error(_m);
+    try { alert(_m); } catch (e) {}
+    return { ok: false, status: 0, json: { message: _m }, text: _m };
+  }
   const b64 = btoa(unescape(encodeURIComponent(contentStr)));
   const getUrl = `https://api.github.com/repos/${repo}/contents/${path}?ref=main`;
   const existing = await ghRequest("GET", getUrl, token);
@@ -1347,8 +1362,8 @@ async function cfgSaveAll() {
   const repo = $("cfgRepo").value.trim();
   const token = $("cfgToken").value.trim();
   if (!repo || !token) { cfgStatus("Repo und Token eingeben.", "error"); return; }
-  localStorage.setItem("gh_repo", repo);
-  localStorage.setItem("gh_token", token);
+  localStorage.setItem("geo_gh_repo", repo);
+  localStorage.setItem("geo_gh_token", token);
 
   for (const p of state.config.products) {
     if (!p.id || !p.name) { cfgStatus("Produkt braucht id + name: " + JSON.stringify(p), "error"); return; }
@@ -1394,8 +1409,8 @@ async function cfgSaveAll() {
 
 async function triggerRefresh() {
   const btn = $("refreshBtn");
-  const token = localStorage.getItem("gh_token");
-  const repo = (localStorage.getItem("gh_repo") || "").trim();
+  const token = localStorage.getItem("geo_gh_token");
+  const repo = (localStorage.getItem("geo_gh_repo") || "").trim();
   if (!token || !repo) {
     alert("Bitte zuerst im Config-Tab GitHub-Repo und Token setzen.");
     switchTab("config");
@@ -2030,8 +2045,8 @@ function updatePmSaveBtn() {
 }
 
 async function pmSaveAll() {
-  const token = localStorage.getItem("gh_token");
-  const repo = localStorage.getItem("gh_repo");
+  const token = localStorage.getItem("geo_gh_token");
+  const repo = localStorage.getItem("geo_gh_repo");
   if (!token || !repo) {
     alert("GitHub Token / Repo fehlt. Im Config-Tab nachtragen.");
     return;
@@ -2066,14 +2081,14 @@ async function pmSaveAll() {
 let rsTimer = null;
 
 async function rsPoll() {
-  const repo = localStorage.getItem("gh_repo") || "phoeser/geo-visibility-tool";
+  const repo = localStorage.getItem("geo_gh_repo") || "phoeser/geo-visibility-tool";
   if (!repo) return;
   const el = $("runStatus");
   if (!el) return;
   try {
     const url = "https://api.github.com/repos/" + repo + "/actions/workflows/analyze.yml/runs?per_page=1";
     const headers = { "Accept": "application/vnd.github+json" };
-    const token = localStorage.getItem("gh_token");
+    const token = localStorage.getItem("geo_gh_token");
     if (token) headers["Authorization"] = "Bearer " + token;
     const r = await fetch(url, { headers, cache: "no-cache" });
     if (!r.ok) return;
@@ -2250,8 +2265,8 @@ function nrStatus(msg, cls) {
 
 async function toggleNextRunLlm(id) {
   if (!state.config || !Array.isArray(state.config.llms)) return;
-  const token = localStorage.getItem("gh_token");
-  const repo = localStorage.getItem("gh_repo");
+  const token = localStorage.getItem("geo_gh_token");
+  const repo = localStorage.getItem("geo_gh_repo");
   if (!token || !repo) {
     nrStatus("Erst Token/Repo im Config-Tab setzen", "err");
     return;
