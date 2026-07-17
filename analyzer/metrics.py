@@ -12,7 +12,7 @@ Output: ein normalisiertes Metrik-Dict pro Antwort
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Dict, List, Optional
 from urllib.parse import urlparse
 
@@ -22,6 +22,20 @@ class BrandSpec:
     name: str
     aliases: List[str]
     domain: str
+    # 17.07.2026: Weitere Domains derselben Marke (aus config.json "extra_domains").
+    # Vorher pruefte cited_brand() NUR die Primaerdomain, waehrend die Aliase in
+    # count_mentions() die Zweitmarken laengst mitzaehlten: "DKV" gilt im Text als
+    # ERGO-Nennung, ein Zitat von dkv.de galt aber nicht als ERGO-Zitat.
+    # Gemessen am Lauf 2026-07-17 (646 Antworten, 6.355 Quelleneintraege):
+    #   ERGO        60 -> 62 Zitate (9,3 % -> 9,6 %)  via dkv.de, ergo.com
+    #   HUK-Coburg 239 -> 240                          via huk-coburg.de
+    #   Allianz    251 -> 251                          (allianzdirect.de nie zitiert)
+    # Also ein kleiner, aber systematischer Effekt in eine Richtung - kein Rauschen.
+    # ACHTUNG bei Zeitreihen: Aeltere Laeufe tragen gespeicherte Metriken nach alter
+    # Logik. Nach dem Deploy tools/backfill_brand_metrics.py ueber alle Runs laufen
+    # lassen, sonst entsteht eine Stufe am Umstellungsdatum, die das Treibermodell
+    # als Effekt lesen koennte.
+    extra_domains: List[str] = field(default_factory=list)
 
 
 def _build_pattern(aliases: List[str]) -> re.Pattern:
@@ -208,14 +222,41 @@ def cited_domains(sources: List[Dict[str, str]]) -> List[str]:
     return [domain_of(s.get("url", "")) for s in sources if s.get("url")]
 
 
-def cited_brand(sources: List[Dict[str, str]], brand: BrandSpec) -> bool:
-    domains = cited_domains(sources)
+def _norm_domain(d: str) -> str:
+    d = (d or "").lower().strip()
     # Echtes Prefix-Strippen statt lstrip("www."): lstrip nimmt ein Zeichen-SET und
     # haette z.B. "wwk.de" zu "k.de" verstuemmelt.
-    target = brand.domain.lower()
-    if target.startswith("www."):
-        target = target[4:]
-    return any(target in d or d in target for d in domains if d)
+    if d.startswith("www."):
+        d = d[4:]
+    return d
+
+
+def _domain_matches(cited: str, target: str) -> bool:
+    """Gehoert die zitierte Domain zur Zielmarke?
+
+    17.07.2026: Vorher "target in cited or cited in target" - blosses Teilstring-
+    Matching. Das kann fremde Domains einsammeln:
+        target="axa.de"  cited="maxa.de"          -> haette gematcht (fremde Marke)
+        target="huk.de"  cited="huk.de.evil.com"  -> haette gematcht (fremde Domain)
+    Korrekt ist: exakte Domain oder echte Subdomain.
+
+    EHRLICHKEIT ZUR WIRKUNG: Diese Funktion ist auf den echten Daten ein No-Op.
+    Ueber 1.350 verschiedene Domains aller Laeufe ergibt sie exakt dieselben Treffer
+    wie die alte Teilstring-Logik - Subdomains traf die naemlich ohnehin, und keines
+    der obigen Falsch-Positive kommt real vor. Sie ist reine VORSORGE.
+    Der gemessene Effekt (ERGO 60 -> 62 Zitate, HUK-Coburg 239 -> 240) stammt
+    vollstaendig aus `extra_domains` unten, nicht aus dieser Funktion.
+    """
+    c, t = _norm_domain(cited), _norm_domain(target)
+    if not c or not t:
+        return False
+    return c == t or c.endswith("." + t)
+
+
+def cited_brand(sources: List[Dict[str, str]], brand: BrandSpec) -> bool:
+    domains = cited_domains(sources)
+    targets = [brand.domain] + list(getattr(brand, "extra_domains", None) or [])
+    return any(_domain_matches(d, t) for d in domains if d for t in targets if t)
 
 
 # ---------------------------------------------------------------------------
