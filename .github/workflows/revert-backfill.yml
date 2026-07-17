@@ -1,0 +1,103 @@
+# Einmal-Workflow: macht Commit ca9358f2 rueckgaengig.
+#
+# HINTERGRUND (17.07.2026): Der Backfill-Lauf #1 (16:05 UTC) hat die Brand-Metriken
+# ALLER 108 historischen Runs aus dem GESPEICHERTEN Antworttext neu gerechnet. Der
+# wird aber seit jeher gekuerzt abgelegt:
+#     main.py:284   "response_text": (resp.get("text") or "")[:1500]
+# Die urspruenglichen Metriken entstanden dagegen auf dem VOLLEN Text. Folge im Lauf
+# 2026-07-17: Nennungen 4.491 -> 2.708 (-40 %), Summe text_length 2.232.999 -> 946.308.
+# 77 % der Antworten (498/646) waren gekappt. Betroffen: alle 108 Runs.
+#
+# Die Zitat-Zahlen sind NICHT betroffen (cited_brand liest `sources`, nicht den Text) -
+# der beabsichtigte Effekt des Backfills (ERGO 60 -> 62 Zitate ueber extra_domains)
+# geht durch den Revert aber ebenfalls verloren. Das ist der richtige Tausch: +2 Zitate
+# gegen -40 % Nennungen.
+#
+# NACH dem Revert darf backfill.yml NICHT erneut laufen, bis entweder
+#   (a) response_text ungekuerzt gespeichert wird (Platz! 747 MB sind es jetzt schon), oder
+#   (b) die Metriken aus einer Quelle kommen, die den vollen Text noch hat.
+# tools/backfill_brand_metrics.py bricht seit dem 17.07. von selbst ab, wenn es
+# gekuerzte Texte sieht (Guard `metrics.text_length > len(response_text)`).
+
+name: Revert Backfill ca9358f2 (Notfall, einmalig)
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Zum Bestaetigen "REVERT" eintippen'
+        required: true
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  revert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Bestaetigung pruefen
+        run: |
+          if [ "${{ inputs.confirm }}" != "REVERT" ]; then
+            echo "Abbruch: Bitte REVERT eintippen."; exit 1
+          fi
+
+      - name: Checkout (volle Historie)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Stand VOR dem Revert protokollieren
+        run: |
+          python3 - <<'PY'
+          import json, pathlib
+          p = pathlib.Path("data/runs/latest.json")
+          d = json.loads(p.read_text(encoding="utf-8"))
+          m = sum((r.get("metrics") or {}).get("total_mentions") or 0
+                  for pd in d["products"].values()
+                  for blk in (pd.get("per_llm") or [])
+                  for r in (blk.get("results") or []))
+          print(f"[VORHER] run_id={d.get('run_id')} backfilled={d.get('_backfilled_at')}")
+          print(f"[VORHER] Nennungen gesamt = {m}")
+          PY
+
+      - name: Revert
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git revert --no-edit ca9358f2
+          git log -1 --stat | head -20
+
+      - name: Stand NACH dem Revert pruefen
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, sys
+          p = pathlib.Path("data/runs/latest.json")
+          d = json.loads(p.read_text(encoding="utf-8"))
+          m = sum((r.get("metrics") or {}).get("total_mentions") or 0
+                  for pd in d["products"].values()
+                  for blk in (pd.get("per_llm") or [])
+                  for r in (blk.get("results") or []))
+          bf = d.get("_backfilled_at")
+          print(f"[NACHHER] run_id={d.get('run_id')} backfilled={bf}")
+          print(f"[NACHHER] Nennungen gesamt = {m}")
+          if bf is not None:
+              print("FEHLER: _backfilled_at steht noch -> Revert hat nicht gegriffen"); sys.exit(1)
+          if m < 4000:
+              print(f"FEHLER: Nur {m} Nennungen, erwartet ~4.491 -> Revert unvollstaendig"); sys.exit(1)
+          print("OK: Historie wiederhergestellt.")
+          PY
+
+      - name: Push
+        run: |
+          for i in 1 2 3; do
+            git pull --rebase origin main || git rebase --abort 2>/dev/null || true
+            if git push origin main; then echo "Push OK (Versuch $i)"; exit 0; fi
+            sleep $((2 + i))
+          done
+          echo "Push fehlgeschlagen - haendisch eingreifen."; exit 1
