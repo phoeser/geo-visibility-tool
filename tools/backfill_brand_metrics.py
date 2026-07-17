@@ -50,6 +50,7 @@ def build_brand_specs(cfg: Dict) -> Dict[str, BrandSpec]:
             name=own_name,
             aliases=b.get("aliases") or [own_name],
             domain=b.get("domain") or "",
+            extra_domains=list(b.get("extra_domains") or []),   # 17.07.2026, s. metrics.py
         )
     for c in cfg.get("competitors") or []:
         name = c.get("name")
@@ -59,6 +60,7 @@ def build_brand_specs(cfg: Dict) -> Dict[str, BrandSpec]:
             name=name,
             aliases=c.get("aliases") or [name],
             domain=c.get("domain") or "",
+            extra_domains=list(c.get("extra_domains") or []),   # 17.07.2026, s. metrics.py
         )
     return specs
 
