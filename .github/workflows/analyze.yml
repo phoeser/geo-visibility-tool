@@ -1,8 +1,18 @@
 name: Analyze Visibility
 
 # Manuell aus dem GitHub-UI startbar (Actions-Tab -> "Run workflow")
-# UND taeglich automatisch um 03:00 UTC (= 05:00 MESZ / 04:00 MEZ).
-# Laeuft 2h NACH dem Cockpit-Nightly, damit events.jsonl bereitsteht.
+# UND woechentlich automatisch, Montag 23:10 UTC (siehe schedule unten).
+#
+# 18.07.2026: Von taeglich auf WOECHENTLICH umgestellt (Pauls Entscheidung) - damit
+# derselbe Takt wie beim Peec-Export (Scheduled Task "peec-weekly-export", Mo 07:07).
+# Beide Messquellen decken dann dieselbe Woche ab; das ist Voraussetzung dafuer,
+# sie ueberhaupt sinnvoll gegeneinander zu rechnen (cross_source_validation).
+# Nebeneffekt: Perplexity wieder aktivierbar, ohne dass die Kosten taeglich anfallen.
+#
+# 18.07.2026: Die alte Kommentarzeile behauptete "taeglich um 03:00 UTC, 2h NACH dem
+# Cockpit-Nightly". Beides war falsch - der Cron stand auf "10 23 * * *" und das
+# Cockpit laeuft um 04:30 UTC, also NACH diesem Workflow, nicht davor. Der Fund
+# stammt aus dem Code-Review vom 16.07. ("die Kommentare luegen").
 on:
   workflow_dispatch:
     inputs:
@@ -15,11 +25,12 @@ on:
         type: string
         default: ""
   schedule:
-    # Taeglich 23:10 UTC = 01:10 MESZ Folgetag (Sommer) / 00:10 MEZ (Winter).
-    # GitHub-Free-Tier verzoegert scheduled Jobs typisch 4-8h - mit Trigger
-    # gegen 01:10 nachts ist der Lauf realistisch zwischen 05:00 und 09:00 MESZ
-    # fertig, also vor Buero-Start.
-    - cron: "10 23 * * *"
+    # WOECHENTLICH: Montag 23:10 UTC = Dienstag 01:10 MESZ (Sommer) / 00:10 MEZ (Winter).
+    # GitHub-Free-Tier verzoegert scheduled Jobs typisch 4-8h - der Lauf ist realistisch
+    # Dienstag zwischen 05:00 und 09:00 MESZ fertig, also vor Buero-Start.
+    # Montag, weil der Peec-Wochen-Export Mo 07:07 lokal laeuft: Beide Quellen decken
+    # damit dieselbe Woche ab.
+    - cron: "10 23 * * 1"
 
 permissions:
   contents: write
