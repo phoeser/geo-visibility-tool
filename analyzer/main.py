@@ -152,12 +152,19 @@ def _carry_forward_llm(run_dict, prev_run, llm_id):
 def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
     cfg = load_config()
     brand_cfg = cfg["brand"]
+    # 17.07.2026: extra_domains durchreichen - sonst zaehlt cited_brand() Zitate von
+    # Zweitmarken (dkv.de, ergo.com, huk-coburg.de) nicht, obwohl deren Nennungen im
+    # Text ueber die Aliase laengst der Marke zugerechnet werden. Wirkung gemessen:
+    # ERGO 60 -> 62 Zitate, HUK-Coburg 239 -> 240, Allianz unveraendert. Klein, aber
+    # systematisch in eine Richtung. Details im BrandSpec-Kommentar in metrics.py.
     brand = BrandSpec(
         name=brand_cfg["name"], aliases=brand_cfg["aliases"],
         domain=brand_cfg["domain"],
+        extra_domains=list(brand_cfg.get("extra_domains") or []),
     )
     competitors = [
-        BrandSpec(name=c["name"], aliases=c["aliases"], domain=c["domain"])
+        BrandSpec(name=c["name"], aliases=c["aliases"], domain=c["domain"],
+                  extra_domains=list(c.get("extra_domains") or []))
         for c in cfg["competitors"]
     ]
     all_brand_names = [brand.name] + [c.name for c in competitors]
@@ -169,7 +176,9 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
             for llm in cfg["llms"] if llm.get("enabled")
         }
     else:
-        clients = build_clients(cfg["llms"])
+        # 17.07.2026: settings durchreichen, sonst bleiben temperature/max_tokens/
+        # retry_attempts aus der Config wirkungslos (Klassen-Defaults gewinnen).
+        clients = build_clients(cfg["llms"], settings=cfg.get("settings"))
 
     if not clients:
         print("[FEHLER] Keine LLM-Clients aktiv. Setze API-Keys oder nutze --dry-run.")
@@ -392,7 +401,8 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
             # Client ad-hoc erzeugen, falls LLM im Hauptlauf deaktiviert ist
             llm_cfg = next((l for l in cfg.get("llms", []) if l.get("id") == why_llm_id), None)
             if llm_cfg:
-                why_client = build_clients([{**llm_cfg, "enabled": True}]).get(why_llm_id)
+                why_client = build_clients([{**llm_cfg, "enabled": True}],
+                                           settings=cfg.get("settings")).get(why_llm_id)
         if why_client:
             run_dict["why_analysis"] = why_analysis.analyze_run(run_dict, why_client)
             run_dict["why_analysis_meta"] = {"llm": why_llm_id}
