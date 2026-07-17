@@ -120,11 +120,11 @@
                   {
                     "name": "ERGO",
                     "domain": "ergo.de",
-                    "mentions": 3,
+                    "mentions": 1,
                     "mentioned": true,
                     "first_rank": 3,
                     "cited": false,
-                    "share_of_voice": 0.2143
+                    "share_of_voice": 0.2
                   },
                   {
                     "name": "Allianz",
@@ -133,7 +133,7 @@
                     "mentioned": true,
                     "first_rank": 2,
                     "cited": false,
-                    "share_of_voice": 0.2857
+                    "share_of_voice": 0.8
                   },
                   {
                     "name": "AXA",
@@ -156,20 +156,20 @@
                   {
                     "name": "HUK-Coburg",
                     "domain": "huk.de",
-                    "mentions": 5,
-                    "mentioned": true,
-                    "first_rank": 4,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.3571
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "Signal Iduna",
                     "domain": "signal-iduna.de",
-                    "mentions": 2,
-                    "mentioned": true,
-                    "first_rank": 8,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.1429
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "CosmosDirekt",
@@ -181,9 +181,9 @@
                     "share_of_voice": 0.0
                   }
                 ],
-                "total_mentions": 14,
+                "total_mentions": 5,
                 "source_count": 15,
-                "text_length": 6078
+                "text_length": 1500
               }
             }
           ]
@@ -299,20 +299,12 @@
       "summary_by_llm": {
         "gemini": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
-            {
-              "name": "HUK-Coburg",
-              "mentions": 5,
-              "share_of_voice": 0.3571,
-              "appearance_rate": 1.0,
-              "avg_rank": 4.0,
-              "best_rank": 4,
-              "citation_rate": 0.0
-            },
             {
               "name": "Allianz",
               "mentions": 4,
-              "share_of_voice": 0.2857,
+              "share_of_voice": 0.8,
               "appearance_rate": 1.0,
               "avg_rank": 2.0,
               "best_rank": 2,
@@ -320,20 +312,11 @@
             },
             {
               "name": "ERGO",
-              "mentions": 3,
-              "share_of_voice": 0.2143,
+              "mentions": 1,
+              "share_of_voice": 0.2,
               "appearance_rate": 1.0,
               "avg_rank": 3.0,
               "best_rank": 3,
-              "citation_rate": 0.0
-            },
-            {
-              "name": "Signal Iduna",
-              "mentions": 2,
-              "share_of_voice": 0.1429,
-              "appearance_rate": 1.0,
-              "avg_rank": 8.0,
-              "best_rank": 8,
               "citation_rate": 0.0
             },
             {
@@ -355,6 +338,24 @@
               "citation_rate": 0.0
             },
             {
+              "name": "HUK-Coburg",
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
+              "citation_rate": 0.0
+            },
+            {
+              "name": "Signal Iduna",
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
+              "citation_rate": 0.0
+            },
+            {
               "name": "CosmosDirekt",
               "mentions": 0,
               "share_of_voice": 0.0,
@@ -367,6 +368,7 @@
         },
         "chatgpt": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
             {
               "name": "Allianz",
@@ -509,7 +511,7 @@
                   {
                     "name": "ERGO",
                     "domain": "ergo.de",
-                    "mentions": 3,
+                    "mentions": 2,
                     "mentioned": true,
                     "first_rank": 2,
                     "cited": false,
@@ -518,7 +520,7 @@
                   {
                     "name": "Allianz",
                     "domain": "allianz.de",
-                    "mentions": 3,
+                    "mentions": 2,
                     "mentioned": true,
                     "first_rank": 1,
                     "cited": false,
@@ -570,9 +572,9 @@
                     "share_of_voice": 0.0
                   }
                 ],
-                "total_mentions": 6,
+                "total_mentions": 4,
                 "source_count": 8,
-                "text_length": 2406
+                "text_length": 1500
               }
             }
           ]
@@ -684,10 +686,11 @@
       "summary_by_llm": {
         "gemini": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
             {
               "name": "ERGO",
-              "mentions": 3,
+              "mentions": 2,
               "share_of_voice": 0.5,
               "appearance_rate": 1.0,
               "avg_rank": 2.0,
@@ -696,7 +699,7 @@
             },
             {
               "name": "Allianz",
-              "mentions": 3,
+              "mentions": 2,
               "share_of_voice": 0.5,
               "appearance_rate": 1.0,
               "avg_rank": 1.0,
@@ -752,6 +755,7 @@
         },
         "chatgpt": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
             {
               "name": "Allianz",
@@ -941,7 +945,7 @@
                 ],
                 "total_mentions": 1,
                 "source_count": 4,
-                "text_length": 2140
+                "text_length": 1500
               }
             }
           ]
@@ -1052,7 +1056,7 @@
                 ],
                 "total_mentions": 9,
                 "source_count": 6,
-                "text_length": 1531
+                "text_length": 1500
               }
             }
           ]
@@ -1061,6 +1065,7 @@
       "summary_by_llm": {
         "gemini": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
             {
               "name": "CosmosDirekt",
@@ -1129,6 +1134,7 @@
         },
         "chatgpt": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
             {
               "name": "ERGO",
@@ -1357,16 +1363,16 @@
                   {
                     "name": "CosmosDirekt",
                     "domain": "cosmosdirekt.de",
-                    "mentions": 1,
-                    "mentioned": true,
-                    "first_rank": 15,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 1.0
+                    "share_of_voice": 0.0
                   }
                 ],
-                "total_mentions": 1,
+                "total_mentions": 0,
                 "source_count": 16,
-                "text_length": 5768
+                "text_length": 1500
               }
             }
           ]
@@ -1415,11 +1421,11 @@
                   {
                     "name": "Allianz",
                     "domain": "allianz.de",
-                    "mentions": 3,
+                    "mentions": 2,
                     "mentioned": true,
                     "first_rank": 2,
                     "cited": true,
-                    "share_of_voice": 0.375
+                    "share_of_voice": 0.3333
                   },
                   {
                     "name": "AXA",
@@ -1446,16 +1452,16 @@
                     "mentioned": true,
                     "first_rank": 1,
                     "cited": true,
-                    "share_of_voice": 0.25
+                    "share_of_voice": 0.3333
                   },
                   {
                     "name": "Signal Iduna",
                     "domain": "signal-iduna.de",
-                    "mentions": 3,
+                    "mentions": 2,
                     "mentioned": true,
                     "first_rank": 4,
                     "cited": true,
-                    "share_of_voice": 0.375
+                    "share_of_voice": 0.3333
                   },
                   {
                     "name": "CosmosDirekt",
@@ -1467,9 +1473,9 @@
                     "share_of_voice": 0.0
                   }
                 ],
-                "total_mentions": 8,
+                "total_mentions": 6,
                 "source_count": 4,
-                "text_length": 1566
+                "text_length": 1500
               }
             }
           ]
@@ -1478,16 +1484,8 @@
       "summary_by_llm": {
         "gemini": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
-            {
-              "name": "CosmosDirekt",
-              "mentions": 1,
-              "share_of_voice": 1.0,
-              "appearance_rate": 1.0,
-              "avg_rank": 15.0,
-              "best_rank": 15,
-              "citation_rate": 0.0
-            },
             {
               "name": "ERGO",
               "mentions": 0,
@@ -1541,37 +1539,47 @@
               "avg_rank": null,
               "best_rank": null,
               "citation_rate": 0.0
+            },
+            {
+              "name": "CosmosDirekt",
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
+              "citation_rate": 0.0
             }
           ]
         },
         "chatgpt": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
             {
               "name": "Allianz",
-              "mentions": 3,
-              "share_of_voice": 0.375,
+              "mentions": 2,
+              "share_of_voice": 0.3333,
               "appearance_rate": 1.0,
               "avg_rank": 2.0,
               "best_rank": 2,
               "citation_rate": 1.0
             },
             {
-              "name": "Signal Iduna",
-              "mentions": 3,
-              "share_of_voice": 0.375,
-              "appearance_rate": 1.0,
-              "avg_rank": 4.0,
-              "best_rank": 4,
-              "citation_rate": 1.0
-            },
-            {
               "name": "HUK-Coburg",
               "mentions": 2,
-              "share_of_voice": 0.25,
+              "share_of_voice": 0.3333,
               "appearance_rate": 1.0,
               "avg_rank": 1.0,
               "best_rank": 1,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "Signal Iduna",
+              "mentions": 2,
+              "share_of_voice": 0.3333,
+              "appearance_rate": 1.0,
+              "avg_rank": 4.0,
+              "best_rank": 4,
               "citation_rate": 1.0
             },
             {
@@ -1735,20 +1743,20 @@
                   {
                     "name": "HUK-Coburg",
                     "domain": "huk.de",
-                    "mentions": 1,
-                    "mentioned": true,
-                    "first_rank": 10,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.5
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "Signal Iduna",
                     "domain": "signal-iduna.de",
-                    "mentions": 1,
-                    "mentioned": true,
-                    "first_rank": 15,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.5
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "CosmosDirekt",
@@ -1760,9 +1768,9 @@
                     "share_of_voice": 0.0
                   }
                 ],
-                "total_mentions": 2,
+                "total_mentions": 0,
                 "source_count": 11,
-                "text_length": 5493
+                "text_length": 1500
               }
             }
           ]
@@ -1806,7 +1814,7 @@
                   {
                     "name": "ERGO",
                     "domain": "ergo.de",
-                    "mentions": 3,
+                    "mentions": 2,
                     "mentioned": true,
                     "first_rank": 5,
                     "cited": false,
@@ -1815,7 +1823,7 @@
                   {
                     "name": "Allianz",
                     "domain": "allianz.de",
-                    "mentions": 3,
+                    "mentions": 2,
                     "mentioned": true,
                     "first_rank": 1,
                     "cited": false,
@@ -1867,9 +1875,9 @@
                     "share_of_voice": 0.0
                   }
                 ],
-                "total_mentions": 6,
+                "total_mentions": 4,
                 "source_count": 5,
-                "text_length": 1800
+                "text_length": 1500
               }
             }
           ]
@@ -1878,25 +1886,8 @@
       "summary_by_llm": {
         "gemini": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
-            {
-              "name": "HUK-Coburg",
-              "mentions": 1,
-              "share_of_voice": 0.5,
-              "appearance_rate": 1.0,
-              "avg_rank": 10.0,
-              "best_rank": 10,
-              "citation_rate": 0.0
-            },
-            {
-              "name": "Signal Iduna",
-              "mentions": 1,
-              "share_of_voice": 0.5,
-              "appearance_rate": 1.0,
-              "avg_rank": 15.0,
-              "best_rank": 15,
-              "citation_rate": 0.0
-            },
             {
               "name": "ERGO",
               "mentions": 0,
@@ -1934,6 +1925,24 @@
               "citation_rate": 0.0
             },
             {
+              "name": "HUK-Coburg",
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
+              "citation_rate": 0.0
+            },
+            {
+              "name": "Signal Iduna",
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
+              "citation_rate": 0.0
+            },
+            {
               "name": "CosmosDirekt",
               "mentions": 0,
               "share_of_voice": 0.0,
@@ -1946,10 +1955,11 @@
         },
         "chatgpt": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
             {
               "name": "ERGO",
-              "mentions": 3,
+              "mentions": 2,
               "share_of_voice": 0.5,
               "appearance_rate": 1.0,
               "avg_rank": 5.0,
@@ -1958,7 +1968,7 @@
             },
             {
               "name": "Allianz",
-              "mentions": 3,
+              "mentions": 2,
               "share_of_voice": 0.5,
               "appearance_rate": 1.0,
               "avg_rank": 1.0,
@@ -2145,20 +2155,20 @@
                   {
                     "name": "Allianz",
                     "domain": "allianz.de",
-                    "mentions": 2,
+                    "mentions": 1,
                     "mentioned": true,
                     "first_rank": 4,
                     "cited": false,
-                    "share_of_voice": 0.25
+                    "share_of_voice": 0.3333
                   },
                   {
                     "name": "AXA",
                     "domain": "axa.de",
-                    "mentions": 2,
+                    "mentions": 1,
                     "mentioned": true,
                     "first_rank": 4,
                     "cited": false,
-                    "share_of_voice": 0.25
+                    "share_of_voice": 0.3333
                   },
                   {
                     "name": "Generali",
@@ -2172,11 +2182,11 @@
                   {
                     "name": "HUK-Coburg",
                     "domain": "huk.de",
-                    "mentions": 2,
-                    "mentioned": true,
-                    "first_rank": 15,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.25
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "Signal Iduna",
@@ -2190,16 +2200,16 @@
                   {
                     "name": "CosmosDirekt",
                     "domain": "cosmosdirekt.de",
-                    "mentions": 2,
+                    "mentions": 1,
                     "mentioned": true,
                     "first_rank": 4,
                     "cited": false,
-                    "share_of_voice": 0.25
+                    "share_of_voice": 0.3333
                   }
                 ],
-                "total_mentions": 8,
+                "total_mentions": 3,
                 "source_count": 20,
-                "text_length": 5352
+                "text_length": 1500
               }
             }
           ]
@@ -2256,11 +2266,11 @@
                   {
                     "name": "Allianz",
                     "domain": "allianz.de",
-                    "mentions": 4,
+                    "mentions": 2,
                     "mentioned": true,
                     "first_rank": 1,
                     "cited": true,
-                    "share_of_voice": 0.4
+                    "share_of_voice": 0.3333
                   },
                   {
                     "name": "AXA",
@@ -2269,7 +2279,7 @@
                     "mentioned": true,
                     "first_rank": 1,
                     "cited": false,
-                    "share_of_voice": 0.1
+                    "share_of_voice": 0.1667
                   },
                   {
                     "name": "Generali",
@@ -2283,7 +2293,7 @@
                   {
                     "name": "HUK-Coburg",
                     "domain": "huk.de",
-                    "mentions": 5,
+                    "mentions": 3,
                     "mentioned": true,
                     "first_rank": 1,
                     "cited": true,
@@ -2308,9 +2318,9 @@
                     "share_of_voice": 0.0
                   }
                 ],
-                "total_mentions": 10,
+                "total_mentions": 6,
                 "source_count": 6,
-                "text_length": 2003
+                "text_length": 1500
               }
             }
           ]
@@ -2319,11 +2329,12 @@
       "summary_by_llm": {
         "gemini": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
             {
               "name": "Allianz",
-              "mentions": 2,
-              "share_of_voice": 0.25,
+              "mentions": 1,
+              "share_of_voice": 0.3333,
               "appearance_rate": 1.0,
               "avg_rank": 4.0,
               "best_rank": 4,
@@ -2331,26 +2342,17 @@
             },
             {
               "name": "AXA",
-              "mentions": 2,
-              "share_of_voice": 0.25,
+              "mentions": 1,
+              "share_of_voice": 0.3333,
               "appearance_rate": 1.0,
               "avg_rank": 4.0,
               "best_rank": 4,
               "citation_rate": 0.0
             },
             {
-              "name": "HUK-Coburg",
-              "mentions": 2,
-              "share_of_voice": 0.25,
-              "appearance_rate": 1.0,
-              "avg_rank": 15.0,
-              "best_rank": 15,
-              "citation_rate": 0.0
-            },
-            {
               "name": "CosmosDirekt",
-              "mentions": 2,
-              "share_of_voice": 0.25,
+              "mentions": 1,
+              "share_of_voice": 0.3333,
               "appearance_rate": 1.0,
               "avg_rank": 4.0,
               "best_rank": 4,
@@ -2375,6 +2377,15 @@
               "citation_rate": 0.0
             },
             {
+              "name": "HUK-Coburg",
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
+              "citation_rate": 0.0
+            },
+            {
               "name": "Signal Iduna",
               "mentions": 0,
               "share_of_voice": 0.0,
@@ -2387,10 +2398,11 @@
         },
         "chatgpt": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
             {
               "name": "HUK-Coburg",
-              "mentions": 5,
+              "mentions": 3,
               "share_of_voice": 0.5,
               "appearance_rate": 1.0,
               "avg_rank": 1.0,
@@ -2399,8 +2411,8 @@
             },
             {
               "name": "Allianz",
-              "mentions": 4,
-              "share_of_voice": 0.4,
+              "mentions": 2,
+              "share_of_voice": 0.3333,
               "appearance_rate": 1.0,
               "avg_rank": 1.0,
               "best_rank": 1,
@@ -2409,7 +2421,7 @@
             {
               "name": "AXA",
               "mentions": 1,
-              "share_of_voice": 0.1,
+              "share_of_voice": 0.1667,
               "appearance_rate": 1.0,
               "avg_rank": 1.0,
               "best_rank": 1,
@@ -2621,70 +2633,70 @@
                   {
                     "name": "ERGO",
                     "domain": "ergo.de",
-                    "mentions": 2,
-                    "mentioned": true,
-                    "first_rank": 11,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.0769
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "Allianz",
                     "domain": "allianz.de",
-                    "mentions": 4,
-                    "mentioned": true,
-                    "first_rank": 21,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.1538
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "AXA",
                     "domain": "axa.de",
-                    "mentions": 4,
-                    "mentioned": true,
-                    "first_rank": 10,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.1538
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "Generali",
                     "domain": "generali.de",
-                    "mentions": 2,
-                    "mentioned": true,
-                    "first_rank": 21,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.0769
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "HUK-Coburg",
                     "domain": "huk.de",
-                    "mentions": 8,
-                    "mentioned": true,
-                    "first_rank": 12,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.3077
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "Signal Iduna",
                     "domain": "signal-iduna.de",
-                    "mentions": 2,
-                    "mentioned": true,
-                    "first_rank": 21,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.0769
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "CosmosDirekt",
                     "domain": "cosmosdirekt.de",
-                    "mentions": 4,
-                    "mentioned": true,
-                    "first_rank": 13,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.1538
+                    "share_of_voice": 0.0
                   }
                 ],
-                "total_mentions": 26,
+                "total_mentions": 0,
                 "source_count": 31,
-                "text_length": 12624
+                "text_length": 1500
               }
             }
           ]
@@ -2752,25 +2764,25 @@
                     "mentioned": true,
                     "first_rank": 4,
                     "cited": false,
-                    "share_of_voice": 0.1429
+                    "share_of_voice": 0.2222
                   },
                   {
                     "name": "Allianz",
                     "domain": "allianz.de",
-                    "mentions": 6,
+                    "mentions": 4,
                     "mentioned": true,
                     "first_rank": 2,
                     "cited": true,
-                    "share_of_voice": 0.4286
+                    "share_of_voice": 0.4444
                   },
                   {
                     "name": "AXA",
                     "domain": "axa.de",
-                    "mentions": 2,
+                    "mentions": 1,
                     "mentioned": true,
                     "first_rank": 2,
                     "cited": true,
-                    "share_of_voice": 0.1429
+                    "share_of_voice": 0.1111
                   },
                   {
                     "name": "Generali",
@@ -2784,11 +2796,11 @@
                   {
                     "name": "HUK-Coburg",
                     "domain": "huk.de",
-                    "mentions": 2,
+                    "mentions": 1,
                     "mentioned": true,
                     "first_rank": 2,
                     "cited": true,
-                    "share_of_voice": 0.1429
+                    "share_of_voice": 0.1111
                   },
                   {
                     "name": "Signal Iduna",
@@ -2802,16 +2814,16 @@
                   {
                     "name": "CosmosDirekt",
                     "domain": "cosmosdirekt.de",
-                    "mentions": 2,
+                    "mentions": 1,
                     "mentioned": true,
                     "first_rank": 4,
                     "cited": true,
-                    "share_of_voice": 0.1429
+                    "share_of_voice": 0.1111
                   }
                 ],
-                "total_mentions": 14,
+                "total_mentions": 9,
                 "source_count": 10,
-                "text_length": 2192
+                "text_length": 1500
               }
             }
           ]
@@ -2820,79 +2832,81 @@
       "summary_by_llm": {
         "gemini": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
             {
-              "name": "HUK-Coburg",
-              "mentions": 8,
-              "share_of_voice": 0.3077,
-              "appearance_rate": 1.0,
-              "avg_rank": 12.0,
-              "best_rank": 12,
+              "name": "ERGO",
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
               "citation_rate": 0.0
             },
             {
               "name": "Allianz",
-              "mentions": 4,
-              "share_of_voice": 0.1538,
-              "appearance_rate": 1.0,
-              "avg_rank": 21.0,
-              "best_rank": 21,
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
               "citation_rate": 0.0
             },
             {
               "name": "AXA",
-              "mentions": 4,
-              "share_of_voice": 0.1538,
-              "appearance_rate": 1.0,
-              "avg_rank": 10.0,
-              "best_rank": 10,
-              "citation_rate": 0.0
-            },
-            {
-              "name": "CosmosDirekt",
-              "mentions": 4,
-              "share_of_voice": 0.1538,
-              "appearance_rate": 1.0,
-              "avg_rank": 13.0,
-              "best_rank": 13,
-              "citation_rate": 0.0
-            },
-            {
-              "name": "ERGO",
-              "mentions": 2,
-              "share_of_voice": 0.0769,
-              "appearance_rate": 1.0,
-              "avg_rank": 11.0,
-              "best_rank": 11,
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
               "citation_rate": 0.0
             },
             {
               "name": "Generali",
-              "mentions": 2,
-              "share_of_voice": 0.0769,
-              "appearance_rate": 1.0,
-              "avg_rank": 21.0,
-              "best_rank": 21,
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
+              "citation_rate": 0.0
+            },
+            {
+              "name": "HUK-Coburg",
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
               "citation_rate": 0.0
             },
             {
               "name": "Signal Iduna",
-              "mentions": 2,
-              "share_of_voice": 0.0769,
-              "appearance_rate": 1.0,
-              "avg_rank": 21.0,
-              "best_rank": 21,
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
+              "citation_rate": 0.0
+            },
+            {
+              "name": "CosmosDirekt",
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
               "citation_rate": 0.0
             }
           ]
         },
         "chatgpt": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
             {
               "name": "Allianz",
-              "mentions": 6,
-              "share_of_voice": 0.4286,
+              "mentions": 4,
+              "share_of_voice": 0.4444,
               "appearance_rate": 1.0,
               "avg_rank": 2.0,
               "best_rank": 2,
@@ -2901,7 +2915,7 @@
             {
               "name": "ERGO",
               "mentions": 2,
-              "share_of_voice": 0.1429,
+              "share_of_voice": 0.2222,
               "appearance_rate": 1.0,
               "avg_rank": 4.0,
               "best_rank": 4,
@@ -2909,8 +2923,8 @@
             },
             {
               "name": "AXA",
-              "mentions": 2,
-              "share_of_voice": 0.1429,
+              "mentions": 1,
+              "share_of_voice": 0.1111,
               "appearance_rate": 1.0,
               "avg_rank": 2.0,
               "best_rank": 2,
@@ -2918,8 +2932,8 @@
             },
             {
               "name": "HUK-Coburg",
-              "mentions": 2,
-              "share_of_voice": 0.1429,
+              "mentions": 1,
+              "share_of_voice": 0.1111,
               "appearance_rate": 1.0,
               "avg_rank": 2.0,
               "best_rank": 2,
@@ -2927,8 +2941,8 @@
             },
             {
               "name": "CosmosDirekt",
-              "mentions": 2,
-              "share_of_voice": 0.1429,
+              "mentions": 1,
+              "share_of_voice": 0.1111,
               "appearance_rate": 1.0,
               "avg_rank": 4.0,
               "best_rank": 4,
@@ -3082,7 +3096,7 @@
                     "mentioned": true,
                     "first_rank": 9,
                     "cited": false,
-                    "share_of_voice": 0.4
+                    "share_of_voice": 0.5
                   },
                   {
                     "name": "AXA",
@@ -3105,11 +3119,11 @@
                   {
                     "name": "HUK-Coburg",
                     "domain": "huk.de",
-                    "mentions": 2,
+                    "mentions": 1,
                     "mentioned": true,
                     "first_rank": 8,
                     "cited": false,
-                    "share_of_voice": 0.4
+                    "share_of_voice": 0.25
                   },
                   {
                     "name": "Signal Iduna",
@@ -3127,12 +3141,12 @@
                     "mentioned": true,
                     "first_rank": 7,
                     "cited": false,
-                    "share_of_voice": 0.2
+                    "share_of_voice": 0.25
                   }
                 ],
-                "total_mentions": 5,
+                "total_mentions": 4,
                 "source_count": 18,
-                "text_length": 4756
+                "text_length": 1500
               }
             }
           ]
@@ -3181,20 +3195,20 @@
                   {
                     "name": "Allianz",
                     "domain": "allianz.de",
-                    "mentions": 1,
-                    "mentioned": true,
-                    "first_rank": 12,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.3333
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "AXA",
                     "domain": "axa.de",
-                    "mentions": 1,
-                    "mentioned": true,
-                    "first_rank": 14,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.3333
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "Generali",
@@ -3208,11 +3222,11 @@
                   {
                     "name": "HUK-Coburg",
                     "domain": "huk.de",
-                    "mentions": 1,
-                    "mentioned": true,
-                    "first_rank": 13,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.3333
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "Signal Iduna",
@@ -3233,9 +3247,9 @@
                     "share_of_voice": 0.0
                   }
                 ],
-                "total_mentions": 3,
+                "total_mentions": 0,
                 "source_count": 4,
-                "text_length": 2150
+                "text_length": 1500
               }
             }
           ]
@@ -3244,11 +3258,12 @@
       "summary_by_llm": {
         "gemini": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
             {
               "name": "Allianz",
               "mentions": 2,
-              "share_of_voice": 0.4,
+              "share_of_voice": 0.5,
               "appearance_rate": 1.0,
               "avg_rank": 9.0,
               "best_rank": 9,
@@ -3256,8 +3271,8 @@
             },
             {
               "name": "HUK-Coburg",
-              "mentions": 2,
-              "share_of_voice": 0.4,
+              "mentions": 1,
+              "share_of_voice": 0.25,
               "appearance_rate": 1.0,
               "avg_rank": 8.0,
               "best_rank": 8,
@@ -3266,7 +3281,7 @@
             {
               "name": "CosmosDirekt",
               "mentions": 1,
-              "share_of_voice": 0.2,
+              "share_of_voice": 0.25,
               "appearance_rate": 1.0,
               "avg_rank": 7.0,
               "best_rank": 7,
@@ -3312,34 +3327,8 @@
         },
         "chatgpt": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
-            {
-              "name": "Allianz",
-              "mentions": 1,
-              "share_of_voice": 0.3333,
-              "appearance_rate": 1.0,
-              "avg_rank": 12.0,
-              "best_rank": 12,
-              "citation_rate": 0.0
-            },
-            {
-              "name": "AXA",
-              "mentions": 1,
-              "share_of_voice": 0.3333,
-              "appearance_rate": 1.0,
-              "avg_rank": 14.0,
-              "best_rank": 14,
-              "citation_rate": 0.0
-            },
-            {
-              "name": "HUK-Coburg",
-              "mentions": 1,
-              "share_of_voice": 0.3333,
-              "appearance_rate": 1.0,
-              "avg_rank": 13.0,
-              "best_rank": 13,
-              "citation_rate": 0.0
-            },
             {
               "name": "ERGO",
               "mentions": 0,
@@ -3350,7 +3339,34 @@
               "citation_rate": 0.0
             },
             {
+              "name": "Allianz",
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
+              "citation_rate": 0.0
+            },
+            {
+              "name": "AXA",
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
+              "citation_rate": 0.0
+            },
+            {
               "name": "Generali",
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
+              "citation_rate": 0.0
+            },
+            {
+              "name": "HUK-Coburg",
               "mentions": 0,
               "share_of_voice": 0.0,
               "appearance_rate": 0.0,
@@ -3482,20 +3498,20 @@
                   {
                     "name": "Allianz",
                     "domain": "allianz.de",
-                    "mentions": 2,
-                    "mentioned": true,
-                    "first_rank": 5,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.3333
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "AXA",
                     "domain": "axa.de",
-                    "mentions": 2,
-                    "mentioned": true,
-                    "first_rank": 6,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.3333
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "Generali",
@@ -3509,11 +3525,11 @@
                   {
                     "name": "HUK-Coburg",
                     "domain": "huk.de",
-                    "mentions": 2,
-                    "mentioned": true,
-                    "first_rank": 9,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.3333
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "Signal Iduna",
@@ -3534,9 +3550,9 @@
                     "share_of_voice": 0.0
                   }
                 ],
-                "total_mentions": 6,
+                "total_mentions": 0,
                 "source_count": 13,
-                "text_length": 5645
+                "text_length": 1500
               }
             }
           ]
@@ -3593,7 +3609,7 @@
                     "mentioned": true,
                     "first_rank": 1,
                     "cited": true,
-                    "share_of_voice": 0.25
+                    "share_of_voice": 0.2727
                   },
                   {
                     "name": "AXA",
@@ -3602,16 +3618,16 @@
                     "mentioned": true,
                     "first_rank": 4,
                     "cited": true,
-                    "share_of_voice": 0.25
+                    "share_of_voice": 0.2727
                   },
                   {
                     "name": "Generali",
                     "domain": "generali.de",
-                    "mentions": 3,
+                    "mentions": 2,
                     "mentioned": true,
                     "first_rank": 5,
                     "cited": true,
-                    "share_of_voice": 0.25
+                    "share_of_voice": 0.1818
                   },
                   {
                     "name": "HUK-Coburg",
@@ -3620,7 +3636,7 @@
                     "mentioned": true,
                     "first_rank": 2,
                     "cited": true,
-                    "share_of_voice": 0.25
+                    "share_of_voice": 0.2727
                   },
                   {
                     "name": "Signal Iduna",
@@ -3641,9 +3657,9 @@
                     "share_of_voice": 0.0
                   }
                 ],
-                "total_mentions": 12,
+                "total_mentions": 11,
                 "source_count": 5,
-                "text_length": 1529
+                "text_length": 1500
               }
             }
           ]
@@ -3652,34 +3668,8 @@
       "summary_by_llm": {
         "gemini": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
-            {
-              "name": "Allianz",
-              "mentions": 2,
-              "share_of_voice": 0.3333,
-              "appearance_rate": 1.0,
-              "avg_rank": 5.0,
-              "best_rank": 5,
-              "citation_rate": 0.0
-            },
-            {
-              "name": "AXA",
-              "mentions": 2,
-              "share_of_voice": 0.3333,
-              "appearance_rate": 1.0,
-              "avg_rank": 6.0,
-              "best_rank": 6,
-              "citation_rate": 0.0
-            },
-            {
-              "name": "HUK-Coburg",
-              "mentions": 2,
-              "share_of_voice": 0.3333,
-              "appearance_rate": 1.0,
-              "avg_rank": 9.0,
-              "best_rank": 9,
-              "citation_rate": 0.0
-            },
             {
               "name": "ERGO",
               "mentions": 0,
@@ -3690,7 +3680,34 @@
               "citation_rate": 0.0
             },
             {
+              "name": "Allianz",
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
+              "citation_rate": 0.0
+            },
+            {
+              "name": "AXA",
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
+              "citation_rate": 0.0
+            },
+            {
               "name": "Generali",
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
+              "citation_rate": 0.0
+            },
+            {
+              "name": "HUK-Coburg",
               "mentions": 0,
               "share_of_voice": 0.0,
               "appearance_rate": 0.0,
@@ -3720,11 +3737,12 @@
         },
         "chatgpt": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
             {
               "name": "Allianz",
               "mentions": 3,
-              "share_of_voice": 0.25,
+              "share_of_voice": 0.2727,
               "appearance_rate": 1.0,
               "avg_rank": 1.0,
               "best_rank": 1,
@@ -3733,28 +3751,28 @@
             {
               "name": "AXA",
               "mentions": 3,
-              "share_of_voice": 0.25,
+              "share_of_voice": 0.2727,
               "appearance_rate": 1.0,
               "avg_rank": 4.0,
               "best_rank": 4,
               "citation_rate": 1.0
             },
             {
-              "name": "Generali",
-              "mentions": 3,
-              "share_of_voice": 0.25,
-              "appearance_rate": 1.0,
-              "avg_rank": 5.0,
-              "best_rank": 5,
-              "citation_rate": 1.0
-            },
-            {
               "name": "HUK-Coburg",
               "mentions": 3,
-              "share_of_voice": 0.25,
+              "share_of_voice": 0.2727,
               "appearance_rate": 1.0,
               "avg_rank": 2.0,
               "best_rank": 2,
+              "citation_rate": 1.0
+            },
+            {
+              "name": "Generali",
+              "mentions": 2,
+              "share_of_voice": 0.1818,
+              "appearance_rate": 1.0,
+              "avg_rank": 5.0,
+              "best_rank": 5,
               "citation_rate": 1.0
             },
             {
@@ -3933,7 +3951,7 @@
                 ],
                 "total_mentions": 0,
                 "source_count": 10,
-                "text_length": 5552
+                "text_length": 1500
               }
             }
           ]
@@ -4045,6 +4063,7 @@
       "summary_by_llm": {
         "gemini": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
             {
               "name": "ERGO",
@@ -4113,6 +4132,7 @@
         },
         "chatgpt": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
             {
               "name": "Allianz",
@@ -4315,29 +4335,29 @@
                   {
                     "name": "ERGO",
                     "domain": "ergo.de",
-                    "mentions": 6,
-                    "mentioned": true,
-                    "first_rank": 22,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.3
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "Allianz",
                     "domain": "allianz.de",
-                    "mentions": 6,
-                    "mentioned": true,
-                    "first_rank": 9,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.3
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "AXA",
                     "domain": "axa.de",
-                    "mentions": 2,
-                    "mentioned": true,
-                    "first_rank": 34,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.1
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "Generali",
@@ -4351,20 +4371,20 @@
                   {
                     "name": "HUK-Coburg",
                     "domain": "huk.de",
-                    "mentions": 2,
-                    "mentioned": true,
-                    "first_rank": 20,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.1
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "Signal Iduna",
                     "domain": "signal-iduna.de",
-                    "mentions": 4,
-                    "mentioned": true,
-                    "first_rank": 11,
+                    "mentions": 0,
+                    "mentioned": false,
+                    "first_rank": null,
                     "cited": false,
-                    "share_of_voice": 0.2
+                    "share_of_voice": 0.0
                   },
                   {
                     "name": "CosmosDirekt",
@@ -4376,9 +4396,9 @@
                     "share_of_voice": 0.0
                   }
                 ],
-                "total_mentions": 20,
+                "total_mentions": 0,
                 "source_count": 23,
-                "text_length": 13948
+                "text_length": 1500
               }
             }
           ]
@@ -4426,7 +4446,7 @@
                   {
                     "name": "ERGO",
                     "domain": "ergo.de",
-                    "mentions": 2,
+                    "mentions": 1,
                     "mentioned": true,
                     "first_rank": 3,
                     "cited": true,
@@ -4435,7 +4455,7 @@
                   {
                     "name": "Allianz",
                     "domain": "allianz.de",
-                    "mentions": 4,
+                    "mentions": 2,
                     "mentioned": true,
                     "first_rank": 1,
                     "cited": true,
@@ -4487,9 +4507,9 @@
                     "share_of_voice": 0.0
                   }
                 ],
-                "total_mentions": 6,
+                "total_mentions": 3,
                 "source_count": 6,
-                "text_length": 2017
+                "text_length": 1500
               }
             }
           ]
@@ -4498,54 +4518,55 @@
       "summary_by_llm": {
         "gemini": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
             {
               "name": "ERGO",
-              "mentions": 6,
-              "share_of_voice": 0.3,
-              "appearance_rate": 1.0,
-              "avg_rank": 22.0,
-              "best_rank": 22,
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
               "citation_rate": 0.0
             },
             {
               "name": "Allianz",
-              "mentions": 6,
-              "share_of_voice": 0.3,
-              "appearance_rate": 1.0,
-              "avg_rank": 9.0,
-              "best_rank": 9,
-              "citation_rate": 0.0
-            },
-            {
-              "name": "Signal Iduna",
-              "mentions": 4,
-              "share_of_voice": 0.2,
-              "appearance_rate": 1.0,
-              "avg_rank": 11.0,
-              "best_rank": 11,
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
               "citation_rate": 0.0
             },
             {
               "name": "AXA",
-              "mentions": 2,
-              "share_of_voice": 0.1,
-              "appearance_rate": 1.0,
-              "avg_rank": 34.0,
-              "best_rank": 34,
-              "citation_rate": 0.0
-            },
-            {
-              "name": "HUK-Coburg",
-              "mentions": 2,
-              "share_of_voice": 0.1,
-              "appearance_rate": 1.0,
-              "avg_rank": 20.0,
-              "best_rank": 20,
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
               "citation_rate": 0.0
             },
             {
               "name": "Generali",
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
+              "citation_rate": 0.0
+            },
+            {
+              "name": "HUK-Coburg",
+              "mentions": 0,
+              "share_of_voice": 0.0,
+              "appearance_rate": 0.0,
+              "avg_rank": null,
+              "best_rank": null,
+              "citation_rate": 0.0
+            },
+            {
+              "name": "Signal Iduna",
               "mentions": 0,
               "share_of_voice": 0.0,
               "appearance_rate": 0.0,
@@ -4566,10 +4587,11 @@
         },
         "chatgpt": {
           "prompts_total": 1,
+          "prompts_error": 0,
           "brands": [
             {
               "name": "Allianz",
-              "mentions": 4,
+              "mentions": 2,
               "share_of_voice": 0.6667,
               "appearance_rate": 1.0,
               "avg_rank": 1.0,
@@ -4578,7 +4600,7 @@
             },
             {
               "name": "ERGO",
-              "mentions": 2,
+              "mentions": 1,
               "share_of_voice": 0.3333,
               "appearance_rate": 1.0,
               "avg_rank": 3.0,
@@ -71513,5 +71535,6 @@
       "urls_reachable_pct": 0.997
     },
     "baseline_eligible": false
-  }
+  },
+  "_backfilled_at": "2026-07-17T16:06:57.568508+00:00"
 }
