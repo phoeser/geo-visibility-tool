@@ -129,6 +129,18 @@ def _carry_forward_llm(run_dict, prev_run, llm_id):
             if e.get("llm") == llm_id:
                 prod["per_llm"].append(e)
                 break
+    # 17.07.2026: NUR anhaengen, wenn wirklich etwas uebernommen wurde.
+    # Vorher stand das Anhaengen ausserhalb jeder Bedingung. Folge, wenn der
+    # Vortags-Lauf ebenfalls keine Daten fuer dieses LLM hatte (n == 0):
+    # Die Engine landet in `llms`, hat aber in KEINEM Produkt einen Eintrag in
+    # `summary_by_llm`. Das Cockpit mittelt den grounded-SoV ueber die Engine-Liste
+    # -> Divisor 2 statt 1 -> **jeder grounded-Wert exakt halbiert**.
+    # Real aufgetreten in 3 von 5 Laeufen (14.07., 16.07. 00:08 und 19:21): perplexity
+    # ist in config.json enabled:false, kam aber ueber diesen Weg in llms; verifiziert
+    # ueber carried_forward:["perplexity"] bei 0 Produkten mit perplexity-Daten.
+    # Ein LLM ohne uebernommene Daten ist nicht "carried forward", sondern schlicht weg.
+    if n <= 0:
+        return n
     if llm_id not in (run_dict.get("llms") or []):
         run_dict.setdefault("llms", []).append(llm_id)
     cf = run_dict.setdefault("carried_forward", [])
