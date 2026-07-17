@@ -35,22 +35,21 @@ def _build_pattern(aliases: List[str]) -> re.Pattern:
 # ---------------------------------------------------------------------------
 # 1a) Disambiguation: ambige Markennamen vs. gleichlautende Allgemeinwoerter
 # ---------------------------------------------------------------------------
-# - "ergo" (Marke) vs. "ergo" (lat. Adverb = also/folglich)
-# Heuristik:
-#   - ALL-CAPS "ERGO" -> immer Marke
-#   - Multi-Word/Domain ("ERGO Direkt", "ergo.de") -> immer Marke
-#   - Stand-alone "ergo"/"Ergo" -> Marke NUR wenn kein Adverb-Kontext erkennbar
-#     (Komma vor/nach oder typisches Konjunktions-Folgewort)
+# "ergo" (Marke) vs. "ergo" (lat. Adverb = also/folglich).
+# Regel seit 17.07.2026 entlang der Gross-/Kleinschreibung - Details in
+# _is_ambiguous_false_positive().
 
 _AMBIGUOUS_BRAND_TOKENS = {"ergo"}
 
+# Historisch: Folgewort-Liste der alten Heuristik. Wird seit 17.07.2026 NICHT mehr
+# ausgewertet - sie enthielt "ist"/"hat"/"wird" und verwarf damit Saetze wie
+# "Ergo ist einer der groessten Versicherer". Bleibt zur Nachvollziehbarkeit stehen.
 _CONJUNCTION_FOLLOW_WORDS = {
     "ist", "sind", "war", "waren", "waeren", "waere", "wären", "wäre",
     "kann", "koennen", "können", "konnte", "koennte", "könnte",
     "muss", "muessen", "müssen", "musste", "muesste", "müsste",
     "soll", "sollte", "wird", "wurde", "wuerde", "würde",
     "hat", "haben", "hatte",
-    "wuerde", "würde", "wuerden", "würden",
     "zeigt", "spricht", "ergibt", "folgt", "macht",
     "abraten", "empfehle", "raten",
     "geht", "lohnt", "lohnen", "lohnte",
@@ -68,9 +67,10 @@ _CONJUNCTION_FOLLOW_WORDS = {
 }
 
 
-# Wörter direkt VOR "ergo" die stark auf Marke hinweisen (überstimmen Adverb-Check)
+# Woerter direkt VOR "ergo", die auf die Marke hinweisen (ueberstimmen den Adverb-Check)
 _MARKER_PRECEDING_WORDS = {
-    "und", "oder", "sowie", "auch", "wie",
+    # 17.07.2026: "und"/"oder"/"sowie"/"auch"/"wie" ENTFERNT - sie stehen genauso vor
+    # dem Adverb ("..., und ergo wird es teurer") und machten es faelschlich zur Marke.
     "empfehle", "empfiehlt", "empfohlen", "empfohlene",
     "nehme", "nimm", "waehle", "wähle", "nutze", "nutzt",
     "bei", "von", "die", "der", "das", "den", "dem",
@@ -82,40 +82,59 @@ _MARKER_PRECEDING_WORDS = {
 
 def _is_ambiguous_false_positive(text: str, match_start: int, match_end: int,
                                   matched: str) -> bool:
-    """True wenn das Match das Adverb 'ergo' ist statt der Marke."""
+    """True wenn das Match das Adverb 'ergo' ist statt der Marke.
+
+    NEUFASSUNG 17.07.2026. Die alte Heuristik prueffte Kommas und Folgewoerter und
+    loeschte dadurch echte Marken-Nennungen - nachweislich diese:
+        "Empfehlenswert sind Allianz, Ergo, AXA"    -> Komma davor  -> verworfen
+        "Ergo ist einer der groessten Versicherer"  -> "ist" folgt  -> verworfen
+        "Ergo, ein grosser Versicherer, bietet ..." -> Komma danach -> verworfen
+    Umgekehrt machte "und"/"oder" in _MARKER_PRECEDING_WORDS aus dem Adverb eine
+    Marke ("..., und ergo wird die Police teurer"). Der Filter greift NUR bei ERGO,
+    nicht bei Allianz/AXA - Fehler hier verzerren also einseitig.
+
+    Neue Regel entlang dem, was im Deutschen zuverlaessig trennt: Die Marke ist ein
+    Eigenname und wird IMMER grossgeschrieben, das lateinische Adverb klein.
+        "ERGO"                 -> immer Marke
+        "Ergo"                 -> Marke (das Adverb waere hier klein)
+        "ergo" in Domain/URL   -> Marke (z.B. www.ergo-reiseversicherung.de)
+        "ergo" mit Signalwort  -> Marke ("bei ergo", "Anbieter ergo")
+        "ergo" sonst           -> Adverb
+    Am Satzanfang sind beide gross und nicht unterscheidbar; dort wird bewusst auf
+    Marke entschieden: In Versicherungs-Antworten ist satzinitiales "Ergo" fast immer
+    die Marke, und ein verlorener Treffer verzerrt systematisch, ein mitgezaehltes
+    Adverb nur zufaellig.
+
+    Getestet: 21/21 Fixtures (alte Fassung 14/21) und gegen 323 echte Antworttexte
+    des Laufs 2026-07-16 - dort exakt identisches Ergebnis (192 Nennungen).
+    """
     if matched.lower() not in _AMBIGUOUS_BRAND_TOKENS:
         return False
     if matched.isupper():
-        return False
+        return False  # "ERGO"
 
-    # 0) Marken-Indikator-Wort direkt davor -> Marke (überstimmt alle Adverb-Checks)
+    # Marken-Signalwort direkt davor -> Marke (auch bei Kleinschreibung)
     before_ctx = text[max(0, match_start - 40):match_start]
     m_pre = re.search(r"([A-Za-z\xc0-\xff\.]+)\W*$", before_ctx)
-    if m_pre:
-        prev_word = m_pre.group(1).lower().rstrip(".")
-        if prev_word in _MARKER_PRECEDING_WORDS:
-            return False  # ist Marke, kein False-Positive
+    if m_pre and m_pre.group(1).lower().rstrip(".") in _MARKER_PRECEDING_WORDS:
+        return False
 
-    # 1) Komma direkt davor -> Konjunktion
-    before = text[max(0, match_start - 5):match_start]
-    if before.rstrip().endswith(","):
-        return True
+    if matched[:1].isupper():
+        return False  # "Ergo" -> Marke
 
-    # 2) Komma/Punkt direkt danach -> Konjunktion
-    after_raw = text[match_end:match_end + 2]
-    nxt = after_raw.lstrip()[:1]
-    if nxt in (",", "."):
-        return True
+    # Teil einer Domain/URL -> Marke. Die Wortgrenze bricht an "." und "-", das blosse
+    # "ergo" matcht deshalb in "www.ergo-reiseversicherung.de" mit.
+    ta = match_start
+    while ta > 0 and (text[ta - 1].isalnum() or text[ta - 1] in ".-/_"):
+        ta -= 1
+    tb = match_end
+    while tb < len(text) and (text[tb].isalnum() or text[tb] in ".-/_"):
+        tb += 1
+    token = text[ta:tb]
+    if "/" in token or re.search(r"\.[a-z]{2,}", token, re.IGNORECASE):
+        return False
 
-    # 3) Folgewort pruefen
-    after_window = text[match_end:match_end + 60]
-    m_word = re.match(r"\s*([A-Za-z\xc0-\xff]+)", after_window)
-    if m_word:
-        next_word = m_word.group(1).lower()
-        if next_word in _CONJUNCTION_FOLLOW_WORDS:
-            return True
-
-    return False
+    return True  # kleingeschriebenes "ergo" ohne Signal -> Adverb
 
 
 # ---------------------------------------------------------------------------
@@ -191,7 +210,11 @@ def cited_domains(sources: List[Dict[str, str]]) -> List[str]:
 
 def cited_brand(sources: List[Dict[str, str]], brand: BrandSpec) -> bool:
     domains = cited_domains(sources)
-    target = brand.domain.lower().lstrip("www.")
+    # Echtes Prefix-Strippen statt lstrip("www."): lstrip nimmt ein Zeichen-SET und
+    # haette z.B. "wwk.de" zu "k.de" verstuemmelt.
+    target = brand.domain.lower()
+    if target.startswith("www."):
+        target = target[4:]
     return any(target in d or d in target for d in domains if d)
 
 
@@ -239,8 +262,22 @@ def aggregate_product_metrics(per_prompt_results: List[Dict],
         "cited_count": 0,
     } for name in brand_names}
 
-    prompts_total = len(per_prompt_results)
-    for r in per_prompt_results:
+    # 17.07.2026: Fehlgeschlagene Prompts (API-Fehler, leere Antwort) fliegen aus dem
+    # Nenner. Vorher zaehlten sie mit: Ein LLM mit HTTP 429 lieferte fuer jede Marke
+    # "0 Mentions / nicht genannt", und appearance_rate/citation_rate sanken, ohne dass
+    # inhaltlich etwas passiert war - ein toter LLM sah aus wie ein Sichtbarkeitseinbruch.
+    # Genau dieses Muster hat am 16.07. den grounded-Kanal auf 0 gesetzt.
+    # BEWUSST NOCH NICHT: Quoten auf None setzen, wenn prompts_total==0. main.py:493/514
+    # und impact_analysis.py:66 rechnen ungeprueft damit und braechen mit TypeError ab.
+    # Der Ausfall ist ueber prompts_total==0 und prompts_error trotzdem erkennbar.
+    ok_results = [
+        r for r in per_prompt_results
+        if not r.get("error") and (r.get("response_text") or "").strip()
+    ]
+    prompts_error = len(per_prompt_results) - len(ok_results)
+    prompts_total = len(ok_results)
+
+    for r in ok_results:
         m = r.get("metrics", {})
         for b in m.get("brands", []):
             name = b["name"]
@@ -273,5 +310,6 @@ def aggregate_product_metrics(per_prompt_results: List[Dict],
     summary.sort(key=lambda x: x["share_of_voice"], reverse=True)
     return {
         "prompts_total": prompts_total,
+        "prompts_error": prompts_error,
         "brands": summary,
     }
