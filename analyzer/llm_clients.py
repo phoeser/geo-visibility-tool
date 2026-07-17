@@ -103,11 +103,13 @@ class ClaudeClient:
     """Ruft Claude über die Anthropic Messages API auf."""
 
     def __init__(self, api_key: str, model: str = "claude-sonnet-4-6",
-                 max_tokens: int = 1200, temperature: float = 0.3):
+                 max_tokens: int = 1200, temperature: float = 0.3,
+                 retries: int = 3):
         self.api_key = api_key
         self.model = model
         self.max_tokens = max_tokens
         self.temperature = temperature
+        self._retries = retries   # 17.07.2026: war 6x hartkodiert als attempts=3, s. build_clients()
         self.url = "https://api.anthropic.com/v1/messages"
 
     def ask(self, prompt: str) -> LLMResponse:
@@ -145,7 +147,7 @@ class ClaudeClient:
             )
 
         try:
-            return with_retries(_call, attempts=3)
+            return with_retries(_call, attempts=self._retries)
         except Exception as e:  # noqa: BLE001
             return LLMResponse(
                 text="", sources=[], model=self.model,
@@ -161,11 +163,13 @@ class GeminiClient:
     """Ruft Gemini über die Google AI Studio REST-API auf."""
 
     def __init__(self, api_key: str, model: str = "gemini-2.5-flash",
-                 max_tokens: int = 1200, temperature: float = 0.3):
+                 max_tokens: int = 1200, temperature: float = 0.3,
+                 retries: int = 3):
         self.api_key = api_key
         self.model = model
         self.max_tokens = max_tokens
         self.temperature = temperature
+        self._retries = retries   # 17.07.2026: war 6x hartkodiert als attempts=3, s. build_clients()
         self.url = (
             f"https://generativelanguage.googleapis.com/v1beta/"
             f"models/{model}:generateContent?key={api_key}"
@@ -227,7 +231,7 @@ class GeminiClient:
             )
 
         try:
-            return with_retries(_call, attempts=3)
+            return with_retries(_call, attempts=self._retries)
         except Exception as e:  # noqa: BLE001
             # Falls Grounding den Fehler verursacht, einmal ohne versuchen
             msg = str(e)
@@ -280,11 +284,13 @@ class OpenAIClient:
     """Ruft OpenAI ChatGPT ueber die Chat Completions API auf."""
 
     def __init__(self, api_key: str, model: str = "gpt-4o-mini",
-                 max_tokens: int = 1200, temperature: float = 0.3):
+                 max_tokens: int = 1200, temperature: float = 0.3,
+                 retries: int = 3):
         self.api_key = api_key
         self.model = model
         self.max_tokens = max_tokens
         self.temperature = temperature
+        self._retries = retries   # 17.07.2026: war 6x hartkodiert als attempts=3, s. build_clients()
         self.url = "https://api.openai.com/v1/chat/completions"
 
     def ask(self, prompt: str) -> LLMResponse:
@@ -324,7 +330,7 @@ class OpenAIClient:
             )
 
         try:
-            return with_retries(_call, attempts=3)
+            return with_retries(_call, attempts=self._retries)
         except Exception as e:  # noqa: BLE001
             return LLMResponse(
                 text="", sources=[], model=self.model,
@@ -342,11 +348,13 @@ class GrokClient:
     """Ruft xAI Grok ueber die Chat-Completions-API auf."""
 
     def __init__(self, api_key: str, model: str = "grok-2-1212",
-                 max_tokens: int = 1200, temperature: float = 0.3):
+                 max_tokens: int = 1200, temperature: float = 0.3,
+                 retries: int = 3):
         self.api_key = api_key
         self.model = model
         self.max_tokens = max_tokens
         self.temperature = temperature
+        self._retries = retries   # 17.07.2026: war 6x hartkodiert als attempts=3, s. build_clients()
         self.url = "https://api.x.ai/v1/chat/completions"
 
     def ask(self, prompt: str) -> LLMResponse:
@@ -384,7 +392,7 @@ class GrokClient:
                 tokens_out=usage.get("completion_tokens"),
             )
         try:
-            return with_retries(_call, attempts=3)
+            return with_retries(_call, attempts=self._retries)
         except Exception as e:  # noqa: BLE001
             return LLMResponse(text="", sources=[], model=self.model,
                                latency_ms=0.0, error=str(e)[:500])
@@ -398,11 +406,13 @@ class PerplexityClient:
     """Ruft Perplexity Sonar ueber Chat-Completions auf. Web-Suche integriert."""
 
     def __init__(self, api_key: str, model: str = "sonar",
-                 max_tokens: int = 1200, temperature: float = 0.3):
+                 max_tokens: int = 1200, temperature: float = 0.3,
+                 retries: int = 3):
         self.api_key = api_key
         self.model = model
         self.max_tokens = max_tokens
         self.temperature = temperature
+        self._retries = retries   # 17.07.2026: war 6x hartkodiert als attempts=3, s. build_clients()
         self.url = "https://api.perplexity.ai/chat/completions"
 
     def ask(self, prompt: str) -> LLMResponse:
@@ -452,7 +462,7 @@ class PerplexityClient:
                 tokens_out=usage.get("completion_tokens"),
             )
         try:
-            return with_retries(_call, attempts=3)
+            return with_retries(_call, attempts=self._retries)
         except Exception as e:  # noqa: BLE001
             return LLMResponse(text="", sources=[], model=self.model,
                                latency_ms=0.0, error=str(e)[:500])
@@ -477,8 +487,10 @@ class SerpApiGoogleClient:
 
     def __init__(self, api_key: str, mode: str = "ai_overview",
                  model: str = "google-ai-overview",
-                 hl: str = "de", gl: str = "de", timeout: int = 90):
+                 hl: str = "de", gl: str = "de", timeout: int = 90,
+                 retries: int = 3):
         self.api_key = api_key
+        self._retries = retries   # 17.07.2026, s. LLM-Clients
         self.mode = mode
         self.model = model
         self.hl = hl
@@ -591,7 +603,7 @@ class SerpApiGoogleClient:
                                latency_ms=latency)
 
         try:
-            return with_retries(_call, attempts=3)
+            return with_retries(_call, attempts=self._retries)
         except Exception as e:  # noqa: BLE001
             return LLMResponse(text="", sources=[], model=self.model,
                                latency_ms=0.0, error=str(e)[:500])
@@ -601,7 +613,7 @@ class SerpApiGoogleClient:
 # Factory
 # ============================================================================
 
-def build_clients(llm_configs: List[Dict]) -> Dict[str, object]:
+def build_clients(llm_configs: List[Dict], settings: Optional[Dict] = None) -> Dict[str, object]:
     """
     Erzeugt die aktiven Clients basierend auf config.llms.
     API-Keys kommen aus Umgebungsvariablen:
@@ -609,7 +621,35 @@ def build_clients(llm_configs: List[Dict]) -> Dict[str, object]:
         - GOOGLE_API_KEY     - Gemini
         - OPENAI_API_KEY     - ChatGPT
         - SERPAPI_KEY        - Google AI Overview / AI Mode
+
+    17.07.2026: `settings` (= config.json["settings"]) wird jetzt durchgereicht.
+    Vorher bekamen die Clients NUR api_key und model; `temperature` und `max_tokens`
+    blieben auf ihren Klassen-Defaults (0.3 / 1200). Dass das nie auffiel, lag daran,
+    dass die Config exakt dieselben Werte nennt - wer sie dort aendert, haette aber
+    keinerlei Wirkung gesehen. Eine Einstellung, die aussieht als wirke sie und nicht
+    wirkt, ist schlimmer als gar keine.
     """
+    st = settings or {}
+    _temp = st.get("temperature")
+    _maxtok = st.get("max_tokens")
+    _kw = {}
+    if isinstance(_temp, (int, float)) and not isinstance(_temp, bool):
+        _kw["temperature"] = float(_temp)
+    if isinstance(_maxtok, int) and not isinstance(_maxtok, bool) and _maxtok > 0:
+        _kw["max_tokens"] = _maxtok
+    # retry_attempts ist ab heute scharf - vorher war die Einstellung inert. Das Backoff
+    # ist exponentiell (base_delay=2s, 2**i): 3 Versuche = 2+4 = 6 s Schlaf pro endgueltig
+    # scheiterndem Call, 6 Versuche waeren schon 126 s. Bei ~650 Prompts und
+    # timeout-minutes: 300 ist das ein Fuss-Schuss, den es vorher nicht geben KONNTE.
+    # Deshalb gedeckelt.
+    _ret = st.get("retry_attempts")
+    if isinstance(_ret, int) and not isinstance(_ret, bool) and _ret > 0:
+        if _ret > 5:
+            print("[WARN] settings.retry_attempts=%d ist hoch - exponentielles Backoff "
+                  "waechst auf 2+4+8+16+32... Sekunden je Call. Auf 5 gedeckelt." % _ret)
+            _ret = 5
+        _kw["retries"] = _ret
+
     clients: Dict[str, object] = {}
     for cfg in llm_configs:
         if not cfg.get("enabled"):
@@ -621,38 +661,40 @@ def build_clients(llm_configs: List[Dict]) -> Dict[str, object]:
             if not key:
                 print("[WARN] ANTHROPIC_API_KEY fehlt — Claude wird übersprungen")
                 continue
-            clients[cfg["id"]] = ClaudeClient(api_key=key, model=model)
+            clients[cfg["id"]] = ClaudeClient(api_key=key, model=model, **_kw)
         elif provider == "google":
             key = os.getenv("GOOGLE_API_KEY")
             if not key:
                 print("[WARN] GOOGLE_API_KEY fehlt — Gemini wird übersprungen")
                 continue
-            clients[cfg["id"]] = GeminiClient(api_key=key, model=model)
+            clients[cfg["id"]] = GeminiClient(api_key=key, model=model, **_kw)
         elif provider == "openai":
             key = os.getenv("OPENAI_API_KEY")
             if not key:
                 print("[WARN] OPENAI_API_KEY fehlt - ChatGPT wird uebersprungen")
                 continue
-            clients[cfg["id"]] = OpenAIClient(api_key=key, model=model)
+            clients[cfg["id"]] = OpenAIClient(api_key=key, model=model, **_kw)
         elif provider == "xai":
             key = os.getenv("XAI_API_KEY")
             if not key:
                 print("[WARN] XAI_API_KEY fehlt - Grok wird uebersprungen")
                 continue
-            clients[cfg["id"]] = GrokClient(api_key=key, model=model)
+            clients[cfg["id"]] = GrokClient(api_key=key, model=model, **_kw)
         elif provider == "perplexity":
             key = os.getenv("PERPLEXITY_API_KEY")
             if not key:
                 print("[WARN] PERPLEXITY_API_KEY fehlt - Perplexity wird uebersprungen")
                 continue
-            clients[cfg["id"]] = PerplexityClient(api_key=key, model=model)
+            clients[cfg["id"]] = PerplexityClient(api_key=key, model=model, **_kw)
         elif provider in ("serpapi_ai_overview", "serpapi_ai_mode"):
             key = os.getenv("SERPAPI_KEY")
             if not key:
                 print(f"[WARN] SERPAPI_KEY fehlt - {cfg['id']} wird uebersprungen")
                 continue
             mode = "ai_overview" if provider == "serpapi_ai_overview" else "ai_mode"
-            clients[cfg["id"]] = SerpApiGoogleClient(api_key=key, mode=mode, model=model)
+            # kennt weder temperature noch max_tokens - nur retries durchreichen
+            _serp_kw = {"retries": _kw["retries"]} if "retries" in _kw else {}
+            clients[cfg["id"]] = SerpApiGoogleClient(api_key=key, mode=mode, model=model, **_serp_kw)
         else:
             print(f"[INFO] Provider {provider} noch nicht implementiert - skip")
     return clients
