@@ -9,6 +9,10 @@ alle data/runs/*.json und re-computed:
   - per llm:    summary_by_llm.brands[*] (mentions, share_of_voice, appearance_rate)
   - per product: totals (falls vorhanden)
 
+⚠ ACHTUNG (17.07.2026): Dieses Skript ist NUR benutzbar, wenn der gespeicherte
+Antworttext vollstaendig ist. Aktuell ist er das NICHT (main.py kuerzt auf 1500
+Zeichen) — siehe check_text_integrity(). Das Skript bricht dann von selbst ab.
+
 Usage:
   python3 -m tools.backfill_brand_metrics                # alle Runs
   python3 -m tools.backfill_brand_metrics --dry-run      # nur loggen, nichts schreiben
@@ -63,6 +67,39 @@ def build_brand_specs(cfg: Dict) -> Dict[str, BrandSpec]:
             extra_domains=list(c.get("extra_domains") or []),   # 17.07.2026, s. metrics.py
         )
     return specs
+
+
+def check_text_integrity(run: Dict) -> Dict:
+    """Ist der gespeicherte Antworttext vollstaendig genug fuer eine Neuberechnung?
+
+    17.07.2026, nach echtem Schaden. main.py:284 legt den Text GEKUERZT ab:
+        "response_text": (resp.get("text") or "")[:1500]
+    Die Metriken entstehen beim Crawl aber auf dem VOLLEN Text. Wer sie spaeter aus
+    dem gespeicherten Text neu rechnet, sieht nur noch den Anfang jeder Antwort.
+
+    Was am 17.07.2026 passierte (Backfill-Lauf #1, Commit ca9358f2): Nennungen im
+    Lauf 2026-07-17 fielen von 4.491 auf 2.708 (-40 %), Summe text_length von
+    2.232.999 auf 946.308. 498 von 646 Antworten (77 %) waren gekappt. Betroffen
+    waren alle 108 Runs. Musste per Revert zurueckgeholt werden.
+
+    Das Signal ist eindeutig und steht in jedem Run: metrics.text_length ist die
+    Laenge, auf der die Metrik urspruenglich rechnete. Ist sie GROESSER als der
+    gespeicherte Text, fehlt Text - und die Neuberechnung waere falsch.
+    """
+    total = 0
+    truncated = 0
+    lost_chars = 0
+    for pid, prod in (run.get("products") or {}).items():
+        for llm_entry in (prod.get("per_llm") or []):
+            for r in (llm_entry.get("results") or []):
+                text = r.get("response_text") or ""
+                orig_len = (r.get("metrics") or {}).get("text_length")
+                total += 1
+                if isinstance(orig_len, int) and orig_len > len(text):
+                    truncated += 1
+                    lost_chars += orig_len - len(text)
+    return {"results": total, "truncated": truncated, "lost_chars": lost_chars,
+            "share": (truncated / total) if total else 0.0}
 
 
 def recompute_one_run(run: Dict, brand_specs: Dict[str, BrandSpec]) -> Dict:
@@ -229,6 +266,9 @@ def main() -> int:
                     help="Nur loggen, nichts schreiben")
     ap.add_argument("--since", help="Nur Runs ab diesem ISO-Datum bearbeiten")
     ap.add_argument("--config", default=str(PROJECT_ROOT / "data" / "config.json"))
+    ap.add_argument("--i-know-the-text-is-truncated", action="store_true",
+                    help="Notbremse ueberschreiben. Beschaedigt die Historie, wenn der "
+                         "gespeicherte Text gekuerzt ist. Siehe check_text_integrity().")
     args = ap.parse_args()
 
     cfg = load_config(Path(args.config))
@@ -238,6 +278,52 @@ def main() -> int:
     runs_dir = PROJECT_ROOT / "data" / "runs"
     files = find_runs(runs_dir, since=args.since)
     print(f"[BACKFILL] {len(files)} Run-Files zu bearbeiten")
+
+    # ── NOTBREMSE (17.07.2026) ───────────────────────────────────────────────
+    # Neu rechnen darf nur, wer den vollen Text hat. Siehe check_text_integrity().
+    print("[BACKFILL] Pruefe Text-Integritaet ...")
+    worst = None
+    for f in files:
+        try:
+            _r = json.loads(f.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        chk = check_text_integrity(_r)
+        if chk["truncated"] and (worst is None or chk["share"] > worst[1]["share"]):
+            worst = (f.name, chk)
+    if worst:
+        name, chk = worst
+        print("")
+        print("=" * 74)
+        print("ABBRUCH: Die gespeicherten Antworttexte sind gekuerzt.")
+        print("=" * 74)
+        print(f"  Schlimmster Run: {name}")
+        print(f"    {chk['truncated']} von {chk['results']} Antworten gekappt "
+              f"({100*chk['share']:.0f} %), {chk['lost_chars']:,} Zeichen fehlen.")
+        print("")
+        print("  Ursache: main.py speichert response_text[:1500], die Metriken")
+        print("  entstanden aber auf dem VOLLEN Text. Eine Neuberechnung saehe nur")
+        print("  noch den Anfang jeder Antwort und WUERDE DIE HISTORIE BESCHAEDIGEN.")
+        print("")
+        print("  Genau das ist am 17.07.2026 passiert (Commit ca9358f2): Nennungen")
+        print("  -40 %, alle 108 Runs betroffen, Revert noetig.")
+        print("")
+        print("  Erst loesen, dann backfillen:")
+        print("    (a) response_text ungekuerzt speichern (Platzbedarf pruefen -")
+        print("        data/runs ist bereits 747 MB gross), oder")
+        print("    (b) Metriken aus einer Quelle rechnen, die den vollen Text hat.")
+        print("")
+        print("  Nur Zitate (extra_domains) neu rechnen? Die brauchen den Text NICHT")
+        print("  (cited_brand liest `sources`) - dafuer waere ein eigener, enger")
+        print("  Backfill zu schreiben, der `metrics.brands[*].cited` anfasst und")
+        print("  mentions/share_of_voice in Ruhe laesst.")
+        print("")
+        print("  Ueberschreiben nur mit --i-know-the-text-is-truncated (nicht empfohlen).")
+        if not args.i_know_the_text_is_truncated:
+            return 2
+        print("  --i-know-the-text-is-truncated gesetzt - fahre WISSENTLICH fort.")
+    else:
+        print("[BACKFILL] Text-Integritaet ok - kein gekuerzter Text gefunden.")
 
     total_stats: Dict = {"prompts_processed": 0,
                          "brand_mention_deltas": {n: 0 for n in brand_specs}}
