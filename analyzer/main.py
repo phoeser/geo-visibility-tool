@@ -186,12 +186,27 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
 
     print(f"[INFO] Aktive LLMs: {list(clients.keys())}")
 
-    # Kosten: Perplexity nur jeden 2. Tag abfragen (grounded-SoV ist ein langsamer Stock);
-    # an Aus-Tagen wird der Vortageswert fortgeschrieben (siehe unten).
-    _run_perplexity = (datetime.now(timezone.utc).date().toordinal() % 2 == 0)
-    if (not dry_run) and (not _run_perplexity) and ("perplexity" in clients):
-        clients.pop("perplexity", None)
-        print("[COST] Perplexity heute uebersprungen (2-Tage-Intervall) — Vortageswert wird fortgeschrieben.")
+    # Kosten-Intervalle (18.07.2026, verallgemeinert — vorher hartkodiert nur
+    # Perplexity): LLMs mit config llms[].interval_days > 1 laufen nur jeden
+    # n-ten Tag; interval_offset (default 0) verschiebt die Phase, damit sich
+    # z. B. ChatGPT und Perplexity abwechseln und neben Gemini jeden Tag genau
+    # eine zweite Engine laeuft. An Aus-Tagen wird der Vortageswert per
+    # _carry_forward_llm fortgeschrieben (SoV ist ein langsamer Stock).
+    _skipped_llms: List[str] = []
+    if not dry_run:
+        _ord = datetime.now(timezone.utc).date().toordinal()
+        _llm_cfg_by_id = {l.get("id"): l for l in cfg.get("llms", [])}
+        for _lid in list(clients.keys()):
+            _lc = _llm_cfg_by_id.get(_lid) or {}
+            try:
+                _iv = int(_lc.get("interval_days") or 1)
+                _off = int(_lc.get("interval_offset") or 0)
+            except (TypeError, ValueError):
+                _iv, _off = 1, 0
+            if _iv > 1 and ((_ord + _off) % _iv != 0):
+                clients.pop(_lid, None)
+                _skipped_llms.append(_lid)
+                print(f"[COST] {_lid} heute uebersprungen ({_iv}-Tage-Intervall, Offset {_off}) — Vortageswert wird fortgeschrieben.")
 
     # Timestamp für diesen Lauf
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H-%M-%SZ")
@@ -343,9 +358,9 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
 
     prev_path = previous_run_file(RUNS_DIR, current_file)
     prev_run = load_run(prev_path) if prev_path else None
-    if (not dry_run) and (not _run_perplexity):
-        _cf = _carry_forward_llm(run_dict, prev_run, "perplexity")
-        print("[COST] Perplexity aus Vortags-Lauf uebernommen: %d Produkte" % _cf)
+    for _lid in _skipped_llms:
+        _cf = _carry_forward_llm(run_dict, prev_run, _lid)
+        print("[COST] %s aus Vortags-Lauf uebernommen: %d Produkte" % (_lid, _cf))
     deltas = compute_deltas(run_dict, prev_run)
     run_dict["impact"] = {"deltas": deltas}
 
