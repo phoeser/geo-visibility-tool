@@ -155,20 +155,127 @@ def _is_ambiguous_false_positive(text: str, match_start: int, match_end: int,
 # 1) Share of Voice
 # ---------------------------------------------------------------------------
 
-def count_mentions(text: str, brand: BrandSpec) -> int:
+def _iter_valid_mentions(text: str, brand: BrandSpec):
+    """Liefert die Match-Objekte JEDER Nennung, die count_mentions() zaehlt.
+
+    18.07.2026: Einzige Quelle der Wahrheit fuer "was gilt als Nennung". Sowohl
+    count_mentions() (die Zaehlung) als auch mention_contexts() (die Kontext-
+    Extraktion fuer die spaetere Empfehlungs-/Sentiment-Klassifikation) laufen
+    ueber diesen Generator. Damit ist ausgeschlossen, dass Kontexte nach einer
+    anderen Logik gefunden werden als die Zahl, die sie belegen sollen.
+    Rein additiv - das Zaehlverhalten ist byte-identisch zur alten Schleife.
+    """
     if not text:
-        return 0
+        return
     pat = _build_pattern(brand.aliases)
-    valid = 0
     for m in pat.finditer(text):
         if _is_ambiguous_false_positive(text, m.start(), m.end(), m.group(0)):
             continue
-        valid += 1
-    return valid
+        yield m
+
+
+def count_mentions(text: str, brand: BrandSpec) -> int:
+    return sum(1 for _ in _iter_valid_mentions(text, brand))
 
 
 def mentioned(text: str, brand: BrandSpec) -> bool:
     return count_mentions(text, brand) > 0
+
+
+# ---------------------------------------------------------------------------
+# 1b) Nennungs-Kontexte (fuer nachtraegliche Empfehlungs-/Sentiment-Analyse)
+# ---------------------------------------------------------------------------
+# 18.07.2026 (Entscheidung Paul A.2 b): Zusaetzlich zum auf 1.500 Zeichen
+# gekuerzten response_text wird je erkannter Markennennung der Satz mit der
+# Nennung +/-1 Satz gespeichert - aus dem VOLLEN Antworttext, bevor gekuerzt
+# wird. Zweck: echte Empfehlungsrate / Sentiment nachtraeglich klassifizieren
+# und Backfills. Gefunden werden die Nennungen ueber _iter_valid_mentions(),
+# also mit EXAKT derselben Logik wie die Zaehlung.
+
+_SENTENCE_BOUNDARY_RE = re.compile(r"[.!?]+(?=\s|$)|\n+")
+
+
+def _sentence_spans(text: str):
+    """Pragmatische Satzsegmentierung -> Liste von (start, end)-Spans.
+
+    Grenze: eine .!?-Folge, gefolgt von Whitespace oder Textende, ODER ein
+    Block aus Zeilenumbruechen. GRENZEN DES VERFAHRENS: Abkuerzungen mit Punkt
+    ("z. B.", "d.h.", "Nr.", "ca.") werden NICHT gesondert behandelt und koennen
+    einen Satz zu frueh trennen; Dezimalzahlen wie "4.5" sind durch das
+    Whitespace-Lookahead meist geschuetzt. Fuer die grobe Kontext-Ausgabe (Satz
+    +/-1) ist das bewusst ausreichend - es geht um Lesbarkeit, nicht um exakte
+    Linguistik.
+    """
+    spans = []
+    start = 0
+    for m in _SENTENCE_BOUNDARY_RE.finditer(text):
+        end = m.end()
+        if text[start:end].strip():
+            spans.append((start, end))
+        start = end
+    if start < len(text) and text[start:].strip():
+        spans.append((start, len(text)))
+    return spans
+
+
+def mention_contexts(text: str, brand: BrandSpec,
+                     max_contexts: int = 5, max_len: int = 600) -> List[str]:
+    """Fuer jede gezaehlte Nennung von `brand`: Satz mit Nennung +/-1 Satz.
+
+    - Nennungen exakt via _iter_valid_mentions() (= Zaehl-Logik).
+    - Deduplizierung: mehrere Nennungen im selben Satz ergeben denselben Kontext,
+      dieser wird nur einmal ausgegeben.
+    - Maximal `max_contexts` (Default 5) verschiedene Kontexte je Marke.
+    - Jeder Kontext hart auf `max_len` (Default 600) Zeichen begrenzt; beim
+      Abschneiden wird das letzte Zeichen durch "…" ersetzt.
+    """
+    if not text:
+        return []
+    spans = _sentence_spans(text)
+    if not spans:
+        return []
+    contexts: List[str] = []
+    seen = set()
+    for m in _iter_valid_mentions(text, brand):
+        pos = m.start()
+        idx = None
+        for i, (s, e) in enumerate(spans):
+            if s <= pos < e:
+                idx = i
+                break
+        if idx is None:
+            # Nennung faellt (theoretisch) in einen uebersprungenen Whitespace-
+            # Bereich - nimm den naechstgelegenen Satz.
+            idx = min(range(len(spans)), key=lambda i: abs(spans[i][0] - pos))
+        lo = max(0, idx - 1)
+        hi = min(len(spans), idx + 2)
+        ctx = text[spans[lo][0]:spans[hi - 1][1]].strip()
+        if len(ctx) > max_len:
+            ctx = ctx[:max_len - 1].rstrip() + "\u2026"
+        if not ctx or ctx in seen:
+            continue
+        seen.add(ctx)
+        contexts.append(ctx)
+        if len(contexts) >= max_contexts:
+            break
+    return contexts
+
+
+def response_mention_contexts(text: str, brand: BrandSpec,
+                              competitors: List[BrandSpec],
+                              max_contexts: int = 5,
+                              max_len: int = 600) -> Dict[str, List[str]]:
+    """mention_contexts fuer Marke + alle Wettbewerber, aus dem VOLLEN Text.
+
+    Nur Marken mit >=1 Kontext landen im Dict - additiv und sparsam.
+    Rueckgabe passt direkt ins Antwort-Record als "mention_contexts".
+    """
+    out: Dict[str, List[str]] = {}
+    for b in [brand] + list(competitors or []):
+        ctxs = mention_contexts(text, b, max_contexts, max_len)
+        if ctxs:
+            out[b.name] = ctxs
+    return out
 
 
 # ---------------------------------------------------------------------------
