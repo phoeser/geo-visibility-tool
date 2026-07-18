@@ -31,6 +31,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from analyzer.llm_clients import build_clients, LLMResponse  # noqa: E402
 from analyzer.metrics import (  # noqa: E402
     BrandSpec, analyse_response, aggregate_product_metrics,
+    response_mention_contexts,
 )
 from analyzer.web_scraper import scrape_product  # noqa: E402
 from analyzer.impact_analysis import (  # noqa: E402
@@ -297,6 +298,13 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
                     "prompt_text": p["text"],
                     "intent": p.get("intent"),
                     "response_text": (resp.get("text") or "")[:1500],
+                    # 18.07.2026 (A.2 b): Nennungs-Kontexte aus dem VOLLEN Text,
+                    # BEVOR er oben auf 1.500 Zeichen gekuerzt wird. Gleiche
+                    # Matcher-Logik wie die mentions-Zaehlung (metrics.py:
+                    # _iter_valid_mentions). Nur Marken mit >=1 Kontext.
+                    "mention_contexts": response_mention_contexts(
+                        resp.get("text") or "", brand, competitors,
+                    ),
                     "sources": resp["sources"],
                     "error": resp.get("error"),
                     "latency_ms": resp.get("latency_ms"),
