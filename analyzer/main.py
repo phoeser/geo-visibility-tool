@@ -297,7 +297,20 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
                     "prompt_id": p["id"],
                     "prompt_text": p["text"],
                     "intent": p.get("intent"),
-                    "response_text": (resp.get("text") or "")[:1500],
+                    # 20.07.2026: Kappung 1500 -> 20000 Zeichen.
+                    # Grund: Die Metriken entstehen auf dem VOLLEN Text, gespeichert
+                    # wurden aber nur 1.500 Zeichen — 77 % der Antworten waren gekappt.
+                    # Damit war jeder nachtraegliche Backfill der Nennungszahlen
+                    # unmoeglich: Eine Neuberechnung haette nur den Anfang jeder Antwort
+                    # gesehen und die Historie beschaedigt (genau so geschehen am
+                    # 17.07.2026, Commit ca9358f2: Nennungen -40 %, Revert noetig).
+                    # tools/backfill_brand_metrics.py bricht deshalb zu Recht ab.
+                    # Kosten der Umstellung, gerechnet am Lauf vom 17.07. (646 Antworten,
+                    # Medianlaenge ~3.700 Zeichen): rund +1,4 MB je Lauf, also +0,48 GB
+                    # pro Jahr bei taeglichem Crawl. Gemessen an 2,5 GB/Jahr Gesamtvolumen
+                    # ein guter Preis dafuer, dass Methodenaenderungen kuenftig
+                    # rueckwirkend nachrechenbar bleiben.
+                    "response_text": (resp.get("text") or "")[:20000],
                     # 18.07.2026 (A.2 b): Nennungs-Kontexte aus dem VOLLEN Text,
                     # BEVOR er oben auf 1.500 Zeichen gekuerzt wird. Gleiche
                     # Matcher-Logik wie die mentions-Zaehlung (metrics.py:
