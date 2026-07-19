@@ -141,7 +141,17 @@ def classify_diff(
         "contents": [{"role": "user", "parts": [{"text": prompt}]}],
         "generationConfig": {
             "temperature": 0.2,
-            "maxOutputTokens": 400,
+            # 19.07.2026 BUGFIX: gemini-2.5-flash ist ein Thinking-Modell. Die
+            # Thinking-Tokens zaehlen gegen maxOutputTokens — gemessen 382 von 400,
+            # es blieb GENAU 1 Token Ausgabe uebrig ("{"). Ergebnis: finishReason
+            # MAX_TOKENS und {"error": "invalid json", "raw": "{"} bei 1.615 von
+            # 1.682 klassifizierten Events (99,7 % Ausfall, unbemerkt seit der
+            # Umstellung auf 2.5-flash). Fix: Thinking aus (die Aufgabe ist eine
+            # simple Klassifikation, Thinking bringt hier nichts und kostet) und
+            # Budget auf 800 angehoben. Verifiziert gegen die echte API:
+            # vorher out=1 Token, nachher out=109 Token und valides JSON.
+            "thinkingConfig": {"thinkingBudget": 0},
+            "maxOutputTokens": 800,
             "responseMimeType": "application/json",
         },
     }
@@ -153,9 +163,15 @@ def classify_diff(
         data = r.json()
         parts = (((data.get("candidates") or [{}])[0]).get("content") or {}).get("parts") or []
         text = "".join(p.get("text", "") for p in parts)
+        _finish = ((data.get("candidates") or [{}])[0]).get("finishReason")
         parsed = _safe_json_parse(text)
         if not parsed:
-            return {"error": "invalid json", "raw": text[:200]}
+            # Abgeschnittene Antworten klar als solche melden — sonst sieht ein
+            # Token-Limit-Problem wie ein Modell-Formatfehler aus (Ursache des
+            # 99,7-%-Ausfalls, der monatelang unentdeckt blieb).
+            if _finish == "MAX_TOKENS":
+                return {"error": "truncated (MAX_TOKENS)", "raw": text[:200]}
+            return {"error": "invalid json", "raw": text[:200], "finish": _finish}
 
         # Normalisieren / Pflichtfelder absichern
         parsed["type"] = parsed.get("type") or "sonstiges"
