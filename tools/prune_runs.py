@@ -4,8 +4,23 @@
 Rollierendes Aufbewahrungsfenster fuer die Roh-Antworten der eigenen Crawls.
 
 Hintergrund: data/runs/*.json enthaelt je Lauf die vollstaendigen LLM-Antworten
-(Median ~3,2 MB, taeglicher Lauf). Ohne Begrenzung waechst der Auscheckstand um
-gut 1 GB pro Jahr. Aufbewahrt werden die Laeufe der letzten RETENTION_DAYS Tage.
+samt Quellen und Metriken (~7 MB, taeglicher Lauf, ~2,5 GB/Jahr). Aufbewahrt
+werden die Laeufe der letzten RETENTION_DAYS Tage.
+
+WARUM 12 MONATE UND NICHT 6 (Entscheidung 19.07.2026, mit Zahlen belegt):
+  • Die Antworttexte sind nur 13 % eines Laufs (Quellen 20 %, page_tracking 17 %,
+    Metriken 9 %) — an der Aufbewahrungsfrist haengt also weit weniger Volumen,
+    als es zunaechst scheint.
+  • Git behaelt geloeschte Dateien ohnehin in der Historie (siehe unten). Die Frist
+    steuert nur den Auscheckstand, nicht das Repo-Wachstum. Die Ersparnis durch
+    ein kuerzeres Fenster ist damit gering.
+  • Dem steht ein realer Analyse-Verlust gegenueber: Saisonalitaet (Kfz-Wechsel-
+    saison, Jahreswechsel) braucht einen vollen Jahreszyklus, sonst kann das
+    Treibermodell Saison nicht von Wirkung trennen. Und: nach einer Methoden-
+    aenderung rechnet tools/backfill_brand_metrics.py die Metriken ueber ALLE
+    Laeufe neu (so geschehen am 17.07. bei den Zweitdomains). Geloeschte Laeufe
+    sind nicht nachrechenbar — die Frist ist zugleich die Grenze, bis zu der die
+    Zeitreihe nach einer Umstellung noch reparierbar ist.
 
 WICHTIG — was das Skript NICHT leistet: Git behaelt geloeschte Dateien in der
 Historie. Der ausgecheckte Arbeitsstand schrumpft, die Repo-Groesse nicht.
@@ -24,7 +39,7 @@ Sicherungen:
 Aufruf:
     python3 tools/prune_runs.py                 # Bericht, loescht nichts
     python3 tools/prune_runs.py --apply         # loescht wirklich
-    python3 tools/prune_runs.py --days 180 --apply
+    python3 tools/prune_runs.py --days 365 --apply
 """
 import argparse
 import json
@@ -32,7 +47,7 @@ import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-RETENTION_DAYS = 180          # rollierend 6 Monate
+RETENTION_DAYS = 365          # rollierend 12 Monate (Entscheidung Paul, 19.07.2026)
 MIN_KEEP = 30                 # Untergrenze, unabhaengig vom Datum
 RUNS_DIR = Path("data/runs")
 SPECIAL = {"index.json", "latest.json"}
