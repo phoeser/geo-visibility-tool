@@ -3,11 +3,12 @@ name: Analyze Visibility
 # Manuell aus dem GitHub-UI startbar (Actions-Tab -> "Run workflow")
 # UND woechentlich automatisch, Montag 23:10 UTC (siehe schedule unten).
 #
-# 18.07.2026: Von taeglich auf WOECHENTLICH umgestellt (Pauls Entscheidung) - damit
-# derselbe Takt wie beim Peec-Export (Scheduled Task "peec-weekly-export", Mo 07:07).
-# Beide Messquellen decken dann dieselbe Woche ab; das ist Voraussetzung dafuer,
-# sie ueberhaupt sinnvoll gegeneinander zu rechnen (cross_source_validation).
-# Nebeneffekt: Perplexity wieder aktivierbar, ohne dass die Kosten taeglich anfallen.
+# 19.07.2026: Zurueck auf TAEGLICH (Pauls Entscheidung) - Kostenkontrolle laeuft
+# stattdessen ueber die LLM-Intervalle in config.json: Gemini taeglich, ChatGPT an
+# geraden, Perplexity an ungeraden Ordinaltagen (2-taegig alternierend, Aus-Tage per
+# carry_forward). Der Peec-Vergleich bleibt sauber: Peec-Zellen sind ein 30-Tage-
+# Fenster, das Wochen-/Tages-Panel (peec_history_weekly/daily.csv) liegt separat vor.
+# (Zwischenstand 18.07.: einen Tag lang woechentlich Mo 23:10 UTC.)
 #
 # 18.07.2026: Die alte Kommentarzeile behauptete "taeglich um 03:00 UTC, 2h NACH dem
 # Cockpit-Nightly". Beides war falsch - der Cron stand auf "10 23 * * *" und das
@@ -25,12 +26,9 @@ on:
         type: string
         default: ""
   schedule:
-    # WOECHENTLICH: Montag 23:10 UTC = Dienstag 01:10 MESZ (Sommer) / 00:10 MEZ (Winter).
-    # GitHub-Free-Tier verzoegert scheduled Jobs typisch 4-8h - der Lauf ist realistisch
-    # Dienstag zwischen 05:00 und 09:00 MESZ fertig, also vor Buero-Start.
-    # Montag, weil der Peec-Wochen-Export Mo 07:07 lokal laeuft: Beide Quellen decken
-    # damit dieselbe Woche ab.
-    - cron: "10 23 * * 1"
+    # TAEGLICH 23:10 UTC = 01:10 MESZ. GitHub-Free-Tier verzoegert scheduled Jobs
+    # typisch 4-8h - der Lauf ist realistisch morgens vor Buero-Start fertig.
+    - cron: "10 23 * * *"
 
 permissions:
   contents: write
