@@ -67,6 +67,11 @@ MAX_CLASSIFIER_SNIPPET = 6000
 NOISE_SIMILARITY = 0.97
 NOISE_MAX_LINES = 10
 
+# Loeschungs-Erkennung: max. Anzahl verwaister Seiten (frueher getrackt, aber
+# nicht mehr in Sitemap/tracked_urls), die pro Lauf erneut geprueft werden.
+# Aelteste last_seen zuerst; nach einem removed-Event wird nicht mehr angefragt.
+MAX_ORPHAN_RECHECKS = 400
+
 
 # ---------------------------------------------------------------------------
 # Helper
@@ -556,6 +561,58 @@ def track_page(
 # Convenience: run over a full URL-Matrix
 # ---------------------------------------------------------------------------
 
+def _last_event_type(events_path: Path) -> str:
+    """Liefert den event_type des letzten Events in events.jsonl (oder '')."""
+    try:
+        if not events_path.exists():
+            return ""
+        lines = events_path.read_text(encoding="utf-8").strip().splitlines()
+        if not lines:
+            return ""
+        return (json.loads(lines[-1]) or {}).get("event_type", "") or ""
+    except Exception:
+        return ""
+
+
+def collect_orphan_pages(pages_base: Path, active_urls: set) -> List[Tuple[str, List[str], str]]:
+    """
+    Findet frueher getrackte Seiten, die in der aktuellen URL-Liste nicht mehr
+    auftauchen (z.B. aus der Sitemap verschwunden).
+
+    Hintergrund: Ohne erneuten Abruf wuerde eine Loeschung NIE bemerkt — die
+    Seite faellt aus der Sitemap, wird nie wieder angefragt, der 404 wird nie
+    gesehen, "Geloeschte Seiten" bleibt fuer immer leer. Darum werden solche
+    Seiten weiter mitgeprueft, bis sie ein removed-Event haben (danach nicht
+    mehr, damit tote URLs nicht ewig angefragt werden).
+    """
+    if not pages_base.exists():
+        return []
+    orphans: List[Tuple[str, List[str], str, str]] = []
+    seen: set = set()
+    for meta_path in sorted(pages_base.glob("*/*/meta.json")):
+        page_dir = meta_path.parent
+        if not (page_dir / "current.json").exists():
+            continue
+        meta = _read_json(meta_path) or {}
+        url = (meta.get("url") or "").strip()
+        if not url or url in active_urls or url in seen:
+            continue
+        seen.add(url)
+        if _last_event_type(page_dir / "events.jsonl") == "removed":
+            continue
+        brand = meta.get("brand") or page_dir.parent.name
+        pids = list(meta.get("product_ids") or [])
+        orphans.append((brand, pids, url, meta.get("last_seen") or ""))
+    # Aelteste zuerst: laengst nicht mehr gesehene Seiten haben Prioritaet;
+    # noch erreichbare Orphans bekommen ein frisches last_seen und rotieren
+    # dadurch ans Ende.
+    orphans.sort(key=lambda t: t[3])
+    if len(orphans) > MAX_ORPHAN_RECHECKS:
+        print(f"[page_tracker] {len(orphans)} verwaiste Seiten — pruefe nur die aeltesten {MAX_ORPHAN_RECHECKS}")
+        orphans = orphans[:MAX_ORPHAN_RECHECKS]
+    return [(b, p, u) for (b, p, u, _ls) in orphans]
+
+
 def track_all(
     pages_base: Path,
     *,
@@ -585,6 +642,17 @@ def track_all(
             pids = e.get("product_ids") or []
             if url:
                 tasks.append((brand, pids, url))
+
+    # Loeschungs-Erkennung: frueher getrackte Seiten, die nicht mehr in der
+    # aktuellen URL-Liste stehen, weiter abrufen — liefert eine solche Seite
+    # HTTP 404/410, erzeugt track_page das "removed"-Event.
+    try:
+        orphans = collect_orphan_pages(pages_base, {u for (_b, _p, u) in tasks})
+        if orphans:
+            print(f"[page_tracker] {len(orphans)} verwaiste Seiten (nicht mehr in Sitemap/URL-Liste) werden auf Loeschung geprueft")
+            tasks.extend(orphans)
+    except Exception as ex:  # noqa: BLE001
+        print(f"[page_tracker] Orphan-Scan fehlgeschlagen: {ex}")
 
     def _one(brand: str, pids: List[str], url: str) -> Dict:
         return asdict(track_page(
