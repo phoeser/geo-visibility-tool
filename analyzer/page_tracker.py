@@ -70,7 +70,24 @@ NOISE_MAX_LINES = 10
 # Loeschungs-Erkennung: max. Anzahl verwaister Seiten (frueher getrackt, aber
 # nicht mehr in Sitemap/tracked_urls), die pro Lauf erneut geprueft werden.
 # Aelteste last_seen zuerst; nach einem removed-Event wird nicht mehr angefragt.
-MAX_ORPHAN_RECHECKS = 400
+#
+# 20.07.2026 von 400 auf 120 gesenkt — mit Begruendung aus einem echten Fehllauf:
+# Lauf #165 lief in den 5-Stunden-Timeout. Ursachen in dieser Reihenfolge:
+#   1. Markenerweiterung 7 -> 25: der Seiten-Crawl waechst auf 5.793 URLs ueber
+#      24 Marken (vorher rund 3.000).
+#   2. Perplexity lief erstmals mit Guthaben wirklich durch -> LLM-Phase 3h40
+#      statt bisher gut 1,5 h.
+#   3. Diese Orphan-Pruefung legte 400 weitere Abrufe obendrauf — und zwar die
+#      teuersten: verwaiste Seiten sind haeufig tot und laufen in den Timeout.
+# Punkt 3 war der kleinste Beitrag, aber der einzige, der ohne Informationsverlust
+# schrumpfbar ist. Loeschungen sind ein langsames Phaenomen; 120 Seiten pro Lauf
+# arbeiten den Rueckstand in wenigen Tagen ab, weil erfolgreich abgerufene Seiten
+# ein frisches last_seen bekommen und ans Ende der Warteschlange rotieren.
+MAX_ORPHAN_RECHECKS = 120
+
+# Kuerzerer Timeout fuer Orphan-Abrufe: Diese Seiten sind mutmasslich tot, ein
+# voller 30-Sekunden-Timeout je Seite ist hier verschwendete Laufzeit.
+ORPHAN_FETCH_TIMEOUT = 12
 
 
 # ---------------------------------------------------------------------------

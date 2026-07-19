@@ -37,7 +37,14 @@ permissions:
 jobs:
   analyze:
     runs-on: ubuntu-latest
-    timeout-minutes: 300
+    # 20.07.2026: 300 -> 350 Minuten. Lauf #165 lief exakt in den 5-Stunden-Timeout,
+    # nachdem drei Dinge zusammenkamen: Markenerweiterung 7 -> 25 (Seiten-Crawl von
+    # rund 3.000 auf 5.793 URLs), Perplexity lief erstmals mit Guthaben wirklich durch
+    # (LLM-Phase 3h40 statt gut 1,5 h) und die neue Orphan-Pruefung. Erfolgreiche
+    # Laeufe davor brauchten 2,0-2,7 h. GitHub deckelt Jobs bei 6 h — 350 Minuten
+    # lassen Luft, ohne die harte Grenze zu streifen. Reicht das nicht, ist die
+    # Aufteilung in zwei Jobs (LLM / Seiten) der naechste Schritt, nicht mehr Zeit.
+    timeout-minutes: 350
     # FlareSolverr laeuft als Docker-Service, loest Cloudflare-Challenges fuer
     # blockierte Wettbewerber-Seiten (z.B. Allianz). Kostenlos, selbst-gehostet.
     services:
