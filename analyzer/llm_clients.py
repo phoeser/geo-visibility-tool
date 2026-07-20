@@ -90,6 +90,12 @@ def with_retries(func, attempts: int = 3, base_delay: float = 2.0):
             return func()
         except Exception as e:  # noqa: BLE001
             last_err = e
+            # 20.07.2026 Review-Fix: Hier wurde AUCH nach dem letzten Versuch
+            # geschlafen. Bei attempts=3 also 2+4+8 = 14 s je endgueltig
+            # gescheitertem Call statt der im Kommentar behaupteten 6 s — bei einer
+            # toten Engine mal 366 Prompts rund 85 Minuten reine Wartezeit.
+            if i == attempts - 1:
+                break
             delay = base_delay * (2 ** i)
             time.sleep(delay)
     raise last_err  # type: ignore[misc]

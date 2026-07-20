@@ -146,11 +146,23 @@ def parse_sitemap(xml_bytes: bytes) -> Tuple[List[str], List[str]]:
     return sub_sitemaps[:MAX_URLS_PER_SITEMAP], urls[:MAX_URLS_PER_SITEMAP]
 
 
+# 20.07.2026: Prozess-Cache fuer Sitemaps.
+# Grund aus dem Code-Review und zwei Timeout-Laeufen (#165, #166): Die Discovery
+# lief je PRODUKT x MARKE x DOMAIN — bei 11 Produkten und rund 30 Domains also
+# ~330 Sitemap-Abrufe pro Crawl. Die Sitemap einer Domain ist aber fuer alle
+# Produkte dieselbe; nur der Keyword-Filter unterscheidet sich. Einmal je Domain
+# holen und im Prozess behalten reduziert das auf ~30 Abrufe.
+_SITEMAP_CACHE: Dict[str, List[str]] = {}
+
+
 def discover_sitemap_urls(domain: str, max_depth: int = 3) -> List[str]:
     """
     Findet alle URLs, die über Sitemaps der Domain auffindbar sind.
     Verfolgt Sitemap-Indizes bis zu max_depth Ebenen.
     """
+    _ck = (domain or "").strip().lower()
+    if _ck in _SITEMAP_CACHE:
+        return list(_SITEMAP_CACHE[_ck])
     bare = domain.rstrip("/").lstrip(".").lower()
     if bare.startswith("www."):
         host_www = bare
@@ -206,6 +218,7 @@ def discover_sitemap_urls(domain: str, max_depth: int = 3) -> List[str]:
             continue
         seen_u.add(u)
         out.append(u)
+    _SITEMAP_CACHE[_ck] = list(out)
     return out
 
 
@@ -242,11 +255,22 @@ def _extract_links(html: str, base: str, same_domain_only: bool = True) -> List[
     return out
 
 
+# Prozess-Cache fuer den Homepage-Crawl. Er ist der teuerste Teil der Discovery
+# (bis zu MAX_CRAWL_PAGES Seitenabrufe je Aufruf) und lief bisher je Produkt neu,
+# obwohl der besuchte Seitenbestand einer Domain fuer alle Produkte derselbe ist —
+# nur der Keyword-Filter unterscheidet sich. Gecacht wird deshalb die MENGE der
+# gefundenen URLs je Domain; gefiltert wird danach je Produkt.
+_CRAWL_CACHE: Dict[str, List[str]] = {}
+
+
 def discover_homepage_crawl(domain: str, keyword_regex: re.Pattern, max_pages: int = MAX_CRAWL_PAGES) -> List[str]:
     """
     Fallback, wenn keine sitemap.xml existiert oder sie blockiert ist.
     2-Hop-Crawl: Startseite + gaengige Rubriken als Seeds, dann ein Hop tiefer.
     """
+    _ck = (domain or "").strip().lower()
+    if _ck in _CRAWL_CACHE:
+        return [u for u in _CRAWL_CACHE[_ck] if keyword_regex.search(u)]
     bare = domain.rstrip("/").lstrip(".").lower()
     host_www = bare if bare.startswith("www.") else "www." + bare
     host_bare = bare[4:] if bare.startswith("www.") else bare
@@ -297,6 +321,10 @@ def discover_homepage_crawl(domain: str, keyword_regex: re.Pattern, max_pages: i
     queue: List[Tuple[str, int]] = [(u, 0) for u in seeds]
     seen: Set[str] = set()
     matches: List[str] = []
+    # Alle besuchten Links, NICHT keyword-gefiltert. Nur diese Menge darf in den
+    # Domain-Cache: Der Filter unterscheidet sich je Produkt, ein gefiltertes
+    # Ergebnis wuerde spaeteren Produkten stillschweigend URLs vorenthalten.
+    _all_links: List[str] = []
 
     while queue and len(seen) < max_pages:
         url, depth = queue.pop(0)
@@ -307,6 +335,7 @@ def discover_homepage_crawl(domain: str, keyword_regex: re.Pattern, max_pages: i
         if not html:
             continue
         for link in _extract_links(html, url, same_domain_only=True):
+            _all_links.append(link)   # ungefiltert fuer den Domain-Cache
             if keyword_regex.search(link):
                 matches.append(link)
             # 2-Hop: Seed-Links (depth 0) und einen weiteren Hop (depth 1) verfolgen
@@ -321,6 +350,13 @@ def discover_homepage_crawl(domain: str, keyword_regex: re.Pattern, max_pages: i
             continue
         seen_m.add(u)
         out.append(u)
+    _seen_all: Set[str] = set()
+    _all_dedup: List[str] = []
+    for u in _all_links:
+        if u not in _seen_all:
+            _seen_all.add(u)
+            _all_dedup.append(u)
+    _CRAWL_CACHE.setdefault(_ck, _all_dedup)
     return out
 
 

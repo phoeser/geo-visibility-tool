@@ -85,8 +85,12 @@ NOISE_MAX_LINES = 10
 # ein frisches last_seen bekommen und ans Ende der Warteschlange rotieren.
 MAX_ORPHAN_RECHECKS = 120
 
-# Kuerzerer Timeout fuer Orphan-Abrufe: Diese Seiten sind mutmasslich tot, ein
-# voller 30-Sekunden-Timeout je Seite ist hier verschwendete Laufzeit.
+# Kuerzerer Timeout fuer Orphan-Abrufe. 20.07.2026 Review-Fix: Die Konstante war
+# TOTER CODE — track_page ruft _fetch(url) ohne Timeout-Argument, also mit dem
+# Default von 30 s, und collect_orphan_pages reicht die Orphan-Eigenschaft gar nicht
+# weiter. Die Haelfte der Laufzeit-Massnahme aus Lauf #165 war damit unwirksam,
+# waehrend die Doku sie als umgesetzt fuehrte. Jetzt tatsaechlich verdrahtet:
+# track_all markiert Orphans, track_page nutzt den kuerzeren Timeout.
 ORPHAN_FETCH_TIMEOUT = 12
 
 
@@ -347,7 +351,7 @@ def _fetch(url: str, timeout: int = 30) -> Tuple[int, str, Optional[str]]:
             # Fallback via ScrapingBee, wenn API-Key verfuegbar
             if scraping_api.api_key_available():
                 bee_status, bee_final, bee_html = scraping_api.fetch_via_api(
-                    url, render_js=False, premium_proxy=True
+                    url, render_js=False, premium=True
                 )
                 if bee_status == 200 and bee_html and not scraping_api.looks_like_cloudflare_challenge(bee_html):
                     print(f"[SCRAPINGBEE] {url}: OK via Fallback")
@@ -355,7 +359,7 @@ def _fetch(url: str, timeout: int = 30) -> Tuple[int, str, Optional[str]]:
                 # 2. Versuch mit JS-Rendering wenn statisch nicht reicht
                 if bee_status != 200:
                     bee_status, bee_final, bee_html = scraping_api.fetch_via_api(
-                        url, render_js=True, premium_proxy=True
+                        url, render_js=True, premium=True
                     )
                     if bee_status == 200 and bee_html:
                         print(f"[SCRAPINGBEE] {url}: OK via Fallback+render_js")
@@ -398,6 +402,7 @@ def track_page(
     rate_limiter: DomainRateLimiter,
     robots: RobotsCache,
     classifier=None,
+    is_orphan: bool = False,
 ) -> TrackResult:
     """
     Holt eine einzelne URL, vergleicht mit dem letzten Stand, schreibt
@@ -413,7 +418,7 @@ def track_page(
         return result
 
     rate_limiter.wait(url)
-    status, final_url, html = _fetch(url)
+    status, final_url, html = _fetch(url, timeout=(ORPHAN_FETCH_TIMEOUT if is_orphan else 30))
     result.status = status
 
     # 404 / 410 / Server-Errors explizit behandeln
@@ -658,25 +663,25 @@ def track_all(
             url = e.get("url") or ""
             pids = e.get("product_ids") or []
             if url:
-                tasks.append((brand, pids, url))
+                tasks.append((brand, pids, url, False))
 
     # Loeschungs-Erkennung: frueher getrackte Seiten, die nicht mehr in der
     # aktuellen URL-Liste stehen, weiter abrufen — liefert eine solche Seite
     # HTTP 404/410, erzeugt track_page das "removed"-Event.
     try:
-        orphans = collect_orphan_pages(pages_base, {u for (_b, _p, u) in tasks})
+        orphans = collect_orphan_pages(pages_base, {t[2] for t in tasks})
         if orphans:
             print(f"[page_tracker] {len(orphans)} verwaiste Seiten (nicht mehr in Sitemap/URL-Liste) werden auf Loeschung geprueft")
-            tasks.extend(orphans)
+            tasks.extend([(b, p, u, True) for (b, p, u) in orphans])
     except Exception as ex:  # noqa: BLE001
         print(f"[page_tracker] Orphan-Scan fehlgeschlagen: {ex}")
 
-    def _one(brand: str, pids: List[str], url: str) -> Dict:
+    def _one(brand: str, pids: List[str], url: str, is_orphan: bool = False) -> Dict:
         return asdict(track_page(
             pages_base, brand, pids, url,
             timestamp=timestamp, run_id=run_id,
             rate_limiter=rate, robots=robots,
-            classifier=classifier,
+            classifier=classifier, is_orphan=is_orphan,
         ))
 
     out: List[Dict] = []
@@ -685,11 +690,11 @@ def track_all(
     # verschiedene Domains laufen gleichzeitig -> statt Stunden nur Minuten.
     workers = max(1, int(max_workers))
     if workers == 1 or len(tasks) <= 1:
-        for (brand, pids, url) in tasks:
-            out.append(_one(brand, pids, url))
+        for (brand, pids, url, orph) in tasks:
+            out.append(_one(brand, pids, url, orph))
         return out
     with ThreadPoolExecutor(max_workers=workers) as pool:
-        futs = [pool.submit(_one, b, p, u) for (b, p, u) in tasks]
+        futs = [pool.submit(_one, b, p, u, o) for (b, p, u, o) in tasks]
         for f in as_completed(futs):
             try:
                 out.append(f.result())
