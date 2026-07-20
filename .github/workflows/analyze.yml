@@ -30,6 +30,17 @@ on:
     # typisch 4-8h - der Lauf ist realistisch morgens vor Buero-Start fertig.
     - cron: "10 23 * * *"
 
+# 20.07.2026: Concurrency-Schutz ergaenzt. Der Workflow hatte keinen — startet ein
+# geplanter Lauf, waehrend ein manuell angestossener noch laeuft, schreiben beide in
+# data/runs und beide committen. Der zweite Commit scheitert dann am Fast-Forward
+# (so ist Lauf #415 gestorben). Relevant vor allem, weil GitHub geplante Jobs im
+# Free-Tier typisch 4-8 h verzoegert — man weiss also nie genau, wann der Nachtlauf
+# wirklich startet. cancel-in-progress: false, weil ein halb abgebrochener Crawl
+# schlimmer ist als ein wartender.
+concurrency:
+  group: geo-analyze
+  cancel-in-progress: false
+
 permissions:
   contents: write
   pages: write
