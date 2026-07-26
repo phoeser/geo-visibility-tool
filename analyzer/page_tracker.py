@@ -95,6 +95,78 @@ ORPHAN_FETCH_TIMEOUT = 12
 
 
 # ---------------------------------------------------------------------------
+# Crawl-Fix (26.07.2026): Sperrliste dauerhaft blockierter URLs
+# ---------------------------------------------------------------------------
+# URLs, die auch nach dem FlareSolverr-Fallback blockiert bleiben (403/429/5xx
+# oder Timeout), werden mit Zeitstempel vermerkt und BLOCK_COOLDOWN_DAYS lang gar
+# nicht mehr angefragt. Einzige Massnahme, die den Aufwand dauerhaft SENKT statt
+# ihn nur zu deckeln: ab dem zweiten Lauf kosten dieselben toten URLs 0 s.
+# Persistenz in data/blocked_urls.json (relativ zu pages_base.parent), wird vom
+# Workflow mitcommittet. 404/410 sind bewusst NICHT dabei - die laufen weiter in
+# die Loeschungs-Erkennung (removed-Event).
+BLOCK_LIST_FILE = Path("data/blocked_urls.json")
+BLOCK_COOLDOWN_DAYS = 7
+BLOCK_COOLDOWN_SECONDS = BLOCK_COOLDOWN_DAYS * 24 * 3600
+_BLOCK_STATUSES = {0, 401, 402, 403, 407, 429, 502, 503, 504}
+
+_block_lock = threading.Lock()
+_block_list: Dict[str, float] = {}
+
+
+def load_block_list(path: Path = BLOCK_LIST_FILE) -> None:
+    """Sperrliste aus JSON in den Modul-Speicher laden. Fehlt/kaputt -> leer."""
+    global _block_list
+    loaded: Dict[str, float] = {}
+    try:
+        if path.exists():
+            raw = json.loads(path.read_text(encoding="utf-8"))
+            for u, ts in (raw or {}).items():
+                try:
+                    loaded[u] = float(ts)
+                except (TypeError, ValueError):
+                    continue
+    except Exception as ex:  # noqa: BLE001
+        print(f"[BLOCKLIST] Laden fehlgeschlagen: {ex}")
+        loaded = {}
+    with _block_lock:
+        _block_list = loaded
+    print(f"[BLOCKLIST] {len(loaded)} URL(s) auf Sperrliste geladen.")
+
+
+def save_block_list(path: Path = BLOCK_LIST_FILE) -> None:
+    """Sperrliste schreiben; Eintraege aelter als der Cooldown fallen raus."""
+    now = time.time()
+    with _block_lock:
+        keep = {u: ts for u, ts in _block_list.items()
+                if now - ts < BLOCK_COOLDOWN_SECONDS}
+        _block_list.clear()
+        _block_list.update(keep)
+        snapshot = dict(keep)
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2,
+                                   sort_keys=True), encoding="utf-8")
+        print(f"[BLOCKLIST] {len(snapshot)} URL(s) geschrieben -> {path}")
+    except Exception as ex:  # noqa: BLE001
+        print(f"[BLOCKLIST] Schreiben fehlgeschlagen: {ex}")
+
+
+def is_url_blocked(url: str, now: Optional[float] = None) -> bool:
+    """True, wenn die URL innerhalb des Cooldowns gesperrt ist."""
+    now = time.time() if now is None else now
+    with _block_lock:
+        ts = _block_list.get(url)
+    return ts is not None and (now - ts) < BLOCK_COOLDOWN_SECONDS
+
+
+def mark_url_blocked(url: str, now: Optional[float] = None) -> None:
+    """URL als blockiert vermerken (Cooldown startet ab jetzt)."""
+    now = time.time() if now is None else now
+    with _block_lock:
+        _block_list[url] = now
+
+
+# ---------------------------------------------------------------------------
 # Helper
 # ---------------------------------------------------------------------------
 
@@ -356,14 +428,9 @@ def _fetch(url: str, timeout: int = 30) -> Tuple[int, str, Optional[str]]:
                 if bee_status == 200 and bee_html and not scraping_api.looks_like_cloudflare_challenge(bee_html):
                     print(f"[SCRAPINGBEE] {url}: OK via Fallback")
                     return 200, bee_final or url, bee_html
-                # 2. Versuch mit JS-Rendering wenn statisch nicht reicht
-                if bee_status != 200:
-                    bee_status, bee_final, bee_html = scraping_api.fetch_via_api(
-                        url, render_js=True, premium=True
-                    )
-                    if bee_status == 200 and bee_html:
-                        print(f"[SCRAPINGBEE] {url}: OK via Fallback+render_js")
-                        return 200, bee_final or url, bee_html
+                # 26.07.2026: 2. Versuch mit render_js=True gestrichen - er verdoppelte
+                # den Worst Case und half praktisch nie (das Hindernis ist die Challenge,
+                # nicht das Rendering).
                 print(f"[SCRAPINGBEE] {url}: Fallback fehlgeschlagen (status {bee_status})")
             else:
                 print(f"[FETCH] {url}: {status} - kein ScrapingBee-Key, ueberspringe")
@@ -380,13 +447,7 @@ def _fetch(url: str, timeout: int = 30) -> Tuple[int, str, Optional[str]]:
                 if bee_status == 200 and bee_html and not scraping_api.looks_like_cloudflare_challenge(bee_html):
                     print(f"[FLARESOLVERR] {url}: OK trotz Connection-Exception")
                     return 200, bee_final or url, bee_html
-                # 2. Versuch mit JS-Rendering
-                bee_status, bee_final, bee_html = scraping_api.fetch_via_api(
-                    url, render_js=True, premium=True
-                )
-                if bee_status == 200 and bee_html:
-                    print(f"[FLARESOLVERR] {url}: OK via render_js trotz Connection-Exception")
-                    return 200, bee_final or url, bee_html
+                # 26.07.2026: 2. render_js-Versuch gestrichen (siehe _fetch success-Pfad).
             except Exception as e2:
                 print(f"[FLARESOLVERR] {url}: Fallback-Exception: {e2}")
         return 0, url, None
@@ -417,9 +478,19 @@ def track_page(
         result.error = "robots.txt disallow"
         return result
 
+    if is_url_blocked(url):
+        result.error = "blocked (Sperrliste, Cooldown aktiv)"
+        return result
+
     rate_limiter.wait(url)
     status, final_url, html = _fetch(url, timeout=(ORPHAN_FETCH_TIMEOUT if is_orphan else 30))
     result.status = status
+
+    # Crawl-Fix 26.07.2026: bleibt die URL nach dem Fallback blockiert (403/429/5xx
+    # oder Timeout=0), auf die Sperrliste - 404/410 nicht, die gehen in die
+    # Loeschungs-Erkennung.
+    if status in _BLOCK_STATUSES:
+        mark_url_blocked(url)
 
     # 404 / 410 / Server-Errors explizit behandeln
     if status in (0, 404, 410):
@@ -657,6 +728,8 @@ def track_all(
     """
     rate = DomainRateLimiter()
     robots = RobotsCache(respect=respect_robots_txt)
+    block_path = pages_base.parent / BLOCK_LIST_FILE.name
+    load_block_list(block_path)
     tasks: List[Tuple[str, List[str], str]] = []
     for brand, entries in brand_urls.items():
         for e in entries:
@@ -692,6 +765,7 @@ def track_all(
     if workers == 1 or len(tasks) <= 1:
         for (brand, pids, url, orph) in tasks:
             out.append(_one(brand, pids, url, orph))
+        save_block_list(block_path)
         return out
     with ThreadPoolExecutor(max_workers=workers) as pool:
         futs = [pool.submit(_one, b, p, u, o) for (b, p, u, o) in tasks]
@@ -700,4 +774,5 @@ def track_all(
                 out.append(f.result())
             except Exception as ex:  # noqa: BLE001
                 out.append({"error": str(ex)[:200]})
+    save_block_list(block_path)
     return out

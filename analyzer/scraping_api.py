@@ -23,7 +23,10 @@ from typing import Optional, Tuple
 import requests
 
 DEFAULT_URL = "http://localhost:8191/v1"
-FETCH_TIMEOUT = 80  # FlareSolverr braucht bis ~60s fuer Challenge-Loesung
+FETCH_TIMEOUT = 35  # 26.07.2026: 80->35. FlareSolverr ist EIN Container, alle
+# Worker stehen dort in einer Schlange; loesbare Challenges sind laut Log nach
+# 3-10 s durch. maxTimeout unten entsprechend auf 30 s gesenkt, damit FlareSolverr
+# vor dem HTTP-Timeout aufgibt statt der Client die Verbindung hart abzuschneiden.
 
 
 def api_key_available() -> bool:
@@ -46,7 +49,7 @@ def fetch_via_api(url: str, *, render_js: bool = False,
     payload = {
         "cmd": "request.get",
         "url": url,
-        "maxTimeout": 60000,
+        "maxTimeout": 30000,
     }
     try:
         r = requests.post(endpoint, json=payload, timeout=FETCH_TIMEOUT)
