@@ -47,6 +47,43 @@ def _build_pattern(aliases: List[str]) -> re.Pattern:
 
 
 # ---------------------------------------------------------------------------
+# E1 (26.07.2026): Domain-Aliase und URL-Treffer aus der TEXT-Nennung ausschliessen
+# ---------------------------------------------------------------------------
+# Zwei getrennte Ursachen, zwei getrennte Filter:
+#  1. config.json fuehrt je Marke eine Domain-Form als Alias ("ergo.de", "huk.de").
+#     Die zaehlte bisher als Textnennung mit - eine Domain im Fliesstext ist aber
+#     ein Quellenverweis, keine Markennennung. _text_aliases() nimmt sie raus.
+#  2. Der Alias-Filter allein reicht nicht: der blanke Alias "ergo" matcht per
+#     Wortgrenze auch INNERHALB von "www.ergo.de/..." (die Grenze bricht am Punkt).
+#     _URL_RE erkennt URLs und blanke Domains; Treffer in solchen Spans werden
+#     verworfen.
+# Die Zitat-Zuordnung laeuft unveraendert getrennt ueber cited_brand()/domain/
+# extra_domains - dieser Filter beruehrt sie nicht.
+
+_URL_RE = re.compile(
+    r"(?:https?://|www\.)[^\s<>()\[\]\"']+"
+    r"|(?:[A-Za-z0-9](?:[A-Za-z0-9\-]*[A-Za-z0-9])?\.)+[A-Za-z]{2,}(?:/[^\s<>()\[\]\"']*)?",
+    re.IGNORECASE,
+)
+
+
+def _text_aliases(aliases: List[str]) -> List[str]:
+    """Aliase fuer die TEXT-Nennungszaehlung: Domain-artige Aliase (mit '.')
+    fliegen raus. 'ergo.de' ist ein Quellenverweis, keine Markennennung; die
+    Domain-Zuordnung fuer Zitate laeuft getrennt ueber cited_brand()."""
+    return [a for a in aliases if "." not in a]
+
+
+def _url_spans(text: str):
+    """(start, end)-Spans aller URLs/blanken Domains im Text."""
+    return [(m.start(), m.end()) for m in _URL_RE.finditer(text)]
+
+
+def _pos_in_spans(pos: int, spans) -> bool:
+    return any(s <= pos < e for s, e in spans)
+
+
+# ---------------------------------------------------------------------------
 # 1a) Disambiguation: ambige Markennamen vs. gleichlautende Allgemeinwoerter
 # ---------------------------------------------------------------------------
 # "ergo" (Marke) vs. "ergo" (lat. Adverb = also/folglich).
@@ -167,8 +204,14 @@ def _iter_valid_mentions(text: str, brand: BrandSpec):
     """
     if not text:
         return
-    pat = _build_pattern(brand.aliases)
+    text_aliases = _text_aliases(brand.aliases)
+    if not text_aliases:
+        return
+    pat = _build_pattern(text_aliases)
+    url_spans = _url_spans(text)
     for m in pat.finditer(text):
+        if _pos_in_spans(m.start(), url_spans):
+            continue  # E1: Treffer steckt in einer URL/Domain -> keine Textnennung
         if _is_ambiguous_false_positive(text, m.start(), m.end(), m.group(0)):
             continue
         yield m
@@ -295,7 +338,10 @@ LIST_LINE_RE = re.compile(
 def first_rank(text: str, brand: BrandSpec) -> Optional[int]:
     if not text:
         return None
-    pat = _build_pattern(brand.aliases)
+    text_aliases = _text_aliases(brand.aliases)
+    if not text_aliases:
+        return None
+    pat = _build_pattern(text_aliases)
     items = list(LIST_LINE_RE.finditer(text))
     if not items:
         return None
@@ -303,7 +349,10 @@ def first_rank(text: str, brand: BrandSpec) -> Optional[int]:
         body = match.group("body")
         if pat.search(body):
             # Bei ambigem Marken-Token: gleicher Filter wie bei count_mentions
+            url_spans = _url_spans(body)
             for sub in pat.finditer(body):
+                if _pos_in_spans(sub.start(), url_spans):
+                    continue  # E1: Treffer in URL/Domain zaehlt nicht als Rang
                 if _is_ambiguous_false_positive(body, sub.start(), sub.end(), sub.group(0)):
                     continue
                 num = match.group("num")
