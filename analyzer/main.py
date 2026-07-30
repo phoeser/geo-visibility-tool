@@ -379,6 +379,32 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
 
     prev_path = previous_run_file(RUNS_DIR, current_file)
     prev_run = load_run(prev_path) if prev_path else None
+
+    # 26.07.2026: Guthaben-/Abruf-Ausfall wie einen geplanten Aus-Tag behandeln.
+    # Ein LLM, das an diesem Tag lief, aber ueber ALLE Marken 0 Nennungen lieferte
+    # (z.B. Perplexity mit leerem API-Guthaben), traegt sonst lauter Nullen in die
+    # Aggregation. Die relative SoV bleibt zwar unverzerrt (0 bei allen Marken),
+    # aber die absolute Sichtbarkeit bricht kuenstlich ein und der grounded-Aggregat
+    # verwaessert. Statt die Nullen einzurechnen, wird der letzte gueltige Wert aus
+    # dem Vortag fortgeschrieben — dieselbe Logik wie beim Kosten-Intervall.
+    # Erkennung identisch zu scripts/pipeline_health.py (broken_llms).
+    _broken_llms = []
+    for _prod in (run_dict.get("products") or {}).values():
+        for _llm, _s in (_prod.get("summary_by_llm") or {}).items():
+            _brands = _s.get("brands") or []
+            if _brands and not any((b.get("mentions") or 0) > 0 for b in _brands):
+                if _llm not in _broken_llms and _llm not in _skipped_llms:
+                    _broken_llms.append(_llm)
+    for _lid in _broken_llms:
+        _cf = _carry_forward_llm(run_dict, prev_run, _lid)
+        if _cf:
+            print("[BROKEN] %s lieferte 0 Nennungen (Guthaben/Abruf?) — %d Produkte "
+                  "aus Vortags-Lauf uebernommen statt Nullen einzurechnen." % (_lid, _cf))
+        else:
+            print("[BROKEN] %s lieferte 0 Nennungen, aber auch der Vortag hatte keine "
+                  "Daten — nichts fortzuschreiben." % _lid)
+    if _broken_llms:
+        run_dict.setdefault("data_quality", {})["carried_forward_broken"] = _broken_llms
     for _lid in _skipped_llms:
         _cf = _carry_forward_llm(run_dict, prev_run, _lid)
         print("[COST] %s aus Vortags-Lauf uebernommen: %d Produkte" % (_lid, _cf))
