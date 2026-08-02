@@ -762,6 +762,40 @@ def collect_orphan_pages(pages_base: Path, active_urls: set) -> List[Tuple[str, 
     return [(b, p, u) for (b, p, u, _ls) in orphans]
 
 
+def write_page_dates(pages_base: Path) -> None:
+    """Konsolidiert Publikations-/Aenderungsdaten aller getrackten Seiten in EINE
+    Datei data/page_dates.json: {url: {published, modified, first_seen, last_seen,
+    brand, product_ids}}. Zweck: das Cockpit joint die echten Veroeffentlichungs-
+    daten gegen page_new/change-Events, ohne tausende meta.json zu lesen —
+    Grundlage der retrospektiven Neue-Seiten-Auswertung (02.08.2026)."""
+    out: Dict[str, dict] = {}
+    try:
+        for meta_path in sorted(pages_base.glob("*/*/meta.json")):
+            meta = _read_json(meta_path) or {}
+            url = (meta.get("url") or "").strip()
+            if not url:
+                continue
+            out[url] = {
+                "published": meta.get("page_published"),
+                "modified": meta.get("page_modified"),
+                "first_seen": meta.get("first_seen"),
+                "last_seen": meta.get("last_seen"),
+                "brand": meta.get("brand"),
+                "product_ids": meta.get("product_ids") or [],
+            }
+    except Exception as ex:  # noqa: BLE001
+        print(f"[page_dates] Scan fehlgeschlagen: {ex}")
+        return
+    try:
+        dst = pages_base.parent / "page_dates.json"
+        dst.write_text(json.dumps(out, ensure_ascii=False, indent=2, sort_keys=True),
+                       encoding="utf-8")
+        _npub = sum(1 for v in out.values() if v.get("published") or v.get("modified"))
+        print(f"[page_dates] {len(out)} Seiten geschrieben ({_npub} mit Datum) -> {dst}")
+    except Exception as ex:  # noqa: BLE001
+        print(f"[page_dates] Schreiben fehlgeschlagen: {ex}")
+
+
 def track_all(
     pages_base: Path,
     *,
@@ -822,6 +856,7 @@ def track_all(
         for (brand, pids, url, orph) in tasks:
             out.append(_one(brand, pids, url, orph))
         save_block_list(block_path)
+        write_page_dates(pages_base)
         return out
     with ThreadPoolExecutor(max_workers=workers) as pool:
         futs = [pool.submit(_one, b, p, u, o) for (b, p, u, o) in tasks]
@@ -831,4 +866,5 @@ def track_all(
             except Exception as ex:  # noqa: BLE001
                 out.append({"error": str(ex)[:200]})
     save_block_list(block_path)
+    write_page_dates(pages_base)
     return out
