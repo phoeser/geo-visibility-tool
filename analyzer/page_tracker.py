@@ -210,6 +210,52 @@ def _extract_text(html: str) -> str:
     return text
 
 
+def _extract_content_dates(html: str) -> Dict[str, Optional[str]]:
+    """Veroeffentlichungs-/Aenderungsdatum aus dem Roh-HTML ziehen (02.08.2026):
+    schema.org JSON-LD (datePublished/dateModified), OpenGraph
+    (article:published_time/modified_time), gaengige <meta>/<time>. Liefert ISO-
+    Datum (YYYY-MM-DD) oder None. Zweck: 'echt neue/aktualisierte Seite' von
+    'unser Crawler hat die URL erstmals gesehen' trennen — Grundlage der
+    retrospektiven Wirkungs-Auswertung neuer Seiten."""
+    if not html:
+        return {"published": None, "modified": None}
+    pub = mod = None
+
+    def _norm(s):
+        if not s:
+            return None
+        m = re.search(r"(\d{4}-\d{2}-\d{2})", str(s))
+        return m.group(1) if m else None
+
+    for m in re.finditer(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>', html, re.S | re.I):
+        try:
+            data = json.loads(m.group(1).strip())
+        except Exception:
+            continue
+        stack = [data]
+        while stack:
+            o = stack.pop()
+            if isinstance(o, dict):
+                if not pub:
+                    pub = _norm(o.get("datePublished") or o.get("dateCreated"))
+                if not mod:
+                    mod = _norm(o.get("dateModified"))
+                stack.extend(v for v in o.values() if isinstance(v, (dict, list)))
+            elif isinstance(o, list):
+                stack.extend(o)
+    if not pub:
+        m = re.search(r'<meta[^>]+(?:property|name|itemprop)=["\'](?:article:published_time|datePublished|date)["\'][^>]+content=["\']([^"\']+)', html, re.I)
+        pub = _norm(m.group(1)) if m else pub
+    if not mod:
+        m = re.search(r'<meta[^>]+(?:property|name|itemprop)=["\'](?:article:modified_time|dateModified|og:updated_time)["\'][^>]+content=["\']([^"\']+)', html, re.I)
+        mod = _norm(m.group(1)) if m else mod
+    if not (pub or mod):
+        m = re.search(r'<time[^>]+datetime=["\']([^"\']+)', html, re.I)
+        if m:
+            pub = _norm(m.group(1))
+    return {"published": pub, "modified": mod}
+
+
 # ---------------------------------------------------------------------------
 # Rate-Limiter (domain-scoped)
 # ---------------------------------------------------------------------------
@@ -535,6 +581,8 @@ def track_page(
         result.error = "empty text after extract"
         return result
 
+    _dates = _extract_content_dates(html)
+
     page_dir = _page_dir(pages_base, brand, url)
     meta_path = page_dir / "meta.json"
     current_path = page_dir / "current.json"
@@ -564,6 +612,10 @@ def track_page(
     pids.update(product_ids)
     meta["product_ids"] = sorted(pids)
     meta["last_seen"] = timestamp
+    if _dates.get("published"):
+        meta["page_published"] = meta.get("page_published") or _dates["published"]
+    if _dates.get("modified"):
+        meta["page_modified"] = _dates["modified"]
     _write_json(meta_path, meta)
 
     # current.json immer aktualisieren (überschreibt)
@@ -595,6 +647,8 @@ def track_page(
             "removed_lines": [],
             "summary": result.summary,
             "classification": None,
+            "page_published": _dates.get("published"),
+            "page_modified": _dates.get("modified"),
         }
         _append_jsonl(events_path, event)
         return result
@@ -645,6 +699,8 @@ def track_page(
         "removed_lines": removed,
         "summary": result.summary,
         "classification": classification,
+        "page_published": _dates.get("published"),
+        "page_modified": _dates.get("modified") or _dates.get("published"),
     }
     _append_jsonl(events_path, event)
     return result
