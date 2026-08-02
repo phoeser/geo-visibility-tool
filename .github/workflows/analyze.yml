@@ -165,7 +165,7 @@ jobs:
           git config --global user.email "geo-bot@users.noreply.github.com"
 
           # Stage nur die Daten-Verzeichnisse die wir schreiben
-          git add -A data/runs data/snapshots data/pages data/correlation.json data/unified_correlation.json data/blocked_urls.json 2>/dev/null || true
+          git add -A data/runs data/snapshots data/pages data/correlation.json data/unified_correlation.json data/blocked_urls.json data/page_dates.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "Keine Aenderungen zum Committen."
             exit 0
@@ -193,7 +193,7 @@ jobs:
                 echo "Cherry-pick mit -X theirs scheitert - abort"
                 git cherry-pick --abort 2>/dev/null || true
                 # Fallback: erneut aus workspace adden (unsere data ist noch im workspace)
-                git add -A data/runs data/snapshots data/pages data/correlation.json data/unified_correlation.json data/blocked_urls.json 2>/dev/null || true
+                git add -A data/runs data/snapshots data/pages data/correlation.json data/unified_correlation.json data/blocked_urls.json data/page_dates.json 2>/dev/null || true
                 if git diff --cached --quiet; then
                   echo "Nichts zu committen nach reset"
                   exit 0
@@ -235,3 +235,4 @@ jobs:
             -H "X-GitHub-Api-Version: 2022-11-28" \
             "https://api.github.com/repos/${{ github.repository }}/pages/builds" \
             || echo "Pages-Rebuild-Trigger fehlgeschlagen (nicht fatal)"
+
