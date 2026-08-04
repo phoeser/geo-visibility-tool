@@ -257,6 +257,43 @@ def _extract_content_dates(html: str) -> Dict[str, Optional[str]]:
 
 
 # ---------------------------------------------------------------------------
+# Sitemap-<lastmod> (04.08.2026)
+#
+# Quelle: analyzer/sitemap_discovery.py sammelt beim ohnehin stattfindenden
+# Sitemap-Abruf je URL das <lastmod> ein. main.py reicht diesen Index hier
+# herein. Es entstehen dadurch KEINE zusaetzlichen HTTP-Abrufe und es aendert
+# sich nichts an Auswahl, Reihenfolge oder Zahl der gecrawlten Seiten.
+#
+# SEMANTIK (der wichtige Teil):
+#   published        = gemessen, aus dem Seiten-HTML (schema.org/OG/<time>)
+#   sitemap_lastmod  = gemessen, aber ANDERE Groesse: letzte Aenderung laut
+#                      Sitemap, NICHT das Veroeffentlichungsdatum.
+#   published_obergrenze = geschaetzt. Nur gesetzt, wenn published fehlt. Es gilt
+#                      lediglich "veroeffentlicht <= lastmod", weil eine Seite
+#                      nicht nach ihrer letzten Aenderung entstanden sein kann.
+# sitemap_lastmod ueberschreibt published nie und wird nie als published
+# ausgegeben.
+# ---------------------------------------------------------------------------
+
+# Feldnamen in meta.json (Praefix "page_" analog zu page_published/page_modified)
+META_SITEMAP_LASTMOD = "page_sitemap_lastmod"
+META_SITEMAP_LASTMOD_SEEN = "page_sitemap_lastmod_gesehen_am"
+
+
+def _sitemap_lastmod_for(url: str, index: Optional[Dict[str, dict]]) -> Optional[dict]:
+    """Sucht den Sitemap-Eintrag zu einer getrackten URL. Sitemap- und
+    Config-Schreibweise unterscheiden sich haeufig (www., Trailing-Slash,
+    http/https), deshalb ueber den normalisierten Schluessel."""
+    if not index or not url:
+        return None
+    try:
+        from analyzer.sitemap_discovery import normalize_url_key
+        return index.get(normalize_url_key(url))
+    except Exception:  # noqa: BLE001
+        return None
+
+
+# ---------------------------------------------------------------------------
 # Rate-Limiter (domain-scoped)
 # ---------------------------------------------------------------------------
 
@@ -510,6 +547,7 @@ def track_page(
     robots: RobotsCache,
     classifier=None,
     is_orphan: bool = False,
+    sitemap_lastmod: Optional[dict] = None,
 ) -> TrackResult:
     """
     Holt eine einzelne URL, vergleicht mit dem letzten Stand, schreibt
@@ -616,6 +654,11 @@ def track_page(
         meta["page_published"] = meta.get("page_published") or _dates["published"]
     if _dates.get("modified"):
         meta["page_modified"] = _dates["modified"]
+    # Sitemap-<lastmod>: eigenes Feld, ueberschreibt page_published NICHT.
+    # Wie page_modified wird der jeweils aktuellste Wert gehalten.
+    if sitemap_lastmod and sitemap_lastmod.get("sitemap_lastmod"):
+        meta[META_SITEMAP_LASTMOD] = sitemap_lastmod["sitemap_lastmod"]
+        meta[META_SITEMAP_LASTMOD_SEEN] = sitemap_lastmod.get("sitemap_lastmod_gesehen_am")
     _write_json(meta_path, meta)
 
     # current.json immer aktualisieren (überschreibt)
@@ -762,12 +805,83 @@ def collect_orphan_pages(pages_base: Path, active_urls: set) -> List[Tuple[str, 
     return [(b, p, u) for (b, p, u, _ls) in orphans]
 
 
-def write_page_dates(pages_base: Path) -> None:
+def _annotate_sitemap_lastmod(records: Dict[str, dict]) -> None:
+    """Wertet die eingesammelten sitemap_lastmod-Werte je MARKE aus (in-place):
+
+    1. Massenstempel-Test: traegt eine Marke fuer >80 % ihrer datierten URLs
+       dasselbe <lastmod>, ist das der Zeitpunkt des letzten CMS-Deployments und
+       kein Inhaltsdatum. Diese Seiten bekommen sitemap_lastmod_unbrauchbar=true
+       plus Grund und werden NICHT zu einer Obergrenze verrechnet.
+    2. Sonst: fehlt `published`, wird `published_obergrenze` gesetzt — mit dem
+       expliziten Hinweis, dass es sich um eine Schranke handelt (veroeffentlicht
+       <= lastmod) und nicht um ein gemessenes Datum.
+    Bereits vorhandene Felder (published/modified) werden nie angefasst.
+    """
+    try:
+        from analyzer.sitemap_discovery import mass_stamp_verdict
+    except Exception:  # noqa: BLE001
+        return
+    by_brand: Dict[str, List[str]] = {}
+    for rec in records.values():
+        lm = rec.get("sitemap_lastmod")
+        if lm:
+            by_brand.setdefault(rec.get("brand") or "", []).append(lm)
+    verdicts = {b: mass_stamp_verdict(vals) for b, vals in by_brand.items()}
+    for rec in records.values():
+        lm = rec.get("sitemap_lastmod")
+        if not lm:
+            continue
+        v = verdicts.get(rec.get("brand") or "")
+        if v:
+            rec["sitemap_lastmod_unbrauchbar"] = True
+            rec["sitemap_lastmod_unbrauchbar_grund"] = v["grund"]
+            continue
+        if rec.get("published"):
+            continue  # gemessenes Datum vorhanden — lastmod aendert daran nichts
+        rec["published_obergrenze"] = lm
+        rec["published_obergrenze_quelle"] = "sitemap_lastmod"
+        rec["published_obergrenze_hinweis"] = (
+            "GESCHAETZT, kein gemessenes Datum: die Seite liefert kein "
+            "Veroeffentlichungsdatum aus. Aus <lastmod> folgt nur "
+            "'veroeffentlicht <= " + lm + "'; tatsaechlich kann sie beliebig "
+            "aelter sein. Nicht als published verwenden."
+        )
+
+
+def write_page_dates(pages_base: Path,
+                     sitemap_lastmods: Optional[Dict[str, dict]] = None) -> None:
     """Konsolidiert Publikations-/Aenderungsdaten aller getrackten Seiten in EINE
-    Datei data/page_dates.json: {url: {published, modified, first_seen, last_seen,
-    brand, product_ids}}. Zweck: das Cockpit joint die echten Veroeffentlichungs-
+    Datei data/page_dates.json. Zweck: das Cockpit joint die echten Veroeffentlichungs-
     daten gegen page_new/change-Events, ohne tausende meta.json zu lesen —
-    Grundlage der retrospektiven Neue-Seiten-Auswertung (02.08.2026)."""
+    Grundlage der retrospektiven Neue-Seiten-Auswertung (02.08.2026).
+
+    DATENMODELL je URL — gemessen vs. geschaetzt sauber getrennt:
+      published        GEMESSEN. Veroeffentlichungsdatum aus dem Seiten-HTML
+                       (schema.org datePublished / OG article:published_time /
+                       <time>). null, wenn die Seite keines ausliefert.
+      modified         GEMESSEN. Aenderungsdatum aus demselben HTML.
+      first_seen       GEMESSEN, aber nur unsere Crawler-Sicht: wann WIR die URL
+                       zum ersten Mal gesehen haben.
+      last_seen        GEMESSEN, letzter erfolgreicher Abruf.
+      sitemap_lastmod  GEMESSEN, aber eine ANDERE Groesse: <lastmod> aus der
+                       sitemap.xml = letzte AENDERUNG. Das ist NICHT das
+                       Veroeffentlichungsdatum und wird nie als solches gefuehrt.
+      sitemap_lastmod_gesehen_am  Wann wir dieses <lastmod> gelesen haben.
+      sitemap_lastmod_unbrauchbar / ..._grund
+                       true, wenn die Marke fuer >80 % ihrer datierten URLs
+                       dasselbe <lastmod> traegt. Das ist ein CMS-/Deploy-
+                       Zeitstempel und kein Inhaltsdatum — dann NICHT auswerten.
+      published_obergrenze  GESCHAETZT. Nur gesetzt, wenn published fehlt und ein
+                       brauchbares sitemap_lastmod existiert. Begruendung: eine
+                       Seite kann nicht nach ihrer letzten Aenderung entstanden
+                       sein, also gilt veroeffentlicht <= lastmod. Der wahre
+                       Wert kann beliebig viel aelter sein — die Obergrenze ist
+                       eine Schranke, kein Datum. Nie mit published mischen.
+      published_obergrenze_quelle / ..._hinweis  Herkunft + Klartext-Warnung.
+
+    `sitemap_lastmods` ist der Index aus analyzer.sitemap_discovery.lastmod_index()
+    (siehe dort). Fehlt er, bleiben die Sitemap-Felder einfach leer.
+    """
     out: Dict[str, dict] = {}
     try:
         for meta_path in sorted(pages_base.glob("*/*/meta.json")):
@@ -775,7 +889,7 @@ def write_page_dates(pages_base: Path) -> None:
             url = (meta.get("url") or "").strip()
             if not url:
                 continue
-            out[url] = {
+            rec = {
                 "published": meta.get("page_published"),
                 "modified": meta.get("page_modified"),
                 "first_seen": meta.get("first_seen"),
@@ -783,15 +897,47 @@ def write_page_dates(pages_base: Path) -> None:
                 "brand": meta.get("brand"),
                 "product_ids": meta.get("product_ids") or [],
             }
+            lm = meta.get(META_SITEMAP_LASTMOD)
+            lm_seen = meta.get(META_SITEMAP_LASTMOD_SEEN)
+            # Frischer Sitemap-Wert schlaegt den in meta.json gespeicherten.
+            # Deckt auch Seiten ab, die in diesem Lauf gar nicht abgerufen
+            # wurden (robots-Sperre, HTTP-Fehler) — deren meta.json bleibt
+            # dann veraltet, page_dates.json waere sonst luecklig.
+            entry = _sitemap_lastmod_for(url, sitemap_lastmods)
+            if entry and entry.get("sitemap_lastmod"):
+                lm = entry["sitemap_lastmod"]
+                lm_seen = entry.get("sitemap_lastmod_gesehen_am") or lm_seen
+                if meta.get(META_SITEMAP_LASTMOD) != lm:
+                    meta[META_SITEMAP_LASTMOD] = lm
+                    meta[META_SITEMAP_LASTMOD_SEEN] = lm_seen
+                    try:
+                        _write_json(meta_path, meta)
+                    except Exception:  # noqa: BLE001
+                        pass
+            if lm:
+                rec["sitemap_lastmod"] = lm
+                rec["sitemap_lastmod_gesehen_am"] = lm_seen
+            out[url] = rec
     except Exception as ex:  # noqa: BLE001
         print(f"[page_dates] Scan fehlgeschlagen: {ex}")
         return
+
+    try:
+        _annotate_sitemap_lastmod(out)
+    except Exception as ex:  # noqa: BLE001
+        print(f"[page_dates] lastmod-Auswertung fehlgeschlagen: {ex}")
+
     try:
         dst = pages_base.parent / "page_dates.json"
         dst.write_text(json.dumps(out, ensure_ascii=False, indent=2, sort_keys=True),
                        encoding="utf-8")
         _npub = sum(1 for v in out.values() if v.get("published") or v.get("modified"))
+        _nlm = sum(1 for v in out.values() if v.get("sitemap_lastmod"))
+        _nob = sum(1 for v in out.values() if v.get("published_obergrenze"))
+        _nun = sum(1 for v in out.values() if v.get("sitemap_lastmod_unbrauchbar"))
         print(f"[page_dates] {len(out)} Seiten geschrieben ({_npub} mit Datum) -> {dst}")
+        print(f"[page_dates] sitemap_lastmod: {_nlm} Seiten, davon {_nun} unbrauchbar "
+              f"(Massenstempel); {_nob} zusaetzliche published_obergrenze (geschaetzt)")
     except Exception as ex:  # noqa: BLE001
         print(f"[page_dates] Schreiben fehlgeschlagen: {ex}")
 
@@ -805,6 +951,7 @@ def track_all(
     classifier=None,
     respect_robots_txt: bool = True,
     max_workers: int = 10,
+    sitemap_lastmods: Optional[Dict[str, dict]] = None,
 ) -> List[Dict]:
     """
     brand_urls: {
@@ -812,6 +959,11 @@ def track_all(
         "Allianz": [...],
         ...
     }
+
+    sitemap_lastmods: optionaler Index aus analyzer.sitemap_discovery
+    (lastmod_index()), gefuellt beim ohnehin stattfindenden Sitemap-Abruf der
+    Discovery. Rein additiv: er landet in meta.json / page_dates.json und
+    beeinflusst weder Auswahl noch Reihenfolge noch Zahl der Abrufe.
 
     Gibt eine Liste von Tracker-Results zurück (als Dicts), damit main.py die
     als Run-JSON-Fragment speichern kann (z.B. für den Impact-Tab).
@@ -845,6 +997,7 @@ def track_all(
             timestamp=timestamp, run_id=run_id,
             rate_limiter=rate, robots=robots,
             classifier=classifier, is_orphan=is_orphan,
+            sitemap_lastmod=_sitemap_lastmod_for(url, sitemap_lastmods),
         ))
 
     out: List[Dict] = []
@@ -856,7 +1009,7 @@ def track_all(
         for (brand, pids, url, orph) in tasks:
             out.append(_one(brand, pids, url, orph))
         save_block_list(block_path)
-        write_page_dates(pages_base)
+        write_page_dates(pages_base, sitemap_lastmods)
         return out
     with ThreadPoolExecutor(max_workers=workers) as pool:
         futs = [pool.submit(_one, b, p, u, o) for (b, p, u, o) in tasks]
@@ -866,5 +1019,5 @@ def track_all(
             except Exception as ex:  # noqa: BLE001
                 out.append({"error": str(ex)[:200]})
     save_block_list(block_path)
-    write_page_dates(pages_base)
+    write_page_dates(pages_base, sitemap_lastmods)
     return out
