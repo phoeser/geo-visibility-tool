@@ -22,6 +22,8 @@ import gzip
 import io
 import re
 import time
+from collections import Counter
+from datetime import date, datetime, timezone
 from typing import Dict, Iterable, List, Optional, Set, Tuple
 from urllib.parse import urljoin, urlparse
 from xml.etree import ElementTree as ET
@@ -146,6 +148,218 @@ def parse_sitemap(xml_bytes: bytes) -> Tuple[List[str], List[str]]:
     return sub_sitemaps[:MAX_URLS_PER_SITEMAP], urls[:MAX_URLS_PER_SITEMAP]
 
 
+# ---------------------------------------------------------------------------
+# <lastmod> aus der Sitemap (04.08.2026)
+#
+# Warum: Die Discovery holt die Sitemaps ohnehin; je <url> steht dort optional
+# ein <lastmod>. Bisher wurde es verworfen. Fuer Marken, deren HTML weder
+# schema.org- noch OpenGraph-Datum liefert (ERGO, AXA, Signal Iduna, HDI, R+V,
+# CosmosDirekt, Gothaer, Barmenia, WGV: 0 % published), ist <lastmod> die
+# einzige verfuegbare Zeitinformation.
+#
+# WICHTIG — Semantik: <lastmod> ist das Datum der letzten AENDERUNG, nicht das
+# Veroeffentlichungsdatum. Es wird deshalb NIE als `published` ausgegeben und
+# ueberschreibt `published` nicht. Wo `published` fehlt, gilt lediglich
+# "veroeffentlicht <= lastmod" — also eine OBERGRENZE. Diese Trennung wird bis
+# in data/page_dates.json durchgehalten (Feld `published_obergrenze`).
+#
+# Es entstehen KEINE zusaetzlichen HTTP-Abrufe: geparst werden exakt die Bytes,
+# die _fetch_sitemap fuer die URL-Liste ohnehin geholt hat.
+# ---------------------------------------------------------------------------
+
+# Ein <lastmod> unterhalb dieses Jahres ist mit hoher Wahrscheinlichkeit Muell
+# (Unix-Epoche 1970, Platzhalter 1900/0001) und kein Inhaltsdatum.
+LASTMOD_MIN_YEAR = 2000
+# Zeitzonen-Toleranz: eine Sitemap in UTC+13 darf "morgen" schreiben, ohne dass
+# wir den Wert als Zukunftsdatum verwerfen.
+LASTMOD_FUTURE_TOLERANCE_DAYS = 1
+# Ab so vielen datierten URLs wird der Massenstempel-Test ueberhaupt angewandt.
+# Darunter ist "alle tragen dasselbe Datum" statistisch bedeutungslos.
+MASS_STAMP_MIN_URLS = 10
+# Anteil identischer Werte, ab dem wir von einem CMS-/Deploy-Zeitstempel ausgehen.
+MASS_STAMP_SHARE = 0.80
+
+
+def normalize_url_key(url: str) -> str:
+    """Vergleichs-Schluessel fuer URLs (Sitemap-Schreibweise vs. Config/Tracking-
+    Schreibweise). Ohne Schema, ohne 'www.', ohne Fragment, ohne Trailing-Slash,
+    Host klein. Query bleibt erhalten (unterscheidet echte Seiten)."""
+    if not url:
+        return ""
+    u = str(url).strip().split("#", 1)[0]
+    if not u:
+        return ""
+    if "//" not in u:
+        u = "https://" + u.lstrip("/")
+    try:
+        p = urlparse(u)
+    except Exception:
+        return u.rstrip("/").lower()
+    host = (p.netloc or "").lower()
+    if host.startswith("www."):
+        host = host[4:]
+    path = (p.path or "").rstrip("/")
+    key = host + path
+    if p.query:
+        key += "?" + p.query
+    return key
+
+
+def normalize_lastmod(raw) -> Optional[str]:
+    """Defensives Parsen eines <lastmod>-Werts -> 'YYYY-MM-DD' oder None.
+
+    Sitemaps liefern W3C-Datetime in allen Auspraegungen: '2026-07-30',
+    '2026-07-30T12:04:11Z', '2026-07-30T12:04:11+02:00', teils mit Leerzeichen
+    statt 'T'. Verworfen werden: unparsbare Werte, Datumsangaben vor
+    LASTMOD_MIN_YEAR (1970-Epoche/Platzhalter) und Zukunftsdaten.
+    """
+    if not raw:
+        return None
+    m = re.search(r"(\d{4})-(\d{2})-(\d{2})", str(raw).strip())
+    if not m:
+        return None
+    try:
+        d = date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+    except ValueError:
+        return None  # z.B. 2026-02-31
+    if d.year < LASTMOD_MIN_YEAR:
+        return None
+    today = datetime.now(timezone.utc).date()
+    if (d - today).days > LASTMOD_FUTURE_TOLERANCE_DAYS:
+        return None
+    return d.isoformat()
+
+
+def parse_sitemap_lastmods(xml_bytes: bytes) -> Dict[str, str]:
+    """{normalisierte URL -> 'YYYY-MM-DD'} aus einer bereits geholten Sitemap.
+
+    Bewusst getrennt von parse_sitemap(): dessen Rueckgabe (und damit Auswahl,
+    Reihenfolge und Zahl der gecrawlten Seiten) bleibt unveraendert. URLs ohne
+    <lastmod> oder mit unbrauchbarem Wert fehlen im Dict.
+    """
+    out: Dict[str, str] = {}
+    if not xml_bytes:
+        return out
+    try:
+        root = ET.fromstring(xml_bytes)
+    except ET.ParseError:
+        raw = xml_bytes.decode("utf-8", errors="ignore")
+        for block in re.findall(r"<url\b[^>]*>(.*?)</url>", raw,
+                                flags=re.IGNORECASE | re.DOTALL)[:MAX_URLS_PER_SITEMAP]:
+            mloc = re.search(r"<loc>\s*(.*?)\s*</loc>", block, re.IGNORECASE | re.DOTALL)
+            mlm = re.search(r"<lastmod>\s*(.*?)\s*</lastmod>", block, re.IGNORECASE | re.DOTALL)
+            if not (mloc and mlm):
+                continue
+            lm = normalize_lastmod(mlm.group(1))
+            key = normalize_url_key(mloc.group(1))
+            if lm and key:
+                out[key] = lm
+        return out
+    except Exception:
+        return out
+
+    if _strip_namespace(root.tag).lower() != "urlset":
+        return out
+    for el in root:
+        if _strip_namespace(el.tag).lower() != "url":
+            continue
+        loc = lastmod = None
+        for child in el:
+            t = _strip_namespace(child.tag).lower()
+            if t == "loc" and child.text and not loc:
+                loc = child.text.strip()
+            elif t == "lastmod" and child.text and not lastmod:
+                lastmod = child.text.strip()
+        if not (loc and lastmod):
+            continue
+        lm = normalize_lastmod(lastmod)
+        key = normalize_url_key(loc)
+        if lm and key:
+            out[key] = lm
+        if len(out) >= MAX_URLS_PER_SITEMAP:
+            break
+    return out
+
+
+def mass_stamp_verdict(lastmods: Iterable[str],
+                       min_urls: int = MASS_STAMP_MIN_URLS,
+                       share: float = MASS_STAMP_SHARE) -> Optional[Dict]:
+    """Erkennt den CMS-/Deploy-Massenstempel: traegt der ueberwiegende Teil der
+    URLs dasselbe <lastmod>, ist das der Zeitpunkt des letzten Deployments und
+    kein Inhaltsdatum. Liefert dann {wert, anteil, n, n_gleich, grund}, sonst None.
+    """
+    vals = [v for v in lastmods if v]
+    if len(vals) < min_urls:
+        return None
+    top, n_top = Counter(vals).most_common(1)[0]
+    quote = n_top / len(vals)
+    if quote <= share:
+        return None
+    return {
+        "wert": top,
+        "anteil": round(quote, 4),
+        "n": len(vals),
+        "n_gleich": n_top,
+        "grund": (
+            f"Massenstempel: {n_top} von {len(vals)} datierten URLs ({quote:.1%}) "
+            f"tragen dasselbe lastmod {top} — das ist ein CMS-/Deploy-Zeitstempel, "
+            f"kein Inhaltsdatum."
+        ),
+    }
+
+
+# Prozessweite Sammelstelle: {normalisierte URL -> {"sitemap_lastmod", "domain",
+# "gesehen_am"}}. Wird von discover_sitemap_urls beim Parsen gefuellt und von
+# main.py an den Page-Tracker durchgereicht. Rein additiv — niemand muss sie lesen.
+_LASTMOD_INDEX: Dict[str, Dict[str, str]] = {}
+_LASTMOD_BY_DOMAIN: Dict[str, Dict[str, str]] = {}
+
+
+def _record_lastmods(domain: str, mapping: Dict[str, str]) -> None:
+    if not mapping:
+        return
+    seen_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    dom = (domain or "").strip().lower()
+    per_dom = _LASTMOD_BY_DOMAIN.setdefault(dom, {})
+    for key, lm in mapping.items():
+        per_dom[key] = lm
+        prev = _LASTMOD_INDEX.get(key)
+        # Mehrere Sitemaps koennen dieselbe URL listen: juengsten Wert behalten.
+        if prev and (prev.get("sitemap_lastmod") or "") >= lm:
+            continue
+        _LASTMOD_INDEX[key] = {
+            "sitemap_lastmod": lm,
+            "sitemap_lastmod_domain": dom,
+            "sitemap_lastmod_gesehen_am": seen_at,
+        }
+
+
+def lastmod_index() -> Dict[str, Dict[str, str]]:
+    """Alles, was in diesem Prozess an <lastmod> aus Sitemaps gesehen wurde."""
+    return dict(_LASTMOD_INDEX)
+
+
+def lastmod_report(domain: str) -> Dict:
+    """Diagnose je Domain: wie viele URLs, wie viele mit brauchbarem lastmod,
+    Wertebereich, Massenstempel-Befund. Nutzt den Sitemap-Cache, loest also
+    keinen zusaetzlichen Abruf aus, wenn die Domain schon gelesen wurde."""
+    urls = discover_sitemap_urls(domain)
+    dom = (domain or "").strip().lower()
+    per_dom = _LASTMOD_BY_DOMAIN.get(dom, {})
+    hits = [per_dom[normalize_url_key(u)] for u in urls if normalize_url_key(u) in per_dom]
+    vals = sorted(hits)
+    return {
+        "domain": domain,
+        "sitemap_urls": len(urls),
+        "mit_lastmod": len(hits),
+        "anteil": round(len(hits) / len(urls), 4) if urls else 0.0,
+        "min": vals[0] if vals else None,
+        "max": vals[-1] if vals else None,
+        "top5": Counter(hits).most_common(5),
+        "massenstempel": mass_stamp_verdict(hits),
+    }
+
+
 # 20.07.2026: Prozess-Cache fuer Sitemaps.
 # Grund aus dem Code-Review und zwei Timeout-Laeufen (#165, #166): Die Discovery
 # lief je PRODUKT x MARKE x DOMAIN — bei 11 Produkten und rund 30 Domains also
@@ -206,6 +420,12 @@ def discover_sitemap_urls(domain: str, max_depth: int = 3) -> List[str]:
             continue
         subs, u = parse_sitemap(xml_bytes)
         urls.extend(u)
+        # <lastmod> aus denselben Bytes mitschreiben (kein zusaetzlicher Abruf).
+        # Fehler hier duerfen die Discovery nie stoppen.
+        try:
+            _record_lastmods(_ck, parse_sitemap_lastmods(xml_bytes))
+        except Exception:
+            pass
         for s in subs:
             if s not in seen:
                 queue.append((s, depth + 1))
@@ -540,8 +760,14 @@ if __name__ == "__main__":
     import argparse, json
     ap = argparse.ArgumentParser()
     ap.add_argument("--domain", required=True)
-    ap.add_argument("--keywords", nargs="+", required=True)
+    ap.add_argument("--keywords", nargs="+", default=[])
     ap.add_argument("--max-urls", type=int, default=None)
+    # Diagnose: wie viele URLs der Domain tragen ein brauchbares <lastmod>,
+    # wie sehen die Werte aus, liegt ein CMS-Massenstempel vor?
+    ap.add_argument("--lastmod-report", action="store_true")
     args = ap.parse_args()
-    out = discover_for_product(args.domain, args.keywords, args.max_urls)
-    print(json.dumps(out, indent=2, ensure_ascii=False))
+    if args.lastmod_report:
+        print(json.dumps(lastmod_report(args.domain), indent=2, ensure_ascii=False))
+    else:
+        out = discover_for_product(args.domain, args.keywords, args.max_urls)
+        print(json.dumps(out, indent=2, ensure_ascii=False))
