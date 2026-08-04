@@ -8,6 +8,12 @@ einheitliches Response-Schema:
     "text":     "<Antworttext>",
     "sources":  [ {"title": "...", "url": "..."}, ... ],   # falls verfügbar
     "model":    "<modell-id>",
+    # 04.08.2026, additiv je Quelle (alte Felder unveraendert):
+    #   "src_typ":        "annotation" = vom Anbieter als Zitat geliefert
+    #                     "fliesstext" = aus dem Antworttext geraten
+    #   "domain"          Domain der Quelle, wenn ermittelbar
+    #   "url_resolved"    aufgeloeste Ziel-URL bei Weiterleitungen (Gemini)
+    #   "resolve_status"  ok | direkt | budget | aus | fehler:* | kette_zu_lang
     "latency_ms": <float>,
     "tokens_in": <int | None>,
     "tokens_out": <int | None>,
@@ -27,6 +33,18 @@ from dataclasses import dataclass
 from typing import Dict, List, Optional
 
 import requests
+
+from analyzer.redirect_resolver import get_resolver, domain_of_url, _env_flag
+
+
+# --- Herkunft einer Quelle (04.08.2026) ------------------------------------
+# "annotation"  = der Anbieter hat die URL selbst als Zitat ausgewiesen
+#                 (Gemini groundingChunks, OpenAI url_citation, Perplexity
+#                 citations). Belegt.
+# "fliesstext"  = wir haben die URL per Regex aus dem Antworttext gefischt.
+#                 Das Modell KANN sie erfunden haben. Nicht belegt.
+SRC_ANNOTATION = "annotation"
+SRC_FLIESSTEXT = "fliesstext"
 
 
 # --- System-Prompt: gleiche Instruktion an beide LLMs -----------------------
@@ -76,8 +94,29 @@ def extract_urls_from_text(text: str) -> List[Dict[str, str]]:
         clean = u.rstrip(".,;:")
         if clean not in seen:
             seen.add(clean)
-            out.append({"title": "", "url": clean})
+            # src_typ/domain sind additiv (04.08.2026). Die Zaehlung in
+            # metrics.py liest weiterhin nur "url" — an den Messwerten der
+            # bestehenden Engines aendert das nichts.
+            out.append({"title": "", "url": clean,
+                        "src_typ": SRC_FLIESSTEXT,
+                        "domain": domain_of_url(clean)})
     return out
+
+
+_DOMAIN_REGEX = re.compile(
+    r"^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$"
+)
+
+
+def _sieht_aus_wie_domain(s: str) -> bool:
+    """True, wenn der String eine nackte Domain ist ("allianz.de"), nicht ein
+    Seitentitel ("Zahnzusatzversicherung | Allianz")."""
+    s = (s or "").strip().lower()
+    if not s or len(s) > 253 or " " in s:
+        return False
+    if s.startswith("www."):
+        s = s[4:]
+    return bool(_DOMAIN_REGEX.match(s))
 
 
 # --- Retry-Wrapper ----------------------------------------------------------
@@ -213,15 +252,42 @@ class GeminiClient:
             text = "".join(p.get("text", "") for p in parts)
 
             # Quellen aus Grounding-Metadata (falls Search verwendet wurde)
+            #
+            # 04.08.2026: Bis heute stand hier nur title + uri. Die uri ist bei
+            # Gemini aber fast immer eine Weiterleitung ueber
+            # vertexaisearch.cloud.google.com (Lauf 04.08.: 4.659 von 4.731).
+            # metrics.domain_of() sah dadurch bei praktisch jeder Gemini-Quelle
+            # nur "vertexaisearch.cloud.google.com" statt der zitierten Seite.
+            # Zwei additive Ergaenzungen:
+            #   1. domain aus dem Chunk selbst (chunk.web.domain; faellt das Feld
+            #      weg, steht die Domain bei dieser API-Version im title —
+            #      geprueft an 4.731 Quellen: title war dort immer die nackte
+            #      Domain, z. B. "allianz.de"). Kostet nichts.
+            #   2. url_resolved per HEAD ohne Redirect-Folgen, budgetiert
+            #      (siehe analyzer/redirect_resolver.py).
+            # `url` bleibt unveraendert, damit keine Historie bricht.
             sources: List[Dict[str, str]] = []
             ground = candidates[0].get("groundingMetadata", {}) or {}
             for chunk in ground.get("groundingChunks", []) or []:
                 web = chunk.get("web", {}) or {}
                 if web.get("uri"):
+                    titel = web.get("title", "") or ""
+                    dom = (web.get("domain") or "").strip().lower()
+                    if dom.startswith("www."):
+                        dom = dom[4:]
+                    if not dom and _sieht_aus_wie_domain(titel):
+                        dom = titel.strip().lower()
                     sources.append({
-                        "title": web.get("title", ""),
+                        "title": titel,
                         "url": web.get("uri", ""),
+                        "src_typ": SRC_ANNOTATION,
+                        "domain": dom,
                     })
+            if sources:
+                # Weiterleitungen aufloesen. Wirft nie, respektiert das Budget
+                # und laesst die vorbelegte Chunk-Domain stehen, wenn die
+                # Aufloesung ausfaellt.
+                sources = get_resolver().annotate_sources(sources)
             # Fallback: URLs direkt aus Text
             if not sources:
                 sources = extract_urls_from_text(text)
@@ -345,6 +411,213 @@ class OpenAIClient:
 
 
 
+# ============================================================================
+# OpenAI mit Websuche  (Engine-ID: chatgpt_web)   -   04.08.2026
+# ============================================================================
+#
+# WARUM EINE ZWEITE ENGINE STATT EINER OPTION AN DER BESTEHENDEN
+# ---------------------------------------------------------------
+# `chatgpt` (gpt-4o-mini, /v1/chat/completions, ohne tools) antwortet aus dem
+# Modellgedaechtnis. Die dort gezaehlten "sources" sind ausschliesslich per
+# Regex aus dem Fliesstext gefischte URLs — im Lauf 04.08.2026 waren das 1.582
+# Stueck, von denen keine einzige vom Modell als Zitat ausgewiesen war.
+# Diese Engine bleibt unveraendert: gleiches Modell, gleiche Payload, gleiche
+# Zaehlung. Sonst braeche die SoV-Zeitreihe.
+# `chatgpt_web` ist ein ZUSAETZLICHER Kanal mit aktivierter Websuche. Erst der
+# Vergleich beider Kanaele zeigt, was Websuche an der Sichtbarkeit aendert.
+#
+# WELCHE API-VARIANTE
+# -------------------
+# Geprueft an der OpenAI-Doku (Stand 04.08.2026):
+#   - /v1/responses  + tools:[{"type":"web_search"}]
+#       unterstuetzte Modelle: gpt-5.6, gpt-5.5, gpt-4.1, gpt-4.1-mini.
+#       gpt-4o-mini — das Modell dieses Projekts — ist NICHT dabei.
+#   - /v1/chat/completions + web_search_options
+#       nur mit den Such-Modellvarianten: gpt-4o-mini-search-preview,
+#       gpt-4o-search-preview (deprecated), gpt-5-search-api.
+# Default ist deshalb gpt-4o-mini-search-preview ueber Chat Completions: gleiche
+# 4o-mini-Basis wie der bestehende Kanal, also ist der Unterschied zwischen
+# beiden Zeitreihen tatsaechlich die Websuche und nicht ein Modellwechsel.
+# Wer lieber die Responses-API will, setzt in config.json api:"responses" und
+# ein dort unterstuetztes Modell (z. B. gpt-4.1-mini). Beide Pfade sind
+# implementiert; `api:"auto"` waehlt nach dem Modellnamen.
+#
+# BEKANNTE EIGENHEITEN DER SUCH-MODELLE
+# -------------------------------------
+#   - `temperature` wird von den *-search-preview-Modellen abgelehnt. Wird
+#     deshalb im Chat-Pfad NICHT mitgeschickt.
+#   - Ob gesucht wird, entscheidet das Modell. Antworten ohne Suche sind
+#     moeglich und ein valides Ergebnis (dann: keine annotations).
+
+OPENAI_WEB_SEARCH_TOOL = {"type": "web_search"}
+
+
+def _openai_annotation_sources(annotations) -> List[Dict[str, str]]:
+    """Zieht echte Zitate aus annotations[].
+
+    Zwei Schreibweisen kommen in freier Wildbahn vor und werden beide
+    unterstuetzt:
+      Responses-API (flach):  {"type":"url_citation","url":...,"title":...}
+      Chat-Completions:       {"type":"url_citation","url_citation":{"url":...}}
+    """
+    out: List[Dict[str, str]] = []
+    seen = set()
+    for a in annotations or []:
+        if not isinstance(a, dict):
+            continue
+        if a.get("type") not in (None, "url_citation"):
+            continue
+        inner = a.get("url_citation")
+        node = inner if isinstance(inner, dict) else a
+        url = node.get("url") or ""
+        if not url or url in seen:
+            continue
+        seen.add(url)
+        out.append({
+            "title": (node.get("title") or "")[:300],
+            "url": url,
+            "src_typ": SRC_ANNOTATION,
+            "domain": domain_of_url(url),
+        })
+    return out
+
+
+class OpenAIWebSearchClient:
+    """ChatGPT MIT Websuche. Quellen kommen aus den url_citation-Annotationen,
+    nicht aus dem Fliesstext."""
+
+    CHAT_URL = "https://api.openai.com/v1/chat/completions"
+    RESPONSES_URL = "https://api.openai.com/v1/responses"
+
+    def __init__(self, api_key: str, model: str = "gpt-4o-mini-search-preview",
+                 max_tokens: int = 1200, temperature: float = 0.3,
+                 retries: int = 3, api: str = "auto",
+                 search_context_size: str = "low"):
+        self.api_key = api_key
+        self.model = model
+        self.max_tokens = max_tokens
+        self.temperature = temperature
+        self._retries = retries
+        # Kosten: kleinste Suchtiefe als Default, wie bei Perplexity.
+        self.search_context_size = search_context_size or "low"
+        if api not in ("auto", "chat", "responses"):
+            print(f"[WARN] chatgpt_web: api={api!r} unbekannt - nutze 'auto'")
+            api = "auto"
+        if api == "auto":
+            api = "chat" if "search" in (model or "").lower() else "responses"
+        self.api = api
+
+    # -- Chat-Completions-Pfad (Such-Modellvarianten) ----------------------
+
+    def _call_chat(self, prompt: str) -> Dict:
+        return {
+            "url": self.CHAT_URL,
+            "payload": {
+                "model": self.model,
+                "max_tokens": self.max_tokens,
+                # temperature bewusst weggelassen: die *-search-preview-Modelle
+                # lehnen den Parameter mit HTTP 400 ab.
+                "web_search_options": {"search_context_size": self.search_context_size},
+                "messages": [
+                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {"role": "user", "content": prompt},
+                ],
+            },
+        }
+
+    @staticmethod
+    def _parse_chat(data: Dict):
+        choices = data.get("choices", [])
+        if not choices:
+            raise RuntimeError(f"OpenAI-Web leere Choices: {str(data)[:300]}")
+        msg = choices[0].get("message") or {}
+        text = msg.get("content") or ""
+        sources = _openai_annotation_sources(msg.get("annotations"))
+        usage = data.get("usage", {}) or {}
+        return text, sources, usage.get("prompt_tokens"), usage.get("completion_tokens")
+
+    # -- Responses-Pfad (tools:[{"type":"web_search"}]) --------------------
+
+    def _call_responses(self, prompt: str) -> Dict:
+        return {
+            "url": self.RESPONSES_URL,
+            "payload": {
+                "model": self.model,
+                "max_output_tokens": self.max_tokens,
+                "temperature": self.temperature,
+                "tools": [OPENAI_WEB_SEARCH_TOOL],
+                "instructions": SYSTEM_PROMPT,
+                "input": prompt,
+            },
+        }
+
+    @staticmethod
+    def _parse_responses(data: Dict):
+        text_teile: List[str] = []
+        annos: List[Dict] = []
+        for item in data.get("output") or []:
+            if not isinstance(item, dict) or item.get("type") != "message":
+                continue  # web_search_call-Eintraege enthalten keinen Text
+            for part in item.get("content") or []:
+                if not isinstance(part, dict):
+                    continue
+                if part.get("type") in ("output_text", "text"):
+                    if part.get("text"):
+                        text_teile.append(part["text"])
+                    annos.extend(part.get("annotations") or [])
+        text = "".join(text_teile)
+        if not text and isinstance(data.get("output_text"), str):
+            text = data["output_text"]  # Bequemlichkeitsfeld mancher Versionen
+        usage = data.get("usage", {}) or {}
+        return (text, _openai_annotation_sources(annos),
+                usage.get("input_tokens"), usage.get("output_tokens"))
+
+    # -- gemeinsamer Aufruf ------------------------------------------------
+
+    def ask(self, prompt: str) -> LLMResponse:
+        # prompt bewusst als Argument durchgereicht und NICHT auf self
+        # zwischengespeichert: main.py teilt eine Client-Instanz auf
+        # parallel_requests Threads auf (ThreadPoolExecutor). Ein Feld auf self
+        # waere ein Datenrennen und wuerde Antworten den falschen Prompts
+        # zuordnen.
+        def _call():
+            spec = (self._call_chat(prompt) if self.api == "chat"
+                    else self._call_responses(prompt))
+            headers = {
+                "Authorization": f"Bearer {self.api_key}",
+                "Content-Type": "application/json",
+            }
+            t0 = time.time()
+            # Websuche dauert laenger als eine reine Modellantwort, deshalb
+            # 120 s statt der sonst ueblichen 90 s.
+            r = requests.post(spec["url"], json=spec["payload"],
+                              headers=headers, timeout=120)
+            latency = (time.time() - t0) * 1000
+            if r.status_code != 200:
+                raise RuntimeError(
+                    f"OpenAI-Web ({self.api}) HTTP {r.status_code}: {r.text[:400]}")
+            data = r.json()
+            if self.api == "chat":
+                text, sources, tin, tout = self._parse_chat(data)
+            else:
+                text, sources, tin, tout = self._parse_responses(data)
+            # Kein Fallback auf extract_urls_from_text, wenn Annotationen da
+            # sind. Fehlen sie ganz (Modell hat nicht gesucht), nehmen wir die
+            # Fliesstext-URLs — aber als solche markiert, damit spaeter
+            # unterscheidbar bleibt, was belegt ist.
+            if not sources and text:
+                sources = extract_urls_from_text(text)
+            return LLMResponse(text=text, sources=sources, model=self.model,
+                               latency_ms=latency, tokens_in=tin, tokens_out=tout)
+
+        try:
+            return with_retries(_call, attempts=self._retries)
+        except Exception as e:  # noqa: BLE001
+            # Der Lauf darf an dieser Engine NIE scheitern: leere Antwort +
+            # Fehlertext, alles andere laeuft weiter.
+            return LLMResponse(text="", sources=[], model=self.model,
+                               latency_ms=0.0, error=str(e)[:500])
+
 
 # ============================================================================
 # Grok (xAI)  -  OpenAI-kompatibles Chat-Completions-Format
@@ -455,7 +728,10 @@ class PerplexityClient:
             for c in cits:
                 if isinstance(c, str) and c not in seen:
                     seen.add(c)
-                    sources.append({"title": "", "url": c})
+                    # src_typ/domain additiv (04.08.2026), Zaehlung unveraendert
+                    sources.append({"title": "", "url": c,
+                                    "src_typ": SRC_ANNOTATION,
+                                    "domain": domain_of_url(c)})
             if not sources:
                 sources = extract_urls_from_text(text)
             usage = data.get("usage", {}) or {}
@@ -625,8 +901,13 @@ def build_clients(llm_configs: List[Dict], settings: Optional[Dict] = None) -> D
     API-Keys kommen aus Umgebungsvariablen:
         - ANTHROPIC_API_KEY  - Claude
         - GOOGLE_API_KEY     - Gemini
-        - OPENAI_API_KEY     - ChatGPT
+        - OPENAI_API_KEY     - ChatGPT (beide Kanaele: chatgpt und chatgpt_web)
         - SERPAPI_KEY        - Google AI Overview / AI Mode
+
+    Zusaetzliche Schalter (04.08.2026), alle mit sicherem Default:
+        - GEO_CHATGPT_WEB=0        schaltet die Websuche-Engine ab
+        - GEO_RESOLVE_REDIRECTS=0  schaltet das Aufloesen der Gemini-
+                                   Weiterleitungen ab (s. redirect_resolver.py)
 
     17.07.2026: `settings` (= config.json["settings"]) wird jetzt durchgereicht.
     Vorher bekamen die Clients NUR api_key und model; `temperature` und `max_tokens`
@@ -680,6 +961,26 @@ def build_clients(llm_configs: List[Dict], settings: Optional[Dict] = None) -> D
                 print("[WARN] OPENAI_API_KEY fehlt - ChatGPT wird uebersprungen")
                 continue
             clients[cfg["id"]] = OpenAIClient(api_key=key, model=model, **_kw)
+        elif provider == "openai_web":
+            # 04.08.2026: ChatGPT MIT Websuche, ZUSAETZLICH zu `chatgpt`.
+            # Kostet je Lauf ein Vielfaches des textbasierten Kanals (Tool-Gebuehr
+            # je Suchaufruf), deshalb zwei unabhaengige Schalter:
+            #   1. config.json llms[].enabled  (im Cockpit klickbar)
+            #   2. Umgebungsvariable GEO_CHATGPT_WEB=0 als Not-Aus, ohne Commit.
+            if not _env_flag("GEO_CHATGPT_WEB", True):
+                print(f"[COST] {cfg['id']} per GEO_CHATGPT_WEB=0 abgeschaltet - uebersprungen")
+                continue
+            key = os.getenv("OPENAI_API_KEY")
+            if not key:
+                print(f"[WARN] OPENAI_API_KEY fehlt - {cfg['id']} wird uebersprungen")
+                continue
+            _web_kw = dict(_kw)
+            clients[cfg["id"]] = OpenAIWebSearchClient(
+                api_key=key, model=model,
+                api=cfg.get("api", "auto"),
+                search_context_size=cfg.get("search_context_size", "low"),
+                **_web_kw,
+            )
         elif provider == "xai":
             key = os.getenv("XAI_API_KEY")
             if not key:
