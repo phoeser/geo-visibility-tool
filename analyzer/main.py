@@ -44,6 +44,7 @@ from analyzer import why_analysis  # noqa: E402
 from analyzer import data_quality  # noqa: E402
 from analyzer import missing_ergo_analysis  # noqa: E402
 from analyzer.sitemap_discovery import discover_for_product  # noqa: E402
+from analyzer.sitemap_discovery import lastmod_index  # noqa: E402
 
 
 DATA_DIR = PROJECT_ROOT / "data"
@@ -352,6 +353,15 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
             print("[PAGES] dry-run: übersprungen")
     else:
         classifier = make_classifier()  # nutzt GOOGLE_API_KEY, None wenn fehlt
+        # <lastmod> aus den Sitemaps, die die Discovery oben ohnehin gelesen hat
+        # (04.08.2026). Kein zusaetzlicher HTTP-Abruf, keine Aenderung an den
+        # gecrawlten Seiten — der Index wird nur mitgeschrieben.
+        try:
+            _lastmods = lastmod_index()
+            print(f"[PAGES] Sitemap-<lastmod> fuer {len(_lastmods)} URLs verfuegbar")
+        except Exception as e:  # noqa: BLE001
+            print(f"[PAGES] lastmod-Index nicht verfuegbar: {e}")
+            _lastmods = {}
         try:
             page_events = track_all_pages(
                 PAGES_DIR,
@@ -359,6 +369,7 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
                 brand_urls=brand_urls,
                 classifier=classifier,
                 respect_robots_txt=cfg.get("respect_robots_txt", True),
+                sitemap_lastmods=_lastmods,
             )
             n_changed = sum(1 for e in page_events if e.get("changed"))
             n_first = sum(1 for e in page_events if e.get("first_seen"))
