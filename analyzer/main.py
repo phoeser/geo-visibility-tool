@@ -46,6 +46,7 @@ from analyzer import data_quality  # noqa: E402
 from analyzer import missing_ergo_analysis  # noqa: E402
 from analyzer.sitemap_discovery import discover_for_product  # noqa: E402
 from analyzer.sitemap_discovery import lastmod_index  # noqa: E402
+from analyzer.sitemap_discovery import discovery_stats, warm_domain_caches  # noqa: E402
 
 
 DATA_DIR = PROJECT_ROOT / "data"
@@ -161,6 +162,10 @@ def _write_timings(run_dict: Dict, timings: Dict, t_start: float) -> None:
       discovery_seconds    Sitemap-/Crawl-Discovery + lastmod-Index
       pages_seconds        Seiten-Phase gesamt (track_all, inkl. Orphans)
       classify_seconds     davon Diff-Klassifikation (Thread-Zeit)
+      discovery_detail     Detailzaehler aus sitemap_discovery.discovery_stats()
+                           (sitemap_fetches/-ok/-bytes/-seconds, robots_fetches,
+                            sitemap_cache_hits, crawl_domains/-pages/-seconds,
+                            domains, warm_workers, warm_wall_seconds)
       pages_detail         Detailzaehler aus page_tracker.LAST_TRACK_STATS
                            (fetches, fetch_seconds, ratelimit_seconds,
                             blocked_skipped, blocked_marked, tasks, workers,
@@ -409,6 +414,11 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
     print("\n[PAGES] Tracke konfigurierte URLs pro Marke ...")
     with _phase(timings, "discovery_seconds"):
         brand_urls = _build_brand_urls(cfg)
+    # Detail-Messung der Discovery-Phase (Gegenstueck zu pages_detail)
+    try:
+        timings["discovery_detail"] = discovery_stats()
+    except Exception as e:  # noqa: BLE001
+        print(f"[TIMING] Discovery-Detailstatistik nicht verfuegbar: {e}")
     n_urls = sum(len(v) for v in brand_urls.values())
     print(f"[PAGES] {n_urls} URLs über {len(brand_urls)} Marken")
     if dry_run or n_urls == 0:
@@ -745,6 +755,28 @@ def _build_brand_urls(cfg: Dict, *, auto_discover: bool = True, max_per_brand: i
     for c in cfg.get("competitors", []) or []:
         if c.get("name") and c.get("domain"):
             brand_domains[c["name"]] = [c["domain"]] + list(c.get("extra_domains") or [])
+
+    # 05.08.2026: Discovery-Caches EINMALIG parallel ueber die Domains vorwaermen.
+    # Die Schleife unten ruft discover_for_product je Produkt x Marke x Domain auf
+    # (6 Produkte mit Keywords x 29 Domains = 174 Aufrufe). Die teure Arbeit —
+    # robots.txt + Sitemap-Baum und der 150-Seiten-Fallback-Crawl — passiert dank
+    # der Prozess-Caches zwar nur einmal je Domain, lief aber streng sequenziell:
+    # gemessen 3.615 s im Lauf 2026-08-05T08-47-32Z, davon ~90 % Fallback-Crawls
+    # (15 Domains x ~217 s). Vorwaermen macht daraus Maximum statt Summe.
+    # Was hier nicht klappt, holt die Schleife danach wie bisher selbst nach —
+    # die resultierende URL-Menge ist in beiden Faellen identisch.
+    if auto_discover:
+        try:
+            _kw_sets = [[k for k in (p.get("keywords") or [])
+                         if isinstance(k, str) and k.strip()]
+                        for p in cfg.get("products", [])]
+            _kw_sets = [k for k in _kw_sets if k]
+            _all_domains = [d for ds in brand_domains.values() for d in ds if d]
+            if _kw_sets and _all_domains:
+                warm_domain_caches(_all_domains, _kw_sets)
+        except Exception as e:  # noqa: BLE001
+            print(f"[DISCOVERY] Vorwaermung fehlgeschlagen, laufe sequenziell weiter: "
+                  f"{type(e).__name__}: {e}")
 
     # (brand, url) -> set(product_ids)
     index: Dict[Tuple[str, str], set] = {}
