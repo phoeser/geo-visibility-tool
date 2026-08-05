@@ -123,7 +123,7 @@ jobs:
             echo "Keine neuen Experiment-Dateien - nichts zu committen."
             exit 0
           fi
-          git status --porcelain --cached
+          git diff --cached --name-only
 
           git commit -m "Websuche-A/B-Experiment $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
 
