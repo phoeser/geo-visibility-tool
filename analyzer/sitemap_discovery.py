@@ -11,18 +11,22 @@ URLs, die zu einem Produkt passen könnten:
 5. Falls keine Sitemap gefunden: 1-Hop-Crawl von der Homepage aus, sammelt
    interne Links und filtert dieselben Keywords.
 
-Das Modul ist bewusst konservativ: keine Threads, kurze Timeouts, harte
-Limits auf Sitemap-Größen und Crawl-Tiefe — das Ziel ist, eine Vorschlags-
-liste zu erzeugen, die der Nutzer im Config-Tab reviewed und zuschneidet.
+Das Modul ist bewusst konservativ: kurze Timeouts, harte Limits auf Sitemap-
+Größen und Crawl-Tiefe — das Ziel ist, eine Vorschlagsliste zu erzeugen, die
+der Nutzer im Config-Tab reviewed und zuschneidet. Nebenläufigkeit gibt es nur
+ÜBER Domains hinweg (siehe warm_domain_caches), niemals innerhalb einer Domain.
 """
 
 from __future__ import annotations
 
 import gzip
 import io
+import os
 import re
+import threading
 import time
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timezone
 from typing import Dict, Iterable, List, Optional, Set, Tuple
 from urllib.parse import urljoin, urlparse
@@ -54,17 +58,115 @@ def _headers() -> Dict[str, str]:
 
 
 # ---------------------------------------------------------------------------
+# Messung + Nebenlaeufigkeit (05.08.2026)
+#
+# Messung am Lauf 2026-08-05T08-47-32Z: discovery_seconds = 3.615 s (60,2 min),
+# groesster Einzelposten des Crawls. Aufteilung (nachgemessen ueber alle 29
+# konfigurierten Domains):
+#   • robots.txt + Sitemaps, sequenziell ueber alle Domains: ~356 s (10 %)
+#     — 98 Sitemap-Abrufe, davon 67 erfolgreich, 10,4 MB, 44.804 URLs;
+#       Sitemap-Indizes mit Unterebenen bei adac (10 Dateien), ruv (9),
+#       debeka (6), huk/lv1871 (5).
+#   • Homepage-Fallback-Crawl: ~3.260 s (90 %). Er greift fuer 15 der 29
+#     Domains (sitemap_kw_matched < 5) und holt dort jeweils exakt
+#     MAX_CRAWL_PAGES = 150 Seiten, sequenziell, mit 0,4 s Pause je Seite —
+#     nachgemessen 166-375 s pro Domain.
+# Beide Teile liefen bisher streng sequenziell: Die Prozess-Caches unten sorgen
+# zwar dafuer, dass jede Domain nur EINMAL geholt wird, aber alle Domains
+# nacheinander. Die Wanduhr war damit Summe(Domains) statt Maximum(Domains).
+#
+# warm_domain_caches() weiter unten faehrt genau diese beiden Phasen einmalig
+# ueber die Domains parallel und fuellt dieselben Caches, die der bestehende
+# Pfad ohnehin benutzt. Die Hoeflichkeit je Domain bleibt unveraendert: pro
+# Domain arbeitet weiterhin genau EIN Thread, in derselben Reihenfolge, mit
+# derselben 0,4-s-Pause zwischen zwei Seiten. Es aendert sich nur, welche
+# Domains gleichzeitig drankommen. (Gleiches Muster wie _interleave_by_domain
+# in page_tracker.py.)
+# ---------------------------------------------------------------------------
+
+_STATS_LOCK = threading.Lock()
+_STATS: Dict[str, float] = {}
+
+
+def _stat(key: str, value: float = 1.0) -> None:
+    try:
+        with _STATS_LOCK:
+            _STATS[key] = _STATS.get(key, 0.0) + value
+    except Exception:  # noqa: BLE001
+        pass
+
+
+def reset_discovery_stats() -> None:
+    with _STATS_LOCK:
+        _STATS.clear()
+
+
+def discovery_stats() -> Dict:
+    """Detailzaehler der Discovery-Phase (Gegenstueck zu pages_detail)."""
+    try:
+        with _STATS_LOCK:
+            s = dict(_STATS)
+        out = {
+            "domains": int(s.get("domains", 0)),
+            "sitemap_fetches": int(s.get("sitemap_fetches", 0)),
+            "sitemap_ok": int(s.get("sitemap_ok", 0)),
+            "sitemap_bytes": int(s.get("sitemap_bytes", 0)),
+            "sitemap_seconds": round(s.get("sitemap_seconds", 0.0), 1),
+            "sitemap_urls": int(s.get("sitemap_urls", 0)),
+            "robots_fetches": int(s.get("robots_fetches", 0)),
+            "robots_seconds": round(s.get("robots_seconds", 0.0), 1),
+            # Abrufe, die dank Prozess-Cache GAR NICHT stattfanden
+            # (Discovery laeuft je Produkt x Marke x Domain).
+            "sitemap_cache_hits": int(s.get("sitemap_cache_hits", 0)),
+            "crawl_cache_hits": int(s.get("crawl_cache_hits", 0)),
+            "crawl_domains": int(s.get("crawl_domains", 0)),
+            "crawl_pages": int(s.get("crawl_pages", 0)),
+            "crawl_seconds": round(s.get("crawl_seconds", 0.0), 1),
+            "warm_workers": int(s.get("warm_workers", 0)),
+            "warm_wall_seconds": round(s.get("warm_wall_seconds", 0.0), 1),
+            "warm_errors": int(s.get("warm_errors", 0)),
+        }
+        out["fetch_seconds"] = round(
+            out["sitemap_seconds"] + out["robots_seconds"] + out["crawl_seconds"], 1)
+        return out
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+# Ein Lock je Domain: verhindert, dass zwei Threads dieselbe Domain gleichzeitig
+# holen (das waere doppelte Last auf einem fremden Server). Verschiedene Domains
+# blockieren sich nie.
+_LOCKS_LOCK = threading.Lock()
+_DOMAIN_LOCKS: Dict[str, threading.Lock] = {}
+# Schuetzt die Prozess-Caches und den lastmod-Index gegen parallele Schreiber.
+_CACHE_LOCK = threading.Lock()
+
+
+def _domain_lock(key: str) -> threading.Lock:
+    with _LOCKS_LOCK:
+        lk = _DOMAIN_LOCKS.get(key)
+        if lk is None:
+            lk = threading.Lock()
+            _DOMAIN_LOCKS[key] = lk
+        return lk
+
+
+# ---------------------------------------------------------------------------
 # robots.txt
 # ---------------------------------------------------------------------------
 
 def robots_txt(domain: str) -> str:
     url = f"https://{domain.rstrip('/')}/robots.txt"
+    _t0 = time.perf_counter()
     try:
         r = requests.get(url, headers=_headers(), timeout=FETCH_TIMEOUT, allow_redirects=True)
         if r.ok:
             return r.text[:200_000]
     except Exception:
         pass
+    finally:
+        _stat("robots_fetches")
+        _stat("robots_seconds", time.perf_counter() - _t0)
     return ""
 
 
@@ -82,6 +184,15 @@ def parse_sitemaps_from_robots(robots: str) -> List[str]:
 # ---------------------------------------------------------------------------
 
 def _fetch_sitemap(url: str) -> Optional[bytes]:
+    _t0 = time.perf_counter()
+    try:
+        return _fetch_sitemap_inner(url)
+    finally:
+        _stat("sitemap_fetches")
+        _stat("sitemap_seconds", time.perf_counter() - _t0)
+
+
+def _fetch_sitemap_inner(url: str) -> Optional[bytes]:
     try:
         r = requests.get(url, headers=_headers(), timeout=FETCH_TIMEOUT, allow_redirects=True, stream=True)
         if not r.ok:
@@ -101,6 +212,8 @@ def _fetch_sitemap(url: str) -> Optional[bytes]:
                 data = gzip.decompress(data)
         except Exception:
             pass
+        _stat("sitemap_ok")
+        _stat("sitemap_bytes", len(data))
         return data
     except Exception:
         return None
@@ -320,23 +433,26 @@ def _record_lastmods(domain: str, mapping: Dict[str, str]) -> None:
         return
     seen_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     dom = (domain or "").strip().lower()
-    per_dom = _LASTMOD_BY_DOMAIN.setdefault(dom, {})
-    for key, lm in mapping.items():
-        per_dom[key] = lm
-        prev = _LASTMOD_INDEX.get(key)
-        # Mehrere Sitemaps koennen dieselbe URL listen: juengsten Wert behalten.
-        if prev and (prev.get("sitemap_lastmod") or "") >= lm:
-            continue
-        _LASTMOD_INDEX[key] = {
-            "sitemap_lastmod": lm,
-            "sitemap_lastmod_domain": dom,
-            "sitemap_lastmod_gesehen_am": seen_at,
-        }
+    # Lock, weil warm_domain_caches mehrere Domains parallel einliest.
+    with _CACHE_LOCK:
+        per_dom = _LASTMOD_BY_DOMAIN.setdefault(dom, {})
+        for key, lm in mapping.items():
+            per_dom[key] = lm
+            prev = _LASTMOD_INDEX.get(key)
+            # Mehrere Sitemaps koennen dieselbe URL listen: juengsten Wert behalten.
+            if prev and (prev.get("sitemap_lastmod") or "") >= lm:
+                continue
+            _LASTMOD_INDEX[key] = {
+                "sitemap_lastmod": lm,
+                "sitemap_lastmod_domain": dom,
+                "sitemap_lastmod_gesehen_am": seen_at,
+            }
 
 
 def lastmod_index() -> Dict[str, Dict[str, str]]:
     """Alles, was in diesem Prozess an <lastmod> aus Sitemaps gesehen wurde."""
-    return dict(_LASTMOD_INDEX)
+    with _CACHE_LOCK:
+        return dict(_LASTMOD_INDEX)
 
 
 def lastmod_report(domain: str) -> Dict:
@@ -375,8 +491,21 @@ def discover_sitemap_urls(domain: str, max_depth: int = 3) -> List[str]:
     Verfolgt Sitemap-Indizes bis zu max_depth Ebenen.
     """
     _ck = (domain or "").strip().lower()
-    if _ck in _SITEMAP_CACHE:
-        return list(_SITEMAP_CACHE[_ck])
+    with _CACHE_LOCK:
+        if _ck in _SITEMAP_CACHE:
+            _stat("sitemap_cache_hits")
+            return list(_SITEMAP_CACHE[_ck])
+    # Ab hier darf nur EIN Thread je Domain arbeiten (Hoeflichkeit + kein
+    # Doppelabruf). Nach dem Warten kann der Cache bereits gefuellt sein.
+    with _domain_lock("sitemap:" + _ck):
+        with _CACHE_LOCK:
+            if _ck in _SITEMAP_CACHE:
+                _stat("sitemap_cache_hits")
+                return list(_SITEMAP_CACHE[_ck])
+        return _discover_sitemap_urls_uncached(domain, _ck, max_depth)
+
+
+def _discover_sitemap_urls_uncached(domain: str, _ck: str, max_depth: int) -> List[str]:
     bare = domain.rstrip("/").lstrip(".").lower()
     if bare.startswith("www."):
         host_www = bare
@@ -438,7 +567,9 @@ def discover_sitemap_urls(domain: str, max_depth: int = 3) -> List[str]:
             continue
         seen_u.add(u)
         out.append(u)
-    _SITEMAP_CACHE[_ck] = list(out)
+    with _CACHE_LOCK:
+        _SITEMAP_CACHE[_ck] = list(out)
+    _stat("sitemap_urls", len(out))
     return out
 
 
@@ -447,12 +578,16 @@ def discover_sitemap_urls(domain: str, max_depth: int = 3) -> List[str]:
 # ---------------------------------------------------------------------------
 
 def _fetch_html(url: str) -> str:
+    _t0 = time.perf_counter()
     try:
         r = requests.get(url, headers=_headers(), timeout=FETCH_TIMEOUT, allow_redirects=True)
         if r.ok and "text/html" in r.headers.get("Content-Type", "").lower():
             return r.text
     except Exception:
         pass
+    finally:
+        _stat("crawl_pages")
+        _stat("crawl_seconds", time.perf_counter() - _t0)
     return ""
 
 
@@ -489,8 +624,23 @@ def discover_homepage_crawl(domain: str, keyword_regex: re.Pattern, max_pages: i
     2-Hop-Crawl: Startseite + gaengige Rubriken als Seeds, dann ein Hop tiefer.
     """
     _ck = (domain or "").strip().lower()
-    if _ck in _CRAWL_CACHE:
-        return [u for u in _CRAWL_CACHE[_ck] if keyword_regex.search(u)]
+    with _CACHE_LOCK:
+        if _ck in _CRAWL_CACHE:
+            _stat("crawl_cache_hits")
+            return [u for u in _CRAWL_CACHE[_ck] if keyword_regex.search(u)]
+    # Genau ein Thread je Domain — die 0,4-s-Pause zwischen zwei Seiten bleibt
+    # damit die tatsaechliche Abrufrate gegenueber dieser Domain.
+    with _domain_lock("crawl:" + _ck):
+        with _CACHE_LOCK:
+            if _ck in _CRAWL_CACHE:
+                _stat("crawl_cache_hits")
+                return [u for u in _CRAWL_CACHE[_ck] if keyword_regex.search(u)]
+        _stat("crawl_domains")
+        return _discover_homepage_crawl_uncached(domain, _ck, keyword_regex, max_pages)
+
+
+def _discover_homepage_crawl_uncached(domain: str, _ck: str, keyword_regex: re.Pattern,
+                                      max_pages: int) -> List[str]:
     bare = domain.rstrip("/").lstrip(".").lower()
     host_www = bare if bare.startswith("www.") else "www." + bare
     host_bare = bare[4:] if bare.startswith("www.") else bare
@@ -576,7 +726,8 @@ def discover_homepage_crawl(domain: str, keyword_regex: re.Pattern, max_pages: i
         if u not in _seen_all:
             _seen_all.add(u)
             _all_dedup.append(u)
-    _CRAWL_CACHE.setdefault(_ck, _all_dedup)
+    with _CACHE_LOCK:
+        _CRAWL_CACHE.setdefault(_ck, _all_dedup)
     return out
 
 
@@ -692,6 +843,130 @@ def filter_urls(urls: List[str], keyword_regex: re.Pattern) -> List[str]:
 # ---------------------------------------------------------------------------
 # Öffentliche Einstiegs-Funktion
 # ---------------------------------------------------------------------------
+
+# Wie viele Domains gleichzeitig aufgewaermt werden. Je Domain bleibt es bei
+# genau einem Thread; die Seiten-Phase faehrt zum Vergleich 10 Worker ueber 53
+# Domains. Ueber die Umgebung uebersteuerbar, falls sich das als zu forsch zeigt.
+DISCOVERY_WARM_WORKERS = 12
+
+
+def _warm_workers(n_tasks: int) -> int:
+    try:
+        env = int(os.environ.get("DISCOVERY_WARM_WORKERS") or 0)
+    except Exception:  # noqa: BLE001
+        env = 0
+    w = env if env > 0 else DISCOVERY_WARM_WORKERS
+    return max(1, min(w, max(1, n_tasks)))
+
+
+def warm_domain_caches(domains: Iterable[str],
+                       keyword_sets: Iterable[Iterable[str]],
+                       max_workers: int | None = None) -> Dict:
+    """Fuellt die Prozess-Caches (_SITEMAP_CACHE, _CRAWL_CACHE, lastmod-Index)
+    einmalig PARALLEL UEBER DIE DOMAINS vor.
+
+    Danach findet die eigentliche Discovery-Schleife in main._build_brand_urls
+    nur noch Cache-Treffer vor; das Ergebnis je (Domain, Produkt) ist Byte fuer
+    Byte dasselbe wie ohne Vorwaermung — es wird nur frueher und nebenlaeufig
+    geholt.
+
+    Zwei Phasen, weil die zweite die erste braucht:
+      1. discover_sitemap_urls je Domain (robots.txt + Sitemap-Baum).
+      2. Homepage-Fallback-Crawl fuer genau die Domains, fuer die
+         discover_for_product ihn ausloesen wuerde. Ausloeser dort:
+         `len(sitemap_matched) < 5` fuer das ERSTE Produkt in Config-
+         Reihenfolge, das die Bedingung erfuellt. Genau dieses Produkt-Regex
+         wird hier verwendet — der Crawl-Cache haengt am Regex (gematchte Links
+         werden nicht weiterverfolgt), eine andere Wahl koennte die gefundene
+         URL-Menge veraendern. `keyword_sets` MUSS deshalb in Config-Reihenfolge
+         kommen.
+
+    Hoeflichkeit: je Domain genau ein Thread (Domain-Lock), unveraenderte
+    Reihenfolge und unveraenderte 0,4-s-Pause zwischen zwei Seiten.
+
+    Faellt bei jedem Fehler still auf das alte Verhalten zurueck: was hier nicht
+    im Cache landet, holt die Schleife nachher sequenziell selbst.
+    """
+    t0 = time.perf_counter()
+    doms: List[str] = []
+    _seen: Set[str] = set()
+    try:
+        for d in domains or []:
+            k = (d or "").strip().lower()
+            if k and k not in _seen:
+                _seen.add(k)
+                doms.append(k)
+        regexes = []
+        for kws in keyword_sets or []:
+            kws = [k for k in (kws or []) if isinstance(k, str) and k.strip()]
+            if kws:
+                regexes.append(build_keyword_regex(kws))
+    except Exception as ex:  # noqa: BLE001
+        print(f"[DISCOVERY] Vorwaermung uebersprungen (Vorbereitung): {ex}")
+        return {}
+    if not doms:
+        return {}
+    _stat("domains", len(doms))
+    workers = max_workers if (max_workers and max_workers > 0) else _warm_workers(len(doms))
+    _stat("warm_workers", workers)
+
+    def _sitemaps(d: str) -> None:
+        try:
+            discover_sitemap_urls(d)
+        except Exception as ex:  # noqa: BLE001
+            _stat("warm_errors")
+            print(f"[DISCOVERY] Sitemap-Vorwaermung {d} fehlgeschlagen: {type(ex).__name__}: {ex}")
+
+    def _crawl(item: Tuple[str, re.Pattern]) -> None:
+        d, rx = item
+        try:
+            discover_homepage_crawl(d, rx)
+        except Exception as ex:  # noqa: BLE001
+            _stat("warm_errors")
+            print(f"[DISCOVERY] Crawl-Vorwaermung {d} fehlgeschlagen: {type(ex).__name__}: {ex}")
+
+    try:
+        print(f"[DISCOVERY] warme {len(doms)} Domains vor "
+              f"({workers} parallel, je Domain 1 Thread) ...")
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            list(pool.map(_sitemaps, doms))
+    except Exception as ex:  # noqa: BLE001
+        _stat("warm_errors")
+        print(f"[DISCOVERY] Sitemap-Vorwaermung insgesamt fehlgeschlagen: {ex}")
+
+    todo: List[Tuple[str, re.Pattern]] = []
+    try:
+        for d in doms:
+            with _CACHE_LOCK:
+                urls = list(_SITEMAP_CACHE.get(d) or [])
+            for rx in regexes:
+                if sum(1 for u in urls if rx.search(u)) < 5:
+                    todo.append((d, rx))
+                    break
+    except Exception as ex:  # noqa: BLE001
+        _stat("warm_errors")
+        print(f"[DISCOVERY] Crawl-Auswahl fehlgeschlagen: {ex}")
+        todo = []
+
+    if todo:
+        try:
+            print(f"[DISCOVERY] Homepage-Fallback-Crawl fuer {len(todo)} Domains "
+                  f"(parallel): {', '.join(d for d, _ in todo)}")
+            with ThreadPoolExecutor(max_workers=_warm_workers(len(todo))) as pool:
+                list(pool.map(_crawl, todo))
+        except Exception as ex:  # noqa: BLE001
+            _stat("warm_errors")
+            print(f"[DISCOVERY] Crawl-Vorwaermung insgesamt fehlgeschlagen: {ex}")
+
+    _stat("warm_wall_seconds", time.perf_counter() - t0)
+    st = discovery_stats()
+    print(f"[TIMING] Discovery-Vorwaermung: {st.get('warm_wall_seconds')} s Wanduhr, "
+          f"{st.get('sitemap_fetches')} Sitemap-Abrufe "
+          f"({st.get('sitemap_ok')} ok, {round(st.get('sitemap_bytes', 0)/1e6, 1)} MB), "
+          f"{st.get('robots_fetches')} robots.txt, "
+          f"{st.get('crawl_domains')} Fallback-Crawls / {st.get('crawl_pages')} Seiten")
+    return st
+
 
 def discover_for_product(
     domain: str,
