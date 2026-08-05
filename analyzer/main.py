@@ -19,6 +19,7 @@ import os
 import re
 import sys
 import time
+from contextlib import contextmanager
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
@@ -151,6 +152,63 @@ def _carry_forward_llm(run_dict, prev_run, llm_id):
     return n
 
 
+def _write_timings(run_dict: Dict, timings: Dict, t_start: float) -> None:
+    """Schreibt die gemessenen Phasendauern nach run["timings"].
+
+    Aufbau (Sekunden, gerundet):
+      llm_seconds          Summe der LLM-Abfragephase ueber alle Produkte
+      snapshot_seconds     Produkt-Snapshots (scrape_product)
+      discovery_seconds    Sitemap-/Crawl-Discovery + lastmod-Index
+      pages_seconds        Seiten-Phase gesamt (track_all, inkl. Orphans)
+      classify_seconds     davon Diff-Klassifikation (Thread-Zeit)
+      pages_detail         Detailzaehler aus page_tracker.LAST_TRACK_STATS
+                           (fetches, fetch_seconds, ratelimit_seconds,
+                            blocked_skipped, blocked_marked, tasks, workers,
+                            domains, wall_seconds)
+      impact_seconds / missing_ergo_seconds / why_seconds / correlation_seconds
+      total_seconds        Wanduhr vom Start der Messung bis zum Schreiben
+
+    Achtung bei der Interpretation: `finished_at` im Run-JSON wird gesetzt, BEVOR
+    Missing-ERGO-, Why- und Korrelations-Analyse laufen. started_at..finished_at
+    unterschaetzt die Job-Laufzeit deshalb systematisch — total_seconds und die
+    Einzelposten decken den Rest ab.
+
+    Fehlertolerant: schlaegt das fehl, laeuft der Lauf unveraendert weiter.
+    """
+    try:
+        t = {k: (round(v, 1) if isinstance(v, float) else v)
+             for k, v in timings.items()}
+        t["total_seconds"] = round(time.perf_counter() - t_start, 1)
+        t["accounted_seconds"] = round(sum(
+            v for k, v in t.items()
+            if isinstance(v, (int, float)) and k.endswith("_seconds")
+            and k not in ("total_seconds", "accounted_seconds", "classify_seconds")
+        ), 1)
+        run_dict["timings"] = t
+    except Exception as e:  # noqa: BLE001
+        print(f"[TIMING] konnte timings nicht schreiben: {e}")
+
+
+@contextmanager
+def _phase(timings: Dict, name: str):
+    """Misst die Dauer eines Laufabschnitts in Sekunden und addiert sie in
+    `timings[name]`. 05.08.2026 eingefuehrt, damit die Laufzeit-Verteilung
+    (LLM / Seiten / Orphans / Klassifikation / Snapshot / Nachanalysen) im
+    Run-JSON steht statt aus Logs rekonstruiert werden zu muessen.
+    Bewusst fehlertolerant: Ein Problem in der Messung darf den Lauf nie kippen.
+    """
+    t0 = time.perf_counter()
+    try:
+        yield
+    finally:
+        try:
+            # ungerundet aufaddieren; gerundet wird erst in _write_timings,
+            # sonst summieren sich Rundungsfehler ueber viele Produkte auf
+            timings[name] = float(timings.get(name) or 0.0) + (time.perf_counter() - t0)
+        except Exception:  # noqa: BLE001
+            pass
+
+
 def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
     cfg = load_config()
     brand_cfg = cfg["brand"]
@@ -226,6 +284,10 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
 
     parallelism = int(cfg.get("settings", {}).get("parallel_requests", 5))
 
+    # Laufzeit-Messung je Phase (05.08.2026). Landet am Ende als run["timings"].
+    timings: Dict[str, float] = {}
+    _t_run_start = time.perf_counter()
+
     for product in cfg["products"]:
         pid = product["id"]
         pname = product["name"]
@@ -233,16 +295,17 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
 
         # --- 1) Webseiten-Snapshot ---
         print("  [WEB] Hole Seite ...")
-        web_result = scrape_product(
-            SNAPSHOTS_DIR, pid, product["url"], ts,
-        ) if not dry_run else {
-            "product_id": pid, "url": product["url"], "timestamp": ts,
-            "status": 200, "error": None,
-            "html_hash": "dry", "text_hash": "dry", "text_length": 0,
-            "diff": {"has_previous": False, "changed": False,
-                     "summary": "dry-run, kein Scrape", "added_lines": [],
-                     "removed_lines": [], "similarity": 1.0},
-        }
+        with _phase(timings, "snapshot_seconds"):
+            web_result = scrape_product(
+                SNAPSHOTS_DIR, pid, product["url"], ts,
+            ) if not dry_run else {
+                "product_id": pid, "url": product["url"], "timestamp": ts,
+                "status": 200, "error": None,
+                "html_hash": "dry", "text_hash": "dry", "text_length": 0,
+                "diff": {"has_previous": False, "changed": False,
+                         "summary": "dry-run, kein Scrape", "added_lines": [],
+                         "removed_lines": [], "similarity": 1.0},
+            }
         if web_result.get("error"):
             print(f"  [WEB] Fehler: {web_result['error']}")
         else:
@@ -265,7 +328,7 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
                 tasks.append((p, llm_id, client))
 
         raw_by_key: Dict[str, Dict] = {}
-        with ThreadPoolExecutor(max_workers=parallelism) as pool:
+        with _phase(timings, "llm_seconds"), ThreadPoolExecutor(max_workers=parallelism) as pool:
             futures = {
                 pool.submit(_ask_wrapper, p, llm_id, client): (p, llm_id)
                 for p, llm_id, client in tasks
@@ -344,7 +407,8 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
 
     # --- 4b) Page-Tracking (eigene Marke + Wettbewerber) ---
     print("\n[PAGES] Tracke konfigurierte URLs pro Marke ...")
-    brand_urls = _build_brand_urls(cfg)
+    with _phase(timings, "discovery_seconds"):
+        brand_urls = _build_brand_urls(cfg)
     n_urls = sum(len(v) for v in brand_urls.values())
     print(f"[PAGES] {n_urls} URLs über {len(brand_urls)} Marken")
     if dry_run or n_urls == 0:
@@ -357,20 +421,22 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
         # (04.08.2026). Kein zusaetzlicher HTTP-Abruf, keine Aenderung an den
         # gecrawlten Seiten — der Index wird nur mitgeschrieben.
         try:
-            _lastmods = lastmod_index()
+            with _phase(timings, "discovery_seconds"):
+                _lastmods = lastmod_index()
             print(f"[PAGES] Sitemap-<lastmod> fuer {len(_lastmods)} URLs verfuegbar")
         except Exception as e:  # noqa: BLE001
             print(f"[PAGES] lastmod-Index nicht verfuegbar: {e}")
             _lastmods = {}
         try:
-            page_events = track_all_pages(
-                PAGES_DIR,
-                timestamp=ts, run_id=ts,
-                brand_urls=brand_urls,
-                classifier=classifier,
-                respect_robots_txt=cfg.get("respect_robots_txt", True),
-                sitemap_lastmods=_lastmods,
-            )
+            with _phase(timings, "pages_seconds"):
+                page_events = track_all_pages(
+                    PAGES_DIR,
+                    timestamp=ts, run_id=ts,
+                    brand_urls=brand_urls,
+                    classifier=classifier,
+                    respect_robots_txt=cfg.get("respect_robots_txt", True),
+                    sitemap_lastmods=_lastmods,
+                )
             n_changed = sum(1 for e in page_events if e.get("changed"))
             n_first = sum(1 for e in page_events if e.get("first_seen"))
             print(f"[PAGES] fertig — {n_changed} geändert, {n_first} erstmalig, "
@@ -382,6 +448,14 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
         "brand_urls": brand_urls,
         "events_this_run": page_events,
     }
+    # Detail-Messung der Seiten-Phase (Abruf-/Ratelimit-/Klassifikations-Sekunden)
+    try:
+        from analyzer import page_tracker as _pt
+        if _pt.LAST_TRACK_STATS:
+            timings["pages_detail"] = dict(_pt.LAST_TRACK_STATS)
+            timings["classify_seconds"] = _pt.LAST_TRACK_STATS.get("classify_seconds", 0)
+    except Exception as e:  # noqa: BLE001
+        print(f"[TIMING] Seiten-Detailstatistik nicht verfuegbar: {e}")
 
     # --- 5) Impact-Analyse ---
     print("\n[IMPACT] Vergleich mit vorherigem Lauf ...")
@@ -425,13 +499,15 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
     # Executive Summary per Claude (falls verfügbar)
     claude_client = clients.get("claude")
     print("[IMPACT] Erzeuge Executive Summary ...")
-    summary_text = generate_exec_summary(run_dict, prev_run, deltas, claude_client)
+    with _phase(timings, "impact_seconds"):
+        summary_text = generate_exec_summary(run_dict, prev_run, deltas, claude_client)
     run_dict["impact"]["executive_summary"] = summary_text
 
     # Totals: ein simples Marken-Ranking über alle Produkte/LLMs
     run_dict["totals"] = _compute_totals(run_dict, all_brand_names)
 
     run_dict["finished_at"] = datetime.now(timezone.utc).isoformat()
+    _write_timings(run_dict, timings, _t_run_start)
 
     # --- 6) Speichern ---
     current_file.write_text(
@@ -450,11 +526,12 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
         me_cfg = cfg.get("missing_ergo") or {}
         if me_cfg.get("enabled", True):  # default an
             cap = int(me_cfg.get("max_total_followups", 250))
-            run_dict["missing_ergo"] = missing_ergo_analysis.analyze_run(
-                run_dict, clients,
-                brand=run_dict.get("brand") or "ERGO",
-                max_total_followups=cap,
-            )
+            with _phase(timings, "missing_ergo_seconds"):
+                run_dict["missing_ergo"] = missing_ergo_analysis.analyze_run(
+                    run_dict, clients,
+                    brand=run_dict.get("brand") or "ERGO",
+                    max_total_followups=cap,
+                )
             meta = run_dict["missing_ergo"].get("_meta") or {}
             print(f"[MISSING-ERGO] fertig: total={meta.get('followups_total')}, "
                   f"success={meta.get('successful')}, fail={meta.get('failed')}")
@@ -477,7 +554,8 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
                 why_client = build_clients([{**llm_cfg, "enabled": True}],
                                            settings=cfg.get("settings")).get(why_llm_id)
         if why_client:
-            run_dict["why_analysis"] = why_analysis.analyze_run(run_dict, why_client)
+            with _phase(timings, "why_seconds"):
+                run_dict["why_analysis"] = why_analysis.analyze_run(run_dict, why_client)
             run_dict["why_analysis_meta"] = {"llm": why_llm_id}
             print(f"[WHY] fertig fuer {len(run_dict['why_analysis'])} Produkte (LLM: {why_llm_id})")
         else:
@@ -503,14 +581,16 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
                                     "details": {}, "baseline_eligible": False}
 
     # run-file ueberschreiben mit aktualisierten Daten
+    _write_timings(run_dict, timings, _t_run_start)
     current_file.write_text(json.dumps(run_dict, ensure_ascii=False, indent=2), encoding="utf-8")
     latest_file.write_text(json.dumps(run_dict, ensure_ascii=False, indent=2), encoding="utf-8")
 
     # --- 7) Korrelation: Webseiten-Events ↔ Metrik-Veränderungen ---
     print("\n[CORR] Berechne Korrelation Webseiten-Events ↔ Metriken ...")
     try:
-        corr = correlation.compute(PAGES_DIR, RUNS_DIR)
-        correlation.write_correlation_file(DATA_DIR / "correlation.json", corr)
+        with _phase(timings, "correlation_seconds"):
+            corr = correlation.compute(PAGES_DIR, RUNS_DIR)
+            correlation.write_correlation_file(DATA_DIR / "correlation.json", corr)
         print(f"[CORR] Page-Events: events={corr['meta']['total_events']}, "
               f"runs={corr['meta']['total_runs']}")
     except Exception as e:  # noqa: BLE001
@@ -533,14 +613,15 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
         if cockpit_events_file:
             print(f"[CORR-UNIFIED] Cockpit-Events: {cockpit_events_file}")
         try:
-            unified = correlation.compute_unified(
-                PAGES_DIR, RUNS_DIR,
-                cockpit_events_file=cockpit_events_file,
-                lag_windows=[1, 3, 7, 14],
-            )
-            correlation.write_correlation_file(
-                DATA_DIR / "unified_correlation.json", unified
-            )
+            with _phase(timings, "correlation_seconds"):
+                unified = correlation.compute_unified(
+                    PAGES_DIR, RUNS_DIR,
+                    cockpit_events_file=cockpit_events_file,
+                    lag_windows=[1, 3, 7, 14],
+                )
+                correlation.write_correlation_file(
+                    DATA_DIR / "unified_correlation.json", unified
+                )
             m = unified["meta"]
             print(f"[CORR-UNIFIED] Page={m['total_page_events']}, "
                   f"Cockpit={m['total_cockpit_events']}, "
