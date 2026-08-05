@@ -1,0 +1,149 @@
+# Kontrolliertes A/B-Experiment zur Websuche - NUR MANUELL.
+#
+# WOZU
+# ----
+# Der Nightly-Kanal `chatgpt_web` laesst das Modell selbst entscheiden, ob es sucht
+# (Responses-API, Default tool_choice: auto). Im Lauf vom 05.08.2026 waren das 226
+# von 323 Prompts. Die daraus abgeleitete Gegenueberstellung
+#     mit Suche  SoV 10,54 %  /  ohne Suche  SoV 3,16 %
+# ist konfundiert: das sind zwei verschiedene FRAGENMENGEN, nicht dieselben Fragen
+# unter zwei Bedingungen. tools/search_ab_test.py stellt dieselben Prompts unter
+# beide Bedingungen (tool_choice="required" gegen gar keine tools) und wertet
+# gepaart mit Bootstrap-Konfidenzintervall aus.
+#
+# WARUM KEIN SCHEDULE
+# -------------------
+# Das ist ein Experiment, kein Messkanal. Erzwungene Suche ist nicht das, was ein
+# Nutzer erlebt - eine Zeitreihe daraus waere irrefuehrend. Deshalb ausschliesslich
+# workflow_dispatch, und deshalb schreibt das Skript nach data/experiments/ und
+# nicht nach data/runs/, sov_history.jsonl oder in die Snapshots.
+#
+# KOSTEN (Preise Stand 05.08.2026, gpt-4.1-mini + Websuche 10 $/1.000 Aufrufe)
+# ---------------------------------------------------------------------------
+# Ein voller Lauf (323 Prompts, repeats 2) sind 1.292 Aufrufe und rund 9,85 $.
+# Der Loewenanteil ist die Werkzeuggebuehr: in Arm A sucht per `required` JEDER
+# Aufruf, nicht nur 70 % wie im Nightly. Die Schaetzung steht vor dem ersten
+# echten Aufruf im Log, `--max-calls` (Default 1.400 im Skript) ist die harte
+# Obergrenze. dry_run=true macht ueberhaupt keine API-Aufrufe.
+
+name: Websuche A/B-Experiment (manuell)
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Prompts insgesamt (leer = alle 323; Stichprobe geschichtet nach Produkt)"
+        type: string
+        default: "150"
+      repeats:
+        description: "Wiederholungen je Prompt und Arm (LLM-Antworten sind nicht deterministisch)"
+        type: string
+        default: "2"
+      dry_run:
+        description: "Trockenlauf: Mock-Antworten, keine API-Aufrufe, keine Kosten"
+        type: boolean
+        default: false
+      max_calls:
+        description: "Harte Obergrenze fuer API-Aufrufe (Abbruch VOR dem ersten Call)"
+        type: string
+        default: "1400"
+
+permissions:
+  contents: write
+
+# Gleiche Gruppe wie die anderen schreibenden Workflows: dieser Job darf nie
+# parallel zum Crawl committen, sonst scheitert einer der beiden Pushes am
+# Fast-Forward (so ist Lauf #415 gestorben). cancel-in-progress: false, weil ein
+# halb abgebrochenes Experiment Geld gekostet und nichts geliefert haette.
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  experiment:
+    runs-on: ubuntu-latest
+    # Ein voller Lauf sind 1.292 Aufrufe bei 5 parallel; Websuche-Antworten
+    # brauchen typisch 5-15 s. Grosszuegig gerechnet gut 1,5 h - 180 Minuten
+    # lassen Luft fuer Retries, ohne stundenlang eine Runner-Minute zu binden.
+    timeout-minutes: 180
+    steps:
+      - name: Repo auschecken
+        uses: actions/checkout@v4
+
+      - name: Python 3.11 einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Dependencies installieren
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Experiment ausfuehren
+        env:
+          # Derselbe Secret wie im Crawl - der Kanal chatgpt_web nutzt ihn ebenfalls.
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          set -eo pipefail
+          ARGS="--repeats ${{ inputs.repeats }} --max-calls ${{ inputs.max_calls }}"
+          if [ -n "${{ inputs.limit }}" ]; then
+            ARGS="$ARGS --limit ${{ inputs.limit }}"
+          fi
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          echo "[START] python3 tools/search_ab_test.py $ARGS"
+          python3 -u tools/search_ab_test.py $ARGS
+
+      - name: Ergebnis zusammenfassen
+        if: always()
+        run: |
+          # Die Markdown-Zusammenfassung landet in der Actions-Oberflaeche, damit
+          # man das Ergebnis sieht, ohne die JSON-Datei zu oeffnen.
+          NEUEST=$(ls -1t data/experiments/*.md 2>/dev/null | head -1 || true)
+          if [ -n "$NEUEST" ]; then
+            cat "$NEUEST" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Keine Zusammenfassung gefunden - siehe Log des vorigen Schritts." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Nur data/experiments committen
+        run: |
+          set -e
+          git config user.name "geo-bot"
+          git config user.email "geo-bot@users.noreply.github.com"
+
+          # BEWUSST nur dieser eine Pfad. Das Experiment darf die Messreihe nicht
+          # anfassen; ein `git add -A` wuerde bei einem Fehler im Skript genau das
+          # tun. Falls doch etwas ausserhalb liegt, faellt es hier auf.
+          git add data/experiments || true
+          if git diff --cached --quiet; then
+            echo "Keine neuen Experiment-Dateien - nichts zu committen."
+            exit 0
+          fi
+          git status --porcelain --cached
+
+          git commit -m "Websuche-A/B-Experiment $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+
+          for i in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort 2>/dev/null || true; git reset --hard HEAD; }
+            if git push origin HEAD:main; then
+              echo "Push OK (Versuch $i)"
+              exit 0
+            fi
+            sleep $((3 + i))
+          done
+          echo "::error::Push fehlgeschlagen. Ergebnis liegt im Runner unter data/experiments."
+          exit 1
+
+      - name: Ergebnis zusaetzlich als Artefakt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: search-ab-experiment
+          path: data/experiments/
+          if-no-files-found: warn
+          retention-days: 30
