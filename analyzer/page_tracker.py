@@ -109,20 +109,89 @@ BLOCK_COOLDOWN_DAYS = 7
 BLOCK_COOLDOWN_SECONDS = BLOCK_COOLDOWN_DAYS * 24 * 3600
 _BLOCK_STATUSES = {0, 401, 402, 403, 407, 429, 502, 503, 504}
 
+# 05.08.2026 — WACHSENDER Cooldown statt fixer 7 Tage.
+# Messung am Lauf 2026-08-05T00-14-31Z: 696 der 6.115 Abrufe waren gesperrt
+# (kosten 0 s), 97 liefen wirklich in den Fehler. Jeder solche Fehlversuch kostet
+# bis zu 30 s (requests-Timeout) + 35 s (FlareSolverr-Fallback) = 65 s Thread-Zeit.
+# Bei fixem 7-Tage-Cooldown laufen die 816 Listeneintraege in Wochenfrist alle
+# einmal wieder auf — rund 116 Wiederholungen pro Nacht, davon scheitert die grosse
+# Mehrheit erneut: 116 x 65 s / 10 Worker = rund 12 min je Lauf, jede Nacht.
+# Mit Verdopplung je erneutem Fehlschlag (7 -> 14 -> 28 Tage, Deckel 28) sinkt die
+# Wiederholrate dauerhaft auf ein Viertel. KEIN Informationsverlust: jede URL wird
+# weiterhin regelmaessig nachgeprueft, nur seltener, und ein einziger Erfolg setzt
+# den Zaehler sofort zurueck (unmark_url_blocked im Erfolgspfad von track_page).
+BLOCK_COOLDOWN_MAX_DAYS = 28
+BLOCK_COOLDOWN_MAX_SECONDS = BLOCK_COOLDOWN_MAX_DAYS * 24 * 3600
+# Eintraege werden laenger aufbewahrt als der Cooldown, sonst geht der Fehlzaehler
+# beim Ablauf verloren und die Eskalation begaenne jedes Mal wieder bei 7 Tagen.
+BLOCK_RETENTION_SECONDS = 120 * 24 * 3600
+
 _block_lock = threading.Lock()
-_block_list: Dict[str, float] = {}
+# url -> {"ts": float, "fails": int}
+_block_list: Dict[str, Dict] = {}
+
+
+# ---------------------------------------------------------------------------
+# Laufzeit-Messung (05.08.2026)
+# ---------------------------------------------------------------------------
+# Zaehlt Thread-Sekunden je Teilschritt der Seiten-Phase, damit die naechste
+# Laufzeit-Analyse nicht wieder rekonstruiert werden muss. Rein additiv: die
+# Werte landen in LAST_TRACK_STATS und von dort in run["timings"]["pages"].
+# Ein Fehler hier darf den Lauf nie kippen -> alle Zugriffe sind exception-frei.
+
+class _PhaseStats:
+    def __init__(self) -> None:
+        self._lock = threading.Lock()
+        self._d: Dict[str, float] = {}
+
+    def reset(self) -> None:
+        with self._lock:
+            self._d = {}
+
+    def add(self, key: str, value: float) -> None:
+        try:
+            with self._lock:
+                self._d[key] = self._d.get(key, 0.0) + float(value)
+        except Exception:  # noqa: BLE001
+            pass
+
+    def snapshot(self) -> Dict[str, float]:
+        try:
+            with self._lock:
+                return {k: (round(v, 2) if isinstance(v, float) else v)
+                        for k, v in self._d.items()}
+        except Exception:  # noqa: BLE001
+            return {}
+
+
+_stats = _PhaseStats()
+LAST_TRACK_STATS: Dict[str, float] = {}
+
+
+def _cooldown_for(fails: int) -> float:
+    """7 Tage beim ersten Fehlschlag, danach Verdopplung bis BLOCK_COOLDOWN_MAX."""
+    try:
+        n = max(1, int(fails))
+    except (TypeError, ValueError):
+        n = 1
+    return min(BLOCK_COOLDOWN_SECONDS * (2 ** (n - 1)), BLOCK_COOLDOWN_MAX_SECONDS)
 
 
 def load_block_list(path: Path = BLOCK_LIST_FILE) -> None:
-    """Sperrliste aus JSON in den Modul-Speicher laden. Fehlt/kaputt -> leer."""
+    """Sperrliste aus JSON laden. Akzeptiert das alte Format (url -> ts) und das
+    neue (url -> {"ts": ..., "fails": ...}). Fehlt/kaputt -> leer."""
     global _block_list
-    loaded: Dict[str, float] = {}
+    loaded: Dict[str, Dict] = {}
     try:
         if path.exists():
             raw = json.loads(path.read_text(encoding="utf-8"))
-            for u, ts in (raw or {}).items():
+            for u, val in (raw or {}).items():
                 try:
-                    loaded[u] = float(ts)
+                    if isinstance(val, dict):
+                        loaded[u] = {"ts": float(val.get("ts") or 0.0),
+                                     "fails": int(val.get("fails") or 1)}
+                    else:
+                        loaded[u] = {"ts": float(val), "fails": 1}
                 except (TypeError, ValueError):
                     continue
     except Exception as ex:  # noqa: BLE001
@@ -134,36 +203,56 @@ def load_block_list(path: Path = BLOCK_LIST_FILE) -> None:
 
 
 def save_block_list(path: Path = BLOCK_LIST_FILE) -> None:
-    """Sperrliste schreiben; Eintraege aelter als der Cooldown fallen raus."""
+    """Sperrliste schreiben; sehr alte Eintraege (Retention) fallen raus."""
     now = time.time()
     with _block_lock:
-        keep = {u: ts for u, ts in _block_list.items()
-                if now - ts < BLOCK_COOLDOWN_SECONDS}
+        keep = {u: v for u, v in _block_list.items()
+                if now - float(v.get("ts") or 0.0) < BLOCK_RETENTION_SECONDS}
         _block_list.clear()
         _block_list.update(keep)
-        snapshot = dict(keep)
+        snapshot = {u: dict(v) for u, v in keep.items()}
     try:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2,
                                    sort_keys=True), encoding="utf-8")
-        print(f"[BLOCKLIST] {len(snapshot)} URL(s) geschrieben -> {path}")
+        active = sum(1 for v in snapshot.values()
+                     if now - float(v.get("ts") or 0.0) < _cooldown_for(v.get("fails")))
+        print(f"[BLOCKLIST] {len(snapshot)} URL(s) geschrieben -> {path} "
+              f"({active} davon aktuell im Cooldown)")
     except Exception as ex:  # noqa: BLE001
         print(f"[BLOCKLIST] Schreiben fehlgeschlagen: {ex}")
 
 
 def is_url_blocked(url: str, now: Optional[float] = None) -> bool:
-    """True, wenn die URL innerhalb des Cooldowns gesperrt ist."""
+    """True, wenn die URL innerhalb ihres (wachsenden) Cooldowns gesperrt ist."""
     now = time.time() if now is None else now
     with _block_lock:
-        ts = _block_list.get(url)
-    return ts is not None and (now - ts) < BLOCK_COOLDOWN_SECONDS
+        entry = _block_list.get(url)
+    if not entry:
+        return False
+    try:
+        ts = float(entry.get("ts") or 0.0)
+    except (TypeError, ValueError):
+        return False
+    return (now - ts) < _cooldown_for(entry.get("fails"))
 
 
 def mark_url_blocked(url: str, now: Optional[float] = None) -> None:
-    """URL als blockiert vermerken (Cooldown startet ab jetzt)."""
+    """URL als blockiert vermerken; Fehlzaehler hoch, Cooldown startet ab jetzt."""
     now = time.time() if now is None else now
     with _block_lock:
-        _block_list[url] = now
+        prev = _block_list.get(url) or {}
+        try:
+            fails = int(prev.get("fails") or 0)
+        except (TypeError, ValueError):
+            fails = 0
+        _block_list[url] = {"ts": now, "fails": fails + 1}
+
+
+def unmark_url_blocked(url: str) -> None:
+    """Erfolgreicher Abruf -> Eintrag loeschen, Eskalation beginnt bei 0."""
+    with _block_lock:
+        _block_list.pop(url, None)
 
 
 # ---------------------------------------------------------------------------
@@ -564,10 +653,18 @@ def track_page(
 
     if is_url_blocked(url):
         result.error = "blocked (Sperrliste, Cooldown aktiv)"
+        _stats.add("blocked_skipped", 1)
         return result
 
+    _t_wait = time.perf_counter()
     rate_limiter.wait(url)
-    status, final_url, html = _fetch(url, timeout=(ORPHAN_FETCH_TIMEOUT if is_orphan else 30))
+    _t_fetch = time.perf_counter()
+    _stats.add("ratelimit_seconds", _t_fetch - _t_wait)
+    try:
+        status, final_url, html = _fetch(url, timeout=(ORPHAN_FETCH_TIMEOUT if is_orphan else 30))
+    finally:
+        _stats.add("fetch_seconds", time.perf_counter() - _t_fetch)
+        _stats.add("fetches", 1)
     result.status = status
 
     # Crawl-Fix 26.07.2026: bleibt die URL nach dem Fallback blockiert (403/429/5xx
@@ -575,6 +672,10 @@ def track_page(
     # Loeschungs-Erkennung.
     if status in _BLOCK_STATUSES:
         mark_url_blocked(url)
+        _stats.add("blocked_marked", 1)
+    elif status == 200:
+        # Seite lebt wieder -> Eskalationszaehler zuruecksetzen.
+        unmark_url_blocked(url)
 
     # 404 / 410 / Server-Errors explizit behandeln
     if status in (0, 404, 410):
@@ -720,10 +821,14 @@ def track_page(
 
     classification = None
     if classifier is not None:
+        _t_cls = time.perf_counter()
         try:
             classification = classifier(url, added, removed, result.summary)
         except Exception as e:  # noqa: BLE001
             classification = {"error": str(e)[:200]}
+        finally:
+            _stats.add("classify_seconds", time.perf_counter() - _t_cls)
+            _stats.add("classify_calls", 1)
     result.classification = classification
 
     event = {
@@ -942,6 +1047,59 @@ def write_page_dates(pages_base: Path,
         print(f"[page_dates] Schreiben fehlgeschlagen: {ex}")
 
 
+def _interleave_by_domain(tasks: List[Tuple]) -> List[Tuple]:
+    """
+    Sortiert die Abruf-Warteschlange so um, dass aufeinanderfolgende Tasks zu
+    VERSCHIEDENEN Domains gehoeren (Round-Robin ueber die Domain-Buckets).
+
+    Warum (Messung am Lauf 2026-08-05T00-14-31Z, 233 min Gesamtlaufzeit):
+    Die Tasks entstanden bisher in Marken-Reihenfolge, also alle 801 Allianz-URLs
+    am Stueck, dann 559 ADAC-URLs usw. Alle 10 Worker arbeiteten damit zur selben
+    Zeit auf DERSELBEN Domain — und dort serialisiert der DomainRateLimiter sie auf
+    einen Request je DOMAIN_MIN_DELAY (1,5 s). Effektive Nebenlaeufigkeit: 1 statt 10.
+    Die Wanduhr war deshalb rund Summe(5.419 aktive URLs x (1,5 s + Abrufzeit)),
+    also ~2,5 h Seiten-Phase.
+
+    Nach dem Interleaving liegen zu jedem Zeitpunkt 10 verschiedene Domains in
+    Arbeit (es gibt 50). Die Untergrenze ist damit die groesste Domain:
+    801 x (1,5 s + Abruf) statt Summe ueber alle Domains.
+
+    Wichtig: Die Hoeflichkeit je Domain bleibt UNveraendert — DOMAIN_MIN_DELAY
+    gilt weiterhin, pro Domain wird der Abstand zwischen zwei Requests nicht
+    verkleinert. Es aendert sich nur, welche Domains gleichzeitig drankommen.
+    Es werden weder URLs weggelassen noch Reihenfolge-Semantik gebraucht: das
+    Ergebnis ist eine Menge von Events, die Reihenfolge ist irrelevant.
+    """
+    try:
+        buckets: Dict[str, List[Tuple]] = {}
+        for t in tasks:
+            host = ""
+            try:
+                host = urlparse(t[2]).netloc.lower()
+            except Exception:  # noqa: BLE001
+                host = ""
+            buckets.setdefault(host, []).append(t)
+        if len(buckets) <= 1:
+            return list(tasks)
+        # Groesste Domain zuerst -> ihre Eintraege werden am gleichmaessigsten verteilt
+        ordered = sorted(buckets.values(), key=len, reverse=True)
+        out: List[Tuple] = []
+        i = 0
+        while len(out) < len(tasks):
+            progressed = False
+            for b in ordered:
+                if i < len(b):
+                    out.append(b[i])
+                    progressed = True
+            if not progressed:
+                break
+            i += 1
+        return out if len(out) == len(tasks) else list(tasks)
+    except Exception as ex:  # noqa: BLE001
+        print(f"[page_tracker] Interleaving fehlgeschlagen, nutze Originalreihenfolge: {ex}")
+        return list(tasks)
+
+
 def track_all(
     pages_base: Path,
     *,
@@ -968,6 +1126,8 @@ def track_all(
     Gibt eine Liste von Tracker-Results zurück (als Dicts), damit main.py die
     als Run-JSON-Fragment speichern kann (z.B. für den Impact-Tab).
     """
+    _t_start = time.perf_counter()
+    _stats.reset()
     rate = DomainRateLimiter()
     robots = RobotsCache(respect=respect_robots_txt)
     block_path = pages_base.parent / BLOCK_LIST_FILE.name
@@ -1004,20 +1164,56 @@ def track_all(
     # Seiten PARALLEL abrufen (I/O-gebunden; FlareSolverr/Cloudflare dominieren
     # die Laufzeit). Pro Domain bleibt der Abruf via Rate-Limiter serialisiert,
     # verschiedene Domains laufen gleichzeitig -> statt Stunden nur Minuten.
+    # 05.08.2026: Damit das auch praktisch eintritt, wird die Warteschlange ueber
+    # die Domains verschraenkt (siehe _interleave_by_domain) — vorher lagen alle
+    # URLs einer Marke am Stueck und die Worker blockierten sich gegenseitig am
+    # Domain-Lock derselben Domain.
+    n_tasks = len(tasks)
+    tasks = _interleave_by_domain(tasks)
     workers = max(1, int(max_workers))
-    if workers == 1 or len(tasks) <= 1:
-        for (brand, pids, url, orph) in tasks:
-            out.append(_one(brand, pids, url, orph))
-        save_block_list(block_path)
-        write_page_dates(pages_base, sitemap_lastmods)
-        return out
-    with ThreadPoolExecutor(max_workers=workers) as pool:
-        futs = [pool.submit(_one, b, p, u, o) for (b, p, u, o) in tasks]
-        for f in as_completed(futs):
-            try:
-                out.append(f.result())
-            except Exception as ex:  # noqa: BLE001
-                out.append({"error": str(ex)[:200]})
-    save_block_list(block_path)
-    write_page_dates(pages_base, sitemap_lastmods)
+    _finished = [False]
+
+    def _finish():
+        try:
+            save_block_list(block_path)
+        except Exception as ex:  # noqa: BLE001
+            print(f"[page_tracker] save_block_list fehlgeschlagen: {ex}")
+        try:
+            write_page_dates(pages_base, sitemap_lastmods)
+        except Exception as ex:  # noqa: BLE001
+            print(f"[page_tracker] write_page_dates fehlgeschlagen: {ex}")
+        try:
+            global LAST_TRACK_STATS
+            st = _stats.snapshot()
+            st["tasks"] = n_tasks
+            st["workers"] = workers
+            st["domains"] = len({urlparse(t[2]).netloc.lower() for t in tasks})
+            st["wall_seconds"] = round(time.perf_counter() - _t_start, 1)
+            LAST_TRACK_STATS = st
+            print("[TIMING] Seiten-Phase: "
+                  f"{st.get('wall_seconds')} s Wanduhr, "
+                  f"{st.get('fetches', 0)} Abrufe / {st.get('fetch_seconds', 0)} s, "
+                  f"Ratelimit {st.get('ratelimit_seconds', 0)} s, "
+                  f"Klassifikation {st.get('classify_calls', 0)} x "
+                  f"{st.get('classify_seconds', 0)} s, "
+                  f"gesperrt uebersprungen {st.get('blocked_skipped', 0)}")
+        except Exception as ex:  # noqa: BLE001
+            print(f"[page_tracker] Timing-Statistik fehlgeschlagen: {ex}")
+        _finished[0] = True
+
+    try:
+        if workers == 1 or n_tasks <= 1:
+            for (brand, pids, url, orph) in tasks:
+                out.append(_one(brand, pids, url, orph))
+        else:
+            with ThreadPoolExecutor(max_workers=workers) as pool:
+                futs = [pool.submit(_one, b, p, u, o) for (b, p, u, o) in tasks]
+                for f in as_completed(futs):
+                    try:
+                        out.append(f.result())
+                    except Exception as ex:  # noqa: BLE001
+                        out.append({"error": str(ex)[:200]})
+    finally:
+        if not _finished[0]:
+            _finish()
     return out
