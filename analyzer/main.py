@@ -283,6 +283,10 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
         "brand_domain": brand_cfg["domain"],
         "competitors": [c.name for c in competitors],
         "llms": list(clients.keys()),
+        # Engines, die heute laut Kosten-Intervall gar nicht abgefragt wurden.
+        # Wird bis zur Qualitaetsbewertung durchgereicht, damit ein geplanter
+        # Aus-Tag nicht als Ausfall gewertet wird (data_quality._check_llms).
+        "skipped_llms": list(_skipped_llms),
         "products": {},
         "totals": {},
     }
@@ -578,7 +582,7 @@ def run(dry_run: bool = False, limit: Optional[int] = None) -> Path:
     # --- 6c) Daten-Qualitaets-Tag (Ampel pro Run) ---
     print("\n[QUALITY] Berechne Daten-Qualitaets-Tag ...")
     try:
-        dq = data_quality.compute(run_dict, cfg)
+        dq = data_quality.compute(run_dict, cfg, skipped_llms=_skipped_llms)
         run_dict["data_quality"] = dq
         print(f"[QUALITY] Grade={dq['grade'].upper()}  Score={dq['score']}  "
               f"baseline_eligible={dq['baseline_eligible']}")
