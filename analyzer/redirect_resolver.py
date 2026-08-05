@@ -24,7 +24,7 @@ Budget
 Auch bei 67 ms bleibt es ein Netzwerkaufruf je Quelle. Deshalb harte Grenzen,
 die im Zweifel zu unvollstaendigen, aber ehrlich markierten Daten fuehren:
   - `max_resolutions`  Stueckgrenze je Prozess (Default 6000)
-  - `budget_seconds`   Wanduhr-Frist ab der ersten Aufloesung (Default 900 s)
+  - `budget_seconds`   Wanduhr-Frist ab der ersten Aufloesung (Default 2400 s)
   - `timeout`          je Request (Default 4 s)
   - `max_hops`         Weiterleitungsketten laenger als 3 werden abgebrochen
 Wird eine Grenze gerissen, liefert der Resolver `resolve_status="budget"` und
@@ -101,7 +101,7 @@ class RedirectResolver:
     """Loest Weiterleitungs-URLs auf. Thread-sicher, gecacht, budgetiert."""
 
     def __init__(self, timeout: float = 4.0, max_hops: int = 3,
-                 max_resolutions: int = 6000, budget_seconds: float = 900.0,
+                 max_resolutions: int = 6000, budget_seconds: float = 2400.0,
                  enabled: bool = True):
         self.timeout = timeout
         self.max_hops = max_hops
@@ -232,7 +232,7 @@ def get_resolver() -> RedirectResolver:
 
       GEO_RESOLVE_REDIRECTS   0/off schaltet die Aufloesung ab (Default an)
       GEO_RESOLVE_MAX         Stueckgrenze je Lauf (Default 6000)
-      GEO_RESOLVE_BUDGET_S    Wanduhr-Frist in Sekunden (Default 900)
+      GEO_RESOLVE_BUDGET_S    Wanduhr-Frist in Sekunden (Default 2400)
       GEO_RESOLVE_TIMEOUT_S   Timeout je Request (Default 4)
     """
     global _default_resolver
@@ -242,7 +242,7 @@ def get_resolver() -> RedirectResolver:
                 _default_resolver = RedirectResolver(
                     timeout=float(_env_int("GEO_RESOLVE_TIMEOUT_S", 4)),
                     max_resolutions=_env_int("GEO_RESOLVE_MAX", 6000),
-                    budget_seconds=float(_env_int("GEO_RESOLVE_BUDGET_S", 900)),
+                    budget_seconds=float(_env_int("GEO_RESOLVE_BUDGET_S", 2400)),
                     enabled=_env_flag("GEO_RESOLVE_REDIRECTS", True),
                 )
     return _default_resolver
