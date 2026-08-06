@@ -1,51 +1,21 @@
 {
   "meta": {
-    "total_page_events": 13491,
+    "total_page_events": 13635,
     "total_cockpit_events": 0,
-    "total_unified_events": 13446,
-    "total_enriched_events": 13446,
-    "total_runs": 128,
+    "total_unified_events": 13590,
+    "total_enriched_events": 13590,
+    "total_runs": 129,
     "lag_windows": [
       1,
       3,
       7,
       14
     ],
-    "generated_at": "2026-08-05T11:21:02.355169Z"
+    "generated_at": "2026-08-06T01:46:50.112587Z"
   },
   "event_summary": {
-    "page_change": {
-      "count": 6827,
-      "brands": [
-        "ADAC",
-        "ARAG",
-        "AXA",
-        "Allianz",
-        "Alte Leipziger",
-        "Cosmos Direkt",
-        "CosmosDirekt",
-        "DA Direkt",
-        "Die Bayerische",
-        "ERGO",
-        "Generali",
-        "HDI",
-        "HUK-Coburg",
-        "Hannoversche",
-        "HanseMerkur",
-        "LV 1871",
-        "R+V",
-        "Signal Iduna",
-        "VHV",
-        "Württembergische",
-        "Zurich"
-      ],
-      "avg_magnitude": 0.347,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
     "page_new": {
-      "count": 6619,
+      "count": 6620,
       "brands": [
         "ADAC",
         "ARAG",
@@ -75,6 +45,36 @@
         "Zurich"
       ],
       "avg_magnitude": 1.0,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    "page_change": {
+      "count": 6970,
+      "brands": [
+        "ADAC",
+        "ARAG",
+        "AXA",
+        "Allianz",
+        "Alte Leipziger",
+        "Cosmos Direkt",
+        "CosmosDirekt",
+        "DA Direkt",
+        "Die Bayerische",
+        "ERGO",
+        "Generali",
+        "HDI",
+        "HUK-Coburg",
+        "Hannoversche",
+        "HanseMerkur",
+        "LV 1871",
+        "R+V",
+        "Signal Iduna",
+        "VHV",
+        "Württembergische",
+        "Zurich"
+      ],
+      "avg_magnitude": 0.342,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -82,39 +82,8 @@
   },
   "impact_ranking": [
     {
-      "event_type": "page_change",
-      "count": 6827,
-      "brands": [
-        "ADAC",
-        "ARAG",
-        "AXA",
-        "Allianz",
-        "Alte Leipziger",
-        "Cosmos Direkt",
-        "CosmosDirekt",
-        "DA Direkt",
-        "Die Bayerische",
-        "ERGO",
-        "Generali",
-        "HDI",
-        "HUK-Coburg",
-        "Hannoversche",
-        "HanseMerkur",
-        "LV 1871",
-        "R+V",
-        "Signal Iduna",
-        "VHV",
-        "Württembergische",
-        "Zurich"
-      ],
-      "avg_magnitude": 0.347,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    {
       "event_type": "page_new",
-      "count": 6619,
+      "count": 6620,
       "brands": [
         "ADAC",
         "ARAG",
@@ -147,50 +116,54 @@
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
+    },
+    {
+      "event_type": "page_change",
+      "count": 6970,
+      "brands": [
+        "ADAC",
+        "ARAG",
+        "AXA",
+        "Allianz",
+        "Alte Leipziger",
+        "Cosmos Direkt",
+        "CosmosDirekt",
+        "DA Direkt",
+        "Die Bayerische",
+        "ERGO",
+        "Generali",
+        "HDI",
+        "HUK-Coburg",
+        "Hannoversche",
+        "HanseMerkur",
+        "LV 1871",
+        "R+V",
+        "Signal Iduna",
+        "VHV",
+        "Württembergische",
+        "Zurich"
+      ],
+      "avg_magnitude": 0.342,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
     }
   ],
   "correlation_matrix": {
-    "page_change__delta_share_of_voice__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 6827,
-      "spearman_rho": -0.0199,
-      "avg_delta": -0.003307,
-      "avg_magnitude": 0.347
-    },
-    "page_change__delta_appearance_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 6827,
-      "spearman_rho": -0.0202,
-      "avg_delta": 0.007979,
-      "avg_magnitude": 0.347
-    },
-    "page_change__delta_citation_rate__lag_1d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 6827,
-      "spearman_rho": -0.0712,
-      "avg_delta": -0.001321,
-      "avg_magnitude": 0.347
-    },
     "page_new__delta_share_of_voice__lag_1d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 6619,
+      "n_events": 6620,
       "spearman_rho": 0.505,
-      "avg_delta": 0.035043,
+      "avg_delta": 0.035037,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_1d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 6619,
+      "n_events": 6620,
       "spearman_rho": 0.6725,
       "avg_delta": 0.006086,
       "avg_magnitude": 1.0
@@ -199,91 +172,91 @@
       "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 6619,
+      "n_events": 6620,
       "spearman_rho": 0.6816,
-      "avg_delta": 0.005034,
+      "avg_delta": 0.005033,
       "avg_magnitude": 1.0
     },
-    "page_change__delta_share_of_voice__lag_3d": {
+    "page_change__delta_share_of_voice__lag_1d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 6515,
-      "spearman_rho": -0.0125,
-      "avg_delta": -0.005237,
-      "avg_magnitude": 0.356
+      "lag_days": 1,
+      "n_events": 6970,
+      "spearman_rho": -0.0198,
+      "avg_delta": -0.003385,
+      "avg_magnitude": 0.342
     },
-    "page_change__delta_appearance_rate__lag_3d": {
+    "page_change__delta_appearance_rate__lag_1d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 6515,
-      "spearman_rho": -0.093,
-      "avg_delta": 5e-05,
-      "avg_magnitude": 0.356
+      "lag_days": 1,
+      "n_events": 6970,
+      "spearman_rho": -0.0166,
+      "avg_delta": 0.007161,
+      "avg_magnitude": 0.342
     },
-    "page_change__delta_citation_rate__lag_3d": {
+    "page_change__delta_citation_rate__lag_1d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 6515,
-      "spearman_rho": -0.1388,
-      "avg_delta": 0.001341,
-      "avg_magnitude": 0.356
+      "lag_days": 1,
+      "n_events": 6970,
+      "spearman_rho": -0.0696,
+      "avg_delta": -0.001643,
+      "avg_magnitude": 0.342
     },
     "page_new__delta_share_of_voice__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 3,
-      "n_events": 6618,
+      "n_events": 6619,
       "spearman_rho": 0.5048,
-      "avg_delta": 0.0379,
+      "avg_delta": 0.037893,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 3,
-      "n_events": 6618,
+      "n_events": 6619,
       "spearman_rho": 0.6682,
-      "avg_delta": -0.001037,
+      "avg_delta": -0.001038,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_3d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 3,
-      "n_events": 6618,
+      "n_events": 6619,
       "spearman_rho": 0.6791,
-      "avg_delta": 0.009123,
+      "avg_delta": 0.009124,
       "avg_magnitude": 1.0
     },
-    "page_change__delta_share_of_voice__lag_7d": {
+    "page_change__delta_share_of_voice__lag_3d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 5800,
-      "spearman_rho": -0.0411,
-      "avg_delta": -0.002886,
-      "avg_magnitude": 0.364
+      "lag_days": 3,
+      "n_events": 6678,
+      "spearman_rho": -0.0122,
+      "avg_delta": -0.005354,
+      "avg_magnitude": 0.35
     },
-    "page_change__delta_appearance_rate__lag_7d": {
+    "page_change__delta_appearance_rate__lag_3d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 5800,
-      "spearman_rho": -0.0297,
-      "avg_delta": -0.010419,
-      "avg_magnitude": 0.364
+      "lag_days": 3,
+      "n_events": 6678,
+      "spearman_rho": -0.0822,
+      "avg_delta": -0.001374,
+      "avg_magnitude": 0.35
     },
-    "page_change__delta_citation_rate__lag_7d": {
+    "page_change__delta_citation_rate__lag_3d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 5800,
-      "spearman_rho": -0.0839,
-      "avg_delta": 0.005195,
-      "avg_magnitude": 0.364
+      "lag_days": 3,
+      "n_events": 6678,
+      "spearman_rho": -0.1293,
+      "avg_delta": 0.000374,
+      "avg_magnitude": 0.35
     },
     "page_new__delta_share_of_voice__lag_7d": {
       "event_type": "page_new",
@@ -291,7 +264,7 @@
       "lag_days": 7,
       "n_events": 6611,
       "spearman_rho": 0.5074,
-      "avg_delta": 0.036583,
+      "avg_delta": 0.036589,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_7d": {
@@ -300,7 +273,7 @@
       "lag_days": 7,
       "n_events": 6611,
       "spearman_rho": 0.6787,
-      "avg_delta": -0.009111,
+      "avg_delta": -0.009099,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_7d": {
@@ -309,544 +282,452 @@
       "lag_days": 7,
       "n_events": 6611,
       "spearman_rho": 0.68,
-      "avg_delta": 0.013023,
+      "avg_delta": 0.013024,
       "avg_magnitude": 1.0
     },
-    "page_change__delta_share_of_voice__lag_14d": {
+    "page_change__delta_share_of_voice__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
-      "lag_days": 14,
-      "n_events": 4003,
-      "spearman_rho": -0.0872,
-      "avg_delta": -0.014341,
-      "avg_magnitude": 0.427
+      "lag_days": 7,
+      "n_events": 5872,
+      "spearman_rho": -0.0382,
+      "avg_delta": -0.002946,
+      "avg_magnitude": 0.361
     },
-    "page_change__delta_appearance_rate__lag_14d": {
+    "page_change__delta_appearance_rate__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
-      "lag_days": 14,
-      "n_events": 4003,
-      "spearman_rho": -0.0149,
-      "avg_delta": 0.004269,
-      "avg_magnitude": 0.427
+      "lag_days": 7,
+      "n_events": 5872,
+      "spearman_rho": -0.0227,
+      "avg_delta": -0.011174,
+      "avg_magnitude": 0.361
     },
-    "page_change__delta_citation_rate__lag_14d": {
+    "page_change__delta_citation_rate__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
-      "lag_days": 14,
-      "n_events": 4003,
-      "spearman_rho": -0.2406,
-      "avg_delta": 0.012376,
-      "avg_magnitude": 0.427
+      "lag_days": 7,
+      "n_events": 5872,
+      "spearman_rho": -0.0867,
+      "avg_delta": 0.004995,
+      "avg_magnitude": 0.361
     },
     "page_new__delta_share_of_voice__lag_14d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 14,
-      "n_events": 6284,
-      "spearman_rho": 0.5061,
-      "avg_delta": 0.021394,
+      "n_events": 6292,
+      "spearman_rho": 0.5062,
+      "avg_delta": 0.021454,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_14d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 14,
-      "n_events": 6284,
+      "n_events": 6292,
       "spearman_rho": 0.6678,
-      "avg_delta": -0.029046,
+      "avg_delta": -0.028912,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_14d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 14,
-      "n_events": 6284,
-      "spearman_rho": 0.6726,
-      "avg_delta": 0.009525,
+      "n_events": 6292,
+      "spearman_rho": 0.6719,
+      "avg_delta": 0.009515,
       "avg_magnitude": 1.0
+    },
+    "page_change__delta_share_of_voice__lag_14d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 14,
+      "n_events": 4356,
+      "spearman_rho": -0.0944,
+      "avg_delta": -0.014783,
+      "avg_magnitude": 0.411
+    },
+    "page_change__delta_appearance_rate__lag_14d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 14,
+      "n_events": 4356,
+      "spearman_rho": -0.0102,
+      "avg_delta": -0.004754,
+      "avg_magnitude": 0.411
+    },
+    "page_change__delta_citation_rate__lag_14d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 14,
+      "n_events": 4356,
+      "spearman_rho": -0.2084,
+      "avg_delta": 0.00712,
+      "avg_magnitude": 0.411
     }
   },
   "dashboard_events": [
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
-      "brand": "LV 1871",
+      "brand": "Allianz",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.09599999999999997,
+      "magnitude": 0.5937,
       "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/digitales-erbe-wie-sie-onlinekonten-und-passwoerter-vererben",
-        "summary": "0 neue Zeilen, 36 entfernte Zeilen (Ähnlichkeit 90.4%).",
-        "similarity": 0.904,
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung",
+        "summary": "60 neue Zeilen, 33 entfernte Zeilen (Ähnlichkeit 40.6%).",
+        "similarity": 0.4063,
         "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung eines Beitragsrechners und des Cookie-Consent-Managers von der Webseite.",
-          "keywords": [
-            "rechner",
-            "cookie",
-            "consent",
-            "formular",
-            "navigation"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.002857
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.057599999999999985,
-      "detail": {
-        "url": "https://www.lv1871.de/risikolebensversicherung/unternehmer",
-        "summary": "0 neue Zeilen, 42 entfernte Zeilen (Ähnlichkeit 94.2%).",
-        "similarity": 0.9424,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung von Cookie- und Tracking-Einstellungen sowie Kontaktinformationen von Kundenberatern. Dies ist eine wesentliche Änderung der Webseitenstruktur und des Datenschutzes.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "kontakt",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002038
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.19579999999999997,
-      "detail": {
-        "url": "https://www.lv1871.de/magazin/familie/geschenke-zur-geburt-was-wirklich-sinnvoll-ist",
-        "summary": "33 neue Zeilen, 48 entfernte Zeilen (Ähnlichkeit 80.4%).",
-        "similarity": 0.8042,
-        "classification": {
-          "type": "struktur",
+          "type": "leistung",
           "direction": "change",
           "magnitude": "major",
-          "summary": "Ein Rechner zur Beitragsberechnung und Cookie-Einstellungen wurden entfernt, während ein Bereich für verwandte Artikel hinzugefügt wurde. Dies ist eine signifikante Änderung der Seitenstruktur und Funktionalität.",
+          "summary": "Überarbeitung und Erweiterung der Leistungsübersicht und Tarifvergleiche für die Zahnzusatzversicherung, inklusive detaillierterer Beschreibungen und neuer Leistungspunkte wie Funktionsanalyse und Angst-/Schmerzausschaltung bei Zahnersatz &",
           "keywords": [
-            "rechner",
-            "cookie-einstellungen",
-            "verwandte artikel",
-            "layout",
-            "funktionalität"
+            "leistung",
+            "tarifvergleich",
+            "zahnersatz",
+            "kieferorthopädie",
+            "zahnbehandlung"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.022555
+        "lag_1d": -0.016352
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
-      "brand": "LV 1871",
+      "brand": "Allianz",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.06840000000000002,
+      "magnitude": 0.9887,
       "detail": {
-        "url": "https://www.lv1871.de/sterbegeldversicherung/eheleute-paare",
-        "summary": "56 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 93.2%).",
-        "similarity": 0.9316,
+        "url": "https://www.allianz.de/service/kunden-werben-kunden",
+        "summary": "8 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 1.1%).",
+        "similarity": 0.0113,
+        "classification": {
+          "type": "sonstiges",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Die gesamte Seite zum 'Kunden werben Kunden'-Programm wurde entfernt und durch eine Fehlermeldung ersetzt.",
+          "keywords": [
+            "fehler",
+            "redirect",
+            "programm",
+            "entfernung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01694
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.6179,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/krankenzusatzversicherung/ambulante-zusatzversicherung/",
+        "summary": "120 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 38.2%).",
+        "similarity": 0.3821,
+        "classification": {
+          "type": "sonstiges",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Zeilen zum Cookie-Hinweis und zur Datenverarbeitung, einschließlich des Risikos der Datenverarbeitung in den USA gemäß DSGVO Art. 49 Abs. 1 S. 1 lit. a.",
+          "keywords": [
+            "cookies",
+            "datenschutz",
+            "dsgvo",
+            "usa",
+            "rechtliches"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.016352
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.6235999999999999,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/kinderzahnpflege/",
+        "summary": "120 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 37.6%).",
+        "similarity": 0.3764,
         "classification": {
           "type": "struktur",
           "direction": "add",
           "magnitude": "major",
-          "summary": "Hinzufügen eines Beitragsrechners, Kundenberater-Informationen und eines umfassenden Cookie-Consent-Managers.",
+          "summary": "Es wurden neue Abschnitte für Cookie-Zustimmung und Ansprechpartner-Suche hinzugefügt, was die Struktur der Webseite erheblich verändert.",
           "keywords": [
-            "rechner",
-            "cookie-consent",
-            "kundenberater",
-            "formular",
-            "layout"
+            "cookies",
+            "datenschutz",
+            "ansprechpartner",
+            "navigation",
+            "footer"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.002038
+        "lag_1d": -0.016352
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
-      "brand": "LV 1871",
+      "brand": "Allianz",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.07679999999999998,
+      "magnitude": 0.04830000000000001,
       "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 92.3%).",
-        "similarity": 0.9232,
+        "url": "https://www.allianz.com/de/mediencenter/news/artikel/250411-nichts-zu-verbergen-darum-geht-es-nicht.html",
+        "summary": "8 neue Zeilen, 10 entfernte Zeilen (Ähnlichkeit 95.2%).",
+        "similarity": 0.9517,
+        "classification": {
+          "type": "sonstiges",
+          "direction": "change",
+          "magnitude": "minor",
+          "summary": "Änderung der Suchergebnisse auf der News-Seite: Ein Artikel über ein Waldbrand-Frühwarnsystem wurde durch einen Artikel über eine Akquisition im Bereich Vermögensverwaltung ersetzt.",
+          "keywords": [
+            "news",
+            "artikel",
+            "suche",
+            "vermögensverwaltung",
+            "nachhaltigkeit"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.01694
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.046599999999999975,
+      "detail": {
+        "url": "https://www.allianz.de/recht-und-eigentum/rechtsschutzversicherung/immobilien",
+        "summary": "26 neue Zeilen, 26 entfernte Zeilen (Ähnlichkeit 95.3%).",
+        "similarity": 0.9534,
+        "classification": {
+          "type": "copy",
+          "direction": "change",
+          "magnitude": "minor",
+          "summary": "Anpassung der Gender-Formulierungen von Gendersonderzeichen zu geschlechtsneutralen oder ausgeschriebenen Formen.",
+          "keywords": [
+            "gendern",
+            "formulierung",
+            "textanpassung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.004306
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.6235999999999999,
+      "detail": {
+        "url": "https://www.allianz.de/ansprechpartner-vor-ort/rendsburg/?address=rendsburg",
+        "summary": "120 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 37.6%).",
+        "similarity": 0.3764,
         "classification": {
           "type": "struktur",
           "direction": "add",
           "magnitude": "major",
-          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, die detaillierte Optionen zur Verwaltung von Cookies und Tracking-Technologien bieten. Dies umfasst essenzielle, statistische, Marketing- und externe Medien-Cookies.",
+          "summary": "Es wurden neue Zeilen für die Cookie-Einwilligung hinzugefügt, die detaillierte Informationen über die Datenerhebung, -speicherung und -verarbeitung, einschließlich der Nutzung von pseudonymisierten Identifikatoren und der Verarbeitung in d",
           "keywords": [
             "cookies",
-            "tracking",
             "datenschutz",
-            "einstellungen",
-            "zustimmung"
+            "einwilligung",
+            "dsgvo",
+            "usa"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.014284
+        "lag_1d": 0.008415
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
-      "brand": "LV 1871",
+      "brand": "Allianz",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.10799999999999998,
+      "magnitude": 0.6,
       "detail": {
-        "url": "https://www.lv1871.de/fondsgebundene-rentenversicherung/fragen/vorteile-nachteile",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 89.2%).",
-        "similarity": 0.892,
+        "url": "https://www.allianz.de/gesundheit/wurzelbehandlung/",
+        "summary": "120 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 40.0%).",
+        "similarity": 0.4,
         "classification": {
-          "type": "struktur",
-          "direction": "remove",
+          "type": "sonstiges",
+          "direction": "add",
           "magnitude": "major",
-          "summary": "Entfernung von Cookie- und Tracking-Einstellungen sowie zugehöriger Buttons und Erklärungen. Dies betrifft die technische Struktur und Nutzerinteraktion der Webseite.",
+          "summary": "Neue Zeilen zum Cookie-Banner und zur Datenverarbeitung, insbesondere bezüglich der Übermittlung pseudonymisierter Daten in die USA und damit verbundener Risiken.",
           "keywords": [
             "cookies",
-            "tracking",
-            "einstellungen",
-            "buttons",
-            "datenschutz"
+            "datenschutz",
+            "dsgvo",
+            "usa",
+            "risiko"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.022555
+        "lag_1d": -0.016352
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
-      "brand": "LV 1871",
+      "brand": "HDI",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.14229999999999998,
+      "magnitude": 0.01539999999999997,
       "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/behindertentestament-die-wichtigsten-fragen-und-antworten",
-        "summary": "33 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 85.8%).",
-        "similarity": 0.8577,
+        "url": "https://www.hdi.de/betreuer/albert-depprich/auslandreiseversicherung",
+        "summary": "18 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 98.5%).",
+        "similarity": 0.9846,
         "classification": {
           "type": "struktur",
-          "direction": "change",
-          "magnitude": "major",
-          "summary": "Entfernung von Cookie-Einstellungen und Hinzufügen von Links zu verwandten Artikeln zum Thema 'Sterben & Erben', was die Navigation und das Content-Angebot der Seite stark verändert.",
+          "direction": "add",
+          "magnitude": "medium",
+          "summary": "Neue Navigations- und Service-Links für Privatkunden, Geschäftskunden, Versicherungen, Services und Ratgeber wurden hinzugefügt, was auf eine Erweiterung der Seitenstruktur hindeutet.",
           "keywords": [
             "navigation",
-            "content",
-            "cookie",
-            "erben",
-            "magazin"
+            "struktur",
+            "links",
+            "services",
+            "ratgeber"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.002857
+        "lag_1d": -4.9e-05
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
-      "brand": "LV 1871",
+      "brand": "HDI",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.1664,
+      "magnitude": 0.01539999999999997,
       "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/ausgefallene-bestattungen-braeuche-und-traditionen-in-aller-welt",
-        "summary": "33 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 83.4%).",
-        "similarity": 0.8336,
+        "url": "https://www.hdi.de/betreuer/jens-werner-busack",
+        "summary": "0 neue Zeilen, 18 entfernte Zeilen (Ähnlichkeit 98.5%).",
+        "similarity": 0.9846,
         "classification": {
           "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung von Navigationslinks zu Privatkunden, Geschäftskunden, Versicherungen, Services und Ratgebern von der Betreuerseite.",
+          "keywords": [
+            "navigation",
+            "struktur",
+            "entfernung",
+            "betreuer"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.000535
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07650000000000001,
+      "detail": {
+        "url": "https://cosmosdirekt.de/verkehrs-rechtsschutzversicherung",
+        "summary": "20 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 92.3%).",
+        "similarity": 0.9235,
+        "classification": {
+          "type": "copy",
           "direction": "change",
           "magnitude": "medium",
-          "summary": "Entfernung von Cookie-Einstellungen und Hinzufügen von Links zu verwandten Artikeln im Bereich 'Sterben & Erben'.",
+          "summary": "Aktualisierung der Auszeichnung zum 'Beliebtesten Kfz-Direktversicherer' von 2025 auf 2026 und Anpassung der zugehörigen Begründungstexte und Details.",
           "keywords": [
-            "navigation",
-            "cookies",
-            "verwandte artikel",
-            "magazin",
-            "erben"
+            "auszeichnung",
+            "kfz",
+            "kundenzufriedenheit",
+            "ranking",
+            "update"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.002038
+        "lag_1d": -0.001831
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "CosmosDirekt",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07650000000000001,
+      "detail": {
+        "url": "https://www.cosmosdirekt.de/verkehrs-rechtsschutzversicherung",
+        "summary": "20 neue Zeilen, 12 entfernte Zeilen (Ähnlichkeit 92.3%).",
+        "similarity": 0.9235,
+        "classification": {
+          "type": "copy",
+          "direction": "change",
+          "magnitude": "medium",
+          "summary": "Aktualisierung der Auszeichnung 'Beliebtester Kfz-Direktversicherer' vom Jahr 2025 auf 2026, inklusive Anpassung der Details und der Anzahl der bewerteten Versicherer.",
+          "keywords": [
+            "auszeichnung",
+            "kfz",
+            "kundenzufriedenheit",
+            "disq",
+            "update"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.001831
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.08340000000000003,
+      "magnitude": 0.13180000000000003,
       "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/beachten",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 91.7%).",
-        "similarity": 0.9166,
+        "url": "https://www.lv1871.de/news/lv-1871-stellt-neue-risikolebensversicherung-vor",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 86.8%).",
+        "similarity": 0.8682,
         "classification": {
           "type": "struktur",
           "direction": "add",
           "magnitude": "major",
-          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich detaillierter Optionen für essenzielle, Statistik-, Marketing- und externe Medien-Cookies.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "einstellungen",
-            "zustimmung"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07340000000000002,
-      "detail": {
-        "url": "https://www.lv1871.de/risikolebensversicherung/fragen/wann-abschliessen",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 92.7%).",
-        "similarity": 0.9266,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Neue Zeilen für Cookie- und Tracking-Einstellungen, inklusive Buttons und Erklärungen zu verschiedenen Cookie-Gruppen. Dies ist eine wesentliche Änderung der Webseitenstruktur.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "einstellungen",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002038
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08479999999999999,
-      "detail": {
-        "url": "https://www.lv1871.de/risikolebensversicherung/fragen/wechseln",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 91.5%).",
-        "similarity": 0.9152,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Neue Zeilen zum Cookie-Banner und den Tracking-Einstellungen wurden hinzugefügt, was die Struktur der Webseite und die Benutzerinteraktion mit Datenschutz-Einstellungen betrifft.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "einstellungen",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002038
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07689999999999997,
-      "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/muss-ich-sterben-mama-kinder-und-der-tod",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 92.3%).",
-        "similarity": 0.9231,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des Cookie-Consent-Banners und zugehöriger Texte, was eine wesentliche Änderung der Webseitenstruktur und des Nutzererlebnisses darstellt.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "struktur",
-            "banner"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.002857
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08720000000000006,
-      "detail": {
-        "url": "https://www.lv1871.de/private-rentenversicherung/fragen/todesfall",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 91.3%).",
-        "similarity": 0.9128,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, inklusive Buttons und Erklärungen zu Cookie-Einstellungen und Tracking-Technologien.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "consent",
-            "struktur",
-            "website"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002038
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.1331,
-      "detail": {
-        "url": "https://www.lv1871.de/news/lv-1871-nimmt-mint-berufe-in-den-fokus-und-senkt-die-beitraege-zur-berufsunfaehigkeitsversicherung",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 86.7%).",
-        "similarity": 0.8669,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des Cookie-Consent-Dialogs und zugehöriger Texte, was auf eine Änderung der Cookie-Verwaltung oder des Consent-Managements hinweist.",
-          "keywords": [
-            "cookies",
-            "consent",
-            "datenschutz",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09940000000000004,
-      "detail": {
-        "url": "https://www.lv1871.de/sterbegeldversicherung/beerdigungskosten",
-        "summary": "56 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 90.1%).",
-        "similarity": 0.9006,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Es wurden neue Elemente für die Kontaktaufnahme mit Kundenberatern, ein Angebotsrechner und ein umfassendes Cookie-Consent-Management-System hinzugefügt.",
-          "keywords": [
-            "kontakt",
-            "rechner",
-            "cookies",
-            "consent",
-            "formular"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002038
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07979999999999998,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/junge-leute",
-        "summary": "42 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 92.0%).",
-        "similarity": 0.9202,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Es wurden neue Zeilen hinzugefügt, die sich auf Cookie- und Tracking-Einstellungen beziehen, einschließlich der Möglichkeit zur Einwilligung und Verwaltung von Cookies.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "einstellungen",
-            "zustimmung"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.10840000000000005,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/abstrakte-verweisung",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 89.2%).",
-        "similarity": 0.8916,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Buttons zur Verwaltung von Einwilligungen und Details zu verschiedenen Cookie-Kategorien.",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Optionen für essenzielle, Statistik-, Marketing- und externe Medien-Cookies sowie Buttons zur Verwaltung der Einwilligung.",
           "keywords": [
             "cookies",
             "tracking",
@@ -857,20 +738,281 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.014284
+        "lag_1d": -0.007128
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.09970000000000001,
+      "magnitude": 0.08579999999999999,
       "detail": {
-        "url": "https://www.lv1871.de/news/bu-handwerker",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 90.0%).",
-        "similarity": 0.9003,
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/beitragsfreistellung",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 91.4%).",
+        "similarity": 0.9142,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "medium",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, die die Verwaltung von Einwilligungen für verschiedene Service-Gruppen ermöglichen und die Benutzerfreundlichkeit der Webseite beeinflussen.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "einwilligung",
+            "datenschutz",
+            "struktur"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.09019999999999995,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/buerojob",
+        "summary": "0 neue Zeilen, 62 entfernte Zeilen (Ähnlichkeit 91.0%).",
+        "similarity": 0.9098,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung von Kundenberater-Informationen, Testsieger-Auszeichnungen und des gesamten Cookie-Consent-Dialogs. Dies ist eine wesentliche strukturelle Änderung der Webseite.",
+          "keywords": [
+            "cookie-banner",
+            "testsieger",
+            "kundenberater",
+            "layout",
+            "footer"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.27390000000000003,
+      "detail": {
+        "url": "https://www.lv1871.de/risikolebensversicherung-fuer-siemens-mitarbeiter",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 72.6%).",
+        "similarity": 0.7261,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich detaillierter Optionen für essenzielle, statistische, Marketing- und externe Medien-Cookies sowie Buttons zur Verwaltung der Einwilligung.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "einwilligung",
+            "struktur"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.007128
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.06920000000000004,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/familie/nach-der-geburt",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 93.1%).",
+        "similarity": 0.9308,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "medium",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Optionen zur Einwilligung und Details zu verschiedenen Service-Gruppen (Essenziell, Statistik, Marketing, Externe Medien).",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "einwilligung",
+            "struktur"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.007557
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08340000000000003,
+      "detail": {
+        "url": "https://www.lv1871.de/sterbegeldversicherung/ohne-gesundheitspruefung",
+        "summary": "42 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 91.7%).",
+        "similarity": 0.9166,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Hinzufügen eines umfassenden Cookie- und Tracking-Einstellungsdialogs mit Optionen für essenzielle, Statistik-, Marketing- und externe Medien-Cookies sowie Verweisen auf Datenschutz und Widerrufsmöglichkeiten.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "einstellungen",
+            "zustimmung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.007128
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0695,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/test",
+        "summary": "62 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 93.0%).",
+        "similarity": 0.9305,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Es wurden neue Cookie- und Tracking-Einstellungen hinzugefügt, inklusive Details zu den verschiedenen Cookie-Typen und der Möglichkeit zur individuellen Anpassung. Außerdem wurden Kundenberater und Auszeichnungen hinzugefügt.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "kundenberater",
+            "auszeichnungen"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.16290000000000004,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/deutsches-seniorenportal-informationen-fuer-die-erfahrene-generation",
+        "summary": "22 neue Zeilen, 33 entfernte Zeilen (Ähnlichkeit 83.7%).",
+        "similarity": 0.8371,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Änderung der Cookie- und Tracking-Einstellungen sowie Entfernung von \"Andere haben auch gelesen\"-Links, was eine signifikante Anpassung der Webseitenstruktur darstellt.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "navigation",
+            "layout",
+            "datenschutz"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019784
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0686,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/friedhof-fuer-obdachlose-wenn-menschen-ohne-zuhause-sterben",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 93.1%).",
+        "similarity": 0.9314,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, die detaillierte Optionen zur Verwaltung von Cookies und Tracking-Technologien bieten, einschließlich essenzieller, statistischer, Marketing- und externer Medien-Services.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "einstellungen",
+            "zustimmung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019784
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.09309999999999996,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/berufsunfaehigkeitsrente",
+        "summary": "62 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 90.7%).",
+        "similarity": 0.9069,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Es wurden neue Abschnitte für Kundenberater, Auszeichnungen und einen umfangreichen Cookie-Banner hinzugefügt, was die Struktur der Seite erheblich erweitert.",
+          "keywords": [
+            "cookie-banner",
+            "kundenberater",
+            "auszeichnungen",
+            "tracking",
+            "zustimmung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08720000000000006,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/bu-rente-im-ausland-beziehen",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 91.3%).",
+        "similarity": 0.9128,
         "classification": {
           "type": "struktur",
           "direction": "remove",
@@ -886,575 +1028,141 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.022555
+        "lag_1d": 0.005892
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.1251,
+      "magnitude": 0.13639999999999997,
       "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/vorsorge-fuer-den-eigenen-todesfall",
-        "summary": "33 neue Zeilen, 36 entfernte Zeilen (Ähnlichkeit 87.5%).",
-        "similarity": 0.8749,
+        "url": "https://www.lv1871.de/magazin/sterben-erben/die-7-todsuenden",
+        "summary": "33 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 86.4%).",
+        "similarity": 0.8636,
         "classification": {
           "type": "struktur",
           "direction": "change",
           "magnitude": "major",
-          "summary": "Entfernung eines Beitragsrechners und Cookie-Einstellungen, Hinzufügen von Links zu verwandten Artikeln zur Verbesserung der internen Verlinkung und des Content-Angebots.",
+          "summary": "Entfernung von Cookie-Einstellungen und Hinzufügen von 'Weiterlesen'-Links zu verwandten Artikeln, was die Navigation und das Nutzererlebnis der Seite stark verändert.",
           "keywords": [
             "navigation",
-            "content",
-            "rechner",
             "cookies",
-            "verlinkung"
+            "links",
+            "struktur",
+            "nutzererlebnis"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.002038
+        "lag_1d": -0.019784
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.09970000000000001,
+      "magnitude": 0.09599999999999997,
       "detail": {
-        "url": "https://www.lv1871.de/sterbegeldversicherung/fragen/zweckgebunden",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 90.0%).",
-        "similarity": 0.9003,
+        "url": "https://www.lv1871.de/magazin/sterben-erben/digitales-erbe-wie-sie-onlinekonten-und-passwoerter-vererben",
+        "summary": "36 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 90.4%).",
+        "similarity": 0.904,
         "classification": {
           "type": "struktur",
           "direction": "add",
           "magnitude": "major",
-          "summary": "Es wurden neue Zeilen für die Cookie- und Tracking-Einstellungen hinzugefügt, einschließlich Beschreibungen der Cookie-Typen, Buttons zur Einwilligung und Links zu Datenschutz und Einstellungen.",
+          "summary": "Es wurden neue Elemente für die Cookie- und Tracking-Einstellungen sowie ein Beitragsrechner hinzugefügt, was eine wesentliche strukturelle Änderung der Webseite darstellt.",
           "keywords": [
             "cookies",
             "tracking",
-            "datenschutz",
-            "einwilligung",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.009058
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09550000000000003,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/berufsunfaehigkeit-50-prozent",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 90.5%).",
-        "similarity": 0.9045,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Optionen für essenzielle, statistische, Marketing- und externe Medien-Cookies sowie Buttons zur Verwaltung der Einwilligung.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "einwilligung",
-            "datenschutz",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.10960000000000003,
-      "detail": {
-        "url": "https://www.lv1871.de/sterbegeldversicherung/rechner",
-        "summary": "0 neue Zeilen, 56 entfernte Zeilen (Ähnlichkeit 89.0%).",
-        "similarity": 0.8904,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des Angebotsrechners, der Kontaktinformationen von Kundenberatern und des Cookie-Consent-Dialogs von der Webseite.",
-          "keywords": [
             "rechner",
-            "kontakt",
+            "struktur",
+            "website"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019784
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.15000000000000002,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/witwenrente-warum-tote-auch-krankenversicherung-zahlen-muessen",
+        "summary": "22 neue Zeilen, 33 entfernte Zeilen (Ähnlichkeit 85.0%).",
+        "similarity": 0.85,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Die Änderung betrifft die Cookie- und Tracking-Einstellungen, die hinzugefügt wurden, während verwandte Artikel entfernt wurden. Dies ist eine strukturelle Änderung der Webseite.",
+          "keywords": [
             "cookies",
-            "layout",
+            "tracking",
+            "webseite",
+            "struktur",
             "navigation"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.002038
+        "lag_1d": -0.019784
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.08889999999999998,
+      "magnitude": 0.06789999999999996,
       "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/anrechnung",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 91.1%).",
-        "similarity": 0.9111,
+        "url": "https://www.lv1871.de/magazin/sterben-erben/tipps-altersvorsorge",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 93.2%).",
+        "similarity": 0.9321,
         "classification": {
           "type": "struktur",
           "direction": "add",
           "magnitude": "medium",
-          "summary": "Neue Zeilen für Cookie- und Tracking-Einstellungen hinzugefügt, einschließlich Buttons und Erklärungen zu verschiedenen Cookie-Kategorien. Dies betrifft die Struktur und Funktionalität der Webseite.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "einstellungen",
-            "datenschutz",
-            "webseite"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0958,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/colitis-ulcerosa",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 90.4%).",
-        "similarity": 0.9042,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Optionen zur Verwaltung von essenziellen, statistischen, Marketing- und externen Medien-Cookies sowie Buttons zur Akzeptanz und Speicherung der Auswahl.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "einstellungen",
-            "zustimmung",
-            "datenschutz"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09450000000000003,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/burnout",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 90.5%).",
-        "similarity": 0.9055,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, die eine detaillierte Verwaltung von Cookies und Tracking-Technologien ermöglichen, inklusive essenzieller, statistischer, Marketing- und externer Medien-Services.",
+          "summary": "Neue Zeilen für Cookie- und Tracking-Einstellungen hinzugefügt, einschließlich Buttons und Erklärungen zu verschiedenen Cookie-Kategorien.",
           "keywords": [
             "cookies",
             "tracking",
             "datenschutz",
             "einstellungen",
-            "zustimmung"
+            "buttons"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.014284
+        "lag_1d": -0.019784
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.13690000000000002,
+      "magnitude": 0.10799999999999998,
       "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/leichenschmaus",
-        "summary": "33 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 86.3%).",
-        "similarity": 0.8631,
-        "classification": {
-          "type": "struktur",
-          "direction": "change",
-          "magnitude": "major",
-          "summary": "Die Seite wurde um einen Bereich mit 'Weiterlesen'-Links zu verwandten Artikeln erweitert, während der Cookie-Banner-Code entfernt wurde. Dies verbessert die interne Verlinkung und Nutzerführung.",
-          "keywords": [
-            "navigation",
-            "interne verlinkung",
-            "nutzerführung",
-            "cookie-banner",
-            "artikel"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.002857
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0635,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/schueler",
-        "summary": "0 neue Zeilen, 70 entfernte Zeilen (Ähnlichkeit 93.7%).",
-        "similarity": 0.9365,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des Beitragsrechners, Kontaktinformationen von Kundenberatern und des Cookie-Consent-Banners von der Webseite.",
-          "keywords": [
-            "beitragsrechner",
-            "kontakt",
-            "cookies",
-            "formular",
-            "navigation"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.11880000000000002,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/definition",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 88.1%).",
-        "similarity": 0.8812,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs und zugehöriger Buttons/Texte. Dies ist eine strukturelle Änderung der Webseite, die die Benutzerinteraktion mit den Cookie-Einstellungen betrifft.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "struktur",
-            "consent"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09060000000000001,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/selbststaendige",
-        "summary": "0 neue Zeilen, 62 entfernte Zeilen (Ähnlichkeit 90.9%).",
-        "similarity": 0.9094,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung von Kundenberater-Informationen, Auszeichnungen/Testsiegeln und des gesamten Cookie-Management-Dialogs.",
-          "keywords": [
-            "struktur",
-            "cookie",
-            "auszeichnungen",
-            "kundenberater"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0756,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/finanzielle-unabhaengigkeit",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 92.4%).",
-        "similarity": 0.9244,
+        "url": "https://www.lv1871.de/fondsgebundene-rentenversicherung/fragen/vorteile-nachteile",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 89.2%).",
+        "similarity": 0.892,
         "classification": {
           "type": "struktur",
           "direction": "add",
           "magnitude": "major",
-          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Details zu funktionalen, statistischen und werblichen Cookies sowie Tracking-Technologien. Nutzer können ihre Auswahl verwalten.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "einstellungen",
-            "zustimmung"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.10809999999999997,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/neurasthenie",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 89.2%).",
-        "similarity": 0.8919,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, inklusive Buttons und Erklärungen zu Cookie-Einstellungen und Tracking-Technologien.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "consent",
-            "struktur",
-            "datenschutz"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.12129999999999996,
-      "detail": {
-        "url": "https://www.lv1871.de/sterbegeldversicherung/fragen/sinnvoll",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 87.9%).",
-        "similarity": 0.8787,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des Cookie-Consent-Banners und zugehöriger Texte, was eine wesentliche strukturelle Änderung der Webseite darstellt.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "struktur",
-            "banner"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002038
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.06530000000000002,
-      "detail": {
-        "url": "https://www.lv1871.de/kindervorsorge/ratgeber/kinder/sparbuch",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 93.5%).",
-        "similarity": 0.9347,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des Cookie-Einwilligungsdialogs und zugehöriger Texte von der Webseite. Dies deutet auf eine Änderung der Cookie-Verwaltung oder des Designs hin.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "einwilligung",
-            "datenschutz",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.022555
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09730000000000005,
-      "detail": {
-        "url": "https://www.lv1871.de/risikolebensversicherung/fragen/beitragsfreistellung",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 90.3%).",
-        "similarity": 0.9027,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Neue Zeilen für Cookie- und Tracking-Einstellungen, inklusive Buttons und Beschreibungen für die Verwaltung von Einwilligungen. Dies betrifft die technische Struktur und Benutzerführung der Webseite.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "zustimmung",
-            "webseite"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002038
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.1259,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/wiki/nachpruefung",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 87.4%).",
-        "similarity": 0.8741,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des gesamten Cookie-Banner-Textes und der zugehörigen Buttons und Erklärungen von der Webseite.",
-          "keywords": [
-            "cookie",
-            "tracking",
-            "datenschutz",
-            "struktur",
-            "button"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.127,
-      "detail": {
-        "url": "https://www.lv1871.de/news/versicherung-beste-maklerbetreuung-2020",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 87.3%).",
-        "similarity": 0.873,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Optionen für essenzielle, Statistik-, Marketing- und externe Medien-Cookies sowie Buttons zur Verwaltung der Einwilligung.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "einwilligung",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.002857
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.06779999999999997,
-      "detail": {
-        "url": "https://www.lv1871.de/magazin/familie/hochzeitsbraeuche-rund-um-den-globus",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 93.2%).",
-        "similarity": 0.9322,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, was eine signifikante Änderung der Benutzerinteraktion mit der Webseite darstellt.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "consent",
-            "datenschutz",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.022555
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07320000000000004,
-      "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/wie-sag-ichs-meinem-kind-wie-man-mit-kindern-trauern-kann",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 92.7%).",
-        "similarity": 0.9268,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Neue Zeilen für Cookie- und Tracking-Einstellungen hinzugefügt, einschließlich Details zu verschiedenen Cookie-Gruppen und Optionen zur Einwilligung. Dies betrifft die Website-Struktur und Benutzerinteraktion.",
+          "summary": "Es wurden neue Zeilen hinzugefügt, die sich auf Cookie- und Tracking-Einstellungen beziehen, einschließlich Buttons und Erklärungen zur Einwilligung. Dies ist eine strukturelle Änderung.",
           "keywords": [
             "cookies",
             "tracking",
@@ -1465,169 +1173,25 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.002857
+        "lag_1d": 0.007557
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.1018,
+      "magnitude": 0.08479999999999999,
       "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/todesfall",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 89.8%).",
-        "similarity": 0.8982,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, inklusive Buttons und Erklärungen zur Einwilligung. Dies ist eine wesentliche strukturelle Änderung der Webseite.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "einwilligung",
-            "datenschutz",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.009058
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.035800000000000054,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/erzieher",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 96.4%).",
-        "similarity": 0.9642,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Es wurden neue Zeilen hinzugefügt, die sich auf Cookie- und Tracking-Einstellungen beziehen, einschließlich Optionen zur Einwilligung und Details zu verschiedenen Service-Gruppen (Essenziell, Statistik, Marketing, Externe Medien).",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "einwilligung",
-            "einstellungen"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09140000000000004,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/restless-legs-syndrom",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 90.9%).",
-        "similarity": 0.9086,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, inklusive Buttons, Erklärungen und Auswahlmöglichkeiten für verschiedene Cookie-Kategorien.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "consent",
-            "datenschutz",
-            "buttons"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.16249999999999998,
-      "detail": {
-        "url": "https://www.lv1871.de/magazin/gesundheit/achtsamer-durch-den-tag-uebungen-fuer-eine-bewusstere-wahrnehmung",
-        "summary": "33 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 83.8%).",
-        "similarity": 0.8375,
-        "classification": {
-          "type": "struktur",
-          "direction": "change",
-          "magnitude": "major",
-          "summary": "Entfernung von Cookie-Einstellungen und Hinzufügen von 'Andere haben auch gelesen'-Sektion mit Verweisen auf weitere Artikel.",
-          "keywords": [
-            "navigation",
-            "layout",
-            "cookies",
-            "artikel"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.022555
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.13290000000000002,
-      "detail": {
-        "url": "https://www.lv1871.de/news/lv-1871-staerkt-bu-schutz-fuer-kammerberufe-und-junge-menschen",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 86.7%).",
-        "similarity": 0.8671,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, einschließlich Buttons und Erklärungen zu Cookie-Einstellungen und Tracking-Technologien.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "consent",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.0105
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08550000000000002,
-      "detail": {
-        "url": "https://www.lv1871.de/magazin/gesundheit/kaeltebusse-winterliche-hilfe-fuer-obdachlose",
+        "url": "https://www.lv1871.de/risikolebensversicherung/fragen/wechseln",
         "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 91.5%).",
-        "similarity": 0.9145,
+        "similarity": 0.9152,
         "classification": {
           "type": "struktur",
           "direction": "remove",
           "magnitude": "major",
-          "summary": "Entfernung des Cookie-Consent-Dialogs und zugehöriger Texte von der Webseite. Dies betrifft die Funktionalität zur Verwaltung von Cookies und Tracking-Einstellungen.",
+          "summary": "Entfernung des Cookie-Consent-Dialogs und zugehöriger Texte. Dies ist eine wesentliche strukturelle Änderung der Webseite.",
           "keywords": [
             "cookies",
             "tracking",
@@ -1638,81 +1202,54 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.022555
+        "lag_1d": -0.007128
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.11439999999999995,
+      "magnitude": 0.0837,
       "detail": {
-        "url": "https://www.lv1871.de/risikolebensversicherung/darlehensschutz-plus",
-        "summary": "0 neue Zeilen, 42 entfernte Zeilen (Ähnlichkeit 88.6%).",
-        "similarity": 0.8856,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung von Cookie-Einstellungen und Kundenberater-Informationen, was eine wesentliche Änderung der Webseitenstruktur darstellt.",
-          "keywords": [
-            "cookie",
-            "struktur",
-            "navigation",
-            "kundenberater"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002038
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.053300000000000014,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/golden-bu",
-        "summary": "62 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 94.7%).",
-        "similarity": 0.9467,
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/erwerbsminderung",
+        "summary": "62 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 91.6%).",
+        "similarity": 0.9163,
         "classification": {
           "type": "struktur",
           "direction": "add",
           "magnitude": "major",
-          "summary": "Es wurden neue Abschnitte für Kundenberater, Auszeichnungen und einen umfassenden Cookie-Banner hinzugefügt, was die Struktur der Webseite erheblich erweitert.",
+          "summary": "Es wurden neue Abschnitte für Kundenberater, Auszeichnungen und einen umfangreichen Cookie-Banner hinzugefügt. Dies verbessert die Benutzerführung und Transparenz.",
           "keywords": [
             "cookie-banner",
             "kundenberater",
             "auszeichnungen",
-            "webseitenstruktur"
+            "transparenz",
+            "benutzerführung"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.014284
+        "lag_1d": 0.005892
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.09640000000000004,
+      "magnitude": 0.0676,
       "detail": {
-        "url": "https://www.lv1871.de/sterbegeldversicherung/fragen/vorteile-nachteile",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 90.4%).",
-        "similarity": 0.9036,
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/alternativen",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 93.2%).",
+        "similarity": 0.9324,
         "classification": {
           "type": "struktur",
           "direction": "add",
           "magnitude": "medium",
-          "summary": "Neue Zeilen zum Cookie-Management und Tracking-Einstellungen wurden hinzugefügt, was die Struktur und Funktionalität der Webseite betrifft.",
+          "summary": "Neue Zeilen für Cookie- und Tracking-Einstellungen hinzugefügt, inklusive Buttons und Erklärungen zu verschiedenen Cookie-Gruppen. Dies betrifft die technische Struktur und Benutzerführung der Webseite.",
           "keywords": [
             "cookies",
             "tracking",
@@ -1723,308 +1260,49 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.002038
+        "lag_1d": 0.005892
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.16159999999999997,
+      "magnitude": 0.09550000000000003,
       "detail": {
-        "url": "https://www.lv1871.de/unternehmen/karriereportal/fuer-bewerbende",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 83.8%).",
-        "similarity": 0.8384,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Optionen für essenzielle, Statistik-, Marketing- und externe Medien-Cookies sowie Buttons zur Verwaltung der Einwilligung.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "einwilligung",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.002857
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08899999999999997,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/arbeitsunfaehigkeitsversicherung",
-        "summary": "42 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 91.1%).",
-        "similarity": 0.911,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Es wurden neue Zeilen für Cookie- und Tracking-Einstellungen hinzugefügt, inklusive Details zu verschiedenen Cookie-Gruppen und Optionen zur Einwilligung.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "einwilligung",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.06799999999999995,
-      "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/eine-letzte-gemeinsame-reise-trauern-in-japan",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 93.2%).",
-        "similarity": 0.932,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des Cookie-Consent-Banners und zugehöriger Textelemente von der Webseite.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "struktur",
-            "banner"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.002857
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.17159999999999997,
-      "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/passende-blumen-fuer-die-beerdigung-waehlen",
-        "summary": "33 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 82.8%).",
-        "similarity": 0.8284,
-        "classification": {
-          "type": "struktur",
-          "direction": "change",
-          "magnitude": "major",
-          "summary": "Entfernung des Cookie-Banners und Hinzufügung von \"Weiterlesen\" Links zu verwandten Artikeln im Bereich \"Sterben & Erben\".",
-          "keywords": [
-            "navigation",
-            "cookie-banner",
-            "verwandte artikel",
-            "magazin"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002038
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.17500000000000004,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/wiki/berufsunfaehigkeit/sozialarbeiterin",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 82.5%).",
-        "similarity": 0.825,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Buttons für die Einwilligung und detaillierte Erklärungen zu verschiedenen Cookie-Typen.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "einstellungen",
-            "buttons"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09450000000000003,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/hausfrauen",
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/berufsunfaehigkeit-50-prozent",
         "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 90.5%).",
-        "similarity": 0.9055,
+        "similarity": 0.9045,
         "classification": {
           "type": "struktur",
           "direction": "remove",
           "magnitude": "major",
-          "summary": "Entfernung des Cookie-Banners und zugehöriger Texte, was eine wesentliche Änderung der Webseitenstruktur darstellt.",
-          "keywords": [
-            "cookie",
-            "tracking",
-            "zustimmung",
-            "datenschutz",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09570000000000001,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/uebergewicht",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 90.4%).",
-        "similarity": 0.9043,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, was eine signifikante Änderung der Website-Struktur und des Nutzerinteraktionsflusses darstellt.",
+          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs und zugehöriger Buttons/Texte von der Webseite. Dies ist eine wesentliche strukturelle Änderung der Benutzerinteraktion.",
           "keywords": [
             "cookie",
             "consent",
             "struktur",
-            "website",
-            "dialog"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.10650000000000004,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/wiki/prozessquote",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 89.3%).",
-        "similarity": 0.8935,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, inklusive Buttons und Erklärungen zu Cookie-Einstellungen und Tracking-Technologien.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "struktur",
-            "buttons"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.14480000000000004,
-      "detail": {
-        "url": "https://www.lv1871.de/sterbegeldversicherung/fragen/pfaendbar",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 85.5%).",
-        "similarity": 0.8552,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, einschließlich aller Optionen und Erklärungen zu Cookies und Tracking-Technologien.",
-          "keywords": [
-            "cookie",
-            "tracking",
-            "consent",
-            "datenschutz",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002038
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.1644,
-      "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/umbetten-wann-und-wie-ist-das-moeglich",
-        "summary": "33 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 83.6%).",
-        "similarity": 0.8356,
-        "classification": {
-          "type": "struktur",
-          "direction": "change",
-          "magnitude": "major",
-          "summary": "Die Seite wurde um einen Bereich mit 'Andere haben auch gelesen' erweitert, der auf verwandte Artikel verweist. Gleichzeitig wurden Cookie-Einstellungen entfernt.",
-          "keywords": [
             "navigation",
-            "verlinkung",
-            "cookie-einstellungen",
-            "magazin"
+            "button"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.002857
+        "lag_1d": 0.005892
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.0927,
+      "magnitude": 0.08989999999999998,
       "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/migraene",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 90.7%).",
-        "similarity": 0.9073,
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/endometriose",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 91.0%).",
+        "similarity": 0.9101,
         "classification": {
           "type": "struktur",
           "direction": "add",
@@ -2040,54 +1318,54 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.014284
+        "lag_1d": 0.005892
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.11839999999999995,
+      "magnitude": 0.10950000000000004,
       "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/die-angst-in-der-krise",
-        "summary": "33 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 88.2%).",
-        "similarity": 0.8816,
+        "url": "https://www.lv1871.de/sterbegeldversicherung/rechner",
+        "summary": "56 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 89.0%).",
+        "similarity": 0.8905,
         "classification": {
           "type": "struktur",
-          "direction": "change",
+          "direction": "add",
           "magnitude": "major",
-          "summary": "Die Seite wurde um eine Sektion mit 'Andere haben auch gelesen' erweitert, die thematisch passende Artikel zu Sterben & Erben, Bestattungsvorsorge, Erbrecht und Immobilienvererbung verlinkt. Gleichzeitig wurde der Cookie-Banner entfernt.",
+          "summary": "Es wurden neue Eingabefelder für die Berechnung des Beitrags sowie ein Cookie-Consent-Banner und Kontaktinformationen von Kundenberatern hinzugefügt.",
           "keywords": [
-            "navigation",
-            "artikel",
-            "verlinkung",
-            "cookie-banner",
+            "rechner",
+            "cookie-consent",
+            "kontakt",
+            "formular",
             "layout"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.002857
+        "lag_1d": -0.007128
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.07530000000000003,
+      "magnitude": 0.08889999999999998,
       "detail": {
-        "url": "https://www.lv1871.de/news/financial-freedom-report-bundesbuerger-bleiben-lieber-im-hamsterrad",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 92.5%).",
-        "similarity": 0.9247,
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/anrechnung",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 91.1%).",
+        "similarity": 0.9111,
         "classification": {
           "type": "struktur",
           "direction": "remove",
           "magnitude": "major",
-          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, einschließlich aller Optionen für essenzielle, Statistik-, Marketing- und externe Medien-Cookies sowie der Akzeptanz- und Speicher-Buttons.",
+          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, inklusive Buttons und Erklärungen zu Cookie-Typen und Datenschutzerklärung.",
           "keywords": [
             "cookies",
             "tracking",
@@ -2098,340 +1376,459 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.022555
+        "lag_1d": 0.005892
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.12409999999999999,
+      "magnitude": 0.0867,
       "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/kuendigen",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 87.6%).",
-        "similarity": 0.8759,
+        "url": "https://www.lv1871.de/risikolebensversicherung/fragen/nachversicherungsgarantie",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 91.3%).",
+        "similarity": 0.9133,
         "classification": {
           "type": "struktur",
-          "direction": "add",
+          "direction": "remove",
           "magnitude": "major",
-          "summary": "Es wurden neue Zeilen für Cookie- und Tracking-Einstellungen hinzugefügt, die detaillierte Informationen über die Verwendung von Cookies und Tracking-Technologien sowie Optionen zur Einwilligung bieten.",
+          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, was eine signifikante Änderung der Website-Struktur und des Nutzererlebnisses darstellt.",
           "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "einstellungen",
-            "zustimmung"
+            "cookie",
+            "consent",
+            "struktur",
+            "website",
+            "dialog"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.014284
+        "lag_1d": -0.002151
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.1603,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/moeglichkeiten-der-grabpflege",
+        "summary": "22 neue Zeilen, 33 entfernte Zeilen (Ähnlichkeit 84.0%).",
+        "similarity": 0.8397,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Änderung der Cookie- und Tracking-Einstellungen sowie Entfernung von 'Andere haben auch gelesen'-Empfehlungen.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "navigation",
+            "layout",
+            "datenschutz"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019784
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0635,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/schueler",
+        "summary": "70 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 93.7%).",
+        "similarity": 0.9365,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Hinzufügen eines Beitragsrechners, Kundenberater-Kontaktdaten und eines umfassenden Cookie-Consent-Managers.",
+          "keywords": [
+            "rechner",
+            "kontakt",
+            "cookies",
+            "formular",
+            "layout"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
       "magnitude": 0.09440000000000004,
       "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/pflegefall",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 90.6%).",
+        "url": "https://www.lv1871.de/versicherungen/selbststaendige",
+        "summary": "0 neue Zeilen, 42 entfernte Zeilen (Ähnlichkeit 90.6%).",
         "similarity": 0.9056,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung von Cookie-Einstellungen und Kundenberater-Informationen, was eine wesentliche Änderung der Seitenstruktur und des Datenschutzes darstellt.",
+          "keywords": [
+            "cookie",
+            "datenschutz",
+            "struktur",
+            "kundenberater"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.004803
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08830000000000005,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/saerge-wie-pappkartons-kann-die-bestattung-noch-nachhaltiger-werden",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 91.2%).",
+        "similarity": 0.9117,
         "classification": {
           "type": "struktur",
           "direction": "add",
           "magnitude": "medium",
-          "summary": "Neue Zeilen für Cookie- und Tracking-Einstellungen hinzugefügt, einschließlich Optionen für essenzielle Cookies, Statistik, Marketing und externe Medien. Dies verbessert die Transparenz und Nutzerkontrolle.",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Optionen für essenzielle, Statistik-, Marketing- und externe Medien-Cookies sowie Buttons zur Verwaltung der Zustimmung.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "zustimmung",
+            "einstellungen"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.007128
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.09719999999999995,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/wiki/dynamik",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 90.3%).",
+        "similarity": 0.9028,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Zeilen für Cookie- und Tracking-Einstellungen hinzugefügt, inklusive Buttons und Erklärungen zu verschiedenen Cookie-Kategorien.",
           "keywords": [
             "cookies",
             "tracking",
             "datenschutz",
             "einstellungen",
-            "zustimmung"
+            "buttons"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.014284
+        "lag_1d": 0.005892
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.14690000000000003,
+      "magnitude": 0.0756,
       "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/kinder-trauern-anders",
-        "summary": "33 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 85.3%).",
-        "similarity": 0.8531,
-        "classification": {
-          "type": "struktur",
-          "direction": "change",
-          "magnitude": "major",
-          "summary": "Die Seite wurde um eine Sektion mit 'Weiterlesen'-Links zu verwandten Artikeln erweitert und die Cookie-Einstellungen wurden entfernt, was auf eine Verlagerung oder Vereinfachung der Cookie-Verwaltung hindeutet.",
-          "keywords": [
-            "navigation",
-            "artikel",
-            "cookie",
-            "layout"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.002857
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.1624,
-      "detail": {
-        "url": "https://www.lv1871.de/magazin/gesundheit/versicherungsschutz-als-raucher",
-        "summary": "33 neue Zeilen, 51 entfernte Zeilen (Ähnlichkeit 83.8%).",
-        "similarity": 0.8376,
-        "classification": {
-          "type": "struktur",
-          "direction": "change",
-          "magnitude": "major",
-          "summary": "Entfernung eines Beitragsrechners und Hinzufügung von Verweisen auf andere Magazinartikel. Dies deutet auf eine Umstrukturierung der Seite hin, weg von direkter Produktinteraktion.",
-          "keywords": [
-            "navigation",
-            "layout",
-            "magazin",
-            "rechner"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.005997
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.09240000000000004,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/depression",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 90.8%).",
-        "similarity": 0.9076,
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/finanzielle-unabhaengigkeit",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 92.4%).",
+        "similarity": 0.9244,
         "classification": {
           "type": "struktur",
           "direction": "remove",
           "magnitude": "major",
-          "summary": "Entfernung des Cookie-Consent-Banners und zugehöriger Texte. Dies ist eine strukturelle Änderung der Webseite, die die Benutzerinteraktion mit den Cookie-Einstellungen betrifft.",
+          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, inklusive aller Optionen und Erklärungen zu essenziellen, Statistik-, Marketing- und externen Medien-Cookies.",
           "keywords": [
             "cookies",
             "tracking",
             "datenschutz",
-            "webseite",
+            "consent",
             "struktur"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.014284
+        "lag_1d": 0.005892
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.10250000000000004,
+      "magnitude": 0.10809999999999997,
       "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/corona",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 89.8%).",
-        "similarity": 0.8975,
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/neurasthenie",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 89.2%).",
+        "similarity": 0.8919,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "medium",
+          "summary": "Neue Zeilen für Cookie- und Tracking-Einstellungen hinzugefügt, inklusive Buttons und Erklärungen zu verschiedenen Cookie-Kategorien.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "einstellungen",
+            "buttons"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.09730000000000005,
+      "detail": {
+        "url": "https://www.lv1871.de/risikolebensversicherung/fragen/beitragsfreistellung",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 90.3%).",
+        "similarity": 0.9027,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, inklusive Buttons und Erklärungen zur Cookie-Nutzung und Datenschutzerklärung.",
+          "keywords": [
+            "cookie",
+            "consent",
+            "datenschutz",
+            "struktur",
+            "button"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.007128
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.1331,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/varanasi-tod-am-ganges",
+        "summary": "22 neue Zeilen, 33 entfernte Zeilen (Ähnlichkeit 86.7%).",
+        "similarity": 0.8669,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Änderung der Cookie- und Tracking-Einstellungen sowie Entfernung von 'Weiterlesen'-Links und verwandten Artikeln.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "navigation",
+            "footer",
+            "rechtliches"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019784
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08350000000000002,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/azubis",
+        "summary": "42 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 91.6%).",
+        "similarity": 0.9165,
         "classification": {
           "type": "struktur",
           "direction": "add",
           "magnitude": "major",
-          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich detaillierter Optionen für essenzielle, Statistik-, Marketing- und externe Medien-Cookies sowie Buttons zur Verwaltung der Einwilligung.",
+          "summary": "Neue Zeilen für Cookie- und Tracking-Einstellungen, Kundenberater-Informationen und Datenschutzerklärung hinzugefügt. Dies betrifft die Struktur und rechtliche Hinweise der Webseite.",
           "keywords": [
             "cookies",
             "tracking",
             "datenschutz",
+            "struktur",
+            "berater"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.05989999999999995,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/ingenieure",
+        "summary": "42 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 94.0%).",
+        "similarity": 0.9401,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Es wurden neue Elemente für die Cookie- und Tracking-Einstellungen sowie eine Liste von Kundenberatern hinzugefügt. Dies ist eine wesentliche strukturelle Änderung der Webseite.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "kundenberater",
+            "einstellungen",
+            "datenschutz"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.02410000000000001,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/trauersprueche-beileidskarten",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 97.6%).",
+        "similarity": 0.9759,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Zeilen für Cookie- und Tracking-Einstellungen hinzugefügt, inklusive Buttons und Erklärungen zu verschiedenen Cookie-Gruppen.",
+          "keywords": [
+            "cookies",
+            "tracking",
             "einwilligung",
+            "datenschutz",
             "struktur"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.014284
+        "lag_1d": -0.019784
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.10309999999999997,
+      "magnitude": 0.1018,
       "detail": {
-        "url": "https://www.lv1871.de/riester-rente/fragen/todesfall",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 89.7%).",
-        "similarity": 0.8969,
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/todesfall",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 89.8%).",
+        "similarity": 0.8982,
         "classification": {
           "type": "struktur",
           "direction": "remove",
           "magnitude": "major",
-          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, was eine signifikante strukturelle Änderung der Webseite darstellt.",
+          "summary": "Entfernung von Cookie- und Tracking-Einstellungen, was auf eine Änderung im Consent-Management-System oder der Darstellung des Cookie-Banners hindeutet.",
           "keywords": [
-            "cookie",
-            "consent",
-            "struktur",
-            "webseite",
-            "entfernung"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002038
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.1894,
-      "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/grabschmuck-rund-ums-jahr",
-        "summary": "33 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 81.1%).",
-        "similarity": 0.8106,
-        "classification": {
-          "type": "struktur",
-          "direction": "change",
-          "magnitude": "major",
-          "summary": "Entfernung von Cookie-Einstellungen und Hinzufügung von Links zu verwandten Artikeln zum Thema Sterben & Erben.",
-          "keywords": [
-            "navigation",
             "cookies",
-            "magazin",
-            "verwandte artikel"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.002857
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.10729999999999995,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/wiki/existenzschutzversicherung",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 89.3%).",
-        "similarity": 0.8927,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des Cookie-Banners und zugehöriger Texte, was eine wesentliche strukturelle Änderung der Webseite darstellt.",
-          "keywords": [
-            "cookie",
             "tracking",
+            "consent",
             "datenschutz",
-            "struktur",
             "website"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.014284
+        "lag_1d": -0.002151
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.10029999999999994,
+      "magnitude": 0.035800000000000054,
       "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/tinnitus",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 90.0%).",
-        "similarity": 0.8997,
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/erzieher",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 96.4%).",
+        "similarity": 0.9642,
         "classification": {
           "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Optionen zur Verwaltung von essenziellen, Statistik-, Marketing- und externen Medien-Cookies sowie Tracking-Technologien.",
+          "direction": "remove",
+          "magnitude": "medium",
+          "summary": "Entfernung von Cookie- und Tracking-Einstellungen, was auf eine Änderung im Umgang mit Nutzerdaten oder der Cookie-Banner-Implementierung hindeutet.",
           "keywords": [
             "cookies",
             "tracking",
             "datenschutz",
             "einstellungen",
-            "zustimmung"
+            "struktur"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.014284
+        "lag_1d": 0.005892
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.12250000000000005,
+      "magnitude": 0.09140000000000004,
       "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/pest",
-        "summary": "33 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 87.8%).",
-        "similarity": 0.8775,
-        "classification": {
-          "type": "struktur",
-          "direction": "change",
-          "magnitude": "major",
-          "summary": "Entfernung des Cookie-Banners und Hinzufügung von Empfehlungen für verwandte Artikel im Bereich 'Sterben & Erben'.",
-          "keywords": [
-            "navigation",
-            "cookies",
-            "artikel",
-            "magazin"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.002857
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.10050000000000003,
-      "detail": {
-        "url": "https://www.lv1871.de/risikolebensversicherung/fragen/vorerkrankung",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 90.0%).",
-        "similarity": 0.8995,
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/restless-legs-syndrom",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 90.9%).",
+        "similarity": 0.9086,
         "classification": {
           "type": "struktur",
           "direction": "add",
           "magnitude": "major",
-          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, die die Auswahlmöglichkeiten für Nutzer detailliert beschreiben und die Einwilligung verwalten.",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, die eine detaillierte Verwaltung von Cookies und Tracking-Technologien ermöglichen und die Einwilligung der Nutzer regeln.",
           "keywords": [
             "cookies",
             "tracking",
@@ -2442,112 +1839,54 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.002038
+        "lag_1d": 0.005892
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.07440000000000002,
+      "magnitude": 0.13290000000000002,
       "detail": {
-        "url": "https://www.lv1871.de/magazin/gesundheit/eine-welt-ohne-buchstaben-leben-als-analphabet",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 92.6%).",
-        "similarity": 0.9256,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, inklusive Buttons und Erklärungen zu Cookie-Einstellungen und Tracking-Technologien.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "consent",
-            "struktur",
-            "datenschutz"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.022555
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.10219999999999996,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/eintrittsalter",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 89.8%).",
-        "similarity": 0.8978,
+        "url": "https://www.lv1871.de/news/lv-1871-staerkt-bu-schutz-fuer-kammerberufe-und-junge-menschen",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 86.7%).",
+        "similarity": 0.8671,
         "classification": {
           "type": "struktur",
           "direction": "add",
           "magnitude": "major",
-          "summary": "Es wurden neue Zeilen hinzugefügt, die sich auf Cookie- und Tracking-Einstellungen beziehen, einschließlich Buttons und Erklärungen zu verschiedenen Cookie-Kategorien. Dies ist eine strukturelle Änderung.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "einstellungen",
-            "buttons"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.05069999999999997,
-      "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/reerdigung",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 94.9%).",
-        "similarity": 0.9493,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des Cookie-Consent-Dialogs und zugehöriger Texte, was eine wesentliche Änderung der Webseitenstruktur und des Nutzerinteraktionsflusses darstellt.",
+          "summary": "Neue Zeilen für Cookie- und Tracking-Einstellungen, inklusive Buttons zur Einwilligung und Detailansicht. Dies ist eine wesentliche strukturelle Änderung der Webseite.",
           "keywords": [
             "cookies",
             "tracking",
             "datenschutz",
             "struktur",
-            "button"
+            "einwilligung"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.002857
+        "lag_1d": -0.005415
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.12080000000000002,
+      "magnitude": 0.11439999999999995,
       "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/berufswechsel",
-        "summary": "42 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 87.9%).",
-        "similarity": 0.8792,
+        "url": "https://www.lv1871.de/risikolebensversicherung/darlehensschutz-plus",
+        "summary": "42 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 88.6%).",
+        "similarity": 0.8856,
         "classification": {
           "type": "struktur",
           "direction": "add",
-          "magnitude": "major",
-          "summary": "Es wurden neue Zeilen für Cookie- und Tracking-Einstellungen hinzugefügt, inklusive Details zu verschiedenen Cookie-Gruppen und Optionen zur Einwilligung.",
+          "magnitude": "medium",
+          "summary": "Es wurden neue Inhalte für die Cookie- und Tracking-Einstellungen hinzugefügt, einschließlich Details zu verschiedenen Cookie-Gruppen und Optionen zur Einwilligung.",
           "keywords": [
             "cookies",
             "tracking",
@@ -2558,49 +1897,426 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.014284
+        "lag_1d": -0.007128
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.08350000000000002,
+      "magnitude": 0.08509999999999995,
       "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/geschichten-fuer-die-lebenden-musik-fuer-die-toten-abschlussball-von-jess-jochimsen",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 91.6%).",
-        "similarity": 0.9165,
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/frauen",
+        "summary": "0 neue Zeilen, 42 entfernte Zeilen (Ähnlichkeit 91.5%).",
+        "similarity": 0.9149,
         "classification": {
           "type": "struktur",
           "direction": "remove",
           "magnitude": "major",
-          "summary": "Entfernung des Cookie-Consent-Banners und zugehöriger Texte, was eine signifikante Änderung der Benutzerinteraktion mit der Webseite darstellt.",
+          "summary": "Entfernung von Cookie- und Tracking-Einstellungen sowie Kontaktinformationen von Kundenberatern. Dies ist eine wesentliche Änderung der Webseitenstruktur und der Interaktionsmöglichkeiten.",
           "keywords": [
             "cookies",
             "tracking",
             "datenschutz",
-            "benutzerführung",
+            "kontakt",
             "struktur"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.002857
+        "lag_1d": 0.005892
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.0605,
+      "magnitude": 0.16620000000000001,
       "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/checkliste-die-wichtigsten-formalitaeten-dokumente-fristen-im-sterbefall",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 94.0%).",
-        "similarity": 0.9395,
+        "url": "https://www.lv1871.de/magazin/sterben-erben/organspende-frei-entscheiden-und-leben-retten",
+        "summary": "22 neue Zeilen, 33 entfernte Zeilen (Ähnlichkeit 83.4%).",
+        "similarity": 0.8338,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "medium",
+          "summary": "Anpassung der Cookie- und Tracking-Einstellungen sowie Entfernung von 'Weiterlesen'-Links und verwandten Artikeln.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "navigation",
+            "datenschutz",
+            "layout"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019784
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.16159999999999997,
+      "detail": {
+        "url": "https://www.lv1871.de/unternehmen/karriereportal/fuer-bewerbende",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 83.8%).",
+        "similarity": 0.8384,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung des gesamten Cookie-Banner-Dialogs und zugehöriger Buttons und Erklärungen.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "struktur",
+            "website"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019784
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.10660000000000003,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/wiki/dread-disease-versicherung",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 89.3%).",
+        "similarity": 0.8934,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Es wurden neue Zeilen für die Cookie- und Tracking-Einstellungen hinzugefügt, die die Verwaltung von Einwilligungen und die Nutzung verschiedener Cookie-Typen beschreiben.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "einwilligung",
+            "datenschutz",
+            "einstellungen"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.10299999999999998,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/zwei-berufsunfaehigkeitsversicherungen",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 89.7%).",
+        "similarity": 0.897,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung des Cookie-Consent-Dialogs und zugehöriger Texte, was eine wesentliche strukturelle Änderung der Webseite darstellt.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "struktur",
+            "website"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08899999999999997,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/arbeitsunfaehigkeitsversicherung",
+        "summary": "0 neue Zeilen, 42 entfernte Zeilen (Ähnlichkeit 91.1%).",
+        "similarity": 0.911,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung von Cookie-Einstellungen und Kundenberater-Informationen. Dies deutet auf eine signifikante Änderung der Website-Struktur und des Datenschutzes hin.",
+          "keywords": [
+            "cookies",
+            "datenschutz",
+            "struktur",
+            "navigation",
+            "kundenberater"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.06799999999999995,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/eine-letzte-gemeinsame-reise-trauern-in-japan",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 93.2%).",
+        "similarity": 0.932,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "medium",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Optionen für essenzielle, Statistik-, Marketing- und externe Medien-Cookies sowie Buttons zur Verwaltung der Einwilligung.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "einwilligung",
+            "datenschutz",
+            "button"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019784
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.17159999999999997,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/passende-blumen-fuer-die-beerdigung-waehlen",
+        "summary": "22 neue Zeilen, 33 entfernte Zeilen (Ähnlichkeit 82.8%).",
+        "similarity": 0.8284,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Änderung der Cookie- und Tracking-Einstellungen sowie Entfernung von 'Andere haben auch gelesen' Sektionen, was die Seitenstruktur und das Nutzererlebnis stark beeinflusst.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "navigation",
+            "layout",
+            "nutzererlebnis"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.007128
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.11970000000000003,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/rechner",
+        "summary": "62 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 88.0%).",
+        "similarity": 0.8803,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Es wurden neue Abschnitte für Kundenberater, Testergebnisse und einen umfassenden Cookie-Banner hinzugefügt, was die Struktur der Webseite erheblich erweitert.",
+          "keywords": [
+            "kundenberater",
+            "testsieger",
+            "cookie-banner",
+            "datenschutz",
+            "webseite"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.14239999999999997,
+      "detail": {
+        "url": "https://www.lv1871.de/news/berufsunfaehigkeitsversicherung-mehr-flexibilitaet-fuer-junge-leute",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 85.8%).",
+        "similarity": 0.8576,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "medium",
+          "summary": "Neue Zeilen für Cookie- und Tracking-Einstellungen hinzugefügt, inklusive Buttons und Erklärungen zur Einwilligung. Dies betrifft die technische Struktur und das Nutzermanagement der Webseite.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "einwilligung",
+            "datenschutz",
+            "webseite"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.09030000000000005,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/buz",
+        "summary": "42 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 91.0%).",
+        "similarity": 0.9097,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Details zu funktionalen, statistischen und werblichen Cookies sowie externen Medien. Dies umfasst auch die Möglichkeit zur individuellen Auswahl und Widerruf.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "einstellungen",
+            "zustimmung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.17100000000000004,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/warum-wir-ins-gras-beissen-und-den-loeffel-abgeben",
+        "summary": "22 neue Zeilen, 33 entfernte Zeilen (Ähnlichkeit 82.9%).",
+        "similarity": 0.829,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Die Änderung betrifft die Cookie- und Tracking-Einstellungen sowie die Entfernung von \"Weiterlesen\"-Links und verwandten Artikeln. Dies ist eine strukturelle Änderung der Webseite.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "navigation",
+            "webseite",
+            "struktur"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019784
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.16080000000000005,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/historische-begraebnisbraeuche",
+        "summary": "22 neue Zeilen, 33 entfernte Zeilen (Ähnlichkeit 83.9%).",
+        "similarity": 0.8392,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Anpassung der Cookie- und Tracking-Einstellungen sowie Entfernung von 'Andere haben auch gelesen' und verwandten Artikeln.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "navigation",
+            "layout",
+            "datenschutz"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019784
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.11839999999999995,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/die-angst-in-der-krise",
+        "summary": "22 neue Zeilen, 33 entfernte Zeilen (Ähnlichkeit 88.2%).",
+        "similarity": 0.8816,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Anpassung der Cookie- und Tracking-Einstellungen sowie Entfernung von 'Weiterlesen'-Links und verwandten Artikeln.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "navigation",
+            "layout",
+            "datenschutz"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019784
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.10919999999999996,
+      "detail": {
+        "url": "https://www.lv1871.de/sterbegeldversicherung/fragen/sterbegeld-von-der-krankenkasse",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 89.1%).",
+        "similarity": 0.8908,
         "classification": {
           "type": "struktur",
           "direction": "remove",
@@ -2610,60 +2326,349 @@
             "cookies",
             "tracking",
             "consent",
-            "datenschutz",
+            "struktur",
             "website"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.002038
+        "lag_1d": -0.007128
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.09389999999999998,
+      "magnitude": 0.12770000000000004,
       "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/klauseln",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 90.6%).",
-        "similarity": 0.9061,
+        "url": "https://www.lv1871.de/magazin/karriere-beruf/bewerbungsgespraech",
+        "summary": "22 neue Zeilen, 33 entfernte Zeilen (Ähnlichkeit 87.2%).",
+        "similarity": 0.8723,
         "classification": {
           "type": "struktur",
-          "direction": "add",
+          "direction": "change",
           "magnitude": "major",
-          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Optionen für essenzielle, statistische, Marketing- und externe Medien-Cookies sowie Buttons zur Verwaltung der Einwilligung.",
+          "summary": "Entfernung von \"Andere haben auch gelesen\" und Hinzufügen von Cookie- und Tracking-Einstellungen, was eine wesentliche Änderung der Seitenstruktur darstellt.",
           "keywords": [
             "cookies",
             "tracking",
-            "einwilligung",
+            "navigation",
+            "layout",
+            "struktur"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.007557
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.09440000000000004,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/pflegefall",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 90.6%).",
+        "similarity": 0.9056,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, inklusive aller Optionen und Erklärungen zu essenziellen, Statistik-, Marketing- und externen Medien-Cookies.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "consent",
+            "struktur"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.14690000000000003,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/kinder-trauern-anders",
+        "summary": "22 neue Zeilen, 33 entfernte Zeilen (Ähnlichkeit 85.3%).",
+        "similarity": 0.8531,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Entfernung von \"Weiterlesen\"-Links zu verwandten Artikeln und Hinzufügen von Cookie- und Tracking-Einstellungen, was auf eine Änderung der Seitenstruktur und des Datenschutzes hindeutet.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "navigation",
             "datenschutz",
             "struktur"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.014284
+        "lag_1d": -0.019784
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.09240000000000004,
+      "magnitude": 0.08150000000000002,
       "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/rhizarthrose",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 90.8%).",
-        "similarity": 0.9076,
+        "url": "https://www.lv1871.de/sterbegeldversicherung/kosten",
+        "summary": "42 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 91.8%).",
+        "similarity": 0.9185,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Es wurden neue Zeilen hinzugefügt, die sich auf Cookie- und Tracking-Einstellungen beziehen, einschließlich der Möglichkeit zur Verwaltung von Einwilligungen und der Anzeige von Cookie-Details.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "einstellungen",
+            "zustimmung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.007128
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.1894,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/grabschmuck-rund-ums-jahr",
+        "summary": "22 neue Zeilen, 33 entfernte Zeilen (Ähnlichkeit 81.1%).",
+        "similarity": 0.8106,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Die Änderung betrifft die Cookie- und Tracking-Einstellungen sowie die Entfernung von 'Weiterlesen'-Links und verwandten Artikeln, was auf eine Umstrukturierung der Webseite hindeutet.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "navigation",
+            "webseite",
+            "struktur"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019784
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.06430000000000002,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/arthrose",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 93.6%).",
+        "similarity": 0.9357,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich detaillierter Optionen für essenzielle, Statistik-, Marketing- und externe Medien-Cookies.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "einstellungen",
+            "zustimmung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.137,
+      "detail": {
+        "url": "https://www.lv1871.de/sterbegeldversicherung/fragen",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 86.3%).",
+        "similarity": 0.863,
         "classification": {
           "type": "struktur",
           "direction": "add",
           "magnitude": "medium",
-          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, die die Verwaltung von Einwilligungen für verschiedene Service-Gruppen ermöglichen.",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Optionen für essenzielle, Statistik-, Marketing- und externe Medien-Cookies sowie Buttons zur Verwaltung der Einwilligung.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "einstellungen",
+            "zustimmung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.007128
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.10960000000000003,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/chemiker",
+        "summary": "62 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 89.0%).",
+        "similarity": 0.8904,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Es wurden neue Abschnitte für Kundenberater, Auszeichnungen/Testsiegel und ein umfassendes Cookie-Management-System hinzugefügt. Dies verbessert die Benutzerführung und Transparenz.",
+          "keywords": [
+            "cookie-management",
+            "kundenberater",
+            "auszeichnungen",
+            "testsiegel",
+            "transparenz"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08550000000000002,
+      "detail": {
+        "url": "https://www.lv1871.de/kindervorsorge/ratgeber/enkelkind/sparbuch",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 91.5%).",
+        "similarity": 0.9145,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "medium",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Optionen zur Verwaltung von essenziellen, Statistik-, Marketing- und externen Medien-Cookies.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "einstellungen",
+            "zustimmung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.007557
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.12080000000000002,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/berufswechsel",
+        "summary": "0 neue Zeilen, 42 entfernte Zeilen (Ähnlichkeit 87.9%).",
+        "similarity": 0.8792,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung von Cookie-Einstellungen und Kundenberater-Informationen, was auf eine signifikante Änderung der Seitenstruktur oder des Datenschutzes hindeutet.",
+          "keywords": [
+            "cookies",
+            "datenschutz",
+            "struktur",
+            "kundenberater"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0806,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/familie/kindergeburtstag",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 91.9%).",
+        "similarity": 0.9194,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Es wurden neue Zeilen für die Cookie- und Tracking-Einstellungen hinzugefügt, einschließlich Beschreibungen der Cookie-Typen, Einwilligungsoptionen und Verweisen auf Datenschutzinformationen.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "einwilligung",
+            "einstellungen"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.007557
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08350000000000002,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/geschichten-fuer-die-lebenden-musik-fuer-die-toten-abschlussball-von-jess-jochimsen",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 91.6%).",
+        "similarity": 0.9165,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, inklusive Optionen zur Einwilligung, Speicherung und Ablehnung von Cookies sowie Details zu verschiedenen Service-Gruppen.",
           "keywords": [
             "cookies",
             "tracking",
@@ -2674,11 +2679,40 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.014284
+        "lag_1d": -0.019784
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0605,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/checkliste-die-wichtigsten-formalitaeten-dokumente-fristen-im-sterbefall",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 94.0%).",
+        "similarity": 0.9395,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, die die Auswahlmöglichkeiten für Nutzer detailliert beschreiben und Buttons zur Verwaltung der Einwilligung bereitstellen.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "einwilligung",
+            "datenschutz",
+            "buttons"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.007128
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "LV 1871",
       "product": null,
@@ -2686,135 +2720,222 @@
       "magnitude": 0.1483,
       "detail": {
         "url": "https://www.lv1871.de/magazin/sterben-erben",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 85.2%).",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 85.2%).",
         "similarity": 0.8517,
         "classification": {
           "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, inklusive Buttons und Erklärtexten. Dies deutet auf eine grundlegende Änderung im Umgang mit Cookie-Einstellungen hin.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "consent",
-            "buttons"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.002857
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.06889999999999996,
-      "detail": {
-        "url": "https://www.lv1871.de/risikolebensversicherung/gesundheitsfragen",
-        "summary": "42 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 93.1%).",
-        "similarity": 0.9311,
-        "classification": {
-          "type": "struktur",
           "direction": "add",
-          "magnitude": "medium",
-          "summary": "Es wurden neue Inhalte bezüglich Cookie- und Tracking-Einstellungen sowie eine Liste von Kundenberatern hinzugefügt. Dies betrifft die Struktur und Funktionalität der Webseite.",
+          "magnitude": "major",
+          "summary": "Neue Zeilen für Cookie- und Tracking-Einstellungen hinzugefügt, inklusive Buttons zur Einwilligung und Detailansicht. Dies betrifft die grundlegende Interaktion mit der Webseite.",
           "keywords": [
             "cookies",
             "tracking",
-            "kundenberater",
+            "einwilligung",
             "webseite",
-            "einstellungen"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.002038
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08919999999999995,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/bu-oder-unfallversicherung",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 91.1%).",
-        "similarity": 0.9108,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des gesamten Cookie-Dialogs und zugehöriger Buttons und Texte von der Webseite. Dies betrifft die Funktionalität und das Layout der Seite.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "zustimmung",
-            "layout",
-            "button"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014284
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08730000000000004,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/bluthochdruck",
-        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 91.3%).",
-        "similarity": 0.9127,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des gesamten Cookie-Dialogs und zugehöriger Buttons, was auf eine Änderung der Cookie-Management-Implementierung hindeutet.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "buttons",
             "struktur"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.014284
+        "lag_1d": -0.019784
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.1341,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/wiki",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 86.6%).",
+        "similarity": 0.8659,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Zeilen für Cookie- und Tracking-Einstellungen, inklusive Buttons und Erklärungen zur Einwilligung. Dies betrifft die Struktur und Funktionalität der Webseite.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "einwilligung",
+            "datenschutz",
+            "struktur"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.1179,
+      "detail": {
+        "url": "https://www.lv1871.de/news/lv-1871-waechst-staerker-als-die-branche-deutliches-plus-im-neugeschaeft-und-bei-gebuchten-beitraegen",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 88.2%).",
+        "similarity": 0.8821,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich detaillierter Beschreibungen der Cookie-Typen (essenziell, Statistik, Marketing, externe Medien) und Optionen zur Einwilligung.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "einstellungen",
+            "zustimmung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.007557
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0756,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/digitaler-grabstein",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 92.4%).",
+        "similarity": 0.9244,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Optionen für essenzielle, Statistik-, Marketing- und externe Medien-Cookies sowie Buttons zur Verwaltung der Einwilligung.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "einwilligung",
+            "struktur"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019784
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08340000000000003,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/bestattungsriten-mehr-als-grab-und-urne",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 91.7%).",
+        "similarity": 0.9166,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, einschließlich Optionen zur Verwaltung von essenziellen, Statistik-, Marketing- und externen Medien-Cookies.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "einstellungen",
+            "zustimmung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.007128
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.21299999999999997,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/vergiss-mein-nie",
+        "summary": "22 neue Zeilen, 33 entfernte Zeilen (Ähnlichkeit 78.7%).",
+        "similarity": 0.787,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Entfernung von 'Andere haben auch gelesen' Sektion mit Verweisen auf weitere Artikel und Hinzufügung detaillierter Cookie- und Tracking-Einstellungen.",
+          "keywords": [
+            "navigation",
+            "cookies",
+            "tracking",
+            "layout",
+            "datenschutz"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.019784
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.05679999999999996,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/anwalt",
+        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 94.3%).",
+        "similarity": 0.9432,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Cookie- und Tracking-Einstellungen wurden hinzugefügt, die die Auswahlmöglichkeiten für Nutzer detailliert beschreiben und Buttons zur Verwaltung der Einwilligungen bereitstellen.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "einstellungen",
+            "buttons"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.005892
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "ADAC",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.7731,
+      "magnitude": 0.8209,
       "detail": {
         "url": "https://www.adac.de/verkehr/verkehrsinformationen/de/brandenburg",
-        "summary": "34 neue Zeilen, 36 entfernte Zeilen (Ähnlichkeit 22.7%).",
-        "similarity": 0.2269,
+        "summary": "45 neue Zeilen, 39 entfernte Zeilen (Ähnlichkeit 17.9%).",
+        "similarity": 0.1791,
         "classification": {
-          "type": "sonstiges",
+          "type": "leistung",
           "direction": "change",
-          "magnitude": "medium",
-          "summary": "Aktualisierung von Verkehrsinformationen für Brandenburg, inklusive neuer Stau- und Gefahrenmeldungen auf Autobahnen (A2, A10, A11) und Entfernung älterer Meldungen (A10, A11, A12, A115, B1).",
+          "magnitude": "major",
+          "summary": "Aktualisierung der Verkehrsinformationen für Brandenburg mit neuen Gefahrenmeldungen, Staus und Sperrungen sowie Entfernung veralteter Meldungen.",
           "keywords": [
-            "verkehrsinformationen",
-            "brandenburg",
+            "verkehr",
             "stau",
-            "baustelle",
-            "gefahr"
+            "sperrung",
+            "gefahr",
+            "brandenburg"
           ]
         }
       },
@@ -2823,27 +2944,56 @@
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "ADAC",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.7723,
+      "magnitude": 0.9844,
+      "detail": {
+        "url": "https://www.adac.de/der-adac/regionalclubs/suedbaden/fruehjahrsurlaub-das-muessen-reisende-wissen",
+        "summary": "1 neue Zeilen, 63 entfernte Zeilen (Ähnlichkeit 1.6%).",
+        "similarity": 0.0156,
+        "classification": {
+          "type": "sonstiges",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Die gesamte Seite wurde entfernt und durch eine Fehlermeldung ersetzt. Es handelte sich um einen Artikel mit Reisetipps und Sicherheitshinweisen für den Frühjahrsurlaub.",
+          "keywords": [
+            "entfernung",
+            "fehler",
+            "reisen",
+            "sicherheit",
+            "artikel"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.006551
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "ADAC",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.7952,
       "detail": {
         "url": "https://www.adac.de/verkehr/verkehrsinformationen/de/hamburg",
-        "summary": "34 neue Zeilen, 29 entfernte Zeilen (Ähnlichkeit 22.8%).",
-        "similarity": 0.2277,
+        "summary": "25 neue Zeilen, 48 entfernte Zeilen (Ähnlichkeit 20.5%).",
+        "similarity": 0.2048,
         "classification": {
           "type": "sonstiges",
           "direction": "change",
           "magnitude": "major",
-          "summary": "Aktualisierung der Verkehrsinformationen für Hamburg, insbesondere Stau- und Gefahrenmeldungen auf A1 und A7. Alte Meldungen (Schwertransport, Sperrungen) wurden entfernt, neue Echtzeit-Meldungen hinzugefügt.",
+          "summary": "Aktualisierung der Verkehrsinformationen für Hamburg mit neuen Baustellen und Sperrungen sowie Entfernung alter Staumeldungen und Gefahrenhinweise.",
           "keywords": [
             "verkehr",
-            "stau",
+            "baustelle",
+            "sperrung",
             "hamburg",
-            "a1",
-            "a7"
+            "adac"
           ]
         }
       },
@@ -2852,7 +3002,24 @@
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_new",
+      "brand": "ADAC",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.adac.de/der-adac/regionalclubs/berlin-brandenburg/wir-ueber-uns/jobs-ausbildung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "ADAC",
       "product": null,
@@ -2860,48 +3027,76 @@
       "magnitude": 0.015700000000000047,
       "detail": {
         "url": "https://www.adac.de/produkte/versicherungen/rechtsschutzversicherung/ueberblick",
-        "summary": "21 neue Zeilen, 1 entfernte Zeilen (Ähnlichkeit 98.4%).",
+        "summary": "0 neue Zeilen, 20 entfernte Zeilen (Ähnlichkeit 98.4%).",
         "similarity": 0.9843,
         "classification": {
           "type": "struktur",
-          "direction": "add",
+          "direction": "remove",
           "magnitude": "medium",
-          "summary": "Es wurde ein Formular für die Vereinbarung eines Rückrufs hinzugefügt, um die Kontaktaufnahme für Kunden zu erleichtern. Dies beinhaltet Felder für persönliche Daten und Anliegen sowie Hinweise zum Datenschutz und Servicezeiten.",
+          "summary": "Das Rückrufformular wurde von der Webseite entfernt. Dies betrifft die Möglichkeit der direkten Kontaktaufnahme für Interessenten.",
           "keywords": [
             "kontakt",
             "formular",
             "rückruf",
-            "service",
-            "datenschutz"
+            "service"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.009471
+        "lag_1d": -0.002126
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "ADAC",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.8026,
+      "magnitude": 0.6211,
+      "detail": {
+        "url": "https://www.adac.de/fahrzeugwelt/auto/leasing/hamburg",
+        "summary": "10 neue Zeilen, 10 entfernte Zeilen (Ähnlichkeit 37.9%).",
+        "similarity": 0.3789,
+        "classification": {
+          "type": "leistung",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Ein Leasingangebot für ein Fahrzeug wurde durch ein anderes ersetzt. Dies beinhaltet Änderungen an Marke, Modell, Motorisierung, Leistung, Lieferzeit und CO2-Emissionen.",
+          "keywords": [
+            "leasing",
+            "fahrzeug",
+            "modell",
+            "leistung",
+            "co2"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-06T00-09-42Z",
+      "event_type": "page_change",
+      "brand": "ADAC",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.7839,
       "detail": {
         "url": "https://www.adac.de/verkehr/verkehrsinformationen/de/mecklenburg-vorpommern",
-        "summary": "44 neue Zeilen, 30 entfernte Zeilen (Ähnlichkeit 19.7%).",
-        "similarity": 0.1974,
+        "summary": "34 neue Zeilen, 44 entfernte Zeilen (Ähnlichkeit 21.6%).",
+        "similarity": 0.2161,
         "classification": {
           "type": "sonstiges",
           "direction": "change",
           "magnitude": "major",
-          "summary": "Aktualisierung der Verkehrsinformationen für Mecklenburg-Vorpommern mit neuen Stau- und Gefahrenmeldungen auf Autobahnen und Entfernung älterer Baustellenmeldungen auf Bundesstraßen.",
+          "summary": "Aktualisierung von Verkehrsinformationen: Alte, temporäre Meldungen wurden entfernt und neue, geplante Baustellen und Sperrungen mit Zeiträumen hinzugefügt. Dies betrifft verschiedene Autobahnen und Bundesstraßen in Mecklenburg-Vorpommern.",
           "keywords": [
-            "verkehrsinformationen",
-            "stau",
+            "verkehr",
             "baustelle",
+            "sperrung",
             "mecklenburg-vorpommern",
-            "autobahn"
+            "adac"
           ]
         }
       },
@@ -2910,343 +3105,138 @@
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "ADAC",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.0393,
+      "magnitude": 0.027000000000000024,
       "detail": {
         "url": "https://autovermietung.adac.de/mietwagen/deutschland/augsburg",
-        "summary": "24 neue Zeilen, 24 entfernte Zeilen (Ähnlichkeit 96.1%).",
-        "similarity": 0.9607,
+        "summary": "24 neue Zeilen, 24 entfernte Zeilen (Ähnlichkeit 97.3%).",
+        "similarity": 0.973,
         "classification": {
           "type": "preis",
           "direction": "change",
           "magnitude": "medium",
-          "summary": "Aktualisierung der angebotenen Mietwagenmodelle und der zugehörigen 'ab'-Preise sowie des Datums der Preisfindung. Es wurden neue Modelle mit aktualisierten Preisen hinzugefügt und alte Modelle entfernt.",
+          "summary": "Änderung der angebotenen Mietwagenmodelle und der zugehörigen 'ab'-Preise sowie des Datums der Preisabfrage. Einige Modelle wurden durch neue ersetzt, was zu Preisänderungen führt.",
           "keywords": [
-            "preisanpassung",
+            "preise",
             "mietwagen",
-            "produktangebot",
-            "aktualisierung",
-            "preise"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "ADAC",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.1259,
-      "detail": {
-        "url": "https://www.adac.de/reise-freizeit/reiseplanung/urlaubsfuehrer",
-        "summary": "2 neue Zeilen, 2 entfernte Zeilen (Ähnlichkeit 87.4%).",
-        "similarity": 0.8741,
-        "classification": {
-          "type": "copy",
-          "direction": "change",
-          "magnitude": "minor",
-          "summary": "Austausch von Reiseziel-Content: Lissabon-Guide ersetzt Waldbrand-Alarm in Griechenland. Fokus verschiebt sich von Kriseninformation zu Reiseinspiration.",
-          "keywords": [
-            "reiseziel",
-            "content",
-            "marketing",
-            "update"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.014356
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "Württembergische",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0696,
-      "detail": {
-        "url": "https://www.wuerttembergische.de/versicherungen/stadt/regensburg",
-        "summary": "16 neue Zeilen, 15 entfernte Zeilen (Ähnlichkeit 93.0%).",
-        "similarity": 0.9304,
-        "classification": {
-          "type": "copy",
-          "direction": "change",
-          "magnitude": "minor",
-          "summary": "Kundenbewertungen wurden aktualisiert, wobei einige ältere Bewertungen durch neuere ersetzt wurden. Der Inhalt der Bewertungen bleibt positiv und kundenorientiert.",
-          "keywords": [
-            "bewertungen",
-            "kundenfeedback",
-            "kundenorientierung",
-            "marketing"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.004087
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "Württembergische",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.0706,
-      "detail": {
-        "url": "https://www.wuerttembergische.de/versicherungen/stadt/magdeburg",
-        "summary": "16 neue Zeilen, 15 entfernte Zeilen (Ähnlichkeit 92.9%).",
-        "similarity": 0.9294,
-        "classification": {
-          "type": "copy",
-          "direction": "change",
-          "magnitude": "medium",
-          "summary": "Kundenbewertungen wurden aktualisiert, wobei einige positive Bewertungen durch neue, teils kritischere oder spezifischere Bewertungen ersetzt wurden. Die Gesamtanzahl der Bewertungen und die durchschnittliche Bewertung scheinen sich leicht ",
-          "keywords": [
-            "bewertungen",
-            "kundenfeedback",
-            "trust",
-            "marketing",
-            "content"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.004087
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "Württembergische",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.008099999999999996,
-      "detail": {
-        "url": "https://www.wuerttembergische.de/vermoegen-vorsorge/risikolebensversicherung/sinnvoll",
-        "summary": "11 neue Zeilen, 1 entfernte Zeilen (Ähnlichkeit 99.2%).",
-        "similarity": 0.9919,
-        "classification": {
-          "type": "faq",
-          "direction": "change",
-          "magnitude": "medium",
-          "summary": "Erweiterung des FAQ-Bereichs um detaillierte Informationen zur Auszahlung der Risikolebensversicherung und Aktualisierung des Datums der letzten Aktualisierung.",
-          "keywords": [
-            "auszahlung",
-            "risikolebensversicherung",
-            "hinterbliebene",
-            "faq",
+            "modelle",
             "aktualisierung"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.001477
+        "lag_1d": 0.0
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "Württembergische",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.06640000000000001,
+      "magnitude": 0.0033999999999999586,
       "detail": {
-        "url": "https://www.wuerttembergische.de/versicherungen/stadt/duisburg",
-        "summary": "16 neue Zeilen, 15 entfernte Zeilen (Ähnlichkeit 93.4%).",
-        "similarity": 0.9336,
+        "url": "https://www.wuerttembergische.de/versicherungen/weimann.buebl",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 99.7%).",
+        "similarity": 0.9966,
         "classification": {
-          "type": "copy",
+          "type": "sonstiges",
           "direction": "change",
           "magnitude": "minor",
-          "summary": "Kundenbewertungen auf der Webseite wurden aktualisiert, wobei einige ältere Bewertungen durch neuere ersetzt wurden. Der Inhalt der Bewertungen selbst hat sich geändert.",
+          "summary": "Änderung der Anzeige der Öffnungszeiten von 'Morgen' auf 'Heute' aufgrund des aktuellen Datums.",
           "keywords": [
-            "bewertungen",
-            "kundenfeedback",
-            "testimonials"
+            "öffnungszeiten",
+            "datum",
+            "anzeige"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.004087
+        "lag_1d": -0.002193
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "Württembergische",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.06569999999999998,
+      "magnitude": 0.0028000000000000247,
       "detail": {
-        "url": "https://www.wuerttembergische.de/versicherungen/stadt/ludwigsburg",
-        "summary": "16 neue Zeilen, 15 entfernte Zeilen (Ähnlichkeit 93.4%).",
-        "similarity": 0.9343,
+        "url": "https://www.wuerttembergische.de/versicherungen/haug.kobus",
+        "summary": "9 neue Zeilen, 9 entfernte Zeilen (Ähnlichkeit 99.7%).",
+        "similarity": 0.9972,
         "classification": {
-          "type": "copy",
+          "type": "sonstiges",
           "direction": "change",
-          "magnitude": "medium",
-          "summary": "Kundenbewertungen auf der Webseite wurden aktualisiert, wobei einige ältere Bewertungen durch neue ersetzt wurden. Die Tonalität und der Inhalt der Bewertungen haben sich leicht verändert.",
+          "magnitude": "minor",
+          "summary": "Anpassung der Anzeige der Öffnungszeiten von 'Morgen' auf 'Heute' für den aktuellen Tag, was eine geringfügige Aktualisierung der Zeitangabe darstellt.",
           "keywords": [
-            "bewertungen",
-            "kundenfeedback",
-            "trust",
-            "marketing"
+            "öffnungszeiten",
+            "aktualisierung",
+            "zeitangabe"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.004087
+        "lag_1d": -0.002193
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "Württembergische",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.07150000000000001,
+      "magnitude": 0.0030000000000000027,
       "detail": {
-        "url": "https://www.wuerttembergische.de/versicherungen/stadt/oldenburg",
-        "summary": "16 neue Zeilen, 15 entfernte Zeilen (Ähnlichkeit 92.8%).",
-        "similarity": 0.9285,
+        "url": "https://www.wuerttembergische.de/versicherungen/buero.streicher",
+        "summary": "6 neue Zeilen, 6 entfernte Zeilen (Ähnlichkeit 99.7%).",
+        "similarity": 0.997,
         "classification": {
-          "type": "copy",
+          "type": "sonstiges",
           "direction": "change",
-          "magnitude": "medium",
-          "summary": "Kundenbewertungen auf der Webseite wurden aktualisiert, wobei neue positive Bewertungen hinzugefügt und ältere entfernt wurden. Die Gesamtbewertung bleibt gleich.",
+          "magnitude": "minor",
+          "summary": "Änderung der Anzeige der Öffnungszeiten von 'Morgen' auf 'Heute' für den aktuellen Tag.",
           "keywords": [
-            "bewertungen",
-            "kundenfeedback",
-            "vertrauen",
-            "zufriedenheit"
+            "öffnungszeiten",
+            "kontakt",
+            "anzeige"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.004087
+        "lag_1d": -0.002193
       }
     },
     {
-      "timestamp": "2026-08-05T08-47-32Z",
+      "timestamp": "2026-08-06T00-09-42Z",
       "event_type": "page_change",
       "brand": "Württembergische",
       "product": null,
       "source": "page_tracker",
-      "magnitude": 0.05730000000000002,
+      "magnitude": 0.23950000000000005,
       "detail": {
-        "url": "https://www.wuerttembergische.de/versicherungen/stadt/hamburg",
-        "summary": "16 neue Zeilen, 15 entfernte Zeilen (Ähnlichkeit 94.3%).",
-        "similarity": 0.9427,
+        "url": "https://www.wuerttembergische.de/versicherungen/benny.berberich",
+        "summary": "7 neue Zeilen, 7 entfernte Zeilen (Ähnlichkeit 76.0%).",
+        "similarity": 0.7605,
         "classification": {
-          "type": "copy",
+          "type": "sonstiges",
           "direction": "change",
-          "magnitude": "medium",
-          "summary": "Kundenbewertungen wurden aktualisiert, wobei einige ältere Bewertungen durch neue ersetzt wurden. Der Inhalt der Bewertungen selbst hat sich geändert, aber die Funktion der Bewertungen bleibt gleich.",
+          "magnitude": "minor",
+          "summary": "Änderung der Öffnungszeiten-Anzeige für einen Versicherungsvertreter.",
           "keywords": [
-            "bewertungen",
-            "kundenfeedback",
-            "trust"
+            "öffnungszeiten",
+            "kontakt"
           ]
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.004087
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "Zurich",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.08799999999999997,
-      "detail": {
-        "url": "https://www.zurich.de/de-de/pk/vorsorge-vermoegen/berufsunfaehigkeits-versicherung/bu-ab-wann",
-        "summary": "0 neue Zeilen, 20 entfernte Zeilen (Ähnlichkeit 91.2%).",
-        "similarity": 0.912,
-        "classification": {
-          "type": "leistung",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung detaillierter Informationen zur Schüler-BU-Versicherung (Junior BU+) von Zurich, inklusive Altersgrenzen, Definition von Berufsunfähigkeit für Schüler und mitversicherte Grundfähigkeiten.",
-          "keywords": [
-            "schüler-bu",
-            "junior bu+",
-            "altersgrenze",
-            "grundfähigkeiten",
-            "berufsunfähigkeit"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.005441
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.17659999999999998,
-      "detail": {
-        "url": "https://www.axa.de/pk/gesundheit/s/schlaganfallpraevention",
-        "summary": "0 neue Zeilen, 15 entfernte Zeilen (Ähnlichkeit 82.3%).",
-        "similarity": 0.8234,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des Cookie-Consent-Banners und zugehöriger Texte, was eine wesentliche strukturelle Änderung der Website-Interaktion darstellt.",
-          "keywords": [
-            "cookies",
-            "datenschutz",
-            "consent",
-            "banner",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.014029
-      }
-    },
-    {
-      "timestamp": "2026-08-05T08-47-32Z",
-      "event_type": "page_change",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.05840000000000001,
-      "detail": {
-        "url": "https://www.axa.de/pk/gesundheit/s/beitragsrueckerstattung",
-        "summary": "0 neue Zeilen, 15 entfernte Zeilen (Ähnlichkeit 94.2%).",
-        "similarity": 0.9416,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung des Cookie-Banners und zugehöriger Texte, Buttons und Links (Impressum, Datenschutz). Dies ist eine signifikante strukturelle Änderung der Webseite.",
-          "keywords": [
-            "cookie-banner",
-            "datenschutz",
-            "impressum",
-            "navigation",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.014029
+        "lag_1d": 8.2e-05
       }
     }
   ]
