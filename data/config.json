@@ -1038,13 +1038,16 @@
     },
     {
       "id": "chatgpt_web",
-      "enabled": true,
+      "enabled": false,
       "provider": "openai_web",
       "model": "gpt-4.1-mini",
       "display_name": "ChatGPT (Websuche, Modell entscheidet)",
       "api": "responses",
       "search_context_size": "low",
-      "interval_days": 1
+      "interval_days": 1,
+      "_abgeschaltet": "10.08.2026 (Entscheidung Paul) nach drei Testlaeufen (05./06./08.08., je 323 Antworten, null Fehler). Drei Zwecke waren gedacht, keiner traegt: (1) Peec nachbilden - der Kanal sucht bei 70,7 % der Antworten, Peec misst rund 23 %, er bildet also ein anderes Verhalten ab. (2) Die Wirkung der Websuche messen - das kann er prinzipiell nicht, weil das Modell die Bedingung selbst waehlt; nur 9 von 323 Prompts haben ueber drei Laeufe ueberhaupt einmal anders entschieden. Der scheinbar starke Innenvergleich (26,1 % gegen 14,8 % ERGO-Nennung, p = 0,0001) vergleicht in Wahrheit zwei Sorten Fragen. Das gepaarte Experiment tools/search_ab_test.py beantwortet dieselbe Frage sauber fuer 4,61 USD. (3) Als Zitat-Quelle - haette getaugt (2.041 zitierte URLs, 34 auf eigenen Domains), war aber nie angeschlossen: scripts/content_citations.py im Cockpit fuehrt eine feste Engine-Liste ohne chatgpt_web und verwarf die URLs als 'Engine unbekannt'.",
+      "_hinweis_eintrag_bleibt": "Der Eintrag wird NICHT geloescht, auch wenn er abgeschaltet ist. tools/search_ab_test.py liest hier Modell und Parameter fuer das Websuche-Experiment (build_arm_clients / Ergebnis-Metadaten) und prueft dabei 'enabled' nicht. Wer den Block entfernt, nimmt dem Experiment stillschweigend seine Konfiguration - es liefe dann auf dem Default weiter, ohne dass irgendwo etwas rot wird.",
+      "_wirkung_auf_die_zeitreihe": "Geprueft am Lauf 2026-08-09: _compute_totals poolt ueber ALLE Kanaele, der Kanal war also in der Kopfzahl drin. Der Wegfall verschiebt ERGO um 0,00 pp, den groessten Ausschlag hat AXA mit -0,68 pp. Kein STRUCTURAL_BREAKS-Eintrag noetig."
     },
     {
       "id": "grok",
