@@ -26,9 +26,28 @@ on:
         type: string
         default: ""
   schedule:
-    # TAEGLICH 23:10 UTC = 01:10 MESZ. GitHub-Free-Tier verzoegert scheduled Jobs
-    # typisch 4-8h - der Lauf ist realistisch morgens vor Buero-Start fertig.
-    - cron: "10 23 * * *"
+    # 10.08.2026 (Entscheidung Paul): TAEGLICH -> WOECHENTLICH, Sonntag 23:10 UTC.
+    #
+    # Begruendung: Peec liefert seit 06.08. taeglich (Workflow peec-daily-sources.yml
+    # im Cockpit-Repo) und deckt 25 Wettbewerber ueber 12 Sparten ab. Der eigene Crawl
+    # ist damit nicht mehr die Hauptquelle fuer die taegliche Sichtbarkeit, sondern die
+    # Zweitquelle fuer Validierung, Footprint und die Kausal-Instrumente.
+    #
+    # Sonntag, damit der frische Stand in den Montags-Nightly des Cockpits laeuft und
+    # zeitlich beim Peec-Wochenexport (ebenfalls Montag) liegt. GitHub-Free-Tier
+    # verzoegert scheduled Jobs typisch 4-8h - der Lauf ist realistisch Montagfrueh
+    # fertig.
+    #
+    # WAS DAS KOSTET (nicht verschweigen):
+    #  - SoV wird kuenftig woechentlich statt taeglich gemessen. Die bereits erhobenen
+    #    60 Messtage bleiben; neue kommen im Wochenraster dazu.
+    #  - Seiten-Aenderungen werden weiter vollstaendig erkannt, aber erst beim naechsten
+    #    Lauf - ihr Ereignisdatum kann bis zu 6 Tage zu spaet sein. Fuer die
+    #    Versatz-Analyse (3/7/14/28 Tage) ist das die spuerbarste Einbusse.
+    #  - Fuer ein Interventionsfenster (DiD) die Kadenz temporaer wieder auf taeglich
+    #    heben: entweder diese Zeile auf "10 23 * * *" setzen oder waehrend des
+    #    Fensters taeglich "Run workflow" druecken.
+    - cron: "10 23 * * 0"
 
 # 20.07.2026: Concurrency-Schutz ergaenzt. Der Workflow hatte keinen — startet ein
 # geplanter Lauf, waehrend ein manuell angestossener noch laeuft, schreiben beide in

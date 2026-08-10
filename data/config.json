@@ -1033,7 +1033,8 @@
       "provider": "openai",
       "model": "gpt-4o-mini",
       "display_name": "ChatGPT (OpenAI)",
-      "interval_days": 2
+      "_hinweis_intervall": "10.08.2026: interval_days 2 -> 1. Der Crawl laeuft seit heute nur noch WOECHENTLICH (analyze.yml, Sonntag). Die Intervall-Logik in analyzer/main.py rechnet ordinal(Datum) % interval_days - zwischen zwei Wochenlaeufen liegen 7 Tage, also wechselt die Parity jede Woche. Mit interval_days:2 haette dieser Kanal nur noch JEDE ZWEITE WOCHE gelaufen, ohne dass irgendwo ein Fehler erschienen waere: an Aus-Tagen schreibt _carry_forward_llm stillschweigend den Vorwert fort. Bei woechentlicher Kadenz muss jeder aktive Kanal interval_days:1 haben.",
+      "interval_days": 1
     },
     {
       "id": "chatgpt_web",
@@ -1043,8 +1044,7 @@
       "display_name": "ChatGPT (Websuche, Modell entscheidet)",
       "api": "responses",
       "search_context_size": "low",
-      "interval_days": 2,
-      "interval_offset": 0
+      "interval_days": 1
     },
     {
       "id": "grok",
@@ -1059,8 +1059,7 @@
       "provider": "perplexity",
       "model": "sonar",
       "display_name": "Perplexity",
-      "interval_days": 2,
-      "interval_offset": 1
+      "interval_days": 1
     },
     {
       "id": "google-ai-overview",
