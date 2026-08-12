@@ -3,12 +3,11 @@ name: Analyze Visibility
 # Manuell aus dem GitHub-UI startbar (Actions-Tab -> "Run workflow")
 # UND woechentlich automatisch, Montag 23:10 UTC (siehe schedule unten).
 #
-# 19.07.2026: Zurueck auf TAEGLICH (Pauls Entscheidung) - Kostenkontrolle laeuft
-# stattdessen ueber die LLM-Intervalle in config.json: Gemini taeglich, ChatGPT an
-# geraden, Perplexity an ungeraden Ordinaltagen (2-taegig alternierend, Aus-Tage per
-# carry_forward). Der Peec-Vergleich bleibt sauber: Peec-Zellen sind ein 30-Tage-
-# Fenster, das Wochen-/Tages-Panel (peec_history_weekly/daily.csv) liegt separat vor.
-# (Zwischenstand 18.07.: einen Tag lang woechentlich Mo 23:10 UTC.)
+# 18.07.2026: Von taeglich auf WOECHENTLICH umgestellt (Pauls Entscheidung) - damit
+# derselbe Takt wie beim Peec-Export (Scheduled Task "peec-weekly-export", Mo 07:07).
+# Beide Messquellen decken dann dieselbe Woche ab; das ist Voraussetzung dafuer,
+# sie ueberhaupt sinnvoll gegeneinander zu rechnen (cross_source_validation).
+# Nebeneffekt: Perplexity wieder aktivierbar, ohne dass die Kosten taeglich anfallen.
 #
 # 18.07.2026: Die alte Kommentarzeile behauptete "taeglich um 03:00 UTC, 2h NACH dem
 # Cockpit-Nightly". Beides war falsch - der Cron stand auf "10 23 * * *" und das
@@ -26,39 +25,12 @@ on:
         type: string
         default: ""
   schedule:
-    # 10.08.2026 (Entscheidung Paul): TAEGLICH -> WOECHENTLICH, Sonntag 23:10 UTC.
-    #
-    # Begruendung: Peec liefert seit 06.08. taeglich (Workflow peec-daily-sources.yml
-    # im Cockpit-Repo) und deckt 25 Wettbewerber ueber 12 Sparten ab. Der eigene Crawl
-    # ist damit nicht mehr die Hauptquelle fuer die taegliche Sichtbarkeit, sondern die
-    # Zweitquelle fuer Validierung, Footprint und die Kausal-Instrumente.
-    #
-    # Sonntag, damit der frische Stand in den Montags-Nightly des Cockpits laeuft und
-    # zeitlich beim Peec-Wochenexport (ebenfalls Montag) liegt. GitHub-Free-Tier
-    # verzoegert scheduled Jobs typisch 4-8h - der Lauf ist realistisch Montagfrueh
-    # fertig.
-    #
-    # WAS DAS KOSTET (nicht verschweigen):
-    #  - SoV wird kuenftig woechentlich statt taeglich gemessen. Die bereits erhobenen
-    #    60 Messtage bleiben; neue kommen im Wochenraster dazu.
-    #  - Seiten-Aenderungen werden weiter vollstaendig erkannt, aber erst beim naechsten
-    #    Lauf - ihr Ereignisdatum kann bis zu 6 Tage zu spaet sein. Fuer die
-    #    Versatz-Analyse (3/7/14/28 Tage) ist das die spuerbarste Einbusse.
-    #  - Fuer ein Interventionsfenster (DiD) die Kadenz temporaer wieder auf taeglich
-    #    heben: entweder diese Zeile auf "10 23 * * *" setzen oder waehrend des
-    #    Fensters taeglich "Run workflow" druecken.
-    - cron: "10 23 * * 0"
-
-# 20.07.2026: Concurrency-Schutz ergaenzt. Der Workflow hatte keinen — startet ein
-# geplanter Lauf, waehrend ein manuell angestossener noch laeuft, schreiben beide in
-# data/runs und beide committen. Der zweite Commit scheitert dann am Fast-Forward
-# (so ist Lauf #415 gestorben). Relevant vor allem, weil GitHub geplante Jobs im
-# Free-Tier typisch 4-8 h verzoegert — man weiss also nie genau, wann der Nachtlauf
-# wirklich startet. cancel-in-progress: false, weil ein halb abgebrochener Crawl
-# schlimmer ist als ein wartender.
-concurrency:
-  group: geo-analyze
-  cancel-in-progress: false
+    # WOECHENTLICH: Montag 23:10 UTC = Dienstag 01:10 MESZ (Sommer) / 00:10 MEZ (Winter).
+    # GitHub-Free-Tier verzoegert scheduled Jobs typisch 4-8h - der Lauf ist realistisch
+    # Dienstag zwischen 05:00 und 09:00 MESZ fertig, also vor Buero-Start.
+    # Montag, weil der Peec-Wochen-Export Mo 07:07 lokal laeuft: Beide Quellen decken
+    # damit dieselbe Woche ab.
+    - cron: "10 23 * * 1"
 
 permissions:
   contents: write
@@ -67,14 +39,7 @@ permissions:
 jobs:
   analyze:
     runs-on: ubuntu-latest
-    # 20.07.2026: 300 -> 350 Minuten. Lauf #165 lief exakt in den 5-Stunden-Timeout,
-    # nachdem drei Dinge zusammenkamen: Markenerweiterung 7 -> 25 (Seiten-Crawl von
-    # rund 3.000 auf 5.793 URLs), Perplexity lief erstmals mit Guthaben wirklich durch
-    # (LLM-Phase 3h40 statt gut 1,5 h) und die neue Orphan-Pruefung. Erfolgreiche
-    # Laeufe davor brauchten 2,0-2,7 h. GitHub deckelt Jobs bei 6 h — 350 Minuten
-    # lassen Luft, ohne die harte Grenze zu streifen. Reicht das nicht, ist die
-    # Aufteilung in zwei Jobs (LLM / Seiten) der naechste Schritt, nicht mehr Zeit.
-    timeout-minutes: 350
+    timeout-minutes: 300
     # FlareSolverr laeuft als Docker-Service, loest Cloudflare-Challenges fuer
     # blockierte Wettbewerber-Seiten (z.B. Allianz). Kostenlos, selbst-gehostet.
     services:
@@ -159,7 +124,7 @@ jobs:
           fi
 
           echo "Starte Analyse mit: $ARGS"
-          python -u -m analyzer.main $ARGS
+          python -m analyzer.main $ARGS
           PY_EXIT=$?
           echo "[CHECK] python -m analyzer.main exit-Code: $PY_EXIT"
           if [ "$PY_EXIT" -ne 0 ]; then
@@ -184,7 +149,7 @@ jobs:
           git config --global user.email "geo-bot@users.noreply.github.com"
 
           # Stage nur die Daten-Verzeichnisse die wir schreiben
-          git add -A data/runs data/snapshots data/pages data/correlation.json data/unified_correlation.json data/blocked_urls.json data/page_dates.json 2>/dev/null || true
+          git add -A data/runs data/snapshots data/pages data/correlation.json data/unified_correlation.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "Keine Aenderungen zum Committen."
             exit 0
@@ -212,7 +177,7 @@ jobs:
                 echo "Cherry-pick mit -X theirs scheitert - abort"
                 git cherry-pick --abort 2>/dev/null || true
                 # Fallback: erneut aus workspace adden (unsere data ist noch im workspace)
-                git add -A data/runs data/snapshots data/pages data/correlation.json data/unified_correlation.json data/blocked_urls.json data/page_dates.json 2>/dev/null || true
+                git add -A data/runs data/snapshots data/pages data/correlation.json data/unified_correlation.json 2>/dev/null || true
                 if git diff --cached --quiet; then
                   echo "Nichts zu committen nach reset"
                   exit 0
@@ -254,4 +219,3 @@ jobs:
             -H "X-GitHub-Api-Version: 2022-11-28" \
             "https://api.github.com/repos/${{ github.repository }}/pages/builds" \
             || echo "Pages-Rebuild-Trigger fehlgeschlagen (nicht fatal)"
-
