@@ -121,14 +121,33 @@ def _sieht_aus_wie_domain(s: str) -> bool:
 
 # --- Retry-Wrapper ----------------------------------------------------------
 
+def _endgueltiger_fehler(e: Exception) -> bool:
+    """401/403: Auth oder Guthaben. Der zweite und dritte Versuch koennen daran
+    nichts aendern - dieselben Zugangsdaten, dasselbe leere Konto.
+
+    15.08.2026, Befund aus dem Lauf vom 13.08.: Perplexity antwortete auf alle
+    60 SOHO-Prompts mit 401 "exceeded your current quota", und jeder davon
+    wurde brav dreimal probiert, mit Backoff dazwischen. Ueber alle 390
+    Prompts eines vollen Laufs sind das ~780 aussichtslose Wiederholungen und
+    rund 38 Minuten reine Wartezeit - pro Lauf, solange das Guthaben leer ist.
+    Die Erkennung ist bewusst stumpf (Stringsuche im Fehlertext), weil die
+    Clients hier requests-, openai- und google-Exceptions durchreichen und es
+    keinen gemeinsamen Statuscode-Zugriff gibt."""
+    s = str(e)
+    return ("401" in s or "403" in s or "insufficient_quota" in s
+            or "exceeded your current quota" in s.lower())
+
+
 def with_retries(func, attempts: int = 3, base_delay: float = 2.0):
-    """Exponentielles Backoff bei Fehlern."""
+    """Exponentielles Backoff bei Fehlern. 401/403 sofort endgueltig."""
     last_err = None
     for i in range(attempts):
         try:
             return func()
         except Exception as e:  # noqa: BLE001
             last_err = e
+            if _endgueltiger_fehler(e):
+                break
             # 20.07.2026 Review-Fix: Hier wurde AUCH nach dem letzten Versuch
             # geschlafen. Bei attempts=3 also 2+4+8 = 14 s je endgueltig
             # gescheitertem Call statt der im Kommentar behaupteten 6 s — bei einer
