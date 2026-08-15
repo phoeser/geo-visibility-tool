@@ -113,12 +113,78 @@ class DummyClient:
 # Haupt-Pipeline
 # ---------------------------------------------------------------------------
 
+MAX_CARRY_DAYS = 7  # siehe _carry_forward_llm
+
+
 def _carry_forward_llm(run_dict, prev_run, llm_id):
     """Uebernimmt die Ergebnisse eines an diesem Tag NICHT gelaufenen LLM aus dem
     Vortags-Lauf (summary_by_llm + per_llm), damit z.B. der grounded-Aggregatwert
-    an Aus-Tagen nicht kuenstlich springt (Kosten-Intervall)."""
+    an Aus-Tagen nicht kuenstlich springt (Kosten-Intervall).
+
+    15.08.2026, zwei Absicherungen nach dem Perplexity-Vorfall:
+
+    ALTERSGRENZE. Die Fortschreibung verkettete sich unbegrenzt: jeder Lauf
+    kopierte vom Vortag, auch wenn der Vortag selbst nur kopiert hatte. Als das
+    Perplexity-Guthaben am 06.08. leer war, stand deshalb acht Tage lang
+    byte-derselbe Wert im Dashboard - als Tagesmessung, bei Qualitaetsampel
+    gruen. Waere das Guthaben drei Monate leer geblieben, haette das Dashboard
+    drei Monate denselben Wert gezeigt. Jetzt wird das URSPRUNGSDATUM der
+    Daten mitgefuehrt (carried_forward_from) und nach MAX_CARRY_DAYS Tagen
+    nicht mehr fortgeschrieben: dann fehlt die Engine ehrlich, und das Fehlen
+    ist im Dashboard sichtbar. Eine Woche deckt den geplanten Wochentakt ab;
+    was aelter ist, ist kein Stock mehr, sondern ein Ausfall.
+
+    MARKEN-FILTER. Der fortgeschriebene Block vom 06.08. stammte aus der Zeit
+    mit 25 Wettbewerbern; die heutige Config kennt 7. Die share_of_voice-Werte
+    darin waren gegen den alten 25-Marken-Nenner gerechnet - fuer
+    ERGO/Zahnzusatz 13,1 % statt 15,9 %, ein 2,8-Punkte-Artefakt, das nur die
+    fortgeschriebene Engine betraf und im Mittel der drei Engines unauffaellig
+    unterging. Jetzt wird beim Uebernehmen auf die aktuelle Markenliste
+    gefiltert und share_of_voice gegen den gefilterten Nenner neu gerechnet."""
     if not prev_run:
         return 0
+
+    # Altersgrenze: Ursprungsdatum ermitteln (Kette beachten).
+    _origin = ((prev_run.get("carried_forward_from") or {}).get(llm_id)
+               or (prev_run.get("started_at") or prev_run.get("run_id") or ""))[:10]
+    if _origin:
+        try:
+            from datetime import date as _date
+            _o = _date.fromisoformat(_origin)
+            _heute = _date.fromisoformat(
+                (run_dict.get("started_at") or "")[:10] or _date.today().isoformat())
+            _alter = (_heute - _o).days
+        except Exception:
+            _alter = None
+        if _alter is not None and _alter > MAX_CARRY_DAYS:
+            print("[CARRY] %s NICHT fortgeschrieben: Daten stammen vom %s (%d Tage alt, "
+                  "Grenze %d). Die Engine fehlt in diesem Lauf ehrlich, statt eingefroren "
+                  "weiterzulaufen." % (llm_id, _origin, _alter, MAX_CARRY_DAYS))
+            _stale = run_dict.setdefault("data_quality", {}).setdefault("carry_forward_verweigert", {})
+            _stale[llm_id] = {"ursprung": _origin, "alter_tage": _alter,
+                              "grenze_tage": MAX_CARRY_DAYS}
+            return 0
+
+    # Aktuelle Markenliste fuer den Nenner-Filter.
+    _erlaubt = set()
+    _b = run_dict.get("brand")
+    if isinstance(_b, dict) and _b.get("name"):
+        _erlaubt.add(_b["name"])
+    for _c in (run_dict.get("competitors") or []):
+        _nm = _c.get("name") if isinstance(_c, dict) else _c
+        if _nm:
+            _erlaubt.add(_nm)
+
+    def _gefiltert(sbl):
+        brands = [b for b in (sbl.get("brands") or [])
+                  if (not _erlaubt) or b.get("name") in _erlaubt]
+        tot = sum((b.get("mentions") or 0) for b in brands)
+        out = dict(sbl)
+        out["brands"] = [dict(b, share_of_voice=(round((b.get("mentions") or 0) / tot, 4)
+                                                 if tot else 0.0))
+                         for b in brands]
+        return out
+
     n = 0
     for pid, prod in (run_dict.get("products") or {}).items():
         pprev = (prev_run.get("products") or {}).get(pid)
@@ -126,7 +192,7 @@ def _carry_forward_llm(run_dict, prev_run, llm_id):
             continue
         sbl_prev = (pprev.get("summary_by_llm") or {}).get(llm_id)
         if sbl_prev is not None:
-            prod.setdefault("summary_by_llm", {})[llm_id] = sbl_prev
+            prod.setdefault("summary_by_llm", {})[llm_id] = _gefiltert(sbl_prev)
             n += 1
         prod["per_llm"] = [e for e in (prod.get("per_llm") or []) if e.get("llm") != llm_id]
         for e in (pprev.get("per_llm") or []):
@@ -150,6 +216,9 @@ def _carry_forward_llm(run_dict, prev_run, llm_id):
     cf = run_dict.setdefault("carried_forward", [])
     if llm_id not in cf:
         cf.append(llm_id)
+    # Ursprungsdatum mitfuehren, damit die Altersgrenze auch ueber Ketten
+    # traegt (heute kopiert von gestern, gestern kopierte von vorgestern ...).
+    run_dict.setdefault("carried_forward_from", {})[llm_id] = _origin or None
     return n
 
 
