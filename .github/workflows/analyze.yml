@@ -36,6 +36,15 @@ permissions:
   contents: write
   pages: write
 
+# 15.08.2026: Dieselbe Gruppe wie revert-backfill und search-ab-test. Dieser
+# Workflow war der einzige SCHREIBENDE ohne concurrency-Gruppe - ein manuell
+# gestarteter Backfill haette parallel zum Wochenlauf laufen und ihm am Ende
+# per force-with-lease den Push wegschiessen koennen. Genau der Fall, den die
+# Gruppe verhindert: Schreiber warten aufeinander, statt sich zu ueberholen.
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
 jobs:
   analyze:
     runs-on: ubuntu-latest
@@ -176,10 +185,20 @@ jobs:
               if ! git cherry-pick -X theirs "$OUR_COMMIT"; then
                 echo "Cherry-pick mit -X theirs scheitert - abort"
                 git cherry-pick --abort 2>/dev/null || true
-                # Fallback: erneut aus workspace adden (unsere data ist noch im workspace)
+                # 15.08.2026: Hier stand "erneut aus workspace adden - unsere data
+                # ist noch im workspace". Das war falsch: git reset --hard hat den
+                # Workspace gerade auf origin/main gesetzt, dort liegt NICHTS mehr
+                # von diesem Lauf. git add fand folglich nichts, "Nichts zu
+                # committen nach reset" griff, exit 0 - und 80 Minuten Crawl waren
+                # still verworfen, bei gruenem Workflow. Der einzige Ort, an dem
+                # die Ergebnisse jetzt noch existieren, ist der Commit selbst -
+                # also werden sie von dort zurueckgeholt. Ist der Index danach
+                # wirklich leer, traegt origin bereits identische Daten, und
+                # exit 0 ist ehrlich.
+                git checkout "$OUR_COMMIT" -- data/runs data/snapshots data/pages data/correlation.json data/unified_correlation.json 2>/dev/null || true
                 git add -A data/runs data/snapshots data/pages data/correlation.json data/unified_correlation.json 2>/dev/null || true
                 if git diff --cached --quiet; then
-                  echo "Nichts zu committen nach reset"
+                  echo "origin enthaelt diese Ergebnisse bereits - nichts zu committen."
                   exit 0
                 fi
                 git commit -m "$COMMIT_MSG"
