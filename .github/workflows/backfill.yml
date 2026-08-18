@@ -25,6 +25,14 @@ on:
 permissions:
   contents: write
 
+# 18.08.2026 (Opus-Review #8): Dieselbe Schreibgruppe wie analyze/revert-backfill/
+# search-ab-test. Der 15.08.-Fix nannte analyze.yml "den einzigen schreibenden
+# Workflow ohne Gruppe" - dieser hier schreibt aber auch (data/runs + push) und
+# konnte einem laufenden Wochencrawl per force-with-lease den Commit wegschiessen.
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
 jobs:
   backfill:
     runs-on: ubuntu-latest
@@ -41,13 +49,18 @@ jobs:
           python-version: '3.11'
 
       - name: Run backfill
+        env:
+          # 18.08.2026: Inputs nicht mehr direkt in die Shell interpolieren,
+          # sondern ueber env reichen und quoten (Injection-Flaeche geschlossen).
+          IN_SINCE: ${{ github.event.inputs.since }}
+          IN_DRY: ${{ github.event.inputs.dry_run }}
         run: |
           set -euo pipefail
           ARGS=""
-          if [ -n "${{ github.event.inputs.since }}" ]; then
-            ARGS="$ARGS --since ${{ github.event.inputs.since }}"
+          if [ -n "$IN_SINCE" ]; then
+            ARGS="$ARGS --since $IN_SINCE"
           fi
-          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+          if [ "$IN_DRY" = "true" ]; then
             ARGS="$ARGS --dry-run"
           fi
           echo "[BACKFILL] Args: $ARGS"
@@ -76,5 +89,10 @@ jobs:
             git rebase origin/main || git rebase --abort
             sleep 3
           done
-          # Letzter Versuch mit force-with-lease
-          git push --force-with-lease
+          # 18.08.2026: Der force-with-lease-Anker ist gestrichen. Nach einem
+          # "rebase --abort" haette die frisch gefetchte Lease gehalten und den
+          # Commit eines parallel gelaufenen Crawls ueberschrieben. Ein manuell
+          # gestarteter Backfill darf schlicht rot werden - neu starten kostet
+          # nichts, ein ueberschriebener 80-Minuten-Crawl schon.
+          echo "[BACKFILL] Push nach 5 Versuchen fehlgeschlagen - bitte erneut starten."
+          exit 1
