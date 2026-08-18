@@ -1,21 +1,54 @@
 {
   "meta": {
-    "total_page_events": 14738,
+    "total_page_events": 14778,
     "total_cockpit_events": 0,
-    "total_unified_events": 14692,
-    "total_enriched_events": 14692,
-    "total_runs": 135,
+    "total_unified_events": 14732,
+    "total_enriched_events": 14732,
+    "total_runs": 136,
     "lag_windows": [
       1,
       3,
       7,
       14
     ],
-    "generated_at": "2026-08-15T17:18:43.568170Z"
+    "generated_at": "2026-08-18T01:01:01.813632Z"
   },
   "event_summary": {
+    "page_change": {
+      "count": 7947,
+      "brands": [
+        "ADAC",
+        "ARAG",
+        "AXA",
+        "Allianz",
+        "Alte Leipziger",
+        "Barmenia",
+        "Cosmos Direkt",
+        "CosmosDirekt",
+        "DA Direkt",
+        "Debeka",
+        "Die Bayerische",
+        "ERGO",
+        "Generali",
+        "Gothaer",
+        "HDI",
+        "HUK-Coburg",
+        "Hannoversche",
+        "HanseMerkur",
+        "LV 1871",
+        "R+V",
+        "Signal Iduna",
+        "VHV",
+        "Württembergische",
+        "Zurich"
+      ],
+      "avg_magnitude": 0.318,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
     "page_new": {
-      "count": 6784,
+      "count": 6785,
       "brands": [
         "ADAC",
         "ARAG",
@@ -45,39 +78,6 @@
         "Zurich"
       ],
       "avg_magnitude": 1.0,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
-    },
-    "page_change": {
-      "count": 7908,
-      "brands": [
-        "ADAC",
-        "ARAG",
-        "AXA",
-        "Allianz",
-        "Alte Leipziger",
-        "Barmenia",
-        "Cosmos Direkt",
-        "CosmosDirekt",
-        "DA Direkt",
-        "Debeka",
-        "Die Bayerische",
-        "ERGO",
-        "Generali",
-        "Gothaer",
-        "HDI",
-        "HUK-Coburg",
-        "Hannoversche",
-        "HanseMerkur",
-        "LV 1871",
-        "R+V",
-        "Signal Iduna",
-        "VHV",
-        "Württembergische",
-        "Zurich"
-      ],
-      "avg_magnitude": 0.319,
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
@@ -85,8 +85,42 @@
   },
   "impact_ranking": [
     {
+      "event_type": "page_change",
+      "count": 7947,
+      "brands": [
+        "ADAC",
+        "ARAG",
+        "AXA",
+        "Allianz",
+        "Alte Leipziger",
+        "Barmenia",
+        "Cosmos Direkt",
+        "CosmosDirekt",
+        "DA Direkt",
+        "Debeka",
+        "Die Bayerische",
+        "ERGO",
+        "Generali",
+        "Gothaer",
+        "HDI",
+        "HUK-Coburg",
+        "Hannoversche",
+        "HanseMerkur",
+        "LV 1871",
+        "R+V",
+        "Signal Iduna",
+        "VHV",
+        "Württembergische",
+        "Zurich"
+      ],
+      "avg_magnitude": 0.318,
+      "best_lag_days": null,
+      "best_spearman_rho": null,
+      "impact": {}
+    },
+    {
       "event_type": "page_new",
-      "count": 6784,
+      "count": 6785,
       "brands": [
         "ADAC",
         "ARAG",
@@ -119,95 +153,88 @@
       "best_lag_days": null,
       "best_spearman_rho": null,
       "impact": {}
-    },
-    {
-      "event_type": "page_change",
-      "count": 7908,
-      "brands": [
-        "ADAC",
-        "ARAG",
-        "AXA",
-        "Allianz",
-        "Alte Leipziger",
-        "Barmenia",
-        "Cosmos Direkt",
-        "CosmosDirekt",
-        "DA Direkt",
-        "Debeka",
-        "Die Bayerische",
-        "ERGO",
-        "Generali",
-        "Gothaer",
-        "HDI",
-        "HUK-Coburg",
-        "Hannoversche",
-        "HanseMerkur",
-        "LV 1871",
-        "R+V",
-        "Signal Iduna",
-        "VHV",
-        "Württembergische",
-        "Zurich"
-      ],
-      "avg_magnitude": 0.319,
-      "best_lag_days": null,
-      "best_spearman_rho": null,
-      "impact": {}
     }
   ],
   "correlation_matrix": {
+    "page_change__delta_share_of_voice__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_share_of_voice",
+      "lag_days": 1,
+      "n_events": 7947,
+      "spearman_rho": -0.0235,
+      "avg_delta": -0.002293,
+      "avg_magnitude": 0.318
+    },
+    "page_change__delta_appearance_rate__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_appearance_rate",
+      "lag_days": 1,
+      "n_events": 7947,
+      "spearman_rho": -0.0036,
+      "avg_delta": 0.007135,
+      "avg_magnitude": 0.318
+    },
+    "page_change__delta_citation_rate__lag_1d": {
+      "event_type": "page_change",
+      "metric": "delta_citation_rate",
+      "lag_days": 1,
+      "n_events": 7947,
+      "spearman_rho": -0.0595,
+      "avg_delta": -0.000771,
+      "avg_magnitude": 0.318
+    },
     "page_new__delta_share_of_voice__lag_1d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 1,
-      "n_events": 6784,
+      "n_events": 6785,
       "spearman_rho": 0.5064,
-      "avg_delta": 0.034217,
+      "avg_delta": 0.03421,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_1d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 1,
-      "n_events": 6784,
-      "spearman_rho": 0.6771,
-      "avg_delta": 0.005918,
+      "n_events": 6785,
+      "spearman_rho": 0.6772,
+      "avg_delta": 0.005917,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_1d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 1,
-      "n_events": 6784,
-      "spearman_rho": 0.6866,
-      "avg_delta": 0.004915,
+      "n_events": 6785,
+      "spearman_rho": 0.6865,
+      "avg_delta": 0.004913,
       "avg_magnitude": 1.0
     },
-    "page_change__delta_share_of_voice__lag_1d": {
+    "page_change__delta_share_of_voice__lag_3d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
-      "lag_days": 1,
-      "n_events": 7908,
-      "spearman_rho": -0.0218,
-      "avg_delta": -0.002314,
+      "lag_days": 3,
+      "n_events": 7905,
+      "spearman_rho": -0.015,
+      "avg_delta": -0.00443,
       "avg_magnitude": 0.319
     },
-    "page_change__delta_appearance_rate__lag_1d": {
+    "page_change__delta_appearance_rate__lag_3d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
-      "lag_days": 1,
-      "n_events": 7908,
-      "spearman_rho": -0.0049,
-      "avg_delta": 0.007239,
+      "lag_days": 3,
+      "n_events": 7905,
+      "spearman_rho": -0.0737,
+      "avg_delta": 0.003814,
       "avg_magnitude": 0.319
     },
-    "page_change__delta_citation_rate__lag_1d": {
+    "page_change__delta_citation_rate__lag_3d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
-      "lag_days": 1,
-      "n_events": 7908,
-      "spearman_rho": -0.0602,
-      "avg_delta": -0.000725,
+      "lag_days": 3,
+      "n_events": 7905,
+      "spearman_rho": -0.1085,
+      "avg_delta": 0.00866,
       "avg_magnitude": 0.319
     },
     "page_new__delta_share_of_voice__lag_3d": {
@@ -237,32 +264,32 @@
       "avg_delta": 0.008906,
       "avg_magnitude": 1.0
     },
-    "page_change__delta_share_of_voice__lag_3d": {
+    "page_change__delta_share_of_voice__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
-      "lag_days": 3,
-      "n_events": 7883,
-      "spearman_rho": -0.0149,
-      "avg_delta": -0.004368,
-      "avg_magnitude": 0.319
+      "lag_days": 7,
+      "n_events": 7630,
+      "spearman_rho": -0.0163,
+      "avg_delta": -0.006976,
+      "avg_magnitude": 0.31
     },
-    "page_change__delta_appearance_rate__lag_3d": {
+    "page_change__delta_appearance_rate__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
-      "lag_days": 3,
-      "n_events": 7883,
-      "spearman_rho": -0.0742,
-      "avg_delta": 0.003819,
-      "avg_magnitude": 0.319
+      "lag_days": 7,
+      "n_events": 7630,
+      "spearman_rho": -0.0444,
+      "avg_delta": -0.00303,
+      "avg_magnitude": 0.31
     },
-    "page_change__delta_citation_rate__lag_3d": {
+    "page_change__delta_citation_rate__lag_7d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
-      "lag_days": 3,
-      "n_events": 7883,
-      "spearman_rho": -0.1088,
-      "avg_delta": 0.008687,
-      "avg_magnitude": 0.319
+      "lag_days": 7,
+      "n_events": 7630,
+      "spearman_rho": -0.0894,
+      "avg_delta": 0.017186,
+      "avg_magnitude": 0.31
     },
     "page_new__delta_share_of_voice__lag_7d": {
       "event_type": "page_new",
@@ -291,749 +318,62 @@
       "avg_delta": 0.013009,
       "avg_magnitude": 1.0
     },
-    "page_change__delta_share_of_voice__lag_7d": {
+    "page_change__delta_share_of_voice__lag_14d": {
       "event_type": "page_change",
       "metric": "delta_share_of_voice",
-      "lag_days": 7,
-      "n_events": 7630,
-      "spearman_rho": -0.0163,
-      "avg_delta": -0.006982,
-      "avg_magnitude": 0.31
+      "lag_days": 14,
+      "n_events": 6756,
+      "spearman_rho": -0.04,
+      "avg_delta": -0.01409,
+      "avg_magnitude": 0.345
     },
-    "page_change__delta_appearance_rate__lag_7d": {
+    "page_change__delta_appearance_rate__lag_14d": {
       "event_type": "page_change",
       "metric": "delta_appearance_rate",
-      "lag_days": 7,
-      "n_events": 7630,
-      "spearman_rho": -0.0447,
-      "avg_delta": -0.003023,
-      "avg_magnitude": 0.31
+      "lag_days": 14,
+      "n_events": 6756,
+      "spearman_rho": -0.0459,
+      "avg_delta": -0.001834,
+      "avg_magnitude": 0.345
     },
-    "page_change__delta_citation_rate__lag_7d": {
+    "page_change__delta_citation_rate__lag_14d": {
       "event_type": "page_change",
       "metric": "delta_citation_rate",
-      "lag_days": 7,
-      "n_events": 7630,
-      "spearman_rho": -0.0892,
-      "avg_delta": 0.017202,
-      "avg_magnitude": 0.31
+      "lag_days": 14,
+      "n_events": 6756,
+      "spearman_rho": -0.19,
+      "avg_delta": 0.018029,
+      "avg_magnitude": 0.345
     },
     "page_new__delta_share_of_voice__lag_14d": {
       "event_type": "page_new",
       "metric": "delta_share_of_voice",
       "lag_days": 14,
-      "n_events": 6330,
+      "n_events": 6337,
       "spearman_rho": 0.5061,
-      "avg_delta": 0.021203,
+      "avg_delta": 0.021172,
       "avg_magnitude": 1.0
     },
     "page_new__delta_appearance_rate__lag_14d": {
       "event_type": "page_new",
       "metric": "delta_appearance_rate",
       "lag_days": 14,
-      "n_events": 6330,
-      "spearman_rho": 0.6653,
-      "avg_delta": -0.028674,
+      "n_events": 6337,
+      "spearman_rho": 0.6655,
+      "avg_delta": -0.028637,
       "avg_magnitude": 1.0
     },
     "page_new__delta_citation_rate__lag_14d": {
       "event_type": "page_new",
       "metric": "delta_citation_rate",
       "lag_days": 14,
-      "n_events": 6330,
-      "spearman_rho": 0.6695,
-      "avg_delta": 0.010085,
+      "n_events": 6337,
+      "spearman_rho": 0.6696,
+      "avg_delta": 0.010076,
       "avg_magnitude": 1.0
-    },
-    "page_change__delta_share_of_voice__lag_14d": {
-      "event_type": "page_change",
-      "metric": "delta_share_of_voice",
-      "lag_days": 14,
-      "n_events": 6089,
-      "spearman_rho": -0.069,
-      "avg_delta": -0.010427,
-      "avg_magnitude": 0.368
-    },
-    "page_change__delta_appearance_rate__lag_14d": {
-      "event_type": "page_change",
-      "metric": "delta_appearance_rate",
-      "lag_days": 14,
-      "n_events": 6089,
-      "spearman_rho": -0.0291,
-      "avg_delta": -0.002692,
-      "avg_magnitude": 0.368
-    },
-    "page_change__delta_citation_rate__lag_14d": {
-      "event_type": "page_change",
-      "metric": "delta_citation_rate",
-      "lag_days": 14,
-      "n_events": 6089,
-      "spearman_rho": -0.2092,
-      "avg_delta": 0.01997,
-      "avg_magnitude": 0.368
     }
   },
   "dashboard_events": [
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/landwirtschaft",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/gastronomie",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/betriebliche-altersversorgung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/montageversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/kautionsversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/betriebshaftpflicht",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/pensionszusage",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/industrie-haftpflichtversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/bauleistungsversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/cyber-versicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/waldversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/inhaltsversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/luftfahrtversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/maschinenversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/finanzierungsloesungen/firmenleasing",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/internationale-versicherungsprogramme",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/profi-schutz-absicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/transportversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/veranstalterhaftpflichtversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/betriebliche-gruppenunfallversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/finanzierungsloesungen/factoring",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/services-fuer-geschaeftskunden",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/elektronikversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/autoinhaltsversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/finanzierungsloesungen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/unterstuetzungskasse",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/internationale-krankenversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/demografischer-wandel-fachkraeftemangel",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/vertrauensschadenversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/pensionsfonds",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/vermoegensschadenhaftpflicht",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/easy-invest-betriebliche-altersvorsorge",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/direktversicherungen",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/verkehrshaftungsversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/it-haftpflicht",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_new",
-      "brand": "AXA",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 1.0,
-      "detail": {
-        "url": "https://www.axa.de/geschaeftskunden/betriebsgebaeudeversicherung",
-        "summary": "Seite erstmalig erfasst.",
-        "similarity": 0.0,
-        "classification": null
-      },
-      "sov_deltas": {}
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_change",
-      "brand": "Die Bayerische",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.038000000000000034,
-      "detail": {
-        "url": "https://www.diebayerische.de/haftpflichtversicherung/verkehrsrechtsschutz",
-        "summary": "9 neue Zeilen, 3 entfernte Zeilen (Ähnlichkeit 96.2%).",
-        "similarity": 0.962,
-        "classification": {
-          "type": "copy",
-          "direction": "change",
-          "magnitude": "medium",
-          "summary": "Überarbeitung des Einleitungstextes zur Verkehrs-Rechtsschutzversicherung mit aktualisierten Statistiken und präziserer Formulierung.",
-          "keywords": [
-            "marketing",
-            "textanpassung",
-            "statistik",
-            "einleitung",
-            "formulierung"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": 0.0,
-        "lag_3d": 0.0
-      }
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.07020000000000004,
-      "detail": {
-        "url": "https://www.lv1871.de/magazin/sterben-erben/trauerrituale",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 93.0%).",
-        "similarity": 0.9298,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Neue Zeilen für Cookie- und Tracking-Einstellungen hinzugefügt, inklusive Buttons zur Verwaltung der Einwilligungen und Erläuterungen zu verschiedenen Cookie-Typen.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "einwilligung",
-            "datenschutz",
-            "website"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.116531,
-        "lag_3d": -0.116531
-      }
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.11539999999999995,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/wiki/invaliditaetsversicherung",
-        "summary": "22 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 88.5%).",
-        "similarity": 0.8846,
-        "classification": {
-          "type": "struktur",
-          "direction": "add",
-          "magnitude": "major",
-          "summary": "Neue Zeilen für Cookie- und Tracking-Einstellungen hinzugefügt, einschließlich Buttons und Beschreibungen für die Verwaltung von Einwilligungen.",
-          "keywords": [
-            "cookies",
-            "tracking",
-            "datenschutz",
-            "einwilligung",
-            "struktur"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.065725,
-        "lag_3d": -0.065725
-      }
-    },
-    {
-      "timestamp": "2026-08-13T20-14-41Z",
-      "event_type": "page_change",
-      "brand": "LV 1871",
-      "product": null,
-      "source": "page_tracker",
-      "magnitude": 0.15239999999999998,
-      "detail": {
-        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/performer-golden-bu",
-        "summary": "0 neue Zeilen, 62 entfernte Zeilen (Ähnlichkeit 84.8%).",
-        "similarity": 0.8476,
-        "classification": {
-          "type": "struktur",
-          "direction": "remove",
-          "magnitude": "major",
-          "summary": "Entfernung von Testimonials/Auszeichnungen und des gesamten Cookie-Banner-Codes, was auf eine signifikante Überarbeitung der Seitenstruktur und des Compliance-Handlings hindeutet.",
-          "keywords": [
-            "cookie-banner",
-            "auszeichnungen",
-            "testimonials",
-            "compliance",
-            "layout"
-          ]
-        }
-      },
-      "sov_deltas": {
-        "lag_1d": -0.065725,
-        "lag_3d": -0.065725
-      }
-    },
     {
       "timestamp": "2026-08-13T20-14-41Z",
       "event_type": "page_change",
@@ -2063,7 +1403,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.028314
+        "lag_1d": 0.028314,
+        "lag_3d": 0.045683
       }
     },
     {
@@ -2092,7 +1433,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.033884
+        "lag_1d": 0.033884,
+        "lag_3d": 0.024587
       }
     },
     {
@@ -2121,7 +1463,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.108983
+        "lag_1d": 0.108983,
+        "lag_3d": 0.127747
       }
     },
     {
@@ -2149,7 +1492,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.064042
+        "lag_1d": 0.064042,
+        "lag_3d": 0.059323
       }
     },
     {
@@ -2177,7 +1521,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.064042
+        "lag_1d": 0.064042,
+        "lag_3d": 0.059323
       }
     },
     {
@@ -2205,7 +1550,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.003397
+        "lag_1d": 0.003397,
+        "lag_3d": 0.028424
       }
     },
     {
@@ -2233,7 +1579,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.069721
+        "lag_1d": -0.069721,
+        "lag_3d": -0.069721
       }
     },
     {
@@ -2262,7 +1609,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.069721
+        "lag_1d": -0.069721,
+        "lag_3d": -0.069721
       }
     },
     {
@@ -2290,7 +1638,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.069721
+        "lag_1d": -0.069721,
+        "lag_3d": -0.069721
       }
     },
     {
@@ -2319,7 +1668,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.04524
+        "lag_1d": -0.04524,
+        "lag_3d": -0.04524
       }
     },
     {
@@ -2348,7 +1698,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.04524
+        "lag_1d": -0.04524,
+        "lag_3d": -0.04524
       }
     },
     {
@@ -2377,7 +1728,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.074349
+        "lag_1d": -0.074349,
+        "lag_3d": -0.074349
       }
     },
     {
@@ -2405,7 +1757,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.069721
+        "lag_1d": -0.069721,
+        "lag_3d": -0.069721
       }
     },
     {
@@ -2434,7 +1787,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.069721
+        "lag_1d": -0.069721,
+        "lag_3d": -0.069721
       }
     },
     {
@@ -2462,7 +1816,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.069721
+        "lag_1d": -0.069721,
+        "lag_3d": -0.069721
       }
     },
     {
@@ -2491,7 +1846,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.04524
+        "lag_1d": -0.04524,
+        "lag_3d": -0.04524
       }
     },
     {
@@ -2520,7 +1876,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": 0.0
+        "lag_1d": 0.0,
+        "lag_3d": 0.0
       }
     },
     {
@@ -2547,7 +1904,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.074349
+        "lag_1d": -0.074349,
+        "lag_3d": -0.074349
       }
     },
     {
@@ -2576,7 +1934,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.048314
+        "lag_1d": -0.048314,
+        "lag_3d": -0.048314
       }
     },
     {
@@ -2605,7 +1964,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.04524
+        "lag_1d": -0.04524,
+        "lag_3d": -0.04524
       }
     },
     {
@@ -2634,7 +1994,8 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.072115
+        "lag_1d": -0.072115,
+        "lag_3d": -0.072115
       }
     },
     {
@@ -2663,7 +2024,1148 @@
         }
       },
       "sov_deltas": {
-        "lag_1d": -0.069721
+        "lag_1d": -0.069721,
+        "lag_3d": -0.069721
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.8338,
+      "detail": {
+        "url": "https://www.ergo.de/de/rechtsportal/testament-und-erbrecht/erbe-richtig-ausschlagen",
+        "summary": "32 neue Zeilen, 90 entfernte Zeilen (Ähnlichkeit 16.6%).",
+        "similarity": 0.1662,
+        "classification": {
+          "type": "faq",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Umfassende Überarbeitung des FAQ-Bereichs zur Erbausschlagung, inklusive neuer Abschnitte zu Fristen, Vorgehen und Auswirkungen auf nachfolgende Erben.",
+          "keywords": [
+            "erbe",
+            "ausschlagen",
+            "fristen",
+            "schulden",
+            "erbrecht"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.007444
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.6289,
+      "detail": {
+        "url": "https://www.ergo.de/de/rechtsportal/vorsorgeverfuegung/patientenverfuegung/patientenverfuegung-verfassen",
+        "summary": "36 neue Zeilen, 39 entfernte Zeilen (Ähnlichkeit 37.1%).",
+        "similarity": 0.3711,
+        "classification": {
+          "type": "faq",
+          "direction": "change",
+          "magnitude": "medium",
+          "summary": "Überarbeitung und Erweiterung der FAQ-Sektion zur Patientenverfügung mit detaillierteren Erklärungen zu Inhalt, Aufbewahrung, Widerruf und Relevanz für verschiedene Altersgruppen.",
+          "keywords": [
+            "patientenverfügung",
+            "faq",
+            "vorsorge",
+            "dokumentation",
+            "widerruf"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.007444
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9206,
+      "detail": {
+        "url": "https://www.ergo.de/de/Ratgeber/berufsunfaehigkeit/erwerbsminderungsrente",
+        "summary": "93 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 7.9%).",
+        "similarity": 0.0794,
+        "classification": {
+          "type": "faq",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Umfassende Überarbeitung und Erweiterung der FAQ-Sektion zur Erwerbsminderungsrente, inklusive neuer Fragen und detaillierterer Erklärungen zu Anspruch und Unterschieden zur Berufsunfähigkeitsrente.",
+          "keywords": [
+            "erwerbsminderungsrente",
+            "berufsunfähigkeit",
+            "anspruch",
+            "faq",
+            "definition"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.016877
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.8024,
+      "detail": {
+        "url": "https://www.ergo.de/de/rechtsportal/reiserecht/stornogebuehren-und-reiseruecktrittsversicherung",
+        "summary": "36 neue Zeilen, 45 entfernte Zeilen (Ähnlichkeit 19.8%).",
+        "similarity": 0.1976,
+        "classification": {
+          "type": "faq",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Die Inhalte zur Stornierung und Reiserücktrittsversicherung wurden umfassend überarbeitet, mit neuen Erklärungen zu Stornogebühren, deren Berechnung und dem Nutzen einer Reiserücktrittsversicherung.",
+          "keywords": [
+            "stornogebühren",
+            "reiserücktritt",
+            "versicherung",
+            "rechtsfolgen",
+            "entschädigung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.012121
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9587,
+      "detail": {
+        "url": "https://www.ergo.de/de/Produkte/Sterbegeldversicherungen",
+        "summary": "55 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 4.1%).",
+        "similarity": 0.0413,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Die Seite wurde komplett neu strukturiert, mit einem Fokus auf emotionale Ansprache und einer klaren Trennung von Produktinformationen und allgemeinen Services. Viele konkrete Tarifbeispiele wurden entfernt.",
+          "keywords": [
+            "struktur",
+            "navigation",
+            "layout",
+            "marketing",
+            "tarife"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.016875
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_new",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 1.0,
+      "detail": {
+        "url": "https://www.ergo.de/de/rechtsportal/gewerbe/was-passiert-bei-einer-betriebspruefung",
+        "summary": "Seite erstmalig erfasst.",
+        "similarity": 0.0,
+        "classification": null
+      },
+      "sov_deltas": {
+        "lag_1d": -0.007444
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "ERGO",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.9587,
+      "detail": {
+        "url": "https://ergo.de/de/Produkte/Sterbegeldversicherungen",
+        "summary": "55 neue Zeilen, 120 entfernte Zeilen (Ähnlichkeit 4.1%).",
+        "similarity": 0.0413,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Die Webseite wurde strukturell überarbeitet, um den Fokus von konkreten Preisbeispielen und Tarifdetails auf eine allgemeinere Darstellung der Vorsorgebedürfnisse und Vorteile zu legen. Neue Navigations- und Service-Elemente wurden hinzugef",
+          "keywords": [
+            "navigation",
+            "layout",
+            "vorsorge",
+            "service",
+            "struktur"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.007444
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07320000000000004,
+      "detail": {
+        "url": "https://www.allianzdirect.de/reiseversicherung/familienreiseversicherung",
+        "summary": "38 neue Zeilen, 1 entfernte Zeilen (Ähnlichkeit 92.7%).",
+        "similarity": 0.9268,
+        "classification": {
+          "type": "leistung",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Hinzufügen einer detaillierten Leistungstabelle für verschiedene Jahres-Reiseversicherungs-Produkte (Rücktrittschutz, Kranken­schutz, Komplett­schutz Direct Premium) mit 'Enthalten'/'Nicht enthalten' Angaben.",
+          "keywords": [
+            "leistung",
+            "jahresreiseversicherung",
+            "rücktrittschutz",
+            "krankenschutz",
+            "komplettschutz"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009571
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.04500000000000004,
+      "detail": {
+        "url": "https://www.allianzdirect.de/reiseversicherung/reiseversicherung-winterurlaub",
+        "summary": "38 neue Zeilen, 1 entfernte Zeilen (Ähnlichkeit 95.5%).",
+        "similarity": 0.955,
+        "classification": {
+          "type": "leistung",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Leistungsübersicht für verschiedene Reise-Komplettschutz-Produkte (Direct, Direct Plus, Direct Premium) hinzugefügt, die detailliert darstellt, welche Leistungen in den jeweiligen Tarifen enthalten sind.",
+          "keywords": [
+            "leistung",
+            "produkterweiterung",
+            "reiseversicherung",
+            "tarifvergleich",
+            "winterurlaub"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009571
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.11919999999999997,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung/",
+        "summary": "24 neue Zeilen, 58 entfernte Zeilen (Ähnlichkeit 88.1%).",
+        "similarity": 0.8808,
+        "classification": {
+          "type": "leistung",
+          "direction": "change",
+          "magnitude": "medium",
+          "summary": "Die Darstellung der Leistungen und Vorteile der Zahnzusatzversicherung wurde überarbeitet. Es gibt nun eine klarere Trennung zwischen Leistungen und Vorteilen sowie detailliertere Erläuterungen zu Regelversorgung und Zahnstaffel.",
+          "keywords": [
+            "leistungen",
+            "vorteile",
+            "zahnersatz",
+            "zahnstaffel",
+            "regelversorgung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.004719
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.030399999999999983,
+      "detail": {
+        "url": "https://www.allianzdirect.de/reiseversicherung/jahresreiseversicherung",
+        "summary": "38 neue Zeilen, 1 entfernte Zeilen (Ähnlichkeit 97.0%).",
+        "similarity": 0.9696,
+        "classification": {
+          "type": "leistung",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Es wurden neue Jahres-Reiseversicherungsprodukte (Rücktrittschutz, Krankenschutz, Komplettschutz Direct Premium) mit detaillierten Leistungsübersichten hinzugefügt.",
+          "keywords": [
+            "jahresreiseversicherung",
+            "rücktrittschutz",
+            "krankenschutz",
+            "komplettschutz",
+            "premium"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009571
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.055400000000000005,
+      "detail": {
+        "url": "https://www.allianzdirect.de/reiseversicherung/reiseunfallversicherung",
+        "summary": "20 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 94.5%).",
+        "similarity": 0.9446,
+        "classification": {
+          "type": "leistung",
+          "direction": "add",
+          "magnitude": "medium",
+          "summary": "Neue Zeilen zu Reise-Krankenschutz Direct Premium und Reise-Komplettschutz Direct Premium wurden hinzugefügt, die den Leistungsumfang für verschiedene Aspekte als 'Enthalten' oder 'Nicht enthalten' kennzeichnen.",
+          "keywords": [
+            "reiseversicherung",
+            "krankenschutz",
+            "komplettschutz",
+            "leistung",
+            "premium"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009571
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.020499999999999963,
+      "detail": {
+        "url": "https://www.allianzdirect.de/reiseversicherung/auslandskrankenversicherung",
+        "summary": "41 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 98.0%).",
+        "similarity": 0.9795,
+        "classification": {
+          "type": "leistung",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Zeilen deuten auf eine Erweiterung der Produktpalette oder eine detailliertere Darstellung von Leistungsmerkmalen für verschiedene Tarife (Direct, Direct Plus, Direct Premium) hin.",
+          "keywords": [
+            "leistungsumfang",
+            "tarife",
+            "produkterweiterung",
+            "auslandskrankenversicherung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009571
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.11919999999999997,
+      "detail": {
+        "url": "https://www.allianz.de/gesundheit/zahnzusatzversicherung",
+        "summary": "24 neue Zeilen, 58 entfernte Zeilen (Ähnlichkeit 88.1%).",
+        "similarity": 0.8808,
+        "classification": {
+          "type": "leistung",
+          "direction": "change",
+          "magnitude": "medium",
+          "summary": "Die Darstellung der Leistungen und Vorteile wurde überarbeitet, um die Produktmerkmale klarer hervorzuheben. Details zu Zahnersatz, Kieferorthopädie und Zahnstaffel wurden präzisiert.",
+          "keywords": [
+            "leistungen",
+            "zahnersatz",
+            "kieferorthopädie",
+            "zahnstaffel",
+            "vorteile"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": -0.004719
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.06930000000000003,
+      "detail": {
+        "url": "https://www.allianzdirect.de/reiseversicherung/auslandskrankenversicherung/europa-ratgeber",
+        "summary": "32 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 93.1%).",
+        "similarity": 0.9307,
+        "classification": {
+          "type": "leistung",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Zeilen, die 'Reise-Kranken­schutz Direct', 'Reise-Kranken­schutz Direct Plus' und 'Reise-Kranken­schutz Direct Premium' sowie deren 'Enthalten'-Status auflisten, deuten auf eine Erweiterung oder detailliertere Darstellung des Leistungs",
+          "keywords": [
+            "leistungsumfang",
+            "produktvarianten",
+            "reiseversicherung",
+            "krankenschutz"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009571
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.04300000000000004,
+      "detail": {
+        "url": "https://www.allianzdirect.de/reiseversicherung/reiseversicherungspakete",
+        "summary": "38 neue Zeilen, 1 entfernte Zeilen (Ähnlichkeit 95.7%).",
+        "similarity": 0.957,
+        "classification": {
+          "type": "leistung",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Reiseversicherungspakete (Reise-Komplettschutz Direct, Plus, Premium) und detaillierte Leistungsübersicht hinzugefügt, was auf eine Erweiterung des Produktangebots hindeutet.",
+          "keywords": [
+            "reiseversicherung",
+            "pakete",
+            "leistungsumfang",
+            "produkterweiterung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009571
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.04149999999999998,
+      "detail": {
+        "url": "https://www.allianzdirect.de/reiseversicherung/reisegepaeckversicherung",
+        "summary": "35 neue Zeilen, 1 entfernte Zeilen (Ähnlichkeit 95.9%).",
+        "similarity": 0.9585,
+        "classification": {
+          "type": "leistung",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Leistungsübersicht für verschiedene Reiseversicherungsprodukte (Krankenschutz, Komplettschutz) mit detaillierten 'Enthalten'/'Nicht enthalten'-Angaben.",
+          "keywords": [
+            "leistung",
+            "reiseversicherung",
+            "krankenschutz",
+            "komplettschutz",
+            "übersicht"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009571
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.15300000000000002,
+      "detail": {
+        "url": "https://www.allianz.de/recht-und-eigentum/rechtsschutzversicherung/arbeitsrecht/urlaubsanspruch",
+        "summary": "120 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 84.7%).",
+        "similarity": 0.847,
+        "classification": {
+          "type": "struktur",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Es wurden neue Zeilen hinzugefügt, die sich auf Cookie-Einstellungen und Datenschutzbestimmungen beziehen, sowie ein Link zu Ansprechpartnern vor Ort.",
+          "keywords": [
+            "cookies",
+            "datenschutz",
+            "dsgvo",
+            "navigation",
+            "us-daten"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009121
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.05359999999999998,
+      "detail": {
+        "url": "https://www.allianzdirect.de/reiseversicherung",
+        "summary": "87 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 94.6%).",
+        "similarity": 0.9464,
+        "classification": {
+          "type": "leistung",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Zeilen für Reise-Rücktrittschutz, Reise-Krankenschutz und Reise-Komplettschutz Direct, Direct Plus und Direct Premium, die detailliert die enthaltenen und nicht enthaltenen Leistungen auflisten.",
+          "keywords": [
+            "reiseversicherung",
+            "leistungsumfang",
+            "produkterweiterung",
+            "rücktrittschutz",
+            "krankenschutz"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009571
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.0645,
+      "detail": {
+        "url": "https://www.allianzdirect.de/reiseversicherung/auslandskrankenversicherung/kuba-ratgeber",
+        "summary": "32 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 93.5%).",
+        "similarity": 0.9355,
+        "classification": {
+          "type": "leistung",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Zeilen, die verschiedene Reise-Krankenschutz-Produkte (Direct, Direct Plus, Direct Premium) und deren Leistungsmerkmale (Enthalten/Nicht enthalten) auflisten, was auf eine Erweiterung oder detailliertere Darstellung des Leistungsumfang",
+          "keywords": [
+            "leistung",
+            "produkte",
+            "krankenschutz",
+            "erweiterung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009571
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.017100000000000004,
+      "detail": {
+        "url": "https://www.allianzdirect.de/reiseversicherung/reiseruecktrittsversicherung",
+        "summary": "26 neue Zeilen, 0 entfernte Zeilen (Ähnlichkeit 98.3%).",
+        "similarity": 0.9829,
+        "classification": {
+          "type": "leistung",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Neue Zeilen für verschiedene Reise-Rücktrittschutz-Produkte (Direct, Direct Plus, Direct Premium) wurden hinzugefügt, die den Leistungsumfang und die enthaltenen/nicht enthaltenen Merkmale detaillierter beschreiben.",
+          "keywords": [
+            "reiserücktritt",
+            "leistungsumfang",
+            "produktvarianten",
+            "versicherungsschutz"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009571
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.06430000000000002,
+      "detail": {
+        "url": "https://www.allianzdirect.de/reiseversicherung/reiseabbruchversicherung",
+        "summary": "26 neue Zeilen, 1 entfernte Zeilen (Ähnlichkeit 93.6%).",
+        "similarity": 0.9357,
+        "classification": {
+          "type": "leistung",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Es wurden neue Zeilen hinzugefügt, die detaillierte Informationen zu den enthaltenen und nicht enthaltenen Leistungen verschiedener Reiseversicherungsprodukte (Reise-Krankenschutz, Reiserücktrittschutz, Reise-Komplettschutz Direct Premium) ",
+          "keywords": [
+            "leistungsumfang",
+            "reiseversicherung",
+            "produkterweiterung",
+            "premium"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009571
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "Allianz",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.14939999999999998,
+      "detail": {
+        "url": "https://www.allianzdirect.de/reiseversicherung/reiseruecktrittsversicherung/coronavirus-ratgeber",
+        "summary": "24 neue Zeilen, 1 entfernte Zeilen (Ähnlichkeit 85.1%).",
+        "similarity": 0.8506,
+        "classification": {
+          "type": "leistung",
+          "direction": "add",
+          "magnitude": "major",
+          "summary": "Hinzufügen einer detaillierten Leistungstabelle für verschiedene Reiseversicherungen (Reiserücktritt, Reiseverlängerung/-unterbrechung, Auslandskrankenversicherung) mit Angaben zu enthaltenen und nicht enthaltenen Leistungen.",
+          "keywords": [
+            "leistung",
+            "reiseversicherung",
+            "reiserücktritt",
+            "auslandskrankenversicherung",
+            "leistungstabelle"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.009571
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.1189,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/gesetzlich",
+        "summary": "0 neue Zeilen, 62 entfernte Zeilen (Ähnlichkeit 88.1%).",
+        "similarity": 0.8811,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung von Kundenberater-Informationen, Auszeichnungen/Testsiegeln und des vollständigen Cookie-Consent-Dialogs, was eine erhebliche strukturelle und inhaltliche Änderung darstellt.",
+          "keywords": [
+            "kundenberater",
+            "auszeichnungen",
+            "cookies",
+            "tracking",
+            "layout"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07430000000000003,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/fragen/frozen-shoulder",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 92.6%).",
+        "similarity": 0.9257,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, einschließlich aller Optionen für essenzielle, Statistik-, Marketing- und externe Medien-Cookies sowie der Buttons zur Speicherung und Akzeptanz.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "consent",
+            "struktur"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.03979999999999995,
+      "detail": {
+        "url": "https://www.lv1871.de/fondsgebundene-rentenversicherung/altersvorsorgedepot",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 96.0%).",
+        "similarity": 0.9602,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, inklusive Buttons und Erklärungen zu Cookie-Einstellungen und Tracking-Technologien.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "consent",
+            "struktur"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.12470000000000003,
+      "detail": {
+        "url": "https://www.lv1871.de/news/luecke-des-monats-wunschvorstellung-vs.-kostenfaktor-–-die-vorsorgeluecke-bei-der-bestattungsvorsorge",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 87.5%).",
+        "similarity": 0.8753,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung des Cookie-Consent-Banners und zugehöriger Texte, was eine signifikante Änderung der Website-Struktur und des Nutzererlebnisses darstellt.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "website",
+            "struktur"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.16849999999999998,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/ein-anlass-zur-freude-dias-de-los-muertos-in-mexiko",
+        "summary": "33 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 83.2%).",
+        "similarity": 0.8315,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Die Webseite wurde um einen Bereich mit 'Andere haben auch gelesen' erweitert, der Links zu verwandten Artikeln zu den Themen Sterben & Erben, Bestattungsvorsorge, Erbrecht und Immobilienvererbung enthält. Cookie-Einstellungen wurden entfer",
+          "keywords": [
+            "navigation",
+            "artikel",
+            "verlinkung",
+            "cookie-einstellungen",
+            "magazin"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.10260000000000002,
+      "detail": {
+        "url": "https://www.lv1871.de/news/sorglos-sterben-und-erben-lv-1871-optimiert-bestattungs-und-erbvorsorge",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 89.7%).",
+        "similarity": 0.8974,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, was eine wesentliche Änderung der Website-Struktur und des Nutzererlebnisses darstellt.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "struktur",
+            "navigation"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.11450000000000005,
+      "detail": {
+        "url": "https://www.lv1871.de/news/schuetzen-wichtig-risikolebensversicherung",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 88.5%).",
+        "similarity": 0.8855,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung des Cookie-Consent-Dialogs und zugehöriger Texte, was eine wesentliche Änderung der Website-Struktur und des Nutzererlebnisses darstellt.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "struktur",
+            "website"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.12060000000000004,
+      "detail": {
+        "url": "https://www.lv1871.de/fondsgebundene-rentenversicherung/rechner",
+        "summary": "0 neue Zeilen, 75 entfernte Zeilen (Ähnlichkeit 87.9%).",
+        "similarity": 0.8794,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung des Rentenversicherungsrechners und zugehöriger Elemente sowie der Cookie-Einstellungen. Dies deutet auf eine signifikante Änderung der Funktionalität der Seite hin.",
+          "keywords": [
+            "rechner",
+            "cookie-einstellungen",
+            "formular",
+            "navigation"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.16800000000000004,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/diamantbestattung-eine-erinnerung-fuer-die-ewigkeit",
+        "summary": "33 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 83.2%).",
+        "similarity": 0.832,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Die Seite wurde um eine Sektion mit 'Andere haben auch gelesen' erweitert, die auf verwandte Artikel zu Sterben & Erben verlinkt. Gleichzeitig wurde der Cookie-Banner entfernt.",
+          "keywords": [
+            "navigation",
+            "verlinkung",
+            "cookie-banner",
+            "magazin",
+            "erben"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.11060000000000003,
+      "detail": {
+        "url": "https://www.lv1871.de/news/flexibel-in-allen-lebensphasen-lv-1871-stellt-neue-fondsgebundene-rentenphase-fuer-die-meinplan-fondsrente-vor",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 88.9%).",
+        "similarity": 0.8894,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung des Cookie-Consent-Dialogs und zugehöriger Texte, was auf eine Änderung der Cookie-Verwaltung oder des Designs der Webseite hindeutet.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "webseite",
+            "struktur"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.14149999999999996,
+      "detail": {
+        "url": "https://www.lv1871.de/berufsunfaehigkeitsversicherung/wiki/risikozuschlag",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 85.9%).",
+        "similarity": 0.8585,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung des Cookie-Consent-Banners und zugehöriger Texte, was eine signifikante strukturelle Änderung der Webseite darstellt.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "struktur",
+            "banner"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.14749999999999996,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/tod-und-sterben-in-der-literatur-trauer-in-worte-fassen",
+        "summary": "33 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 85.2%).",
+        "similarity": 0.8525,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "medium",
+          "summary": "Die Änderung betrifft die Anzeige von verwandten Artikeln und die Entfernung von Cookie-Einstellungen, was die Seitenstruktur und Benutzerführung beeinflusst.",
+          "keywords": [
+            "navigation",
+            "artikel",
+            "cookie",
+            "layout",
+            "benutzerführung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.16259999999999997,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/sterben-erben/beisetzung-unter-baeumen-naturnah-im-friedwald-ruhen",
+        "summary": "33 neue Zeilen, 36 entfernte Zeilen (Ähnlichkeit 83.7%).",
+        "similarity": 0.8374,
+        "classification": {
+          "type": "struktur",
+          "direction": "change",
+          "magnitude": "major",
+          "summary": "Die Seite wurde von einem interaktiven Beitragsrechner und Cookie-Einstellungen zu einer Sektion mit 'Weiterlesen'-Links für verwandte Artikel umstrukturiert.",
+          "keywords": [
+            "navigation",
+            "layout",
+            "content-block",
+            "cookie-einstellungen"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08630000000000004,
+      "detail": {
+        "url": "https://www.lv1871.de/magazin/karriere-beruf/palmen-lilien-und-ranken-welche-pflanzen-eignen-sich-fuer-das-buero",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 91.4%).",
+        "similarity": 0.9137,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung des Cookie-Consent-Dialogs und zugehöriger Texte, was eine wesentliche Änderung der Webseitenstruktur und des Nutzerinteraktionsflusses darstellt.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "struktur",
+            "website"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.08940000000000003,
+      "detail": {
+        "url": "https://www.lv1871.de/sterbegeldversicherung/bestattungsvorsorge",
+        "summary": "0 neue Zeilen, 56 entfernte Zeilen (Ähnlichkeit 91.1%).",
+        "similarity": 0.9106,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung eines Beitragsrechners, Kontaktinformationen von Kundenberatern und des Cookie-Consent-Managers von der Webseite.",
+          "keywords": [
+            "rechner",
+            "kontakt",
+            "cookies",
+            "struktur",
+            "entfernung"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.07520000000000004,
+      "detail": {
+        "url": "https://www.lv1871.de/sterbegeldversicherung/schonvermoegen",
+        "summary": "0 neue Zeilen, 42 entfernte Zeilen (Ähnlichkeit 92.5%).",
+        "similarity": 0.9248,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung von Cookie- und Tracking-Einstellungen sowie Kundenberater-Informationen, was eine wesentliche Änderung der Seitenstruktur und des Datenschutzes darstellt.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "struktur",
+            "kundenberater"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-17T23-33-27Z",
+      "event_type": "page_change",
+      "brand": "LV 1871",
+      "product": null,
+      "source": "page_tracker",
+      "magnitude": 0.1068,
+      "detail": {
+        "url": "https://www.lv1871.de/erbvorsorge/kapitallebensversicherung",
+        "summary": "0 neue Zeilen, 22 entfernte Zeilen (Ähnlichkeit 89.3%).",
+        "similarity": 0.8932,
+        "classification": {
+          "type": "struktur",
+          "direction": "remove",
+          "magnitude": "major",
+          "summary": "Entfernung des gesamten Cookie-Consent-Dialogs, inklusive aller Optionen und Erklärungen zu essenziellen, statistischen, Marketing- und externen Medien-Cookies.",
+          "keywords": [
+            "cookies",
+            "tracking",
+            "datenschutz",
+            "consent",
+            "struktur"
+          ]
+        }
+      },
+      "sov_deltas": {
+        "lag_1d": 0.0
       }
     }
   ]
