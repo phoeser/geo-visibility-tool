@@ -105,16 +105,22 @@ jobs:
           PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           FLARESOLVERR_URL: http://localhost:8191/v1
+          IN_DRY_RUN: ${{ github.event.inputs.dry_run }}
+          IN_LIMIT: ${{ github.event.inputs.limit }}
         run: |
           # set -e ist tueckisch bei Pipelines + Substitutions. Wir prueffen Exit-Codes
           # explizit, damit der Workflow nicht VOR der Diagnose abbricht.
           set +e
           ARGS=""
-          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+          # 18.08.2026 (Opus-Review #18): Inputs ueber env statt direkter
+          # Interpolation in die Shell - schliesst die einzige Injection-Flaeche
+          # der Workflow-Saetze (nur mit Repo-Schreibrecht ausloesbar, aber der
+          # Fix kostet nichts).
+          if [ "$IN_DRY_RUN" = "true" ]; then
             ARGS="$ARGS --dry-run"
           fi
-          if [ -n "${{ github.event.inputs.limit }}" ]; then
-            ARGS="$ARGS --limit ${{ github.event.inputs.limit }}"
+          if [ -n "$IN_LIMIT" ]; then
+            ARGS="$ARGS --limit $IN_LIMIT"
           fi
           # Snapshot der Run-Files VOR dem Lauf (damit wir nachher pruefen,
           # ob ein neuer dazugekommen ist - "silent success" verhindern).
