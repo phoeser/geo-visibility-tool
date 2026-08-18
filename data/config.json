@@ -7,19 +7,15 @@
       "ERGO Group",
       "ERGO Versicherung",
       "ERGO Direkt",
-      "ergo.de",
-      "DKV",
-      "DKV Deutsche Krankenversicherung",
-      "dkv.de"
+      "ergo.de"
     ],
     "domain": "ergo.de",
     "website": "https://www.ergo.de",
     "extra_domains": [
       "ergodirekt.de",
-      "ergo.com",
-      "dkv.de",
-      "dkv.com"
-    ]
+      "ergo.com"
+    ],
+    "_hinweis_dkv": "20.07.2026 (Entscheidung Paul): DKV aus den ERGO-Aliasen und extra_domains entfernt - jede DKV-Nennung zaehlte sonst als ERGO-Nennung, im Widerspruch zur Preisseite (ERGO beim Krankenhauszusatz seit 15.07. ausgeschlossen, weil das Produkt unter der Marke DKV laeuft). Gemessen am Lauf 2026-07-17: ERGO-Nennungen 343 -> 288 (-16 %). 13.08.2026: Der Deploy 0e759a1 hat diese Entscheidung VERSEHENTLICH rueckgedreht (aelterer Config-Stand mitdeployt) und diesen Hinweis geloescht. 18.08.2026 (Rueckfrage bei Paul, Entscheidung bestaetigt): wiederhergestellt; Laeufe seit 13.08. per tools/backfill_brand_metrics.py nachzurechnen, damit keine Stufe entsteht. Dieser Hinweis ist der Zeuge der Entscheidung - NICHT loeschen."
   },
   "products": [
     {
@@ -885,6 +881,21 @@
       ],
       "domain": "cosmosdirekt.de",
       "website": "https://www.cosmosdirekt.de/"
+    },
+    {
+      "name": "DKV",
+      "aliases": [
+        "DKV",
+        "DKV Deutsche Krankenversicherung",
+        "Deutsche Krankenversicherung",
+        "dkv.de"
+      ],
+      "domain": "dkv.de",
+      "website": "https://www.dkv.com/",
+      "extra_domains": [
+        "dkv.com"
+      ],
+      "_hinweis": "18.08.2026 (Entscheidung Paul): DKV als EIGENE Marke gefuehrt, nicht als ERGO-Alias. Konsistent zu CosmosDirekt, das ebenfalls als eigene Marke laeuft, obwohl es eine Generali-Tochter ist. Massgeblich ist, ob die Marke in den Antworten als eigenstaendige Wahloption auftritt - DKV tut das (174 Nennungen im Lauf vom 18.08., davon 92 Krankenhauszusatz, 46 Reise, 30 Zahnzusatz, mit eigenen Tarifnamen neben ERGO). Als ERGO-Alias gezaehlt haette ERGO Sichtbarkeit in Kategorien bekommen, in denen ERGO gar nicht verkauft - genau der Widerspruch zur Preisseite, der schon am 20.07. zum Ausschluss fuehrte."
     }
   ],
   "llms": [
