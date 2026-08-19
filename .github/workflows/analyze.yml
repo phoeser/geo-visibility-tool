@@ -164,7 +164,7 @@ jobs:
           git config --global user.email "geo-bot@users.noreply.github.com"
 
           # Stage nur die Daten-Verzeichnisse die wir schreiben
-          git add -A data/runs data/snapshots data/pages data/correlation.json data/unified_correlation.json 2>/dev/null || true
+          git add -A data/runs data/snapshots data/pages data/correlation.json data/unified_correlation.json data/blocked_urls.json data/page_dates.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "Keine Aenderungen zum Committen."
             exit 0
@@ -202,7 +202,7 @@ jobs:
                 # wirklich leer, traegt origin bereits identische Daten, und
                 # exit 0 ist ehrlich.
                 git checkout "$OUR_COMMIT" -- data/runs data/snapshots data/pages data/correlation.json data/unified_correlation.json 2>/dev/null || true
-                git add -A data/runs data/snapshots data/pages data/correlation.json data/unified_correlation.json 2>/dev/null || true
+                git add -A data/runs data/snapshots data/pages data/correlation.json data/unified_correlation.json data/blocked_urls.json data/page_dates.json 2>/dev/null || true
                 if git diff --cached --quiet; then
                   echo "origin enthaelt diese Ergebnisse bereits - nichts zu committen."
                   exit 0
