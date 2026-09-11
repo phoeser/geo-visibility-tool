@@ -1,7 +1,7 @@
 """
 Impact-Analyse: Vergleicht den aktuellen Lauf mit dem letzten Lauf und
 erzeugt (a) quantitative Deltas pro Produkt/Marke/LLM und (b) eine
-natürlichsprachliche Executive Summary per Claude.
+natürlichsprachliche Executive Summary per LLM.
 """
 
 from __future__ import annotations
@@ -159,12 +159,48 @@ def build_exec_summary_input(
     return json.dumps(payload, ensure_ascii=False, indent=2)
 
 
+def _auswerte_client():
+    """Baut den Auswerte-LLM ad hoc aus der Config.
+
+    11.09.2026: Die Executive Summary hing an clients.get("claude") im
+    Hauptlauf. Claude ist als MESS-Engine aber seit Wochen abgeschaltet
+    (config llms[].enabled=false) — der Client existierte also nie, und die
+    Summary stand seit Mitte August durchgehend auf der Fehlermeldung. Die
+    Why-Analyse hat fuer genau dieselbe Lage laengst einen Weg: sie nimmt den
+    in der Config hinterlegten Auswerte-LLM (why_analysis_llm) und baut ihn
+    notfalls selbst. Hier dieselbe Logik, damit die Summary nicht mehr von
+    einer Mess-Entscheidung abhaengt. Schlaegt es fehl, bleibt es bei der
+    ehrlichen Fehlermeldung — es wird nichts erfunden und nichts geschaetzt.
+
+    Reihenfolge: exec_summary_llm (falls jemand die Summary bewusst auf einen
+    eigenen LLM legen will) vor why_analysis_llm.
+    """
+    try:
+        cfg_pfad = Path(__file__).resolve().parent.parent / "data" / "config.json"
+        cfg = json.loads(cfg_pfad.read_text(encoding="utf-8"))
+        llm_id = cfg.get("exec_summary_llm") or cfg.get("why_analysis_llm")
+        if not llm_id:
+            return None, None
+        llm_cfg = next((l for l in cfg.get("llms", []) if l.get("id") == llm_id), None)
+        if not llm_cfg:
+            return None, None
+        from analyzer.llm_clients import build_clients
+        client = build_clients([{**llm_cfg, "enabled": True}],
+                              settings=cfg.get("settings")).get(llm_id)
+        return client, llm_id
+    except Exception:  # noqa: BLE001
+        return None, None
+
+
 def generate_exec_summary(current: Dict, previous: Optional[Dict],
                           deltas: Dict, claude_client) -> str:
-    """Nutzt den bereits konfigurierten Claude-Client für die Zusammenfassung."""
+    """Nutzt den konfigurierten Auswerte-LLM für die Zusammenfassung."""
     if claude_client is None:
-        return ("Executive Summary konnte nicht generiert werden — "
-                "Claude-Client nicht verfügbar.")
+        claude_client, _llm_id = _auswerte_client()
+    if claude_client is None:
+        return ("Executive Summary konnte nicht generiert werden — kein "
+                "Auswerte-LLM verfügbar (config: exec_summary_llm bzw. "
+                "why_analysis_llm).")
     body = build_exec_summary_input(current, previous, deltas)
     prompt = f"{EXEC_SUMMARY_PROMPT}\n\nDATEN:\n{body}"
     resp = claude_client.ask(prompt)
