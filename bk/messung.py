@@ -25,9 +25,26 @@ OUT = ROOT / "data" / "bk"
 
 ENGINES = [
     ("gemini", "Gemini (Google-Suche)", lambda: L.GeminiClient(os.environ["GOOGLE_API_KEY"], model="gemini-2.5-flash", max_tokens=1200, temperature=0.3), "GOOGLE_API_KEY"),
-    ("chatgpt_web", "ChatGPT (Websuche)", lambda: L.OpenAIWebSearchClient(os.environ["OPENAI_API_KEY"], model="gpt-4o-mini-search-preview", max_tokens=1200, temperature=0.3), "OPENAI_API_KEY"),
+    ("chatgpt_web", "ChatGPT (Websuche)", lambda: chatgpt_client(), "OPENAI_API_KEY"),
     ("perplexity", "Perplexity", lambda: L.PerplexityClient(os.environ["PERPLEXITY_API_KEY"], model="sonar", max_tokens=1200, temperature=0.3), "PERPLEXITY_API_KEY"),
 ]
+
+
+def chatgpt_client():
+    """ChatGPT mit Websuche ueber die Responses-API. gpt-4o-mini-search-preview ist
+    abgekuendigt (Lauf 26.09.2026: HTTP 404). GPT-5-Modelle akzeptieren keine
+    temperature und brauchen Platz fuer Reasoning-Tokens."""
+    c = L.OpenAIWebSearchClient(os.environ["OPENAI_API_KEY"], model="gpt-5-mini", api="responses",
+                                max_tokens=4000, temperature=0.3)
+    orig = c._call_responses
+
+    def ohne_temperatur(prompt):
+        r = orig(prompt)
+        r["payload"].pop("temperature", None)
+        r["payload"]["reasoning"] = {"effort": "low"}
+        return r
+    c._call_responses = ohne_temperatur
+    return c
 
 
 def host(u):
