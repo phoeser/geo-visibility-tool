@@ -1,0 +1,52 @@
+name: BK GEO-Messung (biohackingkompakt.de)
+
+# Monatliche Messung, ob KI-Suchen biohackingkompakt.de zitieren (Pauls Entscheidung 26.09.2026:
+# monatlich, 25 Fragen). Getrennt vom ERGO-Cockpit: eigener Ordner bk/, Ergebnisse in data/bk/.
+# Nutzt nur die vorhandenen Secrets GOOGLE_API_KEY, OPENAI_API_KEY, PERPLEXITY_API_KEY.
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Nur die ersten N Fragen (leer = alle 25)"
+        type: string
+        default: ""
+  schedule:
+    - cron: "17 5 1 * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  messen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+      - run: pip install -r requirements.txt
+      - name: Messung
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+        run: |
+          if [ -n "${{ github.event.inputs.limit }}" ]; then
+            python bk/messung.py --limit "${{ github.event.inputs.limit }}"
+          else
+            python bk/messung.py
+          fi
+      - name: Ergebnis sichern
+        run: |
+          git config user.name "bk-geo-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/bk
+          git diff --cached --quiet && exit 0
+          git commit -m "BK GEO-Messung $(date -u +%F)"
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
