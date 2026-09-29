@@ -1,36 +1,37 @@
-# GEO-Messung biohackingkompakt.de – 2026-09-26
+# GEO-Messung biohackingkompakt.de – 2026-09-29
 
 25 Fragen je KI-Suche, jeweils mit Websuche. **Zitiert** = die Seite steht in den vom Anbieter ausgewiesenen Quellen. **Genannt** = der Name steht im Antworttext.
 
 | KI-Suche | zitiert | genannt | Vormonat zitiert |
 |---|---|---|---|
-| Gemini (Google-Suche) | 0 von 25 | 0 von 25 | – |
-| ChatGPT (Websuche) | 1 von 25 | 1 von 25 | – |
-| Perplexity | 0 von 25 | 0 von 25 | – |
+| Gemini (Google-Suche) | 1 von 25 | 1 von 25 | 0 |
+| ChatGPT (Websuche) | 1 von 25 | 1 von 25 | 1 |
+| Perplexity | 0 von 25 | 0 von 25 | 0 | (25 Fehler)
 
 ## Fragen, bei denen die Seite zitiert oder genannt wurde
 
+- Gemini (Google-Suche): Gibt es einen deutschen Podcast über Biohacking und Supplements mit Faktencheck? (zitiert)
 - ChatGPT (Websuche): Gibt es einen deutschen Podcast über Biohacking und Supplements mit Faktencheck? (zitiert)
 
 ## Meistzitierte Quellen (alle KI-Suchen zusammen)
 
-1. pmc.ncbi.nlm.nih.gov – 30
-2. apotheken-umschau.de – 18
-3. pubmed.ncbi.nlm.nih.gov – 15
-4. zentrum-der-gesundheit.de – 11
-5. biogena.com – 9
-6. barmer.de – 9
-7. doccheck.com – 9
-8. aok.de – 8
-9. focus.de – 8
-10. de.iherb.com – 7
-11. verbraucherzentrale.de – 7
-12. sunday.de – 6
-13. netdoktor.de – 6
-14. nordicoil.de – 5
-15. aerzteblatt.de – 5
-16. pharmazeutische-zeitung.de – 5
-17. de.wikipedia.org – 5
-18. sciencedirect.com – 5
-19. ndr.de – 5
-20. artgerecht.com – 4
+1. pmc.ncbi.nlm.nih.gov – 20
+2. pubmed.ncbi.nlm.nih.gov – 12
+3. barmer.de – 5
+4. apotheken-umschau.de – 5
+5. zentrum-der-gesundheit.de – 4
+6. netdoktor.de – 4
+7. youtube.com – 4
+8. hsnstore.de – 3
+9. ods.od.nih.gov – 3
+10. biogena.com – 3
+11. de.iherb.com – 3
+12. minerva-vita.com – 3
+13. aerzteblatt.de – 3
+14. cochrane.org – 3
+15. nature.com – 3
+16. artgerecht.com – 2
+17. ndlprohealth.com – 2
+18. nicapur.com – 2
+19. premiummedicalcircle.com – 2
+20. weightworld.de – 2
