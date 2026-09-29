@@ -454,12 +454,14 @@ class OpenAIClient:
 #   - /v1/chat/completions + web_search_options
 #       nur mit den Such-Modellvarianten: gpt-4o-mini-search-preview,
 #       gpt-4o-search-preview (deprecated), gpt-5-search-api.
-# Default ist deshalb gpt-4o-mini-search-preview ueber Chat Completions: gleiche
-# 4o-mini-Basis wie der bestehende Kanal, also ist der Unterschied zwischen
-# beiden Zeitreihen tatsaechlich die Websuche und nicht ein Modellwechsel.
-# Wer lieber die Responses-API will, setzt in config.json api:"responses" und
-# ein dort unterstuetztes Modell (z. B. gpt-4.1-mini). Beide Pfade sind
-# implementiert; `api:"auto"` waehlt nach dem Modellnamen.
+# Urspruenglicher Default war gpt-4o-mini-search-preview ueber Chat Completions
+# (gleiche 4o-mini-Basis wie der bestehende Kanal).
+# 29.09.2026: gpt-4o-mini-search-preview ist abgekuendigt (Lauf 26.09.2026:
+# HTTP 404). Neuer Default: gpt-5-mini ueber die Responses-API mit
+# tools:[{"type":"web_search"}]. Wer einen anderen Kanal will, setzt in
+# config.json model und ggf. api ("chat" fuer *-search-Modelle, z. B.
+# gpt-5-search-api). Beide Pfade sind implementiert; `api:"auto"` waehlt nach
+# dem Modellnamen ("search" im Namen -> Chat, sonst Responses).
 #
 # BEKANNTE EIGENHEITEN DER SUCH-MODELLE
 # -------------------------------------
@@ -467,8 +469,20 @@ class OpenAIClient:
 #     deshalb im Chat-Pfad NICHT mitgeschickt.
 #   - Ob gesucht wird, entscheidet das Modell. Antworten ohne Suche sind
 #     moeglich und ein valides Ergebnis (dann: keine annotations).
+#   - Reasoning-Modelle (gpt-5*, o*) lehnen `temperature` ebenfalls ab und
+#     verbrauchen einen Teil von max_output_tokens fuers Nachdenken. Im
+#     Responses-Pfad deshalb: keine temperature, reasoning.effort "low" und
+#     mindestens REASONING_MIN_OUTPUT_TOKENS Ausgabetokens — sonst kommt bei
+#     knappem Budget leerer Text zurueck.
 
 OPENAI_WEB_SEARCH_TOOL = {"type": "web_search"}
+OPENAI_WEB_DEFAULT_MODEL = "gpt-5-mini"
+REASONING_MIN_OUTPUT_TOKENS = 4000
+
+
+def _ist_reasoning_modell(model: str) -> bool:
+    m = (model or "").lower()
+    return m.startswith("gpt-5") or (len(m) > 1 and m[0] == "o" and m[1].isdigit())
 
 
 def _openai_annotation_sources(annotations) -> List[Dict[str, str]]:
@@ -508,7 +522,7 @@ class OpenAIWebSearchClient:
     CHAT_URL = "https://api.openai.com/v1/chat/completions"
     RESPONSES_URL = "https://api.openai.com/v1/responses"
 
-    def __init__(self, api_key: str, model: str = "gpt-4o-mini-search-preview",
+    def __init__(self, api_key: str, model: str = OPENAI_WEB_DEFAULT_MODEL,
                  max_tokens: int = 1200, temperature: float = 0.3,
                  retries: int = 3, api: str = "auto",
                  search_context_size: str = "low"):
@@ -558,17 +572,22 @@ class OpenAIWebSearchClient:
     # -- Responses-Pfad (tools:[{"type":"web_search"}]) --------------------
 
     def _call_responses(self, prompt: str) -> Dict:
-        return {
-            "url": self.RESPONSES_URL,
-            "payload": {
-                "model": self.model,
-                "max_output_tokens": self.max_tokens,
-                "temperature": self.temperature,
-                "tools": [OPENAI_WEB_SEARCH_TOOL],
-                "instructions": SYSTEM_PROMPT,
-                "input": prompt,
-            },
+        payload = {
+            "model": self.model,
+            "max_output_tokens": self.max_tokens,
+            "temperature": self.temperature,
+            "tools": [OPENAI_WEB_SEARCH_TOOL],
+            "instructions": SYSTEM_PROMPT,
+            "input": prompt,
         }
+        if _ist_reasoning_modell(self.model):
+            # gpt-5*/o*: temperature -> HTTP 400; Reasoning-Tokens zaehlen
+            # in max_output_tokens mit.
+            payload.pop("temperature", None)
+            payload["reasoning"] = {"effort": "low"}
+            payload["max_output_tokens"] = max(int(self.max_tokens or 0),
+                                               REASONING_MIN_OUTPUT_TOKENS)
+        return {"url": self.RESPONSES_URL, "payload": payload}
 
     @staticmethod
     def _parse_responses(data: Dict):
