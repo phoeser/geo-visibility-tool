@@ -168,8 +168,15 @@ def _carry_forward_llm(run_dict, prev_run, llm_id):
     # Aktuelle Markenliste fuer den Nenner-Filter.
     _erlaubt = set()
     _b = run_dict.get("brand")
+    # 02.10.2026: run_dict["brand"] ist ein TEXT ("ERGO", siehe main() -> brand_cfg["name"]),
+    # nicht ein Objekt. Die alte Pruefung (nur dict) liess die eigene Marke deshalb IMMER
+    # aus dem Filter fallen: Jede Fortschreibung strich ERGO aus der uebernommenen Engine.
+    # Belegt am Lauf 29.09.: Perplexity fortgeschrieben, ERGO 0 von 1.504 Nennungen
+    # (am 22.09. 256 von 1.760) -> Gesamt-SoV 8,83 % statt rund 13 %.
     if isinstance(_b, dict) and _b.get("name"):
         _erlaubt.add(_b["name"])
+    elif isinstance(_b, str) and _b.strip():
+        _erlaubt.add(_b.strip())
     for _c in (run_dict.get("competitors") or []):
         _nm = _c.get("name") if isinstance(_c, dict) else _c
         if _nm:
@@ -987,6 +994,52 @@ def _update_index(runs_dir: Path) -> None:
 # CLI
 # ---------------------------------------------------------------------------
 
+def _einmalkorrektur_lauf_2026_09_29() -> None:
+    """Einmalige Nachkorrektur (02.10.2026, Entscheidung Paul).
+
+    Der Lauf vom 29.09. hat Perplexity (0 Nennungen) aus dem Lauf vom 22.09.
+    fortgeschrieben und dabei ERGO herausgefiltert - Fehler in _carry_forward_llm,
+    am 02.10. behoben. Diese Funktion schreibt die Fortschreibung mit dem behobenen
+    Code neu und rechnet totals und deltas nach (ERGO 8,83 % -> 13,1 %).
+    Laeuft beim naechsten echten Lauf genau einmal (Marker im Lauf), danach No-op.
+    Der Lauf wird ueber "git add -A data/runs" im Workflow mitcommittet.
+    """
+    pfad = RUNS_DIR / "2026-09-29T02-33-51Z.json"
+    vor = RUNS_DIR / "2026-09-22T01-35-06Z.json"
+    if not pfad.exists() or not vor.exists():
+        return
+    try:
+        lauf = json.loads(pfad.read_text(encoding="utf-8"))
+        if lauf.get("korrektur_2026_10_02"):
+            return
+        if (lauf.get("carried_forward_from") or {}).get("perplexity") != "2026-09-22":
+            print("[KORREKTUR] Lauf 29.09.: unerwarteter Zustand, nichts geaendert.")
+            return
+        vorlauf = json.loads(vor.read_text(encoding="utf-8"))
+        alt = next((r.get("share_of_voice") for r in (lauf.get("totals") or {}).get("ranking", [])
+                    if r.get("name") == lauf.get("brand")), None)
+        n = _carry_forward_llm(lauf, vorlauf, "perplexity")
+        if n <= 0:
+            print("[KORREKTUR] Lauf 29.09.: Fortschreibung lieferte 0 Produkte, nichts geaendert.")
+            return
+        namen = [lauf.get("brand")] + [c.get("name") if isinstance(c, dict) else c
+                                       for c in (lauf.get("competitors") or [])]
+        lauf["totals"] = _compute_totals(lauf, [x for x in namen if x])
+        lauf.setdefault("impact", {})["deltas"] = compute_deltas(lauf, vorlauf)
+        neu = next((r.get("share_of_voice") for r in lauf["totals"].get("ranking", [])
+                    if r.get("name") == lauf.get("brand")), None)
+        lauf["korrektur_2026_10_02"] = {
+            "grund": ("Perplexity-Fortschreibung vom 22.09. hatte die eigene Marke "
+                      "herausgefiltert (_carry_forward_llm, Fehler behoben 02.10.2026)."),
+            "sov_eigene_marke_vorher": alt, "sov_eigene_marke_nachher": neu,
+            "hinweis": "executive_summary unveraendert (vor der Korrektur erzeugt).",
+        }
+        pfad.write_text(json.dumps(lauf, ensure_ascii=False, indent=2), encoding="utf-8")
+        print("[KORREKTUR] Lauf 29.09. nachgerechnet: %s -> %s (%d Produkte)." % (alt, neu, n))
+    except Exception as e:  # nie den eigentlichen Lauf gefaehrden
+        print("[KORREKTUR] Lauf 29.09. uebersprungen: %s" % str(e)[:200])
+
+
 def main(argv=None) -> int:
     """CLI Entry-Point. Mappt argparse auf run()."""
     ap = argparse.ArgumentParser(description="GEO Visibility Analyse-Lauf")
@@ -995,6 +1048,8 @@ def main(argv=None) -> int:
     ap.add_argument("--limit", type=int, default=None,
                     help="Maximal N Produkte verarbeiten")
     args = ap.parse_args(argv)
+    if not args.dry_run:
+        _einmalkorrektur_lauf_2026_09_29()
     out_path = run(dry_run=args.dry_run, limit=args.limit)
     print(f"\n[DONE] Run gespeichert in: {out_path}")
     return 0
