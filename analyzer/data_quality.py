@@ -11,16 +11,55 @@ Tags entscheiden, welche Runs als Baseline taugen.
 
 05.08.2026: Die LLM-Dimension unterscheidet "Engine ist ausgefallen" von
 "Engine war heute laut Kosten-Intervall gar nicht dran" — siehe _check_llms.
+
+13.10.2026 (Entscheidung Paul, Option E aus 48_BEFUNDE im Cockpit-Repo):
+Domains mit einer bekannten, dauerhaften Sperre zaehlen NICHT mehr in die
+Erreichbarkeits-Quote. Anlass: allianz.de antwortet seit 22.09.2026 auf den
+Seiten-Crawl aus GitHub Actions mit HTTP 403 (13.10.: 0 von 713 Adressen).
+Das druckte die Quote auf 70 % und die Ampel auf Rot, obwohl alle anderen
+Domains zu 99 % erreichbar waren und die Modellantworten sauber gemessen
+wurden. Ausgenommen heisst nicht versteckt: Jede ausgenommene Domain steht
+mit ihren eigenen Zahlen in den Warnungen und in details["urls_excluded"].
+Die Liste steht in REACHABILITY_EXCLUDE; config.json kann sie unter
+data_quality.reachability_exclude ersetzen.
 """
 
 from __future__ import annotations
 
 from typing import Dict, List, Any
+from urllib.parse import urlparse
 
 
 # Schwellen
 URL_OK_THRESHOLD = 0.95  # >= 95% erreichbar -> green
 URL_WARN_THRESHOLD = 0.80  # 80-95% -> yellow, <80% -> red
+
+# Domains mit bekannter Dauer-Sperre, die nicht in die Erreichbarkeits-Quote
+# eingehen (siehe Modul-Docstring). "domain" trifft den Host selbst und alle
+# Subdomains (www.allianz.de), aber nicht allianzdirect.de.
+REACHABILITY_EXCLUDE: List[Dict[str, str]] = [
+    {"domain": "allianz.de", "seit": "2026-09-22",
+     "grund": "HTTP 403 auf den Seiten-Crawl aus GitHub Actions; Ursache nicht belegt"},
+]
+
+
+def _excluded_domains(cfg: Dict[str, Any]) -> List[Dict[str, str]]:
+    try:
+        lst = ((cfg or {}).get("data_quality") or {}).get("reachability_exclude")
+        if isinstance(lst, list):
+            return [x for x in lst if isinstance(x, dict) and x.get("domain")]
+    except Exception:  # noqa: BLE001 - Quality-Tag darf den Lauf nie kippen
+        pass
+    return REACHABILITY_EXCLUDE
+
+
+def _host_match(url: str, domain: str) -> bool:
+    try:
+        host = (urlparse(url).hostname or "").lower()
+    except Exception:  # noqa: BLE001
+        return False
+    d = domain.lower().lstrip(".")
+    return host == d or host.endswith("." + d)
 
 
 def compute(run_dict: Dict[str, Any], cfg: Dict[str, Any],
@@ -47,7 +86,7 @@ def compute(run_dict: Dict[str, Any], cfg: Dict[str, Any],
     """
     details = {
         **_check_llms(run_dict, cfg, skipped_llms),
-        **_check_urls(run_dict),
+        **_check_urls(run_dict, _excluded_domains(cfg)),
         **_check_why(run_dict),
     }
 
@@ -101,6 +140,13 @@ def compute(run_dict: Dict[str, Any], cfg: Dict[str, Any],
         else:
             warnings.append(f"nur {int(url_pct * 100)}% URLs erreichbar ({details['urls_reachable']}/{details['urls_total']})")
             url_grade = "red"
+
+    # Ausgenommene Domains offen ausweisen (Warnung, aber ohne Einfluss auf Grade/Score).
+    for _dom, _x in (details.get("urls_excluded") or {}).items():
+        if _x.get("total"):
+            warnings.append(
+                f"{_dom} aus der Erreichbarkeits-Quote ausgenommen (seit {_x.get('seit', '?')}: "
+                f"{_x.get('grund', 'Dauer-Sperre')}) - heute {_x['reachable']}/{_x['total']} erreichbar")
 
     # Why-Bewertung — Why ist eine sekundaere Analyse. Sie kappt das Gesamt-Grade
     # NICHT auf rot, sondern hoechstens auf yellow. Rot kommt nur durch LLM/URL-Probleme.
@@ -291,35 +337,50 @@ def _check_llms(run_dict: Dict, cfg: Dict, skipped_llms: Any = None) -> Dict[str
     }
 
 
-def _check_urls(run_dict: Dict) -> Dict[str, Any]:
-    """Wie viele Seiten waren erreichbar (HTTP 2xx)?"""
+def _check_urls(run_dict: Dict, exclude: Any = None) -> Dict[str, Any]:
+    """Wie viele Seiten waren erreichbar (HTTP 2xx)?
+
+    Seiten auf Domains aus `exclude` zaehlen nicht in urls_total/urls_reachable,
+    sondern getrennt in urls_excluded (13.10.2026)."""
     pt = run_dict.get("page_tracking") or {}
     events = pt.get("events_this_run") or []
+    exclude = exclude or []
+    excluded: Dict[str, Dict[str, Any]] = {}
+    kept = []
+    for e in events:
+        treffer = next((x for x in exclude if _host_match(e.get("url") or "", x["domain"])), None)
+        if treffer is None:
+            kept.append(e)
+            continue
+        z = excluded.setdefault(treffer["domain"], {"total": 0, "reachable": 0,
+                                                    "seit": treffer.get("seit"), "grund": treffer.get("grund")})
+        z["total"] += 1
+        z["reachable"] += 1 if _event_ok(e) else 0
+    events = kept
     total = len(events)
     if total == 0:
-        return {"urls_total": 0, "urls_reachable": 0, "urls_failed_count": 0}
+        return {"urls_total": 0, "urls_reachable": 0, "urls_failed_count": 0, "urls_excluded": excluded}
 
-    reachable = 0
-    for e in events:
-        # Event-Status: 'ok' / 'error' / 'first_seen' / 'changed' / 'unchanged'
-        # Erreichbar wenn kein Error-Status und kein Error-Feld
-        if e.get("error"):
-            continue
-        # Status-Code falls vorhanden
-        status = e.get("status")
-        if status is not None and isinstance(status, int):
-            if 200 <= status < 400:
-                reachable += 1
-        else:
-            # Kein Status -> aus event-type ableiten
-            if not e.get("error"):
-                reachable += 1
-
+    reachable = sum(1 for e in events if _event_ok(e))
     return {
         "urls_total": total,
         "urls_reachable": reachable,
         "urls_failed_count": total - reachable,
+        "urls_excluded": excluded,
     }
+
+
+def _event_ok(e: Dict) -> bool:
+    """Ein Seiten-Ereignis gilt als erreichbar wie bisher: kein Fehler-Feld und,
+    falls ein Status-Code vorhanden ist, 2xx/3xx."""
+    # Event-Status: 'ok' / 'error' / 'first_seen' / 'changed' / 'unchanged'
+    if e.get("error"):
+        return False
+    status = e.get("status")
+    if status is not None and isinstance(status, int):
+        return 200 <= status < 400
+    # Kein Status -> erreichbar, solange kein Fehler-Feld gesetzt ist
+    return True
 
 
 def _check_why(run_dict: Dict) -> Dict[str, Any]:
