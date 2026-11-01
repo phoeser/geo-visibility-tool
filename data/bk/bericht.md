@@ -1,4 +1,4 @@
-# GEO-Messung biohackingkompakt.de – 2026-10-01
+# GEO-Messung biohackingkompakt.de – 2026-11-01
 
 25 Fragen je KI-Suche, jeweils mit Websuche. **Zitiert** = die Seite steht in den vom Anbieter ausgewiesenen Quellen. **Genannt** = der Name steht im Antworttext.
 
@@ -15,23 +15,23 @@
 
 ## Meistzitierte Quellen (alle KI-Suchen zusammen)
 
-1. pmc.ncbi.nlm.nih.gov – 21
-2. pubmed.ncbi.nlm.nih.gov – 12
-3. barmer.de – 5
-4. youtube.com – 4
-5. ods.od.nih.gov – 3
-6. aok.de – 3
-7. flexikon.doccheck.com – 3
-8. verbraucherzentrale.de – 3
-9. apotheken-umschau.de – 3
-10. de.wikipedia.org – 3
-11. doi.org – 3
-12. fda.gov – 3
-13. minerva-vita.com – 2
-14. mitohealth.com – 2
-15. topvitamine.com – 2
-16. lebenskraftpur.de – 2
-17. ubiehealth.com – 2
-18. aerzteblatt.de – 2
-19. cochrane.org – 2
-20. longevity-wien.at – 2
+1. pmc.ncbi.nlm.nih.gov – 22
+2. pubmed.ncbi.nlm.nih.gov – 18
+3. ods.od.nih.gov – 5
+4. verbraucherzentrale.de – 5
+5. biogena.com – 4
+6. zentrum-der-gesundheit.de – 4
+7. barmer.de – 4
+8. flexikon.doccheck.com – 4
+9. ndlprohealth.com – 3
+10. drugs.com – 3
+11. gelbe-liste.de – 3
+12. netdoktor.de – 3
+13. apotheken-umschau.de – 3
+14. longevity-wien.at – 3
+15. orthomol.com – 3
+16. mdpi.com – 3
+17. researchgate.net – 3
+18. aging-us.com – 3
+19. cetaf.org – 3
+20. fda.gov – 3
